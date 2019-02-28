@@ -1,5 +1,5 @@
 ---
-active: true
+active: false
 design:
   background:
     image: headers/bubbles-wide.jpg
