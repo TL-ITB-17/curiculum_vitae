@@ -13,10 +13,6 @@ feature:
   icon: air-freshener
   icon_pack: fas
   name: Environmental Modeling
-- description: 90%
-  icon: ballot-check
-  icon_pack: fas
-  name: Environmental Management
 subtitle: ""
 title: Skills
 weight: 7
