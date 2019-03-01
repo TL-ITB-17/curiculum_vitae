@@ -4,7 +4,7 @@ external_link: https://github.com/mohrosidi
 image:
   caption: Photo by Toa Heftiba on Unsplash
   focal_point: Smart
-summary: Author repository collection on Github.
+summary: Author repository collection on `Github`.
 tags:
 - R
 title: External Project
