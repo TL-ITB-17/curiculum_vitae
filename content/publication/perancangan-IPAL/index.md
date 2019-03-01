@@ -1,37 +1,27 @@
 ---
-abstract: Person re-identification is a critical security task for recognizing a person
-  across spatially disjoint sensors. Previous work can be computationally intensive
-  and is mainly based on low-level cues extracted from RGB data and implemented on
-  a PC for a fixed sensor network (such as traditional CCTV). We present a practical
-  and efficient framework for mobile devices (such as smart phones and robots) where
-  high-level semantic soft biometrics are extracted from RGB and depth data. By combining
-  these cues, our approach attempts to provide robustness to noise, illumination,
-  and minor variations in clothing. This mobile approach may be particularly useful
-  for the identification of persons in areas ill-served by fixed sensors or for tasks
-  where the sensor position and direction need to dynamically adapt to a target. Results
-  on the BIWI dataset are preliminary but encouraging. Further evaluation and demonstration
-  of the system will be available on our website.
+abstract: The paper industry is an industry that produces large amounts of liquid waste. In addition, the content of pollutant parameters in the paper coloring process is very high. Based on East Java Governor no. 72 of 2013 there are 5 quality standards for wastewater that must be met before being discharged into water bodies. The parameters that need to be processed are pH, COD, BOD, TSS, and Pb. In the design used primary data in the form of debit data and waste characteristics taken from the fine paper industry of PT. Sido Sidoarjo. Waste treated comes from the paper coloring process. Characteristics of treated waste have a value of TSS41000 mg / l, COD 45384 mg / l, BOD 8300 mg / l, Pb 0.56 mg / l and pH 7.7. The planned WWTP unit consists of precedimentation, equalization tanks, fast stirring tanks , slow stirrer, sedimentation 2, and ABR-ABF. Calculation of BOQ and RAB using HSPK Surabaya City 2015 and obtained a figure of Rp217,650,760 for the construction of all units of WWTP.
 authors:
-- GA Cushen
-date: "2015-09-01T00:00:00+07:00"
-doi: ""
-featured: false
+- Mohammad Rosidi
+- Mohammad Razif
+date: " 2018-03-02T00:00:00+07:00"
+doi: "10.12962/j23373539.v6i1.21802"
+featured: true
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/jdD8gXaTZsc)'
+  caption: 'Image credit: [**Layout IPAL**](https://media.neliti.com/media/publications/213739-perancangan-instalasi-pengolahan-air-lim.pdf)'
   focal_point: ""
 math: true
 projects: []
-publication: In *Signal Image Technology & Internet Systems (SITIS)*, IEEE.
-publication_short: In *SITIS*
+publication: In *Jurnal Teknik ITS*.
+publication_short: 
 publication_types:
 - "2"
 slides: example-slides
 summary: ""
 tags: []
-title: A Person Re-Identification System For Mobile Devices
+title: Perancangan Instalasi Pengolahan Air Limbah (IPAL) Industri Kertas Halus 
 url_code: ""
 url_dataset: ""
-url_pdf: http://arxiv.org/pdf/1512.04133v1
+url_pdf: https://media.neliti.com/media/publications/213739-perancangan-instalasi-pengolahan-air-lim.pdf
 url_poster: ""
 url_preprint: ""
 url_project: ""
@@ -40,4 +30,3 @@ url_source: ""
 url_video: ""
 ---
 
-More detail can easily be written here using *Markdown* and $\rm \LaTeX$ math code.
