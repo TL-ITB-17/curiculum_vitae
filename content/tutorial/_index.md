@@ -16,4 +16,4 @@ Pada section ini penulis akan menyajikan beberapa tutorial terkait analisa data 
 * Analisa dan modeling lingkungan menggunakan `R`
 * Optimasi operasi menggunakan `R`
 
-Pembahasan juga kana meliputi analisa statistik menggunakan `GUI R (R Commander)` untuk menganalisa data.
+Pembahasan juga akan meliputi analisa statistik menggunakan `GUI R (R Commander)` untuk menganalisa data.
