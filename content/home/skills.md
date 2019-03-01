@@ -6,7 +6,7 @@ feature:
   icon_pack: fab
   name: R
 - description: 85%
-  icon: analytics
+  icon: chart-line
   icon_pack: fas
   name: Data Analytics
 - description: 90%
