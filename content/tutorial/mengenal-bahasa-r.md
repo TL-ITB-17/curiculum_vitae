@@ -4,14 +4,14 @@ draft: false
 linktitle: Mengenal Bahasa R
 menu:
   tutorial:
-    parent: 1. Bahasa Pemrograman R
+    parent: Bahasa Pemrograman R
     weight: 1
-title: Mengenal Bahasa R
+title: 1. Mengenal Bahasa R
 toc: true
 type: docs
 ---
 
-# 1.1 Sejarah R
+## 1.1 Sejarah R
 
 `R` Merupakan bahasa yang digunakan dalam komputasi **statistik** yang pertama kali dikembangkan oleh **Ross Ihaka** dan **Robert Gentlement** di University of Auckland  New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum `R` dikenal ada `S` yang dikembangkan oleh **John Chambers** dan rekan-rekan dari **Bell Laboratories** yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah `R` merupakan sistem komputasi yang bersifat gratis.
 
