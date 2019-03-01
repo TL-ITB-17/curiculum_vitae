@@ -10,7 +10,7 @@
 
 [[main]]
   name = "Publications"
-  url = https://environmental-data-modeling.netlify.com/publication/
+  url = "#publications"
   weight = 2
 
 [[main]]
