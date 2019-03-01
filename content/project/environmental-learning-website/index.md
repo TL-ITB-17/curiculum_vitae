@@ -11,7 +11,7 @@ links:
   url: https://twitter.com/rosidi2610
 - icon: wordpress
   icon_pack: fab
-  name: Follow
+  name: Website
   url: https://environmentallearning.wordpress.com
 slides: 
 summary: 
@@ -19,7 +19,7 @@ tags:
 - R
 - Statistics
 title: Environmental Learning Website Project
-url_code: "https://environmentallearning.wordpress.com"
+url_code: "https://github.com/mohrosidi/R_Sricpt_Personal_Blog.git"
 url_pdf: ""
 url_slides: ""
 url_video: ""
