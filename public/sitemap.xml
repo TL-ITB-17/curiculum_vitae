@@ -68,24 +68,8 @@
     
     <url>
     
-      <loc>/publication/person-re-id/</loc>
-      <lastmod>2015-09-01T00:00:00+07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/post/2015-07-23-r-rmarkdown/</loc>
       <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/publication/clothing-search/</loc>
-      <lastmod>2013-07-01T00:00:00+07:00</lastmod>
     </url>
     
   
@@ -99,17 +83,7 @@
     
     <url>
     
-      <loc>/publication_types/1/</loc>
-      <lastmod>2013-07-01T00:00:00+07:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/publication_types/2/</loc>
-      <lastmod>2015-09-01T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -177,24 +151,6 @@
     
     <url>
     
-      <loc>/authors/ga-cushen/</loc>
-      <lastmod>2015-09-01T00:00:00+07:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/authors/ms-nixon/</loc>
-      <lastmod>2013-07-01T00:00:00+07:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>/authors/mohammad-razif/</loc>
       <priority>0</priority>
     </url>
@@ -236,7 +192,6 @@
     <url>
     
       <loc>/publication_types/</loc>
-      <lastmod>2013-07-01T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -245,7 +200,6 @@
     <url>
     
       <loc>/publication/</loc>
-      <lastmod>2015-09-01T00:00:00+07:00</lastmod>
     </url>
     
   
