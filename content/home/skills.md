@@ -8,11 +8,11 @@ feature:
 - description: 85%
   icon: chart-line
   icon_pack: fas
-  name: Statistics
-- description: 50%
-  icon: camera-retro
+  name: Data Analytics
+- description: 90%
+  icon: air-freshener
   icon_pack: fas
-  name: Photography
+  name: Environmental Modeling
 subtitle: ""
 title: Skills
 weight: 7

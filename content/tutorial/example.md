@@ -1,12 +1,12 @@
 ---
 date: "2018-09-09T00:00:00+07:00"
 draft: false
-linktitle: Example Page
+linktitle: Mengenal Bahasa R
 menu:
   tutorial:
-    parent: Example Topic
+    parent: Bahasa Pemrograman R
     weight: 1
-title: Example Page
+title: Mengenal Bahasa R
 toc: true
 type: docs
 ---

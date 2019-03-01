@@ -1,5 +1,5 @@
 ---
-date: "2018-09-09T00:00:00+07:00"
+date: "2019-03-01T00:00:00+07:00"
 draft: false
 menu:
   tutorial:
@@ -10,14 +10,10 @@ toc: true
 type: docs
 ---
 
-This feature can be used for publishing content such as:
+Pada section ini penulis akan menyajikan beberapa tutorial terkait analisa data dan modeling menggunakan `R`. Tutorial secara garis besar akan membahas:
 
-* **Project or software documentation**
-* **Online courses**
-* **Tutorials**
+* Analisa dan modeling data menggunakan metode statistik di `R`
+* Analisa dan modeling lingkungan menggunakan `R`
+* Optimasi operasi menggunakan `R`
 
-The parent folder may be renamed, for example, to `docs` for project documentation or `course` for creating an online course.
-
-To disable this feature, either delete the parent folder, or set `draft = true` in the front matter of all its pages. 
-
-After renaming or deleting the parent folder, you may wish to update any `[[menu.main]]` menu links to it in the `config.toml`. 
+Pembahasan juga kana meliputi analisa statistik menggunakan `GUI R (R Commander)` untuk menganalisa data.

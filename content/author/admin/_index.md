@@ -16,7 +16,7 @@ interests:
 name: Mohammad Rosidi, S.T.
 organizations:
 - name: Institut Teknologi Bandung
-  url: "environmentallearning.wordpress.com"
+  url: "https://www.itb.ac.id/"
 role: Master Student at Environmental Engineering
 social:
 - icon: envelope
@@ -25,9 +25,9 @@ social:
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/rosidi2610
-- icon: google-scholar
-  icon_pack: ai
-  link: 
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/mohrosidi/
 - icon: github
   icon_pack: fab
   link: https://github.com/mohrosidi
