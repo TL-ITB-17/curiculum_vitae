@@ -3,8 +3,10 @@ active: true
 filter:
 - name: All
   tag: '*'
-- name: Deep Learning
-  tag: Deep Learning
+- name: R
+  tag: R
+- name: Statistics
+  tag: Statistics
 - name: Other
   tag: Demo
 filter_default: 0
