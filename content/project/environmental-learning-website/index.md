@@ -27,4 +27,4 @@ url_video: ""
 
 This project is a website in the form of a collection of topics related to data analysis and modeling in the environmental field. This website is structured in such a way as to contain a number of material related to statistics, advanced mathematics, environmental engineering modeling, and operations research in the field of environmental engineering.
 
-The website is updated every week where each author update will share on the author's social media account. Readers can continue to follow the writing on the website by visiting the site environmental `learning.wordpress.com`
+The website is updated every week where each author update will share on the author's social media account. Readers can continue to follow the writing on the website by visiting the site environmental `learning.wordpress.com`.
