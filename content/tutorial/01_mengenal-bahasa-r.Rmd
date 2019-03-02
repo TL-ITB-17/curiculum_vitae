@@ -1,6 +1,6 @@
 ---
 title: "1. Mengenal Bahasa R"
-draft: no
+draft: false
 date: '2018-09-09T00:00:00+07:00'
 output: pdf_document
 menu:
@@ -8,7 +8,7 @@ menu:
     parent: Bahasa Pemrograman R
     weight: 1
 linktitle: Mengenal Bahasa R
-toc: yes
+toc: true
 type: docs
 ---
 
