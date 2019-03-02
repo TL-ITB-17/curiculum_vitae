@@ -11,6 +11,7 @@ toc: true
 type: docs
 ---
 
+![Data Analytics](Restaurant-Website-Analytics.png)
 
 ## 1.1 Sejarah R
 

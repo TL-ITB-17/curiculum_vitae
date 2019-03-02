@@ -95,6 +95,8 @@ rm Untitled.md
       <guid>/tutorial/01_mengenal-bahasa-r/</guid>
       <description>
 
+&lt;p&gt;&lt;img src=&#34;Restaurant-Website-Analytics.png&#34; alt=&#34;Data Analytics&#34; /&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;1-1-sejarah-r&#34;&gt;1.1 Sejarah R&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; Merupakan bahasa yang digunakan dalam komputasi &lt;strong&gt;statistik&lt;/strong&gt; yang pertama kali dikembangkan oleh &lt;strong&gt;Ross Ihaka&lt;/strong&gt; dan &lt;strong&gt;Robert Gentlement&lt;/strong&gt; di University of Auckland  New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum &lt;code&gt;R&lt;/code&gt; dikenal ada &lt;code&gt;S&lt;/code&gt; yang dikembangkan oleh &lt;strong&gt;John Chambers&lt;/strong&gt; dan rekan-rekan dari &lt;strong&gt;Bell Laboratories&lt;/strong&gt; yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah &lt;code&gt;R&lt;/code&gt; merupakan sistem komputasi yang bersifat gratis.&lt;/p&gt;
