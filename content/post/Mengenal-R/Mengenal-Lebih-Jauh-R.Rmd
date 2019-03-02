@@ -9,13 +9,10 @@ tags: ["R Markdown", "Tutorial"]
 
 ```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 library(knitr)
-url <- "https://github.com/TL-ITB-17/curiculum_vitae/blob/master/static/post/Restaurant-Website-Analytics.png"
+img1_path <- "/Users/My PC/Documents/curiculum_vitae/static/post/Restaurant-Website-Analytics.png"
 include_graphics(img1_path)
 
 ```
-
-
-
 
 
 `R` merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena `R` merupakan bahasa pemrograman yang sangat powerfull.
