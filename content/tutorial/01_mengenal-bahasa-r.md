@@ -12,7 +12,7 @@ toc: yes
 type: docs
 ---
 
-![Data Analytics](curiculum_vitae\content\post\Mengenal-R)
+
 
 ## 1.1 Sejarah R
 
@@ -21,6 +21,8 @@ type: docs
 `R` dapat dibilang merupakan aplikasi sistem **statistik** yang kaya. Hal ini disebabkan banyak sekali paket yang dikembangkan oleh pengembang dan komunitas untuk keperluan analisa statistik seperti *linear regression*, *clustering*, *statistical test*, dll. Selain itu, `R` juga dapat ditambahkan paket-paket lain yang dapat meningkatkan fiturnya.
 
 Sebagai sebuah bahasa pemrograman yang banyak digunakan untuk keperluan analisa data, `R` dapat dioperasikan pada berbagai sistem operasi pada komputer. Adapun sistem operasi yang didukung antara lain: UNIX, Linux, Windoes, dan MacOS.
+
+
 
 **Referensi**
 
