@@ -18,10 +18,10 @@
       <description>
 
 
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;Restaurant-Website-analytics.png&#34; alt=&#34;Data Analytics&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Data Analytics&lt;/p&gt;
-&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(knitr)
+img1_path &amp;lt;- &amp;quot;/Users/My PC/Documents/curiculum_vitae/content/post/Mengenal-R/Restaurant-Website-analytics.png&amp;quot;
+include_graphics(img1_path)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;Restaurant-Website-analytics.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena &lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang sangat powerfull.&lt;/p&gt;
 &lt;p&gt;Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun &lt;code&gt;R&lt;/code&gt; tidak didesain untuk melakukannya.&lt;/p&gt;
 &lt;p&gt;Penulis telah membuat tutorial langkah-langkah penggunaan &lt;code&gt;R&lt;/code&gt; yang dapat dibaca pada section &lt;code&gt;Tutorial&lt;/code&gt; yang akan diupdate setiap minggu. Adapun tema yang akan dibahas mengenai &lt;code&gt;R&lt;/code&gt; antara lain penerapannya dalam bidang: 1. Statistik 2. Visualisasi Data 3. Matematik 4. Optimasi (mis: linear Programming)&lt;/p&gt;
