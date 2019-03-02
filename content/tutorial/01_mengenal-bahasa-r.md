@@ -11,7 +11,8 @@ toc: true
 type: docs
 ---
 
-![Data Analytics](Restaurant-Website-Analytics.png)
+![Data Analytics](https://github.com/TL-ITB-17/curiculum_vitae/blob/master/content/post/Mengenal-R/Restaurant-Website-Analytics.png
+)
 
 ## 1.1 Sejarah R
 
