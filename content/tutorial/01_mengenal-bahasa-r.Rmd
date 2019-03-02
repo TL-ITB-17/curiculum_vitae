@@ -28,15 +28,17 @@ Sebagai sebuah bahasa pemrograman yang banyak digunakan untuk keperluan analisa 
 
 Beberapa ciri dan fitur pada `R` antara lain:
 
-1. **Bahasa `R` bersifat case sensitif**. maksudnya adalah dalam proses input `R` huruf besar dan kecil sangat diperhatikan. Sebagai contoh kita ingin melihat apakah objek A dan B pada sintaks berikt:
+1. **Bahasa `R` bersifat case sensitif**. maksudnya adalah dalam proses input `R` huruf besar dan kecil sangat diperhatikan. Sebagai contoh kita ingin melihat apakah objek A dan B pada sintaks berikut:
 ```{r}
 A <- "Andi"
 B <- "andi"
 
 # cek kedua objek A dan B
 A == B
+
+# Kesimpulan : Kedua objek berbeda
+
 ```
-Berdasarkan hasil pengecekan menghasilkan nilai FALSE yang menunjukkan kedua objek tersebut berbeda satu sama lain.
 
 2. **Segala sesuatu yang ada pada program `R` akan diangap sebagai objek**. konsep objek ini sama dengan bahasa pemrograma berbasis objek yang lain seperti `Java`, `C++`, `python`, dll.Perbedaannya adalah bahasa `R` relatif lebih sederhana dibandingkan bahasa pemrograman berbasis obejk yang lain.
 
