@@ -9,7 +9,7 @@ tags: ["R Markdown", "Tutorial"]
 
 ```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 library(knitr)
-img1_path <- "/Users/My PC/Documents/curiculum_vitae/static/post/Restaurant-Website-Analytics.png"
+img1_path <- "/static/Restaurant-Website-Analytics.png"
 include_graphics(img1_path)
 
 ```
