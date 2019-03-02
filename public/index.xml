@@ -99,20 +99,21 @@ rm Untitled.md
       <guid>/tutorial/01_mengenal-bahasa-r/</guid>
       <description>
 
-&lt;h2 id=&#34;1-1-sejarah-r&#34;&gt;1.1 Sejarah R&lt;/h2&gt;
+&lt;div id=&#34;TOC&#34;&gt;
+true
+&lt;/div&gt;
 
-&lt;p&gt;&lt;code&gt;R&lt;/code&gt; Merupakan bahasa yang digunakan dalam komputasi &lt;strong&gt;statistik&lt;/strong&gt; yang pertama kali dikembangkan oleh &lt;strong&gt;Ross Ihaka&lt;/strong&gt; dan &lt;strong&gt;Robert Gentlement&lt;/strong&gt; di University of Auckland  New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum &lt;code&gt;R&lt;/code&gt; dikenal ada &lt;code&gt;S&lt;/code&gt; yang dikembangkan oleh &lt;strong&gt;John Chambers&lt;/strong&gt; dan rekan-rekan dari &lt;strong&gt;Bell Laboratories&lt;/strong&gt; yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah &lt;code&gt;R&lt;/code&gt; merupakan sistem komputasi yang bersifat gratis.&lt;/p&gt;
-
+&lt;div id=&#34;sejarah-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1.1 Sejarah R&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; Merupakan bahasa yang digunakan dalam komputasi &lt;strong&gt;statistik&lt;/strong&gt; yang pertama kali dikembangkan oleh &lt;strong&gt;Ross Ihaka&lt;/strong&gt; dan &lt;strong&gt;Robert Gentlement&lt;/strong&gt; di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum &lt;code&gt;R&lt;/code&gt; dikenal ada &lt;code&gt;S&lt;/code&gt; yang dikembangkan oleh &lt;strong&gt;John Chambers&lt;/strong&gt; dan rekan-rekan dari &lt;strong&gt;Bell Laboratories&lt;/strong&gt; yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah &lt;code&gt;R&lt;/code&gt; merupakan sistem komputasi yang bersifat gratis.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; dapat dibilang merupakan aplikasi sistem &lt;strong&gt;statistik&lt;/strong&gt; yang kaya. Hal ini disebabkan banyak sekali paket yang dikembangkan oleh pengembang dan komunitas untuk keperluan analisa statistik seperti &lt;em&gt;linear regression&lt;/em&gt;, &lt;em&gt;clustering&lt;/em&gt;, &lt;em&gt;statistical test&lt;/em&gt;, dll. Selain itu, &lt;code&gt;R&lt;/code&gt; juga dapat ditambahkan paket-paket lain yang dapat meningkatkan fiturnya.&lt;/p&gt;
-
 &lt;p&gt;Sebagai sebuah bahasa pemrograman yang banyak digunakan untuk keperluan analisa data, &lt;code&gt;R&lt;/code&gt; dapat dioperasikan pada berbagai sistem operasi pada komputer. Adapun sistem operasi yang didukung antara lain: UNIX, Linux, Windoes, dan MacOS.&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Primartha, R. 2018. &lt;strong&gt;Belajar Machine Learning Teori dan Praktik&lt;/strong&gt;. Penerbit Informatika : Bandung&lt;/li&gt;
 &lt;li&gt;Rosadi,D. 2016. &lt;strong&gt;Analisis Statistika dengan R&lt;/strong&gt;. Gadjah Mada University Press: Yogyakarta&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;
 </description>
     </item>
     
