@@ -8,8 +8,7 @@ tags: ["R Markdown", "Tutorial"]
 
 
 ```{r}
-library(knitr)
-img1_path <- "/Users/My PC/Documents/curiculum_vitae/content/post/Mengenal-R/Restaurant-Website-analytics.png"
+img1_path <- "/Users/My PC/Documents/curiculum_vitae/public/post/Mengenal-R/Restaurant-Website-analytics.png"
 include_graphics(img1_path)
 ```
 
