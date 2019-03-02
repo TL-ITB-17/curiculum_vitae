@@ -47,9 +47,12 @@ A == B
 
 5. **Mendukung export dan import berbagai format file**, seperti:TXT, CSV, XLS, dll.
 
-6. **Mudah ditingkatkan melalui penambahan fungsi atau paket**. Penambahan paket dapat dilakukan secara online melalui [CRAN](https://cran.r-project.org/) atau melalui sumber seperti `github`.
+6. **Mudah ditingkatkan melalui penambahan fungsi atau paket**. Penambahan paket dapat dilakukan secara online melalui [CRAN](https://cran.r-project.org/) atau melalui sumber seperti [github](https://github.com/).
 
 7. **Menyedikan berbagai fungsi untuk keperluan visualisasi data**. Visualisasi data pada `R` dapat menggunakan paket bawaan atau paket lain seperti `ggplo2`,`ggvis`, dll.
+
+## 1.3 Kelebihan dan Kekurangan R
+
 
 
 **Referensi**
