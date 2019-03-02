@@ -6,10 +6,21 @@
     <description>Recent content in R Markdown on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 02 Mar 2019 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
+      <link>/post/mengenal-r/mengenal-lebih-jauh-r/</link>
+      <pubDate>Sat, 02 Mar 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/post/mengenal-r/mengenal-lebih-jauh-r/</guid>
+      <description>Data Analytics
+R merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena R merupakan bahasa pemrograman yang sangat powerfull.
+Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun R tidak didesain untuk melakukannya.</description>
+    </item>
     
     <item>
       <title>Hello R Markdown</title>
