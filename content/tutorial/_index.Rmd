@@ -6,7 +6,6 @@ menu:
     name: Overview
     weight: 1
 title: Overview
-toc: true
 type: docs
 ---
 
