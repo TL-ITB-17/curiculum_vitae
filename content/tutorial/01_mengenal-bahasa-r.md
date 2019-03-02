@@ -1,18 +1,18 @@
 ---
-date: "2018-09-09T00:00:00+07:00"
-draft: false
-linktitle: Mengenal Bahasa R
+title: "1. Mengenal Bahasa R"
+draft: no
+date: '2018-09-09T00:00:00+07:00'
+output: pdf_document
 menu:
   tutorial:
     parent: Bahasa Pemrograman R
     weight: 1
-title: 1. Mengenal Bahasa R
-toc: true
+linktitle: Mengenal Bahasa R
+toc: yes
 type: docs
 ---
 
-![Data Analytics](https://github.com/TL-ITB-17/curiculum_vitae/blob/master/content/post/Mengenal-R/Restaurant-Website-Analytics.png
-)
+![Data Analytics](curiculum_vitae\content\post\Mengenal-R)
 
 ## 1.1 Sejarah R
 
