@@ -21,7 +21,7 @@ Sebagai sebuah bahasa pemrograman yang banyak digunakan untuk keperluan analisa 
 
 **Referensi**
 
-1. Primartha, R. 2018. ** Belajar Machine Learning Teori dan Praktik**. Penerbit Informatika : Bandung
+1. Primartha, R. 2018. **Belajar Machine Learning Teori dan Praktik**. Penerbit Informatika : Bandung
 2. Rosadi,D. 2016. **Analisis Statistika dengan R**. Gadjah Mada University Press: Yogyakarta
 
 
