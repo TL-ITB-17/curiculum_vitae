@@ -7,9 +7,9 @@ tags: ["R Markdown", "Tutorial"]
 ---
 
 
-```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r echo=FALSE}
 library(knitr)
-img1_path <- "/static/Restaurant-Website-Analytics.png"
+img1_path <- "/Restaurant-Website-Analytics.png"
 include_graphics(img1_path)
 
 ```
