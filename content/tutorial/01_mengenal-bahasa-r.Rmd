@@ -79,6 +79,31 @@ Kondisi ini sering kali membingunkan bagi pengguna pemula maupun pengguna mahir 
 
 ## 1.5 Menginstall R dan RStudio
 
+Pada tutorial ini hanya akan dijelaskan bagaimana menginstal `R` dan `RStudio` pada sistem operasi `windows`. Sebelum memulai menginstal sebaiknya pembaca mengunduh terlebih dahulu *installer* [R](https://cran.r-project.org/bin/windows/base/) dan [RStudio](https://www.rstudio.com/products/rstudio/download/).
+
+1. Jalankan proses pemasangan dengan meng-klik *installer* aplikasi `R` dan `RStudio`.
+2. Ikuti langkah proses pemasangan aplikasi yang ditampilkan dengan klik `OK` atau `Next`.
+3. Apabila pemasangan telah dilakukan, jalankan aplikasi yang telah terpasang untuk menguji jika aplikasi telah berjalan dengan baik.
+
+Jendela aplikasi yang telah terpasang ditampilkan pada Gambar \@ref(fig:jendela-R) dan Gambar \@ref(fig:jendela-RStudio).
+
+```{r jendela-R,echo=FALSE, fig.cap='Jendela R.', tidy=FALSE, fig.width=5, fig.height=7}
+library(knitr)
+img1_path <- "/jendela_r.png"
+include_graphics(img1_path)
+
+```
+
+```{r jendela-RStudio,echo=FALSE, fig.cap='Jendela RStudio.', tidy=FALSE, fig.width=5, fig.height=7}
+library(knitr)
+img1_path <- "/jendela_rstudio.png"
+include_graphics(img1_path)
+
+```
+
+
+> **Note: ** Sebaiknya install `R` terlebih dahulu sebelum `RStudio`
+
 
 
 **Referensi**
