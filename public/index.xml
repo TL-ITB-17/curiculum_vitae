@@ -210,6 +210,7 @@ Figure 3: Jendela RStudio.
 &lt;/blockquote&gt;
 &lt;p&gt;Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, &lt;code&gt;R&lt;/code&gt; akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.&lt;/p&gt;
 &lt;p&gt;Operator aritmatika yang disediakan &lt;code&gt;R&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tabel 1&lt;/strong&gt; Operator Aritmatika &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;colgroup&gt;
 &lt;col width=&#34;15%&#34; /&gt;
@@ -381,6 +382,84 @@ ls()&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tipe-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.4 Tipe Data&lt;/h2&gt;
+&lt;p&gt;Data pada &lt;code&gt;R&lt;/code&gt; dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada &lt;code&gt;R&lt;/code&gt; disajikan pada Tabel 2.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tabel 2&lt;/strong&gt; Tipe Data &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Tipe Data&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Contoh&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Logical&lt;/td&gt;
+&lt;td&gt;TRUE, FALSE&lt;/td&gt;
+&lt;td&gt;Nilai Boolean&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Numeric&lt;/td&gt;
+&lt;td&gt;12.3, 5, 999&lt;/td&gt;
+&lt;td&gt;Segala jenis angka&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;23L, 97L, 3L&lt;/td&gt;
+&lt;td&gt;Bilangan integer (bilangan bulat)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Complex&lt;/td&gt;
+&lt;td&gt;2i, 3i, 9i&lt;/td&gt;
+&lt;td&gt;Bilangan kompleks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Character&lt;/td&gt;
+&lt;td&gt;‘a’, “b”, “123”&lt;/td&gt;
+&lt;td&gt;Karakter dan string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Raw&lt;/td&gt;
+&lt;td&gt;Identik dengan “hello”&lt;/td&gt;
+&lt;td&gt;Segala jenis data yang disimpan sebagai raw bytes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Sintaks berikut adalah contoh dari tipe data pada &lt;code&gt;R&lt;/code&gt;. Untuk mengetahui tipa data suatu objek kita dapat menggunakan perintah &lt;code&gt;class()&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Logical
+apel &amp;lt;- TRUE
+class(apel)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;logical&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Numeric
+x &amp;lt;- 2.3
+class(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Integer
+y &amp;lt;- 2L
+class(y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;integer&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Compleks
+z &amp;lt;- 5+2i
+class(z)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;complex&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# string
+w &amp;lt;- &amp;quot;saya&amp;quot;
+class(w)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Raw
+xy &amp;lt;- charToRaw(&amp;quot;hello world&amp;quot;)
+class(xy)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;raw&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Keenam jenis data tersebut disebut sebagai tipe data atomik. Hal ini disebabkan karena hanya dapat menangani satu tipe data saja. Misalnya hanya numeric atau hanya integer.&lt;/p&gt;
+&lt;p&gt;Selain menggunakan fungsi &lt;code&gt;class()&lt;/code&gt;, kita dapat pula menggunakan fungsi &lt;code&gt;is_numeric()&lt;/code&gt;, &lt;code&gt;is.character()&lt;/code&gt;, &lt;code&gt;is.logical()&lt;/code&gt;, dan sebagainya berdasarkan jenis data apa yang ingin kita cek. Berbeda dengan fungsi &lt;code&gt;class()&lt;/code&gt;, ouput yang dihasilkan pada fungsi seperti &lt;code&gt;is_numeric()&lt;/code&gt; adalah nilai Boolean sehingga fungsi ini hanya digunakan untuk mengecek apakah jenis data pada objek sama seperti yang kita pikirkan. Sebagai contoh disajikan pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- 25
+
+# Cek apakah objek berisi data numerik
+is.numeric(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>

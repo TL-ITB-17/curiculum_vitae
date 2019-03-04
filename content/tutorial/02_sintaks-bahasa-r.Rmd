@@ -31,10 +31,12 @@ Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menet
 
 Operator aritmatika yang disediakan `R` adalah sebagai berikut:
 
+**Tabel 1** Operator Aritmatika `R`
+
 **Simbol**     | **Keterangan**
 ---------------|--------------------------------------------------------------------------------------
 +              | *Addition*, untuk operasi penjumlahan
--              | *Substractio*, untuk operasi pengurangan
+-              | *Substraction*, untuk operasi pengurangan
 *              | *Multiplication*, untuk operasi pembagian
 /              | *Division*, untuk operasi pembagian
 ^              | *Eksponentiation*, untuk operasi pemangkatan
@@ -188,4 +190,99 @@ ls()
 
 > **Note: ** Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.
 
+## 2.4 Tipe Data
+
+Data pada `R` dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada `R` disajikan pada Tabel 2.
+
+**Tabel 2** Tipe Data `R`
+
+**Tipe Data**  | **Contoh**              | **Keterangan**
+---------------|-------------------------|--------------------------------------------------
+Logical        | TRUE, FALSE             | Nilai Boolean
+Numeric        | 12.3, 5, 999            | Segala jenis angka
+Integer        | 23L, 97L, 3L            | Bilangan integer (bilangan bulat)
+Complex        | 2i, 3i, 9i              | Bilangan kompleks
+Character      | 'a', "b", "123"         | Karakter dan string
+Raw            | Identik dengan "hello"  | Segala jenis data yang disimpan sebagai raw bytes
+
+Sintaks berikut adalah contoh dari tipe data pada `R`. Untuk mengetahui tipa data suatu objek kita dapat menggunakan perintah `class()`
+
+```{r}
+# Logical
+apel <- TRUE
+class(apel)
+
+# Numeric
+x <- 2.3
+class(x)
+
+# Integer
+y <- 2L
+class(y)
+
+# Compleks
+z <- 5+2i
+class(z)
+
+# string
+w <- "saya"
+class(w)
+
+# Raw
+xy <- charToRaw("hello world")
+class(xy)
+
+```
+
+Keenam jenis data tersebut disebut sebagai tipe data atomik. Hal ini disebabkan karena hanya dapat menangani satu tipe data saja. Misalnya hanya numeric atau hanya integer.
+
+Selain menggunakan fungsi `class()`, kita dapat pula menggunakan fungsi `is_numeric()`, `is.character()`, `is.logical()`, dan sebagainya berdasarkan jenis data apa yang ingin kita cek. Berbeda dengan fungsi `class()`, ouput yang dihasilkan pada fungsi seperti `is_numeric()` adalah nilai Boolean sehingga fungsi ini hanya digunakan untuk mengecek apakah jenis data pada objek sama seperti yang kita pikirkan. Sebagai contoh disajikan pada sintaks berikut:
+
+```{r}
+data <- 25
+
+# Cek apakah objek berisi data numerik
+is.numeric(data)
+
+# Cek apakah objek adalah karakter
+is.character(data)
+```
+
+Kita juga dapat mengubah jenis data menjadi jenis lainnya seperti integer menjadi numerik atau sebaliknya. Fungsi yang digunakan adalah `as.numeric()` jika ingin mengubah suatu jenis data menjadi numerik. Fungsi lainnya juga dapat digunakan sesuai dengan kita ingin mengubah jenis data objek menjadi jenis data lainnya.
+
+```{r}
+# Integer
+apel <- 2L
+
+# Ubah menjadi numerik
+as.numeric(apel)
+
+# Cek
+is.numeric(apel)
+
+# Logical
+nangka <- TRUE
+
+# Ubah logical menjadi numeric
+as.numeric(nangka)
+
+# Karakter
+minum <- "minum"
+
+# ubah karakter menjadi numerik
+as.numeric(minum)
+
+```
+
+> **Note: ** Konversi karakter menjadi numerik akan menghasilkan output NA (*not available*). `R` tidak mengetahui bagaimana cara merubah karakter menjadi bentuk numerik.
+
+Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik *double quote* ("") maupun *single quote* ('').Jika pada teks yang kita tuliskan mengandung *quote* maka kita harus menghentikannya menggunakan tanda ( \ ). Sbegai contoh kita ingin menuliskan `**My friend's name is "Adi"**, pada sintaks akan dituliskan:
+
+```{r}
+'My friend\`s name is "Adi"'
+
+# Atau
+
+"My friend's name \"Adi\""
+```
 

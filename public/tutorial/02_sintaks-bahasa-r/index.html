@@ -432,6 +432,7 @@
 </blockquote>
 <p>Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, <code>R</code> akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.</p>
 <p>Operator aritmatika yang disediakan <code>R</code> adalah sebagai berikut:</p>
+<p><strong>Tabel 1</strong> Operator Aritmatika <code>R</code></p>
 <table>
 <colgroup>
 <col width="15%" />
@@ -603,6 +604,84 @@ ls()</code></pre>
 <blockquote>
 <p><strong>Note: </strong> Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.</p>
 </blockquote>
+</div>
+<div id="tipe-data" class="section level2">
+<h2>2.4 Tipe Data</h2>
+<p>Data pada <code>R</code> dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada <code>R</code> disajikan pada Tabel 2.</p>
+<p><strong>Tabel 2</strong> Tipe Data <code>R</code></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Tipe Data</strong></th>
+<th><strong>Contoh</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Logical</td>
+<td>TRUE, FALSE</td>
+<td>Nilai Boolean</td>
+</tr>
+<tr class="even">
+<td>Numeric</td>
+<td>12.3, 5, 999</td>
+<td>Segala jenis angka</td>
+</tr>
+<tr class="odd">
+<td>Integer</td>
+<td>23L, 97L, 3L</td>
+<td>Bilangan integer (bilangan bulat)</td>
+</tr>
+<tr class="even">
+<td>Complex</td>
+<td>2i, 3i, 9i</td>
+<td>Bilangan kompleks</td>
+</tr>
+<tr class="odd">
+<td>Character</td>
+<td>‘a’, “b”, “123”</td>
+<td>Karakter dan string</td>
+</tr>
+<tr class="even">
+<td>Raw</td>
+<td>Identik dengan “hello”</td>
+<td>Segala jenis data yang disimpan sebagai raw bytes</td>
+</tr>
+</tbody>
+</table>
+<p>Sintaks berikut adalah contoh dari tipe data pada <code>R</code>. Untuk mengetahui tipa data suatu objek kita dapat menggunakan perintah <code>class()</code></p>
+<pre class="r"><code># Logical
+apel &lt;- TRUE
+class(apel)</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre class="r"><code># Numeric
+x &lt;- 2.3
+class(x)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code># Integer
+y &lt;- 2L
+class(y)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="r"><code># Compleks
+z &lt;- 5+2i
+class(z)</code></pre>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
+<pre class="r"><code># string
+w &lt;- &quot;saya&quot;
+class(w)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code># Raw
+xy &lt;- charToRaw(&quot;hello world&quot;)
+class(xy)</code></pre>
+<pre><code>## [1] &quot;raw&quot;</code></pre>
+<p>Keenam jenis data tersebut disebut sebagai tipe data atomik. Hal ini disebabkan karena hanya dapat menangani satu tipe data saja. Misalnya hanya numeric atau hanya integer.</p>
+<p>Selain menggunakan fungsi <code>class()</code>, kita dapat pula menggunakan fungsi <code>is_numeric()</code>, <code>is.character()</code>, <code>is.logical()</code>, dan sebagainya berdasarkan jenis data apa yang ingin kita cek. Berbeda dengan fungsi <code>class()</code>, ouput yang dihasilkan pada fungsi seperti <code>is_numeric()</code> adalah nilai Boolean sehingga fungsi ini hanya digunakan untuk mengecek apakah jenis data pada objek sama seperti yang kita pikirkan. Sebagai contoh disajikan pada sintaks berikut:</p>
+<pre class="r"><code>data &lt;- 25
+
+# Cek apakah objek berisi data numerik
+is.numeric(data)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 
           </div>
