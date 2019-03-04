@@ -190,19 +190,6 @@ Figure 3: Jendela RStudio.
     
     <item>
       <title>2. Sintaks Bahasa R</title>
-      <link>/tutorial/02_sintak-bahasa-r/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
-      
-      <guid>/tutorial/02_sintak-bahasa-r/</guid>
-      <description>
-
-
-
-</description>
-    </item>
-    
-    <item>
-      <title>2. Sintaks Bahasa R</title>
       <link>/tutorial/02_sintaks-bahasa-r/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
       
@@ -218,6 +205,9 @@ Figure 3: Jendela RStudio.
 &lt;p&gt;Bandingkan dengan sintaks berikut:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(2+4)*2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 12&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; dapat digunakan sebagai kalkulator&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, &lt;code&gt;R&lt;/code&gt; akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.&lt;/p&gt;
 &lt;p&gt;Operator aritmatika yang disediakan &lt;code&gt;R&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
 &lt;table&gt;
@@ -260,12 +250,137 @@ Figure 3: Jendela RStudio.
 &lt;td&gt;%/%&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;Integer&lt;/em&gt;, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian&lt;/td&gt;
 &lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;—————&lt;/td&gt;
-&lt;td&gt;————————————————————————————–&lt;/td&gt;
-&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Addition
+5+3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Substraction
+5-3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Multiplication
+5*3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 15&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Division
+5/3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.666667&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Eksponetiation
+5^3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 125&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Modulus
+5%%3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Integer
+5%/%3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Note: &lt;/em&gt; Pada &lt;code&gt;R&lt;/code&gt; tanda &lt;code&gt;#&lt;/code&gt; berfungsi menambahkan keterangan untuk menjelaskan sebuah sintaks pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fungsi-aritmetik&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.2 Fungsi Aritmetik&lt;/h2&gt;
+&lt;p&gt;Selain fungsi operator aritmetik, pada &lt;code&gt;R&lt;/code&gt; juga telah tersedia fungsi aritmetik yang lain seperti logaritmik, ekponensial, trigonometri, dll.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Logaritma dan eksponensial&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Untuk contoh fungsi logaritmik dan eksponensial jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;log2(8) # logaritma basis 2 untuk 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;log10(8) # logaritma basis 10 untuk 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.90309&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(8) # eksponensial 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2980.958&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Fungsi trigonometri&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;fungsi trigonometri yang ditampilkan seperti sin,cos, tan, dll.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cos(90) # cos 90&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.4480736&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sin(90) # Sin 90&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.8939967&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tan(90) # Tan 90&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -1.9952&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;acos(90) # arc-cos 90&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in acos(90): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NaN&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;asin(90) # arc-sin 90&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in asin(90): NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NaN&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;atan(90) #arc-tan 90&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.559686&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Fungsi matematik lainnya&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Fungsi lainnya yang dapat digunakan adalah fungsi absolut, akar kuadrat, dll. Berikut adalah contoh sintaks penggunaan fungsi absolut dan akar kuadrat.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;abs(-2) # nilai absolut -2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sqrt(4) # akar kuadrat 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;memasukkan-nilai-kedalam-variabel&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.3 Memasukkan Nilai Kedalam Variabel&lt;/h2&gt;
+&lt;p&gt;Variabel pada &lt;code&gt;R&lt;/code&gt; dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Harga sebuah lemon adalah 500 rupiah
+lemon &amp;lt;- 500
+
+# Atau
+500 -&amp;gt; lemon
+
+# dapat juga menggunakan tanda &amp;quot;=&amp;quot;
+lemon = 500&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;R&lt;/code&gt; memungkinkan penggunaan &amp;lt;-,-&amp;gt;, atau = sebagai perintah pengisi nilai variabel&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;R&lt;/code&gt; bersifat &lt;em&gt;case-sensitive&lt;/em&gt;. Maksudnya adalah variabel Lemon tidak sama dengan lemon (Besar kecil huruf berpengaruh)&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk mengetahui nilai dari objek &lt;code&gt;lemon&lt;/code&gt; kita dapat menggunakan fungsi &lt;code&gt;print()&lt;/code&gt; atau mengetikkan nama objeknya secara langsung.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menggunakan fungsi print()
+print(lemon)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 500&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Atau
+lemon&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 500&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; akan menyimpan variabel &lt;code&gt;lemon&lt;/code&gt; sebagai objek pada memori. Sehingga kita dapat melakukan operasi terhadap objek tersebut seperti mengalikannya atau menjumlahkannya dengan bilangan lain. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operasi perkalian terhadap objek lemon
+5*lemon&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2500&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita dapat juga mengubah nilai dari objek &lt;code&gt;lemon&lt;/code&gt; dengan cara menginput nilai baru terhadap objek yang sama. &lt;code&gt;R&lt;/code&gt; secara otomatis akan menggatikan nilai sebelumnya. Untuk lebih memahaminya jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lemon &amp;lt;- 1000
+
+# Print lemon
+print(lemon)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk lebih memahaminya berikut adalah sintaks untuk menghitung volume suatu objek.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Dimensi objek
+panjang &amp;lt;- 10
+lebar &amp;lt;- 5
+tinggi &amp;lt;- 5
+
+# Menghitung volume
+volume &amp;lt;- panjang*lebar*tinggi
+
+# Print objek volume
+print(volume)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 250&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi &lt;code&gt;ls()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ls()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;lemon&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;tinggi&amp;quot;  &amp;quot;volume&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Kumpulan objek yang telah tersimpan dalam memori disebut sebagai &lt;strong&gt;workspace&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk menghapus objek pada memori kita dapat menggunakan fungsi &lt;code&gt;rm()&lt;/code&gt;. Pada sintaks berikut penulis hendak menghapus objek &lt;code&gt;lemon&lt;/code&gt; dan &lt;code&gt;volume&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menghapus objek lemon dan volume
+rm(lemon, volume)
+
+# Tampilkan kembali objek yang tersisa
+ls()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;tinggi&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/div&gt;
 </description>
     </item>

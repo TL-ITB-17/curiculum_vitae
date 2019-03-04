@@ -22,23 +22,14 @@
     
     <item>
       <title>2. Sintaks Bahasa R</title>
-      <link>/tutorial/02_sintak-bahasa-r/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
-      
-      <guid>/tutorial/02_sintak-bahasa-r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>2. Sintaks Bahasa R</title>
       <link>/tutorial/02_sintaks-bahasa-r/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
       
       <guid>/tutorial/02_sintaks-bahasa-r/</guid>
       <description>2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
 2+4*2## [1] 10Bandingkan dengan sintaks berikut:
-(2+4)*2## [1] 12Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, R akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.
-Operator aritmatika yang disediakan R adalah sebagai berikut:</description>
+(2+4)*2## [1] 12R dapat digunakan sebagai kalkulator
+Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, R akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.</description>
     </item>
     
   </channel>

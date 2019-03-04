@@ -25,6 +25,8 @@ Bandingkan dengan sintaks berikut:
 (2+4)*2
 ```
 
+> `R` dapat digunakan sebagai kalkulator
+
 Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, `R` akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian. 
 
 Operator aritmatika yang disediakan `R` adalah sebagai berikut:
@@ -38,4 +40,152 @@ Operator aritmatika yang disediakan `R` adalah sebagai berikut:
 ^              | *Eksponentiation*, untuk operasi pemangkatan
 %%             | *Modulus*, Untuk mencari sisa pembagian
 %/%            | *Integer*, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian
----------------|--------------------------------------------------------------------------------------
+
+Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.
+
+```{r}
+# Addition
+5+3
+
+# Substraction
+5-3
+
+# Multiplication
+5*3
+
+# Division
+5/3
+
+# Eksponetiation
+5^3
+
+# Modulus
+5%%3
+
+# Integer
+5%/%3
+
+```
+
+> *Note: * Pada `R` tanda `#` berfungsi menambahkan keterangan untuk menjelaskan sebuah sintaks pada `R`.
+
+## 2.2 Fungsi Aritmetik
+
+Selain fungsi operator aritmetik, pada `R` juga telah tersedia fungsi aritmetik yang lain seperti logaritmik, ekponensial, trigonometri, dll.
+
+1. Logaritma dan eksponensial
+
+Untuk contoh fungsi logaritmik dan eksponensial jalankan sintaks berikut:
+
+```{r}
+log2(8) # logaritma basis 2 untuk 8
+log10(8) # logaritma basis 10 untuk 8
+exp(8) # eksponensial 8
+```
+
+2. Fungsi trigonometri
+
+fungsi trigonometri yang ditampilkan seperti sin,cos, tan, dll.
+
+```{r}
+cos(90) # cos 90
+sin(90) # Sin 90
+tan(90) # Tan 90
+acos(90) # arc-cos 90
+asin(90) # arc-sin 90
+atan(90) #arc-tan 90
+```
+
+3. Fungsi matematik lainnya
+
+Fungsi lainnya yang dapat digunakan adalah fungsi absolut, akar kuadrat, dll. Berikut adalah contoh sintaks penggunaan fungsi absolut dan akar kuadrat.
+
+```{r}
+abs(-2) # nilai absolut -2
+sqrt(4) # akar kuadrat 4
+```
+
+## 2.3 Memasukkan Nilai Kedalam Variabel
+
+Variabel pada `R` dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:
+
+```{r}
+# Harga sebuah lemon adalah 500 rupiah
+lemon <- 500
+
+# Atau
+500 -> lemon
+
+# dapat juga menggunakan tanda "="
+lemon = 500
+
+```
+
+> **Note: **
+>
+> 1. `R` memungkinkan penggunaan <-,->, atau = sebagai perintah pengisi nilai variabel
+>
+> 2. `R` bersifat *case-sensitive*. Maksudnya adalah variabel Lemon tidak sama dengan lemon (Besar kecil huruf berpengaruh)
+
+Untuk mengetahui nilai dari objek `lemon` kita dapat menggunakan fungsi `print()` atau mengetikkan nama objeknya secara langsung.
+
+```{r}
+# Menggunakan fungsi print()
+print(lemon)
+
+# Atau
+lemon
+```
+
+`R` akan menyimpan variabel `lemon` sebagai objek pada memori. Sehingga kita dapat melakukan operasi terhadap objek tersebut seperti mengalikannya atau menjumlahkannya dengan bilangan lain. Sebagai contoh jalankan sintaks berikut:
+
+```{r}
+# Operasi perkalian terhadap objek lemon
+5*lemon
+```
+
+Kita dapat juga mengubah nilai dari objek `lemon` dengan cara menginput nilai baru terhadap objek yang sama. `R` secara otomatis akan menggatikan nilai sebelumnya. Untuk lebih memahaminya jalankan sintaks berikut:
+
+```{r}
+lemon <- 1000
+
+# Print lemon
+print(lemon)
+```
+
+Untuk lebih memahaminya berikut adalah sintaks untuk menghitung volume suatu objek.
+
+```{r}
+# Dimensi objek
+panjang <- 10
+lebar <- 5
+tinggi <- 5
+
+# Menghitung volume
+volume <- panjang*lebar*tinggi
+
+# Print objek volume
+print(volume)
+```
+
+Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi `ls()`.
+
+```{r}
+ls()
+```
+
+> Kumpulan objek yang telah tersimpan dalam memori disebut sebagai **workspace**
+
+Untuk menghapus objek pada memori kita dapat menggunakan fungsi `rm()`. Pada sintaks berikut penulis hendak menghapus objek `lemon` dan `volume`.
+
+```{r}
+# Menghapus objek lemon dan volume
+rm(lemon, volume)
+
+# Tampilkan kembali objek yang tersisa
+ls()
+```
+
+> **Note: ** Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.
+
+

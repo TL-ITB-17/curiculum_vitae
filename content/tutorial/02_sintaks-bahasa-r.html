@@ -21,6 +21,9 @@ type: docs
 <p>Bandingkan dengan sintaks berikut:</p>
 <pre class="r"><code>(2+4)*2</code></pre>
 <pre><code>## [1] 12</code></pre>
+<blockquote>
+<p><code>R</code> dapat digunakan sebagai kalkulator</p>
+</blockquote>
 <p>Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, <code>R</code> akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.</p>
 <p>Operator aritmatika yang disediakan <code>R</code> adalah sebagai berikut:</p>
 <table>
@@ -63,10 +66,135 @@ type: docs
 <td>%/%</td>
 <td><em>Integer</em>, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian</td>
 </tr>
-<tr class="even">
-<td>—————</td>
-<td>————————————————————————————–</td>
-</tr>
 </tbody>
 </table>
+<p>Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.</p>
+<pre class="r"><code># Addition
+5+3</code></pre>
+<pre><code>## [1] 8</code></pre>
+<pre class="r"><code># Substraction
+5-3</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code># Multiplication
+5*3</code></pre>
+<pre><code>## [1] 15</code></pre>
+<pre class="r"><code># Division
+5/3</code></pre>
+<pre><code>## [1] 1.666667</code></pre>
+<pre class="r"><code># Eksponetiation
+5^3</code></pre>
+<pre><code>## [1] 125</code></pre>
+<pre class="r"><code># Modulus
+5%%3</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code># Integer
+5%/%3</code></pre>
+<pre><code>## [1] 1</code></pre>
+<blockquote>
+<p><em>Note: </em> Pada <code>R</code> tanda <code>#</code> berfungsi menambahkan keterangan untuk menjelaskan sebuah sintaks pada <code>R</code>.</p>
+</blockquote>
+</div>
+<div id="fungsi-aritmetik" class="section level2">
+<h2>2.2 Fungsi Aritmetik</h2>
+<p>Selain fungsi operator aritmetik, pada <code>R</code> juga telah tersedia fungsi aritmetik yang lain seperti logaritmik, ekponensial, trigonometri, dll.</p>
+<ol style="list-style-type: decimal">
+<li>Logaritma dan eksponensial</li>
+</ol>
+<p>Untuk contoh fungsi logaritmik dan eksponensial jalankan sintaks berikut:</p>
+<pre class="r"><code>log2(8) # logaritma basis 2 untuk 8</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>log10(8) # logaritma basis 10 untuk 8</code></pre>
+<pre><code>## [1] 0.90309</code></pre>
+<pre class="r"><code>exp(8) # eksponensial 8</code></pre>
+<pre><code>## [1] 2980.958</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Fungsi trigonometri</li>
+</ol>
+<p>fungsi trigonometri yang ditampilkan seperti sin,cos, tan, dll.</p>
+<pre class="r"><code>cos(90) # cos 90</code></pre>
+<pre><code>## [1] -0.4480736</code></pre>
+<pre class="r"><code>sin(90) # Sin 90</code></pre>
+<pre><code>## [1] 0.8939967</code></pre>
+<pre class="r"><code>tan(90) # Tan 90</code></pre>
+<pre><code>## [1] -1.9952</code></pre>
+<pre class="r"><code>acos(90) # arc-cos 90</code></pre>
+<pre><code>## Warning in acos(90): NaNs produced</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<pre class="r"><code>asin(90) # arc-sin 90</code></pre>
+<pre><code>## Warning in asin(90): NaNs produced</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<pre class="r"><code>atan(90) #arc-tan 90</code></pre>
+<pre><code>## [1] 1.559686</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Fungsi matematik lainnya</li>
+</ol>
+<p>Fungsi lainnya yang dapat digunakan adalah fungsi absolut, akar kuadrat, dll. Berikut adalah contoh sintaks penggunaan fungsi absolut dan akar kuadrat.</p>
+<pre class="r"><code>abs(-2) # nilai absolut -2</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>sqrt(4) # akar kuadrat 4</code></pre>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="memasukkan-nilai-kedalam-variabel" class="section level2">
+<h2>2.3 Memasukkan Nilai Kedalam Variabel</h2>
+<p>Variabel pada <code>R</code> dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:</p>
+<pre class="r"><code># Harga sebuah lemon adalah 500 rupiah
+lemon &lt;- 500
+
+# Atau
+500 -&gt; lemon
+
+# dapat juga menggunakan tanda &quot;=&quot;
+lemon = 500</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ol style="list-style-type: decimal">
+<li><p><code>R</code> memungkinkan penggunaan &lt;-,-&gt;, atau = sebagai perintah pengisi nilai variabel</p></li>
+<li><p><code>R</code> bersifat <em>case-sensitive</em>. Maksudnya adalah variabel Lemon tidak sama dengan lemon (Besar kecil huruf berpengaruh)</p></li>
+</ol>
+</blockquote>
+<p>Untuk mengetahui nilai dari objek <code>lemon</code> kita dapat menggunakan fungsi <code>print()</code> atau mengetikkan nama objeknya secara langsung.</p>
+<pre class="r"><code># Menggunakan fungsi print()
+print(lemon)</code></pre>
+<pre><code>## [1] 500</code></pre>
+<pre class="r"><code># Atau
+lemon</code></pre>
+<pre><code>## [1] 500</code></pre>
+<p><code>R</code> akan menyimpan variabel <code>lemon</code> sebagai objek pada memori. Sehingga kita dapat melakukan operasi terhadap objek tersebut seperti mengalikannya atau menjumlahkannya dengan bilangan lain. Sebagai contoh jalankan sintaks berikut:</p>
+<pre class="r"><code># Operasi perkalian terhadap objek lemon
+5*lemon</code></pre>
+<pre><code>## [1] 2500</code></pre>
+<p>Kita dapat juga mengubah nilai dari objek <code>lemon</code> dengan cara menginput nilai baru terhadap objek yang sama. <code>R</code> secara otomatis akan menggatikan nilai sebelumnya. Untuk lebih memahaminya jalankan sintaks berikut:</p>
+<pre class="r"><code>lemon &lt;- 1000
+
+# Print lemon
+print(lemon)</code></pre>
+<pre><code>## [1] 1000</code></pre>
+<p>Untuk lebih memahaminya berikut adalah sintaks untuk menghitung volume suatu objek.</p>
+<pre class="r"><code># Dimensi objek
+panjang &lt;- 10
+lebar &lt;- 5
+tinggi &lt;- 5
+
+# Menghitung volume
+volume &lt;- panjang*lebar*tinggi
+
+# Print objek volume
+print(volume)</code></pre>
+<pre><code>## [1] 250</code></pre>
+<p>Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi <code>ls()</code>.</p>
+<pre class="r"><code>ls()</code></pre>
+<pre><code>## [1] &quot;lebar&quot;   &quot;lemon&quot;   &quot;panjang&quot; &quot;tinggi&quot;  &quot;volume&quot;</code></pre>
+<blockquote>
+<p>Kumpulan objek yang telah tersimpan dalam memori disebut sebagai <strong>workspace</strong></p>
+</blockquote>
+<p>Untuk menghapus objek pada memori kita dapat menggunakan fungsi <code>rm()</code>. Pada sintaks berikut penulis hendak menghapus objek <code>lemon</code> dan <code>volume</code>.</p>
+<pre class="r"><code># Menghapus objek lemon dan volume
+rm(lemon, volume)
+
+# Tampilkan kembali objek yang tersisa
+ls()</code></pre>
+<pre><code>## [1] &quot;lebar&quot;   &quot;panjang&quot; &quot;tinggi&quot;</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.</p>
+</blockquote>
 </div>
