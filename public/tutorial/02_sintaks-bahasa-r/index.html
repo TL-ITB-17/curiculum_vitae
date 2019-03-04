@@ -451,7 +451,7 @@
 </tr>
 <tr class="even">
 <td>-</td>
-<td><em>Substractio</em>, untuk operasi pengurangan</td>
+<td><em>Substraction</em>, untuk operasi pengurangan</td>
 </tr>
 <tr class="odd">
 <td>*</td>
@@ -682,6 +682,42 @@ class(xy)</code></pre>
 # Cek apakah objek berisi data numerik
 is.numeric(data)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Cek apakah objek adalah karakter
+is.character(data)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>Kita juga dapat mengubah jenis data menjadi jenis lainnya seperti integer menjadi numerik atau sebaliknya. Fungsi yang digunakan adalah <code>as.numeric()</code> jika ingin mengubah suatu jenis data menjadi numerik. Fungsi lainnya juga dapat digunakan sesuai dengan kita ingin mengubah jenis data objek menjadi jenis data lainnya.</p>
+<pre class="r"><code># Integer
+apel &lt;- 2L
+
+# Ubah menjadi numerik
+as.numeric(apel)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code># Cek
+is.numeric(apel)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Logical
+nangka &lt;- TRUE
+
+# Ubah logical menjadi numeric
+as.numeric(nangka)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code># Karakter
+minum &lt;- &quot;minum&quot;
+
+# ubah karakter menjadi numerik
+as.numeric(minum)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Konversi karakter menjadi numerik akan menghasilkan output NA (<em>not available</em>). <code>R</code> tidak mengetahui bagaimana cara merubah karakter menjadi bentuk numerik.</p>
+</blockquote>
+<p>Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik <em>double quote</em> (“”) maupun <em>single quote</em> (’’).Jika pada teks yang kita tuliskan mengandung <em>quote</em> maka kita harus menghentikannya menggunakan tanda (  ). Sbegai contoh kita ingin menuliskan `<strong>My friend’s name is “Adi”</strong>, pada sintaks akan dituliskan:</p>
+<pre class="r"><code>&#39;My friend\`s name is &quot;Adi&quot;&#39;</code></pre>
+<pre><code>## [1] &quot;My friend`s name is \&quot;Adi\&quot;&quot;</code></pre>
+<pre class="r"><code># Atau
+
+&quot;My friend&#39;s name \&quot;Adi\&quot;&quot;</code></pre>
+<pre><code>## [1] &quot;My friend&#39;s name \&quot;Adi\&quot;&quot;</code></pre>
 </div>
 
           </div>

@@ -229,7 +229,7 @@ Figure 3: Jendela RStudio.
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Substractio&lt;/em&gt;, untuk operasi pengurangan&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Substraction&lt;/em&gt;, untuk operasi pengurangan&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;*&lt;/td&gt;
@@ -460,6 +460,42 @@ class(xy)&lt;/code&gt;&lt;/pre&gt;
 # Cek apakah objek berisi data numerik
 is.numeric(data)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek apakah objek adalah karakter
+is.character(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita juga dapat mengubah jenis data menjadi jenis lainnya seperti integer menjadi numerik atau sebaliknya. Fungsi yang digunakan adalah &lt;code&gt;as.numeric()&lt;/code&gt; jika ingin mengubah suatu jenis data menjadi numerik. Fungsi lainnya juga dapat digunakan sesuai dengan kita ingin mengubah jenis data objek menjadi jenis data lainnya.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Integer
+apel &amp;lt;- 2L
+
+# Ubah menjadi numerik
+as.numeric(apel)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek
+is.numeric(apel)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Logical
+nangka &amp;lt;- TRUE
+
+# Ubah logical menjadi numeric
+as.numeric(nangka)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Karakter
+minum &amp;lt;- &amp;quot;minum&amp;quot;
+
+# ubah karakter menjadi numerik
+as.numeric(minum)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: NAs introduced by coercion&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Konversi karakter menjadi numerik akan menghasilkan output NA (&lt;em&gt;not available&lt;/em&gt;). &lt;code&gt;R&lt;/code&gt; tidak mengetahui bagaimana cara merubah karakter menjadi bentuk numerik.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik &lt;em&gt;double quote&lt;/em&gt; (“”) maupun &lt;em&gt;single quote&lt;/em&gt; (’’).Jika pada teks yang kita tuliskan mengandung &lt;em&gt;quote&lt;/em&gt; maka kita harus menghentikannya menggunakan tanda (  ). Sbegai contoh kita ingin menuliskan `&lt;strong&gt;My friend’s name is “Adi”&lt;/strong&gt;, pada sintaks akan dituliskan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;&amp;#39;My friend\`s name is &amp;quot;Adi&amp;quot;&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;My friend`s name is \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Atau
+
+&amp;quot;My friend&amp;#39;s name \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;My friend&amp;#39;s name \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
