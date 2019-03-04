@@ -28,10 +28,13 @@
   
     
   
-  <meta name="description" content="Master Student at Environmental Engineering">
+  <meta name="description" content="2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
+2&#43;4*2## [1] 10Bandingkan dengan sintaks berikut:
+(2&#43;4)*2## [1] 12Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, R akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.
+Operator aritmatika yang disediakan R adalah sebagai berikut:">
 
   
-  <link rel="alternate" hreflang="en-us" href="/tutorial/">
+  <link rel="alternate" hreflang="en-us" href="/tutorial/02_sintaks-bahasa-r/">
 
   
 
@@ -98,15 +101,15 @@
   
 
   
-  <link rel="alternate" href="/tutorial/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
-  <link rel="feed" href="/tutorial/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tutorial/">
+  <link rel="canonical" href="/tutorial/02_sintaks-bahasa-r/">
 
   
   
@@ -118,19 +121,24 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Environmental Data Modeling">
-  <meta property="og:url" content="/tutorial/">
-  <meta property="og:title" content="Overview | Environmental Data Modeling">
-  <meta property="og:description" content="Master Student at Environmental Engineering"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:url" content="/tutorial/02_sintaks-bahasa-r/">
+  <meta property="og:title" content="2. Sintaks Bahasa R | Environmental Data Modeling">
+  <meta property="og:description" content="2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
+2&#43;4*2## [1] 10Bandingkan dengan sintaks berikut:
+(2&#43;4)*2## [1] 12Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, R akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.
+Operator aritmatika yang disediakan R adalah sebagai berikut:"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-01T00:00:00&#43;07:00">
+  <meta property="article:published_time" content="2018-09-09T00:00:00&#43;07:00">
+  
+  <meta property="article:modified_time" content="2018-09-09T00:00:00&#43;07:00">
   
 
   
 
   
 
-  <title>Overview | Environmental Data Modeling</title>
+  <title>2. Sintaks Bahasa R | Environmental Data Modeling</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -371,7 +379,7 @@
 <nav class="collapse docs-links" id="docs-nav">
   
   
-  <div class="docs-toc-item active">
+  <div class="docs-toc-item">
     <a class="docs-toc-link" href="/tutorial/">Overview</a>
 
   </div>
@@ -405,19 +413,69 @@
       <article class="article" itemscope itemtype="http://schema.org/Article">
 
         <div class="docs-article-container">
-          <h1 itemprop="name">Overview</h1>
+          <h1 itemprop="name">2. Sintaks Bahasa R</h1>
 
           <div class="article-style" itemprop="articleBody">
             
 
 
-<p>Pada section ini penulis akan menyajikan beberapa tutorial terkait analisa data dan modeling menggunakan <code>R</code>. Tutorial secara garis besar akan membahas:</p>
-<ul>
-<li>Analisa dan modeling data menggunakan metode statistik di <code>R</code></li>
-<li>Analisa dan modeling lingkungan menggunakan <code>R</code></li>
-<li>Optimasi operasi menggunakan <code>R</code></li>
-</ul>
-<p>Pembahasan juga akan meliputi analisa statistik menggunakan <code>GUI R (R Commander)</code> untuk menganalisa data.</p>
+<div id="operator-aritmatika" class="section level2">
+<h2>2.1 Operator Aritmatika</h2>
+<p>Proses perhitungan akan ditangani oleh fungsi khusus. <code>R</code> akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:</p>
+<pre class="r"><code>2+4*2</code></pre>
+<pre><code>## [1] 10</code></pre>
+<p>Bandingkan dengan sintaks berikut:</p>
+<pre class="r"><code>(2+4)*2</code></pre>
+<pre><code>## [1] 12</code></pre>
+<p>Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, <code>R</code> akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.</p>
+<p>Operator aritmatika yang disediakan <code>R</code> adalah sebagai berikut:</p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="84%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Simbol</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td><em>Addition</em>, untuk operasi penjumlahan</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td><em>Substractio</em>, untuk operasi pengurangan</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td><em>Multiplication</em>, untuk operasi pembagian</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td><em>Division</em>, untuk operasi pembagian</td>
+</tr>
+<tr class="odd">
+<td>^</td>
+<td><em>Eksponentiation</em>, untuk operasi pemangkatan</td>
+</tr>
+<tr class="even">
+<td>%%</td>
+<td><em>Modulus</em>, Untuk mencari sisa pembagian</td>
+</tr>
+<tr class="odd">
+<td>%/%</td>
+<td><em>Integer</em>, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian</td>
+</tr>
+<tr class="even">
+<td>—————</td>
+<td>————————————————————————————–</td>
+</tr>
+</tbody>
+</table>
+</div>
 
           </div>
 
@@ -426,7 +484,7 @@
         </div>
 
         <div class="body-footer">
-          Last updated on Mar 1, 2019
+          Last updated on Sep 9, 2018
         </div>
 
       </article>

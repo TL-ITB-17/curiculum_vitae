@@ -1,0 +1,41 @@
+---
+title: "2. Sintaks Bahasa R"
+draft: false
+date: '2018-09-09T00:00:00+07:00'
+output: pdf_document
+menu:
+  tutorial:
+    parent: Bahasa Pemrograman R
+    weight: 2
+linktitle: Sintaks Bahasa R
+type: docs
+---
+
+## 2.1 Operator Aritmatika
+
+Proses perhitungan akan ditangani oleh fungsi khusus. `R` akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
+
+```{r}
+2+4*2
+```
+
+Bandingkan dengan sintaks berikut:
+
+```{r}
+(2+4)*2
+```
+
+Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, `R` akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian. 
+
+Operator aritmatika yang disediakan `R` adalah sebagai berikut:
+
+**Simbol**     | **Keterangan**
+---------------|--------------------------------------------------------------------------------------
++              | *Addition*, untuk operasi penjumlahan
+-              | *Substractio*, untuk operasi pengurangan
+*              | *Multiplication*, untuk operasi pembagian
+/              | *Division*, untuk operasi pembagian
+^              | *Eksponentiation*, untuk operasi pemangkatan
+%%             | *Modulus*, Untuk mencari sisa pembagian
+%/%            | *Integer*, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian
+---------------|--------------------------------------------------------------------------------------

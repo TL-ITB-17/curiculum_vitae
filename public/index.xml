@@ -190,14 +190,83 @@ Figure 3: Jendela RStudio.
     
     <item>
       <title>2. Sintaks Bahasa R</title>
-      <link>/tutorial/02_mengimpor-dan-mengekspor-data-pada-r/</link>
+      <link>/tutorial/02_sintak-bahasa-r/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/02_mengimpor-dan-mengekspor-data-pada-r/</guid>
+      <guid>/tutorial/02_sintak-bahasa-r/</guid>
       <description>
 
 
 
+</description>
+    </item>
+    
+    <item>
+      <title>2. Sintaks Bahasa R</title>
+      <link>/tutorial/02_sintaks-bahasa-r/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/02_sintaks-bahasa-r/</guid>
+      <description>
+
+
+&lt;div id=&#34;operator-aritmatika&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.1 Operator Aritmatika&lt;/h2&gt;
+&lt;p&gt;Proses perhitungan akan ditangani oleh fungsi khusus. &lt;code&gt;R&lt;/code&gt; akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;2+4*2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bandingkan dengan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(2+4)*2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 12&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, &lt;code&gt;R&lt;/code&gt; akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.&lt;/p&gt;
+&lt;p&gt;Operator aritmatika yang disediakan &lt;code&gt;R&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;15%&#34; /&gt;
+&lt;col width=&#34;84%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Simbol&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;+&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Addition&lt;/em&gt;, untuk operasi penjumlahan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Substractio&lt;/em&gt;, untuk operasi pengurangan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Multiplication&lt;/em&gt;, untuk operasi pembagian&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;/&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Division&lt;/em&gt;, untuk operasi pembagian&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;^&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Eksponentiation&lt;/em&gt;, untuk operasi pemangkatan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;%%&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Modulus&lt;/em&gt;, Untuk mencari sisa pembagian&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;%/%&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Integer&lt;/em&gt;, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;—————&lt;/td&gt;
+&lt;td&gt;————————————————————————————–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
 </description>
     </item>
     
