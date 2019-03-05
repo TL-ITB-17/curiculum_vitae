@@ -562,6 +562,7 @@ my_data
 ```
 
 > **NOte: **
+>
 > + **cbind()**: menggabungkan objek `R` berdasarkan kolom
 > + **rbind()**: menggabungkan objek `R` berdasarkan baris
 > + **rownames()**: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks
@@ -581,6 +582,7 @@ matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
 ```
 
 > **Note: **
+>
 > + **data**: vektor data opsional
 > + **nrow**, **ncol**: jumlah baris dan kolom yang diinginkan, masing-masing.
 > + **byrow**: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.

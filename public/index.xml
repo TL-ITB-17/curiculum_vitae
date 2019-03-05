@@ -795,7 +795,13 @@ my_data&lt;/code&gt;&lt;/pre&gt;
 ## row4    8    9    8
 ## row5    9    8    7&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;NOte: &lt;/strong&gt; + &lt;strong&gt;cbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan kolom + &lt;strong&gt;rbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan baris + &lt;strong&gt;rownames()&lt;/strong&gt;: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks + &lt;strong&gt;colnames()&lt;/strong&gt;: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOte: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;cbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan kolom&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan baris&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rownames()&lt;/strong&gt;: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;colnames()&lt;/strong&gt;: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Kita dapat melakukan tranpose (merotasi matriks sehingga kolom menjadi baris dan sebaliknya) menggunakan fungsi &lt;code&gt;t()&lt;/code&gt;. Berikut adalah contoh penerapannya:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t(my_data)&lt;/code&gt;&lt;/pre&gt;
@@ -807,7 +813,13 @@ my_data&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
        dimnames = NULL)&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; + &lt;strong&gt;data&lt;/strong&gt;: vektor data opsional + &lt;strong&gt;nrow&lt;/strong&gt;, &lt;strong&gt;ncol&lt;/strong&gt;: jumlah baris dan kolom yang diinginkan, masing-masing. + &lt;strong&gt;byrow&lt;/strong&gt;: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris. + &lt;strong&gt;dimnames&lt;/strong&gt;: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt;: vektor data opsional&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;nrow&lt;/strong&gt;, &lt;strong&gt;ncol&lt;/strong&gt;: jumlah baris dan kolom yang diinginkan, masing-masing.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;byrow&lt;/strong&gt;: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;dimnames&lt;/strong&gt;: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Dalam kode &lt;code&gt;R&lt;/code&gt; di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini &lt;code&gt;nrow = 3&lt;/code&gt;). &lt;code&gt;R&lt;/code&gt; akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen &lt;code&gt;byrow = FALSE&lt;/code&gt;. Jika kita ingin mengisi matriks dengan baris, gunakan &lt;code&gt;byrow = TRUE&lt;/code&gt;. Berikut adalah contoh pembuatan matriks menggunakan fungsi &lt;code&gt;matrix()&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_data &amp;lt;- matrix(

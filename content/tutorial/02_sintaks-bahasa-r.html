@@ -611,7 +611,13 @@ my_data</code></pre>
 ## row4    8    9    8
 ## row5    9    8    7</code></pre>
 <blockquote>
-<p><strong>NOte: </strong> + <strong>cbind()</strong>: menggabungkan objek <code>R</code> berdasarkan kolom + <strong>rbind()</strong>: menggabungkan objek <code>R</code> berdasarkan baris + <strong>rownames()</strong>: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks + <strong>colnames()</strong>: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks</p>
+<p><strong>NOte: </strong></p>
+<ul>
+<li><strong>cbind()</strong>: menggabungkan objek <code>R</code> berdasarkan kolom</li>
+<li><strong>rbind()</strong>: menggabungkan objek <code>R</code> berdasarkan baris</li>
+<li><strong>rownames()</strong>: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks</li>
+<li><strong>colnames()</strong>: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks</li>
+</ul>
 </blockquote>
 <p>Kita dapat melakukan tranpose (merotasi matriks sehingga kolom menjadi baris dan sebaliknya) menggunakan fungsi <code>t()</code>. Berikut adalah contoh penerapannya:</p>
 <pre class="r"><code>t(my_data)</code></pre>
@@ -623,7 +629,13 @@ my_data</code></pre>
 <pre class="r"><code>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
        dimnames = NULL)</code></pre>
 <blockquote>
-<p><strong>Note: </strong> + <strong>data</strong>: vektor data opsional + <strong>nrow</strong>, <strong>ncol</strong>: jumlah baris dan kolom yang diinginkan, masing-masing. + <strong>byrow</strong>: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris. + <strong>dimnames</strong>: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.</p>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: vektor data opsional</li>
+<li><strong>nrow</strong>, <strong>ncol</strong>: jumlah baris dan kolom yang diinginkan, masing-masing.</li>
+<li><strong>byrow</strong>: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.</li>
+<li><strong>dimnames</strong>: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.</li>
+</ul>
 </blockquote>
 <p>Dalam kode <code>R</code> di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini <code>nrow = 3</code>). <code>R</code> akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen <code>byrow = FALSE</code>. Jika kita ingin mengisi matriks dengan baris, gunakan <code>byrow = TRUE</code>. Berikut adalah contoh pembuatan matriks menggunakan fungsi <code>matrix()</code>.</p>
 <pre class="r"><code>my_data &lt;- matrix(
