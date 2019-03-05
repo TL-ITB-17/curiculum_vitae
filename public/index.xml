@@ -671,9 +671,9 @@ Jumlah&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;subset-pada-vektor&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;2.7.3 Subset Pada Vektor&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Subseting vector&lt;/em&gt; terdiri atas dua jenis, yaitu: &lt;em&gt;positive indexing&lt;/em&gt; dan &lt;em&gt;Negative Indexing&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Subseting vector&lt;/em&gt; terdiri atas tiga jenis, yaitu: &lt;em&gt;positive indexing&lt;/em&gt;, &lt;em&gt;Negative Indexing&lt;/em&gt;, dan .&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Positive indexing&lt;/em&gt;: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Positive indexing&lt;/strong&gt;: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset vektor pada urutan kedua
 Jumlah[2]&lt;/code&gt;&lt;/pre&gt;
@@ -690,6 +690,79 @@ Jumlah[c(2, 4)]&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Indeks pada &lt;code&gt;R&lt;/code&gt; dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Negative indexing&lt;/strong&gt;: mengecualikan (&lt;em&gt;exclude&lt;/em&gt;) elemen vektor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengecualikan elemen vektor 2 dan 4
+Jumlah[-c(2,4)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel Rambutan 
+##        5        6&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengecualikan elemen vektor 1 sampai 3
+Jumlah[-c(1:3)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Salak 
+##     7&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Subset berdasarkan vektor logical&lt;/strong&gt;: Hanya, elemen-elemen yang nilai yang bersesuaian dalam vektor pemilihan bernilai TRUE, akan disimpan dalam subset.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; panjang vektor yang digunakan untuk subset harus sama.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Jumlah &amp;lt;- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)
+
+# selecting vector
+merah &amp;lt;- c(TRUE, FALSE, TRUE, FALSE)
+
+# Subset
+Jumlah[merah==TRUE]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel Rambutan 
+##        5        6&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset untuk elemen vektor bukan missing value
+Jumlah[!is.na(Jumlah)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel Rambutan    Salak 
+##        5        6        7&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;perhitungan-menggunakan-vektor&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.7.4 Perhitungan Menggunakan Vektor&lt;/h3&gt;
+&lt;p&gt;Jika Anda melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pendapatan &amp;lt;- c(2000, 1800, 2500, 3000)
+names(pendapatan) &amp;lt;- c(&amp;quot;Andi&amp;quot;, &amp;quot;Joni&amp;quot;, &amp;quot;Lina&amp;quot;, &amp;quot;Rani&amp;quot;)
+pendapatan&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
+## 2000 1800 2500 3000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kalikan pendapatan dengan 3
+pendapatan*3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
+## 6000 5400 7500 9000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Seperti yang dapat dilihat, &lt;code&gt;R&lt;/code&gt; mengalikan setiap elemen dengan bilangan pengali.&lt;/p&gt;
+&lt;p&gt;Kita juga dapat mengalikan vektor dengan vektor lainnya.Contohnya disajikan pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor dengan panjang sama dengan dengan vektor pendapatan
+coefs &amp;lt;- c(2, 1.5, 1, 3)
+
+# Mengalikan pendapatan dengan vektor coefs
+pendapatan*coefs&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
+## 4000 2700 2500 9000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan sintaks tersebut dapat terlihat bahwa operasi matematik terhadap masing-masing vektor dapat berlangsung jika panjang vektornya sama.&lt;/p&gt;
+&lt;p&gt;Berikut adalah fungsi lain yang dapat digunakan pada operasi matematika vektor.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;max(x) # memperoleh nilai maksimum x
+min(x) # memperoleh nilai minimum x
+range(x) # memperoleh range vektor x
+length(x) # memperoleh jumlah elemen vektor x
+sum(x) # memperoleh total penjumlahan elemen vektor x
+prod(x) # memeperoleh produk elemen vektor x
+mean(x) # memperoleh nilai rata-rata seluruh elemen vektor x
+sd(x) # standar deviasi vektor x
+var(x) # varian vektor x
+sort(x) # mengurutkan elemen vektor x dari yang terbesar&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Contoh penggunaan fungsi tersebut disajikan beberapa pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menghitung range pendapatan
+range(pendapatan)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1800 3000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menghitung rata-rata dan standar deviasi pendapatan
+mean(pendapatan)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2325&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(pendapatan)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 537.7422&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

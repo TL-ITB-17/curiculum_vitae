@@ -487,9 +487,9 @@ Jumlah</code></pre>
 </div>
 <div id="subset-pada-vektor" class="section level3">
 <h3>2.7.3 Subset Pada Vektor</h3>
-<p><em>Subseting vector</em> terdiri atas dua jenis, yaitu: <em>positive indexing</em> dan <em>Negative Indexing</em>.</p>
+<p><em>Subseting vector</em> terdiri atas tiga jenis, yaitu: <em>positive indexing</em>, <em>Negative Indexing</em>, dan .</p>
 <ul>
-<li><em>Positive indexing</em>: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.</li>
+<li><strong>Positive indexing</strong>: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.</li>
 </ul>
 <pre class="r"><code># Subset vektor pada urutan kedua
 Jumlah[2]</code></pre>
@@ -506,5 +506,78 @@ Jumlah[c(2, 4)]</code></pre>
 <blockquote>
 <p><strong>Note: </strong> Indeks pada <code>R</code> dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]</p>
 </blockquote>
+<ul>
+<li><strong>Negative indexing</strong>: mengecualikan (<em>exclude</em>) elemen vektor.</li>
+</ul>
+<pre class="r"><code># mengecualikan elemen vektor 2 dan 4
+Jumlah[-c(2,4)]</code></pre>
+<pre><code>##     Apel Rambutan 
+##        5        6</code></pre>
+<pre class="r"><code># mengecualikan elemen vektor 1 sampai 3
+Jumlah[-c(1:3)]</code></pre>
+<pre><code>## Salak 
+##     7</code></pre>
+<ul>
+<li><strong>Subset berdasarkan vektor logical</strong>: Hanya, elemen-elemen yang nilai yang bersesuaian dalam vektor pemilihan bernilai TRUE, akan disimpan dalam subset.</li>
+</ul>
+<blockquote>
+<p><strong>Note: </strong> panjang vektor yang digunakan untuk subset harus sama.</p>
+</blockquote>
+<pre class="r"><code>Jumlah &lt;- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)
+
+# selecting vector
+merah &lt;- c(TRUE, FALSE, TRUE, FALSE)
+
+# Subset
+Jumlah[merah==TRUE]</code></pre>
+<pre><code>##     Apel Rambutan 
+##        5        6</code></pre>
+<pre class="r"><code># Subset untuk elemen vektor bukan missing value
+Jumlah[!is.na(Jumlah)]</code></pre>
+<pre><code>##     Apel Rambutan    Salak 
+##        5        6        7</code></pre>
+</div>
+<div id="perhitungan-menggunakan-vektor" class="section level3">
+<h3>2.7.4 Perhitungan Menggunakan Vektor</h3>
+<p>Jika Anda melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:</p>
+<pre class="r"><code>pendapatan &lt;- c(2000, 1800, 2500, 3000)
+names(pendapatan) &lt;- c(&quot;Andi&quot;, &quot;Joni&quot;, &quot;Lina&quot;, &quot;Rani&quot;)
+pendapatan</code></pre>
+<pre><code>## Andi Joni Lina Rani 
+## 2000 1800 2500 3000</code></pre>
+<pre class="r"><code># Kalikan pendapatan dengan 3
+pendapatan*3</code></pre>
+<pre><code>## Andi Joni Lina Rani 
+## 6000 5400 7500 9000</code></pre>
+<p>Seperti yang dapat dilihat, <code>R</code> mengalikan setiap elemen dengan bilangan pengali.</p>
+<p>Kita juga dapat mengalikan vektor dengan vektor lainnya.Contohnya disajikan pada sintaks berikut:</p>
+<pre class="r"><code># membuat vektor dengan panjang sama dengan dengan vektor pendapatan
+coefs &lt;- c(2, 1.5, 1, 3)
+
+# Mengalikan pendapatan dengan vektor coefs
+pendapatan*coefs</code></pre>
+<pre><code>## Andi Joni Lina Rani 
+## 4000 2700 2500 9000</code></pre>
+<p>Berdasarkan sintaks tersebut dapat terlihat bahwa operasi matematik terhadap masing-masing vektor dapat berlangsung jika panjang vektornya sama.</p>
+<p>Berikut adalah fungsi lain yang dapat digunakan pada operasi matematika vektor.</p>
+<pre class="r"><code>max(x) # memperoleh nilai maksimum x
+min(x) # memperoleh nilai minimum x
+range(x) # memperoleh range vektor x
+length(x) # memperoleh jumlah elemen vektor x
+sum(x) # memperoleh total penjumlahan elemen vektor x
+prod(x) # memeperoleh produk elemen vektor x
+mean(x) # memperoleh nilai rata-rata seluruh elemen vektor x
+sd(x) # standar deviasi vektor x
+var(x) # varian vektor x
+sort(x) # mengurutkan elemen vektor x dari yang terbesar</code></pre>
+<p>Contoh penggunaan fungsi tersebut disajikan beberapa pada sintaks berikut:</p>
+<pre class="r"><code># Menghitung range pendapatan
+range(pendapatan)</code></pre>
+<pre><code>## [1] 1800 3000</code></pre>
+<pre class="r"><code># menghitung rata-rata dan standar deviasi pendapatan
+mean(pendapatan)</code></pre>
+<pre><code>## [1] 2325</code></pre>
+<pre class="r"><code>sd(pendapatan)</code></pre>
+<pre><code>## [1] 537.7422</code></pre>
 </div>
 </div>

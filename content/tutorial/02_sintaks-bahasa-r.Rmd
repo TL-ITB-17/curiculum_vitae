@@ -437,9 +437,9 @@ is.na(Jumlah)
 
 ### 2.7.3 Subset Pada Vektor
 
-*Subseting vector* terdiri atas dua jenis, yaitu: *positive indexing* dan *Negative Indexing*.
+*Subseting vector* terdiri atas tiga jenis, yaitu: *positive indexing*, *Negative Indexing*, dan .
 
-* *Positive indexing*: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.
+* **Positive indexing**: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.
 
 ```{r}
 # Subset vektor pada urutan kedua
@@ -457,5 +457,84 @@ Jumlah["Jeruk"]
 
 > **Note: ** Indeks pada `R` dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]
 
+* **Negative indexing**: mengecualikan (*exclude*) elemen vektor.
 
+```{r}
+# mengecualikan elemen vektor 2 dan 4
+Jumlah[-c(2,4)]
+
+# mengecualikan elemen vektor 1 sampai 3
+Jumlah[-c(1:3)]
+```
+
+* **Subset berdasarkan vektor logical**: Hanya, elemen-elemen yang nilai yang bersesuaian dalam vektor pemilihan bernilai TRUE, akan disimpan dalam subset.
+
+> **Note: ** panjang vektor yang digunakan untuk subset harus sama.
+
+```{r}
+Jumlah <- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)
+
+# selecting vector
+merah <- c(TRUE, FALSE, TRUE, FALSE)
+
+# Subset
+Jumlah[merah==TRUE]
+
+# Subset untuk elemen vektor bukan missing value
+Jumlah[!is.na(Jumlah)]
+```
+
+### 2.7.4 Perhitungan Menggunakan Vektor
+
+Jika Anda melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:
+
+```{r}
+pendapatan <- c(2000, 1800, 2500, 3000)
+names(pendapatan) <- c("Andi", "Joni", "Lina", "Rani")
+pendapatan
+
+# Kalikan pendapatan dengan 3
+pendapatan*3
+```
+
+Seperti yang dapat dilihat, `R` mengalikan setiap elemen dengan bilangan pengali.
+
+Kita juga dapat mengalikan vektor dengan vektor lainnya.Contohnya disajikan pada sintaks berikut:
+
+```{r}
+# membuat vektor dengan panjang sama dengan dengan vektor pendapatan
+coefs <- c(2, 1.5, 1, 3)
+
+# Mengalikan pendapatan dengan vektor coefs
+pendapatan*coefs
+```
+
+Berdasarkan sintaks tersebut dapat terlihat bahwa operasi matematik terhadap masing-masing vektor dapat berlangsung jika panjang vektornya sama.
+
+Berikut adalah fungsi lain yang dapat digunakan pada operasi matematika vektor.
+
+```{r, results='hide'}
+max(x) # memperoleh nilai maksimum x
+min(x) # memperoleh nilai minimum x
+range(x) # memperoleh range vektor x
+length(x) # memperoleh jumlah elemen vektor x
+sum(x) # memperoleh total penjumlahan elemen vektor x
+prod(x) # memeperoleh produk elemen vektor x
+mean(x) # memperoleh nilai rata-rata seluruh elemen vektor x
+sd(x) # standar deviasi vektor x
+var(x) # varian vektor x
+sort(x) # mengurutkan elemen vektor x dari yang terbesar
+```
+
+Contoh penggunaan fungsi tersebut disajikan beberapa pada sintaks berikut:
+
+```{r}
+# Menghitung range pendapatan
+range(pendapatan)
+
+# menghitung rata-rata dan standar deviasi pendapatan
+mean(pendapatan)
+sd(pendapatan)
+
+```
 
