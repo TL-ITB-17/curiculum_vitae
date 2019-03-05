@@ -434,3 +434,77 @@ as.numeric(minum)</code></pre>
 &quot;My friend&#39;s name \&quot;Adi\&quot;&quot;</code></pre>
 <pre><code>## [1] &quot;My friend&#39;s name \&quot;Adi\&quot;&quot;</code></pre>
 </div>
+<div id="vektor" class="section level2">
+<h2>2.7 Vektor</h2>
+<p>Vektor merupakan kombinasi berbagai nilai (numerik, karakter, logical, dan sebagainya berdasarkan jenis input data) pada objek yang sma. Pada contoh kasus berikut, pembaca akan memiliki sesuai jenis data input yaitu<strong>vektor numerik</strong>, <strong>vector karakter</strong>, <strong>vektor logical</strong>, dll.</p>
+<div id="membuat-vektor" class="section level3">
+<h3>2.7.1 Membuat vektor</h3>
+<p>Vektor dibuat dengan menggunakan fungsi <code>c()</code>(concatenate) seperti yang disajikan pada sintaks berikut:</p>
+<pre class="r"><code># membuat vektor numerik
+x &lt;- c(3,3.5,4,7)
+x # print vektor</code></pre>
+<pre><code>## [1] 3.0 3.5 4.0 7.0</code></pre>
+<pre class="r"><code># membuat vektor karakter
+y &lt;- c(&quot;Apel&quot;, &quot;Jeruk&quot;, &quot;Rambutan&quot;, &quot;Salak&quot;)
+y # print vektor</code></pre>
+<pre><code>## [1] &quot;Apel&quot;     &quot;Jeruk&quot;    &quot;Rambutan&quot; &quot;Salak&quot;</code></pre>
+<pre class="r"><code># membuat vektor logical
+t &lt;- c(&quot;TRUE&quot;, &quot;FALSE&quot;, &quot;TRUE&quot;)
+t # print vektor</code></pre>
+<pre><code>## [1] &quot;TRUE&quot;  &quot;FALSE&quot; &quot;TRUE&quot;</code></pre>
+<p>selain menginput nilai pada vektor, kita juga dapat memberi nama nilai setiap vektor menggunakan fungsi <code>names()</code>.</p>
+<pre class="r"><code># Membuat vektor jumlah buah yang dibeli
+Jumlah &lt;- c(5,5,6,7)
+names(Jumlah) &lt;- c(&quot;Apel&quot;, &quot;Jeruk&quot;, &quot;Rambutan&quot;, &quot;Salak&quot;)
+
+# Atau
+Jumlah &lt;- c(Apel=5, Jeruk=5, Rambutan=6, Salak=7)
+
+# Print
+Jumlah</code></pre>
+<pre><code>##     Apel    Jeruk Rambutan    Salak 
+##        5        5        6        7</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Vektor hanya dapat memuat satu buah jenis data. Vektor hanya dapat mengandung jenis data numerik saja, karakter saja, dll.</p>
+</blockquote>
+<p>Untuk menentukan panjang sebuah vektor kita dapat menggunakan fungsi <code>lenght()</code>.</p>
+<pre class="r"><code>length(Jumlah)</code></pre>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="missing-values" class="section level3">
+<h3>2.7.2 Missing Values</h3>
+<p>Seringkali nilai pada vektor kita tidak lengkap atau terdapat nilai yang hilang (<em>missing value</em>) pada vektor. <em>Missing value</em> pada <code>R</code> dilambangkan oleh <code>NA</code>(<em>not available</em>). Berikut adalah contoh vektor dengan <em>missing value</em>.</p>
+<pre class="r"><code>Jumlah &lt;- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)</code></pre>
+<p>Untuk mengecek apakah dalam objek terdapat <em>missing value</em> dapat menggunakan fungsi <code>is.na()</code>. ouput dari fungsi tersebut adalah nilai Boolean. Jika terdapat <em>Missing value</em>, maka output yang dihasilkan akan memberikan nilai <code>TRUE</code>.</p>
+<pre class="r"><code>is.na(Jumlah)</code></pre>
+<pre><code>##     Apel    Jeruk Rambutan    Salak 
+##    FALSE     TRUE    FALSE    FALSE</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<p>Selain NA terdapat NaN (<em>not a number</em>) sebagai <em>missing value8</em>. Nilai tersebut muncul ketika fungsi matematika yang digunakan pada proses perhitungan tidak bekerja sebagaimana mestinya. Contoh: 0/0 = NaN</p>
+<p><code>is.na()</code> juga akan menghasilkan nilai <code>TRUE</code> pada NaN. Untuk membedakannya dengan NA dapat digunakan fungsi <code>is.nan()</code>.</p>
+</blockquote>
+</div>
+<div id="subset-pada-vektor" class="section level3">
+<h3>2.7.3 Subset Pada Vektor</h3>
+<p><em>Subseting vector</em> terdiri atas dua jenis, yaitu: <em>positive indexing</em> dan <em>Negative Indexing</em>.</p>
+<ul>
+<li><em>Positive indexing</em>: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.</li>
+</ul>
+<pre class="r"><code># Subset vektor pada urutan kedua
+Jumlah[2]</code></pre>
+<pre><code>## Jeruk 
+##    NA</code></pre>
+<pre class="r"><code># Subset vektor pada urutan 2 dan 4
+Jumlah[c(2, 4)]</code></pre>
+<pre><code>## Jeruk Salak 
+##    NA     7</code></pre>
+<p>Selain melalui urutan (indeks), kita juga dapat melakukan subset berdasarkan nama elemen vektornya.</p>
+<pre class="r"><code>Jumlah[&quot;Jeruk&quot;]</code></pre>
+<pre><code>## Jeruk 
+##    NA</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Indeks pada <code>R</code> dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]</p>
+</blockquote>
+</div>
+</div>

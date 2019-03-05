@@ -369,3 +369,93 @@ Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik 
 "My friend's name \"Adi\""
 ```
 
+## 2.7 Vektor
+
+Vektor merupakan kombinasi berbagai nilai (numerik, karakter, logical, dan sebagainya berdasarkan jenis input data) pada objek yang sma. Pada contoh kasus berikut, pembaca akan memiliki sesuai jenis data input yaitu**vektor numerik**, **vector karakter**, **vektor logical**, dll.
+
+
+### 2.7.1 Membuat vektor
+
+Vektor dibuat dengan menggunakan fungsi `c()`(concatenate) seperti yang disajikan pada sintaks berikut:
+
+```{r}
+# membuat vektor numerik
+x <- c(3,3.5,4,7)
+x # print vektor
+
+# membuat vektor karakter
+y <- c("Apel", "Jeruk", "Rambutan", "Salak")
+y # print vektor
+
+# membuat vektor logical
+t <- c("TRUE", "FALSE", "TRUE")
+t # print vektor
+
+```
+
+selain menginput nilai pada vektor, kita juga dapat memberi nama nilai setiap vektor menggunakan fungsi `names()`.
+
+```{r}
+# Membuat vektor jumlah buah yang dibeli
+Jumlah <- c(5,5,6,7)
+names(Jumlah) <- c("Apel", "Jeruk", "Rambutan", "Salak")
+
+# Atau
+Jumlah <- c(Apel=5, Jeruk=5, Rambutan=6, Salak=7)
+
+# Print
+Jumlah
+```
+
+> **Note: ** Vektor hanya dapat memuat satu buah jenis data. Vektor hanya dapat mengandung jenis data numerik saja, karakter saja, dll.
+
+Untuk menentukan panjang sebuah vektor kita dapat menggunakan fungsi `lenght()`.
+
+```{r}
+length(Jumlah)
+```
+
+### 2.7.2 Missing Values
+
+Seringkali nilai pada vektor kita tidak lengkap atau terdapat nilai yang hilang (*missing value*) pada vektor. *Missing value* pada `R` dilambangkan oleh `NA`(*not available*). Berikut adalah contoh vektor dengan *missing value*.
+
+```{r}
+Jumlah <- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)
+```
+
+Untuk mengecek apakah dalam objek terdapat *missing value* dapat menggunakan fungsi `is.na()`. ouput dari fungsi tersebut adalah nilai Boolean. Jika terdapat *Missing value*, maka output yang dihasilkan akan memberikan nilai `TRUE`.
+
+```{r}
+is.na(Jumlah)
+```
+
+> **Note: **
+> 
+> Selain NA terdapat NaN (*not a number*) sebagai *missing value8*. Nilai tersebut muncul ketika fungsi matematika yang digunakan pada proses perhitungan tidak bekerja sebagaimana mestinya. Contoh: 0/0 = NaN
+>
+> `is.na()` juga akan menghasilkan nilai `TRUE` pada NaN. Untuk membedakannya dengan NA dapat digunakan fungsi `is.nan()`.
+
+### 2.7.3 Subset Pada Vektor
+
+*Subseting vector* terdiri atas dua jenis, yaitu: *positive indexing* dan *Negative Indexing*.
+
+* *Positive indexing*: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.
+
+```{r}
+# Subset vektor pada urutan kedua
+Jumlah[2]
+
+# Subset vektor pada urutan 2 dan 4
+Jumlah[c(2, 4)]
+```
+
+Selain melalui urutan (indeks), kita juga dapat melakukan subset berdasarkan nama elemen vektornya.
+
+```{r}
+Jumlah["Jeruk"]
+```
+
+> **Note: ** Indeks pada `R` dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]
+
+
+
