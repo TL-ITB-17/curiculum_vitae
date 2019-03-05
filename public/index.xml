@@ -618,6 +618,80 @@ as.numeric(minum)&lt;/code&gt;&lt;/pre&gt;
 &amp;quot;My friend&amp;#39;s name \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;My friend&amp;#39;s name \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;div id=&#34;vektor&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.7 Vektor&lt;/h2&gt;
+&lt;p&gt;Vektor merupakan kombinasi berbagai nilai (numerik, karakter, logical, dan sebagainya berdasarkan jenis input data) pada objek yang sma. Pada contoh kasus berikut, pembaca akan memiliki sesuai jenis data input yaitu&lt;strong&gt;vektor numerik&lt;/strong&gt;, &lt;strong&gt;vector karakter&lt;/strong&gt;, &lt;strong&gt;vektor logical&lt;/strong&gt;, dll.&lt;/p&gt;
+&lt;div id=&#34;membuat-vektor&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.7.1 Membuat vektor&lt;/h3&gt;
+&lt;p&gt;Vektor dibuat dengan menggunakan fungsi &lt;code&gt;c()&lt;/code&gt;(concatenate) seperti yang disajikan pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor numerik
+x &amp;lt;- c(3,3.5,4,7)
+x # print vektor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.0 3.5 4.0 7.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor karakter
+y &amp;lt;- c(&amp;quot;Apel&amp;quot;, &amp;quot;Jeruk&amp;quot;, &amp;quot;Rambutan&amp;quot;, &amp;quot;Salak&amp;quot;)
+y # print vektor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Apel&amp;quot;     &amp;quot;Jeruk&amp;quot;    &amp;quot;Rambutan&amp;quot; &amp;quot;Salak&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor logical
+t &amp;lt;- c(&amp;quot;TRUE&amp;quot;, &amp;quot;FALSE&amp;quot;, &amp;quot;TRUE&amp;quot;)
+t # print vektor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;TRUE&amp;quot;  &amp;quot;FALSE&amp;quot; &amp;quot;TRUE&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;selain menginput nilai pada vektor, kita juga dapat memberi nama nilai setiap vektor menggunakan fungsi &lt;code&gt;names()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat vektor jumlah buah yang dibeli
+Jumlah &amp;lt;- c(5,5,6,7)
+names(Jumlah) &amp;lt;- c(&amp;quot;Apel&amp;quot;, &amp;quot;Jeruk&amp;quot;, &amp;quot;Rambutan&amp;quot;, &amp;quot;Salak&amp;quot;)
+
+# Atau
+Jumlah &amp;lt;- c(Apel=5, Jeruk=5, Rambutan=6, Salak=7)
+
+# Print
+Jumlah&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel    Jeruk Rambutan    Salak 
+##        5        5        6        7&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Vektor hanya dapat memuat satu buah jenis data. Vektor hanya dapat mengandung jenis data numerik saja, karakter saja, dll.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk menentukan panjang sebuah vektor kita dapat menggunakan fungsi &lt;code&gt;lenght()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(Jumlah)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;missing-values&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.7.2 Missing Values&lt;/h3&gt;
+&lt;p&gt;Seringkali nilai pada vektor kita tidak lengkap atau terdapat nilai yang hilang (&lt;em&gt;missing value&lt;/em&gt;) pada vektor. &lt;em&gt;Missing value&lt;/em&gt; pada &lt;code&gt;R&lt;/code&gt; dilambangkan oleh &lt;code&gt;NA&lt;/code&gt;(&lt;em&gt;not available&lt;/em&gt;). Berikut adalah contoh vektor dengan &lt;em&gt;missing value&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Jumlah &amp;lt;- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk mengecek apakah dalam objek terdapat &lt;em&gt;missing value&lt;/em&gt; dapat menggunakan fungsi &lt;code&gt;is.na()&lt;/code&gt;. ouput dari fungsi tersebut adalah nilai Boolean. Jika terdapat &lt;em&gt;Missing value&lt;/em&gt;, maka output yang dihasilkan akan memberikan nilai &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.na(Jumlah)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel    Jeruk Rambutan    Salak 
+##    FALSE     TRUE    FALSE    FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Selain NA terdapat NaN (&lt;em&gt;not a number&lt;/em&gt;) sebagai &lt;em&gt;missing value8&lt;/em&gt;. Nilai tersebut muncul ketika fungsi matematika yang digunakan pada proses perhitungan tidak bekerja sebagaimana mestinya. Contoh: 0/0 = NaN&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;is.na()&lt;/code&gt; juga akan menghasilkan nilai &lt;code&gt;TRUE&lt;/code&gt; pada NaN. Untuk membedakannya dengan NA dapat digunakan fungsi &lt;code&gt;is.nan()&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subset-pada-vektor&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.7.3 Subset Pada Vektor&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Subseting vector&lt;/em&gt; terdiri atas dua jenis, yaitu: &lt;em&gt;positive indexing&lt;/em&gt; dan &lt;em&gt;Negative Indexing&lt;/em&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Positive indexing&lt;/em&gt;: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset vektor pada urutan kedua
+Jumlah[2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Jeruk 
+##    NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset vektor pada urutan 2 dan 4
+Jumlah[c(2, 4)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Jeruk Salak 
+##    NA     7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Selain melalui urutan (indeks), kita juga dapat melakukan subset berdasarkan nama elemen vektornya.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Jumlah[&amp;quot;Jeruk&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Jeruk 
+##    NA&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Indeks pada &lt;code&gt;R&lt;/code&gt; dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
