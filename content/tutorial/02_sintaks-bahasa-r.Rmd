@@ -538,3 +538,79 @@ sd(pendapatan)
 
 ```
 
+## 2.8 Matriks
+
+Matriks seperti Excel sheet yang berisi banyak baris dan kolom (kumpulan bebrapa vektor). Matriks digunakan untuk menggabungkan vektor dengan tipe yang sama, yang bisa berupa numerik, karakter, atau logis. Matriks digunakan untuk menyimpan tabel data dalam R. Baris-baris matriks pada umumnya adalah individu / pengamatan dan kolom adalah variabel.
+
+### 2.8.1 Membuat matriks
+
+Untuk membuat matriks kita dapat menggunakan fungsi `cbind()` atau `rbind()`. Berikut adalah contoh sintaks untuk membuat matriks.
+
+```{r}
+# membuat vektor numerik
+col1 <- c(5, 6, 7, 8, 9)
+col2 <- c(2, 4, 5, 9, 8)
+col3 <- c(7, 3, 4, 8, 7)
+
+# menggabungkan vektor berdasarkan kolom
+my_data <- cbind(col1, col2, col3)
+my_data
+
+# Mengubah atau menambahkan nama baris
+rownames(my_data) <- c("row1", "row2", "row3", "row4", "row5")
+my_data
+```
+
+> **NOte: **
+> + **cbind()**: menggabungkan objek `R` berdasarkan kolom
+> + **rbind()**: menggabungkan objek `R` berdasarkan baris
+> + **rownames()**: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks
+> + **colnames()**: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks
+
+Kita dapat melakukan tranpose (merotasi matriks sehingga kolom menjadi baris dan sebaliknya) menggunakan fungsi `t()`. Berikut adalah contoh penerapannya:
+
+```{r}
+t(my_data)
+```
+
+Selain melalui pembentukan sejumlah objek vektor, kita juga dapat membuat matriks menggunakan fungsi `matrix()`. Secara sederhana fungsi tersebut dapat dituliskan sebagai berikut:
+
+```{r, results='hide'}
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
+       dimnames = NULL)
+```
+
+> **Note: **
+> + **data**: vektor data opsional
+> + **nrow**, **ncol**: jumlah baris dan kolom yang diinginkan, masing-masing.
+> + **byrow**: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.
+> + **dimnames**: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.
+
+Dalam kode `R` di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini `nrow = 3`). `R` akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen `byrow = FALSE`. Jika kita ingin mengisi matriks dengan baris, gunakan `byrow = TRUE`. Berikut adalah contoh pembuatan matriks menggunakan fungsi `matrix()`.
+
+```{r}
+my_data <- matrix(
+           data = c(1,2,3, 11,12,13), 
+           nrow = 2, byrow = TRUE,
+           dimnames = list(c("row1", "row2"), c("C.1", "C.2", "C.3"))
+           )
+my_data
+```
+
+Untuk mengetahui dimensi dari suatu matriks, kita dapat menggunakan fungsi `ncol()` untuk mengetahui jumlah kolom matriks dan `nrow()` untuk mengetahui jumlah baris pada matriks. Berikut adalah contoh penerapannya:
+
+```{r}
+# mengetahui jumlah kolom
+ncol(my_data)
+
+# mengetahui jumlah baris
+nrow(my_data)
+```
+
+Jika ingin memperoleh ringkasan terkait dimensi matriks kita juga dapat mengunakan fungsi `dim()` untuk mengetahui jumlah baris dan kolom matriks. Berikut adalah contoh penerapannya:
+
+```{r}
+dim(my_data) # jumlah baris dan kolom
+```
+
+
