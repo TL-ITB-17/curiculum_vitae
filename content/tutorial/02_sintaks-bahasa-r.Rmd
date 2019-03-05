@@ -107,7 +107,86 @@ abs(-2) # nilai absolut -2
 sqrt(4) # akar kuadrat 4
 ```
 
-## 2.3 Memasukkan Nilai Kedalam Variabel
+## 2.3 Operator Relasi
+
+Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan `R` disajikan pada Table 2.
+
+**Tabel 2** Operator Relasi `R`
+
+**Simbol**     | **Keterangan**           
+---------------|---------------------------
+">"            | Lebih besar dari
+"<"            | Lebih Kecil dari
+"=="           | Sama dengan
+">="           | Lebih besar sama dengan
+"<="           | Lebih kecil sama dengan
+"!="           | Tidak sama dengan
+
+Berikut adalah penerapan operator pada tabel tersebut:
+
+```{r}
+x <- 34
+y <- 35
+
+# Operator >
+x > y
+
+# Operator <
+x < y
+
+# operator ==
+x == y
+
+# Operator >=
+x >= y
+
+# Operator <=
+x <= y
+
+# Operator !=
+x != y
+
+```
+
+## 2.4 Operator Logika
+
+Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika `TRUE`. Operator logika yang disediakan `R` dapat dilihat pada Tabel 3.
+
+**Tabel 3** Operator logika `R`
+
+**Simbol**     | **Keterangan**           
+---------------|----------------------------------
+&&             | Operator logika AND
+||             | Operator logika OR
+!              | Opeartor logika NOT
+&              | Operator logika AND element wise
+|              | Operator logika OR element wise
+
+Penerapannya terdapat pada sintaks berikut:
+
+```{r}
+v <- c(TRUE,TRUE, FALSE)
+t <- c(FALSE,FALSE,FALSE)
+
+# Operator &&
+print(v&&t)
+
+# Operator ||
+print(v||t)
+
+# Operator !
+print(!v)
+
+# operator &
+print(v&t)
+
+# Operator |
+print(v|t)
+```
+
+> **Note: ** operator & dan | akan mengecek logika tiap elemen pada vektor secara berpesangan (sesuai urutan dari kiri ke kanan). Operator %% dan || hanya mengecek dari kiri ke kanan pada observasi pertama. Misal saat menggunakan && jika observasi pertama TRUE maka observasi pertama pada vektor lainnya akan dicek, namun jika observasi pertama FALSE maka proses akan segera dihentikan dan menghasilkan FALSE.
+
+## 2.5 Memasukkan Nilai Kedalam Variabel
 
 Variabel pada `R` dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:
 
@@ -190,11 +269,11 @@ ls()
 
 > **Note: ** Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.
 
-## 2.4 Tipe Data
+## 2.6 Tipe Data
 
 Data pada `R` dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada `R` disajikan pada Tabel 2.
 
-**Tabel 2** Tipe Data `R`
+**Tabel 4** Tipe Data `R`
 
 **Tipe Data**  | **Contoh**              | **Keterangan**
 ---------------|-------------------------|--------------------------------------------------

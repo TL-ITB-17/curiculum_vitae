@@ -541,8 +541,126 @@
 <pre class="r"><code>sqrt(4) # akar kuadrat 4</code></pre>
 <pre><code>## [1] 2</code></pre>
 </div>
+<div id="operator-relasi" class="section level2">
+<h2>2.3 Operator Relasi</h2>
+<p>Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan <code>R</code> disajikan pada Table 2.</p>
+<p><strong>Tabel 2</strong> Operator Relasi <code>R</code></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Simbol</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“&gt;”</td>
+<td>Lebih besar dari</td>
+</tr>
+<tr class="even">
+<td>“&lt;”</td>
+<td>Lebih Kecil dari</td>
+</tr>
+<tr class="odd">
+<td>“==”</td>
+<td>Sama dengan</td>
+</tr>
+<tr class="even">
+<td>“&gt;=”</td>
+<td>Lebih besar sama dengan</td>
+</tr>
+<tr class="odd">
+<td>“&lt;=”</td>
+<td>Lebih kecil sama dengan</td>
+</tr>
+<tr class="even">
+<td>“!=”</td>
+<td>Tidak sama dengan</td>
+</tr>
+</tbody>
+</table>
+<p>Berikut adalah penerapan operator pada tabel tersebut:</p>
+<pre class="r"><code>x &lt;- 34
+y &lt;- 35
+
+# Operator &gt;
+x &gt; y</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># Operator &lt;
+x &lt; y</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># operator ==
+x == y</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># Operator &gt;=
+x &gt;= y</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># Operator &lt;=
+x &lt;= y</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Operator !=
+x != y</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="operator-logika" class="section level2">
+<h2>2.4 Operator Logika</h2>
+<p>Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika <code>TRUE</code>. Operator logika yang disediakan <code>R</code> dapat dilihat pada Tabel 3.</p>
+<p><strong>Tabel 3</strong> Operator logika <code>R</code></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Simbol</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&amp;&amp;</td>
+<td>Operator logika AND</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>!</td>
+<td>Opeartor logika NOT</td>
+</tr>
+<tr class="even">
+<td>&amp;</td>
+<td>Operator logika AND element wise</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Operator logika OR element wise</td>
+</tr>
+</tbody>
+</table>
+<p>Penerapannya terdapat pada sintaks berikut:</p>
+<pre class="r"><code>v &lt;- c(TRUE,TRUE, FALSE)
+t &lt;- c(FALSE,FALSE,FALSE)
+
+# Operator &amp;&amp;
+print(v&amp;&amp;t)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># Operator ||
+print(v||t)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Operator !
+print(!v)</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE</code></pre>
+<pre class="r"><code># operator &amp;
+print(v&amp;t)</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE</code></pre>
+<pre class="r"><code># Operator |
+print(v|t)</code></pre>
+<pre><code>## [1]  TRUE  TRUE FALSE</code></pre>
+<blockquote>
+<p><strong>Note: </strong> operator &amp; dan | akan mengecek logika tiap elemen pada vektor secara berpesangan (sesuai urutan dari kiri ke kanan). Operator %% dan || hanya mengecek dari kiri ke kanan pada observasi pertama. Misal saat menggunakan &amp;&amp; jika observasi pertama TRUE maka observasi pertama pada vektor lainnya akan dicek, namun jika observasi pertama FALSE maka proses akan segera dihentikan dan menghasilkan FALSE.</p>
+</blockquote>
+</div>
 <div id="memasukkan-nilai-kedalam-variabel" class="section level2">
-<h2>2.3 Memasukkan Nilai Kedalam Variabel</h2>
+<h2>2.5 Memasukkan Nilai Kedalam Variabel</h2>
 <p>Variabel pada <code>R</code> dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:</p>
 <pre class="r"><code># Harga sebuah lemon adalah 500 rupiah
 lemon &lt;- 500
@@ -590,7 +708,8 @@ print(volume)</code></pre>
 <pre><code>## [1] 250</code></pre>
 <p>Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi <code>ls()</code>.</p>
 <pre class="r"><code>ls()</code></pre>
-<pre><code>## [1] &quot;lebar&quot;   &quot;lemon&quot;   &quot;panjang&quot; &quot;tinggi&quot;  &quot;volume&quot;</code></pre>
+<pre><code>## [1] &quot;lebar&quot;   &quot;lemon&quot;   &quot;panjang&quot; &quot;t&quot;       &quot;tinggi&quot;  &quot;v&quot;       &quot;volume&quot; 
+## [8] &quot;x&quot;       &quot;y&quot;</code></pre>
 <blockquote>
 <p>Kumpulan objek yang telah tersimpan dalam memori disebut sebagai <strong>workspace</strong></p>
 </blockquote>
@@ -600,15 +719,15 @@ rm(lemon, volume)
 
 # Tampilkan kembali objek yang tersisa
 ls()</code></pre>
-<pre><code>## [1] &quot;lebar&quot;   &quot;panjang&quot; &quot;tinggi&quot;</code></pre>
+<pre><code>## [1] &quot;lebar&quot;   &quot;panjang&quot; &quot;t&quot;       &quot;tinggi&quot;  &quot;v&quot;       &quot;x&quot;       &quot;y&quot;</code></pre>
 <blockquote>
 <p><strong>Note: </strong> Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.</p>
 </blockquote>
 </div>
 <div id="tipe-data" class="section level2">
-<h2>2.4 Tipe Data</h2>
+<h2>2.6 Tipe Data</h2>
 <p>Data pada <code>R</code> dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada <code>R</code> disajikan pada Tabel 2.</p>
-<p><strong>Tabel 2</strong> Tipe Data <code>R</code></p>
+<p><strong>Tabel 4</strong> Tipe Data <code>R</code></p>
 <table>
 <thead>
 <tr class="header">

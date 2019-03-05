@@ -319,8 +319,126 @@ Figure 3: Jendela RStudio.
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sqrt(4) # akar kuadrat 4&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;div id=&#34;operator-relasi&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.3 Operator Relasi&lt;/h2&gt;
+&lt;p&gt;Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan &lt;code&gt;R&lt;/code&gt; disajikan pada Table 2.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tabel 2&lt;/strong&gt; Operator Relasi &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Simbol&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;“&amp;gt;”&lt;/td&gt;
+&lt;td&gt;Lebih besar dari&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;“&amp;lt;”&lt;/td&gt;
+&lt;td&gt;Lebih Kecil dari&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;“==”&lt;/td&gt;
+&lt;td&gt;Sama dengan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;“&amp;gt;=”&lt;/td&gt;
+&lt;td&gt;Lebih besar sama dengan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;“&amp;lt;=”&lt;/td&gt;
+&lt;td&gt;Lebih kecil sama dengan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;“!=”&lt;/td&gt;
+&lt;td&gt;Tidak sama dengan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Berikut adalah penerapan operator pada tabel tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 34
+y &amp;lt;- 35
+
+# Operator &amp;gt;
+x &amp;gt; y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator &amp;lt;
+x &amp;lt; y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# operator ==
+x == y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator &amp;gt;=
+x &amp;gt;= y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator &amp;lt;=
+x &amp;lt;= y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator !=
+x != y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;operator-logika&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.4 Operator Logika&lt;/h2&gt;
+&lt;p&gt;Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika &lt;code&gt;TRUE&lt;/code&gt;. Operator logika yang disediakan &lt;code&gt;R&lt;/code&gt; dapat dilihat pada Tabel 3.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tabel 3&lt;/strong&gt; Operator logika &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Simbol&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&amp;amp;&amp;amp;&lt;/td&gt;
+&lt;td&gt;Operator logika AND&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;!&lt;/td&gt;
+&lt;td&gt;Opeartor logika NOT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&amp;amp;&lt;/td&gt;
+&lt;td&gt;Operator logika AND element wise&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Operator logika OR element wise&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Penerapannya terdapat pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;v &amp;lt;- c(TRUE,TRUE, FALSE)
+t &amp;lt;- c(FALSE,FALSE,FALSE)
+
+# Operator &amp;amp;&amp;amp;
+print(v&amp;amp;&amp;amp;t)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator ||
+print(v||t)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator !
+print(!v)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE  TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# operator &amp;amp;
+print(v&amp;amp;t)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator |
+print(v|t)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  TRUE  TRUE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; operator &amp;amp; dan | akan mengecek logika tiap elemen pada vektor secara berpesangan (sesuai urutan dari kiri ke kanan). Operator %% dan || hanya mengecek dari kiri ke kanan pada observasi pertama. Misal saat menggunakan &amp;amp;&amp;amp; jika observasi pertama TRUE maka observasi pertama pada vektor lainnya akan dicek, namun jika observasi pertama FALSE maka proses akan segera dihentikan dan menghasilkan FALSE.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
 &lt;div id=&#34;memasukkan-nilai-kedalam-variabel&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.3 Memasukkan Nilai Kedalam Variabel&lt;/h2&gt;
+&lt;h2&gt;2.5 Memasukkan Nilai Kedalam Variabel&lt;/h2&gt;
 &lt;p&gt;Variabel pada &lt;code&gt;R&lt;/code&gt; dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Harga sebuah lemon adalah 500 rupiah
 lemon &amp;lt;- 500
@@ -368,7 +486,8 @@ print(volume)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 250&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi &lt;code&gt;ls()&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ls()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;lemon&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;tinggi&amp;quot;  &amp;quot;volume&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;lemon&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;t&amp;quot;       &amp;quot;tinggi&amp;quot;  &amp;quot;v&amp;quot;       &amp;quot;volume&amp;quot; 
+## [8] &amp;quot;x&amp;quot;       &amp;quot;y&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Kumpulan objek yang telah tersimpan dalam memori disebut sebagai &lt;strong&gt;workspace&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -378,15 +497,15 @@ rm(lemon, volume)
 
 # Tampilkan kembali objek yang tersisa
 ls()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;tinggi&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;t&amp;quot;       &amp;quot;tinggi&amp;quot;  &amp;quot;v&amp;quot;       &amp;quot;x&amp;quot;       &amp;quot;y&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div id=&#34;tipe-data&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.4 Tipe Data&lt;/h2&gt;
+&lt;h2&gt;2.6 Tipe Data&lt;/h2&gt;
 &lt;p&gt;Data pada &lt;code&gt;R&lt;/code&gt; dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada &lt;code&gt;R&lt;/code&gt; disajikan pada Tabel 2.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Tabel 2&lt;/strong&gt; Tipe Data &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tabel 4&lt;/strong&gt; Tipe Data &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr class=&#34;header&#34;&gt;
