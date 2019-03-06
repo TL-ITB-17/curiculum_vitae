@@ -561,7 +561,7 @@ rownames(my_data) <- c("row1", "row2", "row3", "row4", "row5")
 my_data
 ```
 
-> **NOte: **
+> **Note: **
 >
 > + **cbind()**: menggabungkan objek `R` berdasarkan kolom
 > + **rbind()**: menggabungkan objek `R` berdasarkan baris
@@ -591,12 +591,12 @@ matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
 Dalam kode `R` di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini `nrow = 3`). `R` akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen `byrow = FALSE`. Jika kita ingin mengisi matriks dengan baris, gunakan `byrow = TRUE`. Berikut adalah contoh pembuatan matriks menggunakan fungsi `matrix()`.
 
 ```{r}
-my_data <- matrix(
+data <- matrix(
            data = c(1,2,3, 11,12,13), 
            nrow = 2, byrow = TRUE,
            dimnames = list(c("row1", "row2"), c("C.1", "C.2", "C.3"))
            )
-my_data
+data
 ```
 
 Untuk mengetahui dimensi dari suatu matriks, kita dapat menggunakan fungsi `ncol()` untuk mengetahui jumlah kolom matriks dan `nrow()` untuk mengetahui jumlah baris pada matriks. Berikut adalah contoh penerapannya:
@@ -615,4 +615,119 @@ Jika ingin memperoleh ringkasan terkait dimensi matriks kita juga dapat mengunak
 dim(my_data) # jumlah baris dan kolom
 ```
 
+### 2.8.2 Subset Pada Matriks
+
+Sama dengan vektor, subset juga dapat dilakukan pada matriks. Bedanya subset dilakukan berdasarkan baris dan kolom pada matriks.
+
+* **Memilih baris/kolom** berdasarkan pengindeksan positif
+
+baris atau kolom dapat diseleksi menggunakan format `data[row, col]`. Cara selesi ini sama dengan vektor, bedanya kita harus menetukan baris dan kolom dari data yang akan kita pilih. Berikut adalah contoh penerapannya:
+
+```{r}
+# Pilih baris ke-2
+my_data[2,]
+
+# Pilih baris 2 sampai 4
+my_data[2:4,]
+
+# Pilih baris 2 dan 4
+my_data[c(2,4),]
+
+# Pilih baris 2 dan kolom 3
+my_data[2, 3]
+
+```
+
+* **Pilih berdasarkan nama baris/kolom**
+
+Berikut adalah contoh subset berdasarkan nama baris atau kolom.
+
+```{r}
+# Pilih baris 1 dan kolom 3
+my_data["row1","col3"]
+
+# Pilih baris 1 sampai 4 dan kolom 3
+baris <- c("row1","row2","row3")
+my_data[baris, "col3"]
+```
+
+* **Kecualikan baris/kolom** dengan pengindeksan negatif
+
+Sama seperti vektor pengecualian data dapat dilakukan di matriks menggunakan pengindeksan negatif. Berikut cara melakukannya:
+
+```{r}
+# Kecualikan baris 2 dan 3 serta kolom 3
+my_data[-c(2,3), -3]
+
+```
+
+* **Pilihan dengan logika**
+
+Dalam kode `R` di bawah ini, misalkan kita ingin hanya menyimpan baris di mana col3> = 4:
+
+```{r}
+col3 <- my_data[, "col3"]
+my_data[col3 >= 4, ]
+```
+
+### 2.8.3 Perhitungan Menggunakan Matriks
+_
+Kita juga dapat melakukan operasi matematika pada matriks. Pada operasi matematika pada matriks proses yang terjadi bisa lebih kompleks dibanding pada vektor, dimana kita dapat melakukan operasi untuk memperoleh gambaran data pada tiap kolom atau baris.
+
+Berikut adalah contoh operasi matematika sederhana pada matriks:
+
+```{r}
+# mengalikan masing-masing elemen matriks dengan 2
+my_data*2
+
+# memperoleh nilai log basis 2 pada masing-masing elemen matriks
+log2(my_data)
+```
+
+Seperti yang telah penulis jelaskan sebelumnya, kita juga dapat melakukan operasi matematika untuk memperoleh hasil penjumlahan elemen pada tiap baris atau kolom dengan menggunakan fungsi `rowSums()` untuk baris dan `colSums()` untuk kolom.
+
+```{r}
+# Total pada tiap kolom
+colSums(my_data)
+
+# Total pada tiap baris
+rowSums(my_data)
+```
+
+Jika kita tertarik untuk mencari nilai rata-rata tiap baris arau kolom kita juga dapat menggunakan fungsi `rowMeans()` atau `colMeans()`. Berikut adalah contoh penerapannya:
+
+```{r}
+# Rata-rata tiap baris
+rowMeans(my_data)
+
+# Rata-rata tiap kolom
+colMeans(my_data)
+```
+
+Kita juga dapat melakukan perhitungan statistika lainnya menggunakan fungsi `apply()`. Berikut adalah format sederhananya:
+
+```{r, results="hide"}
+apply(x, MARGIN, FUN)
+```
+
+> **Note: **
+>
+> * x : data matriks
+> * MARGIN : Nilai yang dapat digunakan adalah 1 (untuk operasi pada baris) dan 2 (untuk operasi pada kolom)
+> * FUN : fungsi yang diterapkan pada baris atau kolom
+
+untuk mengetahui fungsi (`FUN`) apa saja yang dapat diterapkan pada fungsi `apply()` jalankan sintaks bantuan berikut:
+
+```{r, results="hide"}
+help(apply)
+```
+
+Berikut adalah contoh penerapannya:
+```{r}
+# Rata-rata pada tiap baris
+apply(my_data, MARGIN= 1, FUN = mean)
+
+# Median pada tiap kolom
+apply(my_data, 2, median)
+```
 

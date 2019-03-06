@@ -822,12 +822,12 @@ my_data&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Dalam kode &lt;code&gt;R&lt;/code&gt; di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini &lt;code&gt;nrow = 3&lt;/code&gt;). &lt;code&gt;R&lt;/code&gt; akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen &lt;code&gt;byrow = FALSE&lt;/code&gt;. Jika kita ingin mengisi matriks dengan baris, gunakan &lt;code&gt;byrow = TRUE&lt;/code&gt;. Berikut adalah contoh pembuatan matriks menggunakan fungsi &lt;code&gt;matrix()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_data &amp;lt;- matrix(
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- matrix(
            data = c(1,2,3, 11,12,13), 
            nrow = 2, byrow = TRUE,
            dimnames = list(c(&amp;quot;row1&amp;quot;, &amp;quot;row2&amp;quot;), c(&amp;quot;C.1&amp;quot;, &amp;quot;C.2&amp;quot;, &amp;quot;C.3&amp;quot;))
            )
-my_data&lt;/code&gt;&lt;/pre&gt;
+data&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##      C.1 C.2 C.3
 ## row1   1   2   3
 ## row2  11  12  13&lt;/code&gt;&lt;/pre&gt;
@@ -837,10 +837,69 @@ ncol(my_data)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengetahui jumlah baris
 nrow(my_data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Jika ingin memperoleh ringkasan terkait dimensi matriks kita juga dapat mengunakan fungsi &lt;code&gt;dim()&lt;/code&gt; untuk mengetahui jumlah baris dan kolom matriks. Berikut adalah contoh penerapannya:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dim(my_data) # jumlah baris dan kolom&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5 3&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subset-pada-matriks&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.8.2 Subset Pada Matriks&lt;/h3&gt;
+&lt;p&gt;Sama dengan vektor, subset juga dapat dilakukan pada matriks. Bedanya subset dilakukan berdasarkan baris dan kolom pada matriks.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Memilih baris/kolom&lt;/strong&gt; berdasarkan pengindeksan positif&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;baris atau kolom dapat diseleksi menggunakan format &lt;code&gt;data[row, col]&lt;/code&gt;. Cara selesi ini sama dengan vektor, bedanya kita harus menetukan baris dan kolom dari data yang akan kita pilih. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris ke-2
+my_data[2,]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
+##    6    4    3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 2 sampai 4
+my_data[2:4,]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## row2    6    4    3
+## row3    7    5    4
+## row4    8    9    8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 2 dan 4
+my_data[c(2,4),]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## row2    6    4    3
+## row4    8    9    8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 2 dan kolom 3
+my_data[2, 3]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pilih berdasarkan nama baris/kolom&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Berikut adalah contoh subset berdasarkan nama baris atau kolom.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 1 dan kolom 3
+my_data[&amp;quot;row1&amp;quot;,&amp;quot;col3&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 7&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 1 sampai 4 dan kolom 3
+baris &amp;lt;- c(&amp;quot;row1&amp;quot;,&amp;quot;row2&amp;quot;,&amp;quot;row3&amp;quot;)
+my_data[baris, &amp;quot;col3&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## row1 row2 row3 
+##    7    3    4&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kecualikan baris/kolom&lt;/strong&gt; dengan pengindeksan negatif&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sama seperti vektor pengecualian data dapat dilakukan di matriks menggunakan pengindeksan negatif. Berikut cara melakukannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kecualikan baris 2 dan 3 serta kolom 3
+my_data[-c(2,3), -3]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2
+## row1    5    2
+## row4    8    9
+## row5    9    8&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pilihan dengan logika&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Dalam kode &lt;code&gt;R&lt;/code&gt; di bawah ini, misalkan kita ingin hanya menyimpan baris di mana col3&amp;gt; = 4:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;col3 &amp;lt;- my_data[, &amp;quot;col3&amp;quot;]
+my_data[col3 &amp;gt;= 4, ]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## row1    5    2    7
+## row3    7    5    4
+## row4    8    9    8
+## row5    9    8    7&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
