@@ -795,7 +795,7 @@ my_data&lt;/code&gt;&lt;/pre&gt;
 ## row4    8    9    8
 ## row5    9    8    7&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;NOte: &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;cbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan kolom&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;rbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan baris&lt;/li&gt;
@@ -900,6 +900,67 @@ my_data[col3 &amp;gt;= 4, ]&lt;/code&gt;&lt;/pre&gt;
 ## row3    7    5    4
 ## row4    8    9    8
 ## row5    9    8    7&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;perhitungan-menggunakan-matriks&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.8.3 Perhitungan Menggunakan Matriks&lt;/h3&gt;
+&lt;p&gt;_ Kita juga dapat melakukan operasi matematika pada matriks. Pada operasi matematika pada matriks proses yang terjadi bisa lebih kompleks dibanding pada vektor, dimana kita dapat melakukan operasi untuk memperoleh gambaran data pada tiap kolom atau baris.&lt;/p&gt;
+&lt;p&gt;Berikut adalah contoh operasi matematika sederhana pada matriks:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengalikan masing-masing elemen matriks dengan 2
+my_data*2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## row1   10    4   14
+## row2   12    8    6
+## row3   14   10    8
+## row4   16   18   16
+## row5   18   16   14&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memperoleh nilai log basis 2 pada masing-masing elemen matriks
+log2(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          col1     col2     col3
+## row1 2.321928 1.000000 2.807355
+## row2 2.584963 2.000000 1.584963
+## row3 2.807355 2.321928 2.000000
+## row4 3.000000 3.169925 3.000000
+## row5 3.169925 3.000000 2.807355&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Seperti yang telah penulis jelaskan sebelumnya, kita juga dapat melakukan operasi matematika untuk memperoleh hasil penjumlahan elemen pada tiap baris atau kolom dengan menggunakan fungsi &lt;code&gt;rowSums()&lt;/code&gt; untuk baris dan &lt;code&gt;colSums()&lt;/code&gt; untuk kolom.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Total pada tiap kolom
+colSums(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
+##   35   28   29&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Total pada tiap baris
+rowSums(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## row1 row2 row3 row4 row5 
+##   14   13   16   25   24&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Jika kita tertarik untuk mencari nilai rata-rata tiap baris arau kolom kita juga dapat menggunakan fungsi &lt;code&gt;rowMeans()&lt;/code&gt; atau &lt;code&gt;colMeans()&lt;/code&gt;. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata tiap baris
+rowMeans(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     row1     row2     row3     row4     row5 
+## 4.666667 4.333333 5.333333 8.333333 8.000000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata tiap kolom
+colMeans(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
+##  7.0  5.6  5.8&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita juga dapat melakukan perhitungan statistika lainnya menggunakan fungsi &lt;code&gt;apply()&lt;/code&gt;. Berikut adalah format sederhananya:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apply(x, MARGIN, FUN)&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;x : data matriks&lt;/li&gt;
+&lt;li&gt;MARGIN : Nilai yang dapat digunakan adalah 1 (untuk operasi pada baris) dan 2 (untuk operasi pada kolom)&lt;/li&gt;
+&lt;li&gt;FUN : fungsi yang diterapkan pada baris atau kolom&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;untuk mengetahui fungsi (&lt;code&gt;FUN&lt;/code&gt;) apa saja yang dapat diterapkan pada fungsi &lt;code&gt;apply()&lt;/code&gt; jalankan sintaks bantuan berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;help(apply)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## starting httpd help server ... done&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata pada tiap baris
+apply(my_data, 1, mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     row1     row2     row3     row4     row5 
+## 4.666667 4.333333 5.333333 8.333333 8.000000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Median pada tiap kolom
+apply(my_data, 2, median)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
+##    7    5    7&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

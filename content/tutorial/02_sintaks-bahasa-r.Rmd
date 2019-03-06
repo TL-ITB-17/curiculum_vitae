@@ -706,9 +706,13 @@ colMeans(my_data)
 
 Kita juga dapat melakukan perhitungan statistika lainnya menggunakan fungsi `apply()`. Berikut adalah format sederhananya:
 
-```{r, results="hide"}
-apply(x, MARGIN, FUN)
+```{r, echo=FALSE}
+x <- my_data
+FUN <- mean
+MARGIN <-1
 ```
+
+`apply(x, MARGIN, FUN)`
 
 > **Note: **
 >
@@ -718,14 +722,14 @@ apply(x, MARGIN, FUN)
 
 untuk mengetahui fungsi (`FUN`) apa saja yang dapat diterapkan pada fungsi `apply()` jalankan sintaks bantuan berikut:
 
-```{r, results="hide"}
+```{r, results='hide'}
 help(apply)
 ```
 
 Berikut adalah contoh penerapannya:
 ```{r}
 # Rata-rata pada tiap baris
-apply(my_data, MARGIN= 1, FUN = mean)
+apply(my_data, 1, mean)
 
 # Median pada tiap kolom
 apply(my_data, 2, median)

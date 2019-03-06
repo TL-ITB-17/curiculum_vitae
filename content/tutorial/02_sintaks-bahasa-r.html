@@ -611,7 +611,7 @@ my_data</code></pre>
 ## row4    8    9    8
 ## row5    9    8    7</code></pre>
 <blockquote>
-<p><strong>NOte: </strong></p>
+<p><strong>Note: </strong></p>
 <ul>
 <li><strong>cbind()</strong>: menggabungkan objek <code>R</code> berdasarkan kolom</li>
 <li><strong>rbind()</strong>: menggabungkan objek <code>R</code> berdasarkan baris</li>
@@ -716,5 +716,66 @@ my_data[col3 &gt;= 4, ]</code></pre>
 ## row3    7    5    4
 ## row4    8    9    8
 ## row5    9    8    7</code></pre>
+</div>
+<div id="perhitungan-menggunakan-matriks" class="section level3">
+<h3>2.8.3 Perhitungan Menggunakan Matriks</h3>
+<p>_ Kita juga dapat melakukan operasi matematika pada matriks. Pada operasi matematika pada matriks proses yang terjadi bisa lebih kompleks dibanding pada vektor, dimana kita dapat melakukan operasi untuk memperoleh gambaran data pada tiap kolom atau baris.</p>
+<p>Berikut adalah contoh operasi matematika sederhana pada matriks:</p>
+<pre class="r"><code># mengalikan masing-masing elemen matriks dengan 2
+my_data*2</code></pre>
+<pre><code>##      col1 col2 col3
+## row1   10    4   14
+## row2   12    8    6
+## row3   14   10    8
+## row4   16   18   16
+## row5   18   16   14</code></pre>
+<pre class="r"><code># memperoleh nilai log basis 2 pada masing-masing elemen matriks
+log2(my_data)</code></pre>
+<pre><code>##          col1     col2     col3
+## row1 2.321928 1.000000 2.807355
+## row2 2.584963 2.000000 1.584963
+## row3 2.807355 2.321928 2.000000
+## row4 3.000000 3.169925 3.000000
+## row5 3.169925 3.000000 2.807355</code></pre>
+<p>Seperti yang telah penulis jelaskan sebelumnya, kita juga dapat melakukan operasi matematika untuk memperoleh hasil penjumlahan elemen pada tiap baris atau kolom dengan menggunakan fungsi <code>rowSums()</code> untuk baris dan <code>colSums()</code> untuk kolom.</p>
+<pre class="r"><code># Total pada tiap kolom
+colSums(my_data)</code></pre>
+<pre><code>## col1 col2 col3 
+##   35   28   29</code></pre>
+<pre class="r"><code># Total pada tiap baris
+rowSums(my_data)</code></pre>
+<pre><code>## row1 row2 row3 row4 row5 
+##   14   13   16   25   24</code></pre>
+<p>Jika kita tertarik untuk mencari nilai rata-rata tiap baris arau kolom kita juga dapat menggunakan fungsi <code>rowMeans()</code> atau <code>colMeans()</code>. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code># Rata-rata tiap baris
+rowMeans(my_data)</code></pre>
+<pre><code>##     row1     row2     row3     row4     row5 
+## 4.666667 4.333333 5.333333 8.333333 8.000000</code></pre>
+<pre class="r"><code># Rata-rata tiap kolom
+colMeans(my_data)</code></pre>
+<pre><code>## col1 col2 col3 
+##  7.0  5.6  5.8</code></pre>
+<p>Kita juga dapat melakukan perhitungan statistika lainnya menggunakan fungsi <code>apply()</code>. Berikut adalah format sederhananya:</p>
+<p><code>apply(x, MARGIN, FUN)</code></p>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li>x : data matriks</li>
+<li>MARGIN : Nilai yang dapat digunakan adalah 1 (untuk operasi pada baris) dan 2 (untuk operasi pada kolom)</li>
+<li>FUN : fungsi yang diterapkan pada baris atau kolom</li>
+</ul>
+</blockquote>
+<p>untuk mengetahui fungsi (<code>FUN</code>) apa saja yang dapat diterapkan pada fungsi <code>apply()</code> jalankan sintaks bantuan berikut:</p>
+<pre class="r"><code>help(apply)</code></pre>
+<pre><code>## starting httpd help server ... done</code></pre>
+<p>Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code># Rata-rata pada tiap baris
+apply(my_data, 1, mean)</code></pre>
+<pre><code>##     row1     row2     row3     row4     row5 
+## 4.666667 4.333333 5.333333 8.333333 8.000000</code></pre>
+<pre class="r"><code># Median pada tiap kolom
+apply(my_data, 2, median)</code></pre>
+<pre><code>## col1 col2 col3 
+##    7    5    7</code></pre>
 </div>
 </div>
