@@ -1184,6 +1184,123 @@ apply(my_data, 2, median)</code></pre>
 ##    7    5    7</code></pre>
 </div>
 </div>
+<div id="faktor" class="section level2">
+<h2>2.9 Faktor</h2>
+<p>Dalam bahasa <code>R</code> , faktor merupakan verktor dengan level. Level disimpan sebagai <code>R</code> Character. Jika kita menggunakan SPSS maka factor ini akan sama dengan jenis data numerik atau ordinal.</p>
+<p>Faktor merepresentasikan kategori atau grup pada data. Untuk membuat faktor pada <code>R</code>, kita dapat menggunakan fungsi <code>factor()</code>.</p>
+<div id="membuat-variabel-faktor" class="section level3">
+<h3>2.9.1 Membuat Variabel Faktor</h3>
+<p>Berikut adalah contoh sintaks pembuatan variabel faktor.</p>
+<pre class="r"><code># membuat variabel faktor
+faktor &lt;- factor(c(1,2,1,2))
+faktor</code></pre>
+<pre><code>## [1] 1 2 1 2
+## Levels: 1 2</code></pre>
+<p>Pada sintaks tersebut objek faktor terdiri atas dua buah kategori atau pada <code>R</code> disebut sebagai <strong>factor levels</strong>. Kita dapat mengecek factor levels menggunakan fungsi <code>levels()</code>.</p>
+<pre class="r"><code>levels(faktor)</code></pre>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot;</code></pre>
+<p>Kita juga dapat memberikan label atau mengubah level pada faktor. Berikut adalah contoh bagaimana kita melakukannya:</p>
+<pre class="r"><code># Ubah level
+levels(faktor) &lt;- c(&quot;baik&quot;,&quot;tidak_baik&quot;)
+faktor</code></pre>
+<pre><code>## [1] baik       tidak_baik baik       tidak_baik
+## Levels: baik tidak_baik</code></pre>
+<pre class="r"><code># Ubah urutan level
+faktor &lt;- factor(faktor,
+                 levels = c(&quot;tidak_baik&quot;,&quot;baik&quot;))
+faktor</code></pre>
+<pre><code>## [1] baik       tidak_baik baik       tidak_baik
+## Levels: tidak_baik baik</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li>Fungsi <code>is.factor()</code> dapat digunakan untuk mengecek apakah sebuah variabel adalah faktor. Hasil yang dimunculkan dapat berupa TRUE (jika faktor) atau FALSE (jika bukan)</li>
+<li>Fungsi <code>as.factor()</code> dapat digunakan untuk merubah sebuah variabel menjadi faktor.</li>
+</ul>
+</blockquote>
+<pre class="r"><code># Cek jika objek faktor adalah faktor
+is.factor(faktor)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Cek jika objek Jumlah adalah faktor
+is.factor(Jumlah)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># Ubah objek Jumlah menjadi faktor
+as.factor(Jumlah)</code></pre>
+<pre><code>##     Apel    Jeruk Rambutan    Salak 
+##        5     &lt;NA&gt;        6        7 
+## Levels: 5 6 7</code></pre>
+</div>
+<div id="perhitungan-menggunakan-faktor" class="section level3">
+<h3>2.9.2 Perhitungan Menggunakan Faktor</h3>
+<p>Jika kita ingin mengetahui jumlah masing-masing observasi pada masing-masing faktor, kita dapat menggunakan fungsi <code>summary()</code>. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>summary(faktor)</code></pre>
+<pre><code>## tidak_baik       baik 
+##          2          2</code></pre>
+<p>Pada contoh perhitungan menggunakan vektor kita telah membuat objek <code>pendapatan</code>. Pada objek tersebut kita ingin menghitung nilai rata-rata pendapatan berdasarkan objek faktor. Untuk melakukannya kita dapat menggunakan fungsi <code>tapply()</code>.</p>
+<pre class="r"><code>pendapatan</code></pre>
+<pre><code>## Andi Joni Lina Rani 
+## 2000 1800 2500 3000</code></pre>
+<pre class="r"><code>faktor</code></pre>
+<pre><code>## [1] baik       tidak_baik baik       tidak_baik
+## Levels: tidak_baik baik</code></pre>
+<pre class="r"><code># Rata-rata pendapatan dan simpan sebagai objek dengan nama:
+# mean_pendapatan
+mean_pendapatan &lt;- tapply(pendapatan, faktor, mean)
+mean_pendapatan</code></pre>
+<pre><code>## tidak_baik       baik 
+##       2400       2250</code></pre>
+<pre class="r"><code># Hitung ukuran/panjang masing-masing grup
+tapply(pendapatan, faktor, length)</code></pre>
+<pre><code>## tidak_baik       baik 
+##          2          2</code></pre>
+<p>Untuk mengetahui jumlah masing-masing observasi masing-masing factor levels kita juga dapat menggunakan fungsi <code>table()</code>. Fungsi tersebut akan membuat frekuensi tabel pada masing-masing factor levels atau yang dikenal sebagai <em>contingency table</em>.</p>
+<pre class="r"><code>table(faktor)</code></pre>
+<pre><code>## faktor
+## tidak_baik       baik 
+##          2          2</code></pre>
+<pre class="r"><code># Cross-tabulation antara
+# faktor dan pendapatan
+table(pendapatan, faktor)</code></pre>
+<pre><code>##           faktor
+## pendapatan tidak_baik baik
+##       1800          1    0
+##       2000          0    1
+##       2500          0    1
+##       3000          1    0</code></pre>
+</div>
+</div>
+<div id="data-frames" class="section level2">
+<h2>2.10 Data Frames</h2>
+<p>Data frame merupakan kumpulan vektor dengan panjang sama atau dapat pula dikatan sebagai matriks yang memiliki kolom dengan jenis data yang berbeda-beda (numerik, karakter, logical). Pada data frame terdapat baris dan kolom. Baris disebut sebagai observasi, sedangkan kolom disebut sebagai variabel. Sehingga dapat dikatakan bahwa setiap observasi akan memiliki satu atau beberapa variabel.</p>
+<div id="membuat-data-frame" class="section level3">
+<h3>2.10.1 Membuat Data Frame</h3>
+<p>Data frame dapat dibuat menggunakan fungsi <code>data.frame()</code>. Berikut adalah contoh cara membuat data frame:</p>
+<pre class="r"><code># Membuat data frame
+nama &lt;- c(&quot;Andi&quot;,&quot;Rizal&quot;,&quot;Ani&quot;,&quot;Ina&quot;)
+pendapatan &lt;- c(1000, 2000, 3500, 500)
+tinggi &lt;- c(160, 155, 170, 146)
+usia &lt;- c(35, 40, 25, 27)
+menikah &lt;- c(TRUE, FALSE, TRUE, TRUE)
+
+data_teman &lt;- data.frame(nama = nama,
+                         gaji = pendapatan,
+                         tinggi = tinggi,
+                         menikah = menikah)
+
+data_teman</code></pre>
+<pre><code>##    nama gaji tinggi menikah
+## 1  Andi 1000    160    TRUE
+## 2 Rizal 2000    155   FALSE
+## 3   Ani 3500    170    TRUE
+## 4   Ina  500    146    TRUE</code></pre>
+<p>Untuk mengecek apakah objek <code>data_teman</code> merupakan data frame, kita dapat menggunakan fungsi <code>is.data.frame()</code>. Jika hasilnya TRUE, maka objek tersebut adalah data frame. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>is.data.frame(data_teman)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<blockquote>
+<p><strong>Note: </strong> untuk konversi objek menjadi data frame, kita dapat menjalankan fungsi <code>as.data.frame()</code>.</p>
+</blockquote>
+</div>
+</div>
 
           </div>
 

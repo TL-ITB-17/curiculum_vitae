@@ -738,3 +738,122 @@ apply(my_data, 1, mean)
 apply(my_data, 2, median)
 ```
 
+## 2.9 Faktor
+
+Dalam bahasa `R` , faktor merupakan verktor dengan level. Level disimpan sebagai `R` Character. Jika kita menggunakan SPSS maka factor ini akan sama dengan jenis data numerik atau ordinal.
+
+Faktor merepresentasikan kategori atau grup pada data. Untuk membuat faktor pada `R`, kita dapat menggunakan fungsi `factor()`.
+
+### 2.9.1 Membuat Variabel Faktor
+
+Berikut adalah contoh sintaks pembuatan variabel faktor.
+
+```{r}
+# membuat variabel faktor
+faktor <- factor(c(1,2,1,2))
+faktor
+
+```
+
+Pada sintaks tersebut objek faktor terdiri atas dua buah kategori atau pada `R` disebut sebagai **factor levels**. Kita dapat mengecek factor levels menggunakan fungsi `levels()`.
+
+```{r}
+levels(faktor)
+```
+
+Kita juga dapat memberikan label atau mengubah level pada faktor. Berikut adalah contoh bagaimana kita melakukannya:
+
+```{r}
+# Ubah level
+levels(faktor) <- c("baik","tidak_baik")
+faktor
+
+# Ubah urutan level
+faktor <- factor(faktor,
+                 levels = c("tidak_baik","baik"))
+faktor
+```
+
+> **Note: **
+>
+> * Fungsi `is.factor()` dapat digunakan untuk mengecek apakah sebuah variabel adalah faktor. Hasil yang dimunculkan dapat berupa TRUE (jika faktor) atau FALSE (jika bukan)
+> * Fungsi `as.factor()` dapat digunakan untuk merubah sebuah variabel menjadi faktor.
+
+```{r}
+# Cek jika objek faktor adalah faktor
+is.factor(faktor)
+
+# Cek jika objek Jumlah adalah faktor
+is.factor(Jumlah)
+
+# Ubah objek Jumlah menjadi faktor
+as.factor(Jumlah)
+```
+
+### 2.9.2 Perhitungan Menggunakan Faktor
+
+Jika kita ingin mengetahui jumlah masing-masing observasi pada masing-masing faktor, kita dapat menggunakan fungsi `summary()`. Berikut adalah contoh penerapannya:
+
+```{r}
+summary(faktor)
+```
+
+Pada contoh perhitungan menggunakan vektor kita telah membuat objek `pendapatan`. Pada objek tersebut kita ingin menghitung nilai rata-rata pendapatan berdasarkan objek faktor. Untuk melakukannya kita dapat menggunakan fungsi `tapply()`.
+
+```{r}
+pendapatan
+faktor
+
+# Rata-rata pendapatan dan simpan sebagai objek dengan nama:
+# mean_pendapatan
+mean_pendapatan <- tapply(pendapatan, faktor, mean)
+mean_pendapatan
+
+# Hitung ukuran/panjang masing-masing grup
+tapply(pendapatan, faktor, length)
+```
+
+Untuk mengetahui jumlah masing-masing observasi masing-masing factor levels kita juga dapat menggunakan fungsi `table()`. Fungsi tersebut akan membuat frekuensi tabel pada masing-masing factor levels atau yang dikenal sebagai *contingency table*.
+
+```{r}
+table(faktor)
+
+# Cross-tabulation antara
+# faktor dan pendapatan
+table(pendapatan, faktor)
+```
+
+## 2.10 Data Frames
+
+Data frame merupakan kumpulan vektor dengan panjang sama atau dapat pula dikatan sebagai matriks yang memiliki kolom dengan jenis data yang berbeda-beda (numerik, karakter, logical). Pada data frame terdapat baris dan kolom. Baris disebut sebagai observasi, sedangkan kolom disebut sebagai variabel. Sehingga dapat dikatakan bahwa setiap observasi akan memiliki satu atau beberapa variabel.
+
+### 2.10.1 Membuat Data Frame
+
+Data frame dapat dibuat menggunakan fungsi `data.frame()`. Berikut adalah contoh cara membuat data frame:
+
+```{r}
+# Membuat data frame
+nama <- c("Andi","Rizal","Ani","Ina")
+pendapatan <- c(1000, 2000, 3500, 500)
+tinggi <- c(160, 155, 170, 146)
+usia <- c(35, 40, 25, 27)
+menikah <- c(TRUE, FALSE, TRUE, TRUE)
+
+data_teman <- data.frame(nama = nama,
+                         gaji = pendapatan,
+                         tinggi = tinggi,
+                         menikah = menikah)
+
+data_teman
+
+```
+
+Untuk mengecek apakah objek `data_teman` merupakan data frame, kita dapat menggunakan fungsi `is.data.frame()`. Jika hasilnya TRUE, maka objek tersebut adalah data frame. Berikut adalah contoh penerapannya:
+
+```{r}
+is.data.frame(data_teman)
+```
+
+> **Note: ** untuk konversi objek menjadi data frame, kita dapat menjalankan fungsi `as.data.frame()`.
+
+
