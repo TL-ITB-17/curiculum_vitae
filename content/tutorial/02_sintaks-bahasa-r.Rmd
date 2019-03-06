@@ -712,7 +712,9 @@ FUN <- mean
 MARGIN <-1
 ```
 
-`apply(x, MARGIN, FUN)`
+```{r, results='hide'}
+apply(x, MARGIN, FUN)
+```
 
 > **Note: **
 >
@@ -722,11 +724,12 @@ MARGIN <-1
 
 untuk mengetahui fungsi (`FUN`) apa saja yang dapat diterapkan pada fungsi `apply()` jalankan sintaks bantuan berikut:
 
-```{r, results='hide'}
+```{r, results='hide', eval=FALSE}
 help(apply)
 ```
 
 Berikut adalah contoh penerapannya:
+
 ```{r}
 # Rata-rata pada tiap baris
 apply(my_data, 1, mean)

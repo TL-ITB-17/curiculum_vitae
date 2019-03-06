@@ -756,7 +756,7 @@ colMeans(my_data)</code></pre>
 <pre><code>## col1 col2 col3 
 ##  7.0  5.6  5.8</code></pre>
 <p>Kita juga dapat melakukan perhitungan statistika lainnya menggunakan fungsi <code>apply()</code>. Berikut adalah format sederhananya:</p>
-<p><code>apply(x, MARGIN, FUN)</code></p>
+<pre class="r"><code>apply(x, MARGIN, FUN)</code></pre>
 <blockquote>
 <p><strong>Note: </strong></p>
 <ul>
@@ -767,7 +767,6 @@ colMeans(my_data)</code></pre>
 </blockquote>
 <p>untuk mengetahui fungsi (<code>FUN</code>) apa saja yang dapat diterapkan pada fungsi <code>apply()</code> jalankan sintaks bantuan berikut:</p>
 <pre class="r"><code>help(apply)</code></pre>
-<pre><code>## starting httpd help server ... done</code></pre>
 <p>Berikut adalah contoh penerapannya:</p>
 <pre class="r"><code># Rata-rata pada tiap baris
 apply(my_data, 1, mean)</code></pre>
