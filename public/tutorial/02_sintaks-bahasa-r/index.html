@@ -1300,6 +1300,90 @@ data_teman</code></pre>
 <p><strong>Note: </strong> untuk konversi objek menjadi data frame, kita dapat menjalankan fungsi <code>as.data.frame()</code>.</p>
 </blockquote>
 </div>
+<div id="subset-pada-data-frame" class="section level3">
+<h3>2.10.2 Subset Pada Data Frame</h3>
+<p>Subset pada data frame sebenarnya tidak berbeda dengan subset pada matriks. Bedanya adalah kita juga bisa melakukan subset langsung terhadap nama variabel menggunakan dollar sign. Untuk lebih memahaminya berikut adalah jenis subset pada data frame.</p>
+<ul>
+<li><strong>Pengindeksan positif</strong> menggunakan nama dan lokasi.</li>
+</ul>
+<pre class="r"><code># Subset menggunakan dollar sign
+data_teman$nama</code></pre>
+<pre><code>## [1] Andi  Rizal Ani   Ina  
+## Levels: Andi Ani Ina Rizal</code></pre>
+<pre class="r"><code># atau 
+data_teman[, &quot;nama&quot;]</code></pre>
+<pre><code>## [1] Andi  Rizal Ani   Ina  
+## Levels: Andi Ani Ina Rizal</code></pre>
+<pre class="r"><code># subset baris 1 sampai 3 serta kolom 1 dan 3
+data_teman[1:3, c(1,3)]</code></pre>
+<pre><code>##    nama tinggi
+## 1  Andi    160
+## 2 Rizal    155
+## 3   Ani    170</code></pre>
+<ul>
+<li><strong>Pengindeksan negatif</strong></li>
+</ul>
+<pre class="r"><code># Kecualikan kolom nama
+data_teman[,-1]</code></pre>
+<pre><code>##   gaji tinggi menikah
+## 1 1000    160    TRUE
+## 2 2000    155   FALSE
+## 3 3500    170    TRUE
+## 4  500    146    TRUE</code></pre>
+<ul>
+<li><strong>Pengideksan berdasarkan karakteristik</strong></li>
+</ul>
+<p>Kita ingin memilih data dengan kriteria teman yang telah menikah</p>
+<pre class="r"><code>data_teman[data_teman$menikah==TRUE, ]</code></pre>
+<pre><code>##   nama gaji tinggi menikah
+## 1 Andi 1000    160    TRUE
+## 3  Ani 3500    170    TRUE
+## 4  Ina  500    146    TRUE</code></pre>
+<pre class="r"><code># Tampilkan hanya kolom nama dan gaji untuk yang telah menikah
+data_teman[data_teman$menikah==TRUE, 1:2]</code></pre>
+<pre><code>##   nama gaji
+## 1 Andi 1000
+## 3  Ani 3500
+## 4  Ina  500</code></pre>
+<p>kita juga dapat menggunakan fungsi <code>subset()</code> agar lebih mudah. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code># subset terhadap teman yang berusia &gt;=30 tahun
+subset(data_teman, usia&gt;=30)</code></pre>
+<pre><code>##    nama gaji tinggi menikah
+## 1  Andi 1000    160    TRUE
+## 2 Rizal 2000    155   FALSE</code></pre>
+<p>Opsi lain adalah menggunakan fungsi <code>attach()</code> dan <code>detach()</code>. Fungsi <code>attach()</code> mengambil data frame dan membuat kolomnya dapat diakses hanya dengan memberikan nama mereka.</p>
+<pre class="r"><code># attach data frame
+attach(data_teman)</code></pre>
+<pre><code>## The following objects are masked _by_ .GlobalEnv:
+## 
+##     menikah, nama, tinggi</code></pre>
+<pre class="r"><code># ==== memulai data manipulation ====
+data_teman[usia&gt;=30]</code></pre>
+<pre><code>##    nama gaji
+## 1  Andi 1000
+## 2 Rizal 2000
+## 3   Ani 3500
+## 4   Ina  500</code></pre>
+<pre class="r"><code># ==== mengakhiri data manipulation ====
+# detach data frame
+
+detach(data_teman)</code></pre>
+</div>
+<div id="memperluas-data-frame" class="section level3">
+<h3>2.10.3 Memperluas Data Frame</h3>
+<p>Kita dapat juga memperluas data frame dengan cara menambahkan variabel atau kolombaru pada data frame. Pada contoh kali ini penulis akan menambahkan kolom pendidikan terakhir pada objek <code>data_teman</code>. Berikut adalah sintaks yang digunakan.</p>
+<pre class="r"><code># membuat vektor pendidikan
+pendidikan &lt;- c(&quot;S1&quot;,&quot;S2&quot;,&quot;D3&quot;,&quot;D1&quot;)
+
+# menambahkan variabel pendidikan pada data frame
+data_teman$pendidikan &lt;- pendidikan</code></pre>
+<pre class="r"><code># atau
+cbind(data_teman, pendidikan=pendidikan)</code></pre>
+</div>
+<div id="perhitungan-pada-data-frame" class="section level3">
+<h3>2.10.4 Perhitungan Pada Data Frame</h3>
+<p>Perhitungan pada variabel numerik data frame pada dasarnya sama dengan perhitungan pada matriks. kita dapat menggunakan fungsi <code>rowSums()</code>, <code>colSums()</code>, <code>rowMeans()</code> dan <code>apply()</code>. Proses perhitungan dan manipulasi pada data frame akan dibahas pada sesi yang lain secara lebih detail.</p>
+</div>
 </div>
 
           </div>

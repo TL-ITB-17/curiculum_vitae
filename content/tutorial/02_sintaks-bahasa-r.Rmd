@@ -856,4 +856,83 @@ is.data.frame(data_teman)
 
 > **Note: ** untuk konversi objek menjadi data frame, kita dapat menjalankan fungsi `as.data.frame()`.
 
+### 2.10.2 Subset Pada Data Frame
+
+Subset pada data frame sebenarnya tidak berbeda dengan subset pada matriks. Bedanya adalah kita juga bisa melakukan subset langsung terhadap nama variabel menggunakan dollar sign. Untuk lebih memahaminya berikut adalah jenis subset pada data frame.
+
+* **Pengindeksan positif** menggunakan nama dan lokasi.
+
+```{r}
+# Subset menggunakan dollar sign
+data_teman$nama
+
+# atau 
+data_teman[, "nama"]
+
+# subset baris 1 sampai 3 serta kolom 1 dan 3
+data_teman[1:3, c(1,3)]
+
+```
+
+* **Pengindeksan negatif**
+
+```{r}
+# Kecualikan kolom nama
+data_teman[,-1]
+```
+
+* **Pengideksan berdasarkan karakteristik**
+
+Kita ingin memilih data dengan kriteria teman yang telah menikah
+
+```{r}
+data_teman[data_teman$menikah==TRUE, ]
+
+# Tampilkan hanya kolom nama dan gaji untuk yang telah menikah
+data_teman[data_teman$menikah==TRUE, 1:2]
+```
+
+kita juga dapat menggunakan fungsi `subset()` agar lebih mudah. Berikut adalah contoh penerapannya:
+```{r}
+# subset terhadap teman yang berusia >=30 tahun
+subset(data_teman, usia>=30)
+```
+
+Opsi lain adalah menggunakan fungsi `attach()` dan `detach()`. Fungsi `attach()` mengambil data frame dan membuat kolomnya dapat diakses hanya dengan memberikan nama mereka.
+
+```{r}
+# attach data frame
+attach(data_teman)
+
+# ==== memulai data manipulation ====
+data_teman[usia>=30]
+# ==== mengakhiri data manipulation ====
+# detach data frame
+
+detach(data_teman)
+```
+
+### 2.10.3 Memperluas Data Frame
+
+Kita dapat juga memperluas data frame dengan cara menambahkan variabel atau kolombaru pada data frame. Pada contoh kali ini penulis akan menambahkan kolom pendidikan terakhir pada objek `data_teman`. Berikut adalah sintaks yang digunakan.
+
+```{r}
+# membuat vektor pendidikan
+pendidikan <- c("S1","S2","D3","D1")
+
+# menambahkan variabel pendidikan pada data frame
+data_teman$pendidikan <- pendidikan
+
+```
+
+```{r, eval=FALSE}
+# atau
+cbind(data_teman, pendidikan=pendidikan)
+```
+
+
+### 2.10.4 Perhitungan Pada Data Frame
+
+Perhitungan pada variabel numerik data frame pada dasarnya sama dengan perhitungan pada matriks. kita dapat menggunakan fungsi `rowSums()`, `colSums()`, `rowMeans()` dan `apply()`. Proses perhitungan dan manipulasi pada data frame akan dibahas pada sesi yang lain secara lebih detail.
+
 
