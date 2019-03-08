@@ -207,6 +207,34 @@ Figure 3: Jendela RStudio.
       <description>
 
 
+&lt;blockquote&gt;
+&lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#2-1-operator-aritmatika&#34;&gt;Operator Aritmatika&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-2-fungsi-aritmetik&#34;&gt;Fungsi Aritmetik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-3-operator-relasi&#34;&gt;Operator Relasi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-4-operator-logika&#34;&gt;Operator Logika&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-5-memasukkan-nilai-kedalam-variabel&#34;&gt;Memasukkan Nilai Kedalam Variabel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-6-tipe-data&#34;&gt;Tipe Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-7-vektor&#34;&gt;Vektor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-7-vektor&#34;&gt;Membuat vektor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-7-2-missing-values&#34;&gt;Missing Values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-7-3-subset-pada-vektor&#34;&gt;Subset Pada Vektor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-7-4-perhitungan-menggunakan-vektor&#34;&gt;Perhitungan Menggunakan Vektor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-8-matriks&#34;&gt;Matriks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-8-1-membuat-matriks&#34;&gt;Membuat matriks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-8-2-subset-pada-matriks&#34;&gt;Subset Pada Matriks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-8-3-perhitungan-menggunakan-matriks&#34;&gt;Perhitungan Menggunakan Matriks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-9-faktor&#34;&gt;Faktor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-9-1-membuat-variabel-faktor&#34;&gt;Membuat Variabel Faktor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-9-2-perhitungan-menggunakan-faktor&#34;&gt;Perhitungan Menggunakan Faktor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-10-data-frames&#34;&gt;Data Frames&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-10-1-membuat-data-frame&#34;&gt;Membuat Data Frame&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-10-2-subset-pada-data-frame&#34;&gt;Subset Pada Data Frame&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-10-3-memperluas-data-frame&#34;&gt;Memperluas Data Frame&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-10-4-perhitungan-pada-data-frame&#34;&gt;Perhitungan Pada Data Frame&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;div id=&#34;operator-aritmatika&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;2.1 Operator Aritmatika&lt;/h2&gt;
 &lt;p&gt;Proses perhitungan akan ditangani oleh fungsi khusus. &lt;code&gt;R&lt;/code&gt; akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;

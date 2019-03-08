@@ -11,6 +11,33 @@ linktitle: Sintaks Bahasa R
 type: docs
 ---
 
+> ## Daftar Isi
+>
+> * [Operator Aritmatika](#2-1-operator-aritmatika)
+> * [Fungsi Aritmetik](#2-2-fungsi-aritmetik)
+> * [Operator Relasi](#2-3-operator-relasi)
+> * [Operator Logika](#2-4-operator-logika)
+> * [Memasukkan Nilai Kedalam Variabel](#2-5-memasukkan-nilai-kedalam-variabel)
+> * [Tipe Data](#2-6-tipe-data)
+> * [Vektor](#2-7-vektor)
+>   * [Membuat vektor](#2-7-vektor)
+>   * [Missing Values](#2-7-2-missing-values)
+>   * [Subset Pada Vektor](#2-7-3-subset-pada-vektor)
+>   * [Perhitungan Menggunakan Vektor](#2-7-4-perhitungan-menggunakan-vektor)
+> * [Matriks](#2-8-matriks)
+>   * [Membuat matriks](#2-8-1-membuat-matriks)
+>   * [Subset Pada Matriks](#2-8-2-subset-pada-matriks)
+>   * [Perhitungan Menggunakan Matriks](#2-8-3-perhitungan-menggunakan-matriks)
+> * [Faktor](#2-9-faktor)
+>   * [Membuat Variabel Faktor](#2-9-1-membuat-variabel-faktor)
+>   * [Perhitungan Menggunakan Faktor](#2-9-2-perhitungan-menggunakan-faktor)
+> * [Data Frames](#2-10-data-frames)
+>   * [Membuat Data Frame](#2-10-1-membuat-data-frame)
+>   * [Subset Pada Data Frame](#2-10-2-subset-pada-data-frame)
+>   * [Memperluas Data Frame](#2-10-3-memperluas-data-frame)
+>   * [Perhitungan Pada Data Frame](#2-10-4-perhitungan-pada-data-frame)
+
+
 ## 2.1 Operator Aritmatika
 
 Proses perhitungan akan ditangani oleh fungsi khusus. `R` akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
