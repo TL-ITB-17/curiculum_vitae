@@ -21,7 +21,7 @@ type: docs
 
 ## 1.1 Sejarah R
 
-`R` Merupakan bahasa yang digunakan dalam komputasi **statistik** yang pertama kali dikembangkan oleh **Ross Ihaka** dan **Robert Gentlement** di University of Auckland  New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum `R` dikenal ada `S` yang dikembangkan oleh **John Chambers** dan rekan-rekan dari **Bell Laboratories** yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah `R` merupakan sistem komputasi yang bersifat gratis.Logo `R` dapat dilihat pada Gambar \@ref(fig:Logo).
+`R` Merupakan bahasa yang digunakan dalam komputasi **statistik** yang pertama kali dikembangkan oleh **Ross Ihaka** dan **Robert Gentlement** di University of Auckland  New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum `R` dikenal ada `S` yang dikembangkan oleh **John Chambers** dan rekan-rekan dari **Bell Laboratories** yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah `R` merupakan sistem komputasi yang bersifat gratis.Logo `R` dapat dilihat pada Figure \@ref(fig:Logo).
 
 ```{r Logo,echo=FALSE, fig.cap='Logo R.', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
 library(knitr)
@@ -92,7 +92,7 @@ Pada tutorial ini hanya akan dijelaskan bagaimana menginstal `R` dan `RStudio` p
 2. Ikuti langkah proses pemasangan aplikasi yang ditampilkan dengan klik `OK` atau `Next`.
 3. Apabila pemasangan telah dilakukan, jalankan aplikasi yang telah terpasang untuk menguji jika aplikasi telah berjalan dengan baik.
 
-Jendela aplikasi yang telah terpasang ditampilkan pada Gambar \@ref(fig:jendela-R) dan Gambar \@ref(fig:jendela-RStudio).
+Jendela aplikasi yang telah terpasang ditampilkan pada Figure \@ref(fig:jendela-R) dan Figure \@ref(fig:jendela-RStudio).
 
 ```{r jendela-R,echo=FALSE, fig.cap='Jendela R.', tidy=FALSE, fig.align='center'}
 library(knitr)
