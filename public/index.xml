@@ -97,6 +97,16 @@ rm Untitled.md
       <description>
 
 
+&lt;div id=&#34;daftar-isi&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Daftar Isi&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#1-1-sejarah-r&#34;&gt;Sejarah R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-2-fitur-dan-karakteristik-r&#34;&gt;Fitur dan Karakteristik R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-3-kelebihan-dan-kekurangan-r&#34;&gt;Kelebihan dan Kekurangan R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-4-rstudio&#34;&gt;RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-5-menginstall-r-dan-rstudio&#34;&gt;Menginstall R dan RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;div id=&#34;sejarah-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;1.1 Sejarah R&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; Merupakan bahasa yang digunakan dalam komputasi &lt;strong&gt;statistik&lt;/strong&gt; yang pertama kali dikembangkan oleh &lt;strong&gt;Ross Ihaka&lt;/strong&gt; dan &lt;strong&gt;Robert Gentlement&lt;/strong&gt; di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum &lt;code&gt;R&lt;/code&gt; dikenal ada &lt;code&gt;S&lt;/code&gt; yang dikembangkan oleh &lt;strong&gt;John Chambers&lt;/strong&gt; dan rekan-rekan dari &lt;strong&gt;Bell Laboratories&lt;/strong&gt; yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah &lt;code&gt;R&lt;/code&gt; merupakan sistem komputasi yang bersifat gratis.Logo &lt;code&gt;R&lt;/code&gt; dapat dilihat pada Gambar &lt;a href=&#34;#fig:Logo&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
