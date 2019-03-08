@@ -101,7 +101,7 @@ include_graphics(img1_path)
 
 ```
 
-```{r jendela-RStudio,echo=FALSE, fig.cap='Jendela RStudio.', tidy=FALSE, fig.align='center'}
+```{r jendela-RStudio,echo=FALSE, fig.cap='Jendela RStudio.', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
 library(knitr)
 img1_path <- "/jendela_rstudio.png"
 include_graphics(img1_path)
