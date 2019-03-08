@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData Frames2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
+  <meta name="description" content="Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesList2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
 2&#43;4*2## [1] 10Bandingkan dengan sintaks berikut:
 (2&#43;4)*2## [1] 12R dapat digunakan sebagai kalkulator">
 
@@ -122,7 +122,7 @@
   <meta property="og:site_name" content="Environmental Data Modeling">
   <meta property="og:url" content="/tutorial/02_sintaks-bahasa-r/">
   <meta property="og:title" content="2. Sintaks Bahasa R | Environmental Data Modeling">
-  <meta property="og:description" content="Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData Frames2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
+  <meta property="og:description" content="Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesList2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
 2&#43;4*2## [1] 10Bandingkan dengan sintaks berikut:
 (2&#43;4)*2## [1] 12R dapat digunakan sebagai kalkulator"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -430,6 +430,7 @@
 <li><a href="#2-8-matriks">Matriks</a></li>
 <li><a href="#2-9-faktor">Faktor</a></li>
 <li><a href="#2-10-data-frames">Data Frames</a></li>
+<li><a href="#2-11-list">List</a></li>
 </ul>
 </blockquote>
 <div id="operator-aritmatika" class="section level2">
@@ -1396,6 +1397,66 @@ cbind(data_teman, pendidikan=pendidikan)</code></pre>
 <div id="perhitungan-pada-data-frame" class="section level3">
 <h3>2.10.4 Perhitungan Pada Data Frame</h3>
 <p>Perhitungan pada variabel numerik data frame pada dasarnya sama dengan perhitungan pada matriks. kita dapat menggunakan fungsi <code>rowSums()</code>, <code>colSums()</code>, <code>rowMeans()</code> dan <code>apply()</code>. Proses perhitungan dan manipulasi pada data frame akan dibahas pada sesi yang lain secara lebih detail.</p>
+</div>
+</div>
+<div id="list" class="section level2">
+<h2>2.11 List</h2>
+<p>List adalah kumpulan objek yang diurutkan, yang dapat berupa vektor, matriks, data frame, dll. Dengan kata lain, daftar dapat berisi semua jenis objek <code>R</code>.</p>
+<div id="membuat-list" class="section level3">
+<h3>2.11.1 Membuat List</h3>
+<p>List dapat dibuat menggunakan fungsi <code>list()</code>. Berikut disajikan contoh sebuah list sebuah keluarga:</p>
+<pre class="r"><code># Membuat list keluarga
+keluarga &lt;- list(
+  ayah = &quot;Budi&quot;,
+  usia_ayah = 48,
+  ibu  = &quot;Ani&quot;,
+  usia_ibu = &quot;47&quot;,
+  anak = c(&quot;Andi&quot;, &quot;Adi&quot;),
+  usia_anak = c(15,10)
+  )
+
+# Print
+keluarga</code></pre>
+<pre><code>## $ayah
+## [1] &quot;Budi&quot;
+## 
+## $usia_ayah
+## [1] 48
+## 
+## $ibu
+## [1] &quot;Ani&quot;
+## 
+## $usia_ibu
+## [1] &quot;47&quot;
+## 
+## $anak
+## [1] &quot;Andi&quot; &quot;Adi&quot; 
+## 
+## $usia_anak
+## [1] 15 10</code></pre>
+<pre class="r"><code># Nama elemen dalam list
+names(keluarga)</code></pre>
+<pre><code>## [1] &quot;ayah&quot;      &quot;usia_ayah&quot; &quot;ibu&quot;       &quot;usia_ibu&quot;  &quot;anak&quot;      &quot;usia_anak&quot;</code></pre>
+<pre class="r"><code># Jumlah elemen pada list
+length(keluarga)</code></pre>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="subset-list" class="section level3">
+<h3>2.11.2 Subset List</h3>
+<p>Kita dapat memilih sebuah elemen pada list dengan menggunakan nama elemen atau indeks dari elemen tersebut. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code># Subset berdasarkan nama
+# mengambil elemen usia_ayah
+keluarga$usia_ayah</code></pre>
+<pre><code>## [1] 48</code></pre>
+<pre class="r"><code># Atau
+keluarga[[&quot;usia_ayah&quot;]]</code></pre>
+<pre><code>## [1] 48</code></pre>
+<pre class="r"><code># Subset berdasarkan indeks
+keluarga[[2]]</code></pre>
+<pre><code>## [1] 48</code></pre>
+<pre class="r"><code># subset elemen pertama pada keluarga[[5]]
+keluarga[[5]][1]</code></pre>
+<pre><code>## [1] &quot;Andi&quot;</code></pre>
 </div>
 </div>
 

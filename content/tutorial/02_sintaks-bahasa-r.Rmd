@@ -23,6 +23,7 @@ type: docs
 > * [Matriks](#2-8-matriks)
 > * [Faktor](#2-9-faktor)
 > * [Data Frames](#2-10-data-frames)
+> * [List](#2-11-list)
 
 ## 2.1 Operator Aritmatika
 
@@ -948,4 +949,51 @@ cbind(data_teman, pendidikan=pendidikan)
 
 Perhitungan pada variabel numerik data frame pada dasarnya sama dengan perhitungan pada matriks. kita dapat menggunakan fungsi `rowSums()`, `colSums()`, `rowMeans()` dan `apply()`. Proses perhitungan dan manipulasi pada data frame akan dibahas pada sesi yang lain secara lebih detail.
 
+## 2.11 List
+
+List adalah kumpulan objek yang diurutkan, yang dapat berupa vektor, matriks, data frame, dll. Dengan kata lain, daftar dapat berisi semua jenis objek `R`.
+
+### 2.11.1 Membuat List
+
+List dapat dibuat menggunakan fungsi `list()`. Berikut disajikan contoh sebuah list sebuah keluarga:
+
+```{r}
+# Membuat list keluarga
+keluarga <- list(
+  ayah = "Budi",
+  usia_ayah = 48,
+  ibu  = "Ani",
+  usia_ibu = "47",
+  anak = c("Andi", "Adi"),
+  usia_anak = c(15,10)
+  )
+
+# Print
+keluarga
+
+# Nama elemen dalam list
+names(keluarga)
+
+# Jumlah elemen pada list
+length(keluarga)
+```
+
+### 2.11.2 Subset List
+
+Kita dapat memilih sebuah elemen pada list dengan menggunakan nama elemen atau indeks dari elemen tersebut. Berikut adalah contoh penerapannya:
+
+```{r}
+# Subset berdasarkan nama
+# mengambil elemen usia_ayah
+keluarga$usia_ayah
+
+# Atau
+keluarga[["usia_ayah"]]
+
+# Subset berdasarkan indeks
+keluarga[[2]]
+
+# subset elemen pertama pada keluarga[[5]]
+keluarga[[5]][1]
+```
 
