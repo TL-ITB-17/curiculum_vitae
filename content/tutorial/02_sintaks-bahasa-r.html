@@ -27,6 +27,7 @@ type: docs
 <li><a href="#2-9-faktor">Faktor</a></li>
 <li><a href="#2-10-data-frames">Data Frames</a></li>
 <li><a href="#2-11-list">List</a></li>
+<li><a href="#2-12-loop">Loop</a></li>
 </ul>
 </blockquote>
 <div id="operator-aritmatika" class="section level2">
@@ -1088,5 +1089,20 @@ keluarga</code></pre>
 ## [1] &quot;Sri&quot;</code></pre>
 <p>Kita juga dapat menggabungkan beberapa list menjadi satu. Berikut adalah format sederhana bagaimana cara menggabungkan beberapa list menjadi satu:</p>
 <pre class="r"><code>list_baru &lt;- c(list_a, list_b, list_c, ...)</code></pre>
+</div>
+</div>
+<div id="loop" class="section level2">
+<h2>2.12 Loop</h2>
+<p><em>Loop</em> merupakan kode program yang berulang-ulang. <em>Loop</em> berguna saat kita ingin melakukan sebuah perintah yang perlu dijalankan berulang-ulang seperti melakukan perhitungan maupaun melakukan visualisasi terhadap banyak variabel secara serentak. Hal ini tentu saja membantu kita karena kita tidak perlu menulis sejumlah sintaks yang berulang-ulang. Kita hanya perlu mengatur <em>statement</em> berdasarkan hasil yang kita harapkan.</p>
+<p>Pada <code>R</code> bentuk <em>loop</em> dapat bermacam-macam (“<em>for loop</em>”,“<em>while loop</em>”, dll). <code>R</code> menyederhanakan bentuk <em>loop</em> ini dengan menyediakan sejumlah fungsi seperti <code>apply()</code>,<code>tapply()</code>, dll. Sehingga <code>loop</code> jarang sekali muncul dalam kode <code>R</code>. Sehingga <code>R</code> sering disebut sebagai <em>loopless loop</em>.</p>
+<p>Meski <em>loop</em> jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat <em>loop</em> yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Gambar @ref(fig:skema_loop)</p>
+<pre class="r"><code>library(knitr)
+img1_path &lt;- &quot;/skema_loop.png&quot;
+include_graphics(img1_path)</code></pre>
+<div class="figure" style="text-align: center">
+<img src="/skema_loop.png" alt="Diagram umum loop (sumber: Primartha, 2018)."  />
+<p class="caption">
+(#fig:skema_loop)Diagram umum loop (sumber: Primartha, 2018).
+</p>
 </div>
 </div>
