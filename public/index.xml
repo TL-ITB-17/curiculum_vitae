@@ -1248,6 +1248,41 @@ keluarga[[2]]&lt;/code&gt;&lt;/pre&gt;
 keluarga[[5]][1]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Andi&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;div id=&#34;memperluas-list&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.11.3 Memperluas List&lt;/h3&gt;
+&lt;p&gt;Kita juga dapat menambahkan elemen pada list yang telah kita buat. Pada contoh list sebelumnya penulis akan menambahkan elemen keluarga yang lain seperti berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menambahkan kakek dan nenek pada list
+keluarga$kakek &amp;lt;- &amp;quot;Suprapto&amp;quot;
+keluarga$nenek &amp;lt;- &amp;quot;Sri&amp;quot;
+
+# Print
+keluarga&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $ayah
+## [1] &amp;quot;Budi&amp;quot;
+## 
+## $usia_ayah
+## [1] 48
+## 
+## $ibu
+## [1] &amp;quot;Ani&amp;quot;
+## 
+## $usia_ibu
+## [1] &amp;quot;47&amp;quot;
+## 
+## $anak
+## [1] &amp;quot;Andi&amp;quot; &amp;quot;Adi&amp;quot; 
+## 
+## $usia_anak
+## [1] 15 10
+## 
+## $kakek
+## [1] &amp;quot;Suprapto&amp;quot;
+## 
+## $nenek
+## [1] &amp;quot;Sri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita juga dapat menggabungkan beberapa list menjadi satu. Berikut adalah format sederhana bagaimana cara menggabungkan beberapa list menjadi satu:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;list_baru &amp;lt;- c(list_a, list_b, list_c, ...)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

@@ -1054,4 +1054,39 @@ keluarga[[2]]</code></pre>
 keluarga[[5]][1]</code></pre>
 <pre><code>## [1] &quot;Andi&quot;</code></pre>
 </div>
+<div id="memperluas-list" class="section level3">
+<h3>2.11.3 Memperluas List</h3>
+<p>Kita juga dapat menambahkan elemen pada list yang telah kita buat. Pada contoh list sebelumnya penulis akan menambahkan elemen keluarga yang lain seperti berikut:</p>
+<pre class="r"><code># Menambahkan kakek dan nenek pada list
+keluarga$kakek &lt;- &quot;Suprapto&quot;
+keluarga$nenek &lt;- &quot;Sri&quot;
+
+# Print
+keluarga</code></pre>
+<pre><code>## $ayah
+## [1] &quot;Budi&quot;
+## 
+## $usia_ayah
+## [1] 48
+## 
+## $ibu
+## [1] &quot;Ani&quot;
+## 
+## $usia_ibu
+## [1] &quot;47&quot;
+## 
+## $anak
+## [1] &quot;Andi&quot; &quot;Adi&quot; 
+## 
+## $usia_anak
+## [1] 15 10
+## 
+## $kakek
+## [1] &quot;Suprapto&quot;
+## 
+## $nenek
+## [1] &quot;Sri&quot;</code></pre>
+<p>Kita juga dapat menggabungkan beberapa list menjadi satu. Berikut adalah format sederhana bagaimana cara menggabungkan beberapa list menjadi satu:</p>
+<pre class="r"><code>list_baru &lt;- c(list_a, list_b, list_c, ...)</code></pre>
+</div>
 </div>

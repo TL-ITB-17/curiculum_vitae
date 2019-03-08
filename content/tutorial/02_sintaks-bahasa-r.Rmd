@@ -997,3 +997,23 @@ keluarga[[2]]
 keluarga[[5]][1]
 ```
 
+### 2.11.3 Memperluas List
+
+Kita juga dapat menambahkan elemen pada list yang telah kita buat. Pada contoh list sebelumnya penulis akan menambahkan elemen keluarga yang lain seperti berikut:
+
+```{r}
+# Menambahkan kakek dan nenek pada list
+keluarga$kakek <- "Suprapto"
+keluarga$nenek <- "Sri"
+
+# Print
+keluarga
+```
+
+Kita juga dapat menggabungkan beberapa list menjadi satu. Berikut adalah format sederhana bagaimana cara menggabungkan beberapa list menjadi satu:
+
+```{r, eval=FALSE}
+list_baru <- c(list_a, list_b, list_c, ...)
+```
+
+
