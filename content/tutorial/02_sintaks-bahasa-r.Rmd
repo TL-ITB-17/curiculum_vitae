@@ -104,14 +104,23 @@ exp(8) # eksponensial 8
 
 fungsi trigonometri yang ditampilkan seperti sin,cos, tan, dll.
 
-```{r}
-cos(90) # cos 90
-sin(90) # Sin 90
-tan(90) # Tan 90
-acos(90) # arc-cos 90
-asin(90) # arc-sin 90
-atan(90) #arc-tan 90
+```{r, eval=FALSE}
+cos(x) # cos x
+sin(x) # Sin x
+tan(x) # Tan x
+acos(x) # arc-cos x
+asin(x) # arc-sin x
+atan(x) #arc-tan x
 ```
+
+> **Note: ** x dalam fungsi trigonometri memiliki satuan radian
+
+Berikut adalah salah satu contoh penggunaannya:
+
+```{r}
+cos(pi)
+```
+
 
 3. Fungsi matematik lainnya
 
@@ -1083,5 +1092,9 @@ while (counter<5){
 }
 ```
 
+*Loop* akan dimulai dari blok *statement while* sampai dengan *counter* <- 1. *Loop* hanya akan dilakukan sepanjang nilai *counter* < 5. 
+
 ### 2.12.3 Repeat Loop
+
+*Repeat loop* akan menjalankan 
 

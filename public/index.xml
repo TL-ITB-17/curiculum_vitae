@@ -323,20 +323,18 @@ Figure 3: Jendela RStudio.
 &lt;li&gt;Fungsi trigonometri&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;fungsi trigonometri yang ditampilkan seperti sin,cos, tan, dll.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cos(90) # cos 90&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -0.4480736&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sin(90) # Sin 90&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.8939967&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tan(90) # Tan 90&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -1.9952&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;acos(90) # arc-cos 90&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in acos(90): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] NaN&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;asin(90) # arc-sin 90&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in asin(90): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] NaN&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;atan(90) #arc-tan 90&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.559686&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cos(x) # cos x
+sin(x) # Sin x
+tan(x) # Tan x
+acos(x) # arc-cos x
+asin(x) # arc-sin x
+atan(x) #arc-tan x&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; x dalam fungsi trigonometri memiliki satuan radian&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah salah satu contoh penggunaannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cos(pi)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -1&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Fungsi matematik lainnya&lt;/li&gt;
 &lt;/ol&gt;
@@ -1338,9 +1336,11 @@ while (counter&amp;lt;5){
 ## [1] &amp;quot;Contoh&amp;quot;
 ## [1] &amp;quot;Contoh&amp;quot;
 ## [1] &amp;quot;Contoh&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; akan dimulai dari blok &lt;em&gt;statement while&lt;/em&gt; sampai dengan &lt;em&gt;counter&lt;/em&gt; &amp;lt;- 1. &lt;em&gt;Loop&lt;/em&gt; hanya akan dilakukan sepanjang nilai &lt;em&gt;counter&lt;/em&gt; &amp;lt; 5.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;repeat-loop&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;2.12.3 Repeat Loop&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Repeat loop&lt;/em&gt; akan menjalankan&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
