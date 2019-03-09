@@ -1096,5 +1096,68 @@ while (counter<5){
 
 ### 2.12.3 Repeat Loop
 
-*Repeat loop* akan menjalankan 
+*Repeat loop* akan menjalankan *statement*/kode yang sama berulang-ulang hingga *stop condition* tercapai. Berikut adalah pola dari *repeat loop*.
+
+```{r, eval=FALSE}
+repeat {
+  commands
+  if(condition){
+    break
+  }
+}
+```
+
+Berikut adalah contoh penerapan dari *repeat loop*:
+
+```{r}
+coba <- c("contoh")
+counter <- 1
+repeat {
+  print(coba)
+  counter <- counter + 1
+  if(counter < 5){
+break
+  }
+}
+```
+
+*Loop* akan dimulai dari blok *statement while* sampai dengan *break*. *Loop* hanya akan dilakukan sepanjang nilai *counter* < 5. Hasil yang diperoleh berbeda dengan *while loop*, dimana kita memperoleh 4 buah kata "contoh". Hal ini disebabkan karena *repeat loop* melakukan pengecekan *stop condition* tidak di awal loop seperti *while loop* sehingga berapapun nilainya, selama nilainya sesuai dengan *stop condition* maka *loop* akan dihentikan. Hal ini berbeda dengan *while loop* dimana proses dilakukan berulang-ulang sampai jumlahnya mendekati *stop condition*.
+
+### 2.12.4 Break
+
+*Break* sebenarnya bukan bagian dari *loop*, namun sering digunakan dalam *loop*. *Break* dapat digunakan pada *loop* manakala dirasa perlu, yaitu saat kondisi yang disyaratkan pada *break* tercapai.
+
+Berikut adalah contoh penerapan *break* pada beberapa jenis *loop*.
+
+```{r}
+# for loop
+a = c(2,4,6,8,10,12,14)
+for(i in a){
+  if(i>8){
+    break
+  }
+  print(i)
+}
+
+# while loop
+a = 2
+b = 4
+while(a<7){
+  print(a)
+  a = a +1
+  if(b+a>10){
+    break
+  }
+}
+
+# repeat loop
+a = 1
+repeat{
+  print(a)
+  a = a+1
+  if(a>6){
+    break
+  }
+}
+```
 

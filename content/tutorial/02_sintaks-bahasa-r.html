@@ -1146,6 +1146,71 @@ while (counter&lt;5){
 </div>
 <div id="repeat-loop" class="section level3">
 <h3>2.12.3 Repeat Loop</h3>
-<p><em>Repeat loop</em> akan menjalankan</p>
+<p><em>Repeat loop</em> akan menjalankan <em>statement</em>/kode yang sama berulang-ulang hingga <em>stop condition</em> tercapai. Berikut adalah pola dari <em>repeat loop</em>.</p>
+<pre class="r"><code>repeat {
+  commands
+  if(condition){
+    break
+  }
+}</code></pre>
+<p>Berikut adalah contoh penerapan dari <em>repeat loop</em>:</p>
+<pre class="r"><code>coba &lt;- c(&quot;contoh&quot;)
+counter &lt;- 1
+repeat {
+  print(coba)
+  counter &lt;- counter + 1
+  if(counter &lt; 5){
+break
+  }
+}</code></pre>
+<pre><code>## [1] &quot;contoh&quot;</code></pre>
+<p><em>Loop</em> akan dimulai dari blok <em>statement while</em> sampai dengan <em>break</em>. <em>Loop</em> hanya akan dilakukan sepanjang nilai <em>counter</em> &lt; 5. Hasil yang diperoleh berbeda dengan <em>while loop</em>, dimana kita memperoleh 4 buah kata “contoh”. Hal ini disebabkan karena <em>repeat loop</em> melakukan pengecekan <em>stop condition</em> tidak di awal loop seperti <em>while loop</em> sehingga berapapun nilainya, selama nilainya sesuai dengan <em>stop condition</em> maka <em>loop</em> akan dihentikan. Hal ini berbeda dengan <em>while loop</em> dimana proses dilakukan berulang-ulang sampai jumlahnya mendekati <em>stop condition</em>.</p>
+</div>
+<div id="break" class="section level3">
+<h3>2.12.4 Break</h3>
+<p><em>Break</em> sebenarnya bukan bagian dari <em>loop</em>, namun sering digunakan dalam <em>loop</em>. <em>Break</em> dapat digunakan pada <em>loop</em> manakala dirasa perlu, yaitu saat kondisi yang disyaratkan pada <em>break</em> tercapai.</p>
+<p>Berikut adalah contoh penerapan <em>break</em> pada beberapa jenis <em>loop</em>.</p>
+<pre class="r"><code># for loop
+a = c(2,4,6,8,10,12,14)
+for(i in a){
+  if(i&gt;8){
+    break
+  }
+  print(i)
+}</code></pre>
+<pre><code>## [1] 2
+## [1] 4
+## [1] 6
+## [1] 8</code></pre>
+<pre class="r"><code># while loop
+a = 2
+b = 4
+while(a&lt;7){
+  print(a)
+  a = a +1
+  if(b+a&gt;10){
+    break
+  }
+}</code></pre>
+<pre><code>## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6</code></pre>
+<pre class="r"><code># repeat loop
+a = 1
+repeat{
+  print(a)
+  a = a+1
+  if(a&gt;6){
+    break
+  }
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6</code></pre>
 </div>
 </div>
