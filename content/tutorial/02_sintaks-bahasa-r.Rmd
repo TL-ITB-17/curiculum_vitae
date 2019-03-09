@@ -25,6 +25,7 @@ type: docs
 > * [Data Frames](#2-10-data-frames)
 > * [List](#2-11-list)
 > * [Loop](#2-12-loop)
+> * [Decision Making](#2-13-decision-making)
 
 ## 2.1 Operator Aritmatika
 
