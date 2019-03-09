@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>1. Mengenal Bahasa R</title>
+      <link>/tutorial/01_mengenal-bahasa-r/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/01_mengenal-bahasa-r/</guid>
+      <description>Daftar IsiSejarah RFitur dan Karakteristik RKelebihan dan Kekurangan RRStudioMenginstall R dan RStudio1.1 Sejarah RR Merupakan bahasa yang digunakan dalam komputasi statistik yang pertama kali dikembangkan oleh Ross Ihaka dan Robert Gentlement di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum R dikenal ada S yang dikembangkan oleh John Chambers dan rekan-rekan dari Bell Laboratories yang memiliki fungsi yang sama untuk komputasi statistik.</description>
+    </item>
+    
+    <item>
       <title>2. Sintaks Bahasa R</title>
       <link>/tutorial/02_sintaks-bahasa-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
@@ -20,15 +29,6 @@
       <description>Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision MakingFungsi2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
 2+4*2## [1] 10Bandingkan dengan sintaks berikut:
 (2+4)*2## [1] 12R dapat digunakan sebagai kalkulator</description>
-    </item>
-    
-    <item>
-      <title>1. Mengenal Bahasa R</title>
-      <link>/tutorial/01_mengenal-bahasa-r/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
-      
-      <guid>/tutorial/01_mengenal-bahasa-r/</guid>
-      <description>Daftar IsiSejarah RFitur dan Karakteristik RKelebihan dan Kekurangan RRStudioMenginstall R dan RStudio1.1 Sejarah RR Merupakan bahasa yang digunakan dalam komputasi statistik yang pertama kali dikembangkan oleh Ross Ihaka dan Robert Gentlement di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum R dikenal ada S yang dikembangkan oleh John Chambers dan rekan-rekan dari Bell Laboratories yang memiliki fungsi yang sama untuk komputasi statistik.</description>
     </item>
     
   </channel>

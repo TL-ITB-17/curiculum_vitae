@@ -22,6 +22,7 @@ Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan 
 Penulis telah membuat tutorial langkah-langkah penggunaan `R` yang dapat dibaca pada section `Tutorial` yang akan diupdate setiap minggu. Adapun tema yang akan dibahas mengenai `R` antara lain penerapannya dalam bidang:
 1. Statistik
 2. Visualisasi Data
-3. Matematik
-4. Optimasi (mis: linear Programming)
+3. Model Matematik
+4. Model Sistem Dinamik
+5. Optimasi (mis: linear Programming)
 
