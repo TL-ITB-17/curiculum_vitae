@@ -676,7 +676,7 @@ my_data[-c(2,3), -3]
 
 ```
 
-* **Pilihan dengan logika**
+* **Pilihan dengan logik**
 
 Dalam kode `R` di bawah ini, misalkan kita ingin hanya menyimpan baris di mana col3> = 4:
 
@@ -1031,4 +1031,57 @@ img1_path <- "/skema_loop.png"
 include_graphics(img1_path)
 
 ```
+
+### 2.12.1 For Loop
+
+Mengulangi sebuah *statement* atau sekelompok *statement* sebanyak nilai yang ditentukan di awal. Jadi operasi akan terus dilakukan sampai dengan jumlah yang telah ditetapkan di awal atau dengan kata lain tes kondisi (Jika jumlah pengulangan telah cukup) hanya akan dilakukan di akhir. Secara sederhana bentuk dari *for loop* dapat dituliskan sebagai berikut:
+
+```{r, eval=FALSE}
+for (value in vector){
+  statements
+}
+```
+
+
+Berikut adalah contoh sintaks penerapan *for loop*:
+
+```{r}
+# Membuat vektor numerik
+vektor <- c(1:5)
+
+# loop 
+for(i in vektor){
+  print(i)
+}
+
+```
+
+*Loop* akan dimulai dari blok *statement for* sampai dengan  `print(i)`. Berdasarkan *loop* pada contoh tersebut, *loop* hanya dilakukan sebanyak 5 kali sesuai dengan jumlah vektor yang ada.
+
+### 2.12.2 While Loop
+
+*While loop* merupakan loop yang digunakan ketika kita telah menetapkan *stop condition* sebelumnya. Blok *statement*/kode yang sama akan terus dijalankan sampai *stop condition* ini tercapai. *Stop condition* akan di cek sebelum melakukan proses *loop*. Berikut adalah pola dari *while loop* dapat dituliskan sebagai berikut:
+
+```{r, eval=FALSE}
+while (test_expression){
+  statement
+}
+```
+
+Berikut adalah contoh penerapan dari *while loop*:
+
+```{r}
+coba <- c("Contoh")
+counter <- 1
+
+# loop
+while (counter<5){
+  # print vektor
+  print(coba)
+  # tambahkan nilai counter sehingga proses terus berlangsung sampai counter = 5 
+  counter <- counter + 1
+}
+```
+
+### 2.12.3 Repeat Loop
 
