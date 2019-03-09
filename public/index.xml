@@ -6,202 +6,13 @@
     <description>Recent content in Environmental Data Modeling on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Mar 2019 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 +0700</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
-      <link>/post/mengenal-r/mengenal-lebih-jauh-r/</link>
-      <pubDate>Sat, 02 Mar 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/post/mengenal-r/mengenal-lebih-jauh-r/</guid>
-      <description>
-
-
-&lt;p&gt;&lt;img src=&#34;/Restaurant-Website-Analytics.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena &lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang sangat powerfull.&lt;/p&gt;
-&lt;p&gt;Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun &lt;code&gt;R&lt;/code&gt; tidak didesain untuk melakukannya.&lt;/p&gt;
-&lt;p&gt;Penulis telah membuat tutorial langkah-langkah penggunaan &lt;code&gt;R&lt;/code&gt; yang dapat dibaca pada section &lt;code&gt;Tutorial&lt;/code&gt; yang akan diupdate setiap minggu. Adapun tema yang akan dibahas mengenai &lt;code&gt;R&lt;/code&gt; antara lain penerapannya dalam bidang: 1. Statistik 2. Visualisasi Data 3. Matematik 4. Optimasi (mis: linear Programming)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Display Jupyter Notebooks with Academic</title>
-      <link>/post/jupyter/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/jupyter/</guid>
-      <description>
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from IPython.core.display import Image
-Image(&#39;https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;./academic_0_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;Welcome to Academic!&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Welcome to Academic!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;install-python-and-jupyter&#34;&gt;Install Python and Jupyter&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.anaconda.com/distribution/#download-section&#34; target=&#34;_blank&#34;&gt;Install Anaconda&lt;/a&gt; which includes Python 3 and Jupyter notebook.&lt;/p&gt;
-
-&lt;p&gt;Otherwise, for advanced users, install Jupyter notebook with &lt;code&gt;pip3 install jupyter&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;create-a-new-blog-post-as-usual-https-sourcethemes-com-academic-docs-managing-content-create-a-blog-post&#34;&gt;Create a new blog post &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34; target=&#34;_blank&#34;&gt;as usual&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Run the following commands in your Terminal, substituting &lt;code&gt;&amp;lt;MY_WEBSITE_FOLDER&amp;gt;&lt;/code&gt; and &lt;code&gt;my-post&lt;/code&gt; with the file path to your Academic website folder and a name for your blog post (without spaces), respectively:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd &amp;lt;MY_WEBSITE_FOLDER&amp;gt;
-hugo new  --kind post post/my-post
-cd &amp;lt;MY_WEBSITE_FOLDER&amp;gt;/content/post/my-post/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;create-or-upload-a-jupyter-notebook&#34;&gt;Create or upload a Jupyter notebook&lt;/h2&gt;
-
-&lt;p&gt;Run the following command to start Jupyter within your new blog post folder. Then create a new Jupyter notebook (&lt;em&gt;New &amp;gt; Python Notebook&lt;/em&gt;) or upload a notebook.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;jupyter notebook
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;convert-notebook-to-markdown&#34;&gt;Convert notebook to Markdown&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;jupyter nbconvert Untitled.ipynb --to markdown --NbConvertApp.output_files_dir=.
-
-# Copy the contents of Untitled.md and append it to index.md:
-cat Untitled.md | tee -a index.md
-
-# Remove the temporary file:
-rm Untitled.md
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;edit-your-post-metadata&#34;&gt;Edit your post metadata&lt;/h2&gt;
-
-&lt;p&gt;Open &lt;code&gt;index.md&lt;/code&gt; in your text editor and edit the title etc. in the &lt;a href=&#34;https://sourcethemes.com/academic/docs/front-matter/&#34; target=&#34;_blank&#34;&gt;front matter&lt;/a&gt; according to your preference.&lt;/p&gt;
-
-&lt;p&gt;To set a &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#featured-image&#34; target=&#34;_blank&#34;&gt;featured image&lt;/a&gt;, place an image named &lt;code&gt;featured&lt;/code&gt; into your post&amp;rsquo;s folder.&lt;/p&gt;
-
-&lt;p&gt;For other tips, such as using math, see the guide on &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;writing content with Academic&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>1. Mengenal Bahasa R</title>
-      <link>/tutorial/01_mengenal-bahasa-r/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
-      
-      <guid>/tutorial/01_mengenal-bahasa-r/</guid>
-      <description>
-
-
-&lt;blockquote&gt;
-&lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#1-1-sejarah-r&#34;&gt;Sejarah R&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#1-2-fitur-dan-karakteristik-r&#34;&gt;Fitur dan Karakteristik R&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#1-3-kelebihan-dan-kekurangan-r&#34;&gt;Kelebihan dan Kekurangan R&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#1-4-rstudio&#34;&gt;RStudio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#1-5-menginstall-r-dan-rstudio&#34;&gt;Menginstall R dan RStudio&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;div id=&#34;sejarah-r&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;1.1 Sejarah R&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;R&lt;/code&gt; Merupakan bahasa yang digunakan dalam komputasi &lt;strong&gt;statistik&lt;/strong&gt; yang pertama kali dikembangkan oleh &lt;strong&gt;Ross Ihaka&lt;/strong&gt; dan &lt;strong&gt;Robert Gentlement&lt;/strong&gt; di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum &lt;code&gt;R&lt;/code&gt; dikenal ada &lt;code&gt;S&lt;/code&gt; yang dikembangkan oleh &lt;strong&gt;John Chambers&lt;/strong&gt; dan rekan-rekan dari &lt;strong&gt;Bell Laboratories&lt;/strong&gt; yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah &lt;code&gt;R&lt;/code&gt; merupakan sistem komputasi yang bersifat gratis.Logo &lt;code&gt;R&lt;/code&gt; dapat dilihat pada Figure &lt;a href=&#34;#fig:Logo&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:Logo&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/r-icon.png&#34; alt=&#34;Logo R.&#34;  /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: Logo R.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;R&lt;/code&gt; dapat dibilang merupakan aplikasi sistem &lt;strong&gt;statistik&lt;/strong&gt; yang kaya. Hal ini disebabkan banyak sekali paket yang dikembangkan oleh pengembang dan komunitas untuk keperluan analisa statistik seperti &lt;em&gt;linear regression&lt;/em&gt;, &lt;em&gt;clustering&lt;/em&gt;, &lt;em&gt;statistical test&lt;/em&gt;, dll. Selain itu, &lt;code&gt;R&lt;/code&gt; juga dapat ditambahkan paket-paket lain yang dapat meningkatkan fiturnya.&lt;/p&gt;
-&lt;p&gt;Sebagai sebuah bahasa pemrograman yang banyak digunakan untuk keperluan analisa data, &lt;code&gt;R&lt;/code&gt; dapat dioperasikan pada berbagai sistem operasi pada komputer. Adapun sistem operasi yang didukung antara lain: &lt;code&gt;UNIX&lt;/code&gt;, &lt;code&gt;Linux&lt;/code&gt;, &lt;code&gt;Windows&lt;/code&gt;, dan &lt;code&gt;MacOS&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;fitur-dan-karakteristik-r&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;1.2 Fitur dan Karakteristik R&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;R&lt;/code&gt; memiliki karakteristik yang berbeda dengan bahasa pemrograman lain seperti &lt;code&gt;C++&lt;/code&gt;,&lt;code&gt;python&lt;/code&gt;, dll. &lt;code&gt;R&lt;/code&gt; memiliki aturan/sintaks yang berbeda dengan bahasa pemrograman yang lain yang membuatnya memiliki ciri khas tersendiri dibanding bahasa pemrograman yang lain.&lt;/p&gt;
-&lt;p&gt;Beberapa ciri dan fitur pada &lt;code&gt;R&lt;/code&gt; antara lain:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Bahasa &lt;code&gt;R&lt;/code&gt; bersifat case sensitif&lt;/strong&gt;. maksudnya adalah dalam proses input &lt;code&gt;R&lt;/code&gt; huruf besar dan kecil sangat diperhatikan. Sebagai contoh kita ingin melihat apakah objek A dan B pada sintaks berikut:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;A &amp;lt;- &amp;quot;Andi&amp;quot;
-B &amp;lt;- &amp;quot;andi&amp;quot;
-
-# cek kedua objek A dan B
-A == B&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kesimpulan : Kedua objek berbeda&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Segala sesuatu yang ada pada program &lt;code&gt;R&lt;/code&gt; akan diangap sebagai objek&lt;/strong&gt;. konsep objek ini sama dengan bahasa pemrograma berbasis objek yang lain seperti &lt;code&gt;Java&lt;/code&gt;, &lt;code&gt;C++&lt;/code&gt;, &lt;code&gt;python&lt;/code&gt;, dll.Perbedaannya adalah bahasa &lt;code&gt;R&lt;/code&gt; relatif lebih sederhana dibandingkan bahasa pemrograman berbasis obejk yang lain.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;interpreted language atau script&lt;/strong&gt;. Bahasa &lt;code&gt;R&lt;/code&gt; memungkinkan pengguna untuk melakukan kerja pada &lt;code&gt;R&lt;/code&gt; tanpa perlu kompilasi kode program menjadi bahasa mesin.&lt;/li&gt;
-&lt;li&gt;Mendukung proses &lt;strong&gt;loop&lt;/strong&gt;, &lt;strong&gt;decision making&lt;/strong&gt;, dan menyediakan berbagai jenis &lt;strong&gt;operstor&lt;/strong&gt; (aritmatika, logika, dll).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mendukung export dan import berbagai format file&lt;/strong&gt;, seperti:TXT, CSV, XLS, dll.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mudah ditingkatkan melalui penambahan fungsi atau paket&lt;/strong&gt;. Penambahan paket dapat dilakukan secara online melalui &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;CRAN&lt;/a&gt; atau melalui sumber seperti &lt;a href=&#34;https://github.com/&#34;&gt;github&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Menyedikan berbagai fungsi untuk keperluan visualisasi data&lt;/strong&gt;. Visualisasi data pada &lt;code&gt;R&lt;/code&gt; dapat menggunakan paket bawaan atau paket lain seperti &lt;code&gt;ggplo2&lt;/code&gt;,&lt;code&gt;ggvis&lt;/code&gt;, dll.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;div id=&#34;kelebihan-dan-kekurangan-r&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;1.3 Kelebihan dan Kekurangan R&lt;/h2&gt;
-&lt;p&gt;Selain karena &lt;code&gt;R&lt;/code&gt; dapat digunakan secara gratis terdapat &lt;strong&gt;kelebihan&lt;/strong&gt; lain yang ditawarkan, antara lain:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Protability&lt;/strong&gt;. Penggunaan software dapat digunakan kapanpun tanpa terikat oleh masa berakhirnya lisensi.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Multiplatform&lt;/strong&gt;. &lt;code&gt;R&lt;/code&gt; bersifat &lt;em&gt;Multiplatform Operating Systems&lt;/em&gt;, dimana &lt;em&gt;software&lt;/em&gt; &lt;code&gt;R&lt;/code&gt; lebih kompatibel dibanding &lt;em&gt;software&lt;/em&gt; statistika lainnya. Hal in berdampak pada kemudahan dalam penyesuaian jika pengguna harus berpindah sistem operasi karena &lt;code&gt;R&lt;/code&gt; baik pada sistem operasi seperti &lt;code&gt;windows&lt;/code&gt; akan sama pengoperasiannya dengan yang ada di &lt;code&gt;Linux&lt;/code&gt; (paket yang digunakan sama).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;General&lt;/strong&gt; dan &lt;strong&gt;Cutting-edge&lt;/strong&gt;. Berbagai metode statistik baik metode klasik maupun baru telah diprogram kedalam &lt;code&gt;R&lt;/code&gt;. Dengan demikian &lt;em&gt;software&lt;/em&gt; ini dapat digunakan untuk analisis statistika dengan pendekatan klasik dan pendekatan modern.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Programable&lt;/strong&gt;. Pengguna dapat memprogram metode baru atau mengembangakan modifikasi dari analisis statistika yang telah ada pada sistem &lt;code&gt;R&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Berbasis analisis matriks&lt;/strong&gt;. Bahasa &lt;code&gt;R&lt;/code&gt; sangat baik digunakan untuk &lt;em&gt;programming&lt;/em&gt; dengan basis matriks.&lt;/li&gt;
-&lt;li&gt;Fasiltas grafik yang lengkap.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Adapun kekurangan dari &lt;code&gt;R&lt;/code&gt; antara lain:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Point and Click GUI&lt;/strong&gt;. Interaksi utama dengan &lt;code&gt;R&lt;/code&gt; bersifat &lt;em&gt;CLI&lt;/em&gt; (&lt;em&gt;Command Line Interface&lt;/em&gt;), walaupun saat ini telah dikembangkan paket yang memungkinkan kita berinteraksi dengan &lt;code&gt;R&lt;/code&gt; menggunakan &lt;em&gt;GUI&lt;/em&gt; (&lt;em&gt;Graphical User Interface&lt;/em&gt;) sederhana menggunakan paket &lt;code&gt;R-Commander&lt;/code&gt; yang memiliki fungsi yang terbatas. &lt;code&gt;R- Commander&lt;/code&gt; sendiri merupakan &lt;em&gt;GUI&lt;/em&gt; yang diciptakan dengan tujuan untuk keperluan pengajaran sehingga analisis statistik yang disediakan adalah yang klasik. Meskipun terbatas paket ini berguna jika kita membutuhkan analisis statistik sederhana dengan cara yang simpel.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Missing statistical function&lt;/strong&gt;. Meskipun analisis statistika dalam &lt;code&gt;R&lt;/code&gt; sudah cukup lengkap, namun tidak semua metode statistika telah diimplementasikan ke dalam &lt;code&gt;R&lt;/code&gt;. Namun karena &lt;code&gt;R&lt;/code&gt; merupakan &lt;em&gt;lingua franca&lt;/em&gt; untuk keperluan komputasi statistika modern staan ini, dapat dikatakan ketersediaan fungsi tambahan dalam bentuk paket hanya masalah waktu saja.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;div id=&#34;rstudio&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;1.4 RStudio&lt;/h2&gt;
-&lt;p&gt;Aplikasi &lt;code&gt;R&lt;/code&gt; pada dasarnya berbasis teks atau &lt;em&gt;command line&lt;/em&gt; sehingga pengguna harus mengetikkan perintah-perintah tertentu dan harus hapal perintah-perintahnya. Setidaknya jika kita ingin melakukan kegiatan analisa data menggunakan &lt;code&gt;R&lt;/code&gt; kita harus selalu siap dengan perintah-perintah yang hendak digunakan sehingga buku manual menjadi sesuatu yang wajib adasaat berkeja dengan &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Kondisi ini sering kali membingunkan bagi pengguna pemula maupun pengguna mahir yang sudah terbiasa dengan aplikasi statistik lain seperti SAS, SPSS, Minitab, dll. Alasan itulah yang menyebabkan pengembang &lt;code&gt;R&lt;/code&gt; membuat berbagai &lt;em&gt;frontend&lt;/em&gt; untuk &lt;code&gt;R&lt;/code&gt; yang berguna untuk memudahkan dalam pengoperasian &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;RStudio&lt;/code&gt; merupakan salah satu bentuk &lt;em&gt;frontend&lt;/em&gt; &lt;code&gt;R&lt;/code&gt; yang cukup populer dan nyaman digunakan. Selain nyaman digunakan, &lt;code&gt;RStudio&lt;/code&gt; memungkinkan kita melakukan penulisan laporan menggunakan &lt;code&gt;Rmarkdown&lt;/code&gt; atau &lt;code&gt;RNotebook&lt;/code&gt; serta membuat berbagai bentuk project seperti shyni, dll. Pada &lt;code&gt;R&lt;/code&gt; studio juga memungkinkan kita mengatur &lt;em&gt;working directory&lt;/em&gt; tanpa perlu mengetikkan sintaks pada Commander, yang diperlukan hanya memilihnya di menu &lt;code&gt;RStudio&lt;/code&gt;. Selain itu, kita juga dapat meng-import file berisikan data tanpa perlu mengetikkan pada Commander dengan cara memilih pada menu &lt;code&gt;Environment&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;menginstall-r-dan-rstudio&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;1.5 Menginstall R dan RStudio&lt;/h2&gt;
-&lt;p&gt;Pada tutorial ini hanya akan dijelaskan bagaimana menginstal &lt;code&gt;R&lt;/code&gt; dan &lt;code&gt;RStudio&lt;/code&gt; pada sistem operasi &lt;code&gt;windows&lt;/code&gt;. Sebelum memulai menginstal sebaiknya pembaca mengunduh terlebih dahulu &lt;em&gt;installer&lt;/em&gt; &lt;a href=&#34;https://cran.r-project.org/bin/windows/base/&#34;&gt;R&lt;/a&gt; dan &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/&#34;&gt;RStudio&lt;/a&gt;.&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Jalankan proses pemasangan dengan meng-klik &lt;em&gt;installer&lt;/em&gt; aplikasi &lt;code&gt;R&lt;/code&gt; dan &lt;code&gt;RStudio&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Ikuti langkah proses pemasangan aplikasi yang ditampilkan dengan klik &lt;code&gt;OK&lt;/code&gt; atau &lt;code&gt;Next&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Apabila pemasangan telah dilakukan, jalankan aplikasi yang telah terpasang untuk menguji jika aplikasi telah berjalan dengan baik.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Jendela aplikasi yang telah terpasang ditampilkan pada Figure &lt;a href=&#34;#fig:jendela-R&#34;&gt;2&lt;/a&gt; dan Figure &lt;a href=&#34;#fig:jendela-RStudio&#34;&gt;3&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:jendela-R&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/jendela_r.png&#34; alt=&#34;Jendela R.&#34;  /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 2: Jendela R.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:jendela-RStudio&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/jendela_rstudio.png&#34; alt=&#34;Jendela RStudio.&#34;  /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 3: Jendela RStudio.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Sebaiknya install &lt;code&gt;R&lt;/code&gt; terlebih dahulu sebelum &lt;code&gt;RStudio&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Primartha, R. 2018. &lt;strong&gt;Belajar Machine Learning Teori dan Praktik&lt;/strong&gt;. Penerbit Informatika : Bandung&lt;/li&gt;
-&lt;li&gt;Rosadi,D. 2016. &lt;strong&gt;Analisis Statistika dengan R&lt;/strong&gt;. Gadjah Mada University Press: Yogyakarta&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
     
     <item>
       <title>2. Sintaks Bahasa R</title>
       <link>/tutorial/02_sintaks-bahasa-r/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
       <guid>/tutorial/02_sintaks-bahasa-r/</guid>
       <description>
@@ -223,6 +34,7 @@ Figure 3: Jendela RStudio.
 &lt;li&gt;&lt;a href=&#34;#2-11-list&#34;&gt;List&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#2-12-loop&#34;&gt;Loop&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#2-13-decision-making&#34;&gt;Decision Making&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-14-fungsi&#34;&gt;Fungsi&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;operator-aritmatika&#34; class=&#34;section level2&#34;&gt;
@@ -1411,6 +1223,300 @@ repeat{
 &lt;/div&gt;
 &lt;div id=&#34;decision-making&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;2.13 Decision Making&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Decicion Making&lt;/em&gt; atau sering disebut sebagai &lt;em&gt;if then else statement&lt;/em&gt; merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Table 5&lt;/strong&gt; Daftar percabangan pada &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;16%&#34; /&gt;
+&lt;col width=&#34;83%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Statement&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;em&gt;if statement&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;if statement&lt;/em&gt; hanya terdiri atas sebuah ekspresi &lt;em&gt;Boolean&lt;/em&gt;, dan diikuti satu atau lebih &lt;em&gt;statement&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;em&gt;if…else statement&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;if else statement&lt;/em&gt; terdiri atas beberapa buah ekspresi &lt;em&gt;Boolean&lt;/em&gt;. Ekspressi &lt;em&gt;Boolean&lt;/em&gt; berikutnya akan dijalankan jika ekspresi *Boolan sebelumnya bernilai FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;em&gt;switch statement&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;switch statement&lt;/em&gt; digunakan untuk mengevaluasi sebuah variabel beberapa pilihan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;if-statement&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.13.1 if statement&lt;/h3&gt;
+&lt;p&gt;Pola &lt;em&gt;if statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:ifstatement&#34;&gt;2&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ifstatement&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/ifstatement.png&#34; alt=&#34;Diagram if statement (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Diagram if statement (sumber: Primartha, 2018).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;if statement&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(1:5)
+if(is.vector(x)){
+  print(&amp;quot;x adalah sebuah vector&amp;quot;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;x adalah sebuah vector&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;if-else-statement&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.13.2 if else statement&lt;/h3&gt;
+&lt;p&gt;Pola dari &lt;em&gt;if else statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:ifelse&#34;&gt;3&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ifelse&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/ifelse.png&#34; alt=&#34;Diagram if else statement (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Diagram if else statement (sumber: Primartha, 2018).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;if else statement&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(&amp;quot;Andi&amp;quot;,&amp;quot;Iwan&amp;quot;, &amp;quot;Adi&amp;quot;)
+if(&amp;quot;Rina&amp;quot; %in% x){
+  print(&amp;quot;Rina ditemukan&amp;quot;)
+} else if(&amp;quot;Adi&amp;quot; %in% x){
+  print(&amp;quot;Adi ditemukan&amp;quot;)
+} else{
+  print(&amp;quot;tidak ada yang ditemukan&amp;quot;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Adi ditemukan&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;switch-statement&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.13.3 switch statement&lt;/h3&gt;
+&lt;p&gt;Pola dari &lt;em&gt;switch statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:switch&#34;&gt;4&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:switch&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/switch.png&#34; alt=&#34;Diagram switch statement (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Diagram switch statement (sumber: Primartha, 2018).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;switch statement&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y = 3
+
+x = switch(
+  y,
+  &amp;quot;Selamat Pagi&amp;quot;,
+  &amp;quot;Selamat Siang&amp;quot;,
+  &amp;quot;Selamat Sore&amp;quot;,
+  &amp;quot;Selamat Malam&amp;quot;
+)
+
+print(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Selamat Sore&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fungsi&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.14 Fungsi&lt;/h2&gt;
+&lt;p&gt;Fungsi merupakan sekumpulan instruksi atau &lt;em&gt;statement&lt;/em&gt; yang dapat melakukan tugas khusus. Sebagai contoh fungsi perkalian untuk menyelesaikan operasi perkalian, fungsi pemangkatan hanya untuk operasi pemangkatan, dll.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; terdapat 2 jenis fungsi, yaitu: &lt;em&gt;build in fuction&lt;/em&gt; dan &lt;em&gt;user define function&lt;/em&gt;. &lt;em&gt;build in fnction&lt;/em&gt; merupakan fungsi bawaan &lt;code&gt;R&lt;/code&gt; saat pertama kita menginstall &lt;code&gt;R&lt;/code&gt;. Contohnya adalah &lt;code&gt;mean()&lt;/code&gt;, &lt;code&gt;sum()&lt;/code&gt;, &lt;code&gt;ls()&lt;/code&gt;, &lt;code&gt;rm()&lt;/code&gt;, dll. Sedangkan &lt;em&gt;user define fuction&lt;/em&gt; merupakan fungsi-fungsi yang dibuat sendiri oleh pengguna.&lt;/p&gt;
+&lt;p&gt;Fungsi-fungsi buatan pengguna haruslah dideklarasikan (dibuat) terlebih dahulu sebelum dapat dijalankan. Pola pembentukan fungsi adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;function_name &amp;lt;- function(argument_1, argument_2, ...){
+  function body
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;function_name&lt;/strong&gt; : Nama dari fungsi &lt;code&gt;R&lt;/code&gt;. &lt;code&gt;R&lt;/code&gt; akan menyimpan fungsi tersebut sebagai objek&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;argument_1, argument_2,…&lt;/strong&gt; : &lt;em&gt;Argument&lt;/em&gt; bersifat opsional (tidak wajib). &lt;em&gt;Argument&lt;/em&gt; dapat digunakan untuk memberi inputan kepada fungsi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;function body&lt;/strong&gt; : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;return&lt;/strong&gt; : Fungsi ada yang memiliki &lt;em&gt;output&lt;/em&gt; atau &lt;em&gt;return value&lt;/em&gt; ada juga yang tidak. Jika fungsi memiliki &lt;em&gt;return value&lt;/em&gt; maka &lt;em&gt;return value&lt;/em&gt; dapat diproses lebih lanjut&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
+      <link>/post/mengenal-r/mengenal-lebih-jauh-r/</link>
+      <pubDate>Sat, 02 Mar 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/post/mengenal-r/mengenal-lebih-jauh-r/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;img src=&#34;/Restaurant-Website-Analytics.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena &lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang sangat powerfull.&lt;/p&gt;
+&lt;p&gt;Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun &lt;code&gt;R&lt;/code&gt; tidak didesain untuk melakukannya.&lt;/p&gt;
+&lt;p&gt;Penulis telah membuat tutorial langkah-langkah penggunaan &lt;code&gt;R&lt;/code&gt; yang dapat dibaca pada section &lt;code&gt;Tutorial&lt;/code&gt; yang akan diupdate setiap minggu. Adapun tema yang akan dibahas mengenai &lt;code&gt;R&lt;/code&gt; antara lain penerapannya dalam bidang: 1. Statistik 2. Visualisasi Data 3. Matematik 4. Optimasi (mis: linear Programming)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Display Jupyter Notebooks with Academic</title>
+      <link>/post/jupyter/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/jupyter/</guid>
+      <description>
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from IPython.core.display import Image
+Image(&#39;https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./academic_0_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;Welcome to Academic!&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Welcome to Academic!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;install-python-and-jupyter&#34;&gt;Install Python and Jupyter&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.anaconda.com/distribution/#download-section&#34; target=&#34;_blank&#34;&gt;Install Anaconda&lt;/a&gt; which includes Python 3 and Jupyter notebook.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, for advanced users, install Jupyter notebook with &lt;code&gt;pip3 install jupyter&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;create-a-new-blog-post-as-usual-https-sourcethemes-com-academic-docs-managing-content-create-a-blog-post&#34;&gt;Create a new blog post &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34; target=&#34;_blank&#34;&gt;as usual&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Run the following commands in your Terminal, substituting &lt;code&gt;&amp;lt;MY_WEBSITE_FOLDER&amp;gt;&lt;/code&gt; and &lt;code&gt;my-post&lt;/code&gt; with the file path to your Academic website folder and a name for your blog post (without spaces), respectively:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd &amp;lt;MY_WEBSITE_FOLDER&amp;gt;
+hugo new  --kind post post/my-post
+cd &amp;lt;MY_WEBSITE_FOLDER&amp;gt;/content/post/my-post/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;create-or-upload-a-jupyter-notebook&#34;&gt;Create or upload a Jupyter notebook&lt;/h2&gt;
+
+&lt;p&gt;Run the following command to start Jupyter within your new blog post folder. Then create a new Jupyter notebook (&lt;em&gt;New &amp;gt; Python Notebook&lt;/em&gt;) or upload a notebook.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;jupyter notebook
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;convert-notebook-to-markdown&#34;&gt;Convert notebook to Markdown&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;jupyter nbconvert Untitled.ipynb --to markdown --NbConvertApp.output_files_dir=.
+
+# Copy the contents of Untitled.md and append it to index.md:
+cat Untitled.md | tee -a index.md
+
+# Remove the temporary file:
+rm Untitled.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;edit-your-post-metadata&#34;&gt;Edit your post metadata&lt;/h2&gt;
+
+&lt;p&gt;Open &lt;code&gt;index.md&lt;/code&gt; in your text editor and edit the title etc. in the &lt;a href=&#34;https://sourcethemes.com/academic/docs/front-matter/&#34; target=&#34;_blank&#34;&gt;front matter&lt;/a&gt; according to your preference.&lt;/p&gt;
+
+&lt;p&gt;To set a &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#featured-image&#34; target=&#34;_blank&#34;&gt;featured image&lt;/a&gt;, place an image named &lt;code&gt;featured&lt;/code&gt; into your post&amp;rsquo;s folder.&lt;/p&gt;
+
+&lt;p&gt;For other tips, such as using math, see the guide on &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;writing content with Academic&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>1. Mengenal Bahasa R</title>
+      <link>/tutorial/01_mengenal-bahasa-r/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/01_mengenal-bahasa-r/</guid>
+      <description>
+
+
+&lt;blockquote&gt;
+&lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#1-1-sejarah-r&#34;&gt;Sejarah R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-2-fitur-dan-karakteristik-r&#34;&gt;Fitur dan Karakteristik R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-3-kelebihan-dan-kekurangan-r&#34;&gt;Kelebihan dan Kekurangan R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-4-rstudio&#34;&gt;RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-5-menginstall-r-dan-rstudio&#34;&gt;Menginstall R dan RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;sejarah-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1.1 Sejarah R&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; Merupakan bahasa yang digunakan dalam komputasi &lt;strong&gt;statistik&lt;/strong&gt; yang pertama kali dikembangkan oleh &lt;strong&gt;Ross Ihaka&lt;/strong&gt; dan &lt;strong&gt;Robert Gentlement&lt;/strong&gt; di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum &lt;code&gt;R&lt;/code&gt; dikenal ada &lt;code&gt;S&lt;/code&gt; yang dikembangkan oleh &lt;strong&gt;John Chambers&lt;/strong&gt; dan rekan-rekan dari &lt;strong&gt;Bell Laboratories&lt;/strong&gt; yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah &lt;code&gt;R&lt;/code&gt; merupakan sistem komputasi yang bersifat gratis.Logo &lt;code&gt;R&lt;/code&gt; dapat dilihat pada Figure &lt;a href=&#34;#fig:Logo&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:Logo&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/r-icon.png&#34; alt=&#34;Logo R.&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Logo R.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; dapat dibilang merupakan aplikasi sistem &lt;strong&gt;statistik&lt;/strong&gt; yang kaya. Hal ini disebabkan banyak sekali paket yang dikembangkan oleh pengembang dan komunitas untuk keperluan analisa statistik seperti &lt;em&gt;linear regression&lt;/em&gt;, &lt;em&gt;clustering&lt;/em&gt;, &lt;em&gt;statistical test&lt;/em&gt;, dll. Selain itu, &lt;code&gt;R&lt;/code&gt; juga dapat ditambahkan paket-paket lain yang dapat meningkatkan fiturnya.&lt;/p&gt;
+&lt;p&gt;Sebagai sebuah bahasa pemrograman yang banyak digunakan untuk keperluan analisa data, &lt;code&gt;R&lt;/code&gt; dapat dioperasikan pada berbagai sistem operasi pada komputer. Adapun sistem operasi yang didukung antara lain: &lt;code&gt;UNIX&lt;/code&gt;, &lt;code&gt;Linux&lt;/code&gt;, &lt;code&gt;Windows&lt;/code&gt;, dan &lt;code&gt;MacOS&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fitur-dan-karakteristik-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1.2 Fitur dan Karakteristik R&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; memiliki karakteristik yang berbeda dengan bahasa pemrograman lain seperti &lt;code&gt;C++&lt;/code&gt;,&lt;code&gt;python&lt;/code&gt;, dll. &lt;code&gt;R&lt;/code&gt; memiliki aturan/sintaks yang berbeda dengan bahasa pemrograman yang lain yang membuatnya memiliki ciri khas tersendiri dibanding bahasa pemrograman yang lain.&lt;/p&gt;
+&lt;p&gt;Beberapa ciri dan fitur pada &lt;code&gt;R&lt;/code&gt; antara lain:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Bahasa &lt;code&gt;R&lt;/code&gt; bersifat case sensitif&lt;/strong&gt;. maksudnya adalah dalam proses input &lt;code&gt;R&lt;/code&gt; huruf besar dan kecil sangat diperhatikan. Sebagai contoh kita ingin melihat apakah objek A dan B pada sintaks berikut:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;A &amp;lt;- &amp;quot;Andi&amp;quot;
+B &amp;lt;- &amp;quot;andi&amp;quot;
+
+# cek kedua objek A dan B
+A == B&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kesimpulan : Kedua objek berbeda&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Segala sesuatu yang ada pada program &lt;code&gt;R&lt;/code&gt; akan diangap sebagai objek&lt;/strong&gt;. konsep objek ini sama dengan bahasa pemrograma berbasis objek yang lain seperti &lt;code&gt;Java&lt;/code&gt;, &lt;code&gt;C++&lt;/code&gt;, &lt;code&gt;python&lt;/code&gt;, dll.Perbedaannya adalah bahasa &lt;code&gt;R&lt;/code&gt; relatif lebih sederhana dibandingkan bahasa pemrograman berbasis obejk yang lain.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;interpreted language atau script&lt;/strong&gt;. Bahasa &lt;code&gt;R&lt;/code&gt; memungkinkan pengguna untuk melakukan kerja pada &lt;code&gt;R&lt;/code&gt; tanpa perlu kompilasi kode program menjadi bahasa mesin.&lt;/li&gt;
+&lt;li&gt;Mendukung proses &lt;strong&gt;loop&lt;/strong&gt;, &lt;strong&gt;decision making&lt;/strong&gt;, dan menyediakan berbagai jenis &lt;strong&gt;operstor&lt;/strong&gt; (aritmatika, logika, dll).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mendukung export dan import berbagai format file&lt;/strong&gt;, seperti:TXT, CSV, XLS, dll.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mudah ditingkatkan melalui penambahan fungsi atau paket&lt;/strong&gt;. Penambahan paket dapat dilakukan secara online melalui &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;CRAN&lt;/a&gt; atau melalui sumber seperti &lt;a href=&#34;https://github.com/&#34;&gt;github&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Menyedikan berbagai fungsi untuk keperluan visualisasi data&lt;/strong&gt;. Visualisasi data pada &lt;code&gt;R&lt;/code&gt; dapat menggunakan paket bawaan atau paket lain seperti &lt;code&gt;ggplo2&lt;/code&gt;,&lt;code&gt;ggvis&lt;/code&gt;, dll.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;kelebihan-dan-kekurangan-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1.3 Kelebihan dan Kekurangan R&lt;/h2&gt;
+&lt;p&gt;Selain karena &lt;code&gt;R&lt;/code&gt; dapat digunakan secara gratis terdapat &lt;strong&gt;kelebihan&lt;/strong&gt; lain yang ditawarkan, antara lain:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Protability&lt;/strong&gt;. Penggunaan software dapat digunakan kapanpun tanpa terikat oleh masa berakhirnya lisensi.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multiplatform&lt;/strong&gt;. &lt;code&gt;R&lt;/code&gt; bersifat &lt;em&gt;Multiplatform Operating Systems&lt;/em&gt;, dimana &lt;em&gt;software&lt;/em&gt; &lt;code&gt;R&lt;/code&gt; lebih kompatibel dibanding &lt;em&gt;software&lt;/em&gt; statistika lainnya. Hal in berdampak pada kemudahan dalam penyesuaian jika pengguna harus berpindah sistem operasi karena &lt;code&gt;R&lt;/code&gt; baik pada sistem operasi seperti &lt;code&gt;windows&lt;/code&gt; akan sama pengoperasiannya dengan yang ada di &lt;code&gt;Linux&lt;/code&gt; (paket yang digunakan sama).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;General&lt;/strong&gt; dan &lt;strong&gt;Cutting-edge&lt;/strong&gt;. Berbagai metode statistik baik metode klasik maupun baru telah diprogram kedalam &lt;code&gt;R&lt;/code&gt;. Dengan demikian &lt;em&gt;software&lt;/em&gt; ini dapat digunakan untuk analisis statistika dengan pendekatan klasik dan pendekatan modern.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Programable&lt;/strong&gt;. Pengguna dapat memprogram metode baru atau mengembangakan modifikasi dari analisis statistika yang telah ada pada sistem &lt;code&gt;R&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Berbasis analisis matriks&lt;/strong&gt;. Bahasa &lt;code&gt;R&lt;/code&gt; sangat baik digunakan untuk &lt;em&gt;programming&lt;/em&gt; dengan basis matriks.&lt;/li&gt;
+&lt;li&gt;Fasiltas grafik yang lengkap.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Adapun kekurangan dari &lt;code&gt;R&lt;/code&gt; antara lain:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Point and Click GUI&lt;/strong&gt;. Interaksi utama dengan &lt;code&gt;R&lt;/code&gt; bersifat &lt;em&gt;CLI&lt;/em&gt; (&lt;em&gt;Command Line Interface&lt;/em&gt;), walaupun saat ini telah dikembangkan paket yang memungkinkan kita berinteraksi dengan &lt;code&gt;R&lt;/code&gt; menggunakan &lt;em&gt;GUI&lt;/em&gt; (&lt;em&gt;Graphical User Interface&lt;/em&gt;) sederhana menggunakan paket &lt;code&gt;R-Commander&lt;/code&gt; yang memiliki fungsi yang terbatas. &lt;code&gt;R- Commander&lt;/code&gt; sendiri merupakan &lt;em&gt;GUI&lt;/em&gt; yang diciptakan dengan tujuan untuk keperluan pengajaran sehingga analisis statistik yang disediakan adalah yang klasik. Meskipun terbatas paket ini berguna jika kita membutuhkan analisis statistik sederhana dengan cara yang simpel.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Missing statistical function&lt;/strong&gt;. Meskipun analisis statistika dalam &lt;code&gt;R&lt;/code&gt; sudah cukup lengkap, namun tidak semua metode statistika telah diimplementasikan ke dalam &lt;code&gt;R&lt;/code&gt;. Namun karena &lt;code&gt;R&lt;/code&gt; merupakan &lt;em&gt;lingua franca&lt;/em&gt; untuk keperluan komputasi statistika modern staan ini, dapat dikatakan ketersediaan fungsi tambahan dalam bentuk paket hanya masalah waktu saja.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rstudio&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1.4 RStudio&lt;/h2&gt;
+&lt;p&gt;Aplikasi &lt;code&gt;R&lt;/code&gt; pada dasarnya berbasis teks atau &lt;em&gt;command line&lt;/em&gt; sehingga pengguna harus mengetikkan perintah-perintah tertentu dan harus hapal perintah-perintahnya. Setidaknya jika kita ingin melakukan kegiatan analisa data menggunakan &lt;code&gt;R&lt;/code&gt; kita harus selalu siap dengan perintah-perintah yang hendak digunakan sehingga buku manual menjadi sesuatu yang wajib adasaat berkeja dengan &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Kondisi ini sering kali membingunkan bagi pengguna pemula maupun pengguna mahir yang sudah terbiasa dengan aplikasi statistik lain seperti SAS, SPSS, Minitab, dll. Alasan itulah yang menyebabkan pengembang &lt;code&gt;R&lt;/code&gt; membuat berbagai &lt;em&gt;frontend&lt;/em&gt; untuk &lt;code&gt;R&lt;/code&gt; yang berguna untuk memudahkan dalam pengoperasian &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;RStudio&lt;/code&gt; merupakan salah satu bentuk &lt;em&gt;frontend&lt;/em&gt; &lt;code&gt;R&lt;/code&gt; yang cukup populer dan nyaman digunakan. Selain nyaman digunakan, &lt;code&gt;RStudio&lt;/code&gt; memungkinkan kita melakukan penulisan laporan menggunakan &lt;code&gt;Rmarkdown&lt;/code&gt; atau &lt;code&gt;RNotebook&lt;/code&gt; serta membuat berbagai bentuk project seperti shyni, dll. Pada &lt;code&gt;R&lt;/code&gt; studio juga memungkinkan kita mengatur &lt;em&gt;working directory&lt;/em&gt; tanpa perlu mengetikkan sintaks pada Commander, yang diperlukan hanya memilihnya di menu &lt;code&gt;RStudio&lt;/code&gt;. Selain itu, kita juga dapat meng-import file berisikan data tanpa perlu mengetikkan pada Commander dengan cara memilih pada menu &lt;code&gt;Environment&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;menginstall-r-dan-rstudio&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1.5 Menginstall R dan RStudio&lt;/h2&gt;
+&lt;p&gt;Pada tutorial ini hanya akan dijelaskan bagaimana menginstal &lt;code&gt;R&lt;/code&gt; dan &lt;code&gt;RStudio&lt;/code&gt; pada sistem operasi &lt;code&gt;windows&lt;/code&gt;. Sebelum memulai menginstal sebaiknya pembaca mengunduh terlebih dahulu &lt;em&gt;installer&lt;/em&gt; &lt;a href=&#34;https://cran.r-project.org/bin/windows/base/&#34;&gt;R&lt;/a&gt; dan &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/&#34;&gt;RStudio&lt;/a&gt;.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Jalankan proses pemasangan dengan meng-klik &lt;em&gt;installer&lt;/em&gt; aplikasi &lt;code&gt;R&lt;/code&gt; dan &lt;code&gt;RStudio&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Ikuti langkah proses pemasangan aplikasi yang ditampilkan dengan klik &lt;code&gt;OK&lt;/code&gt; atau &lt;code&gt;Next&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Apabila pemasangan telah dilakukan, jalankan aplikasi yang telah terpasang untuk menguji jika aplikasi telah berjalan dengan baik.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Jendela aplikasi yang telah terpasang ditampilkan pada Figure &lt;a href=&#34;#fig:jendela-R&#34;&gt;2&lt;/a&gt; dan Figure &lt;a href=&#34;#fig:jendela-RStudio&#34;&gt;3&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:jendela-R&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/jendela_r.png&#34; alt=&#34;Jendela R.&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Jendela R.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:jendela-RStudio&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/jendela_rstudio.png&#34; alt=&#34;Jendela RStudio.&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Jendela RStudio.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Sebaiknya install &lt;code&gt;R&lt;/code&gt; terlebih dahulu sebelum &lt;code&gt;RStudio&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Primartha, R. 2018. &lt;strong&gt;Belajar Machine Learning Teori dan Praktik&lt;/strong&gt;. Penerbit Informatika : Bandung&lt;/li&gt;
+&lt;li&gt;Rosadi,D. 2016. &lt;strong&gt;Analisis Statistika dengan R&lt;/strong&gt;. Gadjah Mada University Press: Yogyakarta&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>

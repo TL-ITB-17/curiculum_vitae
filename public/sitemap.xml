@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/tutorial/02_sintaks-bahasa-r/</loc>
+      <lastmod>2019-03-09T00:00:00+07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/mengenal-r/mengenal-lebih-jauh-r/</loc>
       <lastmod>2019-03-02T21:13:14-05:00</lastmod>
     </url>
@@ -29,14 +37,6 @@
     <url>
     
       <loc>/tutorial/01_mengenal-bahasa-r/</loc>
-      <lastmod>2018-09-09T00:00:00+07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/tutorial/02_sintaks-bahasa-r/</loc>
       <lastmod>2018-09-09T00:00:00+07:00</lastmod>
     </url>
     
@@ -141,7 +141,7 @@
     <url>
     
       <loc>/</loc>
-      <lastmod>2019-03-02T21:13:14-05:00</lastmod>
+      <lastmod>2019-03-09T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     

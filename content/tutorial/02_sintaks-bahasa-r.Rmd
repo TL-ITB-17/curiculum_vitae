@@ -1,7 +1,7 @@
 ---
 title: "2. Sintaks Bahasa R"
 draft: false
-date: '2018-09-09T00:00:00+07:00'
+date: '2019-03-09T00:00:00+07:00'
 output: pdf_document
 menu:
   tutorial:
@@ -26,6 +26,7 @@ type: docs
 > * [List](#2-11-list)
 > * [Loop](#2-12-loop)
 > * [Decision Making](#2-13-decision-making)
+> * [Fungsi](#2-14-fungsi)
 
 ## 2.1 Operator Aritmatika
 
@@ -1163,3 +1164,112 @@ repeat{
 ```
 
 ## 2.13 Decision Making
+
+*Decicion Making* atau sering disebut sebagai *if then else statement* merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada `R`.
+
+**Table 5** Daftar percabangan pada `R`
+
+**Statement**          | **Keterangan**
+-----------------------|--------------------------------------------------------------------------------------------------------------------------
+*if statement*         | *if statement* hanya terdiri atas sebuah ekspresi *Boolean*, dan diikuti satu atau lebih *statement*
+*if...else statement*  | *if else statement* terdiri atas beberapa buah ekspresi *Boolean*. Ekspressi *Boolean* berikutnya akan dijalankan jika ekspresi *Boolan  sebelumnya bernilai FALSE
+*switch statement*     | *switch statement* digunakan untuk mengevaluasi sebuah variabel beberapa pilihan
+
+
+### 2.13.1 if statement
+
+Pola *if statement* disajikan pada Figure \@ref(fig:ifstatement)
+
+```{r ifstatement, echo=FALSE, fig.cap='Diagram if statement (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "/ifstatement.png"
+include_graphics(img1_path)
+
+```
+
+Berikut adalah contoh penerapan *if statement*:
+
+```{r}
+x <- c(1:5)
+if(is.vector(x)){
+  print("x adalah sebuah vector")
+}
+```
+
+
+### 2.13.2 if else statement
+
+Pola dari *if else statement* disajikan pada Figure \@ref(fig:ifelse)
+
+```{r ifelse, echo=FALSE, fig.cap='Diagram if else statement (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "/ifelse.png"
+include_graphics(img1_path)
+
+```
+
+Berikut adalah contoh penerapan *if else statement*:
+
+```{r}
+x <- c("Andi","Iwan", "Adi")
+if("Rina" %in% x){
+  print("Rina ditemukan")
+} else if("Adi" %in% x){
+  print("Adi ditemukan")
+} else{
+  print("tidak ada yang ditemukan")
+}
+```
+
+
+### 2.13.3 switch statement
+
+Pola dari *switch statement* disajikan pada Figure \@ref(fig:switch)
+
+```{r switch, echo=FALSE, fig.cap='Diagram switch statement (sumber: Primartha, 2018).', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "/switch.png"
+include_graphics(img1_path)
+
+```
+
+Berikut adalah contoh penerapan *switch statement*:
+
+```{r}
+y = 3
+
+x = switch(
+  y,
+  "Selamat Pagi",
+  "Selamat Siang",
+  "Selamat Sore",
+  "Selamat Malam"
+)
+
+print(x)
+```
+
+
+## 2.14 Fungsi
+
+Fungsi merupakan sekumpulan instruksi atau *statement* yang dapat melakukan tugas khusus. Sebagai contoh fungsi perkalian untuk menyelesaikan operasi perkalian, fungsi pemangkatan hanya untuk operasi pemangkatan, dll.
+
+Pada `R` terdapat 2 jenis fungsi, yaitu: *build in fuction* dan *user define function*. *build in fnction* merupakan fungsi bawaan `R` saat pertama kita menginstall `R`. Contohnya adalah `mean()`, `sum()`, `ls()`, `rm()`, dll. Sedangkan *user define fuction* merupakan fungsi-fungsi yang dibuat sendiri oleh pengguna.
+
+Fungsi-fungsi buatan pengguna haruslah dideklarasikan (dibuat) terlebih dahulu sebelum dapat dijalankan. Pola pembentukan fungsi adalah sebagai berikut:
+
+```{r, eval=FALSE}
+function_name <- function(argument_1, argument_2, ...){
+  function body
+}
+```
+
+> **Note: **
+>
+> -  **function_name** : Nama dari fungsi `R`. `R` akan menyimpan fungsi tersebut sebagai objek
+> -  **argument_1, argument_2,...** : *Argument* bersifat opsional (tidak wajib). *Argument* dapat digunakan untuk memberi inputan kepada fungsi
+> -  **function body** : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.
+> -  **return** : Fungsi ada yang memiliki *output* atau *return value* ada juga yang tidak. Jika fungsi memiliki *return value* maka *return value* dapat diproses lebih lanjut
+
+
+

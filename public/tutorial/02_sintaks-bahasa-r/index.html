@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision Making2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
+  <meta name="description" content="Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision MakingFungsi2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
 2&#43;4*2## [1] 10Bandingkan dengan sintaks berikut:
 (2&#43;4)*2## [1] 12R dapat digunakan sebagai kalkulator">
 
@@ -122,14 +122,14 @@
   <meta property="og:site_name" content="Environmental Data Modeling">
   <meta property="og:url" content="/tutorial/02_sintaks-bahasa-r/">
   <meta property="og:title" content="2. Sintaks Bahasa R | Environmental Data Modeling">
-  <meta property="og:description" content="Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision Making2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
+  <meta property="og:description" content="Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision MakingFungsi2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
 2&#43;4*2## [1] 10Bandingkan dengan sintaks berikut:
 (2&#43;4)*2## [1] 12R dapat digunakan sebagai kalkulator"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-09-09T00:00:00&#43;07:00">
+  <meta property="article:published_time" content="2019-03-09T00:00:00&#43;07:00">
   
-  <meta property="article:modified_time" content="2018-09-09T00:00:00&#43;07:00">
+  <meta property="article:modified_time" content="2019-03-09T00:00:00&#43;07:00">
   
 
   
@@ -433,6 +433,7 @@
 <li><a href="#2-11-list">List</a></li>
 <li><a href="#2-12-loop">Loop</a></li>
 <li><a href="#2-13-decision-making">Decision Making</a></li>
+<li><a href="#2-14-fungsi">Fungsi</a></li>
 </ul>
 </blockquote>
 <div id="operator-aritmatika" class="section level2">
@@ -1621,6 +1622,111 @@ repeat{
 </div>
 <div id="decision-making" class="section level2">
 <h2>2.13 Decision Making</h2>
+<p><em>Decicion Making</em> atau sering disebut sebagai <em>if then else statement</em> merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada <code>R</code>.</p>
+<p><strong>Table 5</strong> Daftar percabangan pada <code>R</code></p>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="83%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Statement</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>if statement</em></td>
+<td><em>if statement</em> hanya terdiri atas sebuah ekspresi <em>Boolean</em>, dan diikuti satu atau lebih <em>statement</em></td>
+</tr>
+<tr class="even">
+<td><em>if…else statement</em></td>
+<td><em>if else statement</em> terdiri atas beberapa buah ekspresi <em>Boolean</em>. Ekspressi <em>Boolean</em> berikutnya akan dijalankan jika ekspresi *Boolan sebelumnya bernilai FALSE</td>
+</tr>
+<tr class="odd">
+<td><em>switch statement</em></td>
+<td><em>switch statement</em> digunakan untuk mengevaluasi sebuah variabel beberapa pilihan</td>
+</tr>
+</tbody>
+</table>
+<div id="if-statement" class="section level3">
+<h3>2.13.1 if statement</h3>
+<p>Pola <em>if statement</em> disajikan pada Figure <a href="#fig:ifstatement">2</a></p>
+<div class="figure" style="text-align: center"><span id="fig:ifstatement"></span>
+<img src="/ifstatement.png" alt="Diagram if statement (sumber: Primartha, 2018)."  />
+<p class="caption">
+Figure 2: Diagram if statement (sumber: Primartha, 2018).
+</p>
+</div>
+<p>Berikut adalah contoh penerapan <em>if statement</em>:</p>
+<pre class="r"><code>x &lt;- c(1:5)
+if(is.vector(x)){
+  print(&quot;x adalah sebuah vector&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;x adalah sebuah vector&quot;</code></pre>
+</div>
+<div id="if-else-statement" class="section level3">
+<h3>2.13.2 if else statement</h3>
+<p>Pola dari <em>if else statement</em> disajikan pada Figure <a href="#fig:ifelse">3</a></p>
+<div class="figure" style="text-align: center"><span id="fig:ifelse"></span>
+<img src="/ifelse.png" alt="Diagram if else statement (sumber: Primartha, 2018)."  />
+<p class="caption">
+Figure 3: Diagram if else statement (sumber: Primartha, 2018).
+</p>
+</div>
+<p>Berikut adalah contoh penerapan <em>if else statement</em>:</p>
+<pre class="r"><code>x &lt;- c(&quot;Andi&quot;,&quot;Iwan&quot;, &quot;Adi&quot;)
+if(&quot;Rina&quot; %in% x){
+  print(&quot;Rina ditemukan&quot;)
+} else if(&quot;Adi&quot; %in% x){
+  print(&quot;Adi ditemukan&quot;)
+} else{
+  print(&quot;tidak ada yang ditemukan&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;Adi ditemukan&quot;</code></pre>
+</div>
+<div id="switch-statement" class="section level3">
+<h3>2.13.3 switch statement</h3>
+<p>Pola dari <em>switch statement</em> disajikan pada Figure <a href="#fig:switch">4</a></p>
+<div class="figure" style="text-align: center"><span id="fig:switch"></span>
+<img src="/switch.png" alt="Diagram switch statement (sumber: Primartha, 2018)."  />
+<p class="caption">
+Figure 4: Diagram switch statement (sumber: Primartha, 2018).
+</p>
+</div>
+<p>Berikut adalah contoh penerapan <em>switch statement</em>:</p>
+<pre class="r"><code>y = 3
+
+x = switch(
+  y,
+  &quot;Selamat Pagi&quot;,
+  &quot;Selamat Siang&quot;,
+  &quot;Selamat Sore&quot;,
+  &quot;Selamat Malam&quot;
+)
+
+print(x)</code></pre>
+<pre><code>## [1] &quot;Selamat Sore&quot;</code></pre>
+</div>
+</div>
+<div id="fungsi" class="section level2">
+<h2>2.14 Fungsi</h2>
+<p>Fungsi merupakan sekumpulan instruksi atau <em>statement</em> yang dapat melakukan tugas khusus. Sebagai contoh fungsi perkalian untuk menyelesaikan operasi perkalian, fungsi pemangkatan hanya untuk operasi pemangkatan, dll.</p>
+<p>Pada <code>R</code> terdapat 2 jenis fungsi, yaitu: <em>build in fuction</em> dan <em>user define function</em>. <em>build in fnction</em> merupakan fungsi bawaan <code>R</code> saat pertama kita menginstall <code>R</code>. Contohnya adalah <code>mean()</code>, <code>sum()</code>, <code>ls()</code>, <code>rm()</code>, dll. Sedangkan <em>user define fuction</em> merupakan fungsi-fungsi yang dibuat sendiri oleh pengguna.</p>
+<p>Fungsi-fungsi buatan pengguna haruslah dideklarasikan (dibuat) terlebih dahulu sebelum dapat dijalankan. Pola pembentukan fungsi adalah sebagai berikut:</p>
+<pre class="r"><code>function_name &lt;- function(argument_1, argument_2, ...){
+  function body
+}</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>function_name</strong> : Nama dari fungsi <code>R</code>. <code>R</code> akan menyimpan fungsi tersebut sebagai objek</li>
+<li><strong>argument_1, argument_2,…</strong> : <em>Argument</em> bersifat opsional (tidak wajib). <em>Argument</em> dapat digunakan untuk memberi inputan kepada fungsi</li>
+<li><strong>function body</strong> : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.</li>
+<li><strong>return</strong> : Fungsi ada yang memiliki <em>output</em> atau <em>return value</em> ada juga yang tidak. Jika fungsi memiliki <em>return value</em> maka <em>return value</em> dapat diproses lebih lanjut</li>
+</ul>
+</blockquote>
 </div>
 
           </div>
@@ -1630,7 +1736,7 @@ repeat{
         </div>
 
         <div class="body-footer">
-          Last updated on Sep 9, 2018
+          Last updated on Mar 9, 2019
         </div>
 
       </article>
