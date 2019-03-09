@@ -1271,5 +1271,32 @@ function_name <- function(argument_1, argument_2, ...){
 > -  **function body** : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.
 > -  **return** : Fungsi ada yang memiliki *output* atau *return value* ada juga yang tidak. Jika fungsi memiliki *return value* maka *return value* dapat diproses lebih lanjut
 
+Berikut adalah contoh penerapan *user define function*:
+
+```{r}
+# Fungsi tanpa argument
+bilang <- function(){
+  print("Hello World!!")
+}
+
+# Print
+bilang()
+
+# Fungsi dengan argumen
+tambah <- function(a,b){
+  print(a+b)
+}
+
+# Print
+tambah(5,3)
+
+# Fungsi dengan return value
+kali <- function(a,b){
+  return(a*b)
+}
+
+# Print
+kali(4,3)
+```
 
 

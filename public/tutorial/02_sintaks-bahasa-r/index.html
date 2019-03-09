@@ -1727,6 +1727,31 @@ print(x)</code></pre>
 <li><strong>return</strong> : Fungsi ada yang memiliki <em>output</em> atau <em>return value</em> ada juga yang tidak. Jika fungsi memiliki <em>return value</em> maka <em>return value</em> dapat diproses lebih lanjut</li>
 </ul>
 </blockquote>
+<p>Berikut adalah contoh penerapan <em>user define function</em>:</p>
+<pre class="r"><code># Fungsi tanpa argument
+bilang &lt;- function(){
+  print(&quot;Hello World!!&quot;)
+}
+
+# Print
+bilang()</code></pre>
+<pre><code>## [1] &quot;Hello World!!&quot;</code></pre>
+<pre class="r"><code># Fungsi dengan argumen
+tambah &lt;- function(a,b){
+  print(a+b)
+}
+
+# Print
+tambah(5,3)</code></pre>
+<pre><code>## [1] 8</code></pre>
+<pre class="r"><code># Fungsi dengan return value
+kali &lt;- function(a,b){
+  return(a*b)
+}
+
+# Print
+kali(4,3)</code></pre>
+<pre><code>## [1] 12</code></pre>
 </div>
 
           </div>

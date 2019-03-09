@@ -1328,6 +1328,31 @@ print(x)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;strong&gt;return&lt;/strong&gt; : Fungsi ada yang memiliki &lt;em&gt;output&lt;/em&gt; atau &lt;em&gt;return value&lt;/em&gt; ada juga yang tidak. Jika fungsi memiliki &lt;em&gt;return value&lt;/em&gt; maka &lt;em&gt;return value&lt;/em&gt; dapat diproses lebih lanjut&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;user define function&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi tanpa argument
+bilang &amp;lt;- function(){
+  print(&amp;quot;Hello World!!&amp;quot;)
+}
+
+# Print
+bilang()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Hello World!!&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi dengan argumen
+tambah &amp;lt;- function(a,b){
+  print(a+b)
+}
+
+# Print
+tambah(5,3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi dengan return value
+kali &amp;lt;- function(a,b){
+  return(a*b)
+}
+
+# Print
+kali(4,3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 12&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
