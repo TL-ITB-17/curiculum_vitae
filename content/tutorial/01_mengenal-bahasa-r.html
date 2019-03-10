@@ -21,6 +21,7 @@ type: docs
 <li><a href="#1-3-kelebihan-dan-kekurangan-r">Kelebihan dan Kekurangan R</a></li>
 <li><a href="#1-4-rstudio">RStudio</a></li>
 <li><a href="#1-5-menginstall-r-dan-rstudio">Menginstall R dan RStudio</a></li>
+<li><a href="#1-6-working-directory">Working Directory</a></li>
 </ul>
 </blockquote>
 <div id="sejarah-r" class="section level2">
@@ -124,7 +125,7 @@ Figure 3: Jendela RStudio.
 <p>Untuk mengecek apakah proses perubahan telah terjadi, kita dapat mengeceknya dengan menjalankan perintah berikut untuk melihat lokasi <em>working directory</em> kita yang baru.</p>
 <pre class="r"><code>getwd()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:working"></span>
-<img src="/switch.png" alt="Mengubah working directory."  />
+<img src="/working.png" alt="Mengubah working directory."  />
 <p class="caption">
 Figure 4: Mengubah working directory.
 </p>
@@ -136,13 +137,12 @@ setwd(&quot;/Documents/R&quot;)</code></pre>
 <p><strong>Note: </strong> Pada proses pengisian lokasi folder pastikan pemisah pada lokasi folder menggunakan tanda “/” bukan “&quot;</p>
 </blockquote>
 </div>
-</div>
-<div id="mengubah-lokasi-working-directory-default" class="section level2">
-<h2>1.6.2 Mengubah Lokasi Working Directory Default</h2>
+<div id="mengubah-lokasi-working-directory-default" class="section level3">
+<h3>1.6.2 Mengubah Lokasi Working Directory Default</h3>
 <p>Pada proses yang telah penulis jelaskan sebelumnya. Proses perubahan <em>working directory</em> hanya berlaku pada saat pekerjaan tersebut dilakukan. Setelah pekerjaan selesai dan kita menjalankan kembali <code>R</code> maka <em>working directory</em> akan kembali secara default pada working directory lama.</p>
 <p>Untuk membuat lokasi default <em>working directory</em> pindah, kita dapat melakukannya dengan memilih pada menu: <strong>Tools &gt; Global options &gt; pada “General” klik pada “Browse” dan pilih lokasi working directory yang diinginkan</strong>. Proses tersebut ditampilkan pada Figure <a href="#fig:default">5</a></p>
 <div class="figure" style="text-align: center"><span id="fig:default"></span>
-<img src="/switch.png" alt="Merubah working directory melalui Global options."  />
+<img src="/default.png" alt="Merubah working directory melalui Global options."  />
 <p class="caption">
 Figure 5: Merubah working directory melalui Global options.
 </p>
@@ -153,4 +153,5 @@ Figure 5: Merubah working directory melalui Global options.
 <li>Rosadi,D. 2016. <strong>Analisis Statistika dengan R</strong>. Gadjah Mada University Press: Yogyakarta</li>
 <li>STHDA. Running RStudio and Setting Up Your Working Directory - Easy R Programming .<a href="http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory" class="uri">http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory</a></li>
 </ol>
+</div>
 </div>
