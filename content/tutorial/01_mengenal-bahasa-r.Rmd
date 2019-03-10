@@ -111,12 +111,62 @@ include_graphics(img1_path)
 
 > **Note: ** Sebaiknya install `R` terlebih dahulu sebelum `RStudio`
 
+## 1.6 Working Directory
 
+Setiap pengguna akan bekerja pada tempat khusus yang disebut sebagai *working directory*. *working directory* merupakan sebuah folder dimana `R` akan membaca dan menyimpan file kerja kita. Pada pengguna `windows`, *working directory* secara default pada saat pertama kali menginstall `R` terletak pada folder `c:\\Document`.
+
+### 1.6.1 Mengubah Lokasi Working Directory
+
+Kita dapat mengubah lokasi *working directory* berdasarkan lokasi yang kita inginkan, misalnya letak data yang akan kita olah tidak ada pada folder default atau kita ingin pekerjaan kita terkait `R` dapat berlangsung pada satu folder khusus.
+
+Berikut adalah cara mengubah *working directory* pada `R`.
+
+1. Buatlah folder pada drive (kita bisa membuat folder pada selain drive c) dan namai dengan nama yang kalian inginkan. Pada tutorial ini penulis menggunakan nama folder `R`.
+2. Jika pengguna menggunakan `RStudio`, pada menu `RStudio` pilih **Session > Set Working Directory > Chooses Directory**. Proses tersebut ditampilkan pada Figure \@ref(fig:working)
+3. Pilih folder yang telah dibuat pada step 1 sebagai *working directory.
+
+> **Note: ** Data atau file yang hendak dibaca selama proses kerja pada `R` harus selalu diletakkan pada working directory. Jika tidak maka data atau file tidak akan terbaca.
+
+Untuk mengecek apakah proses perubahan telah terjadi, kita dapat mengeceknya dengan menjalankan perintah berikut untuk melihat lokasi *working directory* kita yang baru.
+
+```{r, eval=FALSE}
+getwd()
+```
+
+```{r working, echo=FALSE, fig.cap='Mengubah working directory.', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "/switch.png"
+include_graphics(img1_path)
+
+```
+
+Selain itu kita dapat mengubah *working directory* menggunakan perintah berikut:
+
+```{r, eval=FALSE}
+# Ubah working directori pada folder R
+setwd("/Documents/R")
+```
+
+> **Note: ** Pada proses pengisian lokasi folder pastikan pemisah pada lokasi folder menggunakan tanda "/" bukan "\"
+
+## 1.6.2 Mengubah Lokasi Working Directory Default
+
+Pada proses yang telah penulis jelaskan sebelumnya. Proses perubahan *working directory* hanya berlaku pada saat pekerjaan tersebut dilakukan. Setelah pekerjaan selesai dan kita menjalankan kembali `R` maka *working directory* akan kembali secara default pada working directory lama.
+
+Untuk membuat lokasi default *working directory* pindah, kita dapat melakukannya dengan memilih pada menu: **Tools > Global options > pada "General" klik pada "Browse" dan pilih lokasi working directory yang diinginkan**. Proses tersebut ditampilkan pada Figure \@ref(fig:default)
+
+```{r default, echo=FALSE, fig.cap='Merubah working directory melalui Global options.', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "/switch.png"
+include_graphics(img1_path)
+
+```
 
 **Referensi**
 
 1. Primartha, R. 2018. **Belajar Machine Learning Teori dan Praktik**. Penerbit Informatika : Bandung
 2. Rosadi,D. 2016. **Analisis Statistika dengan R**. Gadjah Mada University Press: Yogyakarta
+3. STHDA. Running RStudio and Setting Up Your Working Directory - Easy R Programming .<http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory>
 
 
 

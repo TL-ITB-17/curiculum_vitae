@@ -105,9 +105,52 @@ Figure 3: Jendela RStudio.
 <blockquote>
 <p><strong>Note: </strong> Sebaiknya install <code>R</code> terlebih dahulu sebelum <code>RStudio</code></p>
 </blockquote>
+</div>
+<div id="working-directory" class="section level2">
+<h2>1.6 Working Directory</h2>
+<p>Setiap pengguna akan bekerja pada tempat khusus yang disebut sebagai <em>working directory</em>. <em>working directory</em> merupakan sebuah folder dimana <code>R</code> akan membaca dan menyimpan file kerja kita. Pada pengguna <code>windows</code>, <em>working directory</em> secara default pada saat pertama kali menginstall <code>R</code> terletak pada folder <code>c:\\Document</code>.</p>
+<div id="mengubah-lokasi-working-directory" class="section level3">
+<h3>1.6.1 Mengubah Lokasi Working Directory</h3>
+<p>Kita dapat mengubah lokasi <em>working directory</em> berdasarkan lokasi yang kita inginkan, misalnya letak data yang akan kita olah tidak ada pada folder default atau kita ingin pekerjaan kita terkait <code>R</code> dapat berlangsung pada satu folder khusus.</p>
+<p>Berikut adalah cara mengubah <em>working directory</em> pada <code>R</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Buatlah folder pada drive (kita bisa membuat folder pada selain drive c) dan namai dengan nama yang kalian inginkan. Pada tutorial ini penulis menggunakan nama folder <code>R</code>.</li>
+<li>Jika pengguna menggunakan <code>RStudio</code>, pada menu <code>RStudio</code> pilih <strong>Session &gt; Set Working Directory &gt; Chooses Directory</strong>. Proses tersebut ditampilkan pada Figure <a href="#fig:working">4</a></li>
+<li>Pilih folder yang telah dibuat pada step 1 sebagai *working directory.</li>
+</ol>
+<blockquote>
+<p><strong>Note: </strong> Data atau file yang hendak dibaca selama proses kerja pada <code>R</code> harus selalu diletakkan pada working directory. Jika tidak maka data atau file tidak akan terbaca.</p>
+</blockquote>
+<p>Untuk mengecek apakah proses perubahan telah terjadi, kita dapat mengeceknya dengan menjalankan perintah berikut untuk melihat lokasi <em>working directory</em> kita yang baru.</p>
+<pre class="r"><code>getwd()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:working"></span>
+<img src="/switch.png" alt="Mengubah working directory."  />
+<p class="caption">
+Figure 4: Mengubah working directory.
+</p>
+</div>
+<p>Selain itu kita dapat mengubah <em>working directory</em> menggunakan perintah berikut:</p>
+<pre class="r"><code># Ubah working directori pada folder R
+setwd(&quot;/Documents/R&quot;)</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Pada proses pengisian lokasi folder pastikan pemisah pada lokasi folder menggunakan tanda “/” bukan “&quot;</p>
+</blockquote>
+</div>
+</div>
+<div id="mengubah-lokasi-working-directory-default" class="section level2">
+<h2>1.6.2 Mengubah Lokasi Working Directory Default</h2>
+<p>Pada proses yang telah penulis jelaskan sebelumnya. Proses perubahan <em>working directory</em> hanya berlaku pada saat pekerjaan tersebut dilakukan. Setelah pekerjaan selesai dan kita menjalankan kembali <code>R</code> maka <em>working directory</em> akan kembali secara default pada working directory lama.</p>
+<p>Untuk membuat lokasi default <em>working directory</em> pindah, kita dapat melakukannya dengan memilih pada menu: <strong>Tools &gt; Global options &gt; pada “General” klik pada “Browse” dan pilih lokasi working directory yang diinginkan</strong>. Proses tersebut ditampilkan pada Figure <a href="#fig:default">5</a></p>
+<div class="figure" style="text-align: center"><span id="fig:default"></span>
+<img src="/switch.png" alt="Merubah working directory melalui Global options."  />
+<p class="caption">
+Figure 5: Merubah working directory melalui Global options.
+</p>
+</div>
 <p><strong>Referensi</strong></p>
 <ol style="list-style-type: decimal">
 <li>Primartha, R. 2018. <strong>Belajar Machine Learning Teori dan Praktik</strong>. Penerbit Informatika : Bandung</li>
 <li>Rosadi,D. 2016. <strong>Analisis Statistika dengan R</strong>. Gadjah Mada University Press: Yogyakarta</li>
+<li>STHDA. Running RStudio and Setting Up Your Working Directory - Easy R Programming .<a href="http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory" class="uri">http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory</a></li>
 </ol>
 </div>
