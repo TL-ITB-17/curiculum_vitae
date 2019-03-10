@@ -19,6 +19,7 @@ type: docs
 > * [RStudio](#1-4-rstudio)
 > * [Menginstall R dan RStudio](#1-5-menginstall-r-dan-rstudio)
 > * [Working Directory](#1-6-working-directory)
+> * [Fasilitas Help](#1-7-fasilitas-help)
 
 ## 1.1 Sejarah R
 
@@ -162,6 +163,61 @@ img1_path <- "/default.png"
 include_graphics(img1_path)
 
 ```
+
+## 1.7 Fasilitas Help
+
+Agar dapat menggunakan `R` dengan secara lebih baik, pengetahuan untuk mengakses fasilitas *help* in cukup penting untuk disampaikan. Adapun cara yang dapat digunakan adalah sebagai berikut.
+
+### 1.7.1 Mencari Help dari Suatu Perintah Tertentu
+
+Untuk memperoleh bantuan terkait suatu perintah tertentu kita dapat menggunakan fungsi `help()`. Secara umum format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+help(nama_perintah)
+```
+
+atau dapat juga menggunakan tanda tanya (?) pada awal `nama_perintah` seperti berikut:
+
+```{r, eval=FALSE}
+?nama_perintah
+```
+
+Misalkan kita kebingungan terkait bagaimana cara menuliskan perintah untuk menghitung rata-rata suatu vektor. Kita dapat mengetikkan perintah berikut untuk mengakses fasilitas *help*.
+
+```{r, eval=FALSE}
+help(mean)
+
+#atau
+?mean
+
+```
+
+Perintah tersebut akan memunculkan hasil berupa dokumentasi yang ditampilkan pada Figure \@ref(fig:meandoc).
+
+```{r meandoc,echo=FALSE, fig.cap='Jendela help dokumentasi fungsi mean().', tidy=FALSE, fig.align='center'}
+library(knitr)
+img1_path <- "/meandoc.png"
+include_graphics(img1_path)
+
+```
+
+Keterangan pada jendela pada Figure \@ref(fig:meandoc) adalah sebagia berikut:
+
+1. Pada bagian jendela kiri atas jendela *help*, diberikan keterangan nama dari perintah yang sedang ditampilkan.
+2. Selanjutnya, pada bagian atas dokumen, ditampilkan infomasi terkait nama perintah, dan nama *library* yang memuat perintah tersebut. Pada gambar diatas informasi terkait perintah dan nama *library* ditunjukkan pada teks `mean {base}` yang menunjukkan perintah `mean()` pada paket (*library*) *base* (paket bawaan `R`).
+3. Setiap jendela *help* dari suatu perintah tertentu selanjutnya akan memuat bagian-bagian berikut:
+- *Title*
+- *Description* : deskripsi singkat tentang perintah.
+- *Usage* : menampilkan sintaks perintah untuk penggunaan perintah tersebut.
+- *Arguments* : keterangan mengenai *argument/input*yang diperlukan pada perintah tersebut.
+- *Details* : keterangan lebih lengkap lengkap tentang perintah tersebut.
+- *Value* : keterangan tentang *output* suatu perintah dapat diperoleh pada bagian ini.
+- *Author(s)* : memberikan keterangan tentang *Author* dari perintah tersebut.
+- *References* : seringkali referensi yang dapat digunakan untuk memperoleh keterangan lebih lanjut terhadap suatu perintah ditampilkan pada bagian ini.
+- *See also*: bagian ini berisikan daftar perintah/fungsi yang berhubungan erat dengan perintah tersebut.
+- *Example* : berisikan contoh-contoh penggunaan perintah tersebut.
+
+
 
 **Referensi**
 

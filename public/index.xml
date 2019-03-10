@@ -27,6 +27,7 @@
 &lt;li&gt;&lt;a href=&#34;#1-4-rstudio&#34;&gt;RStudio&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#1-5-menginstall-r-dan-rstudio&#34;&gt;Menginstall R dan RStudio&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#1-6-working-directory&#34;&gt;Working Directory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-7-fasilitas-help&#34;&gt;Fasilitas Help&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;sejarah-r&#34; class=&#34;section level2&#34;&gt;
@@ -152,6 +153,47 @@ setwd(&amp;quot;/Documents/R&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 Figure 5: Merubah working directory melalui Global options.
 &lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fasilitas-help&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1.7 Fasilitas Help&lt;/h2&gt;
+&lt;p&gt;Agar dapat menggunakan &lt;code&gt;R&lt;/code&gt; dengan secara lebih baik, pengetahuan untuk mengakses fasilitas &lt;em&gt;help&lt;/em&gt; in cukup penting untuk disampaikan. Adapun cara yang dapat digunakan adalah sebagai berikut.&lt;/p&gt;
+&lt;div id=&#34;mencari-help-dari-suatu-perintah-tertentu&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1.7.1 Mencari Help dari Suatu Perintah Tertentu&lt;/h3&gt;
+&lt;p&gt;Untuk memperoleh bantuan terkait suatu perintah tertentu kita dapat menggunakan fungsi &lt;code&gt;help()&lt;/code&gt;. Secara umum format yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;help(nama_perintah)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;atau dapat juga menggunakan tanda tanya (?) pada awal &lt;code&gt;nama_perintah&lt;/code&gt; seperti berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;?nama_perintah&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Misalkan kita kebingungan terkait bagaimana cara menuliskan perintah untuk menghitung rata-rata suatu vektor. Kita dapat mengetikkan perintah berikut untuk mengakses fasilitas &lt;em&gt;help&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;help(mean)
+
+#atau
+?mean&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Perintah tersebut akan memunculkan hasil berupa dokumentasi yang ditampilkan pada Figure &lt;a href=&#34;#fig:meandoc&#34;&gt;6&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:meandoc&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/meandoc.png&#34; alt=&#34;Jendela help dokumentasi fungsi mean().&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 6: Jendela help dokumentasi fungsi mean().
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Keterangan pada jendela pada Figure &lt;a href=&#34;#fig:meandoc&#34;&gt;6&lt;/a&gt; adalah sebagia berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Pada bagian jendela kiri atas jendela &lt;em&gt;help&lt;/em&gt;, diberikan keterangan nama dari perintah yang sedang ditampilkan.&lt;/li&gt;
+&lt;li&gt;Selanjutnya, pada bagian atas dokumen, ditampilkan infomasi terkait nama perintah, dan nama &lt;em&gt;library&lt;/em&gt; yang memuat perintah tersebut. Pada gambar diatas informasi terkait perintah dan nama &lt;em&gt;library&lt;/em&gt; ditunjukkan pada teks &lt;code&gt;mean {base}&lt;/code&gt; yang menunjukkan perintah &lt;code&gt;mean()&lt;/code&gt; pada paket (&lt;em&gt;library&lt;/em&gt;) &lt;em&gt;base&lt;/em&gt; (paket bawaan &lt;code&gt;R&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Setiap jendela &lt;em&gt;help&lt;/em&gt; dari suatu perintah tertentu selanjutnya akan memuat bagian-bagian berikut:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Title&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Description&lt;/em&gt; : deskripsi singkat tentang perintah.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Usage&lt;/em&gt; : menampilkan sintaks perintah untuk penggunaan perintah tersebut.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Arguments&lt;/em&gt; : keterangan mengenai &lt;em&gt;argument/input&lt;/em&gt;yang diperlukan pada perintah tersebut.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Details&lt;/em&gt; : keterangan lebih lengkap lengkap tentang perintah tersebut.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Value&lt;/em&gt; : keterangan tentang &lt;em&gt;output&lt;/em&gt; suatu perintah dapat diperoleh pada bagian ini.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Author(s)&lt;/em&gt; : memberikan keterangan tentang &lt;em&gt;Author&lt;/em&gt; dari perintah tersebut.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;References&lt;/em&gt; : seringkali referensi yang dapat digunakan untuk memperoleh keterangan lebih lanjut terhadap suatu perintah ditampilkan pada bagian ini.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;See also&lt;/em&gt;: bagian ini berisikan daftar perintah/fungsi yang berhubungan erat dengan perintah tersebut.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Example&lt;/em&gt; : berisikan contoh-contoh penggunaan perintah tersebut.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Primartha, R. 2018. &lt;strong&gt;Belajar Machine Learning Teori dan Praktik&lt;/strong&gt;. Penerbit Informatika : Bandung&lt;/li&gt;
