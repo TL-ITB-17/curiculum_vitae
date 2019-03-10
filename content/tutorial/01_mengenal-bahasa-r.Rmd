@@ -217,13 +217,90 @@ Keterangan pada jendela pada Figure \@ref(fig:meandoc) adalah sebagia berikut:
 - *See also*: bagian ini berisikan daftar perintah/fungsi yang berhubungan erat dengan perintah tersebut.
 - *Example* : berisikan contoh-contoh penggunaan perintah tersebut.
 
+Kita juga dapat melihat contoh penggunaan dari perintah tersebut. Untuk melakukannya kita dapat menggunakan fungsi `example()`. Fungsi tersebut akan menampilkan contoh kode penerapan dari fungsi yang kita inginkan. Secara sederhana fungsi tersebut dapat dituliskan sebagai berikut:
 
+```{r, eval=FALSE}
+example(nama_perintah)
+```
+
+Untuk mengetahui contoh kode fungsi `mean()`, ketikkan sintaks berikut:
+
+```{r}
+example(mean)
+```
+
+kita juga dapat mencoba kode yang dihasilkan pada console `R`. Berikut adalah contoh penerapannya:
+
+```{r}
+# Menghitung rata-rata bilangan 1 sampai 10 dan 50
+# membuat vektor
+x <- c(0:10, 50)
+
+# Print
+x
+
+# mean
+mean(x)
+```
+
+Pembaca dapat mencoba melakukanya sendiri dengan mengganti nilai yang telah ada serta mencoba contoh kode yang lain.
+
+### 1.7.2 General Help
+
+Kita juga dapat membaca beberapa dokumen manual yang ada pada `R`. Untuk melakukannya jalankan perintah berikut:
+
+```{r, eval=FALSE}
+help.start()
+```
+
+Output yang dihasilkan berupa link pada sejumlah dokumen yang dapat kita klik. Tampilan halaman yang dihasilkan disajikan pada Figure \@ref(fig:generalhelp).
+
+```{r generalhelp,echo=FALSE, fig.cap='Jendela general help dokumentasi fungsi mean().', tidy=FALSE, fig.align='center'}
+library(knitr)
+img1_path <- "/generalhelp.png"
+include_graphics(img1_path)
+
+```
+
+### 1.7.3 Fasilitas Help Lainnya
+
+Selain yang telah penulis sebutkan sebelumnya. Kita juga dapat memanfaatkan fasilitas *help* lainnya melalui fungsi `apropos()` dan `help.search()`.
+
+`apropos ()`: mengembalikan daftar objek, berisi pola yang pembaca cari, dengan pencocokan sebagian. Ini berguna ketika pembaca tidak ingat persis nama fungsi yang akan digunakan. Berikut adalah contoh ketika penulis ingin mengetahui fungsi yang digunakan untuk menghitung median.
+
+```{r}
+apropos("med")
+```
+
+*List* yang dihasilkan berupa fungsi-fungsi yang memiliki elemen kata "med". Berdasarkan pencaria tersebut penulis dapat mencoba menggunakan fungsi "median" untuk menghitung median.
+
+`help.search ()` (sebagai alternatif ??): mencari dokumentasi yang cocok dengan karakter yang diberikan dengan cara yang berbeda. Ini mengembalikan daftar fungsi yang mengandung istilah yang pembaca cari dengan deskripsi singkat dari fungsi.
+
+Berikut adalah contoh penerapan dari fungsi tersebut:
+
+```{r, eval=FALSE}
+help.search("mean")
+
+# atau
+??mean
+```
+
+*Output yang dihasilkan akan tampak seperti pada Figure \@ref(fig:helpsearch).
+
+```{r helpsearch,echo=FALSE, fig.cap='Jendela help search dokumentasi fungsi mean().', tidy=FALSE, fig.align='center'}
+library(knitr)
+img1_path <- "/helpsearch.png"
+include_graphics(img1_path)
+
+```
 
 **Referensi**
 
 1. Primartha, R. 2018. **Belajar Machine Learning Teori dan Praktik**. Penerbit Informatika : Bandung
 2. Rosadi,D. 2016. **Analisis Statistika dengan R**. Gadjah Mada University Press: Yogyakarta
 3. STHDA. Running RStudio and Setting Up Your Working Directory - Easy R Programming .<http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory>
+4. STDHA. **Getting Help With Functions In R Programming**. <http://www.sthda.com/english/wiki/getting-help-with-functions-in-r-programming> .
+5. Venables, W.N. Smith D.M. and R Core Team. 2018. **An Introduction to R**. R Manuals.
 
 
 

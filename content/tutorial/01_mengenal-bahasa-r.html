@@ -189,11 +189,70 @@ Figure 6: Jendela help dokumentasi fungsi mean().
 <li><em>See also</em>: bagian ini berisikan daftar perintah/fungsi yang berhubungan erat dengan perintah tersebut.</li>
 <li><em>Example</em> : berisikan contoh-contoh penggunaan perintah tersebut.</li>
 </ul>
+<p>Kita juga dapat melihat contoh penggunaan dari perintah tersebut. Untuk melakukannya kita dapat menggunakan fungsi <code>example()</code>. Fungsi tersebut akan menampilkan contoh kode penerapan dari fungsi yang kita inginkan. Secara sederhana fungsi tersebut dapat dituliskan sebagai berikut:</p>
+<pre class="r"><code>example(nama_perintah)</code></pre>
+<p>Untuk mengetahui contoh kode fungsi <code>mean()</code>, ketikkan sintaks berikut:</p>
+<pre class="r"><code>example(mean)</code></pre>
+<pre><code>## 
+## mean&gt; x &lt;- c(0:10, 50)
+## 
+## mean&gt; xm &lt;- mean(x)
+## 
+## mean&gt; c(xm, mean(x, trim = 0.10))
+## [1] 8.75 5.50</code></pre>
+<p>kita juga dapat mencoba kode yang dihasilkan pada console <code>R</code>. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code># Menghitung rata-rata bilangan 1 sampai 10 dan 50
+# membuat vektor
+x &lt;- c(0:10, 50)
+
+# Print
+x</code></pre>
+<pre><code>##  [1]  0  1  2  3  4  5  6  7  8  9 10 50</code></pre>
+<pre class="r"><code># mean
+mean(x)</code></pre>
+<pre><code>## [1] 8.75</code></pre>
+<p>Pembaca dapat mencoba melakukanya sendiri dengan mengganti nilai yang telah ada serta mencoba contoh kode yang lain.</p>
+</div>
+<div id="general-help" class="section level3">
+<h3>1.7.2 General Help</h3>
+<p>Kita juga dapat membaca beberapa dokumen manual yang ada pada <code>R</code>. Untuk melakukannya jalankan perintah berikut:</p>
+<pre class="r"><code>help.start()</code></pre>
+<p>Output yang dihasilkan berupa link pada sejumlah dokumen yang dapat kita klik. Tampilan halaman yang dihasilkan disajikan pada Figure <a href="#fig:generalhelp">7</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:generalhelp"></span>
+<img src="/generalhelp.png" alt="Jendela general help dokumentasi fungsi mean()."  />
+<p class="caption">
+Figure 7: Jendela general help dokumentasi fungsi mean().
+</p>
+</div>
+</div>
+<div id="fasilitas-help-lainnya" class="section level3">
+<h3>1.7.3 Fasilitas Help Lainnya</h3>
+<p>Selain yang telah penulis sebutkan sebelumnya. Kita juga dapat memanfaatkan fasilitas <em>help</em> lainnya melalui fungsi <code>apropos()</code> dan <code>help.search()</code>.</p>
+<p><code>apropos ()</code>: mengembalikan daftar objek, berisi pola yang pembaca cari, dengan pencocokan sebagian. Ini berguna ketika pembaca tidak ingat persis nama fungsi yang akan digunakan. Berikut adalah contoh ketika penulis ingin mengetahui fungsi yang digunakan untuk menghitung median.</p>
+<pre class="r"><code>apropos(&quot;med&quot;)</code></pre>
+<pre><code>## [1] &quot;elNamed&quot;        &quot;elNamed&lt;-&quot;      &quot;median&quot;         &quot;median.default&quot;
+## [5] &quot;medpolish&quot;      &quot;runmed&quot;</code></pre>
+<p><em>List</em> yang dihasilkan berupa fungsi-fungsi yang memiliki elemen kata “med”. Berdasarkan pencaria tersebut penulis dapat mencoba menggunakan fungsi “median” untuk menghitung median.</p>
+<p><code>help.search ()</code> (sebagai alternatif ??): mencari dokumentasi yang cocok dengan karakter yang diberikan dengan cara yang berbeda. Ini mengembalikan daftar fungsi yang mengandung istilah yang pembaca cari dengan deskripsi singkat dari fungsi.</p>
+<p>Berikut adalah contoh penerapan dari fungsi tersebut:</p>
+<pre class="r"><code>help.search(&quot;mean&quot;)
+
+# atau
+??mean</code></pre>
+<p>*Output yang dihasilkan akan tampak seperti pada Figure <a href="#fig:helpsearch">8</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:helpsearch"></span>
+<img src="/helpsearch.png" alt="Jendela help search dokumentasi fungsi mean()."  />
+<p class="caption">
+Figure 8: Jendela help search dokumentasi fungsi mean().
+</p>
+</div>
 <p><strong>Referensi</strong></p>
 <ol style="list-style-type: decimal">
 <li>Primartha, R. 2018. <strong>Belajar Machine Learning Teori dan Praktik</strong>. Penerbit Informatika : Bandung</li>
 <li>Rosadi,D. 2016. <strong>Analisis Statistika dengan R</strong>. Gadjah Mada University Press: Yogyakarta</li>
 <li>STHDA. Running RStudio and Setting Up Your Working Directory - Easy R Programming .<a href="http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory" class="uri">http://www.sthda.com/english/wiki/running-rstudio-and-setting-up-your-working-directory-easy-r-programming#set-your-working-directory</a></li>
+<li>STDHA. <strong>Getting Help With Functions In R Programming</strong>. <a href="http://www.sthda.com/english/wiki/getting-help-with-functions-in-r-programming" class="uri">http://www.sthda.com/english/wiki/getting-help-with-functions-in-r-programming</a> .</li>
+<li>Venables, W.N. Smith D.M. and R Core Team. 2018. <strong>An Introduction to R</strong>. R Manuals.</li>
 </ol>
 </div>
 </div>
