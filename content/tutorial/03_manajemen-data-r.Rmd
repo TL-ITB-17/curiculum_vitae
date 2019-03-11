@@ -1,0 +1,13 @@
+---
+title: "3. Manajemen Data R"
+draft: false
+date: '2019-03-09T00:00:00+07:00'
+output: pdf_document
+menu:
+  tutorial:
+    parent: Bahasa Pemrograman R
+    weight: 2
+linktitle: Manajemen Data R
+type: docs
+---
+
