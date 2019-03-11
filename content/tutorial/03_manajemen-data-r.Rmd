@@ -245,5 +245,35 @@ data <- read.xlsx(file.choose(), 1) # membaca sheet 1
 
 > **Note: ** kita juga dapat membaca file dari internet seperti pada sub-bab 3.1.1.
 
+### 3.1.4 Membaca File Dari Format Aplikasi Statistik
 
+Untuk membaca file yang berasal dari format aplikasi statistik seperti SPSS, SAS, dan STATA kita perlu menginstal dan memuat paket-paket yang dibutuhkan sesuai dengan file yang akan kita install. Berikut adalah sintaks bagaimana cara mengimport file dari berbagai format aplikasi statistik.
+
+```{r, eval=FALSE}
+# membaca file SPSS
+install.packages("Hmisc") # menginstall paket
+library(Hmisc) # memuat paket
+# simpan SPSS dataset pada transport format
+get file='c:\mydata.sav'.
+export outfile='c:\mydata.por'. 
+data <- spss.get("c:\mydata.por", use.value.labels= TRUE) # use.value.labels digunakan untuk mengubah label menjadi factor
+
+
+# membaca file SAS
+install.packages("Hmisc") # menginstall paket
+library(Hmisc) # memuat paket
+# simpan SAS dataset pada transport format
+libname out xport 'c:/mydata.xpt';
+data out.mydata;
+set sasuser.mydata;
+run;
+data <- sasxport.get("c:/mydata.xpt") # Variabel yang berupa karakter akan dikonversi menjadi factor
+
+
+# membaca file STATA
+install.packages("foreign") # menginstall paket
+library(foreign) # memuat paket
+data <- read.dta("c:/mydata.dta")
+
+```
 

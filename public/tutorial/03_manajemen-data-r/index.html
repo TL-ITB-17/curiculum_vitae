@@ -604,6 +604,34 @@ read.xlsx2(file, sheetIndex, header=TRUE)</code></pre>
 <p><strong>Note: </strong> kita juga dapat membaca file dari internet seperti pada sub-bab 3.1.1.</p>
 </blockquote>
 </div>
+<div id="membaca-file-dari-format-aplikasi-statistik" class="section level3">
+<h3>3.1.4 Membaca File Dari Format Aplikasi Statistik</h3>
+<p>Untuk membaca file yang berasal dari format aplikasi statistik seperti SPSS, SAS, dan STATA kita perlu menginstal dan memuat paket-paket yang dibutuhkan sesuai dengan file yang akan kita install. Berikut adalah sintaks bagaimana cara mengimport file dari berbagai format aplikasi statistik.</p>
+<pre class="r"><code># membaca file SPSS
+install.packages(&quot;Hmisc&quot;) # menginstall paket
+library(Hmisc) # memuat paket
+# simpan SPSS dataset pada transport format
+get file=&#39;c:\mydata.sav&#39;.
+export outfile=&#39;c:\mydata.por&#39;. 
+data &lt;- spss.get(&quot;c:\mydata.por&quot;, use.value.labels= TRUE) # use.value.labels digunakan untuk mengubah label menjadi factor
+
+
+# membaca file SAS
+install.packages(&quot;Hmisc&quot;) # menginstall paket
+library(Hmisc) # memuat paket
+# simpan SAS dataset pada transport format
+libname out xport &#39;c:/mydata.xpt&#39;;
+data out.mydata;
+set sasuser.mydata;
+run;
+data &lt;- sasxport.get(&quot;c:/mydata.xpt&quot;) # Variabel yang berupa karakter akan dikonversi menjadi factor
+
+
+# membaca file STATA
+install.packages(&quot;foreign&quot;) # menginstall paket
+library(foreign) # memuat paket
+data &lt;- read.dta(&quot;c:/mydata.dta&quot;)</code></pre>
+</div>
 </div>
 
           </div>
