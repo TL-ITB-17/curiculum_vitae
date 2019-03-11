@@ -10,6 +10,204 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>3. Manajemen Data R</title>
+      <link>/tutorial/03_manajemen-data-r/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/03_manajemen-data-r/</guid>
+      <description>
+
+
+&lt;blockquote&gt;
+&lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#3-1-import-file&#34;&gt;Import File&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;import-file&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3.1 Import File&lt;/h2&gt;
+&lt;p&gt;Pada sesi bagian ini penulis akan menjelaskan cara mengimport file pada &lt;code&gt;R&lt;/code&gt;. File yang diimport ke dalam &lt;code&gt;R&lt;/code&gt; terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.&lt;/p&gt;
+&lt;p&gt;Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library &lt;code&gt;readr&lt;/code&gt; serta kelebihan dari metode import data yang digunakan. Berikut adalah cara mengimport data berbagai format pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Pastikan kita telah mengatur lokasi &lt;em&gt;working directory&lt;/em&gt; pada tempat dimana lokasi file yang akan kita baca berada untuk mempermudah dalam melakukan import file.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;import-file-menggunakan-fungsi-bawaan-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.1.1 Import File Menggunakan Fungsi Bawaan R&lt;/h3&gt;
+&lt;p&gt;Fungsi bawaan &lt;code&gt;R&lt;/code&gt; secara umum hanya dapat membaca data dengan format TXT dan CSV. Pada &lt;code&gt;RStudio&lt;/code&gt; fungsi ini bertambah dengan adanya library tambahan yang telah terinstall di &lt;code&gt;RStudio&lt;/code&gt; untuk membaca file dengan format EXCEL, SPSS, SAS dan STATA.&lt;/p&gt;
+&lt;p&gt;Secara umum fungsi yang digunakan untuk membaca data dengan format tabel seperti TXT dan CSV adalah fungsi&lt;code&gt;read.table()&lt;/code&gt;. Berikut adalah list fungsi dasar lainnya untuk membaca file dengan format TXT dan CSV pada &lt;code&gt;R&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;read.csv()&lt;/strong&gt;: untuk membaca file dengan format &lt;em&gt;comma separated value&lt;/em&gt;(“.csv”).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;read.csv2()&lt;/strong&gt;: varian yang digunakan jika pada file “.csv” yang akan dibaca mengandung koma (“,”) sebagai desimal dan semicolon (“;”) sebagai pemisah antar variabel atau kolom.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;read.delim()&lt;/strong&gt;: untuk membaca file dengan format &lt;em&gt;tab-separated value&lt;/em&gt;(“.txt”).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;read.delim2()&lt;/strong&gt;: membaca file dengan format “.txt” dengan tanda koma (“,”) sebagai penujuk bilangan desimal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Masing-masing fungsi diatas dapat dituliskan kedalam &lt;code&gt;R&lt;/code&gt; dengan format sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membaca tabular data pada  R
+read.table(file, header = FALSE, sep = &amp;quot;&amp;quot;, dec = &amp;quot;.&amp;quot;)
+# Membaca&amp;quot;comma separated value&amp;quot; files (&amp;quot;.csv&amp;quot;)
+read.csv(file, header = TRUE, sep = &amp;quot;,&amp;quot;, dec = &amp;quot;.&amp;quot;, ...)
+# atau gunakan read.csv2 jika tanda desimal pada data adalah &amp;quot;,&amp;quot; dan pemisah kolom adalah &amp;quot;;&amp;quot;
+read.csv2(file, header = TRUE, sep = &amp;quot;;&amp;quot;, dec = &amp;quot;,&amp;quot;, ...)
+# MembacaTAB delimited files
+read.delim(file, header = TRUE, sep = &amp;quot;\t&amp;quot;, dec = &amp;quot;.&amp;quot;, ...)
+read.delim2(file, header = TRUE, sep = &amp;quot;\t&amp;quot;, dec = &amp;quot;,&amp;quot;, ...)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;file&lt;/strong&gt;: nama file diakhiri dengan format file (misal: “nama_file.txt”) yang akan di import ke dalam file. Dapat pula diisi lokasi file tersebut berada, misal:(C:/Users/My PC/Documents/nama_file.txt atau .csv)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sep&lt;/strong&gt;: pemisah antar kolom. “” digunakan untuk tab-delimited file.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;header&lt;/strong&gt;: nilai logik. jika TRUE, maka &lt;code&gt;read.table()&lt;/code&gt; akan menganggap bahwa file yang akan dibaca pada baris pertama file merupakan header data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;dec&lt;/strong&gt;: karakter yang digunakan sebagai penunjuk desimal pada data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk info lebih lanjut terkait fungsi-fungsi tersebut dan contoh bagaimana menggunakannya, pembaca dapat mengakses fitur batuan dari fungsi tersebut menggunakan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengakses menu bantuan
+?read.table
+?read.csv
+?read.csv2
+?read.delim
+?read.delim2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Misalkan penulis memiliki data pada file bernama “mtcars.csv” dengan desimal berupa titik pada datanya. Penulsi ingin membaca file tersebut, maka penulis akan menuliskan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- read.csv(&amp;quot;mtcars.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Secara default perintah tersebut akan membaca baris pertama data sebagai header serta data berupa karakter menjadi factor. Untuk mencegah agar data berupa karakter menjadi faktor, perintah tersebut dapat ditambahkan parameter &lt;code&gt;stringAsFactor = FALSE&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Kita juga dapat memilih file yang akan kita baca secara interakti. Misal pada &lt;em&gt;working directory&lt;/em&gt; terdapat beberapa file yang akan kita baca. Kita ingin melihat file dengan format tertentu yang hendak kita baca, namun kita malas mengecek file explorer pada windows. Untuk mengatasi masalah tersebut, kita dapat menggunakan fungsi &lt;code&gt;file.choose()&lt;/code&gt; pada &lt;code&gt;R&lt;/code&gt;. Fungsi tersebut akan menampilkan jendela windows explores sehingga kita dapat memilih file apa yang hendak dibaca. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- read.csv(file.choose())&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; pastikan format file yang dibaca sama dengan fungsi import yang digunakan.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Kita juga dapat membaca file dari internet. Untuk melakukannya kit hanya perlu meng-copy url file tersebut. Berikut adalah contoh file yang dibaca dari internet:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membaca file dari internet
+data &amp;lt;- read.delim(&amp;quot;http://www.sthda.com/upload/boxplot_format.txt&amp;quot;)
+
+# mengecek 6 observasi awal
+head(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    Nom variable Group
+## 1 IND1       10     A
+## 2 IND2        7     A
+## 3 IND3       20     A
+## 4 IND4       14     A
+## 5 IND5       14     A
+## 6 IND6       12     A&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;membaca-file-csv-dan-txt-menggunakan-library-readr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.1.2 Membaca File CSV dan TXT Menggunakan Library readr&lt;/h3&gt;
+&lt;p&gt;Pada bagian sebelumnya kita telah belajar bagaimana cara membaca file dengan format CSV dan TXT menggunakan paket dasar &lt;code&gt;R&lt;/code&gt;. Pada bagian ini penulis akan menjelaskan bagaimana cara membaca file dengan format TXT dan CSV pada &lt;code&gt;R&lt;/code&gt; menggunakan paket &lt;code&gt;readr&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;readr&lt;/code&gt; dikembangkan oleh Hadley Wickham. paket &lt;code&gt;readr&lt;/code&gt; memberikan solusi cepat dan ramah untuk membaca delimited file ke dalam &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Dibandingkan dengan paket dasar &lt;code&gt;R&lt;/code&gt;, &lt;code&gt;readr&lt;/code&gt; memiliki kelebihan sebagai berikut:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mampu membaca file 10x lebih cepat dibandingkan pada paket bawaan &lt;code&gt;R&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Menampilkan &lt;em&gt;progress bar&lt;/em&gt; yang bermanfaat jika proses pemuatan berlangsung agak lama.&lt;/li&gt;
+&lt;li&gt;semua fungsi bekerja dengan cara yang persis sama dengan paket bawaan &lt;code&gt;R&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Untuk dapat menggunakan &lt;code&gt;readr&lt;/code&gt;, kita perlu menginstall paketnya terlebih dahulu. Untuk melakukannya jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menginstall paket
+install.packages(&amp;quot;readr&amp;quot;)
+
+# Memuat paket
+library(readr)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berikut adalah format bebrapa fungsi yang dapat digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi umum (membaca TXT dan CSV) dapat juga membaca flat file dan tsv
+read_delim(file, delim, col_names = TRUE)
+# Membaca comma (&amp;quot;,&amp;quot;) separated values
+read_csv(file, col_names = TRUE)
+# Membaca semicolon (&amp;quot;;&amp;quot;) separated values
+read_csv2(file, col_names = TRUE)
+# Membaca tab separated values
+read_tsv(file, col_names = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;file&lt;/strong&gt;: path file, koneksi atau raw vector. File yang berakhiran .gz, .bz2, .xz, atau .zip akan secara otomatis tidak terkompresi. File yang dimulai dengan “http: //”, “https: //”, “ftp: //”, atau “ftps: //” akan diunduh secara otomatis. File gz jarak jauh juga dapat diunduh &amp;amp; didekompresi secara otomatis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;delim&lt;/strong&gt;: karakter yang membatasi tiap nilai pada file.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col_names&lt;/strong&gt;: nilai logik. Jika TRUE, maka baris pertama akan menjadi header.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh bagaimana cara membaca file menggunakan fungsi pada paket &lt;code&gt;readr&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membaca file lokal
+data &amp;lt;- read_csv(&amp;quot;mtcars.csv&amp;quot;)
+
+# atau
+data &amp;lt;- read_csv(file.choose())
+
+# Membaca dari internet
+data &amp;lt;- read_tsv(&amp;quot;http://www.sthda.com/upload/boxplot_format.txt&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita juga dapat menspesifikasi jenis data pada kolom yang akan dibaca. Keuntungan dari penentuan jenis kolom (tipe data) akan memastikan data yang telah dibaca tidak salah berdasarkan jenis data pada masing-masing kolom.&lt;/p&gt;
+&lt;p&gt;Beberapa format jenis kolom yang tersedia pada &lt;code&gt;readr&lt;/code&gt; adalah sebagi berikut:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;col_integer()&lt;/strong&gt;: untuk menentukan integer (alias = “i”).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col_double()&lt;/strong&gt;: untuk menentukan kolom sebagai jenis data double (alias = “d”).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col_logical()&lt;/strong&gt;: untuk menentukan variabel logis (alias = “l”).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col_character()&lt;/strong&gt;: meninggalkan string apa adanya.Tidak mengonversinya menjadi faktor (alias = “c”).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col_factor()&lt;/strong&gt;: untuk menentukan variabel faktor (atau pengelompokan) (alias = “f”)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col_skip()&lt;/strong&gt;: untuk mengabaikan kolom (alias = “-” atau “_“)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col_date()&lt;/strong&gt; (alias = “D”), &lt;strong&gt;col_datetime()&lt;/strong&gt; (alias = “T”) dan &lt;strong&gt;col_time()&lt;/strong&gt; (“t”) untuk menentukan tanggal, waktu tanggal, dan waktu.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- read_csv(&amp;quot;my_file.csv&amp;quot;, col_types = cols(
+  x = &amp;quot;i&amp;quot;, # kolom integer
+  treatment = &amp;quot;c&amp;quot; # kolom karakter/string
+))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;import-file-excel-pada-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.1.3 Import File Excel Pada R&lt;/h3&gt;
+&lt;p&gt;Keunggulan penggunaan excel sebagai format penyimpan data adalah kita dapat menyimpan banyak data dan memisahkannya pada lembar (&lt;em&gt;sheet&lt;/em&gt;) yang berbeda sebagai suatu data yang independen dibandingkan pembacaan pada file csv yang hanya berisikan satu tabel data saja tiap file.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; kita dapat melakukan pembacaan file menggunakan berbagai macam cara seperti menggunakan paket bawaan &lt;code&gt;R&lt;/code&gt; maupun menggunakan library yang perlu kita install. Berikut adalah beberapa cara membaca file excel pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;p&gt;Mengkonversi terlebih dahulu satu sheet excel yang akan kita baca menjadi format “.csv” maupun “.txt” sehingga dapat dibaca seperti pada sub-bab 3.1.1.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Menyalin data dari excel dan mengimport data pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Cara ini sedikit mirip dengan cara sebelumnya, dimana kita perlu membuka file excel dan melakukan &lt;strong&gt;select&lt;/strong&gt; dan &lt;strong&gt;copy&lt;/strong&gt; (ctrl+c) tabel data yang hendak dibaca. Data tersebut selanjutnya akan tersimpan pada &lt;strong&gt;clipboard&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Data yang telah tersalin selanjutnya diimport ke &lt;code&gt;R&lt;/code&gt; dengan mengetikkan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- read.table(file= &amp;quot;clipboard&amp;quot;,
+                   sep = &amp;quot;\t&amp;quot;, header = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cara ini merupakan cara yang paling sering penulis gunakan. Kelemahan penggunaan cara ini adalah ketika kita melakukan proses &lt;strong&gt;select&lt;/strong&gt; dan &lt;strong&gt;copy&lt;/strong&gt; (ctrl+c) tabel yang jumlahnya sangat banyak dan terdapat teks-teks penjelasan terkait tabel data pada lembar kerja excel yang tidak ingin kita sertakan akan memakan waktu yang lebih lama pada proses &lt;strong&gt;select&lt;/strong&gt;.&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Mengimport data menggunakan library readxl.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Paket &lt;code&gt;readxl&lt;/code&gt;, yang dikembangkan oleh Hadley Wickham, dapat digunakan untuk dengan mudah mengimpor file Excel (xls | xlsx) ke &lt;code&gt;R&lt;/code&gt; tanpa ada ketergantungan eksternal.&lt;/p&gt;
+&lt;p&gt;Untuk dapat menggunakan library &lt;code&gt;readxl&lt;/code&gt; kita harus menginstallnya terlebih dahulu menggunakan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Instal paket
+install.packages(&amp;quot;readxl&amp;quot;)
+
+# memuat paket
+library(readxl)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berikut adalah contoh cara mengimport data dengan format xls atau xlsx pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Tentukan sheet dengan nama sheet pada file
+data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = &amp;quot;data&amp;quot;)
+
+# Tentukan sheet berdasarkan indeks sheet
+data &amp;lt;- read_excel(&amp;quot;my_file.xlsx&amp;quot;, sheet = 2) # membaca sheet ke-2&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Mengimport data menggunakan library xlsx&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Paket &lt;code&gt;xlsx&lt;/code&gt;, solusi berbasis &lt;code&gt;java&lt;/code&gt;, adalah salah satu paket &lt;code&gt;R&lt;/code&gt; yang ampuh untuk membaca, menulis, dan memformat file Excel. Untuk dapat menggunakannya kita harus menginstall dan memuatnya terlebih dahulu. Berikut sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menginstall paket
+install.packages(&amp;quot;xlsx&amp;quot;)
+
+# Memuat paket
+library(xlsx)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Terdapat dua buah fungsi yang disediakan pada paket tersebut yaitu &lt;code&gt;read.xlsx()&lt;/code&gt; dan &lt;code&gt;read.xlsx2()&lt;/code&gt;. Perbedaan keduanya adalah &lt;code&gt;read.xlsx2()&lt;/code&gt; digunakan pada file data dengan ukuran yang besar serta proses pembacaan data yang lebih cepat dibandingkan dengan &lt;code&gt;read.xlsx()&lt;/code&gt;. Fromat yang digunakan untuk kedua fungsi tersebut disajikan sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;read.xlsx(file, sheetIndex, header=TRUE)
+read.xlsx2(file, sheetIndex, header=TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;file&lt;/strong&gt;: nama atau lokasi file berada&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sheetIndex&lt;/strong&gt;: Indeks dari sheet yang hendak dibaca&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;header&lt;/strong&gt;: nilai logik. Jika bernilai TRUE, maka baris pertama dari sheet menjadi header.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penggunaanya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- read.xlsx(file.choose(), 1) # membaca sheet 1&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; kita juga dapat membaca file dari internet seperti pada sub-bab 3.1.1.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>1. Mengenal Bahasa R</title>
       <link>/tutorial/01_mengenal-bahasa-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>

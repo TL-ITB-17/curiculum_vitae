@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/tutorial/03_manajemen-data-r/</loc>
+      <lastmod>2019-03-09T00:00:00+07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tutorial/01_mengenal-bahasa-r/</loc>
       <lastmod>2019-03-09T00:00:00+07:00</lastmod>
     </url>
@@ -204,8 +212,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2019-03-02T21:13:14-05:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2016-04-27T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -213,8 +221,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2016-04-27T00:00:00+07:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2019-03-02T21:13:14-05:00</lastmod>
       <priority>0</priority>
     </url>
     

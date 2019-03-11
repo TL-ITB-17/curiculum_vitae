@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>3. Manajemen Data R</title>
+      <link>/tutorial/03_manajemen-data-r/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/03_manajemen-data-r/</guid>
+      <description>Daftar Isi:Import File3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
+Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan.</description>
+    </item>
+    
+    <item>
       <title>1. Mengenal Bahasa R</title>
       <link>/tutorial/01_mengenal-bahasa-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>

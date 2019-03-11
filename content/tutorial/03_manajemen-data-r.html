@@ -1,0 +1,201 @@
+---
+title: "3. Manajemen Data R"
+draft: false
+date: '2019-03-09T00:00:00+07:00'
+output: pdf_document
+menu:
+  tutorial:
+    parent: Bahasa Pemrograman R
+    weight: 3
+linktitle: Manajemen Data R
+type: docs
+---
+
+
+
+<blockquote>
+<h2 id="daftar-isi">Daftar Isi:</h2>
+<ul>
+<li><a href="#3-1-import-file">Import File</a></li>
+</ul>
+</blockquote>
+<div id="import-file" class="section level2">
+<h2>3.1 Import File</h2>
+<p>Pada sesi bagian ini penulis akan menjelaskan cara mengimport file pada <code>R</code>. File yang diimport ke dalam <code>R</code> terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.</p>
+<p>Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library <code>readr</code> serta kelebihan dari metode import data yang digunakan. Berikut adalah cara mengimport data berbagai format pada <code>R</code>.</p>
+<blockquote>
+<p><strong>Note: </strong> Pastikan kita telah mengatur lokasi <em>working directory</em> pada tempat dimana lokasi file yang akan kita baca berada untuk mempermudah dalam melakukan import file.</p>
+</blockquote>
+<div id="import-file-menggunakan-fungsi-bawaan-r" class="section level3">
+<h3>3.1.1 Import File Menggunakan Fungsi Bawaan R</h3>
+<p>Fungsi bawaan <code>R</code> secara umum hanya dapat membaca data dengan format TXT dan CSV. Pada <code>RStudio</code> fungsi ini bertambah dengan adanya library tambahan yang telah terinstall di <code>RStudio</code> untuk membaca file dengan format EXCEL, SPSS, SAS dan STATA.</p>
+<p>Secara umum fungsi yang digunakan untuk membaca data dengan format tabel seperti TXT dan CSV adalah fungsi<code>read.table()</code>. Berikut adalah list fungsi dasar lainnya untuk membaca file dengan format TXT dan CSV pada <code>R</code>:</p>
+<ul>
+<li><strong>read.csv()</strong>: untuk membaca file dengan format <em>comma separated value</em>(“.csv”).</li>
+<li><strong>read.csv2()</strong>: varian yang digunakan jika pada file “.csv” yang akan dibaca mengandung koma (“,”) sebagai desimal dan semicolon (“;”) sebagai pemisah antar variabel atau kolom.</li>
+<li><strong>read.delim()</strong>: untuk membaca file dengan format <em>tab-separated value</em>(“.txt”).</li>
+<li><strong>read.delim2()</strong>: membaca file dengan format “.txt” dengan tanda koma (“,”) sebagai penujuk bilangan desimal.</li>
+</ul>
+<p>Masing-masing fungsi diatas dapat dituliskan kedalam <code>R</code> dengan format sebagai berikut:</p>
+<pre class="r"><code># Membaca tabular data pada  R
+read.table(file, header = FALSE, sep = &quot;&quot;, dec = &quot;.&quot;)
+# Membaca&quot;comma separated value&quot; files (&quot;.csv&quot;)
+read.csv(file, header = TRUE, sep = &quot;,&quot;, dec = &quot;.&quot;, ...)
+# atau gunakan read.csv2 jika tanda desimal pada data adalah &quot;,&quot; dan pemisah kolom adalah &quot;;&quot;
+read.csv2(file, header = TRUE, sep = &quot;;&quot;, dec = &quot;,&quot;, ...)
+# MembacaTAB delimited files
+read.delim(file, header = TRUE, sep = &quot;\t&quot;, dec = &quot;.&quot;, ...)
+read.delim2(file, header = TRUE, sep = &quot;\t&quot;, dec = &quot;,&quot;, ...)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>file</strong>: nama file diakhiri dengan format file (misal: “nama_file.txt”) yang akan di import ke dalam file. Dapat pula diisi lokasi file tersebut berada, misal:(C:/Users/My PC/Documents/nama_file.txt atau .csv)</li>
+<li><strong>sep</strong>: pemisah antar kolom. “” digunakan untuk tab-delimited file.</li>
+<li><strong>header</strong>: nilai logik. jika TRUE, maka <code>read.table()</code> akan menganggap bahwa file yang akan dibaca pada baris pertama file merupakan header data.</li>
+<li><strong>dec</strong>: karakter yang digunakan sebagai penunjuk desimal pada data.</li>
+</ul>
+</blockquote>
+<p>Untuk info lebih lanjut terkait fungsi-fungsi tersebut dan contoh bagaimana menggunakannya, pembaca dapat mengakses fitur batuan dari fungsi tersebut menggunakan sintaks berikut:</p>
+<pre class="r"><code># mengakses menu bantuan
+?read.table
+?read.csv
+?read.csv2
+?read.delim
+?read.delim2</code></pre>
+<p>Misalkan penulis memiliki data pada file bernama “mtcars.csv” dengan desimal berupa titik pada datanya. Penulsi ingin membaca file tersebut, maka penulis akan menuliskan sintaks berikut:</p>
+<pre class="r"><code>data &lt;- read.csv(&quot;mtcars.csv&quot;)</code></pre>
+<p>Secara default perintah tersebut akan membaca baris pertama data sebagai header serta data berupa karakter menjadi factor. Untuk mencegah agar data berupa karakter menjadi faktor, perintah tersebut dapat ditambahkan parameter <code>stringAsFactor = FALSE</code>.</p>
+<p>Kita juga dapat memilih file yang akan kita baca secara interakti. Misal pada <em>working directory</em> terdapat beberapa file yang akan kita baca. Kita ingin melihat file dengan format tertentu yang hendak kita baca, namun kita malas mengecek file explorer pada windows. Untuk mengatasi masalah tersebut, kita dapat menggunakan fungsi <code>file.choose()</code> pada <code>R</code>. Fungsi tersebut akan menampilkan jendela windows explores sehingga kita dapat memilih file apa yang hendak dibaca. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>data &lt;- read.csv(file.choose())</code></pre>
+<blockquote>
+<p><strong>Note: </strong> pastikan format file yang dibaca sama dengan fungsi import yang digunakan.</p>
+</blockquote>
+<p>Kita juga dapat membaca file dari internet. Untuk melakukannya kit hanya perlu meng-copy url file tersebut. Berikut adalah contoh file yang dibaca dari internet:</p>
+<pre class="r"><code># Membaca file dari internet
+data &lt;- read.delim(&quot;http://www.sthda.com/upload/boxplot_format.txt&quot;)
+
+# mengecek 6 observasi awal
+head(data)</code></pre>
+<pre><code>##    Nom variable Group
+## 1 IND1       10     A
+## 2 IND2        7     A
+## 3 IND3       20     A
+## 4 IND4       14     A
+## 5 IND5       14     A
+## 6 IND6       12     A</code></pre>
+</div>
+<div id="membaca-file-csv-dan-txt-menggunakan-library-readr" class="section level3">
+<h3>3.1.2 Membaca File CSV dan TXT Menggunakan Library readr</h3>
+<p>Pada bagian sebelumnya kita telah belajar bagaimana cara membaca file dengan format CSV dan TXT menggunakan paket dasar <code>R</code>. Pada bagian ini penulis akan menjelaskan bagaimana cara membaca file dengan format TXT dan CSV pada <code>R</code> menggunakan paket <code>readr</code>.</p>
+<p><code>readr</code> dikembangkan oleh Hadley Wickham. paket <code>readr</code> memberikan solusi cepat dan ramah untuk membaca delimited file ke dalam <code>R</code>.</p>
+<p>Dibandingkan dengan paket dasar <code>R</code>, <code>readr</code> memiliki kelebihan sebagai berikut:</p>
+<ul>
+<li>Mampu membaca file 10x lebih cepat dibandingkan pada paket bawaan <code>R</code>.</li>
+<li>Menampilkan <em>progress bar</em> yang bermanfaat jika proses pemuatan berlangsung agak lama.</li>
+<li>semua fungsi bekerja dengan cara yang persis sama dengan paket bawaan <code>R</code>.</li>
+</ul>
+<p>Untuk dapat menggunakan <code>readr</code>, kita perlu menginstall paketnya terlebih dahulu. Untuk melakukannya jalankan sintaks berikut:</p>
+<pre class="r"><code># Menginstall paket
+install.packages(&quot;readr&quot;)
+
+# Memuat paket
+library(readr)</code></pre>
+<p>Berikut adalah format bebrapa fungsi yang dapat digunakan:</p>
+<pre class="r"><code># Fungsi umum (membaca TXT dan CSV) dapat juga membaca flat file dan tsv
+read_delim(file, delim, col_names = TRUE)
+# Membaca comma (&quot;,&quot;) separated values
+read_csv(file, col_names = TRUE)
+# Membaca semicolon (&quot;;&quot;) separated values
+read_csv2(file, col_names = TRUE)
+# Membaca tab separated values
+read_tsv(file, col_names = TRUE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>file</strong>: path file, koneksi atau raw vector. File yang berakhiran .gz, .bz2, .xz, atau .zip akan secara otomatis tidak terkompresi. File yang dimulai dengan “http: //”, “https: //”, “ftp: //”, atau “ftps: //” akan diunduh secara otomatis. File gz jarak jauh juga dapat diunduh &amp; didekompresi secara otomatis.</li>
+<li><strong>delim</strong>: karakter yang membatasi tiap nilai pada file.</li>
+<li><strong>col_names</strong>: nilai logik. Jika TRUE, maka baris pertama akan menjadi header.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh bagaimana cara membaca file menggunakan fungsi pada paket <code>readr</code>:</p>
+<pre class="r"><code># Membaca file lokal
+data &lt;- read_csv(&quot;mtcars.csv&quot;)
+
+# atau
+data &lt;- read_csv(file.choose())
+
+# Membaca dari internet
+data &lt;- read_tsv(&quot;http://www.sthda.com/upload/boxplot_format.txt&quot;)</code></pre>
+<p>Kita juga dapat menspesifikasi jenis data pada kolom yang akan dibaca. Keuntungan dari penentuan jenis kolom (tipe data) akan memastikan data yang telah dibaca tidak salah berdasarkan jenis data pada masing-masing kolom.</p>
+<p>Beberapa format jenis kolom yang tersedia pada <code>readr</code> adalah sebagi berikut:</p>
+<ul>
+<li><strong>col_integer()</strong>: untuk menentukan integer (alias = “i”).</li>
+<li><strong>col_double()</strong>: untuk menentukan kolom sebagai jenis data double (alias = “d”).</li>
+<li><strong>col_logical()</strong>: untuk menentukan variabel logis (alias = “l”).</li>
+<li><strong>col_character()</strong>: meninggalkan string apa adanya.Tidak mengonversinya menjadi faktor (alias = “c”).</li>
+<li><strong>col_factor()</strong>: untuk menentukan variabel faktor (atau pengelompokan) (alias = “f”)</li>
+<li><strong>col_skip()</strong>: untuk mengabaikan kolom (alias = “-” atau “_“)</li>
+<li><strong>col_date()</strong> (alias = “D”), <strong>col_datetime()</strong> (alias = “T”) dan <strong>col_time()</strong> (“t”) untuk menentukan tanggal, waktu tanggal, dan waktu.</li>
+</ul>
+<p>Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>data &lt;- read_csv(&quot;my_file.csv&quot;, col_types = cols(
+  x = &quot;i&quot;, # kolom integer
+  treatment = &quot;c&quot; # kolom karakter/string
+))</code></pre>
+</div>
+<div id="import-file-excel-pada-r" class="section level3">
+<h3>3.1.3 Import File Excel Pada R</h3>
+<p>Keunggulan penggunaan excel sebagai format penyimpan data adalah kita dapat menyimpan banyak data dan memisahkannya pada lembar (<em>sheet</em>) yang berbeda sebagai suatu data yang independen dibandingkan pembacaan pada file csv yang hanya berisikan satu tabel data saja tiap file.</p>
+<p>Pada <code>R</code> kita dapat melakukan pembacaan file menggunakan berbagai macam cara seperti menggunakan paket bawaan <code>R</code> maupun menggunakan library yang perlu kita install. Berikut adalah beberapa cara membaca file excel pada <code>R</code>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Mengkonversi terlebih dahulu satu sheet excel yang akan kita baca menjadi format “.csv” maupun “.txt” sehingga dapat dibaca seperti pada sub-bab 3.1.1.</p></li>
+<li><p>Menyalin data dari excel dan mengimport data pada <code>R</code>.</p></li>
+</ol>
+<p>Cara ini sedikit mirip dengan cara sebelumnya, dimana kita perlu membuka file excel dan melakukan <strong>select</strong> dan <strong>copy</strong> (ctrl+c) tabel data yang hendak dibaca. Data tersebut selanjutnya akan tersimpan pada <strong>clipboard</strong>.</p>
+<p>Data yang telah tersalin selanjutnya diimport ke <code>R</code> dengan mengetikkan sintaks berikut:</p>
+<pre class="r"><code>data &lt;- read.table(file= &quot;clipboard&quot;,
+                   sep = &quot;\t&quot;, header = TRUE)</code></pre>
+<p>Cara ini merupakan cara yang paling sering penulis gunakan. Kelemahan penggunaan cara ini adalah ketika kita melakukan proses <strong>select</strong> dan <strong>copy</strong> (ctrl+c) tabel yang jumlahnya sangat banyak dan terdapat teks-teks penjelasan terkait tabel data pada lembar kerja excel yang tidak ingin kita sertakan akan memakan waktu yang lebih lama pada proses <strong>select</strong>.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Mengimport data menggunakan library readxl.</li>
+</ol>
+<p>Paket <code>readxl</code>, yang dikembangkan oleh Hadley Wickham, dapat digunakan untuk dengan mudah mengimpor file Excel (xls | xlsx) ke <code>R</code> tanpa ada ketergantungan eksternal.</p>
+<p>Untuk dapat menggunakan library <code>readxl</code> kita harus menginstallnya terlebih dahulu menggunakan sintaks berikut:</p>
+<pre class="r"><code># Instal paket
+install.packages(&quot;readxl&quot;)
+
+# memuat paket
+library(readxl)</code></pre>
+<p>Berikut adalah contoh cara mengimport data dengan format xls atau xlsx pada <code>R</code>.</p>
+<pre class="r"><code># Tentukan sheet dengan nama sheet pada file
+data &lt;- read_excel(&quot;my_file.xlsx&quot;, sheet = &quot;data&quot;)
+
+# Tentukan sheet berdasarkan indeks sheet
+data &lt;- read_excel(&quot;my_file.xlsx&quot;, sheet = 2) # membaca sheet ke-2</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Mengimport data menggunakan library xlsx</li>
+</ol>
+<p>Paket <code>xlsx</code>, solusi berbasis <code>java</code>, adalah salah satu paket <code>R</code> yang ampuh untuk membaca, menulis, dan memformat file Excel. Untuk dapat menggunakannya kita harus menginstall dan memuatnya terlebih dahulu. Berikut sintaks yang digunakan:</p>
+<pre class="r"><code># Menginstall paket
+install.packages(&quot;xlsx&quot;)
+
+# Memuat paket
+library(xlsx)</code></pre>
+<p>Terdapat dua buah fungsi yang disediakan pada paket tersebut yaitu <code>read.xlsx()</code> dan <code>read.xlsx2()</code>. Perbedaan keduanya adalah <code>read.xlsx2()</code> digunakan pada file data dengan ukuran yang besar serta proses pembacaan data yang lebih cepat dibandingkan dengan <code>read.xlsx()</code>. Fromat yang digunakan untuk kedua fungsi tersebut disajikan sebagai berikut:</p>
+<pre class="r"><code>read.xlsx(file, sheetIndex, header=TRUE)
+read.xlsx2(file, sheetIndex, header=TRUE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>file</strong>: nama atau lokasi file berada</li>
+<li><strong>sheetIndex</strong>: Indeks dari sheet yang hendak dibaca</li>
+<li><strong>header</strong>: nilai logik. Jika bernilai TRUE, maka baris pertama dari sheet menjadi header.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penggunaanya:</p>
+<pre class="r"><code>data &lt;- read.xlsx(file.choose(), 1) # membaca sheet 1</code></pre>
+<blockquote>
+<p><strong>Note: </strong> kita juga dapat membaca file dari internet seperti pada sub-bab 3.1.1.</p>
+</blockquote>
+</div>
+</div>
