@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Daftar Isi:Import FileEksport File3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
+  <meta name="description" content="Daftar Isi:Import FileEksport FileTibble Data Format3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
 Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan.">
 
   
@@ -121,7 +121,7 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
   <meta property="og:site_name" content="Environmental Data Modeling">
   <meta property="og:url" content="/tutorial/03_manajemen-data-r/">
   <meta property="og:title" content="3. Manajemen Data R | Environmental Data Modeling">
-  <meta property="og:description" content="Daftar Isi:Import FileEksport File3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
+  <meta property="og:description" content="Daftar Isi:Import FileEksport FileTibble Data Format3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
 Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan."><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -424,6 +424,7 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
 <ul>
 <li><a href="#3-1-import-file">Import File</a></li>
 <li><a href="#3-2-eksport-file">Eksport File</a></li>
+<li><a href="#3-3-tibble-data-format">Tibble Data Format</a></li>
 </ul>
 </blockquote>
 <div id="import-file" class="section level2">
@@ -730,6 +731,195 @@ write.xlsx(mtcars, file = &quot;myworkbook.xlsx&quot;,
 # Menambahkan dataset kedua pada workbook
 write.xlsx(iris, file = &quot;myworkbook.xlsx&quot;,
            sheetName=&quot;IRIS&quot;, append=TRUE)</code></pre>
+</div>
+</div>
+<div id="tibble-data-format" class="section level2">
+<h2>3.3 Tibble Data Format</h2>
+<p>Tibble adalah data frame yang menyediakan metode print yang lebih bagus, berguna saat bekerja dengan kumpulan data besar. Pada bagian ini penulis akan menjelaskan penggunaan tibble sebagai alternatif kita dalam berinteraksi dengan data frame.</p>
+<p>Untuk membuat tibble kita perlu menginstall dan memuat library <code>tibble</code> yang dikembangkan oleh <strong>Hadley Wichham</strong>. Berikut adalah sintaks yang digunakan:</p>
+<pre class="r"><code># menginstall paket
+install.packages(&quot;tibble&quot;)
+
+# memuat paket
+library(tibble)</code></pre>
+<div id="membuat-tibble" class="section level3">
+<h3>3.3.1 Membuat Tibble</h3>
+<p>Untuk dapat membuat tibble kita dapat melakukan konversi data frame yang sudah ada menjadi tibble menggunakan fungsi <code>as_tibble()</code>. Berikut adalah contoh bagaimana membuat tibble mengunakan data <code>iris</code>:</p>
+<pre class="r"><code># memuat data mtcars
+data(&quot;iris&quot;)
+
+# print
+head(iris, 10)</code></pre>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa</code></pre>
+<pre class="r"><code># konversi mtcars menjadi tibble
+iris_tbl &lt;- as_tibble(iris)
+
+# print
+iris_tbl</code></pre>
+<pre><code>## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Kita dapat mengkonversi tibble menjadi data frame menggunakan fungsi <code>as.data.frame()</code></p>
+</blockquote>
+<p>Secara default saya kita print tibble, maka akan dimunculkan 10 observasi pertama. Pada data frame biasa jika kita print data tersebut maka seluruh observasi akan ditampilkan.</p>
+<p>Penggunaan tibble ini cenderung menguntungkan saat kita bekerja dengan jumlah data yang besar dan ingin mengecek observasi yang ada. Hal ini berbeda dengan data frame biasa dimana untuk mengecek observasi awal kita perlu menggunakan fungsi <code>head()</code> agar seluruh data tidak ditampilkan. Sehingga penggunaan tibble cenderung membuat proses analisa menjadi lebih rapi.</p>
+<p>Kita juga dapat membuat tibble dari kumpulan sejumlah vektor menggunakan fungsi <code>tibble()</code>. <code>tibble()</code> akan secara otomatis mendaur ulang input dengan panjang 1 (variabel <code>y</code>), dan memungkinkan kita untuk merujuk ke variabel yang baru saja kita buat, seperti yang ditunjukkan pada sintaks berikut:</p>
+<pre class="r"><code>tibble(
+  x = 1:20,
+  y = 1,
+  z = 2*x+5*y
+)</code></pre>
+<pre><code>## # A tibble: 20 x 3
+##        x     y     z
+##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     1     7
+##  2     2     1     9
+##  3     3     1    11
+##  4     4     1    13
+##  5     5     1    15
+##  6     6     1    17
+##  7     7     1    19
+##  8     8     1    21
+##  9     9     1    23
+## 10    10     1    25
+## 11    11     1    27
+## 12    12     1    29
+## 13    13     1    31
+## 14    14     1    33
+## 15    15     1    35
+## 16    16     1    37
+## 17    17     1    39
+## 18    18     1    41
+## 19    19     1    43
+## 20    20     1    45</code></pre>
+<p>Jika pembaca telah mulai familiar dengan fungsi <code>data.frame()</code>, perlu diingat bahwa <code>tibble()</code> melakukan lebih sedikit: tidak pernah mengubah jenis input (mis., tidak pernah mengubah string menjadi faktor!), tidak pernah mengubah nama variabel, dan tidak pernah membuat nama baris seperti yang biasa terjadi saat kita menggunakan fungsi <code>data.frame()</code>.</p>
+<p>Cara lain yang dapat digunakan untuk membuat tibble adalah dengan menggunakan fungsi <code>tribble()</code> yang merupakan singkatan dari <em>transposed tibble</em>. <code>tribble()</code> dikustomisasi untuk entri data dalam kode: judul kolom didefinisikan oleh rumus (yaitu, mereka mulai dengan ~), dan entri dipisahkan oleh koma. Hal ini memungkinkan untuk menata sejumlah kecil data dalam bentuk yang mudah dibaca. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>tribble(
+  ~x, ~y, ~z,
+  #--/--/----
+  &quot;a&quot;, 2, 5,
+  &quot;b&quot;, 5, 7
+)</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   x         y     z
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 a         2     5
+## 2 b         5     7</code></pre>
+<p>Penambahahan komen (#–/–/—-) dilakukan untuk memperjelas posisi dari header sehingga meminimalisir kesalahan dalam input data.</p>
+</div>
+<div id="tibble-vs-data-frame" class="section level3">
+<h3>3.3.2 Tibble vs Data Frame</h3>
+<p>terdapat dua buah perbedaan utama antara tibble dan data frame , yaitu: <em>printing</em> dan <em>subsetting</em>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><strong>Printing</strong></li>
+</ol>
+<p>Tibbles memiliki metode print halus yang hanya menampilkan 10 baris pertama observasi, dan semua kolom yang sesuai dengan lebar layar. Ini membuatnya lebih mudah untuk bekerja dengan data besar. Selain namanya, setiap kolom melaporkan jenis datanya, fitur bagus yang dipinjam dari fungsi <code>str()</code>. Berikut adalah contohnya:</p>
+<pre class="r"><code>tribble(
+  ~x, ~y, ~z,
+  #--/---/--------
+  &quot;a&quot;, 2.1, FALSE,
+  &quot;b&quot;, 5.5, TRUE
+)</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   x         y z    
+##   &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt;
+## 1 a       2.1 FALSE
+## 2 b       5.5 TRUE</code></pre>
+<p>Tibbles dirancang agar kita tidak secara sengaja menampilkan data yang sangat banyak saat melakukan perintah <code>print()</code>. Tetapi terkadang kita membutuhkan lebih banyak output daripada tampilan default. Ada beberapa opsi yang dapat membantu.</p>
+<p>Pertama, kita dapat secara eksplisit melakukan print data frame dan mengontrol jumlah baris (n) dan lebar tampilan. <code>width = Inf</code> akan menampilkan semua kolom. Berikut adalah contoh penerapannya</p>
+<pre class="r"><code>print(iris_tbl, n=15, width=Inf)</code></pre>
+<pre><code>## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## 11          5.4         3.7          1.5         0.2 setosa 
+## 12          4.8         3.4          1.6         0.2 setosa 
+## 13          4.8         3            1.4         0.1 setosa 
+## 14          4.3         3            1.1         0.1 setosa 
+## 15          5.8         4            1.2         0.2 setosa 
+## # ... with 135 more rows</code></pre>
+<p>Kita juga dapat mengontrol print default dengan melakukan pengaturan menggunakan fungsi <code>options()</code>. Berikut adalah contoh penerapannya:</p>
+<ul>
+<li><strong>options(tibble.print_max= n, tibble.print_min= m)</strong>: jika terdapat lebih dari “m” baris, print hanya sejumlah “n” baris.</li>
+<li><strong>options(dplyr.print_min = Inf)</strong>: untuk selalu menampilkan seluruh baris. Perlu diingat fungsi ini dapat digunakan saat kita telah memuat library <code>dplyr</code>.</li>
+<li><strong>options(tibble.width = Inf)</strong>: menampilkan seluruh kolom tanpa mempedulikan lebar tampilan layar.</li>
+</ul>
+<p>Cara terakhir untuk menampilkan seluruh observasi adalh dengan fungsi <code>view()</code>. Berikut adalah contoh penerapannya pada data <code>iris_tbl</code>:</p>
+<pre class="r"><code>view(iris_tbl)</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><strong>Subsetting</strong></li>
+</ol>
+<p>Sejauh ini semua alat yang kita pelajari telah bekerja dengan data frame yang lengkap. Jika kita ingin mengeluarkan variabel tunggal, kita memerlukan beberapa alat baru, dollar sign (<code>$</code>) dan [[. [[dapat mengekstraksi berdasarkan nama atau posisi; <code>$</code> hanya mengekstraksi berdasarkan nama. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code># print tibble
+iris_tbl</code></pre>
+<pre><code>## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows</code></pre>
+<pre class="r"><code># subset berdasarkan nama kolom
+iris_tbl$Sepal.Length</code></pre>
+<pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
+##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
+##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
+##  [52] 6.4 6.9 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8
+##  [69] 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4
+##  [86] 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8
+## [103] 7.1 6.3 6.5 7.6 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7
+## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
+## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
+<pre class="r"><code>#subset berdasarkan posisi
+iris_tbl[[1]]</code></pre>
+<pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
+##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
+##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
+##  [52] 6.4 6.9 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8
+##  [69] 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4
+##  [86] 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8
+## [103] 7.1 6.3 6.5 7.6 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7
+## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
+## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
+<p>Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah melakukan <em>partial matching</em>, dan mereka akan menghasilkan peringatan jika kolom yang kita coba akses tidak ada.</p>
 </div>
 </div>
 

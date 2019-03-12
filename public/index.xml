@@ -23,6 +23,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#3-1-import-file&#34;&gt;Import File&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#3-2-eksport-file&#34;&gt;Eksport File&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#3-3-tibble-data-format&#34;&gt;Tibble Data Format&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;import-file&#34; class=&#34;section level2&#34;&gt;
@@ -329,6 +330,195 @@ write.xlsx(mtcars, file = &amp;quot;myworkbook.xlsx&amp;quot;,
 # Menambahkan dataset kedua pada workbook
 write.xlsx(iris, file = &amp;quot;myworkbook.xlsx&amp;quot;,
            sheetName=&amp;quot;IRIS&amp;quot;, append=TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tibble-data-format&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3.3 Tibble Data Format&lt;/h2&gt;
+&lt;p&gt;Tibble adalah data frame yang menyediakan metode print yang lebih bagus, berguna saat bekerja dengan kumpulan data besar. Pada bagian ini penulis akan menjelaskan penggunaan tibble sebagai alternatif kita dalam berinteraksi dengan data frame.&lt;/p&gt;
+&lt;p&gt;Untuk membuat tibble kita perlu menginstall dan memuat library &lt;code&gt;tibble&lt;/code&gt; yang dikembangkan oleh &lt;strong&gt;Hadley Wichham&lt;/strong&gt;. Berikut adalah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menginstall paket
+install.packages(&amp;quot;tibble&amp;quot;)
+
+# memuat paket
+library(tibble)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;membuat-tibble&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.3.1 Membuat Tibble&lt;/h3&gt;
+&lt;p&gt;Untuk dapat membuat tibble kita dapat melakukan konversi data frame yang sudah ada menjadi tibble menggunakan fungsi &lt;code&gt;as_tibble()&lt;/code&gt;. Berikut adalah contoh bagaimana membuat tibble mengunakan data &lt;code&gt;iris&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat data mtcars
+data(&amp;quot;iris&amp;quot;)
+
+# print
+head(iris, 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# konversi mtcars menjadi tibble
+iris_tbl &amp;lt;- as_tibble(iris)
+
+# print
+iris_tbl&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Kita dapat mengkonversi tibble menjadi data frame menggunakan fungsi &lt;code&gt;as.data.frame()&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Secara default saya kita print tibble, maka akan dimunculkan 10 observasi pertama. Pada data frame biasa jika kita print data tersebut maka seluruh observasi akan ditampilkan.&lt;/p&gt;
+&lt;p&gt;Penggunaan tibble ini cenderung menguntungkan saat kita bekerja dengan jumlah data yang besar dan ingin mengecek observasi yang ada. Hal ini berbeda dengan data frame biasa dimana untuk mengecek observasi awal kita perlu menggunakan fungsi &lt;code&gt;head()&lt;/code&gt; agar seluruh data tidak ditampilkan. Sehingga penggunaan tibble cenderung membuat proses analisa menjadi lebih rapi.&lt;/p&gt;
+&lt;p&gt;Kita juga dapat membuat tibble dari kumpulan sejumlah vektor menggunakan fungsi &lt;code&gt;tibble()&lt;/code&gt;. &lt;code&gt;tibble()&lt;/code&gt; akan secara otomatis mendaur ulang input dengan panjang 1 (variabel &lt;code&gt;y&lt;/code&gt;), dan memungkinkan kita untuk merujuk ke variabel yang baru saja kita buat, seperti yang ditunjukkan pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tibble(
+  x = 1:20,
+  y = 1,
+  z = 2*x+5*y
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 20 x 3
+##        x     y     z
+##    &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1     1     1     7
+##  2     2     1     9
+##  3     3     1    11
+##  4     4     1    13
+##  5     5     1    15
+##  6     6     1    17
+##  7     7     1    19
+##  8     8     1    21
+##  9     9     1    23
+## 10    10     1    25
+## 11    11     1    27
+## 12    12     1    29
+## 13    13     1    31
+## 14    14     1    33
+## 15    15     1    35
+## 16    16     1    37
+## 17    17     1    39
+## 18    18     1    41
+## 19    19     1    43
+## 20    20     1    45&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Jika pembaca telah mulai familiar dengan fungsi &lt;code&gt;data.frame()&lt;/code&gt;, perlu diingat bahwa &lt;code&gt;tibble()&lt;/code&gt; melakukan lebih sedikit: tidak pernah mengubah jenis input (mis., tidak pernah mengubah string menjadi faktor!), tidak pernah mengubah nama variabel, dan tidak pernah membuat nama baris seperti yang biasa terjadi saat kita menggunakan fungsi &lt;code&gt;data.frame()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Cara lain yang dapat digunakan untuk membuat tibble adalah dengan menggunakan fungsi &lt;code&gt;tribble()&lt;/code&gt; yang merupakan singkatan dari &lt;em&gt;transposed tibble&lt;/em&gt;. &lt;code&gt;tribble()&lt;/code&gt; dikustomisasi untuk entri data dalam kode: judul kolom didefinisikan oleh rumus (yaitu, mereka mulai dengan ~), dan entri dipisahkan oleh koma. Hal ini memungkinkan untuk menata sejumlah kecil data dalam bentuk yang mudah dibaca. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tribble(
+  ~x, ~y, ~z,
+  #--/--/----
+  &amp;quot;a&amp;quot;, 2, 5,
+  &amp;quot;b&amp;quot;, 5, 7
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 3
+##   x         y     z
+##   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 a         2     5
+## 2 b         5     7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Penambahahan komen (#–/–/—-) dilakukan untuk memperjelas posisi dari header sehingga meminimalisir kesalahan dalam input data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tibble-vs-data-frame&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.3.2 Tibble vs Data Frame&lt;/h3&gt;
+&lt;p&gt;terdapat dua buah perbedaan utama antara tibble dan data frame , yaitu: &lt;em&gt;printing&lt;/em&gt; dan &lt;em&gt;subsetting&lt;/em&gt;.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Printing&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Tibbles memiliki metode print halus yang hanya menampilkan 10 baris pertama observasi, dan semua kolom yang sesuai dengan lebar layar. Ini membuatnya lebih mudah untuk bekerja dengan data besar. Selain namanya, setiap kolom melaporkan jenis datanya, fitur bagus yang dipinjam dari fungsi &lt;code&gt;str()&lt;/code&gt;. Berikut adalah contohnya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tribble(
+  ~x, ~y, ~z,
+  #--/---/--------
+  &amp;quot;a&amp;quot;, 2.1, FALSE,
+  &amp;quot;b&amp;quot;, 5.5, TRUE
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 3
+##   x         y z    
+##   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;lgl&amp;gt;
+## 1 a       2.1 FALSE
+## 2 b       5.5 TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Tibbles dirancang agar kita tidak secara sengaja menampilkan data yang sangat banyak saat melakukan perintah &lt;code&gt;print()&lt;/code&gt;. Tetapi terkadang kita membutuhkan lebih banyak output daripada tampilan default. Ada beberapa opsi yang dapat membantu.&lt;/p&gt;
+&lt;p&gt;Pertama, kita dapat secara eksplisit melakukan print data frame dan mengontrol jumlah baris (n) dan lebar tampilan. &lt;code&gt;width = Inf&lt;/code&gt; akan menampilkan semua kolom. Berikut adalah contoh penerapannya&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(iris_tbl, n=15, width=Inf)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## 11          5.4         3.7          1.5         0.2 setosa 
+## 12          4.8         3.4          1.6         0.2 setosa 
+## 13          4.8         3            1.4         0.1 setosa 
+## 14          4.3         3            1.1         0.1 setosa 
+## 15          5.8         4            1.2         0.2 setosa 
+## # ... with 135 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita juga dapat mengontrol print default dengan melakukan pengaturan menggunakan fungsi &lt;code&gt;options()&lt;/code&gt;. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;options(tibble.print_max= n, tibble.print_min= m)&lt;/strong&gt;: jika terdapat lebih dari “m” baris, print hanya sejumlah “n” baris.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options(dplyr.print_min = Inf)&lt;/strong&gt;: untuk selalu menampilkan seluruh baris. Perlu diingat fungsi ini dapat digunakan saat kita telah memuat library &lt;code&gt;dplyr&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options(tibble.width = Inf)&lt;/strong&gt;: menampilkan seluruh kolom tanpa mempedulikan lebar tampilan layar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cara terakhir untuk menampilkan seluruh observasi adalh dengan fungsi &lt;code&gt;view()&lt;/code&gt;. Berikut adalah contoh penerapannya pada data &lt;code&gt;iris_tbl&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;view(iris_tbl)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Subsetting&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Sejauh ini semua alat yang kita pelajari telah bekerja dengan data frame yang lengkap. Jika kita ingin mengeluarkan variabel tunggal, kita memerlukan beberapa alat baru, dollar sign (&lt;code&gt;$&lt;/code&gt;) dan [[. [[dapat mengekstraksi berdasarkan nama atau posisi; &lt;code&gt;$&lt;/code&gt; hanya mengekstraksi berdasarkan nama. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# print tibble
+iris_tbl&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset berdasarkan nama kolom
+iris_tbl$Sepal.Length&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
+##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
+##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
+##  [52] 6.4 6.9 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8
+##  [69] 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4
+##  [86] 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8
+## [103] 7.1 6.3 6.5 7.6 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7
+## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
+## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#subset berdasarkan posisi
+iris_tbl[[1]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4
+##  [18] 5.1 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5
+##  [35] 4.9 5.0 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0
+##  [52] 6.4 6.9 5.5 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8
+##  [69] 6.2 5.6 5.9 6.1 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4
+##  [86] 6.0 6.7 6.3 5.6 5.5 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8
+## [103] 7.1 6.3 6.5 7.6 4.9 7.3 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7
+## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
+## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah melakukan &lt;em&gt;partial matching&lt;/em&gt;, dan mereka akan menghasilkan peringatan jika kolom yang kita coba akses tidak ada.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

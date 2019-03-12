@@ -15,6 +15,7 @@ type: docs
 >
 > * [Import File](#3-1-import-file)
 > * [Eksport File](#3-2-eksport-file)
+> * [Tibble Data Format](#3-3-tibble-data-format)
 
 ## 3.1 Import File
 
@@ -395,4 +396,126 @@ write.xlsx(mtcars, file = "myworkbook.xlsx",
 write.xlsx(iris, file = "myworkbook.xlsx",
            sheetName="IRIS", append=TRUE)
 ```
+
+## 3.3 Tibble Data Format
+
+Tibble adalah data frame yang menyediakan metode print yang lebih bagus, berguna saat bekerja dengan kumpulan data besar. Pada bagian ini penulis akan menjelaskan penggunaan tibble sebagai alternatif kita dalam berinteraksi dengan data frame.
+
+Untuk membuat tibble kita perlu menginstall dan memuat library `tibble` yang dikembangkan oleh **Hadley Wichham**. Berikut adalah sintaks yang digunakan:
+
+```{r, eval=FALSE}
+# menginstall paket
+install.packages("tibble")
+
+# memuat paket
+library(tibble)
+```
+
+### 3.3.1 Membuat Tibble
+
+Untuk dapat membuat tibble kita dapat melakukan konversi data frame yang sudah ada menjadi tibble menggunakan fungsi `as_tibble()`. Berikut adalah contoh bagaimana membuat tibble mengunakan data `iris`:
+
+```{r, echo=FALSE}
+library(tibble)
+```
+
+
+```{r}
+# memuat data mtcars
+data("iris")
+
+# print
+head(iris, 10)
+
+# konversi mtcars menjadi tibble
+iris_tbl <- as_tibble(iris)
+
+# print
+iris_tbl
+```
+
+> **Note: ** Kita dapat mengkonversi tibble menjadi data frame menggunakan fungsi `as.data.frame()`
+
+Secara default saya kita print tibble, maka akan dimunculkan 10 observasi pertama. Pada data frame biasa jika kita print data tersebut maka seluruh observasi akan ditampilkan.
+
+Penggunaan tibble ini cenderung menguntungkan saat kita bekerja dengan jumlah data yang besar dan ingin mengecek observasi yang ada. Hal ini berbeda dengan data frame biasa dimana untuk mengecek observasi awal kita perlu menggunakan fungsi `head()` agar seluruh data tidak ditampilkan. Sehingga penggunaan tibble cenderung membuat proses analisa menjadi lebih rapi.
+
+Kita juga dapat membuat tibble dari kumpulan sejumlah vektor menggunakan fungsi `tibble()`. `tibble()` akan secara otomatis mendaur ulang input dengan panjang 1 (variabel `y`), dan memungkinkan kita untuk merujuk ke variabel yang baru saja kita buat, seperti yang ditunjukkan pada sintaks berikut:
+
+```{r}
+tibble(
+  x = 1:20,
+  y = 1,
+  z = 2*x+5*y
+)
+```
+
+Jika pembaca telah mulai familiar dengan fungsi `data.frame()`, perlu diingat bahwa `tibble()` melakukan lebih sedikit: tidak pernah mengubah jenis input (mis., tidak pernah mengubah string menjadi faktor!), tidak pernah mengubah nama variabel, dan tidak pernah membuat nama baris seperti yang biasa terjadi saat kita menggunakan fungsi `data.frame()`.
+
+Cara lain yang dapat digunakan untuk membuat tibble adalah dengan menggunakan fungsi `tribble()` yang merupakan singkatan dari *transposed tibble*. `tribble()` dikustomisasi untuk entri data dalam kode: judul kolom didefinisikan oleh rumus (yaitu, mereka mulai dengan ~), dan entri dipisahkan oleh koma. Hal ini memungkinkan untuk menata sejumlah kecil data dalam bentuk yang mudah dibaca. Berikut adalah contoh penerapannya:
+
+```{r}
+tribble(
+  ~x, ~y, ~z,
+  #--/--/----
+  "a", 2, 5,
+  "b", 5, 7
+)
+```
+
+Penambahahan komen (#--/--/----) dilakukan untuk memperjelas posisi dari header sehingga meminimalisir kesalahan dalam input data.
+
+### 3.3.2 Tibble vs Data Frame
+
+terdapat dua buah perbedaan utama antara tibble dan data frame , yaitu: *printing* dan *subsetting*.
+
+a. **Printing**
+
+Tibbles memiliki metode print halus yang hanya menampilkan 10 baris pertama observasi, dan semua kolom yang sesuai dengan lebar layar. Ini membuatnya lebih mudah untuk bekerja dengan data besar. Selain namanya, setiap kolom melaporkan jenis datanya, fitur bagus yang dipinjam dari fungsi `str()`. Berikut adalah contohnya:
+
+```{r}
+tribble(
+  ~x, ~y, ~z,
+  #--/---/--------
+  "a", 2.1, FALSE,
+  "b", 5.5, TRUE
+)
+```
+
+Tibbles dirancang agar kita tidak secara sengaja menampilkan data yang sangat banyak saat melakukan perintah `print()`. Tetapi terkadang kita membutuhkan lebih banyak output daripada tampilan default. Ada beberapa opsi yang dapat membantu.
+
+Pertama, kita dapat secara eksplisit melakukan print data frame dan mengontrol jumlah baris (n) dan lebar tampilan. `width = Inf` akan menampilkan semua kolom. Berikut adalah contoh penerapannya
+
+```{r}
+print(iris_tbl, n=15, width=Inf)
+```
+
+Kita juga dapat mengontrol print default dengan melakukan pengaturan menggunakan fungsi `options()`. Berikut adalah contoh penerapannya:
+
+- **options(tibble.print_max= n, tibble.print_min= m)**: jika terdapat lebih dari "m" baris, print hanya sejumlah "n" baris.
+- **options(dplyr.print_min = Inf)**: untuk selalu menampilkan seluruh baris. Perlu diingat fungsi ini dapat digunakan saat kita telah memuat library `dplyr`.
+- **options(tibble.width = Inf)**: menampilkan seluruh kolom tanpa mempedulikan lebar tampilan layar.
+
+Cara terakhir untuk menampilkan seluruh observasi adalh dengan fungsi `view()`. Berikut adalah contoh penerapannya pada data `iris_tbl`:
+
+```{r, eval=FALSE}
+view(iris_tbl)
+```
+
+b. **Subsetting**
+
+Sejauh ini semua alat yang kita pelajari telah bekerja dengan data frame yang lengkap. Jika kita ingin mengeluarkan variabel tunggal, kita memerlukan beberapa alat baru, dollar sign (`$`) dan [[. [[dapat mengekstraksi berdasarkan nama atau posisi; `$` hanya mengekstraksi berdasarkan nama. Berikut adalah contoh penerapannya:
+
+```{r}
+# print tibble
+iris_tbl
+
+# subset berdasarkan nama kolom
+iris_tbl$Sepal.Length
+
+#subset berdasarkan posisi
+iris_tbl[[1]]
+```
+
+Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah melakukan *partial matching*, dan mereka akan menghasilkan peringatan jika kolom yang kita coba akses tidak ada.
 
