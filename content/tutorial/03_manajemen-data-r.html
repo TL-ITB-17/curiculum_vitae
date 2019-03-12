@@ -265,5 +265,64 @@ write.csv2(data, file=&quot;data.csv&quot;)</code></pre>
 <blockquote>
 <p><strong>Note: </strong> Hasil ekspoet ditampilkan pada <em>working directory</em></p>
 </blockquote>
+<p>Kita juga dapat menggunakan fungsi <code>write_delim()</code> dari library <code>readr</code> untuk melakukan eksport data kedalam format CSV atau TXT. Berdasarkan format file yang hendak dihasilkan kita juga dapat menggunakan fungsi <code>write_csv()</code> atau <code>write_tsv()</code>. Berikut adalah penjelasan terkait kedua fungsi tersebut:</p>
+<ul>
+<li><strong>write_csv()</strong>: untuk mengeksport kedalam format CSV.</li>
+<li><strong>write_tsv()</strong>: untuk mengeksport kedalam format TXT.</li>
+</ul>
+<p>Format sederhana ketiga fungsi fungsi tersebut adalah sebagai berikut:</p>
+<pre class="r"><code># Fungsi umum
+write_delim(x, path, delim = &quot; &quot;)
+# Write comma (&quot;,&quot;) separated value files
+write_csv(file, path)
+# Write tab (&quot;\t&quot;) separated value files
+write_tsv(file, path)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong>: data frame yang akan ditulis</li>
+<li><strong>path</strong>: path ke file hasil (dapat berupa nama file disertai ekstensi file yang akan dibuat)</li>
+<li><strong>delim</strong>: Delimiter digunakan untuk memisahkan nilai. Harus karakter tunggal.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapan dari fungsi tersebut:</p>
+<pre class="r"><code># memuat mtcars data
+data(mtcars)
+library(readr)
+
+# eksport mtcars menjadi tsv atau txt
+write_tsv(mtcars, path = &quot;mtcars.txt&quot;)
+
+# eksport mycars menjadi csv
+write_csv(mtcars, path = &quot;mtcars.csv&quot;)</code></pre>
+</div>
+<div id="eksport-data-menjadi-format-excel" class="section level3">
+<h3>3.2.2 Eksport Data Menjadi Format Excel</h3>
+<p>Untuk mengeksport data menjadi format EXCEL (“.xls” atau “.xlsx”) kita dapat menggunakan fungsi <code>write.xlsx()</code> dan <code>write.xlsx2()</code> dari library <code>xlsx</code>. Berikut adalah format sederhana yanga digunakan:</p>
+<pre class="r"><code>write.xlsx(x, file, sheetName = &quot;Sheet1&quot;, 
+  col.names = TRUE, row.names = TRUE, append = FALSE)
+write.xlsx2(x, file, sheetName = &quot;Sheet1&quot;,
+  col.names = TRUE, row.names = TRUE, append = FALSE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong>: sebuah data frame untuk ditulis ke dalam worksheet.</li>
+<li><strong>file</strong>: path ke file output.</li>
+<li><strong>sheetName</strong>: string karakter yang digunakan untuk nama sheet.</li>
+<li><strong>col.names, row.names</strong>: nilai logik yang menentukan apakah nama kolom / nama baris x akan ditulis ke file.</li>
+<li><strong>append</strong>: nilai logis yang menunjukkan apakah x harus ditambahkan ke file yang ada.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>library(&quot;xlsx&quot;)
+# Menuliskan dataset pertama pada workbook
+write.xlsx(USArrests, file = &quot;myworkbook.xlsx&quot;,
+      sheetName = &quot;USA-ARRESTS&quot;, append = FALSE)
+# Menambahkan dataset kedua pada workbook
+write.xlsx(mtcars, file = &quot;myworkbook.xlsx&quot;, 
+           sheetName=&quot;MTCARS&quot;, append=TRUE)
+# Menambahkan dataset kedua pada workbook
+write.xlsx(iris, file = &quot;myworkbook.xlsx&quot;,
+           sheetName=&quot;IRIS&quot;, append=TRUE)</code></pre>
 </div>
 </div>

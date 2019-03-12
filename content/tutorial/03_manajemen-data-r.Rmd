@@ -326,3 +326,73 @@ write.csv(mtcars, file="mtcars.csv", row.names = FALSE)
 
 > **Note: ** Hasil ekspoet ditampilkan pada *working directory*
 
+Kita juga dapat menggunakan fungsi `write_delim()` dari library `readr` untuk melakukan eksport data kedalam format CSV atau TXT. Berdasarkan format file yang hendak dihasilkan kita juga dapat menggunakan fungsi `write_csv()` atau `write_tsv()`. Berikut adalah penjelasan terkait kedua fungsi tersebut:
+
+- **write_csv()**: untuk mengeksport kedalam format CSV.
+- **write_tsv()**: untuk mengeksport kedalam format TXT.
+
+Format sederhana ketiga fungsi fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+# Fungsi umum
+write_delim(x, path, delim = " ")
+# Write comma (",") separated value files
+write_csv(file, path)
+# Write tab ("\t") separated value files
+write_tsv(file, path)
+```
+
+> **Note: **
+>
+> - **x**: data frame yang akan ditulis
+> - **path**: path ke file hasil (dapat berupa nama file disertai ekstensi file yang akan dibuat)
+> - **delim**: Delimiter digunakan untuk memisahkan nilai. Harus karakter tunggal.
+
+Berikut adalah contoh penerapan dari fungsi tersebut:
+
+```{r, eval=FALSE}
+# memuat mtcars data
+data(mtcars)
+library(readr)
+
+# eksport mtcars menjadi tsv atau txt
+write_tsv(mtcars, path = "mtcars.txt")
+
+# eksport mycars menjadi csv
+write_csv(mtcars, path = "mtcars.csv")
+```
+
+### 3.2.2 Eksport Data Menjadi Format Excel
+
+Untuk mengeksport data menjadi format EXCEL (".xls" atau ".xlsx") kita dapat menggunakan fungsi `write.xlsx()` dan `write.xlsx2()` dari library `xlsx`. Berikut adalah format sederhana yanga digunakan:
+
+```{r, eval=FALSE}
+write.xlsx(x, file, sheetName = "Sheet1", 
+  col.names = TRUE, row.names = TRUE, append = FALSE)
+write.xlsx2(x, file, sheetName = "Sheet1",
+  col.names = TRUE, row.names = TRUE, append = FALSE)
+```
+
+> **Note: **
+>
+> - **x**: sebuah data frame untuk ditulis ke dalam worksheet.
+> - **file**: path ke file output.
+> - **sheetName**: string karakter yang digunakan untuk nama sheet.
+> - **col.names, row.names**: nilai logik yang menentukan apakah nama kolom / nama baris x akan ditulis ke file.
+> - **append**: nilai logis yang menunjukkan apakah x harus ditambahkan ke file yang ada.
+
+Berikut adalah contoh penerapannya:
+
+```{r, eval=FALSE}
+library("xlsx")
+# Menuliskan dataset pertama pada workbook
+write.xlsx(USArrests, file = "myworkbook.xlsx",
+      sheetName = "USA-ARRESTS", append = FALSE)
+# Menambahkan dataset kedua pada workbook
+write.xlsx(mtcars, file = "myworkbook.xlsx", 
+           sheetName="MTCARS", append=TRUE)
+# Menambahkan dataset kedua pada workbook
+write.xlsx(iris, file = "myworkbook.xlsx",
+           sheetName="IRIS", append=TRUE)
+```
+
