@@ -17,6 +17,7 @@ type: docs
 <h2 id="daftar-isi">Daftar Isi:</h2>
 <ul>
 <li><a href="#3-1-import-file">Import File</a></li>
+<li><a href="#3-2-eksport-file">Eksport File</a></li>
 </ul>
 </blockquote>
 <div id="import-file" class="section level2">
@@ -225,5 +226,44 @@ data &lt;- sasxport.get(&quot;c:/mydata.xpt&quot;) # Variabel yang berupa karakt
 install.packages(&quot;foreign&quot;) # menginstall paket
 library(foreign) # memuat paket
 data &lt;- read.dta(&quot;c:/mydata.dta&quot;)</code></pre>
+</div>
+</div>
+<div id="eksport-file" class="section level2">
+<h2>3.2 Eksport File</h2>
+<p>Setelah kita melakukan analisa dan telah memperoleh hasil yang kita inginkan dan memperoleh data frame berupa hasil prediksi suatu model atau data yang telah dibersihakan, kita ingin melakukan pelaporan dalam bentuk file dengan format seperti EXCEL, CSV atau TXT. Untuk melakukannya kita perlu melakukan eksport data yang telah dihasilkan.</p>
+<p>Pada bagian ini penulis akan menjelaskan bagaimana cara mengeksport data dari <code>R</code> kedalam format TXT, CSV, maupun EXCEL. Sebenarnya <code>R</code> memungkinkan untuk melakukan eksport dalam format lain seperti RDA maupun RDS yang tidak dibahas dalam buku ini karena berada diluar lingkup buku ini.</p>
+<div id="eksport-data-menjadi-format-txt-dan-csv" class="section level3">
+<h3>3.2.1 Eksport Data Menjadi Format TXT dan CSV</h3>
+<p>Terdapat dua cara untuk melakukan ekport data dari <code>R</code> menjadi format TXT atau CSV, yaitu melalui paket dasar <code>R</code> maupun menggunakan library <code>readr</code>. Kedua cara tersebut memiliki sejumlah kemiripan dari segi fungsi, namun berbeda dari segi kecepatan eksport.</p>
+<p>Fungsi dasar yang digunakan pada <code>R</code> untuk melakukan eksport file kedalam format TXT dan CSv adalah <code>write.tabel()</code>. Format umum yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>write.table(x, file, sep= &quot; &quot;, dec = &quot;,&quot;,
+            row.names = TRUE, col.names = TRUE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong>: matriks atau data frame yang akan ditulis.</li>
+<li><strong>file</strong>: karakter yang menentukan nama file yang dihasilkan.</li>
+<li><strong>sep</strong>: string pemisah bidang atau kolom, mis., sep = “ t” (untuk nilai yang dipisahkan tab).</li>
+<li><strong>dec</strong>: string yang akan digunakan sebagai pemisah desimal. Standarnya adalah “.”.</li>
+<li><strong>row.names</strong>: nilai logik yang menunjukkan apakah nama baris x harus ditulis bersama dengan x, atau vektor karakter nama baris yang akan ditulis.</li>
+<li><strong>col.names</strong>: baik nilai logik yang menunjukkan apakah nama kolom x harus ditulis bersama dengan x, atau vektor karakter nama kolom yang akan ditulis. Jika <code>col.names = NA</code> dan <code>row.names = TRUE</code> ditambahkan nama kolom kosong, yang merupakan konvensi yang digunakan untuk file CSV untuk dibaca oleh spreadsheet.</li>
+</ul>
+</blockquote>
+<p>Selain menggunakan fungsi tersebut, untuk eksport ke dalam format CSV juga dapa menggunakan fungsi <code>write.csv()</code> atau <code>write.csv2()</code>. Berikut adalah format yang digunakan:</p>
+<pre class="r"><code>write.csv(data, file=&quot;data.csv&quot;)
+write.csv2(data, file=&quot;data.csv&quot;)</code></pre>
+<p>Secara penampakan kedua fungsi tersebut pada dasarnya sama dengan fungsi <code>write.table()</code>, bedanya adalah kedua fungsi tersebut spesifik digunakan untuk eksport file kedalam format CSV.</p>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>write.csv()</strong> menggunakan “.” sebagai titik desimal serta “,” sebagai pemisah antar kolom data.</li>
+<li><strong>write.csv2()</strong> menggunakan “,” sebagai titik desimal serta “;” sebagai pemisah antar kolom data.</li>
+</ul>
+</blockquote>
+<p>Misalkan kita ingin melakukan eksport data objek <code>mtcars</code> kedalam format CSV. Untuk melakukannya dapat dilakukan dengan sintaks berikut:</p>
+<pre class="r"><code>write.csv(mtcars, file=&quot;mtcars.csv&quot;, row.names = FALSE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong> Hasil ekspoet ditampilkan pada <em>working directory</em></p>
+</blockquote>
 </div>
 </div>

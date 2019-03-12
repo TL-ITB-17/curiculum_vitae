@@ -14,6 +14,7 @@ type: docs
 > ## Daftar Isi:
 >
 > * [Import File](#3-1-import-file)
+> * [Eksport File](#3-2-eksport-file)
 
 ## 3.1 Import File
 
@@ -276,4 +277,52 @@ library(foreign) # memuat paket
 data <- read.dta("c:/mydata.dta")
 
 ```
+
+## 3.2 Eksport File
+
+Setelah kita melakukan analisa dan telah memperoleh hasil yang kita inginkan dan memperoleh data frame berupa hasil prediksi suatu model atau data yang telah dibersihakan, kita ingin melakukan pelaporan dalam bentuk file dengan format seperti EXCEL, CSV atau TXT. Untuk melakukannya kita perlu melakukan eksport data yang telah dihasilkan.
+
+Pada bagian ini penulis akan menjelaskan bagaimana cara mengeksport data dari `R` kedalam format TXT, CSV, maupun EXCEL. Sebenarnya `R` memungkinkan untuk melakukan eksport dalam format lain seperti RDA maupun RDS yang tidak dibahas dalam buku ini karena berada diluar lingkup buku ini.
+
+### 3.2.1 Eksport Data Menjadi Format TXT dan CSV
+
+Terdapat dua cara untuk melakukan ekport data dari `R` menjadi format TXT atau CSV, yaitu melalui paket dasar `R` maupun menggunakan library `readr`. Kedua cara tersebut memiliki sejumlah kemiripan dari segi fungsi, namun berbeda dari segi kecepatan eksport.
+
+Fungsi dasar yang digunakan pada `R` untuk melakukan eksport file kedalam format TXT dan CSv adalah `write.tabel()`. Format umum yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+write.table(x, file, sep= " ", dec = ",",
+            row.names = TRUE, col.names = TRUE)
+```
+
+> **Note: **
+>
+> - **x**: matriks atau data frame yang akan ditulis.
+> - **file**: karakter yang menentukan nama file yang dihasilkan.
+> - **sep**: string pemisah bidang atau kolom, mis., sep = “\ t” (untuk nilai yang dipisahkan tab).
+> - **dec**: string yang akan digunakan sebagai pemisah desimal. Standarnya adalah “.”.
+> - **row.names**: nilai logik yang menunjukkan apakah nama baris x harus ditulis bersama dengan x, atau vektor karakter nama baris yang akan ditulis.
+> - **col.names**: baik nilai logik yang menunjukkan apakah nama kolom x harus ditulis bersama dengan x, atau vektor karakter nama kolom yang akan ditulis. Jika `col.names = NA` dan `row.names = TRUE` ditambahkan nama kolom kosong, yang merupakan konvensi yang digunakan untuk file CSV untuk dibaca oleh spreadsheet.
+
+Selain menggunakan fungsi tersebut, untuk eksport ke dalam format CSV juga dapa menggunakan fungsi `write.csv()` atau `write.csv2()`. Berikut adalah format yang digunakan:
+
+```{r, eval=FALSE}
+write.csv(data, file="data.csv")
+write.csv2(data, file="data.csv")
+```
+
+Secara penampakan kedua fungsi tersebut pada dasarnya sama dengan fungsi `write.table()`, bedanya adalah kedua fungsi tersebut spesifik digunakan untuk eksport file kedalam format CSV.
+
+> **Note: **
+> 
+> - **write.csv()** menggunakan "." sebagai titik desimal serta "," sebagai pemisah antar kolom data.
+> - **write.csv2()** menggunakan "," sebagai titik desimal serta ";" sebagai pemisah antar kolom data.
+
+Misalkan kita ingin melakukan eksport data objek `mtcars` kedalam format CSV. Untuk melakukannya dapat dilakukan dengan sintaks berikut:
+
+```{r, eval=FALSE}
+write.csv(mtcars, file="mtcars.csv", row.names = FALSE)
+```
+
+> **Note: ** Hasil ekspoet ditampilkan pada *working directory*
 

@@ -22,6 +22,7 @@
 &lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi:&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#3-1-import-file&#34;&gt;Import File&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#3-2-eksport-file&#34;&gt;Eksport File&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;import-file&#34; class=&#34;section level2&#34;&gt;
@@ -230,6 +231,45 @@ data &amp;lt;- sasxport.get(&amp;quot;c:/mydata.xpt&amp;quot;) # Variabel yang b
 install.packages(&amp;quot;foreign&amp;quot;) # menginstall paket
 library(foreign) # memuat paket
 data &amp;lt;- read.dta(&amp;quot;c:/mydata.dta&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;eksport-file&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3.2 Eksport File&lt;/h2&gt;
+&lt;p&gt;Setelah kita melakukan analisa dan telah memperoleh hasil yang kita inginkan dan memperoleh data frame berupa hasil prediksi suatu model atau data yang telah dibersihakan, kita ingin melakukan pelaporan dalam bentuk file dengan format seperti EXCEL, CSV atau TXT. Untuk melakukannya kita perlu melakukan eksport data yang telah dihasilkan.&lt;/p&gt;
+&lt;p&gt;Pada bagian ini penulis akan menjelaskan bagaimana cara mengeksport data dari &lt;code&gt;R&lt;/code&gt; kedalam format TXT, CSV, maupun EXCEL. Sebenarnya &lt;code&gt;R&lt;/code&gt; memungkinkan untuk melakukan eksport dalam format lain seperti RDA maupun RDS yang tidak dibahas dalam buku ini karena berada diluar lingkup buku ini.&lt;/p&gt;
+&lt;div id=&#34;eksport-data-menjadi-format-txt-dan-csv&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.2.1 Eksport Data Menjadi Format TXT dan CSV&lt;/h3&gt;
+&lt;p&gt;Terdapat dua cara untuk melakukan ekport data dari &lt;code&gt;R&lt;/code&gt; menjadi format TXT atau CSV, yaitu melalui paket dasar &lt;code&gt;R&lt;/code&gt; maupun menggunakan library &lt;code&gt;readr&lt;/code&gt;. Kedua cara tersebut memiliki sejumlah kemiripan dari segi fungsi, namun berbeda dari segi kecepatan eksport.&lt;/p&gt;
+&lt;p&gt;Fungsi dasar yang digunakan pada &lt;code&gt;R&lt;/code&gt; untuk melakukan eksport file kedalam format TXT dan CSv adalah &lt;code&gt;write.tabel()&lt;/code&gt;. Format umum yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;write.table(x, file, sep= &amp;quot; &amp;quot;, dec = &amp;quot;,&amp;quot;,
+            row.names = TRUE, col.names = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: matriks atau data frame yang akan ditulis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;file&lt;/strong&gt;: karakter yang menentukan nama file yang dihasilkan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sep&lt;/strong&gt;: string pemisah bidang atau kolom, mis., sep = “ t” (untuk nilai yang dipisahkan tab).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;dec&lt;/strong&gt;: string yang akan digunakan sebagai pemisah desimal. Standarnya adalah “.”.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;row.names&lt;/strong&gt;: nilai logik yang menunjukkan apakah nama baris x harus ditulis bersama dengan x, atau vektor karakter nama baris yang akan ditulis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col.names&lt;/strong&gt;: baik nilai logik yang menunjukkan apakah nama kolom x harus ditulis bersama dengan x, atau vektor karakter nama kolom yang akan ditulis. Jika &lt;code&gt;col.names = NA&lt;/code&gt; dan &lt;code&gt;row.names = TRUE&lt;/code&gt; ditambahkan nama kolom kosong, yang merupakan konvensi yang digunakan untuk file CSV untuk dibaca oleh spreadsheet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Selain menggunakan fungsi tersebut, untuk eksport ke dalam format CSV juga dapa menggunakan fungsi &lt;code&gt;write.csv()&lt;/code&gt; atau &lt;code&gt;write.csv2()&lt;/code&gt;. Berikut adalah format yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;write.csv(data, file=&amp;quot;data.csv&amp;quot;)
+write.csv2(data, file=&amp;quot;data.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Secara penampakan kedua fungsi tersebut pada dasarnya sama dengan fungsi &lt;code&gt;write.table()&lt;/code&gt;, bedanya adalah kedua fungsi tersebut spesifik digunakan untuk eksport file kedalam format CSV.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;write.csv()&lt;/strong&gt; menggunakan “.” sebagai titik desimal serta “,” sebagai pemisah antar kolom data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;write.csv2()&lt;/strong&gt; menggunakan “,” sebagai titik desimal serta “;” sebagai pemisah antar kolom data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Misalkan kita ingin melakukan eksport data objek &lt;code&gt;mtcars&lt;/code&gt; kedalam format CSV. Untuk melakukannya dapat dilakukan dengan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;write.csv(mtcars, file=&amp;quot;mtcars.csv&amp;quot;, row.names = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Hasil ekspoet ditampilkan pada &lt;em&gt;working directory&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
