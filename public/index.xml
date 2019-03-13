@@ -24,6 +24,7 @@
 &lt;li&gt;&lt;a href=&#34;#3-1-import-file&#34;&gt;Import File&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#3-2-eksport-file&#34;&gt;Eksport File&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#3-3-tibble-data-format&#34;&gt;Tibble Data Format&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#3-4-merapikan-data&#34;&gt;Merapikan Data&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;import-file&#34; class=&#34;section level2&#34;&gt;
@@ -519,6 +520,228 @@ iris_tbl[[1]]&lt;/code&gt;&lt;/pre&gt;
 ## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
 ## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah melakukan &lt;em&gt;partial matching&lt;/em&gt;, dan mereka akan menghasilkan peringatan jika kolom yang kita coba akses tidak ada.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;merapikan-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3.4 Merapikan Data&lt;/h2&gt;
+&lt;p&gt;Sebelum memulai analisa terhadap data yang kita miliki, umumnya kita akan merapikan data yang akan kita gunakan. Tujuannya adalah agar data yang akan digunakan sudah siap untuk dilakukan analisa dengan software tertentu seperti &lt;code&gt;R&lt;/code&gt;, dimana pada dataset perlu jelas antara variabel dan nilai (&lt;em&gt;value&lt;/em&gt;), serta untuk mempermudah dalah memperoleh informasi pada data. Berikut adalah beberapa contoh dataset yang dapat pembaca cermati terkait manakah data yang telah rapi (&lt;em&gt;tidy data&lt;/em&gt;) dan mana yang belum (&lt;em&gt;messy data&lt;/em&gt;):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Install paket dataset EDAWR
+# install.packages(&amp;quot;devtools&amp;quot;)
+# devtools::install_github(&amp;quot;rstudio/EDAWR&amp;quot;)
+
+# hilangkan tanda # jika pembaca belum menginstall&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(EDAWR)
+# memuat dataset
+storms&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     storm wind pressure       date
+## 1 Alberto  110     1007 2000-08-03
+## 2    Alex   45     1009 1998-07-27
+## 3 Allison   65     1005 1995-06-03
+## 4     Ana   40     1013 1997-06-30
+## 5  Arlene   50     1010 1999-06-11
+## 6  Arthur   45     1010 1996-06-17&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cases&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   country  2011  2012  2013
+## 1      FR  7000  6900  7000
+## 2      DE  5800  6000  6200
+## 3      US 15000 14000 13000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pollution&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       city  size amount
+## 1 New York large     23
+## 2 New York small     14
+## 3   London large     22
+## 4   London small     16
+## 5  Beijing large    121
+## 6  Beijing small     56&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu terlebih dahulu apa saja syarat suatu dataset dikatakan rapi (&lt;em&gt;tidy&lt;/em&gt;). Berikut adalah syaratnya:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Setiap variabel harus memiliki kolomnya sendiri&lt;/li&gt;
+&lt;li&gt;Setiap observasi harus memiliki barisnya sendiri&lt;/li&gt;
+&lt;li&gt;Setiap nilai berada pada sel tersendiri&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan &lt;em&gt;tidy&lt;/em&gt;. Ketiga syarat tersebut dapat divisualisasikan melalui Figure &lt;a href=&#34;#fig:tidy&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:tidy&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tidy.png&#34; alt=&#34;Visualisasi 3 rule tidy data&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Visualisasi 3 rule tidy data
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada dataset &lt;code&gt;storms&lt;/code&gt; terdapat 4 buah kolom dan 6 buah baris. Masing-masing kolom menyatakan variabel pada masing-masing observasi seperti nama badai , kecepatan angin, tekanan dan waktu . Ketiga syarat kerapihan data sudah terpenuhi pada data tersebut sehingga kita bisa melakukan analisa terhadap data tersebut, misalnya kecepatan angin dan tekanan pada masing-masing badai. Selain itu kita juga dapat dengan mudah menginput variabel baru pada dataset tersebut, misal: rasio (kecepatan angin/tekanan).&lt;/p&gt;
+&lt;p&gt;Berikut adalah contoh bagaimana kita dapat dengan mudah menarik nilai variabel pada masing-masing kolom dan membentuk variabel baru pada dataset tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset variabel
+storms$storm&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Alberto&amp;quot; &amp;quot;Alex&amp;quot;    &amp;quot;Allison&amp;quot; &amp;quot;Ana&amp;quot;     &amp;quot;Arlene&amp;quot;  &amp;quot;Arthur&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;storms$wind&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 110  45  65  40  50  45&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;storms$pressure&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1007 1009 1005 1013 1010 1010&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;storms$date&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2000-08-03&amp;quot; &amp;quot;1998-07-27&amp;quot; &amp;quot;1995-06-03&amp;quot; &amp;quot;1997-06-30&amp;quot; &amp;quot;1999-06-11&amp;quot;
+## [6] &amp;quot;1996-06-17&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat variabel baru
+storms_new &amp;lt;- storms
+storms_new$ratio &amp;lt;- storms_new$wind/storms_new$pressure
+storms_new&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     storm wind pressure       date      ratio
+## 1 Alberto  110     1007 2000-08-03 0.10923535
+## 2    Alex   45     1009 1998-07-27 0.04459861
+## 3 Allison   65     1005 1995-06-03 0.06467662
+## 4     Ana   40     1013 1997-06-30 0.03948667
+## 5  Arlene   50     1010 1999-06-11 0.04950495
+## 6  Arthur   45     1010 1996-06-17 0.04455446&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pada dataset &lt;code&gt;cases&lt;/code&gt; terdapat 3 buah kolom dan 3 baris. Pada kolom pertama berupa kode Negara, sedangkan kolom sisanya merupakan tahun. Jika kita perhatikan dengan seksama dataset tersebut merupakan sebuah &lt;em&gt;contingency table&lt;/em&gt; dimana tabel tersebut menyatakan frekuensi kejadian pada tahun tertentu dan negara tertentu. Dataset tersebut belum dapat dikatan &lt;em&gt;tidy&lt;/em&gt; karena kolom &lt;code&gt;2011&lt;/code&gt; sampai &lt;code&gt;2013&lt;/code&gt; merupakan sebuah nilai dari observasi dan bukan sebuah variabel sehingga dataset tersebut masih tergolong dataset &lt;em&gt;messy&lt;/em&gt;. Selain itu sangat sulit untuk dilakukan penarikan terhadap nilai pada setiap kolom serta pembentukan variabel baru sebagai pendukung analisa juga sulit dilakukan. Berikut adalah contoh melakukan penarikan nilai / subset pada masing variabel:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cases$country&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;FR&amp;quot; &amp;quot;DE&amp;quot; &amp;quot;US&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(cases[-1])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2011&amp;quot; &amp;quot;2012&amp;quot; &amp;quot;2013&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;unlist(cases[1:3, 2:4])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 20111 20112 20113 20121 20122 20123 20131 20132 20133 
+##  7000  5800 15000  6900  6000 14000  7000  6200 13000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pada dataset &lt;code&gt;pollution&lt;/code&gt;terdapat 3 buah kolom dan 6 baris. Masing-masing kolom menyatakan lokasi berupa nama kota, keterangan ukuran partikel, serta nilai dari ukuran partikel. Beberapa dari kita mungkin menganggap dataset ini telah memenuhi syarat kerapihan data. Namun, coba kita cermati jika mita ingin membuat variabel baru terkait dengan berapa rentang ukuran partikel (range ukuran partikel) pada masing-masing kota. Hal tersebut tentu sangat sulit dilakukan pada dataset tersebut, namun dataset tersebut memungkinkan kita dengan mudah mengambil nilai dari masing-masing variabelnya seperti contoh berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pollution$city&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;New York&amp;quot; &amp;quot;New York&amp;quot; &amp;quot;London&amp;quot;   &amp;quot;London&amp;quot;   &amp;quot;Beijing&amp;quot;  &amp;quot;Beijing&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pollution$size&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;large&amp;quot; &amp;quot;small&amp;quot; &amp;quot;large&amp;quot; &amp;quot;small&amp;quot; &amp;quot;large&amp;quot; &amp;quot;small&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pollution$amount&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  23  14  22  16 121  56&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjelaskan bagaiman cara melakukan perapihan data menggunakan library &lt;code&gt;tidyr&lt;/code&gt;. Sebelum kita melakukannya berikut adalah sintaks untuk menginstall library tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memasang paket
+install.packages(&amp;quot;tidyr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat paket
+library(tidyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;tidyr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;tidyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:EDAWR&amp;#39;:
+## 
+##     population, who&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;gather&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.4.1 Gather&lt;/h3&gt;
+&lt;p&gt;Pada dataset &lt;code&gt;cases&lt;/code&gt; kolom &lt;code&gt;2011&lt;/code&gt; sampai &lt;code&gt;2013&lt;/code&gt; perlu dijadikan satu variabel yaitu tahun. untuk melakukannya kita dapat menggunakan fungsi &lt;code&gt;gather()&lt;/code&gt;. Secara sederhana fungsi tersebut dapat dituliskan dengan format sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gather(data, key, value, ...)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt;: data frame&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;key, value&lt;/strong&gt;: nama kunci dan kolom nilai yang akan dibuat di output&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;…&lt;/strong&gt;: Spesifikasi kolom untuk dikumpulkan. Nilai yang diizinkan adalah:
+&lt;ul&gt;
+&lt;li&gt;nama variabel&lt;/li&gt;
+&lt;li&gt;jika kita ingin memilih semua variabel antara a dan e, gunakan a:e&lt;/li&gt;
+&lt;li&gt;jika kita ingin mengecualikan nama kolom y gunakan -y&lt;/li&gt;
+&lt;li&gt;untuk opsi lainnya, lihat: &lt;code&gt;dplyr::select()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penerapannya pada dataset &lt;code&gt;cases&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ubah dataset cases menjadi tibble simpan sebagai objek cases_new
+library(tibble)
+cases_tbl &amp;lt;- as_tibble(cases)
+
+# print
+cases_tbl&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 4
+##   country `2011` `2012` `2013`
+##   &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 FR        7000   6900   7000
+## 2 DE        5800   6000   6200
+## 3 US       15000  14000  13000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# gather
+cases_new &amp;lt;- gather(cases_tbl, 
+                    # variabel kunci
+                    key = &amp;quot;year&amp;quot;,
+                    # nilai variabel
+                    value = &amp;quot;frequency&amp;quot;,
+                    # kecualikan kolom country
+                    -country)
+
+# print
+cases_new&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 9 x 3
+##   country year  frequency
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1 FR      2011       7000
+## 2 DE      2011       5800
+## 3 US      2011      15000
+## 4 FR      2012       6900
+## 5 DE      2012       6000
+## 6 US      2012      14000
+## 7 FR      2013       7000
+## 8 DE      2013       6200
+## 9 US      2013      13000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh terlihat bahwa variabel tahun memiliki jenis data karakter. Jenis data ini masih belum sesuai sehingga perlu dikonversi agar menjadi jenis data numerik (&lt;em&gt;dbl = double&lt;/em&gt;). Untuk melakukannya jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ubah jenis variabel tahun menjadi numerik
+cases_new$year &amp;lt;- as.numeric(cases_new$year)
+cases_new&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 9 x 3
+##   country  year frequency
+##   &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1 FR       2011      7000
+## 2 DE       2011      5800
+## 3 US       2011     15000
+## 4 FR       2012      6900
+## 5 DE       2012      6000
+## 6 US       2012     14000
+## 7 FR       2013      7000
+## 8 DE       2013      6200
+## 9 US       2013     13000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Data yang diperoleh sekaran telah rapi (&lt;em&gt;tidy&lt;/em&gt;), sehingga sudah siap untuk dilakukan analisa data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;spread&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.4.2 Spread&lt;/h3&gt;
+&lt;p&gt;Fungsi &lt;code&gt;spread()&lt;/code&gt; berkebalikan dengan &lt;code&gt;gather()&lt;/code&gt;. Fungsi &lt;code&gt;gather()&lt;/code&gt; menggabungkan beberapa kolom menjadi 2 buah kolom kolom kunci sedangkan &lt;code&gt;spread()&lt;/code&gt; merubah dua kolom menjadi beberapa kolom. Format sederhanya adalah sebagai berikut:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt;: data frame&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;key&lt;/strong&gt;: nama kolom yang akan dijadikan heading pada kolom baru&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;value&lt;/strong&gt;: nama kolom yang nilainya akan mengisi setiap sel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Pada contoh kasus pada data &lt;code&gt;pollution&lt;/code&gt;, kita dapat memisahkan kolom 2 menjadi kolom baru yaitu kolom &lt;code&gt;big size&lt;/code&gt; dan &lt;code&gt;small size&lt;/code&gt;. Untuk melakukannya jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# merubah objek pollution menjadi tibble
+pollution_tbl &amp;lt;- as_tibble(pollution)
+
+# print
+pollution_tbl&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 3
+##   city     size  amount
+##   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 New York large     23
+## 2 New York small     14
+## 3 London   large     22
+## 4 London   small     16
+## 5 Beijing  large    121
+## 6 Beijing  small     56&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# spread
+pollution_new &amp;lt;- spread(pollution_tbl,
+                        key = size,
+                        value = amount)
+
+#print
+pollution_new&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 3
+##   city     large small
+##   &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 Beijing    121    56
+## 2 London      22    16
+## 3 New York    23    14&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Terlihat bahwa data &lt;code&gt;pollution&lt;/code&gt; tampak memnuhi syarat kerapihan data (&lt;em&gt;tidy&lt;/em&gt;). Kita sekarang dapat menginput variabel baru dan melakukan analisa terhadap data tersebut. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# input variabel range (large-small)
+pollution_new$range &amp;lt;- pollution_new$large - pollution_new$small
+
+# print
+pollution_new&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 4
+##   city     large small range
+##   &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 Beijing    121    56    65
+## 2 London      22    16     6
+## 3 New York    23    14     9&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran partikel terbesar berada di Kota Beijing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;separate&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Separate&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

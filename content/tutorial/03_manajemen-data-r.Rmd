@@ -16,6 +16,7 @@ type: docs
 > * [Import File](#3-1-import-file)
 > * [Eksport File](#3-2-eksport-file)
 > * [Tibble Data Format](#3-3-tibble-data-format)
+> * [Merapikan Data](#3-4-merapikan-data)
 
 ## 3.1 Import File
 
@@ -518,4 +519,181 @@ iris_tbl[[1]]
 ```
 
 Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah melakukan *partial matching*, dan mereka akan menghasilkan peringatan jika kolom yang kita coba akses tidak ada.
+
+## 3.4 Merapikan Data
+
+Sebelum memulai analisa terhadap data yang kita miliki, umumnya kita akan merapikan data yang akan kita gunakan. Tujuannya adalah agar data yang akan digunakan sudah siap untuk dilakukan analisa dengan software tertentu seperti `R`, dimana pada dataset perlu jelas antara variabel dan nilai (*value*), serta untuk mempermudah dalah memperoleh informasi pada data. Berikut adalah beberapa contoh dataset yang dapat pembaca cermati terkait manakah data yang telah rapi (*tidy data*) dan mana yang belum (*messy data*):
+
+```{r, eval=FALSE, results='hide'}
+# Install paket dataset EDAWR
+# install.packages("devtools")
+# devtools::install_github("rstudio/EDAWR")
+
+# hilangkan tanda # jika pembaca belum menginstall
+```
+
+
+```{r}
+library(EDAWR)
+# memuat dataset
+storms
+cases
+pollution
+```
+
+Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu terlebih dahulu apa saja syarat suatu dataset dikatakan rapi (*tidy*). Berikut adalah syaratnya:
+
+- Setiap variabel harus memiliki kolomnya sendiri
+- Setiap observasi harus memiliki barisnya sendiri
+- Setiap nilai berada pada sel tersendiri
+
+Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan *tidy*. Ketiga syarat tersebut dapat divisualisasikan melalui Figure \@ref(fig:tidy)
+
+```{r tidy, echo=FALSE, fig.cap='Visualisasi 3 rule tidy data', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "/tidy.png"
+include_graphics(img1_path)
+
+```
+
+Pada dataset `storms` terdapat 4 buah kolom dan 6 buah baris. Masing-masing kolom menyatakan variabel pada masing-masing observasi seperti nama badai , kecepatan angin, tekanan  dan waktu . Ketiga syarat kerapihan data sudah terpenuhi pada data tersebut sehingga kita bisa melakukan analisa terhadap data tersebut, misalnya kecepatan angin dan tekanan pada masing-masing badai. Selain itu kita juga dapat dengan mudah menginput variabel baru pada dataset tersebut, misal: rasio (kecepatan angin/tekanan).
+
+Berikut adalah contoh bagaimana kita dapat dengan mudah menarik nilai variabel pada masing-masing kolom dan membentuk variabel baru pada dataset tersebut:
+
+```{r}
+# subset variabel
+storms$storm
+storms$wind
+storms$pressure
+storms$date
+
+# membuat variabel baru
+storms_new <- storms
+storms_new$ratio <- storms_new$wind/storms_new$pressure
+storms_new
+```
+
+Pada dataset `cases` terdapat 3 buah kolom dan 3 baris. Pada kolom pertama berupa kode Negara, sedangkan kolom sisanya merupakan tahun. Jika kita perhatikan dengan seksama dataset tersebut merupakan sebuah *contingency table* dimana tabel tersebut menyatakan frekuensi kejadian pada tahun tertentu dan negara tertentu. Dataset tersebut belum dapat dikatan *tidy* karena kolom `2011` sampai `2013` merupakan sebuah nilai dari observasi dan bukan sebuah variabel sehingga dataset tersebut masih tergolong dataset *messy*. Selain itu sangat sulit untuk dilakukan penarikan terhadap nilai pada setiap kolom serta pembentukan variabel baru sebagai pendukung analisa juga sulit dilakukan. Berikut adalah contoh melakukan penarikan nilai / subset pada masing variabel:
+
+```{r}
+cases$country
+names(cases[-1])
+unlist(cases[1:3, 2:4])
+```
+
+Pada dataset `pollution`terdapat 3 buah kolom dan 6 baris. Masing-masing kolom menyatakan lokasi berupa nama kota, keterangan ukuran partikel, serta nilai dari ukuran partikel. Beberapa dari kita mungkin menganggap dataset ini telah memenuhi syarat kerapihan data. Namun, coba kita cermati jika mita ingin membuat variabel baru terkait dengan berapa rentang ukuran partikel (range ukuran partikel) pada masing-masing kota. Hal tersebut tentu sangat sulit dilakukan pada dataset tersebut, namun dataset tersebut memungkinkan kita dengan mudah mengambil nilai dari masing-masing variabelnya seperti contoh berikut:
+
+```{r}
+pollution$city
+pollution$size
+pollution$amount
+```
+
+Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjelaskan bagaiman cara melakukan perapihan data menggunakan library `tidyr`. Sebelum kita melakukannya berikut adalah sintaks untuk menginstall library tersebut:
+
+```{r, eval=FALSE}
+# memasang paket
+install.packages("tidyr")
+
+```
+
+```{r}
+# memuat paket
+library(tidyr)
+```
+
+### 3.4.1 Gather
+
+Pada dataset `cases` kolom `2011` sampai `2013` perlu dijadikan satu variabel yaitu tahun. untuk melakukannya kita dapat menggunakan fungsi `gather()`. Secara sederhana fungsi tersebut dapat dituliskan dengan format sebagai berikut:
+
+```{r, eval=FALSE}
+gather(data, key, value, ...)
+```
+
+> **Note: **
+>
+> - **data**: data frame
+> - **key, value**: nama kunci dan kolom nilai yang akan dibuat di output
+> - **...**: Spesifikasi kolom untuk dikumpulkan. Nilai yang diizinkan adalah:
+>       + nama variabel
+>       + jika kita ingin memilih semua variabel antara a dan e, gunakan a:e
+>       + jika kita ingin mengecualikan nama kolom y gunakan -y 
+>       + untuk opsi lainnya, lihat: `dplyr::select()`
+
+Berikut adalah contoh penerapannya pada dataset `cases`:
+
+```{r}
+# Ubah dataset cases menjadi tibble simpan sebagai objek cases_new
+library(tibble)
+cases_tbl <- as_tibble(cases)
+
+# print
+cases_tbl
+
+# gather
+cases_new <- gather(cases_tbl, 
+                    # variabel kunci
+                    key = "year",
+                    # nilai variabel
+                    value = "frequency",
+                    # kecualikan kolom country
+                    -country)
+
+# print
+cases_new
+
+```
+
+Berdasarkan hasil yang diperoleh terlihat bahwa variabel tahun memiliki jenis data karakter. Jenis data ini masih belum sesuai sehingga perlu dikonversi agar menjadi jenis data numerik (*dbl = double*). Untuk melakukannya jalankan sintaks berikut:
+
+```{r}
+# Ubah jenis variabel tahun menjadi numerik
+cases_new$year <- as.numeric(cases_new$year)
+cases_new
+```
+
+Data yang diperoleh sekaran telah rapi (*tidy*), sehingga sudah siap untuk dilakukan analisa data.
+
+### 3.4.2 Spread
+
+Fungsi `spread()` berkebalikan dengan `gather()`. Fungsi `gather()` menggabungkan beberapa kolom menjadi 2 buah kolom kolom kunci sedangkan `spread()` merubah dua kolom menjadi beberapa kolom. Format sederhanya adalah sebagai berikut:
+
+> **Note: **
+>
+> - **data**: data frame
+> - **key**: nama kolom yang akan dijadikan heading pada kolom baru
+> - **value**: nama kolom yang nilainya akan mengisi setiap sel
+
+Pada contoh kasus pada data `pollution`, kita dapat memisahkan kolom 2 menjadi kolom baru yaitu kolom `big size` dan `small size`. Untuk melakukannya jalankan sintaks berikut:
+
+```{r}
+# merubah objek pollution menjadi tibble
+pollution_tbl <- as_tibble(pollution)
+
+# print
+pollution_tbl
+
+# spread
+pollution_new <- spread(pollution_tbl,
+                        key = size,
+                        value = amount)
+
+#print
+pollution_new
+```
+
+Terlihat bahwa data `pollution` tampak memnuhi syarat kerapihan data (*tidy*). Kita sekarang dapat menginput variabel baru dan melakukan analisa terhadap data tersebut. Berikut adalah contoh penerapannya:
+
+```{r}
+# input variabel range (large-small)
+pollution_new$range <- pollution_new$large - pollution_new$small
+
+# print
+pollution_new
+```
+
+Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran partikel terbesar berada di Kota Beijing.
+
+### Separate
+
 

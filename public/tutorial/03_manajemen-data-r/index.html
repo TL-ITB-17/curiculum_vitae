@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Daftar Isi:Import FileEksport FileTibble Data Format3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
+  <meta name="description" content="Daftar Isi:Import FileEksport FileTibble Data FormatMerapikan Data3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
 Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan.">
 
   
@@ -121,7 +121,7 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
   <meta property="og:site_name" content="Environmental Data Modeling">
   <meta property="og:url" content="/tutorial/03_manajemen-data-r/">
   <meta property="og:title" content="3. Manajemen Data R | Environmental Data Modeling">
-  <meta property="og:description" content="Daftar Isi:Import FileEksport FileTibble Data Format3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
+  <meta property="og:description" content="Daftar Isi:Import FileEksport FileTibble Data FormatMerapikan Data3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
 Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan."><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
@@ -421,6 +421,7 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
 <li><a href="#3-1-import-file">Import File</a></li>
 <li><a href="#3-2-eksport-file">Eksport File</a></li>
 <li><a href="#3-3-tibble-data-format">Tibble Data Format</a></li>
+<li><a href="#3-4-merapikan-data">Merapikan Data</a></li>
 </ul>
 </blockquote>
 <div id="import-file" class="section level2">
@@ -916,6 +917,228 @@ iris_tbl[[1]]</code></pre>
 ## [120] 6.0 6.9 5.6 7.7 6.3 6.7 7.2 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7
 ## [137] 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
 <p>Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah melakukan <em>partial matching</em>, dan mereka akan menghasilkan peringatan jika kolom yang kita coba akses tidak ada.</p>
+</div>
+</div>
+<div id="merapikan-data" class="section level2">
+<h2>3.4 Merapikan Data</h2>
+<p>Sebelum memulai analisa terhadap data yang kita miliki, umumnya kita akan merapikan data yang akan kita gunakan. Tujuannya adalah agar data yang akan digunakan sudah siap untuk dilakukan analisa dengan software tertentu seperti <code>R</code>, dimana pada dataset perlu jelas antara variabel dan nilai (<em>value</em>), serta untuk mempermudah dalah memperoleh informasi pada data. Berikut adalah beberapa contoh dataset yang dapat pembaca cermati terkait manakah data yang telah rapi (<em>tidy data</em>) dan mana yang belum (<em>messy data</em>):</p>
+<pre class="r"><code># Install paket dataset EDAWR
+# install.packages(&quot;devtools&quot;)
+# devtools::install_github(&quot;rstudio/EDAWR&quot;)
+
+# hilangkan tanda # jika pembaca belum menginstall</code></pre>
+<pre class="r"><code>library(EDAWR)
+# memuat dataset
+storms</code></pre>
+<pre><code>##     storm wind pressure       date
+## 1 Alberto  110     1007 2000-08-03
+## 2    Alex   45     1009 1998-07-27
+## 3 Allison   65     1005 1995-06-03
+## 4     Ana   40     1013 1997-06-30
+## 5  Arlene   50     1010 1999-06-11
+## 6  Arthur   45     1010 1996-06-17</code></pre>
+<pre class="r"><code>cases</code></pre>
+<pre><code>##   country  2011  2012  2013
+## 1      FR  7000  6900  7000
+## 2      DE  5800  6000  6200
+## 3      US 15000 14000 13000</code></pre>
+<pre class="r"><code>pollution</code></pre>
+<pre><code>##       city  size amount
+## 1 New York large     23
+## 2 New York small     14
+## 3   London large     22
+## 4   London small     16
+## 5  Beijing large    121
+## 6  Beijing small     56</code></pre>
+<p>Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu terlebih dahulu apa saja syarat suatu dataset dikatakan rapi (<em>tidy</em>). Berikut adalah syaratnya:</p>
+<ul>
+<li>Setiap variabel harus memiliki kolomnya sendiri</li>
+<li>Setiap observasi harus memiliki barisnya sendiri</li>
+<li>Setiap nilai berada pada sel tersendiri</li>
+</ul>
+<p>Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan <em>tidy</em>. Ketiga syarat tersebut dapat divisualisasikan melalui Figure <a href="#fig:tidy">1</a></p>
+<div class="figure" style="text-align: center"><span id="fig:tidy"></span>
+<img src="/tidy.png" alt="Visualisasi 3 rule tidy data"  />
+<p class="caption">
+Figure 1: Visualisasi 3 rule tidy data
+</p>
+</div>
+<p>Pada dataset <code>storms</code> terdapat 4 buah kolom dan 6 buah baris. Masing-masing kolom menyatakan variabel pada masing-masing observasi seperti nama badai , kecepatan angin, tekanan dan waktu . Ketiga syarat kerapihan data sudah terpenuhi pada data tersebut sehingga kita bisa melakukan analisa terhadap data tersebut, misalnya kecepatan angin dan tekanan pada masing-masing badai. Selain itu kita juga dapat dengan mudah menginput variabel baru pada dataset tersebut, misal: rasio (kecepatan angin/tekanan).</p>
+<p>Berikut adalah contoh bagaimana kita dapat dengan mudah menarik nilai variabel pada masing-masing kolom dan membentuk variabel baru pada dataset tersebut:</p>
+<pre class="r"><code># subset variabel
+storms$storm</code></pre>
+<pre><code>## [1] &quot;Alberto&quot; &quot;Alex&quot;    &quot;Allison&quot; &quot;Ana&quot;     &quot;Arlene&quot;  &quot;Arthur&quot;</code></pre>
+<pre class="r"><code>storms$wind</code></pre>
+<pre><code>## [1] 110  45  65  40  50  45</code></pre>
+<pre class="r"><code>storms$pressure</code></pre>
+<pre><code>## [1] 1007 1009 1005 1013 1010 1010</code></pre>
+<pre class="r"><code>storms$date</code></pre>
+<pre><code>## [1] &quot;2000-08-03&quot; &quot;1998-07-27&quot; &quot;1995-06-03&quot; &quot;1997-06-30&quot; &quot;1999-06-11&quot;
+## [6] &quot;1996-06-17&quot;</code></pre>
+<pre class="r"><code># membuat variabel baru
+storms_new &lt;- storms
+storms_new$ratio &lt;- storms_new$wind/storms_new$pressure
+storms_new</code></pre>
+<pre><code>##     storm wind pressure       date      ratio
+## 1 Alberto  110     1007 2000-08-03 0.10923535
+## 2    Alex   45     1009 1998-07-27 0.04459861
+## 3 Allison   65     1005 1995-06-03 0.06467662
+## 4     Ana   40     1013 1997-06-30 0.03948667
+## 5  Arlene   50     1010 1999-06-11 0.04950495
+## 6  Arthur   45     1010 1996-06-17 0.04455446</code></pre>
+<p>Pada dataset <code>cases</code> terdapat 3 buah kolom dan 3 baris. Pada kolom pertama berupa kode Negara, sedangkan kolom sisanya merupakan tahun. Jika kita perhatikan dengan seksama dataset tersebut merupakan sebuah <em>contingency table</em> dimana tabel tersebut menyatakan frekuensi kejadian pada tahun tertentu dan negara tertentu. Dataset tersebut belum dapat dikatan <em>tidy</em> karena kolom <code>2011</code> sampai <code>2013</code> merupakan sebuah nilai dari observasi dan bukan sebuah variabel sehingga dataset tersebut masih tergolong dataset <em>messy</em>. Selain itu sangat sulit untuk dilakukan penarikan terhadap nilai pada setiap kolom serta pembentukan variabel baru sebagai pendukung analisa juga sulit dilakukan. Berikut adalah contoh melakukan penarikan nilai / subset pada masing variabel:</p>
+<pre class="r"><code>cases$country</code></pre>
+<pre><code>## [1] &quot;FR&quot; &quot;DE&quot; &quot;US&quot;</code></pre>
+<pre class="r"><code>names(cases[-1])</code></pre>
+<pre><code>## [1] &quot;2011&quot; &quot;2012&quot; &quot;2013&quot;</code></pre>
+<pre class="r"><code>unlist(cases[1:3, 2:4])</code></pre>
+<pre><code>## 20111 20112 20113 20121 20122 20123 20131 20132 20133 
+##  7000  5800 15000  6900  6000 14000  7000  6200 13000</code></pre>
+<p>Pada dataset <code>pollution</code>terdapat 3 buah kolom dan 6 baris. Masing-masing kolom menyatakan lokasi berupa nama kota, keterangan ukuran partikel, serta nilai dari ukuran partikel. Beberapa dari kita mungkin menganggap dataset ini telah memenuhi syarat kerapihan data. Namun, coba kita cermati jika mita ingin membuat variabel baru terkait dengan berapa rentang ukuran partikel (range ukuran partikel) pada masing-masing kota. Hal tersebut tentu sangat sulit dilakukan pada dataset tersebut, namun dataset tersebut memungkinkan kita dengan mudah mengambil nilai dari masing-masing variabelnya seperti contoh berikut:</p>
+<pre class="r"><code>pollution$city</code></pre>
+<pre><code>## [1] &quot;New York&quot; &quot;New York&quot; &quot;London&quot;   &quot;London&quot;   &quot;Beijing&quot;  &quot;Beijing&quot;</code></pre>
+<pre class="r"><code>pollution$size</code></pre>
+<pre><code>## [1] &quot;large&quot; &quot;small&quot; &quot;large&quot; &quot;small&quot; &quot;large&quot; &quot;small&quot;</code></pre>
+<pre class="r"><code>pollution$amount</code></pre>
+<pre><code>## [1]  23  14  22  16 121  56</code></pre>
+<p>Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjelaskan bagaiman cara melakukan perapihan data menggunakan library <code>tidyr</code>. Sebelum kita melakukannya berikut adalah sintaks untuk menginstall library tersebut:</p>
+<pre class="r"><code># memasang paket
+install.packages(&quot;tidyr&quot;)</code></pre>
+<pre class="r"><code># memuat paket
+library(tidyr)</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;tidyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:EDAWR&#39;:
+## 
+##     population, who</code></pre>
+<div id="gather" class="section level3">
+<h3>3.4.1 Gather</h3>
+<p>Pada dataset <code>cases</code> kolom <code>2011</code> sampai <code>2013</code> perlu dijadikan satu variabel yaitu tahun. untuk melakukannya kita dapat menggunakan fungsi <code>gather()</code>. Secara sederhana fungsi tersebut dapat dituliskan dengan format sebagai berikut:</p>
+<pre class="r"><code>gather(data, key, value, ...)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: data frame</li>
+<li><strong>key, value</strong>: nama kunci dan kolom nilai yang akan dibuat di output</li>
+<li><strong>…</strong>: Spesifikasi kolom untuk dikumpulkan. Nilai yang diizinkan adalah:
+<ul>
+<li>nama variabel</li>
+<li>jika kita ingin memilih semua variabel antara a dan e, gunakan a:e</li>
+<li>jika kita ingin mengecualikan nama kolom y gunakan -y</li>
+<li>untuk opsi lainnya, lihat: <code>dplyr::select()</code></li>
+</ul></li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapannya pada dataset <code>cases</code>:</p>
+<pre class="r"><code># Ubah dataset cases menjadi tibble simpan sebagai objek cases_new
+library(tibble)
+cases_tbl &lt;- as_tibble(cases)
+
+# print
+cases_tbl</code></pre>
+<pre><code>## # A tibble: 3 x 4
+##   country `2011` `2012` `2013`
+##   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 FR        7000   6900   7000
+## 2 DE        5800   6000   6200
+## 3 US       15000  14000  13000</code></pre>
+<pre class="r"><code># gather
+cases_new &lt;- gather(cases_tbl, 
+                    # variabel kunci
+                    key = &quot;year&quot;,
+                    # nilai variabel
+                    value = &quot;frequency&quot;,
+                    # kecualikan kolom country
+                    -country)
+
+# print
+cases_new</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   country year  frequency
+##   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;
+## 1 FR      2011       7000
+## 2 DE      2011       5800
+## 3 US      2011      15000
+## 4 FR      2012       6900
+## 5 DE      2012       6000
+## 6 US      2012      14000
+## 7 FR      2013       7000
+## 8 DE      2013       6200
+## 9 US      2013      13000</code></pre>
+<p>Berdasarkan hasil yang diperoleh terlihat bahwa variabel tahun memiliki jenis data karakter. Jenis data ini masih belum sesuai sehingga perlu dikonversi agar menjadi jenis data numerik (<em>dbl = double</em>). Untuk melakukannya jalankan sintaks berikut:</p>
+<pre class="r"><code># Ubah jenis variabel tahun menjadi numerik
+cases_new$year &lt;- as.numeric(cases_new$year)
+cases_new</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   country  year frequency
+##   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1 FR       2011      7000
+## 2 DE       2011      5800
+## 3 US       2011     15000
+## 4 FR       2012      6900
+## 5 DE       2012      6000
+## 6 US       2012     14000
+## 7 FR       2013      7000
+## 8 DE       2013      6200
+## 9 US       2013     13000</code></pre>
+<p>Data yang diperoleh sekaran telah rapi (<em>tidy</em>), sehingga sudah siap untuk dilakukan analisa data.</p>
+</div>
+<div id="spread" class="section level3">
+<h3>3.4.2 Spread</h3>
+<p>Fungsi <code>spread()</code> berkebalikan dengan <code>gather()</code>. Fungsi <code>gather()</code> menggabungkan beberapa kolom menjadi 2 buah kolom kolom kunci sedangkan <code>spread()</code> merubah dua kolom menjadi beberapa kolom. Format sederhanya adalah sebagai berikut:</p>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: data frame</li>
+<li><strong>key</strong>: nama kolom yang akan dijadikan heading pada kolom baru</li>
+<li><strong>value</strong>: nama kolom yang nilainya akan mengisi setiap sel</li>
+</ul>
+</blockquote>
+<p>Pada contoh kasus pada data <code>pollution</code>, kita dapat memisahkan kolom 2 menjadi kolom baru yaitu kolom <code>big size</code> dan <code>small size</code>. Untuk melakukannya jalankan sintaks berikut:</p>
+<pre class="r"><code># merubah objek pollution menjadi tibble
+pollution_tbl &lt;- as_tibble(pollution)
+
+# print
+pollution_tbl</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   city     size  amount
+##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;
+## 1 New York large     23
+## 2 New York small     14
+## 3 London   large     22
+## 4 London   small     16
+## 5 Beijing  large    121
+## 6 Beijing  small     56</code></pre>
+<pre class="r"><code># spread
+pollution_new &lt;- spread(pollution_tbl,
+                        key = size,
+                        value = amount)
+
+#print
+pollution_new</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   city     large small
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1 Beijing    121    56
+## 2 London      22    16
+## 3 New York    23    14</code></pre>
+<p>Terlihat bahwa data <code>pollution</code> tampak memnuhi syarat kerapihan data (<em>tidy</em>). Kita sekarang dapat menginput variabel baru dan melakukan analisa terhadap data tersebut. Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code># input variabel range (large-small)
+pollution_new$range &lt;- pollution_new$large - pollution_new$small
+
+# print
+pollution_new</code></pre>
+<pre><code>## # A tibble: 3 x 4
+##   city     large small range
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Beijing    121    56    65
+## 2 London      22    16     6
+## 3 New York    23    14     9</code></pre>
+<p>Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran partikel terbesar berada di Kota Beijing.</p>
+</div>
+<div id="separate" class="section level3">
+<h3>Separate</h3>
 </div>
 </div>
 
