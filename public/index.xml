@@ -741,7 +741,99 @@ pollution_new&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran partikel terbesar berada di Kota Beijing.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;separate&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Separate&lt;/h3&gt;
+&lt;h3&gt;3.4.3 Separate&lt;/h3&gt;
+&lt;p&gt;Fungsi &lt;code&gt;separate()&lt;/code&gt; merupakan fungsi yang digunakan untuk memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi ini berbeda dengan fungsi sebelumnya seperti &lt;code&gt;gather()&lt;/code&gt; dan &lt;code&gt;spread()&lt;/code&gt; yang menggabung atau memisahkan 2 atau beberapa kolom. Format sederhana fungsi &lt;code&gt;separate()&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;separate(data, col, into, sep = &amp;quot;[^[:alnum:]]+&amp;quot;, convert= TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt;: data frame.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col&lt;/strong&gt;: Nama kolom yang tidak dikutip.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;into&lt;/strong&gt;: Vektor karakter menentukan nama variabel baru yang akan dibuat.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sep&lt;/strong&gt;: Pemisah antar kolom:&lt;/li&gt;
+&lt;li&gt;Jika karakter, diartikan sebagai ekspresi reguler. Jika numerik, diartikan sebagai posisi untuk dibelah. Nilai-nilai positif mulai dari 1 di ujung kiri string; nilai negatif mulai dari -1 di ujung kanan string.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;convert&lt;/strong&gt;: nilai logik. Jika bernilai TRUE maka kolom baru yang akan diperoleh akan dikonversi berdasarkan jenis data yang seharusnya.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Pada dataset &lt;code&gt;storms&lt;/code&gt; kita ingin memisahkan kolom &lt;code&gt;date&lt;/code&gt; menjadi beberapa kolom seperti &lt;code&gt;year&lt;/code&gt;, &lt;code&gt;month&lt;/code&gt;, dan &lt;code&gt;day&lt;/code&gt;, Kita dapat menggunakan fungsi &lt;code&gt;separate()&lt;/code&gt; untuk memisahkan nilai pada kolom tersebut berdasarkan karakter pemisah pada nilai kolom tersebut dalam hal ini adalah “-”. Berikut adalah cara melakukannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# merubah storms menjadi tibble
+storms_tbl &amp;lt;- as_tibble(storms)
+
+# print
+storms_tbl&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 4
+##   storm    wind pressure date      
+##   &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;date&amp;gt;    
+## 1 Alberto   110     1007 2000-08-03
+## 2 Alex       45     1009 1998-07-27
+## 3 Allison    65     1005 1995-06-03
+## 4 Ana        40     1013 1997-06-30
+## 5 Arlene     50     1010 1999-06-11
+## 6 Arthur     45     1010 1996-06-17&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# separate
+storms_new &amp;lt;- separate(storms_tbl,
+                       col = date,
+                       into = c(&amp;quot;year&amp;quot;,&amp;quot;month&amp;quot;,&amp;quot;days&amp;quot;),
+                       sep = &amp;quot;-&amp;quot;,
+                       convert = TRUE)
+
+# print
+storms_new&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 6
+##   storm    wind pressure  year month  days
+##   &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
+## 1 Alberto   110     1007  2000     8     3
+## 2 Alex       45     1009  1998     7    27
+## 3 Allison    65     1005  1995     6     3
+## 4 Ana        40     1013  1997     6    30
+## 5 Arlene     50     1010  1999     6    11
+## 6 Arthur     45     1010  1996     6    17&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh terlihat bahwa data telah terpisah dengan benar yang ditunjukkan dari nilai yang terpisah dan jenis data yang dihasilkan.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;unite&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.4.4 Unite&lt;/h3&gt;
+&lt;p&gt;Fungsi &lt;code&gt;unite()&lt;/code&gt; merupakan kebalikan dari fungsi &lt;code&gt;separate()&lt;/code&gt;, dimana fungsi ini menggabungkan sejumlah kolom menjadi 1 kolom. Format sederhana untuk melakukanya disajikan sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;unite(data, col, ..., sep = &amp;quot;_&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt;: data frame.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col&lt;/strong&gt;: nama kolom baru (tanpa tanda kutip) untuk ditambahkan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sep&lt;/strong&gt;: pemisah yang akan digunakan pada antar nilai.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Pada dataset &lt;code&gt;storms_new&lt;/code&gt; kita ingin menggabungkan kembali kolom &lt;code&gt;year&lt;/code&gt;, &lt;code&gt;month&lt;/code&gt;, dan &lt;code&gt;days&lt;/code&gt; dengan karakter pemisah “/”. Berikut adalah cara melakukannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# unite
+storms_old &amp;lt;- unite(storms_new,
+                   col = &amp;quot;date&amp;quot;,
+                   year, month, days,
+                   sep = &amp;quot;-&amp;quot;)
+
+# print
+storms_old&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 4
+##   storm    wind pressure date     
+##   &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;    
+## 1 Alberto   110     1007 2000-8-3 
+## 2 Alex       45     1009 1998-7-27
+## 3 Allison    65     1005 1995-6-3 
+## 4 Ana        40     1013 1997-6-30
+## 5 Arlene     50     1010 1999-6-11
+## 6 Arthur     45     1010 1996-6-17&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ubah jenis kolom menjadi date
+storms_old$date &amp;lt;- as.Date(storms_old$date)
+
+# print
+storms_old&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 4
+##   storm    wind pressure date      
+##   &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt; &amp;lt;date&amp;gt;    
+## 1 Alberto   110     1007 2000-08-03
+## 2 Alex       45     1009 1998-07-27
+## 3 Allison    65     1005 1995-06-03
+## 4 Ana        40     1013 1997-06-30
+## 5 Arlene     50     1010 1999-06-11
+## 6 Arthur     45     1010 1996-06-17&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

@@ -1138,7 +1138,99 @@ pollution_new</code></pre>
 <p>Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran partikel terbesar berada di Kota Beijing.</p>
 </div>
 <div id="separate" class="section level3">
-<h3>Separate</h3>
+<h3>3.4.3 Separate</h3>
+<p>Fungsi <code>separate()</code> merupakan fungsi yang digunakan untuk memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi ini berbeda dengan fungsi sebelumnya seperti <code>gather()</code> dan <code>spread()</code> yang menggabung atau memisahkan 2 atau beberapa kolom. Format sederhana fungsi <code>separate()</code> adalah sebagai berikut:</p>
+<pre class="r"><code>separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, convert= TRUE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: data frame.</li>
+<li><strong>col</strong>: Nama kolom yang tidak dikutip.</li>
+<li><strong>into</strong>: Vektor karakter menentukan nama variabel baru yang akan dibuat.</li>
+<li><strong>sep</strong>: Pemisah antar kolom:</li>
+<li>Jika karakter, diartikan sebagai ekspresi reguler. Jika numerik, diartikan sebagai posisi untuk dibelah. Nilai-nilai positif mulai dari 1 di ujung kiri string; nilai negatif mulai dari -1 di ujung kanan string.</li>
+<li><strong>convert</strong>: nilai logik. Jika bernilai TRUE maka kolom baru yang akan diperoleh akan dikonversi berdasarkan jenis data yang seharusnya.</li>
+</ul>
+</blockquote>
+<p>Pada dataset <code>storms</code> kita ingin memisahkan kolom <code>date</code> menjadi beberapa kolom seperti <code>year</code>, <code>month</code>, dan <code>day</code>, Kita dapat menggunakan fungsi <code>separate()</code> untuk memisahkan nilai pada kolom tersebut berdasarkan karakter pemisah pada nilai kolom tersebut dalam hal ini adalah “-”. Berikut adalah cara melakukannya:</p>
+<pre class="r"><code># merubah storms menjadi tibble
+storms_tbl &lt;- as_tibble(storms)
+
+# print
+storms_tbl</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##   storm    wind pressure date      
+##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;date&gt;    
+## 1 Alberto   110     1007 2000-08-03
+## 2 Alex       45     1009 1998-07-27
+## 3 Allison    65     1005 1995-06-03
+## 4 Ana        40     1013 1997-06-30
+## 5 Arlene     50     1010 1999-06-11
+## 6 Arthur     45     1010 1996-06-17</code></pre>
+<pre class="r"><code># separate
+storms_new &lt;- separate(storms_tbl,
+                       col = date,
+                       into = c(&quot;year&quot;,&quot;month&quot;,&quot;days&quot;),
+                       sep = &quot;-&quot;,
+                       convert = TRUE)
+
+# print
+storms_new</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   storm    wind pressure  year month  days
+##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1 Alberto   110     1007  2000     8     3
+## 2 Alex       45     1009  1998     7    27
+## 3 Allison    65     1005  1995     6     3
+## 4 Ana        40     1013  1997     6    30
+## 5 Arlene     50     1010  1999     6    11
+## 6 Arthur     45     1010  1996     6    17</code></pre>
+<p>Berdasarkan hasil yang diperoleh terlihat bahwa data telah terpisah dengan benar yang ditunjukkan dari nilai yang terpisah dan jenis data yang dihasilkan.</p>
+</div>
+<div id="unite" class="section level3">
+<h3>3.4.4 Unite</h3>
+<p>Fungsi <code>unite()</code> merupakan kebalikan dari fungsi <code>separate()</code>, dimana fungsi ini menggabungkan sejumlah kolom menjadi 1 kolom. Format sederhana untuk melakukanya disajikan sebagai berikut:</p>
+<pre class="r"><code>unite(data, col, ..., sep = &quot;_&quot;)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong>: data frame.</li>
+<li><strong>col</strong>: nama kolom baru (tanpa tanda kutip) untuk ditambahkan.</li>
+<li><strong>sep</strong>: pemisah yang akan digunakan pada antar nilai.</li>
+</ul>
+</blockquote>
+<p>Pada dataset <code>storms_new</code> kita ingin menggabungkan kembali kolom <code>year</code>, <code>month</code>, dan <code>days</code> dengan karakter pemisah “/”. Berikut adalah cara melakukannya:</p>
+<pre class="r"><code># unite
+storms_old &lt;- unite(storms_new,
+                   col = &quot;date&quot;,
+                   year, month, days,
+                   sep = &quot;-&quot;)
+
+# print
+storms_old</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##   storm    wind pressure date     
+##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;chr&gt;    
+## 1 Alberto   110     1007 2000-8-3 
+## 2 Alex       45     1009 1998-7-27
+## 3 Allison    65     1005 1995-6-3 
+## 4 Ana        40     1013 1997-6-30
+## 5 Arlene     50     1010 1999-6-11
+## 6 Arthur     45     1010 1996-6-17</code></pre>
+<pre class="r"><code># ubah jenis kolom menjadi date
+storms_old$date &lt;- as.Date(storms_old$date)
+
+# print
+storms_old</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##   storm    wind pressure date      
+##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;date&gt;    
+## 1 Alberto   110     1007 2000-08-03
+## 2 Alex       45     1009 1998-07-27
+## 3 Allison    65     1005 1995-06-03
+## 4 Ana        40     1013 1997-06-30
+## 5 Arlene     50     1010 1999-06-11
+## 6 Arthur     45     1010 1996-06-17</code></pre>
 </div>
 </div>
 

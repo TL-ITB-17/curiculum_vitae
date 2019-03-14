@@ -694,6 +694,80 @@ pollution_new
 
 Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran partikel terbesar berada di Kota Beijing.
 
-### Separate
+### 3.4.3 Separate
+
+Fungsi `separate()` merupakan fungsi yang digunakan untuk memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi ini berbeda dengan fungsi sebelumnya seperti `gather()` dan `spread()` yang menggabung atau memisahkan 2 atau beberapa kolom. Format sederhana fungsi `separate()` adalah sebagai berikut:
+
+```{r, eval=FALSE}
+separate(data, col, into, sep = "[^[:alnum:]]+", convert= TRUE)
+```
+
+> **Note: **
+>
+> - **data**: data frame.
+> - **col**: Nama kolom yang tidak dikutip.
+> - **into**: Vektor karakter menentukan nama variabel baru yang akan dibuat.
+> - **sep**: Pemisah antar kolom:
+>    + Jika karakter, diartikan sebagai ekspresi reguler.
+Jika numerik, diartikan sebagai posisi untuk dibelah. Nilai-nilai positif mulai dari 1 di ujung kiri string; nilai negatif mulai dari -1 di ujung kanan string.
+> - **convert**: nilai logik. Jika bernilai TRUE maka kolom baru yang akan diperoleh akan dikonversi berdasarkan jenis data yang seharusnya.
+
+Pada dataset `storms` kita ingin memisahkan kolom `date` menjadi beberapa kolom seperti `year`, `month`, dan `day`, Kita dapat menggunakan fungsi `separate()` untuk memisahkan nilai pada kolom tersebut berdasarkan karakter pemisah pada nilai kolom tersebut dalam hal ini adalah "-". Berikut adalah cara melakukannya:
+
+```{r}
+# merubah storms menjadi tibble
+storms_tbl <- as_tibble(storms)
+
+# print
+storms_tbl
+
+# separate
+storms_new <- separate(storms_tbl,
+                       col = date,
+                       into = c("year","month","days"),
+                       sep = "-",
+                       convert = TRUE)
+
+# print
+storms_new
+```
+
+Berdasarkan hasil yang diperoleh terlihat bahwa data telah terpisah dengan benar yang ditunjukkan dari nilai yang terpisah dan jenis data yang dihasilkan. 
+
+### 3.4.4 Unite
+
+Fungsi `unite()` merupakan kebalikan dari fungsi `separate()`, dimana fungsi ini menggabungkan sejumlah kolom menjadi 1 kolom. Format sederhana untuk melakukanya disajikan sebagai berikut:
+
+```{r, eval=FALSE}
+unite(data, col, ..., sep = "_")
+```
+
+> **Note: **
+>
+> - **data**: data frame.
+> - **col**: nama kolom baru (tanpa tanda kutip) untuk ditambahkan.
+> - **sep**: pemisah yang akan digunakan pada antar nilai.
+
+Pada dataset `storms_new` kita ingin menggabungkan kembali kolom `year`, `month`, dan `days` dengan karakter pemisah "/". Berikut adalah cara melakukannya:
+
+```{r}
+# unite
+storms_old <- unite(storms_new,
+                   col = "date",
+                   year, month, days,
+                   sep = "-")
+
+# print
+storms_old
+
+# ubah jenis kolom menjadi date
+storms_old$date <- as.Date(storms_old$date)
+
+# print
+storms_old
+```
+
+
+
 
 
