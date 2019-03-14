@@ -597,7 +597,7 @@ install.packages("tidyr")
 
 ```
 
-```{r}
+```{r, message=FALSE}
 # memuat paket
 library(tidyr)
 ```

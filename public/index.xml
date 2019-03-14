@@ -610,11 +610,6 @@ install.packages(&amp;quot;tidyr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat paket
 library(tidyr)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;tidyr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## Attaching package: &amp;#39;tidyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:EDAWR&amp;#39;:
-## 
-##     population, who&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;gather&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;3.4.1 Gather&lt;/h3&gt;
 &lt;p&gt;Pada dataset &lt;code&gt;cases&lt;/code&gt; kolom &lt;code&gt;2011&lt;/code&gt; sampai &lt;code&gt;2013&lt;/code&gt; perlu dijadikan satu variabel yaitu tahun. untuk melakukannya kita dapat menggunakan fungsi &lt;code&gt;gather()&lt;/code&gt;. Secara sederhana fungsi tersebut dapat dituliskan dengan format sebagai berikut:&lt;/p&gt;
