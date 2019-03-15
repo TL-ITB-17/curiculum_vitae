@@ -25,6 +25,7 @@
 &lt;li&gt;&lt;a href=&#34;#3-2-eksport-file&#34;&gt;Eksport File&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#3-3-tibble-data-format&#34;&gt;Tibble Data Format&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#3-4-merapikan-data&#34;&gt;Merapikan Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#3-5-transformasi-data&#34;&gt;Transformasi Data&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;import-file&#34; class=&#34;section level2&#34;&gt;
@@ -829,6 +830,170 @@ storms_old&lt;/code&gt;&lt;/pre&gt;
 ## 4 Ana        40     1013 1997-06-30
 ## 5 Arlene     50     1010 1999-06-11
 ## 6 Arthur     45     1010 1996-06-17&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;transformasi-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3.5 Transformasi Data&lt;/h2&gt;
+&lt;p&gt;Data frame merupakan struktur data utama dalam statistik dan dalam &lt;code&gt;R&lt;/code&gt;. Struktur dasar data frame ialah ada satu observasi tiap baris dan setiap kolom mewakili variabel, ukuran, fitur, atau karakteristik pengamatan itu yang telah dijelaskan pada bagian sebelumya. &lt;code&gt;R&lt;/code&gt; memiliki implementasi internal data frame yang kemungkinan besar akan kita gunakan paling sering. Namun, ada paket di CRAN yang mengimplementasikan data frame layaknya basis data relasional yang memungkinkan kita untuk beroperasi pada data frame yang sangat besar.&lt;/p&gt;
+&lt;p&gt;Mengingat pentingnya mengelola dat frame, penting bagi kita untuk memiliki alat yang baik untuk melakukannya. &lt;code&gt;R&lt;/code&gt; memiliki beberapa paket seperti fungsi &lt;code&gt;subset()&lt;/code&gt; dan penggunaan operator “[” dan “$” untuk mengekstrak himpunan bagian dari frame data. Namun, operasi lain, seperti pemfilteran, pengurutan, dan pengelompokan data, seringkali dapat menjadi operasi yang membosankan di &lt;code&gt;R&lt;/code&gt; yang sintaksisnya tidak terlalu intuitif. Paket &lt;code&gt;dplyr&lt;/code&gt; dirancang untuk mengurangi banyak masalah ini dan menyediakan serangkaian rutinitas yang dioptimalkan secara khusus untuk menangani data frame.&lt;/p&gt;
+&lt;div id=&#34;paket-dplyr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.5.1 Paket dplyr&lt;/h3&gt;
+&lt;p&gt;Paket &lt;code&gt;dplyr&lt;/code&gt; dikembangkan oleh &lt;strong&gt;Hadley Wickham&lt;/strong&gt; dari &lt;strong&gt;RStudio&lt;/strong&gt; dan merupakan versi yang dioptimalkan dari paket &lt;code&gt;plyr&lt;/code&gt;-nya. Paket &lt;code&gt;dplyr&lt;/code&gt; tidak menyediakan fungsionalitas baru untuk &lt;code&gt;R&lt;/code&gt; sendiri, dalam arti bahwa semua yang dilakukan &lt;code&gt;dplyr&lt;/code&gt; sudah dapat dilakukan dengan fungsi basis &lt;code&gt;R&lt;/code&gt;, tetapi sangat menyederhanakan fungsi yang ada di &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Salah satu kontribusi penting dari paket &lt;code&gt;dplyr&lt;/code&gt; adalah ia menyediakan “&lt;em&gt;grammar&lt;/em&gt;” (khususnya, kata kerja) untuk manipulasi data dan untuk beroperasi pada data frame. Melalui &lt;em&gt;grammar&lt;/em&gt; ini, kita dapat berkomunikasi dengan masuk akal apa yang telah kita lakukan terhadap data frame dapat pula dipahami orang lain (dengan asumsi mereka juga tahu &lt;em&gt;grammar&lt;/em&gt;-nya). Hal ini berguna karena memberikan abstraksi untuk manipulasi data yang sebelumnya tidak ada. Kontribusi lain yang bermanfaat adalah bahwa fungsi &lt;code&gt;dplyr&lt;/code&gt; sangat cepat, karena banyak operasi utama dikodekan dalam C++.&lt;/p&gt;
+&lt;p&gt;Pada bagian ini pembaca akan belajar &lt;strong&gt;6&lt;/strong&gt; fungsi utama yang ada pada paket &lt;code&gt;dplyr&lt;/code&gt;. Fungsi tersebut antara lain:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Mengambil sejumlah observasi berdasarkan nilainya (&lt;code&gt;filter()&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Mengurutkan kembali baris data frame berdasarkan nilai pada sebuah atau beberapa variabel (&lt;code&gt;arrange()&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Mengambil atau subset terhadap sebuah atau beberapa variabel berdasarkan nama variabel/kolom (&lt;code&gt;select()&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Membuat variabel baru atau menambahkan kolom baru (&lt;code&gt;mutate()&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Membuat ringkasan terhadap data frame (&lt;code&gt;summarize()&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Mengelompokkan operasi kelima fungsi diatas masing-masing berdasarkan grup data (&lt;code&gt;group_by()&lt;/code&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Keseluruhan fungsi tersebut format fungsi yang seragam, yaitu:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Argumen pertama adalah data frame.&lt;/li&gt;
+&lt;li&gt;Argumen selanjutnya adalah deskripsi yang akan dilakukan terhadap data frame (filter, pengurutan kembali, membuat ringkasan, dll) menggunakan nama variabel (tanpa tanda kutip).&lt;/li&gt;
+&lt;li&gt;Hasil operasi yang diperoleh adalah data frame baru.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Untuk menginstall dan memuat paket &lt;code&gt;dplyr&lt;/code&gt; jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Memasang paket
+install.packages(&amp;quot;dplyr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat paket
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;filter&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.5.2 filter()&lt;/h3&gt;
+&lt;p&gt;Fungsi &lt;code&gt;filter()&lt;/code&gt; digunakan untuk mengekstrak himpunan bagian (subset) baris dari data frame. Fungsi ini mirip dengan fungsi &lt;code&gt;subset()&lt;/code&gt; yang ada di &lt;code&gt;R&lt;/code&gt;. Secara sederhana format fungsi &lt;code&gt;filter()&lt;/code&gt; dapat dituliskan sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;filter(data, ....)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt; : data frame&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;….&lt;/strong&gt; : Predikat logis didefinisikan dalam istilah variabel dalam &lt;strong&gt;data&lt;/strong&gt;. Beberapa kondisi digabungkan dengan &amp;amp; (lihat Chapter 2 opeator relasi dan operator logika. Hanya baris tempat kondisi bernilai TRUE disimpan.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Misalkan kita akan melakukan melakukan filter terhadap data frame &lt;code&gt;pollution_tbl&lt;/code&gt; terhadap variabel &lt;code&gt;size&lt;/code&gt; dengan kriteria &lt;code&gt;large&lt;/code&gt; dan &lt;code&gt;amount&lt;/code&gt; &amp;gt; 12. Berikut adalah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;filter(pollution_tbl, size==&amp;quot;large&amp;quot; &amp;amp; amount &amp;gt; 12)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 3
+##   city     size  amount
+##   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 New York large     23
+## 2 London   large     22
+## 3 Beijing  large    121&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Jika menggunakan paket dasar &lt;code&gt;R&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(pollution_tbl,size==&amp;quot;large&amp;quot; &amp;amp; amount &amp;gt; 12)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 3
+##   city     size  amount
+##   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 New York large     23
+## 2 London   large     22
+## 3 Beijing  large    121&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Operator “&amp;gt;” merupakan operator relasi (lihat chapter 2: operator relasi). Operator tersebut banyak digunakan untuk melakukan filter terhadap variabel/kolom yang mengandung nilai numerik.&lt;/p&gt;
+&lt;p&gt;Operator “==” merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Figure &lt;a href=&#34;#fig:filter&#34;&gt;2&lt;/a&gt; berikut:&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:filter&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/filter.png&#34; alt=&#34;Diagram operasi Boolean&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Diagram operasi Boolean
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Bagian yang di arsir adalah observasi yang akan ditampilkan pada output.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Salah satu bagian terpenting dan paling sering penulis gunakan pada fungsi ini memfilter &lt;em&gt;missing value&lt;/em&gt; (melihat observasi yang mengandung &lt;em&gt;missing value&lt;/em&gt; atau tidak melibatkan &lt;em&gt;missing value&lt;/em&gt;). Berikut adalah contoh filter terhadap data pada &lt;code&gt;pollution_tbl&lt;/code&gt; yang tidak mengandung &lt;em&gt;missing value&lt;/em&gt; dan nilai &lt;code&gt;amount&lt;/code&gt;&amp;gt;0.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;filter(pollution_tbl,!(is.na(amount)|amount&amp;lt;=0))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 3
+##   city     size  amount
+##   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 New York large     23
+## 2 New York small     14
+## 3 London   large     22
+## 4 London   small     16
+## 5 Beijing  large    121
+## 6 Beijing  small     56&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh seluruh data tidak ada yang di drop sehingga dapat disimpulkan bahwa data tersebut tidak mengandung &lt;em&gt;missing value&lt;/em&gt; dan nol.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;arrange&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.5.3 arrange()&lt;/h3&gt;
+&lt;p&gt;Fungsi &lt;code&gt;arrange()&lt;/code&gt; bekerja mirip dengan fungsi &lt;code&gt;filter()&lt;/code&gt; kecuali bahwa alih-alih memilih baris, fungsi ini mengubah urutan observasinya (mengurutkan dari yang terbesar atau sebaliknya). Dibutuhkan data frame dan sekumpulan nama kolom (atau ekspresi yang lebih rumit) untuk dipesan. Jika kita memberikan lebih dari satu nama kolom pada fungsi, setiap kolom tambahan akan digunakan untuk menentukan urutan nilai yang sama berdasarkan nilai kolom sebelumnya.&lt;/p&gt;
+&lt;p&gt;Fungsi &lt;code&gt;arrange()&lt;/code&gt; mirip dengan fungsi &lt;code&gt;order()&lt;/code&gt; pada paket dasar &lt;code&gt;R&lt;/code&gt;. Format sederhana fungsi ini adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arrange(data, ....)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt; : data frame&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;….&lt;/strong&gt; : daftar nama variabel yang tidak dikutip yang dipisahkan tanda koma, atau ekspresi yang melibatkan nama variabel. Gunakan &lt;code&gt;desc()&lt;/code&gt; untuk mengurutkan variabel dalam urutan menurun.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Misalkan kita ingin melihat urutan mobil pada data &lt;code&gt;mtcars&lt;/code&gt; berdasarkan penggunaan bahan bakar (&lt;code&gt;mpg&lt;/code&gt;) dan bobot mobil (&lt;code&gt;wt&lt;/code&gt;) tersebut. Berikut adalah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars&amp;lt;- as_tibble(mtcars)
+arrange(mtcars, mpg, wt)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1  10.4     8  472    205  2.93  5.25  18.0     0     0     3     4
+##  2  10.4     8  460    215  3     5.42  17.8     0     0     3     4
+##  3  13.3     8  350    245  3.73  3.84  15.4     0     0     3     4
+##  4  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  5  14.7     8  440    230  3.23  5.34  17.4     0     0     3     4
+##  6  15       8  301    335  3.54  3.57  14.6     0     1     5     8
+##  7  15.2     8  304    150  3.15  3.44  17.3     0     0     3     2
+##  8  15.2     8  276.   180  3.07  3.78  18       0     0     3     3
+##  9  15.5     8  318    150  2.76  3.52  16.9     0     0     3     2
+## 10  15.8     8  351    264  4.22  3.17  14.5     0     1     5     4
+## # ... with 22 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk kedua variabel tersebut jalankan command berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arrange(mtcars, desc(mpg), desc(wt))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1
+##  2  32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1
+##  3  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2
+##  4  30.4     4  95.1   113  3.77  1.51  16.9     1     1     5     2
+##  5  27.3     4  79      66  4.08  1.94  18.9     1     1     4     1
+##  6  26       4 120.     91  4.43  2.14  16.7     0     1     5     2
+##  7  24.4     4 147.     62  3.69  3.19  20       1     0     4     2
+##  8  22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2
+##  9  22.8     4 108      93  3.85  2.32  18.6     1     1     4     1
+## 10  21.5     4 120.     97  3.7   2.46  20.0     1     0     3     1
+## # ... with 22 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Jika menggunakan fungsi &lt;code&gt;order()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(mtcars)
+# urutan dari kecil ke besar
+mtcars[order(mpg, wt), ]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1  10.4     8  472    205  2.93  5.25  18.0     0     0     3     4
+##  2  10.4     8  460    215  3     5.42  17.8     0     0     3     4
+##  3  13.3     8  350    245  3.73  3.84  15.4     0     0     3     4
+##  4  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  5  14.7     8  440    230  3.23  5.34  17.4     0     0     3     4
+##  6  15       8  301    335  3.54  3.57  14.6     0     1     5     8
+##  7  15.2     8  304    150  3.15  3.44  17.3     0     0     3     2
+##  8  15.2     8  276.   180  3.07  3.78  18       0     0     3     3
+##  9  15.5     8  318    150  2.76  3.52  16.9     0     0     3     2
+## 10  15.8     8  351    264  4.22  3.17  14.5     0     1     5     4
+## # ... with 22 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# urutan dari besar ke kecil
+mtcars[order(-mpg, -wt), ]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1
+##  2  32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1
+##  3  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2
+##  4  30.4     4  95.1   113  3.77  1.51  16.9     1     1     5     2
+##  5  27.3     4  79      66  4.08  1.94  18.9     1     1     4     1
+##  6  26       4 120.     91  4.43  2.14  16.7     0     1     5     2
+##  7  24.4     4 147.     62  3.69  3.19  20       1     0     4     2
+##  8  22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2
+##  9  22.8     4 108      93  3.85  2.32  18.6     1     1     4     1
+## 10  21.5     4 120.     97  3.7   2.46  20.0     1     0     3     1
+## # ... with 22 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; &lt;em&gt;missing value&lt;/em&gt; akan selalu diurutkan pada observasi terakhir baik menggunakan urutan dari terbesar ke terkecil maupun sebaliknya.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

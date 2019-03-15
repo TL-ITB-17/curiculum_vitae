@@ -17,6 +17,7 @@ type: docs
 > * [Eksport File](#3-2-eksport-file)
 > * [Tibble Data Format](#3-3-tibble-data-format)
 > * [Merapikan Data](#3-4-merapikan-data)
+> * [Transformasi Data](#3-5-transformasi-data)
 
 ## 3.1 Import File
 
@@ -767,7 +768,130 @@ storms_old$date <- as.Date(storms_old$date)
 storms_old
 ```
 
+## 3.5 Transformasi Data
 
+Data frame merupakan struktur data utama dalam statistik dan dalam `R`. Struktur dasar data frame ialah ada satu observasi tiap baris dan setiap kolom mewakili variabel, ukuran, fitur, atau karakteristik pengamatan itu yang telah dijelaskan pada bagian sebelumya. `R` memiliki implementasi internal data frame yang kemungkinan besar akan kita gunakan paling sering. Namun, ada paket di CRAN yang mengimplementasikan data frame layaknya basis data relasional yang memungkinkan kita untuk beroperasi pada data frame yang sangat besar.
 
+Mengingat pentingnya mengelola dat frame, penting bagi kita untuk memiliki alat yang baik untuk melakukannya. `R` memiliki beberapa paket seperti fungsi `subset()` dan penggunaan operator "[" dan "$" untuk mengekstrak himpunan bagian dari frame data. Namun, operasi lain, seperti pemfilteran, pengurutan, dan pengelompokan data, seringkali dapat menjadi operasi yang membosankan di `R` yang sintaksisnya tidak terlalu intuitif. Paket `dplyr` dirancang untuk mengurangi banyak masalah ini dan menyediakan serangkaian rutinitas yang dioptimalkan secara khusus untuk menangani data frame.
 
+### 3.5.1 Paket dplyr
+
+Paket `dplyr` dikembangkan oleh **Hadley Wickham** dari **RStudio** dan merupakan versi yang dioptimalkan dari paket `plyr`-nya. Paket `dplyr` tidak menyediakan fungsionalitas baru untuk `R` sendiri, dalam arti bahwa semua yang dilakukan `dplyr` sudah dapat dilakukan dengan fungsi basis `R`, tetapi sangat menyederhanakan fungsi yang ada di `R`.
+
+Salah satu kontribusi penting dari paket `dplyr` adalah ia menyediakan "*grammar*" (khususnya, kata kerja) untuk manipulasi data dan untuk beroperasi pada data frame. Melalui *grammar* ini, kita dapat berkomunikasi dengan masuk akal apa yang telah kita lakukan terhadap data frame dapat pula dipahami orang lain (dengan asumsi mereka juga tahu *grammar*-nya). Hal ini berguna karena memberikan abstraksi untuk manipulasi data yang sebelumnya tidak ada. Kontribusi lain yang bermanfaat adalah bahwa fungsi `dplyr` sangat cepat, karena banyak operasi utama dikodekan dalam C++.
+
+Pada bagian ini pembaca akan belajar **6** fungsi utama yang ada pada paket `dplyr`. Fungsi tersebut antara lain:
+
+1. Mengambil sejumlah observasi berdasarkan nilainya (`filter()`).
+2. Mengurutkan kembali baris data frame berdasarkan nilai pada sebuah atau beberapa variabel (`arrange()`).
+3. Mengambil atau subset terhadap sebuah atau beberapa variabel berdasarkan nama variabel/kolom (`select()`).
+4. Membuat variabel baru atau menambahkan kolom baru (`mutate()`).
+5. Membuat ringkasan terhadap data frame (`summarize()`)
+6. Mengelompokkan operasi kelima fungsi diatas masing-masing berdasarkan grup data (`group_by()`).
+
+Keseluruhan fungsi tersebut format fungsi yang seragam, yaitu:
+
+1. Argumen pertama adalah data frame.
+2. Argumen selanjutnya adalah deskripsi yang akan dilakukan terhadap data frame (filter, pengurutan kembali, membuat ringkasan, dll) menggunakan nama variabel (tanpa tanda kutip).
+3. Hasil operasi yang diperoleh adalah data frame baru.
+
+Untuk menginstall dan memuat paket `dplyr` jalankan sintaks berikut:
+
+```{r, eval=FALSE}
+# Memasang paket
+install.packages("dplyr")
+```
+
+```{r, message=FALSE}
+# memuat paket
+library(dplyr)
+```
+
+### 3.5.2 filter()
+
+Fungsi `filter()` digunakan untuk mengekstrak himpunan bagian (subset) baris dari data frame. Fungsi ini mirip dengan fungsi `subset()` yang ada di `R`. Secara sederhana format fungsi `filter()` dapat dituliskan sebagai berikut:
+
+```{r, eval=FALSE}
+filter(data, ....)
+```
+
+> **Note: **
+>
+> - **data** : data frame
+> - **....** : Predikat logis didefinisikan dalam istilah variabel dalam **data**. Beberapa kondisi digabungkan dengan & (lihat Chapter 2 opeator relasi dan operator logika. Hanya baris tempat kondisi bernilai TRUE disimpan.
+
+Misalkan kita akan melakukan melakukan filter terhadap data frame `pollution_tbl` terhadap variabel `size` dengan kriteria `large` dan `amount` > 12. Berikut adalah sintaks yang digunakan:
+
+```{r}
+filter(pollution_tbl, size=="large" & amount > 12)
+```
+
+Jika menggunakan paket dasar `R`:
+
+```{r}
+subset(pollution_tbl,size=="large" & amount > 12)
+```
+
+Operator ">" merupakan operator relasi (lihat chapter 2: operator relasi). Operator tersebut banyak digunakan untuk melakukan filter terhadap variabel/kolom yang mengandung nilai numerik.
+
+Operator "==" merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Figure \@ref(fig:filter) berikut:
+
+```{r filter, echo=FALSE, fig.cap='Diagram operasi Boolean', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+library(knitr)
+img1_path <- "/filter.png"
+include_graphics(img1_path)
+
+```
+
+> **Note: ** Bagian yang di arsir adalah observasi yang akan ditampilkan pada output.
+
+Salah satu bagian terpenting dan paling sering penulis gunakan pada fungsi ini memfilter *missing value* (melihat observasi yang mengandung *missing value* atau tidak melibatkan *missing value*). Berikut adalah contoh filter terhadap data pada `pollution_tbl` yang tidak mengandung *missing value* dan nilai `amount`>0.
+
+```{r}
+filter(pollution_tbl,!(is.na(amount)|amount<=0))
+```
+
+Berdasarkan hasil yang diperoleh seluruh data tidak ada yang di drop sehingga dapat disimpulkan bahwa data tersebut tidak mengandung *missing value* dan nol.
+
+### 3.5.3 arrange()
+
+Fungsi `arrange()` bekerja mirip dengan fungsi `filter()` kecuali bahwa alih-alih memilih baris, fungsi ini mengubah urutan observasinya (mengurutkan dari yang terbesar atau sebaliknya). Dibutuhkan data frame dan sekumpulan nama kolom (atau ekspresi yang lebih rumit) untuk dipesan. Jika kita memberikan lebih dari satu nama kolom pada fungsi, setiap kolom tambahan akan digunakan untuk menentukan urutan nilai yang sama berdasarkan nilai kolom sebelumnya. 
+
+Fungsi `arrange()` mirip dengan fungsi `order()` pada paket dasar `R`. Format sederhana fungsi ini adalah sebagai berikut:
+
+```{r, eval=FALSE}
+arrange(data, ....)
+```
+
+> **Note: **
+>
+> - **data** : data frame
+> - **....** : daftar nama variabel yang tidak dikutip yang dipisahkan tanda koma, atau ekspresi yang melibatkan nama variabel. Gunakan `desc()` untuk mengurutkan variabel dalam urutan menurun.
+
+Misalkan kita ingin melihat urutan mobil pada data `mtcars` berdasarkan penggunaan bahan bakar (`mpg`) dan bobot mobil (`wt`) tersebut. Berikut adalah sintaks yang digunakan:
+
+```{r}
+mtcars<- as_tibble(mtcars)
+arrange(mtcars, mpg, wt)
+```
+
+Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk kedua variabel tersebut jalankan command berikut:
+
+```{r}
+arrange(mtcars, desc(mpg), desc(wt))
+```
+
+Jika menggunakan fungsi `order()`:
+
+```{r, message=FALSE}
+attach(mtcars)
+# urutan dari kecil ke besar
+mtcars[order(mpg, wt), ]
+
+# urutan dari besar ke kecil
+mtcars[order(-mpg, -wt), ]
+
+```
+
+> **Note: ** *missing value* akan selalu diurutkan pada observasi terakhir baik menggunakan urutan dari terbesar ke terkecil maupun sebaliknya.
 
