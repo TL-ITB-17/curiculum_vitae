@@ -787,7 +787,7 @@ Pada bagian ini pembaca akan belajar **6** fungsi utama yang ada pada paket `dpl
 3. Mengambil atau subset terhadap sebuah atau beberapa variabel berdasarkan nama variabel/kolom (`select()`).
 4. Membuat variabel baru atau menambahkan kolom baru (`mutate()`).
 5. Membuat ringkasan terhadap data frame (`summarize()`)
-6. Mengelompokkan operasi kelima fungsi diatas masing-masing berdasarkan grup data (`group_by()`).
+6. Mengelompokkan operasi berdasarkan grup data (`group_by()`).
 
 Keseluruhan fungsi tersebut format fungsi yang seragam, yaitu:
 
@@ -871,11 +871,15 @@ arrange(data, ....)
 Misalkan kita ingin melihat urutan mobil pada data `mtcars` berdasarkan penggunaan bahan bakar (`mpg`) dan bobot mobil (`wt`) tersebut. Berikut adalah sintaks yang digunakan:
 
 ```{r}
+data("mtcars")
+
+# Ubah mtcars menjadi tibble
 mtcars<- as_tibble(mtcars)
+
 arrange(mtcars, mpg, wt)
 ```
 
-Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk kedua variabel tersebut jalankan command berikut:
+Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk kedua variabel tersebut jalankan sintaks berikut:
 
 ```{r}
 arrange(mtcars, desc(mpg), desc(wt))
@@ -894,4 +898,223 @@ mtcars[order(-mpg, -wt), ]
 ```
 
 > **Note: ** *missing value* akan selalu diurutkan pada observasi terakhir baik menggunakan urutan dari terbesar ke terkecil maupun sebaliknya.
+
+### 3.5.4 select()
+
+Fungsi `select()` dapat digunakan untuk memilih kolom dari data frame yang ingin kita fokuskan. Seringkali kita memiliki data frame yang besar yang berisi semua data, tetapi setiap analisis yang diberikan hanya menggunakan subset variabel atau pengamatan. Fungsi `select()` memungkinkan kita untuk mendapatkan beberapa kolom yang mungkin kita butuhkan.
+
+Fungsi `select()` memiliki kesamaan dengan subset menggunakan tanda "[" dan "$". Perbedaanya adalah kita dapat melakukan hal lebih melalui fungsi ini seperti memilih berdasarkan kriteria tertentu menggunakan fungsi bantuan sebagai berikut:
+
+1. `starts_with("abcd")`, pilih kolom yang memiliki awalan "abcd".
+2. `end_with("abcd")`, pilih kolom yang memiliki akhiran "abcd".
+3. `contains("abcd")`, pilih kolom yang mengandung nama "abcd"
+4. `matches("(.)\\1")`, pilih variabel yang mengandung *regular expression*. Fungsi ini memilih variabel yang mengandung perulangan karakter.
+5. `num_range("x", 1:3)`, cocokkan berdasarkan kolom dengan nama x1,x2,x3.
+
+Berdasarkan fungsi bantuan tersebut, fungsi `select()` lebih powerfull dibandingkan dengan cara subset biasa serta lebih mudah dalam melakukannya. Berikut adalah format dari fungsi `select()`:
+
+```{r, eval=FALSE}
+select(data, ....)
+```
+
+> **Note: **
+>
+> - **data** : data frame
+> - **....** : Satu atau lebih ekspresi kutip yang dipisahkan oleh koma. kita dapat memperlakukan nama variabel seperti posisi, sehingga kita dapat menggunakan ekspresi seperti x: y untuk memilih rentang variabel.Nilai positif pilih variabel; nilai negatif drop variabel. Jika ekspresi pertama negatif, `select()` akan secara otomatis dimulai dengan semua variabel. Gunakan argumen bernama, mis. `new_name = old_name`, untuk mengganti nama variabel yang dipilih.
+
+Berikut adalah contoh penerapan `selct()` pada data frame `flights`.
+
+```{r}
+# memasang paket
+# install.packages("nycflights13")
+
+# memuat data frame
+library(nycflights13)
+
+# data
+flights
+```
+
+```{r}
+# pilih kolom berdasarkan nama kolom
+select(flights, year, month, day)
+
+# pilih seluruh kolom dari year sampai day
+select(flights, year:day)
+
+# drop kolom dari year sampai day
+select(flights, -(year:day))
+
+# pilih kolom dengan akhiran time
+select(flights, ends_with("time"))
+
+# pilih kolom yang mengandung karakter "arr"
+select(flights, contains("arr"))
+```
+
+Kita juga dapat menggunakan fungsi tambahan `everithing()` yang berguna jika kita ingin memindahkan variabel yang menjadi fokus kita ke awal data frame tanpa melakukan drop variabel. Berikut adalah contoh sintaksnya:
+
+```{r}
+# pindahkan kolom yang mengandung time di awal
+select(flights, contains("time"), everything())
+```
+
+### 3.5.5 mutate()
+
+Fungsi `mutate()` ada untuk menghitung transformasi variabel dalam data frame. Seringkali, kita ingin membuat variabel baru yang berasal dari variabel yang ada dan fungsi `mutate()` menyediakan antarmuka yang bersih untuk melakukan itu. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+mutate(data, ....)
+```
+
+> **Note: **
+>
+> - **data** : data frame
+> - **....** : Pasangan nama-nilai ekspresi, masing-masing dengan panjang 1 atau panjang yang sama dengan jumlah baris dalam grup (jika menggunakan group_by ()) atau di seluruh input (jika tidak menggunakan grup). Nama setiap argumen akan menjadi nama variabel baru, dan nilainya akan menjadi nilai yang sesuai. Gunakan nilai NULL dalam mutasi untuk menjatuhkan drop variabel lama, sehingga variabel baru menimpa variabel yang ada dengan nama yang sama.
+
+```{r}
+# subset data frame
+flights_sml <- select(flights,
+  year:day,
+  ends_with("delay"),
+  distance,
+  air_time
+)
+
+# mutate()
+mutate(flights_sml,
+  gain = arr_delay - dep_delay,
+  hours = air_time / 60,
+  gain_per_hour = gain / hours
+)
+
+```
+
+Jika hanya ingin menyisakan variabel output fungsi `mutate()` pada data frame (variabel lain di drop), kita dapat menggunakan fungsi `transmute()`. Berikut adalah contoh sintaks yang digunakan:
+
+```{r}
+transmute(flights,
+  gain = arr_delay - dep_delay,
+  hours = air_time / 60,
+  gain_per_hour = gain / hours
+)
+```
+
+Adapaun fungsi-fungsi dan operator yang dapat digunakan pada `mutate()` untuk membuat variabel baru adalah sebagai berikut:
+
+1. **Operator aritmatik** (+,-,*,/,^, %/%, %%). operator aritmetik seperti %/% dan %% sangat berguna dalam memecah integer menjadi beberapa bagian seperti hasil bagi tanpa sisa (%/%) dan sisa hasil bagi (%%). Berikut adalah contoh penerapannya:
+
+```{r}
+transmute(flights,
+  dep_time,
+  hour = dep_time %/% 100,
+  minute = dep_time %% 100
+)
+```
+
+2. **Fungsi aritmetik** (`log()`,`sin()`,`cos()`,dll)
+3. **Fungsi Offsets** (`lead()`dan `lag()`). memungkinkan kita untuk merujuk pada nilai-nilai memimpin atau tertinggal. Berikut adalah contoh penerapannya:
+
+```{r}
+(x <- 1:10)
+lag(x)
+lead(x)
+```
+
+4. **Fungsi kumulatif** (`cumsum()`,`cumprod()`,`cummin()`,`cummax()`, dan `cummean()`). Jika kita membutuhkan agregat bergulir (mis., Jumlah yang dihitung di atas jendela bergulir). Berikut adalah contoh penerapannya:
+
+```{r}
+x
+cumsum(x)
+cummean(x)
+```
+
+5. **Operator logik** (<, <=, >, >=, !=). Jika kita melakukan urutan operasi logis yang kompleks, seringkali ide yang baik untuk menyimpan nilai sementara dalam variabel baru sehingga kita dapat memeriksa bahwa setiap langkah berfungsi seperti yang diharapkan.
+
+6. Rangking (`min_rank()`, `row_number()`, `dense_rank()`, `percent_rank()`, `cume_dist()`dan `ntile()`).
+
+### 3.5.6 summarize() dan group_by()
+
+Kita dapat membuat ringkasan data menggunakan fungsi `summarize()`. Fungsi tersebut akan merubah data frame menjadi sebuah baris berisi ringkasan data yang kita inginkan. Berikut adalh contoh penerapannya:
+
+```{r}
+summarize(flights, delay = mean(dep_delay, na.rm = TRUE))
+```
+
+FUngsi ini akan lebih berguna saat digunakan dengan fungsi `group_by()` sehingga dapat diperoleh ringkasan data pada setiap grup. berikut adalah contoh penerapannya:
+
+```{r}
+by_day <- group_by(flights, year, month, day)
+    summarize(by_day, delay = mean(dep_delay, na.rm = TRUE))
+```
+
+### 3.5.7 Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%>%)
+
+Operator pipa (%>%) sangat berguna untuk merangkai bersama beberapa fungsi `dplyr` dalam suatu urutan operasi. Perhatikan contoh sebelumnya dimana setiap kali kita ingin menerapkan lebih dari satu fungsi, urutannya akan dimulai dalam urutan panggilan fungsi bersarang yang sulit dibaca. Secara ringkas dapat kita tulis sebagai berikut:
+
+```{r, eval=FALSE}
+third(second(first(x)))
+```
+
+Jika dituliskan menggunakan operator pipa akan menghasilkan sintak berikut:
+
+```{r, eval=FALSE}
+x %>%
+  first() %>%
+  second() %>%
+  third()
+```
+
+Dengan menuliskannya melalui cara tersebut kita dapat membacanya lebih mudah.
+
+Misal kita ingin mengetahui hubungan antara variabel jarak (`dist`) terhadap rata-rata delay (`arr_delay`). Langkah-langkah untuk melakukannya dengan menggunakan operator pipa adalah sebagai berikut:
+
+1. Kelompokkan penerbangan berdasarkan destinasinya (`group_by()`).
+2. Hitung ringkasan data berdasarkan jarak, rata-rata delay, dan jumlah penerbangan.
+3. Lakukan filter untuk membuang *noisy point* (jika diperlukan). Dalam hal ini jumlah penerbangan > 20 dan tujuan penerbangan Honolulu ("HNL") adalah *outlier* atau *noisy point*.
+
+Berikut adalah sintaks untuk melakukannya:
+
+```{r distvsave, echo=FALSE, fig.cap='Jarak vs rata-rata delay', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+# Tanpa pipe operator
+by_dest <- group_by(flights, dest)
+delay <- summarize(by_dest,
+  count = n(),
+  dist = mean(distance, na.rm = TRUE),
+  delay = mean(arr_delay, na.rm = TRUE)
+)
+delay <- filter(delay, count > 20, dest != "HNL")
+
+# Dengan pipe operator
+delays <- flights %>%
+  group_by(dest) %>%
+  summarize(
+  count = n(),
+  dist = mean(distance, na.rm = TRUE),
+  delay = mean(arr_delay, na.rm = TRUE)
+  ) %>%
+  filter(count > 20, dest != "HNL")
+
+# Print
+delays
+
+# Visualisasikan dengan ggplot
+library(ggplot2)
+ggplot(data = delay, mapping = aes(x = dist, y = delay)) +
+geom_point(aes(size = count), alpha = 1/3) +
+geom_smooth(se = FALSE)
+```
+
+Berdasarkan Figure \@ref(fig:distvsave), rata-rata delay meningkat seiring dengan pertambahan jarak penerbangan.
+
+**Referensi**
+
+1. Wickham, H. Grolemund G. 2016. **R For Data Science: Import, Tidy, Transform, Visualize, And Model Data**. O'Reilly Media, Inc.
+2. Peng, R.D. 2015. **Exploratory Data Analysis with R**. Leanpub book.
+3. Dplyr Documentation. <https://dplyr.tidyverse.org/>
+4. Quick-R. **Data Input**. <https://www.statmethods.net/input/index.html>
+5. Quick-R. **Data Management**. <https://www.statmethods.net/management/index.html>
+6. STHDA. **Importing Data Into R **. <http://www.sthda.com/english/wiki/importing-data-into-r>
+7. STHDA. **Exporting Data From R**. <http://www.sthda.com/english/wiki/exporting-data-from-r>
+
 

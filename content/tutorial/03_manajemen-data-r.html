@@ -842,7 +842,7 @@ storms_old</code></pre>
 <li>Mengambil atau subset terhadap sebuah atau beberapa variabel berdasarkan nama variabel/kolom (<code>select()</code>).</li>
 <li>Membuat variabel baru atau menambahkan kolom baru (<code>mutate()</code>).</li>
 <li>Membuat ringkasan terhadap data frame (<code>summarize()</code>)</li>
-<li>Mengelompokkan operasi kelima fungsi diatas masing-masing berdasarkan grup data (<code>group_by()</code>).</li>
+<li>Mengelompokkan operasi berdasarkan grup data (<code>group_by()</code>).</li>
 </ol>
 <p>Keseluruhan fungsi tersebut format fungsi yang seragam, yaitu:</p>
 <ol style="list-style-type: decimal">
@@ -920,7 +920,11 @@ Figure 2: Diagram operasi Boolean
 </ul>
 </blockquote>
 <p>Misalkan kita ingin melihat urutan mobil pada data <code>mtcars</code> berdasarkan penggunaan bahan bakar (<code>mpg</code>) dan bobot mobil (<code>wt</code>) tersebut. Berikut adalah sintaks yang digunakan:</p>
-<pre class="r"><code>mtcars&lt;- as_tibble(mtcars)
+<pre class="r"><code>data(&quot;mtcars&quot;)
+
+# Ubah mtcars menjadi tibble
+mtcars&lt;- as_tibble(mtcars)
+
 arrange(mtcars, mpg, wt)</code></pre>
 <pre><code>## # A tibble: 32 x 11
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
@@ -936,7 +940,7 @@ arrange(mtcars, mpg, wt)</code></pre>
 ##  9  15.5     8  318    150  2.76  3.52  16.9     0     0     3     2
 ## 10  15.8     8  351    264  4.22  3.17  14.5     0     1     5     4
 ## # ... with 22 more rows</code></pre>
-<p>Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk kedua variabel tersebut jalankan command berikut:</p>
+<p>Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk kedua variabel tersebut jalankan sintaks berikut:</p>
 <pre class="r"><code>arrange(mtcars, desc(mpg), desc(wt))</code></pre>
 <pre><code>## # A tibble: 32 x 11
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
@@ -989,5 +993,342 @@ mtcars[order(-mpg, -wt), ]</code></pre>
 <blockquote>
 <p><strong>Note: </strong> <em>missing value</em> akan selalu diurutkan pada observasi terakhir baik menggunakan urutan dari terbesar ke terkecil maupun sebaliknya.</p>
 </blockquote>
+</div>
+<div id="select" class="section level3">
+<h3>3.5.4 select()</h3>
+<p>Fungsi <code>select()</code> dapat digunakan untuk memilih kolom dari data frame yang ingin kita fokuskan. Seringkali kita memiliki data frame yang besar yang berisi semua data, tetapi setiap analisis yang diberikan hanya menggunakan subset variabel atau pengamatan. Fungsi <code>select()</code> memungkinkan kita untuk mendapatkan beberapa kolom yang mungkin kita butuhkan.</p>
+<p>Fungsi <code>select()</code> memiliki kesamaan dengan subset menggunakan tanda “[” dan “$”. Perbedaanya adalah kita dapat melakukan hal lebih melalui fungsi ini seperti memilih berdasarkan kriteria tertentu menggunakan fungsi bantuan sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li><code>starts_with(&quot;abcd&quot;)</code>, pilih kolom yang memiliki awalan “abcd”.</li>
+<li><code>end_with(&quot;abcd&quot;)</code>, pilih kolom yang memiliki akhiran “abcd”.</li>
+<li><code>contains(&quot;abcd&quot;)</code>, pilih kolom yang mengandung nama “abcd”</li>
+<li><code>matches(&quot;(.)\\1&quot;)</code>, pilih variabel yang mengandung <em>regular expression</em>. Fungsi ini memilih variabel yang mengandung perulangan karakter.</li>
+<li><code>num_range(&quot;x&quot;, 1:3)</code>, cocokkan berdasarkan kolom dengan nama x1,x2,x3.</li>
+</ol>
+<p>Berdasarkan fungsi bantuan tersebut, fungsi <code>select()</code> lebih powerfull dibandingkan dengan cara subset biasa serta lebih mudah dalam melakukannya. Berikut adalah format dari fungsi <code>select()</code>:</p>
+<pre class="r"><code>select(data, ....)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong> : data frame</li>
+<li><strong>….</strong> : Satu atau lebih ekspresi kutip yang dipisahkan oleh koma. kita dapat memperlakukan nama variabel seperti posisi, sehingga kita dapat menggunakan ekspresi seperti x: y untuk memilih rentang variabel.Nilai positif pilih variabel; nilai negatif drop variabel. Jika ekspresi pertama negatif, <code>select()</code> akan secara otomatis dimulai dengan semua variabel. Gunakan argumen bernama, mis. <code>new_name = old_name</code>, untuk mengganti nama variabel yang dipilih.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapan <code>selct()</code> pada data frame <code>flights</code>.</p>
+<pre class="r"><code># memasang paket
+# install.packages(&quot;nycflights13&quot;)
+
+# memuat data frame
+library(nycflights13)</code></pre>
+<pre><code>## Warning: package &#39;nycflights13&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code># data
+flights</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># pilih kolom berdasarkan nama kolom
+select(flights, year, month, day)</code></pre>
+<pre><code>## # A tibble: 336,776 x 3
+##     year month   day
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1  2013     1     1
+##  2  2013     1     1
+##  3  2013     1     1
+##  4  2013     1     1
+##  5  2013     1     1
+##  6  2013     1     1
+##  7  2013     1     1
+##  8  2013     1     1
+##  9  2013     1     1
+## 10  2013     1     1
+## # ... with 336,766 more rows</code></pre>
+<pre class="r"><code># pilih seluruh kolom dari year sampai day
+select(flights, year:day)</code></pre>
+<pre><code>## # A tibble: 336,776 x 3
+##     year month   day
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1  2013     1     1
+##  2  2013     1     1
+##  3  2013     1     1
+##  4  2013     1     1
+##  5  2013     1     1
+##  6  2013     1     1
+##  7  2013     1     1
+##  8  2013     1     1
+##  9  2013     1     1
+## 10  2013     1     1
+## # ... with 336,766 more rows</code></pre>
+<pre class="r"><code># drop kolom dari year sampai day
+select(flights, -(year:day))</code></pre>
+<pre><code>## # A tibble: 336,776 x 16
+##    dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay
+##       &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
+##  1      517            515         2      830            819        11
+##  2      533            529         4      850            830        20
+##  3      542            540         2      923            850        33
+##  4      544            545        -1     1004           1022       -18
+##  5      554            600        -6      812            837       -25
+##  6      554            558        -4      740            728        12
+##  7      555            600        -5      913            854        19
+##  8      557            600        -3      709            723       -14
+##  9      557            600        -3      838            846        -8
+## 10      558            600        -2      753            745         8
+## # ... with 336,766 more rows, and 10 more variables: carrier &lt;chr&gt;,
+## #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># pilih kolom dengan akhiran time
+select(flights, ends_with(&quot;time&quot;))</code></pre>
+<pre><code>## # A tibble: 336,776 x 5
+##    dep_time sched_dep_time arr_time sched_arr_time air_time
+##       &lt;int&gt;          &lt;int&gt;    &lt;int&gt;          &lt;int&gt;    &lt;dbl&gt;
+##  1      517            515      830            819      227
+##  2      533            529      850            830      227
+##  3      542            540      923            850      160
+##  4      544            545     1004           1022      183
+##  5      554            600      812            837      116
+##  6      554            558      740            728      150
+##  7      555            600      913            854      158
+##  8      557            600      709            723       53
+##  9      557            600      838            846      140
+## 10      558            600      753            745      138
+## # ... with 336,766 more rows</code></pre>
+<pre class="r"><code># pilih kolom yang mengandung karakter &quot;arr&quot;
+select(flights, contains(&quot;arr&quot;))</code></pre>
+<pre><code>## # A tibble: 336,776 x 4
+##    arr_time sched_arr_time arr_delay carrier
+##       &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;  
+##  1      830            819        11 UA     
+##  2      850            830        20 UA     
+##  3      923            850        33 AA     
+##  4     1004           1022       -18 B6     
+##  5      812            837       -25 DL     
+##  6      740            728        12 UA     
+##  7      913            854        19 B6     
+##  8      709            723       -14 EV     
+##  9      838            846        -8 B6     
+## 10      753            745         8 AA     
+## # ... with 336,766 more rows</code></pre>
+<p>Kita juga dapat menggunakan fungsi tambahan <code>everithing()</code> yang berguna jika kita ingin memindahkan variabel yang menjadi fokus kita ke awal data frame tanpa melakukan drop variabel. Berikut adalah contoh sintaksnya:</p>
+<pre class="r"><code># pindahkan kolom yang mengandung time di awal
+select(flights, contains(&quot;time&quot;), everything())</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##    dep_time sched_dep_time arr_time sched_arr_time air_time
+##       &lt;int&gt;          &lt;int&gt;    &lt;int&gt;          &lt;int&gt;    &lt;dbl&gt;
+##  1      517            515      830            819      227
+##  2      533            529      850            830      227
+##  3      542            540      923            850      160
+##  4      544            545     1004           1022      183
+##  5      554            600      812            837      116
+##  6      554            558      740            728      150
+##  7      555            600      913            854      158
+##  8      557            600      709            723       53
+##  9      557            600      838            846      140
+## 10      558            600      753            745      138
+## # ... with 336,766 more rows, and 14 more variables: time_hour &lt;dttm&gt;,
+## #   year &lt;int&gt;, month &lt;int&gt;, day &lt;int&gt;, dep_delay &lt;dbl&gt;, arr_delay &lt;dbl&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;</code></pre>
+</div>
+<div id="mutate" class="section level3">
+<h3>3.5.5 mutate()</h3>
+<p>Fungsi <code>mutate()</code> ada untuk menghitung transformasi variabel dalam data frame. Seringkali, kita ingin membuat variabel baru yang berasal dari variabel yang ada dan fungsi <code>mutate()</code> menyediakan antarmuka yang bersih untuk melakukan itu. Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>mutate(data, ....)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>data</strong> : data frame</li>
+<li><strong>….</strong> : Pasangan nama-nilai ekspresi, masing-masing dengan panjang 1 atau panjang yang sama dengan jumlah baris dalam grup (jika menggunakan group_by ()) atau di seluruh input (jika tidak menggunakan grup). Nama setiap argumen akan menjadi nama variabel baru, dan nilainya akan menjadi nilai yang sesuai. Gunakan nilai NULL dalam mutasi untuk menjatuhkan drop variabel lama, sehingga variabel baru menimpa variabel yang ada dengan nama yang sama.</li>
+</ul>
+</blockquote>
+<pre class="r"><code># subset data frame
+flights_sml &lt;- select(flights,
+  year:day,
+  ends_with(&quot;delay&quot;),
+  distance,
+  air_time
+)
+
+# mutate()
+mutate(flights_sml,
+  gain = arr_delay - dep_delay,
+  hours = air_time / 60,
+  gain_per_hour = gain / hours
+)</code></pre>
+<pre><code>## # A tibble: 336,776 x 10
+##     year month   day dep_delay arr_delay distance air_time  gain hours
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  2013     1     1         2        11     1400      227     9 3.78 
+##  2  2013     1     1         4        20     1416      227    16 3.78 
+##  3  2013     1     1         2        33     1089      160    31 2.67 
+##  4  2013     1     1        -1       -18     1576      183   -17 3.05 
+##  5  2013     1     1        -6       -25      762      116   -19 1.93 
+##  6  2013     1     1        -4        12      719      150    16 2.5  
+##  7  2013     1     1        -5        19     1065      158    24 2.63 
+##  8  2013     1     1        -3       -14      229       53   -11 0.883
+##  9  2013     1     1        -3        -8      944      140    -5 2.33 
+## 10  2013     1     1        -2         8      733      138    10 2.3  
+## # ... with 336,766 more rows, and 1 more variable: gain_per_hour &lt;dbl&gt;</code></pre>
+<p>Jika hanya ingin menyisakan variabel output fungsi <code>mutate()</code> pada data frame (variabel lain di drop), kita dapat menggunakan fungsi <code>transmute()</code>. Berikut adalah contoh sintaks yang digunakan:</p>
+<pre class="r"><code>transmute(flights,
+  gain = arr_delay - dep_delay,
+  hours = air_time / 60,
+  gain_per_hour = gain / hours
+)</code></pre>
+<pre><code>## # A tibble: 336,776 x 3
+##     gain hours gain_per_hour
+##    &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;
+##  1     9 3.78           2.38
+##  2    16 3.78           4.23
+##  3    31 2.67          11.6 
+##  4   -17 3.05          -5.57
+##  5   -19 1.93          -9.83
+##  6    16 2.5            6.4 
+##  7    24 2.63           9.11
+##  8   -11 0.883        -12.5 
+##  9    -5 2.33          -2.14
+## 10    10 2.3            4.35
+## # ... with 336,766 more rows</code></pre>
+<p>Adapaun fungsi-fungsi dan operator yang dapat digunakan pada <code>mutate()</code> untuk membuat variabel baru adalah sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Operator aritmatik</strong> (+,-,*,/,^, %/%, %%). operator aritmetik seperti %/% dan %% sangat berguna dalam memecah integer menjadi beberapa bagian seperti hasil bagi tanpa sisa (%/%) dan sisa hasil bagi (%%). Berikut adalah contoh penerapannya:</li>
+</ol>
+<pre class="r"><code>transmute(flights,
+  dep_time,
+  hour = dep_time %/% 100,
+  minute = dep_time %% 100
+)</code></pre>
+<pre><code>## # A tibble: 336,776 x 3
+##    dep_time  hour minute
+##       &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1      517     5     17
+##  2      533     5     33
+##  3      542     5     42
+##  4      544     5     44
+##  5      554     5     54
+##  6      554     5     54
+##  7      555     5     55
+##  8      557     5     57
+##  9      557     5     57
+## 10      558     5     58
+## # ... with 336,766 more rows</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Fungsi aritmetik</strong> (<code>log()</code>,<code>sin()</code>,<code>cos()</code>,dll)</li>
+<li><strong>Fungsi Offsets</strong> (<code>lead()</code>dan <code>lag()</code>). memungkinkan kita untuk merujuk pada nilai-nilai memimpin atau tertinggal. Berikut adalah contoh penerapannya:</li>
+</ol>
+<pre class="r"><code>(x &lt;- 1:10)</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>lag(x)</code></pre>
+<pre><code>##  [1] NA  1  2  3  4  5  6  7  8  9</code></pre>
+<pre class="r"><code>lead(x)</code></pre>
+<pre><code>##  [1]  2  3  4  5  6  7  8  9 10 NA</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Fungsi kumulatif</strong> (<code>cumsum()</code>,<code>cumprod()</code>,<code>cummin()</code>,<code>cummax()</code>, dan <code>cummean()</code>). Jika kita membutuhkan agregat bergulir (mis., Jumlah yang dihitung di atas jendela bergulir). Berikut adalah contoh penerapannya:</li>
+</ol>
+<pre class="r"><code>x</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>cumsum(x)</code></pre>
+<pre><code>##  [1]  1  3  6 10 15 21 28 36 45 55</code></pre>
+<pre class="r"><code>cummean(x)</code></pre>
+<pre><code>##  [1] 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li><p><strong>Operator logik</strong> (&lt;, &lt;=, &gt;, &gt;=, !=). Jika kita melakukan urutan operasi logis yang kompleks, seringkali ide yang baik untuk menyimpan nilai sementara dalam variabel baru sehingga kita dapat memeriksa bahwa setiap langkah berfungsi seperti yang diharapkan.</p></li>
+<li><p>Rangking (<code>min_rank()</code>, <code>row_number()</code>, <code>dense_rank()</code>, <code>percent_rank()</code>, <code>cume_dist()</code>dan <code>ntile()</code>).</p></li>
+</ol>
+</div>
+<div id="summarize-dan-group_by" class="section level3">
+<h3>3.5.6 summarize() dan group_by()</h3>
+<p>Kita dapat membuat ringkasan data menggunakan fungsi <code>summarize()</code>. Fungsi tersebut akan merubah data frame menjadi sebuah baris berisi ringkasan data yang kita inginkan. Berikut adalh contoh penerapannya:</p>
+<pre class="r"><code>summarize(flights, delay = mean(dep_delay, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   delay
+##   &lt;dbl&gt;
+## 1  12.6</code></pre>
+<p>FUngsi ini akan lebih berguna saat digunakan dengan fungsi <code>group_by()</code> sehingga dapat diperoleh ringkasan data pada setiap grup. berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>by_day &lt;- group_by(flights, year, month, day)
+    summarize(by_day, delay = mean(dep_delay, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 365 x 4
+## # Groups:   year, month [12]
+##     year month   day delay
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1  2013     1     1 11.5 
+##  2  2013     1     2 13.9 
+##  3  2013     1     3 11.0 
+##  4  2013     1     4  8.95
+##  5  2013     1     5  5.73
+##  6  2013     1     6  7.15
+##  7  2013     1     7  5.42
+##  8  2013     1     8  2.55
+##  9  2013     1     9  2.28
+## 10  2013     1    10  2.84
+## # ... with 355 more rows</code></pre>
+</div>
+<div id="mengkombinasikan-beberapa-operasi-menggunakan-operator-pipe" class="section level3">
+<h3>3.5.7 Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%&gt;%)</h3>
+<p>Operator pipa (%&gt;%) sangat berguna untuk merangkai bersama beberapa fungsi <code>dplyr</code> dalam suatu urutan operasi. Perhatikan contoh sebelumnya dimana setiap kali kita ingin menerapkan lebih dari satu fungsi, urutannya akan dimulai dalam urutan panggilan fungsi bersarang yang sulit dibaca. Secara ringkas dapat kita tulis sebagai berikut:</p>
+<pre class="r"><code>third(second(first(x)))</code></pre>
+<p>Jika dituliskan menggunakan operator pipa akan menghasilkan sintak berikut:</p>
+<pre class="r"><code>x %&gt;%
+  first() %&gt;%
+  second() %&gt;%
+  third()</code></pre>
+<p>Dengan menuliskannya melalui cara tersebut kita dapat membacanya lebih mudah.</p>
+<p>Misal kita ingin mengetahui hubungan antara variabel jarak (<code>dist</code>) terhadap rata-rata delay (<code>arr_delay</code>). Langkah-langkah untuk melakukannya dengan menggunakan operator pipa adalah sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li>Kelompokkan penerbangan berdasarkan destinasinya (<code>group_by()</code>).</li>
+<li>Hitung ringkasan data berdasarkan jarak, rata-rata delay, dan jumlah penerbangan.</li>
+<li>Lakukan filter untuk membuang <em>noisy point</em> (jika diperlukan). Dalam hal ini jumlah penerbangan &gt; 20 dan tujuan penerbangan Honolulu (“HNL”) adalah <em>outlier</em> atau <em>noisy point</em>.</li>
+</ol>
+<p>Berikut adalah sintaks untuk melakukannya:</p>
+<pre><code>## # A tibble: 96 x 4
+##    dest  count  dist delay
+##    &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 ABQ     254 1826   4.38
+##  2 ACK     265  199   4.85
+##  3 ALB     439  143  14.4 
+##  4 ATL   17215  757. 11.3 
+##  5 AUS    2439 1514.  6.02
+##  6 AVL     275  584.  8.00
+##  7 BDL     443  116   7.05
+##  8 BGR     375  378   8.03
+##  9 BHM     297  866. 16.9 
+## 10 BNA    6333  758. 11.8 
+## # ... with 86 more rows</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggplot2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;mtcars&#39;:
+## 
+##     mpg</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:distvsave"></span>
+<img src="/tutorial/03_manajemen-data-r_files/figure-html/distvsave-1.png" alt="Jarak vs rata-rata delay" width="480" />
+<p class="caption">
+Figure 3: Jarak vs rata-rata delay
+</p>
+</div>
+<p>Berdasarkan Figure <a href="#fig:distvsave">3</a>, rata-rata delay meningkat seiring dengan pertambahan jarak penerbangan.</p>
+<p><strong>Referensi</strong></p>
+<ol style="list-style-type: decimal">
+<li>Wickham, H. Grolemund G. 2016. <strong>R For Data Science: Import, Tidy, Transform, Visualize, And Model Data</strong>. O’Reilly Media, Inc.</li>
+<li>Peng, R.D. 2015. <strong>Exploratory Data Analysis with R</strong>. Leanpub book.</li>
+<li>Dplyr Documentation. <a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a></li>
+<li>Quick-R. <strong>Data Input</strong>. <a href="https://www.statmethods.net/input/index.html" class="uri">https://www.statmethods.net/input/index.html</a></li>
+<li>Quick-R. <strong>Data Management</strong>. <a href="https://www.statmethods.net/management/index.html" class="uri">https://www.statmethods.net/management/index.html</a></li>
+<li>STHDA. <strong>Importing Data Into R </strong>. <a href="http://www.sthda.com/english/wiki/importing-data-into-r" class="uri">http://www.sthda.com/english/wiki/importing-data-into-r</a></li>
+<li>STHDA. <strong>Exporting Data From R</strong>. <a href="http://www.sthda.com/english/wiki/exporting-data-from-r" class="uri">http://www.sthda.com/english/wiki/exporting-data-from-r</a></li>
+</ol>
 </div>
 </div>
