@@ -2952,6 +2952,166 @@ kali(4,3)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>3. Visualisasi Data Menggunakan Fungsi Dasar R</title>
+      <link>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</guid>
+      <description>
+
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;Visualisasi%20Data%20Menggunakan%20Fungsi%20plot&#34;&gt;&lt;/a&gt;[#4-1-visualisasi-data-menggunakan-fungsi-plot]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;visualisasi-data-menggunakan-fungsi-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;4.1 Visualisasi Data Menggunakan Fungsi plot()&lt;/h2&gt;
+&lt;p&gt;Fungsi &lt;code&gt;plot()&lt;/code&gt; merupakan fungsi umum yang digunakan untuk membuat plot pada &lt;code&gt;R&lt;/code&gt;. Format dasarnya adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y, type=&amp;quot;p&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x dan y&lt;/strong&gt;: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;type&lt;/strong&gt;: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:&lt;/li&gt;
+&lt;li&gt;type=“p” : membuat plot titik atau scatterplot. Nilai ini merupakan default pada fungsi &lt;code&gt;plot()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;type=“l” : membuat plot garis.&lt;/li&gt;
+&lt;li&gt;type=“b” : membuat plot titik yang terhubung dengan garis.&lt;/li&gt;
+&lt;li&gt;type=“o” : membuat plot titik yang ditimpa oleh garis.&lt;/li&gt;
+&lt;li&gt;type=“h” : membuat plot garis vertikal dari titik ke garis y=0.&lt;/li&gt;
+&lt;li&gt;type=“s” : membuat fungsi tangga.&lt;/li&gt;
+&lt;li&gt;type=“n” : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Figure &lt;a href=&#34;#fig:plot&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor data 
+x &amp;lt;- c(1:10); y &amp;lt;- x^2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y, type=&amp;quot;p&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:plot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-1.png&#34; alt=&#34;Plot berbagai jenis setting type&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Plot berbagai jenis setting type
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y, type=&amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:plot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-2.png&#34; alt=&#34;Plot berbagai jenis setting type&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Plot berbagai jenis setting type
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y, type=&amp;quot;b&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:plot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-3.png&#34; alt=&#34;Plot berbagai jenis setting type&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Plot berbagai jenis setting type
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y, type=&amp;quot;o&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:plot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-4.png&#34; alt=&#34;Plot berbagai jenis setting type&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Plot berbagai jenis setting type
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y, type=&amp;quot;h&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:plot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-5.png&#34; alt=&#34;Plot berbagai jenis setting type&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Plot berbagai jenis setting type
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y, type=&amp;quot;s&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:plot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-6.png&#34; alt=&#34;Plot berbagai jenis setting type&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Plot berbagai jenis setting type
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y, type=&amp;quot;n&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:plot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-7.png&#34; alt=&#34;Plot berbagai jenis setting type&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Plot berbagai jenis setting type
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada contoh selanjutnya akan dilakukan plot terhadap dataset &lt;code&gt;trees&lt;/code&gt;. Untuk memuatnya jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat dataset
+trees &amp;lt;- as_tibble(trees)
+
+# print 
+trees&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 31 x 3
+##    Girth Height Volume
+##    &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+##  1   8.3     70   10.3
+##  2   8.6     65   10.3
+##  3   8.8     63   10.2
+##  4  10.5     72   16.4
+##  5  10.7     81   18.8
+##  6  10.8     83   19.7
+##  7  11       66   15.6
+##  8  11       75   18.2
+##  9  11.1     80   22.6
+## 10  11.2     75   19.9
+## # ... with 21 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pada dataset tersebut kita ingin membuat scatterplot untuk melihat korelasi antara variabel &lt;code&gt;Height&lt;/code&gt; dan &lt;code&gt;Volume&lt;/code&gt;. Untuk melakukannya jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(trees$Height, trees$Volume)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau 
+with(trees, plot(Height, Volume))&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:scatter&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/scatter-1.png&#34; alt=&#34;Scatterplot Height vs Volume&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Scatterplot Height vs Volume
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Kita juga dapat menggunakan formula untuk membuat scatterplot pada Figure &lt;a href=&#34;#fig:scatter&#34;&gt;2&lt;/a&gt;. Berikut adalah contoh sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- trees$Height
+y &amp;lt;- trees$Volume
+
+plot(y~x)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Fungsi &lt;code&gt;plot()&lt;/code&gt; juga dapat digunakan untuk membentuk matriks scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh dataset kedalam fungsi &lt;code&gt;plot()&lt;/code&gt;. Berikut adalah sintaks dan output yang dihasilkan berupa Figure &lt;a href=&#34;#fig:scatter2&#34;&gt;3&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(trees)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:scatter2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/scatter2-1.png&#34; alt=&#34;Matriks scatterplot dataset trees&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Matriks scatterplot dataset trees
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Selain itu jika kita memasukkan objek &lt;code&gt;lm()&lt;/code&gt; yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi &lt;code&gt;plot()&lt;/code&gt;, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:diag&#34;&gt;4&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(lm(Volume~Height, data=trees))&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:diag&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-1.png&#34; alt=&#34;Plot diagnostik regresi linier&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Plot diagnostik regresi linier
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:diag&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-2.png&#34; alt=&#34;Plot diagnostik regresi linier&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Plot diagnostik regresi linier
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:diag&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-3.png&#34; alt=&#34;Plot diagnostik regresi linier&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Plot diagnostik regresi linier
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:diag&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-4.png&#34; alt=&#34;Plot diagnostik regresi linier&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Plot diagnostik regresi linier
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Selain objek-objek tersebut, fungsi &lt;code&gt;plot()&lt;/code&gt; akan banyak digunakan dalam analisis statistika kita pada chapter lainnya.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
       <link>/post/mengenal-r/mengenal-lebih-jauh-r/</link>
       <pubDate>Sat, 02 Mar 2019 21:13:14 -0500</pubDate>

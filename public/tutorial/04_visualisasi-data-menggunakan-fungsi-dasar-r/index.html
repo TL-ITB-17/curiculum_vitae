@@ -28,10 +28,13 @@
   
     
   
-  <meta name="description" content="Master Student at Environmental Engineering">
+  <meta name="description" content="Note: 
+[#4-1-visualisasi-data-menggunakan-fungsi-plot]4.1 Visualisasi Data Menggunakan Fungsi plot()Fungsi plot() merupakan fungsi umum yang digunakan untuk membuat plot pada R. Format dasarnya adalah sebagai berikut:
+plot(x, y, type=&quot;p&quot;)Note: 
+x dan y: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.type: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:type=“p” : membuat plot titik atau scatterplot.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/tutorial/">
+  <link rel="alternate" hreflang="en-us" href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">
 
   
 
@@ -98,15 +101,15 @@
   
 
   
-  <link rel="alternate" href="/tutorial/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
-  <link rel="feed" href="/tutorial/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tutorial/">
+  <link rel="canonical" href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">
 
   
   
@@ -118,19 +121,24 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Environmental Data Modeling">
-  <meta property="og:url" content="/tutorial/">
-  <meta property="og:title" content="Overview | Environmental Data Modeling">
-  <meta property="og:description" content="Master Student at Environmental Engineering"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:url" content="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">
+  <meta property="og:title" content="3. Visualisasi Data Menggunakan Fungsi Dasar R | Environmental Data Modeling">
+  <meta property="og:description" content="Note: 
+[#4-1-visualisasi-data-menggunakan-fungsi-plot]4.1 Visualisasi Data Menggunakan Fungsi plot()Fungsi plot() merupakan fungsi umum yang digunakan untuk membuat plot pada R. Format dasarnya adalah sebagai berikut:
+plot(x, y, type=&quot;p&quot;)Note: 
+x dan y: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.type: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:type=“p” : membuat plot titik atau scatterplot."><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-01T00:00:00&#43;07:00">
+  <meta property="article:published_time" content="2019-03-09T00:00:00&#43;07:00">
+  
+  <meta property="article:modified_time" content="2019-03-09T00:00:00&#43;07:00">
   
 
   
 
   
 
-  <title>Overview | Environmental Data Modeling</title>
+  <title>3. Visualisasi Data Menggunakan Fungsi Dasar R | Environmental Data Modeling</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -367,7 +375,7 @@
 <nav class="collapse docs-links" id="docs-nav">
   
   
-  <div class="docs-toc-item active">
+  <div class="docs-toc-item">
     <a class="docs-toc-link" href="/tutorial/">Overview</a>
 
   </div>
@@ -397,7 +405,7 @@
     <a class="docs-toc-link" href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">Visualisasi Data</a>
     <ul class="nav docs-sidenav">
       
-      <li >
+      <li class="active">
         <a href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">Visualisasi Data Menggunakan Fungsi Dasar R</a>
       </li>
       
@@ -418,19 +426,160 @@
       <article class="article" itemscope itemtype="http://schema.org/Article">
 
         <div class="docs-article-container">
-          <h1 itemprop="name">Overview</h1>
+          <h1 itemprop="name">3. Visualisasi Data Menggunakan Fungsi Dasar R</h1>
 
           <div class="article-style" itemprop="articleBody">
             
 
 
-<p>Pada section ini penulis akan menyajikan beberapa tutorial terkait analisa data dan modeling menggunakan <code>R</code>. Tutorial secara garis besar akan membahas:</p>
+<blockquote>
+<p><strong>Note: </strong></p>
 <ul>
-<li>Analisa dan modeling data menggunakan metode statistik di <code>R</code></li>
-<li>Analisa dan modeling lingkungan menggunakan <code>R</code></li>
-<li>Optimasi operasi menggunakan <code>R</code></li>
+<li><a href="Visualisasi%20Data%20Menggunakan%20Fungsi%20plot"></a>[#4-1-visualisasi-data-menggunakan-fungsi-plot]</li>
 </ul>
-<p>Pembahasan juga akan meliputi analisa statistik menggunakan <code>GUI R (R Commander)</code> untuk menganalisa data.</p>
+</blockquote>
+<div id="visualisasi-data-menggunakan-fungsi-plot" class="section level2">
+<h2>4.1 Visualisasi Data Menggunakan Fungsi plot()</h2>
+<p>Fungsi <code>plot()</code> merupakan fungsi umum yang digunakan untuk membuat plot pada <code>R</code>. Format dasarnya adalah sebagai berikut:</p>
+<pre class="r"><code>plot(x, y, type=&quot;p&quot;)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x dan y</strong>: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.</li>
+<li><strong>type</strong>: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:</li>
+<li>type=“p” : membuat plot titik atau scatterplot. Nilai ini merupakan default pada fungsi <code>plot()</code>.</li>
+<li>type=“l” : membuat plot garis.</li>
+<li>type=“b” : membuat plot titik yang terhubung dengan garis.</li>
+<li>type=“o” : membuat plot titik yang ditimpa oleh garis.</li>
+<li>type=“h” : membuat plot garis vertikal dari titik ke garis y=0.</li>
+<li>type=“s” : membuat fungsi tangga.</li>
+<li>type=“n” : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.</li>
+</ul>
+</blockquote>
+<p>Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Figure <a href="#fig:plot">1</a>:</p>
+<pre class="r"><code># membuat vektor data 
+x &lt;- c(1:10); y &lt;- x^2</code></pre>
+<pre class="r"><code>plot(x, y, type=&quot;p&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:plot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-1.png" alt="Plot berbagai jenis setting type" width="672" />
+<p class="caption">
+Figure 1: Plot berbagai jenis setting type
+</p>
+</div>
+<pre class="r"><code>plot(x, y, type=&quot;l&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:plot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-2.png" alt="Plot berbagai jenis setting type" width="672" />
+<p class="caption">
+Figure 1: Plot berbagai jenis setting type
+</p>
+</div>
+<pre class="r"><code>plot(x, y, type=&quot;b&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:plot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-3.png" alt="Plot berbagai jenis setting type" width="672" />
+<p class="caption">
+Figure 1: Plot berbagai jenis setting type
+</p>
+</div>
+<pre class="r"><code>plot(x, y, type=&quot;o&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:plot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-4.png" alt="Plot berbagai jenis setting type" width="672" />
+<p class="caption">
+Figure 1: Plot berbagai jenis setting type
+</p>
+</div>
+<pre class="r"><code>plot(x, y, type=&quot;h&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:plot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-5.png" alt="Plot berbagai jenis setting type" width="672" />
+<p class="caption">
+Figure 1: Plot berbagai jenis setting type
+</p>
+</div>
+<pre class="r"><code>plot(x, y, type=&quot;s&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:plot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-6.png" alt="Plot berbagai jenis setting type" width="672" />
+<p class="caption">
+Figure 1: Plot berbagai jenis setting type
+</p>
+</div>
+<pre class="r"><code>plot(x, y, type=&quot;n&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:plot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-7.png" alt="Plot berbagai jenis setting type" width="672" />
+<p class="caption">
+Figure 1: Plot berbagai jenis setting type
+</p>
+</div>
+<p>Pada contoh selanjutnya akan dilakukan plot terhadap dataset <code>trees</code>. Untuk memuatnya jalankan sintaks berikut:</p>
+<pre class="r"><code>library(tibble)</code></pre>
+<pre class="r"><code># memuat dataset
+trees &lt;- as_tibble(trees)
+
+# print 
+trees</code></pre>
+<pre><code>## # A tibble: 31 x 3
+##    Girth Height Volume
+##    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1   8.3     70   10.3
+##  2   8.6     65   10.3
+##  3   8.8     63   10.2
+##  4  10.5     72   16.4
+##  5  10.7     81   18.8
+##  6  10.8     83   19.7
+##  7  11       66   15.6
+##  8  11       75   18.2
+##  9  11.1     80   22.6
+## 10  11.2     75   19.9
+## # ... with 21 more rows</code></pre>
+<p>Pada dataset tersebut kita ingin membuat scatterplot untuk melihat korelasi antara variabel <code>Height</code> dan <code>Volume</code>. Untuk melakukannya jalankan sintaks berikut:</p>
+<pre class="r"><code>plot(trees$Height, trees$Volume)</code></pre>
+<pre class="r"><code># atau 
+with(trees, plot(Height, Volume))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:scatter"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/scatter-1.png" alt="Scatterplot Height vs Volume" width="672" />
+<p class="caption">
+Figure 2: Scatterplot Height vs Volume
+</p>
+</div>
+<p>Kita juga dapat menggunakan formula untuk membuat scatterplot pada Figure <a href="#fig:scatter">2</a>. Berikut adalah contoh sintaks yang digunakan:</p>
+<pre class="r"><code>x &lt;- trees$Height
+y &lt;- trees$Volume
+
+plot(y~x)</code></pre>
+<p>Fungsi <code>plot()</code> juga dapat digunakan untuk membentuk matriks scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh dataset kedalam fungsi <code>plot()</code>. Berikut adalah sintaks dan output yang dihasilkan berupa Figure <a href="#fig:scatter2">3</a>:</p>
+<pre class="r"><code>plot(trees)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:scatter2"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/scatter2-1.png" alt="Matriks scatterplot dataset trees" width="672" />
+<p class="caption">
+Figure 3: Matriks scatterplot dataset trees
+</p>
+</div>
+<p>Selain itu jika kita memasukkan objek <code>lm()</code> yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi <code>plot()</code>, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="#fig:diag">4</a>:</p>
+<pre class="r"><code>plot(lm(Volume~Height, data=trees))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:diag"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-1.png" alt="Plot diagnostik regresi linier" width="672" />
+<p class="caption">
+Figure 4: Plot diagnostik regresi linier
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:diag"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-2.png" alt="Plot diagnostik regresi linier" width="672" />
+<p class="caption">
+Figure 4: Plot diagnostik regresi linier
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:diag"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-3.png" alt="Plot diagnostik regresi linier" width="672" />
+<p class="caption">
+Figure 4: Plot diagnostik regresi linier
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:diag"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-4.png" alt="Plot diagnostik regresi linier" width="672" />
+<p class="caption">
+Figure 4: Plot diagnostik regresi linier
+</p>
+</div>
+<p>Selain objek-objek tersebut, fungsi <code>plot()</code> akan banyak digunakan dalam analisis statistika kita pada chapter lainnya.</p>
+</div>
 
           </div>
 
@@ -439,7 +588,7 @@
         </div>
 
         <div class="body-footer">
-          Last updated on Mar 1, 2019
+          Last updated on Mar 9, 2019
         </div>
 
       </article>

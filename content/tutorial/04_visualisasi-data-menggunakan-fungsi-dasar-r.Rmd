@@ -1,0 +1,106 @@
+---
+title: "3. Visualisasi Data Menggunakan Fungsi Dasar R"
+draft: false
+date: '2019-03-09T00:00:00+07:00'
+output: pdf_document
+menu:
+  tutorial:
+    parent: Visualisasi Data
+    weight: 3
+linktitle: Visualisasi Data Menggunakan Fungsi Dasar R
+type: docs
+---
+
+> **Note: **
+>
+> - [](Visualisasi Data Menggunakan Fungsi plot)[#4-1-visualisasi-data-menggunakan-fungsi-plot]
+>
+
+
+## 4.1 Visualisasi Data Menggunakan Fungsi plot()
+
+Fungsi `plot()` merupakan fungsi umum yang digunakan untuk membuat plot pada `R`. Format dasarnya adalah sebagai berikut:
+
+```{r, eval=FALSE}
+plot(x, y, type="p")
+```
+
+> **Note: **
+>
+> - **x dan y**: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.
+> - **type**: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:
+>   + type="p" : membuat plot titik atau scatterplot. Nilai ini merupakan default pada fungsi `plot()`.
+>   + type="l" : membuat plot garis.
+>   + type="b" : membuat plot titik yang terhubung dengan garis.
+>   + type="o" : membuat plot titik yang ditimpa oleh garis.
+>   + type="h" : membuat plot garis vertikal dari titik ke garis y=0.
+>   + type="s" : membuat fungsi tangga.
+>   + type="n" : tidak membuat grafik plot sama sekali, kecuali plot dari axis. Dapat digunakan untuk mengatur tampilan suatu plot utama yang diikuti oleh sekelompok plot tambahan.
+
+Untuk lebih memahaminya berikut penulis akan sajikan contoh untuk masing-masing grafik tersebut. Berikut adalah contoh sintaks dan hasil plot yang disajikan pada Figure \@ref(fig:plot):
+
+```{r}
+# membuat vektor data 
+x <- c(1:10); y <- x^2
+```
+
+```{r plot, fig.cap='Plot berbagai jenis setting type', tidy=FALSE, fig.align='center'}
+plot(x, y, type="p")
+plot(x, y, type="l")
+plot(x, y, type="b")
+plot(x, y, type="o")
+plot(x, y, type="h")
+plot(x, y, type="s")
+plot(x, y, type="n")
+```
+
+Pada contoh selanjutnya akan dilakukan plot terhadap dataset `trees`. Untuk memuatnya jalankan sintaks berikut:
+```{r, message=FALSE}
+library(tibble)
+```
+
+
+```{r}
+# memuat dataset
+trees <- as_tibble(trees)
+
+# print 
+trees
+```
+
+Pada dataset tersebut kita ingin membuat scatterplot untuk melihat korelasi antara variabel `Height` dan `Volume`. Untuk melakukannya jalankan sintaks berikut:
+
+```{r, eval=FALSE}
+plot(trees$Height, trees$Volume)
+```
+
+```{r scatter, fig.cap='Scatterplot Height vs Volume', tidy=FALSE, fig.align='center'}
+# atau 
+with(trees, plot(Height, Volume))
+```
+
+Kita juga dapat menggunakan formula untuk membuat scatterplot pada Figure \@ref(fig:scatter). Berikut adalah contoh sintaks yang digunakan:
+
+```{r, eval=FALSE}
+x <- trees$Height
+y <- trees$Volume
+
+plot(y~x)
+```
+
+Fungsi `plot()` juga dapat digunakan untuk membentuk matriks scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh dataset kedalam fungsi `plot()`. Berikut adalah sintaks dan output yang dihasilkan berupa Figure \@ref(fig:scatter2):
+
+```{r scatter2, fig.cap='Matriks scatterplot dataset trees', tidy=FALSE, fig.align='center'}
+plot(trees)
+```
+
+Selain itu jika kita memasukkan objek `lm()` yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi `plot()`, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:diag):
+
+```{r diag, fig.cap='Plot diagnostik regresi linier', tidy=FALSE, fig.align='center'}
+plot(lm(Volume~Height, data=trees))
+```
+
+Selain objek-objek tersebut, fungsi `plot()` akan banyak digunakan dalam analisis statistika kita pada chapter lainnya.
+
+
+

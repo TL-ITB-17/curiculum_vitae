@@ -41,5 +41,17 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
 (2+4)*2## [1] 12R dapat digunakan sebagai kalkulator</description>
     </item>
     
+    <item>
+      <title>3. Visualisasi Data Menggunakan Fungsi Dasar R</title>
+      <link>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</guid>
+      <description>Note: 
+[#4-1-visualisasi-data-menggunakan-fungsi-plot]4.1 Visualisasi Data Menggunakan Fungsi plot()Fungsi plot() merupakan fungsi umum yang digunakan untuk membuat plot pada R. Format dasarnya adalah sebagai berikut:
+plot(x, y, type=&amp;quot;p&amp;quot;)Note: 
+x dan y: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.type: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:type=“p” : membuat plot titik atau scatterplot.</description>
+    </item>
+    
   </channel>
 </rss>
