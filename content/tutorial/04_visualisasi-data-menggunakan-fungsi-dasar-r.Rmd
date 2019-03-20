@@ -50,14 +50,12 @@ x <- c(1:10); y <- x^2
 # membagi jendela grafik menajdi 4 baris dan 2 kolom
 par(mfrow=c(3,3))
 
-# plot
-plot(x, y, type="p", main="p")
-plot(x, y, type="l", main="l")
-plot(x, y, type="b", main="b")
-plot(x, y, type="o", main="o")
-plot(x, y, type="h", main="h")
-plot(x, y, type="s", main="s")
-plot(x, y, type="n", main="n")
+# loop
+type <- c("p","l","b","o","h","s","n")
+for (i in type){
+  plot(x,y, type= i,
+       main= paste("type=", i))
+}
 ```
 
 ```{r, echo=FALSE}
@@ -272,6 +270,61 @@ boxplot(len ~ supp*dose, data = ToothGrowth,
 ```
 
 ## 4.4 Bar Plot
+
+Barplot pada `R` dapat dibuat menggunakan fungsi `barplot()`. Untuk lebih memahaminya berikut disajikan contoh barplot menggunakan dataset `VADeaths`. Untuk memuatnya jalankan sintaks berikut:
+
+```{r}
+VADeaths
+```
+
+Contoh bar plot untuk variabel `Rural Male` disajikan pada Figure \@ref(fig:barplot):
+
+```{r barplot, fig.cap='a. bar plot vertikal, b. bar plot horizontal', tidy=FALSE, fig.align='center'}
+par(mfrow=c(1,2))
+barplot(VADeaths[, "Rural Male"], main="a")
+barplot(VADeaths[, "Rural Male"], main="b", horiz=TRUE)
+```
+
+```{r, eval=FALSE}
+par(mfrow=c(1,1))
+```
+
+
+Kita dapat mengubah warna pada masing-masing bar, baik outline bar maupun box pada bar. Selain itu kita juga dapat mengubah nama grup yang telah dihasilkan sebelumnya. Berikut sintaks untuk melakukannya dan output yang dihasilkan pada Figure \@ref(fig:barplot2):
+
+```{r barplot2, fig.cap='Kustomisasi bar plot', tidy=FALSE, fig.align='center'}
+barplot(VADeaths[, "Rural Male"],
+        # ubah warna ouline menjadi steelblue
+        border="steelblue",
+        # ubah wana box
+        col= c("grey", "yellow", "steelblue", "green", "orange"),
+        # ubah nama grup dari A sampai E
+        names.arg = LETTERS[1:5],
+        # ubah orientasi menajadi horizontal
+        horiz=TRUE)
+```
+
+Untuk bar plot dengan *multiple group*, tersedia dua pengaturan posisi yaitu *stacked bar plot*(menunjukkan proporsi penyusun pada masing-masing grup) dan *grouped bar plot*(melihat perbedaan individual pada masing-masing grup). Pada Figure \@ref(fig:barplot3) dan Figure \@ref(fig:barplot4) , disajikan kedua jenis bar plot tersebut.
+
+```{r barplot3, fig.cap='Stacked bar plot', tidy=FALSE, fig.align='center'}
+# staked
+barplot(VADeaths,
+         col = c("lightblue", "mistyrose", "lightcyan", 
+                 "lavender", "cornsilk"),
+        legend = rownames(VADeaths))
+
+```
+
+```{r barplot4, fig.cap='Grouped bar plot', tidy=FALSE, fig.align='center'}
+# grouped
+barplot(VADeaths,
+         col = c("lightblue", "mistyrose", "lightcyan", 
+                 "lavender", "cornsilk"),
+        legend = rownames(VADeaths), beside = TRUE)
+
+```
+
+
 
 
 

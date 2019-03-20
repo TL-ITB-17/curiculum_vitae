@@ -465,14 +465,12 @@ x &lt;- c(1:10); y &lt;- x^2</code></pre>
 <pre class="r"><code># membagi jendela grafik menajdi 4 baris dan 2 kolom
 par(mfrow=c(3,3))
 
-# plot
-plot(x, y, type=&quot;p&quot;, main=&quot;p&quot;)
-plot(x, y, type=&quot;l&quot;, main=&quot;l&quot;)
-plot(x, y, type=&quot;b&quot;, main=&quot;b&quot;)
-plot(x, y, type=&quot;o&quot;, main=&quot;o&quot;)
-plot(x, y, type=&quot;h&quot;, main=&quot;h&quot;)
-plot(x, y, type=&quot;s&quot;, main=&quot;s&quot;)
-plot(x, y, type=&quot;n&quot;, main=&quot;n&quot;)</code></pre>
+# loop
+type &lt;- c(&quot;p&quot;,&quot;l&quot;,&quot;b&quot;,&quot;o&quot;,&quot;h&quot;,&quot;s&quot;,&quot;n&quot;)
+for (i in type){
+  plot(x,y, type= i,
+       main= paste(&quot;type=&quot;, i))
+}</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:plot"></span>
 <img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-1.png" alt="Plot berbagai jenis setting type" width="672" />
 <p class="caption">
@@ -752,6 +750,64 @@ Figure 13: Boxplot multiple group
 </div>
 <div id="bar-plot" class="section level2">
 <h2>4.4 Bar Plot</h2>
+<p>Barplot pada <code>R</code> dapat dibuat menggunakan fungsi <code>barplot()</code>. Untuk lebih memahaminya berikut disajikan contoh barplot menggunakan dataset <code>VADeaths</code>. Untuk memuatnya jalankan sintaks berikut:</p>
+<pre class="r"><code>VADeaths</code></pre>
+<pre><code>##       Rural Male Rural Female Urban Male Urban Female
+## 50-54       11.7          8.7       15.4          8.4
+## 55-59       18.1         11.7       24.3         13.6
+## 60-64       26.9         20.3       37.0         19.3
+## 65-69       41.0         30.9       54.6         35.1
+## 70-74       66.0         54.3       71.1         50.0</code></pre>
+<p>Contoh bar plot untuk variabel <code>Rural Male</code> disajikan pada Figure <a href="#fig:barplot">14</a>:</p>
+<pre class="r"><code>par(mfrow=c(1,2))
+barplot(VADeaths[, &quot;Rural Male&quot;], main=&quot;a&quot;)
+barplot(VADeaths[, &quot;Rural Male&quot;], main=&quot;b&quot;, horiz=TRUE)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:barplot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot-1.png" alt="a. bar plot vertikal, b. bar plot horizontal" width="672" />
+<p class="caption">
+Figure 14: a. bar plot vertikal, b. bar plot horizontal
+</p>
+</div>
+<pre class="r"><code>par(mfrow=c(1,1))</code></pre>
+<p>Kita dapat mengubah warna pada masing-masing bar, baik outline bar maupun box pada bar. Selain itu kita juga dapat mengubah nama grup yang telah dihasilkan sebelumnya. Berikut sintaks untuk melakukannya dan output yang dihasilkan pada Figure <a href="#fig:barplot2">15</a>:</p>
+<pre class="r"><code>barplot(VADeaths[, &quot;Rural Male&quot;],
+        # ubah warna ouline menjadi steelblue
+        border=&quot;steelblue&quot;,
+        # ubah wana box
+        col= c(&quot;grey&quot;, &quot;yellow&quot;, &quot;steelblue&quot;, &quot;green&quot;, &quot;orange&quot;),
+        # ubah nama grup dari A sampai E
+        names.arg = LETTERS[1:5],
+        # ubah orientasi menajadi horizontal
+        horiz=TRUE)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:barplot2"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot2-1.png" alt="Kustomisasi bar plot" width="672" />
+<p class="caption">
+Figure 15: Kustomisasi bar plot
+</p>
+</div>
+<p>Untuk bar plot dengan <em>multiple group</em>, tersedia dua pengaturan posisi yaitu <em>stacked bar plot</em>(menunjukkan proporsi penyusun pada masing-masing grup) dan <em>grouped bar plot</em>(melihat perbedaan individual pada masing-masing grup). Pada Figure <a href="#fig:barplot3">16</a> dan Figure <a href="#fig:barplot4">17</a> , disajikan kedua jenis bar plot tersebut.</p>
+<pre class="r"><code># staked
+barplot(VADeaths,
+         col = c(&quot;lightblue&quot;, &quot;mistyrose&quot;, &quot;lightcyan&quot;, 
+                 &quot;lavender&quot;, &quot;cornsilk&quot;),
+        legend = rownames(VADeaths))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:barplot3"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot3-1.png" alt="Stacked bar plot" width="672" />
+<p class="caption">
+Figure 16: Stacked bar plot
+</p>
+</div>
+<pre class="r"><code># grouped
+barplot(VADeaths,
+         col = c(&quot;lightblue&quot;, &quot;mistyrose&quot;, &quot;lightcyan&quot;, 
+                 &quot;lavender&quot;, &quot;cornsilk&quot;),
+        legend = rownames(VADeaths), beside = TRUE)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:barplot4"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot4-1.png" alt="Grouped bar plot" width="672" />
+<p class="caption">
+Figure 17: Grouped bar plot
+</p>
+</div>
 </div>
 
           </div>
