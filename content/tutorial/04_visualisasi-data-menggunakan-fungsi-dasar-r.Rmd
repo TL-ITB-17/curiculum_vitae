@@ -195,7 +195,7 @@ panel.cor <- function(x, y){
 # warna titik berdasarkan factor
 my_col <- c("#00AFBB", "#E7B800", "#FC4E07")
 upper.panel<-function(x, y){
-  points(x,y, pch = 19, col = my_col[iris$Species])
+  points(x,y, col = my_col[iris$Species])
 }
 
 pairs(iris2,
@@ -208,7 +208,7 @@ Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat meru
 ```{r matscat5, fig.cap='Matriks scatterplot iris dengan koefisien korelasi di panel atas', tidy=FALSE, fig.align='center'}
 # kustomisasi panel atas
 upper.panel<-function(x, y){
-  points(x,y, pch=19, col=c("#00AFBB", "#E7B800", "#FC4E07")[iris$Species])
+  points(x,y, col=c("#00AFBB", "#E7B800", "#FC4E07")[iris$Species])
   r <- round(cor(x, y), digits=2)
   txt <- paste0("R = ", r)
   usr <- par("usr"); on.exit(par(usr))
@@ -220,6 +220,8 @@ upper.panel<-function(x, y){
 pairs(iris2, lower.panel = NULL, 
       upper.panel = upper.panel)
 ```
+
+## 4.3 Box plot
 
 
 

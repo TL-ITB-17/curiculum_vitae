@@ -636,7 +636,7 @@ panel.cor &lt;- function(x, y){
 # warna titik berdasarkan factor
 my_col &lt;- c(&quot;#00AFBB&quot;, &quot;#E7B800&quot;, &quot;#FC4E07&quot;)
 upper.panel&lt;-function(x, y){
-  points(x,y, pch = 19, col = my_col[iris$Species])
+  points(x,y, col = my_col[iris$Species])
 }
 
 pairs(iris2,
@@ -651,7 +651,7 @@ Figure 8: Matriks scatterplot iris dengan koefisien korelasi
 <p>Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter <code>upper.panel=</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure <a href="#fig:matscat5">9</a>:</p>
 <pre class="r"><code># kustomisasi panel atas
 upper.panel&lt;-function(x, y){
-  points(x,y, pch=19, col=c(&quot;#00AFBB&quot;, &quot;#E7B800&quot;, &quot;#FC4E07&quot;)[iris$Species])
+  points(x,y, col=c(&quot;#00AFBB&quot;, &quot;#E7B800&quot;, &quot;#FC4E07&quot;)[iris$Species])
   r &lt;- round(cor(x, y), digits=2)
   txt &lt;- paste0(&quot;R = &quot;, r)
   usr &lt;- par(&quot;usr&quot;); on.exit(par(usr))
@@ -668,6 +668,9 @@ pairs(iris2, lower.panel = NULL,
 Figure 9: Matriks scatterplot iris dengan koefisien korelasi di panel atas
 </p>
 </div>
+</div>
+<div id="box-plot" class="section level2">
+<h2>4.3 Box plot</h2>
 </div>
 
           </div>
