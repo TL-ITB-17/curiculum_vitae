@@ -15,6 +15,8 @@ type: docs
 >
 > - [Visualisasi Data Menggunakan Fungsi plot](#4-1-visualisasi-data-menggunakan-fungsi-plot())
 > - [Matriks Scatterplot](#4-2-matriks-scatterplot)
+> - [Box plot](#4-3-box-plot)
+> - [Bar Plot](#4-4-bar-plot)
 
 
 ## 4.1 Visualisasi Data Menggunakan Fungsi plot()
@@ -223,10 +225,53 @@ pairs(iris2, lower.panel = NULL,
 
 ## 4.3 Box plot
 
+Box plot pada `R` dapat dibuat menggunakan fungsi `boxplot()`. Berikut adalah sintaks untuk membuat boxplot variabel `Sepal.Lenght` pada dataset `iris` dan output yang dihasilkan pada Figure \@ref(fig:boxplot):
 
+```{r boxplot, fig.cap='Boxplot variabel Sepal.Length', tidy=FALSE, fig.align='center'}
+boxplot(iris$Sepal.Length)
 
+```
 
+Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel `Species`. Output yang dihasilkan disajikan pada Figure \@ref(fig:boxplot2):
 
+```{r boxplot2, fig.cap='Boxplot berdasarkan variabel species', tidy=FALSE, fig.align='center'}
+boxplot(iris$Sepal.Length~iris$Species)
+```
+
+Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut adalah contoh sintaks yang digunakan untuk melakukannya dan output yang dihasilkan disajikan pada Figure \@ref(fig:boxplot3):
+
+```{r boxplot3, fig.cap='Boxplot dengan warna berdasarkan spesies', tidy=FALSE, fig.align='center'}
+boxplot(iris$Sepal.Length~iris$Species,
+        # ubah warna outline menjadi steelblue
+        border = "steelblue",
+        # ubah warna box berdasarkan grup
+        col= c("#999999", "#E69F00", "#56B4E9"))
+```
+
+Kita juga dapat membuat boxplot pada *multiple group*. Data yang digunakan untuk contoh tersebut adalah dataset `ToothGrowth`. Berikut adalah sintaks untuk memuat dataset tersebut:
+
+```{r}
+# memuat dataset sebagai tibble
+ToothGrowth <- as_tibble(ToothGrowth)
+
+# print
+ToothGrowth
+
+# ubah variable dose menjadi factor
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+
+# print
+ToothGrowth
+```
+
+Contoh sintaks dan output boxplot *multiple group* disajikan pada Figure \@ref(fig:boxplot4):
+
+```{r boxplot4, fig.cap='Boxplot multiple group', tidy=FALSE, fig.align='center'}
+boxplot(len ~ supp*dose, data = ToothGrowth,
+        col = c("white", "steelblue"))
+```
+
+## 4.4 Bar Plot
 
 
 

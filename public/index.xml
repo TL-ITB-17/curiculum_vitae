@@ -2965,6 +2965,8 @@ kali(4,3)&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#4-1-visualisasi-data-menggunakan-fungsi-plot()&#34;&gt;Visualisasi Data Menggunakan Fungsi plot&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#4-2-matriks-scatterplot&#34;&gt;Matriks Scatterplot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#4-3-box-plot&#34;&gt;Box plot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#4-4-bar-plot&#34;&gt;Bar Plot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;visualisasi-data-menggunakan-fungsi-plot&#34; class=&#34;section level2&#34;&gt;
@@ -3199,6 +3201,85 @@ Figure 9: Matriks scatterplot iris dengan koefisien korelasi di panel atas
 &lt;/div&gt;
 &lt;div id=&#34;box-plot&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;4.3 Box plot&lt;/h2&gt;
+&lt;p&gt;Box plot pada &lt;code&gt;R&lt;/code&gt; dapat dibuat menggunakan fungsi &lt;code&gt;boxplot()&lt;/code&gt;. Berikut adalah sintaks untuk membuat boxplot variabel &lt;code&gt;Sepal.Lenght&lt;/code&gt; pada dataset &lt;code&gt;iris&lt;/code&gt; dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:boxplot&#34;&gt;10&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(iris$Sepal.Length)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boxplot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot-1.png&#34; alt=&#34;Boxplot variabel Sepal.Length&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 10: Boxplot variabel Sepal.Length
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel &lt;code&gt;Species&lt;/code&gt;. Output yang dihasilkan disajikan pada Figure &lt;a href=&#34;#fig:boxplot2&#34;&gt;11&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(iris$Sepal.Length~iris$Species)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boxplot2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot2-1.png&#34; alt=&#34;Boxplot berdasarkan variabel species&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 11: Boxplot berdasarkan variabel species
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut adalah contoh sintaks yang digunakan untuk melakukannya dan output yang dihasilkan disajikan pada Figure &lt;a href=&#34;#fig:boxplot3&#34;&gt;12&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(iris$Sepal.Length~iris$Species,
+        # ubah warna outline menjadi steelblue
+        border = &amp;quot;steelblue&amp;quot;,
+        # ubah warna box berdasarkan grup
+        col= c(&amp;quot;#999999&amp;quot;, &amp;quot;#E69F00&amp;quot;, &amp;quot;#56B4E9&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boxplot3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot3-1.png&#34; alt=&#34;Boxplot dengan warna berdasarkan spesies&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 12: Boxplot dengan warna berdasarkan spesies
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Kita juga dapat membuat boxplot pada &lt;em&gt;multiple group&lt;/em&gt;. Data yang digunakan untuk contoh tersebut adalah dataset &lt;code&gt;ToothGrowth&lt;/code&gt;. Berikut adalah sintaks untuk memuat dataset tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat dataset sebagai tibble
+ToothGrowth &amp;lt;- as_tibble(ToothGrowth)
+
+# print
+ToothGrowth&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 60 x 3
+##      len supp   dose
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt;
+##  1   4.2 VC      0.5
+##  2  11.5 VC      0.5
+##  3   7.3 VC      0.5
+##  4   5.8 VC      0.5
+##  5   6.4 VC      0.5
+##  6  10   VC      0.5
+##  7  11.2 VC      0.5
+##  8  11.2 VC      0.5
+##  9   5.2 VC      0.5
+## 10   7   VC      0.5
+## # ... with 50 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ubah variable dose menjadi factor
+ToothGrowth$dose &amp;lt;- as.factor(ToothGrowth$dose)
+
+# print
+ToothGrowth&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 60 x 3
+##      len supp  dose 
+##    &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt;
+##  1   4.2 VC    0.5  
+##  2  11.5 VC    0.5  
+##  3   7.3 VC    0.5  
+##  4   5.8 VC    0.5  
+##  5   6.4 VC    0.5  
+##  6  10   VC    0.5  
+##  7  11.2 VC    0.5  
+##  8  11.2 VC    0.5  
+##  9   5.2 VC    0.5  
+## 10   7   VC    0.5  
+## # ... with 50 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Contoh sintaks dan output boxplot &lt;em&gt;multiple group&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:boxplot4&#34;&gt;13&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(len ~ supp*dose, data = ToothGrowth,
+        col = c(&amp;quot;white&amp;quot;, &amp;quot;steelblue&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boxplot4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot4-1.png&#34; alt=&#34;Boxplot multiple group&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 13: Boxplot multiple group
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;4.4 Bar Plot&lt;/h2&gt;
 &lt;/div&gt;
 </description>
     </item>

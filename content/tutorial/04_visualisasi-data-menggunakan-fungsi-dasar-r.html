@@ -18,6 +18,8 @@ type: docs
 <ul>
 <li><a href="#4-1-visualisasi-data-menggunakan-fungsi-plot()">Visualisasi Data Menggunakan Fungsi plot</a></li>
 <li><a href="#4-2-matriks-scatterplot">Matriks Scatterplot</a></li>
+<li><a href="#4-3-box-plot">Box plot</a></li>
+<li><a href="#4-4-bar-plot">Bar Plot</a></li>
 </ul>
 </blockquote>
 <div id="visualisasi-data-menggunakan-fungsi-plot" class="section level2">
@@ -252,4 +254,83 @@ Figure 9: Matriks scatterplot iris dengan koefisien korelasi di panel atas
 </div>
 <div id="box-plot" class="section level2">
 <h2>4.3 Box plot</h2>
+<p>Box plot pada <code>R</code> dapat dibuat menggunakan fungsi <code>boxplot()</code>. Berikut adalah sintaks untuk membuat boxplot variabel <code>Sepal.Lenght</code> pada dataset <code>iris</code> dan output yang dihasilkan pada Figure <a href="#fig:boxplot">10</a>:</p>
+<pre class="r"><code>boxplot(iris$Sepal.Length)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:boxplot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot-1.png" alt="Boxplot variabel Sepal.Length" width="672" />
+<p class="caption">
+Figure 10: Boxplot variabel Sepal.Length
+</p>
+</div>
+<p>Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel <code>Species</code>. Output yang dihasilkan disajikan pada Figure <a href="#fig:boxplot2">11</a>:</p>
+<pre class="r"><code>boxplot(iris$Sepal.Length~iris$Species)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:boxplot2"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot2-1.png" alt="Boxplot berdasarkan variabel species" width="672" />
+<p class="caption">
+Figure 11: Boxplot berdasarkan variabel species
+</p>
+</div>
+<p>Kita juga dapat mengubah warna outline dan box pada boxplot. Berikut adalah contoh sintaks yang digunakan untuk melakukannya dan output yang dihasilkan disajikan pada Figure <a href="#fig:boxplot3">12</a>:</p>
+<pre class="r"><code>boxplot(iris$Sepal.Length~iris$Species,
+        # ubah warna outline menjadi steelblue
+        border = &quot;steelblue&quot;,
+        # ubah warna box berdasarkan grup
+        col= c(&quot;#999999&quot;, &quot;#E69F00&quot;, &quot;#56B4E9&quot;))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:boxplot3"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot3-1.png" alt="Boxplot dengan warna berdasarkan spesies" width="672" />
+<p class="caption">
+Figure 12: Boxplot dengan warna berdasarkan spesies
+</p>
+</div>
+<p>Kita juga dapat membuat boxplot pada <em>multiple group</em>. Data yang digunakan untuk contoh tersebut adalah dataset <code>ToothGrowth</code>. Berikut adalah sintaks untuk memuat dataset tersebut:</p>
+<pre class="r"><code># memuat dataset sebagai tibble
+ToothGrowth &lt;- as_tibble(ToothGrowth)
+
+# print
+ToothGrowth</code></pre>
+<pre><code>## # A tibble: 60 x 3
+##      len supp   dose
+##    &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt;
+##  1   4.2 VC      0.5
+##  2  11.5 VC      0.5
+##  3   7.3 VC      0.5
+##  4   5.8 VC      0.5
+##  5   6.4 VC      0.5
+##  6  10   VC      0.5
+##  7  11.2 VC      0.5
+##  8  11.2 VC      0.5
+##  9   5.2 VC      0.5
+## 10   7   VC      0.5
+## # ... with 50 more rows</code></pre>
+<pre class="r"><code># ubah variable dose menjadi factor
+ToothGrowth$dose &lt;- as.factor(ToothGrowth$dose)
+
+# print
+ToothGrowth</code></pre>
+<pre><code>## # A tibble: 60 x 3
+##      len supp  dose 
+##    &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;
+##  1   4.2 VC    0.5  
+##  2  11.5 VC    0.5  
+##  3   7.3 VC    0.5  
+##  4   5.8 VC    0.5  
+##  5   6.4 VC    0.5  
+##  6  10   VC    0.5  
+##  7  11.2 VC    0.5  
+##  8  11.2 VC    0.5  
+##  9   5.2 VC    0.5  
+## 10   7   VC    0.5  
+## # ... with 50 more rows</code></pre>
+<p>Contoh sintaks dan output boxplot <em>multiple group</em> disajikan pada Figure <a href="#fig:boxplot4">13</a>:</p>
+<pre class="r"><code>boxplot(len ~ supp*dose, data = ToothGrowth,
+        col = c(&quot;white&quot;, &quot;steelblue&quot;))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:boxplot4"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot4-1.png" alt="Boxplot multiple group" width="672" />
+<p class="caption">
+Figure 13: Boxplot multiple group
+</p>
+</div>
+</div>
+<div id="bar-plot" class="section level2">
+<h2>4.4 Bar Plot</h2>
 </div>

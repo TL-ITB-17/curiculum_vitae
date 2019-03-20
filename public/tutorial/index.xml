@@ -48,7 +48,7 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
       
       <guid>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</guid>
       <description>Note: 
-Visualisasi Data Menggunakan Fungsi plotMatriks Scatterplot4.1 Visualisasi Data Menggunakan Fungsi plot()Fungsi plot() merupakan fungsi umum yang digunakan untuk membuat plot pada R. Format dasarnya adalah sebagai berikut:
+Visualisasi Data Menggunakan Fungsi plotMatriks ScatterplotBox plotBar Plot4.1 Visualisasi Data Menggunakan Fungsi plot()Fungsi plot() merupakan fungsi umum yang digunakan untuk membuat plot pada R. Format dasarnya adalah sebagai berikut:
 plot(x, y, type=&amp;quot;p&amp;quot;)Note: 
 x dan y: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.type: jenis grafik yang hendak dibuat. Nilai yang dapat dimasukkan antara lain:type=“p” : membuat plot titik atau scatterplot.</description>
     </item>
