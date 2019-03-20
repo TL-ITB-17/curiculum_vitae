@@ -22,6 +22,7 @@ type: docs
 > - [Histogram dan Density Plot](#4-7-histogram-dan-density-plot)
 > - [QQ Plot](#4-8-qq-plot)
 > - [Dot Chart](#4-9-dot-chart)
+> - [Kustomisasi Parameter Grafik](#4-10-kustomisasi-parameter-grafik)
 
 
 ## 4.1 Visualisasi Data Menggunakan Fungsi plot()
@@ -394,7 +395,7 @@ hist(trees$Height, col="steelblue")
 
 Density plot pada `R` dapat dibuat menggunakan fungsi `density()`. Berbeda dengan fungsi `hist()`, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi `density()` hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi `plot()`. Berikut adalah sintaks dan output yang dihasilkan pada  Figure \@ref(fig:dens):
 
-```{r dens,fig.cap='Density plot', tidy=FALSE, fig.align='center', echo=FALSE}
+```{r dens,fig.cap='Density plot', tidy=FALSE, fig.align='center'}
 # menghitung kernel density
 dens <- density(trees$Height)
 
@@ -404,7 +405,7 @@ plot(dens,col="red")
 
 Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan parameter `freq=FALSE` pada fungsi `hist()`. Selanjutnya tambahkan fungsi `polygon()` untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada  Figure \@ref(fig:denshist):
 
-```{r denshist,fig.cap='Density plot dan histogram', tidy=FALSE, fig.align='center', echo=FALSE}
+```{r denshist,fig.cap='Density plot dan histogram', tidy=FALSE, fig.align='center'}
 # menghitung kernel density
 dens <- density(trees$Height)
 
@@ -421,7 +422,7 @@ QQ plot digunakan untuk mengecek distribusi suatu data apakah berdistribusi norm
 
 Berikut adalah cara membuat QQ plot menggunakan variabel `Volume` pada dataset `trees`. Output yang dihasilkan disajikan pada Figure \@ref(fig:qq).
 
-```{r qq,fig.cap='QQ plot', tidy=FALSE, fig.align='center', echo=FALSE}
+```{r qq,fig.cap='QQ plot', tidy=FALSE, fig.align='center'}
 qqnorm(trees$Volume)
 qqline(trees$Volume, col="red")
 ```
@@ -445,7 +446,7 @@ dotchart(x, labels = NULL, groups = NULL,
 
 Pada contoh berikut disajikan cara membuat dot chart pada dataset `mtcars` untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel `mpg` dan jumlah silinder (`cyl`). Berikut sintaks yang digunakan dan output yang dihasilkan pada Figure \@ref(fig:dot):
 
-```{r dot,fig.cap='Dot chart', tidy=FALSE, fig.align='center', echo=FALSE}
+```{r dot,fig.cap='Dot chart', tidy=FALSE, fig.align='center'}
 # mengurutkan dataset mtcars berdasarkan variabel mpg
 mtcars <- mtcars[order(mtcars$mpg), ]
 
@@ -461,6 +462,112 @@ dotchart(mtcars$mpg, labels = row.names(mtcars),
          color = my_cols[grps],
          cex = 0.6,  pch = 19, xlab = "mpg")
 ```
+
+## 4.10 Kustomisasi Parameter Grafik
+
+Pada bagian ini penulis akan menjelaskan cara untuk kustomisasi parameter grafik seperti:
+
+a. menambahkan judul, legend, teks, axis, dan garis.
+b. mengubah skala axis, simbol plot, jenis garis, dan warna.
+
+### 4.10.1 Menambahkan Judul
+
+Pada grafik di `R`, kita dapat menambahkan judul dengan dua cara, yaitu: pada plot melalui parameter dan melalui fungsi plot(). Kedua cara tersebut tidak berbeda satu sama lain pada parameter input.
+
+Untuk menambahkan judul pada plot secara langsung, kita dapat menggunakan parameter tambahan sebagai berikut:
+
+a. **main**: teks untuk judul.
+b. **xlab**: teks untuk keterangan axis X.
+c. **ylab**: teks untuk keterangan axis y.
+d. **sub**: teks untuk sub-judul.
+
+Berikut contoh sintaks penerapan masing-masing parameter tersebut beserta dengan output yang dihasilkan pada Figure \@ref(fig:title):
+
+```{r title,fig.cap='Menambahkan Judul', tidy=FALSE, fig.align='center'}
+# menambahkan judul
+barplot(c(2,5), main="Main title",
+        xlab="X axis title",
+        ylab="Y axis title",
+        sub="Sub-title")
+```
+
+kita juga dapat melakukan kustomisasi pada warna, *font style*, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan parameter sebagai berikut:
+
+a. **col.main**: warna untuk judul.
+b. **col.lab**: warna untuk keterangan axis.
+c. **col.sub**: warna untuk sub-judul
+
+Untuk kustomisasi font judul, kita dapat menambahkan parameter berikut:
+
+a. **font.main**: *font style* untuk judul.
+b. **font.lab**: *font style* untuk keterangan axis.
+c. **font.sub**: *font style* untuk sub-judul.
+
+> **Note: **
+> 
+> Nilai yang dapat dimasukkan antara lain:
+>
+> - **1**: untuk teks normal.
+> - **2**: untuk teks cetak tebal.
+> - **3**: untuk teks cetak miring.
+> - **4**: untuk teks cetak tebal dan miring.
+> - **5**: untuk font simbol.
+
+Sedangkan untuk ukuran font, kita dapat menambahkan variabel berikut:
+
+a. **cex.main**: ukuran teks judul.
+b. **cex.lab**: ukuran teks keterangan axis.
+c. **cex.sub**: ukuran teks sub-judul.
+
+Berikut sintaks penerapan seluruh parameter tersebut beserta output yang dihasilkan pada Figure \@ref(fig:title2):
+
+```{r title2,fig.cap='Menambahkan Judul (2)', tidy=FALSE, fig.align='center'}
+# menambahkan judul
+barplot(c(2,5), 
+        # menambahkan judul
+        main="Main title",
+        xlab="X axis title",
+        ylab="Y axis title",
+        sub="Sub-title",
+        # kustomisasi warna font
+        col.main="red", 
+        col.lab="blue", 
+        col.sub="black",
+        # kustomisasi font style
+        font.main=4, 
+        font.lab=4, 
+        font.sub=4,
+        # kustomisasi ukuran font
+        cex.main=2, 
+        cex.lab=1.7, 
+        cex.sub=1.2)
+```
+
+Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi `title()`. Parameter yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:title3):
+
+```{r title3,fig.cap='Menambahkan Judul (3)', tidy=FALSE, fig.align='center'}
+# menambahkan judul
+barplot(c(2,5))
+
+# menambahkan judul
+title(main="Main title",
+      xlab="X axis title",
+      ylab="Y axis title",
+      sub="Sub-title",
+      # kustomisasi warna font
+      col.main="red", 
+      col.lab="blue", 
+      col.sub="black",
+      # kustomisasi font style
+      font.main=4, 
+      font.lab=4, 
+      font.sub=4,
+      # kustomisasi ukuran font
+      cex.main=2, 
+      cex.lab=1.7, 
+      cex.sub=1.2)
+``` 
+
 
 
 

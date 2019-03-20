@@ -2972,6 +2972,7 @@ kali(4,3)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;#4-7-histogram-dan-density-plot&#34;&gt;Histogram dan Density Plot&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#4-8-qq-plot&#34;&gt;QQ Plot&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#4-9-dot-chart&#34;&gt;Dot Chart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#4-10-kustomisasi-parameter-grafik&#34;&gt;Kustomisasi Parameter Grafik&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;visualisasi-data-menggunakan-fungsi-plot&#34; class=&#34;section level2&#34;&gt;
@@ -3408,6 +3409,11 @@ Figure 20: Histogram
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Density plot pada &lt;code&gt;R&lt;/code&gt; dapat dibuat menggunakan fungsi &lt;code&gt;density()&lt;/code&gt;. Berbeda dengan fungsi &lt;code&gt;hist()&lt;/code&gt;, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi &lt;code&gt;density()&lt;/code&gt; hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi &lt;code&gt;plot()&lt;/code&gt;. Berikut adalah sintaks dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:dens&#34;&gt;21&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menghitung kernel density
+dens &amp;lt;- density(trees$Height)
+
+# plot densitas dengan outline merah
+plot(dens,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dens&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dens-1.png&#34; alt=&#34;Density plot&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
@@ -3415,6 +3421,14 @@ Figure 21: Density plot
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan parameter &lt;code&gt;freq=FALSE&lt;/code&gt; pada fungsi &lt;code&gt;hist()&lt;/code&gt;. Selanjutnya tambahkan fungsi &lt;code&gt;polygon()&lt;/code&gt; untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:denshist&#34;&gt;22&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menghitung kernel density
+dens &amp;lt;- density(trees$Height)
+
+# histogram
+hist(trees$Height, freq=FALSE, col=&amp;quot;steelblue&amp;quot;)
+
+# tambahkan density plot
+polygon(dens, border=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:denshist&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/denshist-1.png&#34; alt=&#34;Density plot dan histogram&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
@@ -3426,6 +3440,8 @@ Figure 22: Density plot dan histogram
 &lt;h2&gt;4.8 QQ Plot&lt;/h2&gt;
 &lt;p&gt;QQ plot digunakan untuk mengecek distribusi suatu data apakah berdistribusi normal atau tidak. Pada &lt;code&gt;R&lt;/code&gt; QQ plot dibuat menggunakan 2 fungsi yaitu: &lt;code&gt;qqnorm()&lt;/code&gt; dan &lt;code&gt;qqline()&lt;/code&gt;. Fungsi &lt;code&gt;qqnorm()&lt;/code&gt; digunakan untuk memproduksi normal QQ plot suatu variabel. Sedangkan fungsi &lt;code&gt;qqline()&lt;/code&gt; digunakan untuk membuat garis referensi distiribusi normal. Suatu distribusi dikatan normal jika titik observasi yang dihasilkan mengikuti garis referensi tersebut.&lt;/p&gt;
 &lt;p&gt;Berikut adalah cara membuat QQ plot menggunakan variabel &lt;code&gt;Volume&lt;/code&gt; pada dataset &lt;code&gt;trees&lt;/code&gt;. Output yang dihasilkan disajikan pada Figure &lt;a href=&#34;#fig:qq&#34;&gt;23&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qqnorm(trees$Volume)
+qqline(trees$Volume, col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:qq&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/qq-1.png&#34; alt=&#34;QQ plot&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
@@ -3449,11 +3465,138 @@ Figure 23: QQ plot
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Pada contoh berikut disajikan cara membuat dot chart pada dataset &lt;code&gt;mtcars&lt;/code&gt; untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel &lt;code&gt;mpg&lt;/code&gt; dan jumlah silinder (&lt;code&gt;cyl&lt;/code&gt;). Berikut sintaks yang digunakan dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:dot&#34;&gt;24&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengurutkan dataset mtcars berdasarkan variabel mpg
+mtcars &amp;lt;- mtcars[order(mtcars$mpg), ]
+
+# mengubah variabel cyl menjadi factor
+grps &amp;lt;- as.factor(mtcars$cyl)
+
+# membuat vektor warna berdasarkan jumlah grup
+my_cols &amp;lt;- c(&amp;quot;#999999&amp;quot;, &amp;quot;#E69F00&amp;quot;, &amp;quot;#56B4E9&amp;quot;)
+
+# plot
+dotchart(mtcars$mpg, labels = row.names(mtcars),
+         groups = grps, gcolor = my_cols,
+         color = my_cols[grps],
+         cex = 0.6,  pch = 19, xlab = &amp;quot;mpg&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dot&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dot-1.png&#34; alt=&#34;Dot chart&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 24: Dot chart
 &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;kustomisasi-parameter-grafik&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;4.10 Kustomisasi Parameter Grafik&lt;/h2&gt;
+&lt;p&gt;Pada bagian ini penulis akan menjelaskan cara untuk kustomisasi parameter grafik seperti:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;menambahkan judul, legend, teks, axis, dan garis.&lt;/li&gt;
+&lt;li&gt;mengubah skala axis, simbol plot, jenis garis, dan warna.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;menambahkan-judul&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;4.10.1 Menambahkan Judul&lt;/h3&gt;
+&lt;p&gt;Pada grafik di &lt;code&gt;R&lt;/code&gt;, kita dapat menambahkan judul dengan dua cara, yaitu: pada plot melalui parameter dan melalui fungsi plot(). Kedua cara tersebut tidak berbeda satu sama lain pada parameter input.&lt;/p&gt;
+&lt;p&gt;Untuk menambahkan judul pada plot secara langsung, kita dapat menggunakan parameter tambahan sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;strong&gt;main&lt;/strong&gt;: teks untuk judul.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;xlab&lt;/strong&gt;: teks untuk keterangan axis X.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ylab&lt;/strong&gt;: teks untuk keterangan axis y.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sub&lt;/strong&gt;: teks untuk sub-judul.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Berikut contoh sintaks penerapan masing-masing parameter tersebut beserta dengan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title&#34;&gt;25&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menambahkan judul
+barplot(c(2,5), main=&amp;quot;Main title&amp;quot;,
+        xlab=&amp;quot;X axis title&amp;quot;,
+        ylab=&amp;quot;Y axis title&amp;quot;,
+        sub=&amp;quot;Sub-title&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:title&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title-1.png&#34; alt=&#34;Menambahkan Judul&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 25: Menambahkan Judul
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;kita juga dapat melakukan kustomisasi pada warna, &lt;em&gt;font style&lt;/em&gt;, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan parameter sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;strong&gt;col.main&lt;/strong&gt;: warna untuk judul.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col.lab&lt;/strong&gt;: warna untuk keterangan axis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col.sub&lt;/strong&gt;: warna untuk sub-judul&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Untuk kustomisasi font judul, kita dapat menambahkan parameter berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;strong&gt;font.main&lt;/strong&gt;: &lt;em&gt;font style&lt;/em&gt; untuk judul.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;font.lab&lt;/strong&gt;: &lt;em&gt;font style&lt;/em&gt; untuk keterangan axis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;font.sub&lt;/strong&gt;: &lt;em&gt;font style&lt;/em&gt; untuk sub-judul.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Nilai yang dapat dimasukkan antara lain:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1&lt;/strong&gt;: untuk teks normal.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2&lt;/strong&gt;: untuk teks cetak tebal.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3&lt;/strong&gt;: untuk teks cetak miring.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4&lt;/strong&gt;: untuk teks cetak tebal dan miring.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;5&lt;/strong&gt;: untuk font simbol.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sedangkan untuk ukuran font, kita dapat menambahkan variabel berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;strong&gt;cex.main&lt;/strong&gt;: ukuran teks judul.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cex.lab&lt;/strong&gt;: ukuran teks keterangan axis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cex.sub&lt;/strong&gt;: ukuran teks sub-judul.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Berikut sintaks penerapan seluruh parameter tersebut beserta output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title2&#34;&gt;26&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menambahkan judul
+barplot(c(2,5), 
+        # menambahkan judul
+        main=&amp;quot;Main title&amp;quot;,
+        xlab=&amp;quot;X axis title&amp;quot;,
+        ylab=&amp;quot;Y axis title&amp;quot;,
+        sub=&amp;quot;Sub-title&amp;quot;,
+        # kustomisasi warna font
+        col.main=&amp;quot;red&amp;quot;, 
+        col.lab=&amp;quot;blue&amp;quot;, 
+        col.sub=&amp;quot;black&amp;quot;,
+        # kustomisasi font style
+        font.main=4, 
+        font.lab=4, 
+        font.sub=4,
+        # kustomisasi ukuran font
+        cex.main=2, 
+        cex.lab=1.7, 
+        cex.sub=1.2)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:title2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title2-1.png&#34; alt=&#34;Menambahkan Judul (2)&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 26: Menambahkan Judul (2)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi &lt;code&gt;title()&lt;/code&gt;. Parameter yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title3&#34;&gt;27&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menambahkan judul
+barplot(c(2,5))
+
+# menambahkan judul
+title(main=&amp;quot;Main title&amp;quot;,
+      xlab=&amp;quot;X axis title&amp;quot;,
+      ylab=&amp;quot;Y axis title&amp;quot;,
+      sub=&amp;quot;Sub-title&amp;quot;,
+      # kustomisasi warna font
+      col.main=&amp;quot;red&amp;quot;, 
+      col.lab=&amp;quot;blue&amp;quot;, 
+      col.sub=&amp;quot;black&amp;quot;,
+      # kustomisasi font style
+      font.main=4, 
+      font.lab=4, 
+      font.sub=4,
+      # kustomisasi ukuran font
+      cex.main=2, 
+      cex.lab=1.7, 
+      cex.sub=1.2)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:title3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title3-1.png&#34; alt=&#34;Menambahkan Judul (3)&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 27: Menambahkan Judul (3)
+&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
