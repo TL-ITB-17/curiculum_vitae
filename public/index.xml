@@ -2971,6 +2971,7 @@ kali(4,3)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;#4-6-pie-chart&#34;&gt;Pie Chart&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#4-7-histogram-dan-density-plot&#34;&gt;Histogram dan Density Plot&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#4-8-qq-plot&#34;&gt;QQ Plot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#4-9-dot-plot&#34;&gt;Dot Chart&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;visualisasi-data-menggunakan-fungsi-plot&#34; class=&#34;section level2&#34;&gt;
@@ -3423,6 +3424,37 @@ Figure 22: Density plot dan histogram
 &lt;/div&gt;
 &lt;div id=&#34;qq-plot&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;4.8 QQ Plot&lt;/h2&gt;
+&lt;p&gt;QQ plot digunakan untuk mengecek distribusi suatu data apakah berdistribusi normal atau tidak. Pada &lt;code&gt;R&lt;/code&gt; QQ plot dibuat menggunakan 2 fungsi yaitu: &lt;code&gt;qqnorm()&lt;/code&gt; dan &lt;code&gt;qqline()&lt;/code&gt;. Fungsi &lt;code&gt;qqnorm()&lt;/code&gt; digunakan untuk memproduksi normal QQ plot suatu variabel. Sedangkan fungsi &lt;code&gt;qqline()&lt;/code&gt; digunakan untuk membuat garis referensi distiribusi normal. Suatu distribusi dikatan normal jika titik observasi yang dihasilkan mengikuti garis referensi tersebut.&lt;/p&gt;
+&lt;p&gt;Berikut adalah cara membuat QQ plot menggunakan variabel &lt;code&gt;Volume&lt;/code&gt; pada dataset &lt;code&gt;trees&lt;/code&gt;. Output yang dihasilkan disajikan pada Figure &lt;a href=&#34;#fig:qq&#34;&gt;23&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:qq&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/qq-1.png&#34; alt=&#34;QQ plot&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 23: QQ plot
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dot-chart&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;4.9 Dot Chart&lt;/h2&gt;
+&lt;p&gt;Fungsi &lt;code&gt;dotchart()&lt;/code&gt; pada &lt;code&gt;R&lt;/code&gt; digunakan untuk membuat dot chart. Format yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dotchart(x, labels = NULL, groups = NULL, 
+         gcolor = par(&amp;quot;fg&amp;quot;), color = par(&amp;quot;fg&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor atau matriks numerik.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;labels&lt;/strong&gt;: vektor label untuk tiap titik.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;groups&lt;/strong&gt;: grouping variabel yang mengindikasikan bagaimana &lt;strong&gt;x&lt;/strong&gt; dikelompokkan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;gcolor&lt;/strong&gt;: warna yang digunakan pada label grup dan nilai observasi.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;color&lt;/strong&gt;: warna yang digunakan untuk titik dan label.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Pada contoh berikut disajikan cara membuat dot chart pada dataset &lt;code&gt;mtcars&lt;/code&gt; untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel &lt;code&gt;mpg&lt;/code&gt; dan jumlah silinder (&lt;code&gt;cyl&lt;/code&gt;). Berikut sintaks yang digunakan dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:dot&#34;&gt;24&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dot-1.png&#34; alt=&#34;Dot chart&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 24: Dot chart
+&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

@@ -21,6 +21,7 @@ type: docs
 > - [Pie Chart](#4-6-pie-chart)
 > - [Histogram dan Density Plot](#4-7-histogram-dan-density-plot)
 > - [QQ Plot](#4-8-qq-plot)
+> - [Dot Chart](#4-9-dot-plot)
 
 
 ## 4.1 Visualisasi Data Menggunakan Fungsi plot()
@@ -415,6 +416,51 @@ polygon(dens, border="red")
 ```
 
 ## 4.8 QQ Plot
+
+QQ plot digunakan untuk mengecek distribusi suatu data apakah berdistribusi normal atau tidak. Pada `R` QQ plot dibuat menggunakan 2 fungsi yaitu: `qqnorm()` dan `qqline()`. Fungsi `qqnorm()` digunakan untuk memproduksi normal QQ plot suatu variabel. Sedangkan fungsi `qqline()` digunakan untuk membuat garis referensi distiribusi normal. Suatu distribusi dikatan normal jika titik observasi yang dihasilkan mengikuti garis referensi tersebut.
+
+Berikut adalah cara membuat QQ plot menggunakan variabel `Volume` pada dataset `trees`. Output yang dihasilkan disajikan pada Figure \@ref(fig:qq).
+
+```{r qq,fig.cap='QQ plot', tidy=FALSE, fig.align='center', echo=FALSE}
+qqnorm(trees$Volume)
+qqline(trees$Volume, col="red")
+```
+
+## 4.9 Dot Chart
+
+Fungsi `dotchart()` pada `R` digunakan untuk membuat dot chart. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+dotchart(x, labels = NULL, groups = NULL, 
+         gcolor = par("fg"), color = par("fg"))
+```
+
+> **Note: **
+>
+> - **x**: vektor atau matriks numerik.
+> - **labels**: vektor label untuk tiap titik.
+> - **groups**: grouping variabel yang mengindikasikan bagaimana **x** dikelompokkan.
+> - **gcolor**: warna yang digunakan pada label grup dan nilai observasi.
+> - **color**: warna yang digunakan untuk titik dan label.
+
+Pada contoh berikut disajikan cara membuat dot chart pada dataset `mtcars` untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel `mpg` dan jumlah silinder (`cyl`). Berikut sintaks yang digunakan dan output yang dihasilkan pada Figure \@ref(fig:dot):
+
+```{r dot,fig.cap='Dot chart', tidy=FALSE, fig.align='center', echo=FALSE}
+# mengurutkan dataset mtcars berdasarkan variabel mpg
+mtcars <- mtcars[order(mtcars$mpg), ]
+
+# mengubah variabel cyl menjadi factor
+grps <- as.factor(mtcars$cyl)
+
+# membuat vektor warna berdasarkan jumlah grup
+my_cols <- c("#999999", "#E69F00", "#56B4E9")
+
+# plot
+dotchart(mtcars$mpg, labels = row.names(mtcars),
+         groups = grps, gcolor = my_cols,
+         color = my_cols[grps],
+         cex = 0.6,  pch = 19, xlab = "mpg")
+```
 
 
 

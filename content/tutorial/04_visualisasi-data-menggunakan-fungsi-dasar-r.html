@@ -24,6 +24,7 @@ type: docs
 <li><a href="#4-6-pie-chart">Pie Chart</a></li>
 <li><a href="#4-7-histogram-dan-density-plot">Histogram dan Density Plot</a></li>
 <li><a href="#4-8-qq-plot">QQ Plot</a></li>
+<li><a href="#4-9-dot-plot">Dot Chart</a></li>
 </ul>
 </blockquote>
 <div id="visualisasi-data-menggunakan-fungsi-plot" class="section level2">
@@ -476,4 +477,35 @@ Figure 22: Density plot dan histogram
 </div>
 <div id="qq-plot" class="section level2">
 <h2>4.8 QQ Plot</h2>
+<p>QQ plot digunakan untuk mengecek distribusi suatu data apakah berdistribusi normal atau tidak. Pada <code>R</code> QQ plot dibuat menggunakan 2 fungsi yaitu: <code>qqnorm()</code> dan <code>qqline()</code>. Fungsi <code>qqnorm()</code> digunakan untuk memproduksi normal QQ plot suatu variabel. Sedangkan fungsi <code>qqline()</code> digunakan untuk membuat garis referensi distiribusi normal. Suatu distribusi dikatan normal jika titik observasi yang dihasilkan mengikuti garis referensi tersebut.</p>
+<p>Berikut adalah cara membuat QQ plot menggunakan variabel <code>Volume</code> pada dataset <code>trees</code>. Output yang dihasilkan disajikan pada Figure <a href="#fig:qq">23</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:qq"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/qq-1.png" alt="QQ plot" width="672" />
+<p class="caption">
+Figure 23: QQ plot
+</p>
+</div>
+</div>
+<div id="dot-chart" class="section level2">
+<h2>4.9 Dot Chart</h2>
+<p>Fungsi <code>dotchart()</code> pada <code>R</code> digunakan untuk membuat dot chart. Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>dotchart(x, labels = NULL, groups = NULL, 
+         gcolor = par(&quot;fg&quot;), color = par(&quot;fg&quot;))</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong>: vektor atau matriks numerik.</li>
+<li><strong>labels</strong>: vektor label untuk tiap titik.</li>
+<li><strong>groups</strong>: grouping variabel yang mengindikasikan bagaimana <strong>x</strong> dikelompokkan.</li>
+<li><strong>gcolor</strong>: warna yang digunakan pada label grup dan nilai observasi.</li>
+<li><strong>color</strong>: warna yang digunakan untuk titik dan label.</li>
+</ul>
+</blockquote>
+<p>Pada contoh berikut disajikan cara membuat dot chart pada dataset <code>mtcars</code> untuk melihat mobil yang paling hemat bahan bakar berdasarkan variabel <code>mpg</code> dan jumlah silinder (<code>cyl</code>). Berikut sintaks yang digunakan dan output yang dihasilkan pada Figure <a href="#fig:dot">24</a>:</p>
+<div class="figure" style="text-align: center"><span id="fig:dot"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dot-1.png" alt="Dot chart" width="672" />
+<p class="caption">
+Figure 24: Dot chart
+</p>
+</div>
 </div>
