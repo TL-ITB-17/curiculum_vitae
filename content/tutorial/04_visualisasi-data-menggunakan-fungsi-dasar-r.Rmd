@@ -13,8 +13,8 @@ type: docs
 
 > **Note: **
 >
-> - [](Visualisasi Data Menggunakan Fungsi plot)[#4-1-visualisasi-data-menggunakan-fungsi-plot]
->
+> - [Visualisasi Data Menggunakan Fungsi plot](#4-1-visualisasi-data-menggunakan-fungsi-plot())
+> - [Matriks Scatterplot](#4-2-matriks-scatterplot)
 
 
 ## 4.1 Visualisasi Data Menggunakan Fungsi plot()
@@ -45,14 +45,23 @@ x <- c(1:10); y <- x^2
 ```
 
 ```{r plot, fig.cap='Plot berbagai jenis setting type', tidy=FALSE, fig.align='center'}
-plot(x, y, type="p")
-plot(x, y, type="l")
-plot(x, y, type="b")
-plot(x, y, type="o")
-plot(x, y, type="h")
-plot(x, y, type="s")
-plot(x, y, type="n")
+# membagi jendela grafik menajdi 4 baris dan 2 kolom
+par(mfrow=c(3,3))
+
+# plot
+plot(x, y, type="p", main="p")
+plot(x, y, type="l", main="l")
+plot(x, y, type="b", main="b")
+plot(x, y, type="o", main="o")
+plot(x, y, type="h", main="h")
+plot(x, y, type="s", main="s")
+plot(x, y, type="n", main="n")
 ```
+
+```{r, echo=FALSE}
+par(mfrow=c(1,1))
+```
+
 
 Pada contoh selanjutnya akan dilakukan plot terhadap dataset `trees`. Untuk memuatnya jalankan sintaks berikut:
 ```{r, message=FALSE}
@@ -97,10 +106,125 @@ plot(trees)
 Selain itu jika kita memasukkan objek `lm()` yang merupakan fungsi untuk melakukan operasi regresi linier pada fungsi `plot()`, output yang dihasilkan berupa plot diagnostik yang berguna untuk menguji asumsi model regresi linier. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:diag):
 
 ```{r diag, fig.cap='Plot diagnostik regresi linier', tidy=FALSE, fig.align='center'}
+# membagi jendela grafik menjadi 2 baris dan 2 kolom
+par(mfrow=c(2,2))
+
+# plot
 plot(lm(Volume~Height, data=trees))
 ```
 
+```{r, echo=FALSE}
+par(mfrow=c(1,1))
+```
+
 Selain objek-objek tersebut, fungsi `plot()` akan banyak digunakan dalam analisis statistika kita pada chapter lainnya.
+
+## 4.2 Matriks Scatterplot
+
+Pada bagian sebelumnya kita telah belajar bagaimana membuat matriks scatterplot mengggunakan fungsi `plot()`. Pada bagian ini kita akan belajar cara membuat matriks scatterplot menggunakan fungsi `pairs()`. Secara umum format fungsi dituliskan sebagai berikut:
+
+```{r, eval=FALSE}
+pairs(data, lower.panel=NULL)
+```
+
+> **Note: **
+>
+> - **data**: data frame
+> - **lower.panel**: menampilkan atau tidak menampilkan panel bawah
+
+Untuk lebih memahami penggunaan fungsi tersebut, berikut akan disajikan contoh penggunaannya pada dataset `iris`. Sebelum melakukannya jalankan sintaks berikut untuk memuat dataset:
+
+```{r}
+# memuat dataset irir
+iris <- as_tibble(iris)
+
+# print
+iris
+```
+
+Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek `iris` kedalam fungsi `pairs()`. Berikut adalah sintaks yang digunakan dan output yang dihasilkan pada Figure \@ref(fig:matscat):
+
+```{r matscat, fig.cap='Matriks scatterplot iris', tidy=FALSE, fig.align='center'}
+pairs(iris)
+```
+
+Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter `lower.panel=NULL`. Output yang dihasilkan akan tampak seperti pada Figure \@ref(fig:matscat2).
+
+```{r matscat2, fig.cap='Matriks scatterplot iris tanpa panel bawah', tidy=FALSE, fig.align='center'}
+pairs(iris, lower.panel=NULL)
+```
+
+Kita dapat merubah warna titik berdasarkan factor `Species`. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel `Species` pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi `pairs()`. Warna berdasarkan grup diberikan dengan menambahkan parameter `col= ` pada fungsi `pairs()`. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure \@ref(fig:matscat3):
+
+```{r matscat3, fig.cap='Matriks scatterplot iris tanpa panel bawah', tidy=FALSE, fig.align='center'}
+# drop variabel Species
+# simpan dataset baru pada objek iris2
+iris2 <- iris[ ,1:4]
+
+# print
+iris2
+
+# spesifikasi vaktor warna titik berdasarkan spesies
+my_col <- c("#00AFBB", "#E7B800", "#FC4E07")
+
+# plot
+pairs(iris2, lower.panel=NULL,
+      # spesifikasi warna
+      col= my_col[iris$Species])
+```
+
+Kita juga dapat mengganti panel bawah menjadi nilai korelasi antar variabel. Untuk melakukannya kita perlu mendefinisikan sebuah fungsi untuk panel bawah dan panel atas (jika ingin warna titik berdasarkan factor). Setelah fungsi panel bawah dan atas didefinisikan, langkah selanjutnya adalah melakukan memasukkan nilainya kedalam fungsi `pairs()`. Berikut adalah sintaks yang digunakan serta output yang dihasilkan pada Figure \@ref(fig:matscat4):
+
+```{r matscat4, fig.cap='Matriks scatterplot iris dengan koefisien korelasi', tidy=FALSE, fig.align='center'}
+# membuat fungsi untuk menghitung
+# nilai korelasi yang ditempatkan pada panel bawah
+panel.cor <- function(x, y){
+    # definisi parameter grafik 
+    usr <- par("usr"); on.exit(par(usr))
+    par(usr = c(0, 1, 0, 1))
+    # menghitung koefisien korelas
+    r <- round(cor(x, y), digits=2)
+    # menambahkan text berdasarkan koefisien korelasi
+    txt <- paste0("R = ", r)
+    # mengatur besar text sesuai besarnya nilai korelasi
+    cex.cor <- 0.8/strwidth(txt)
+    text(0.5, 0.5, txt, cex = cex.cor * abs(r))
+}
+
+# kustomisasi panel atas agar
+# warna titik berdasarkan factor
+my_col <- c("#00AFBB", "#E7B800", "#FC4E07")
+upper.panel<-function(x, y){
+  points(x,y, pch = 19, col = my_col[iris$Species])
+}
+
+pairs(iris2,
+      lower.panel= panel.cor,
+      upper.panel= upper.panel)
+```
+
+Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter `upper.panel= `. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure \@ref(fig:matscat5):
+
+```{r matscat5, fig.cap='Matriks scatterplot iris dengan koefisien korelasi di panel atas', tidy=FALSE, fig.align='center'}
+# kustomisasi panel atas
+upper.panel<-function(x, y){
+  points(x,y, pch=19, col=c("#00AFBB", "#E7B800", "#FC4E07")[iris$Species])
+  r <- round(cor(x, y), digits=2)
+  txt <- paste0("R = ", r)
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(0, 1, 0, 1))
+  text(0.5, 0.9, txt)
+}
+
+# plot
+pairs(iris2, lower.panel = NULL, 
+      upper.panel = upper.panel)
+```
+
+
+
+
+
 
 
 
