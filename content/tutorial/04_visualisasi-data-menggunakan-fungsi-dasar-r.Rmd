@@ -11,7 +11,7 @@ linktitle: Visualisasi Data Menggunakan Fungsi Dasar R
 type: docs
 ---
 
-> **Note: **
+> **Daftar Isi**
 >
 > - [Visualisasi Data Menggunakan Fungsi plot](#4-1-visualisasi-data-menggunakan-fungsi-plot())
 > - [Matriks Scatterplot](#4-2-matriks-scatterplot)
