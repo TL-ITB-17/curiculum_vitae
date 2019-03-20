@@ -21,7 +21,7 @@ type: docs
 > - [Pie Chart](#4-6-pie-chart)
 > - [Histogram dan Density Plot](#4-7-histogram-dan-density-plot)
 > - [QQ Plot](#4-8-qq-plot)
-> - [Dot Chart](#4-9-dot-plot)
+> - [Dot Chart](#4-9-dot-chart)
 
 
 ## 4.1 Visualisasi Data Menggunakan Fungsi plot()
