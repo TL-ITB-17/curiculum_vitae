@@ -20,6 +20,10 @@ type: docs
 <li><a href="#4-2-matriks-scatterplot">Matriks Scatterplot</a></li>
 <li><a href="#4-3-box-plot">Box plot</a></li>
 <li><a href="#4-4-bar-plot">Bar Plot</a></li>
+<li><a href="#4-5-line-plot">Line Plot</a></li>
+<li><a href="#4-6-pie-chart">Pie Chart</a></li>
+<li><a href="#4-7-histogram-dan-density-plot">Histogram dan Density Plot</a></li>
+<li><a href="#4-8-qq-plot">QQ Plot</a></li>
 </ul>
 </blockquote>
 <div id="visualisasi-data-menggunakan-fungsi-plot" class="section level2">
@@ -366,7 +370,7 @@ Figure 14: a. bar plot vertikal, b. bar plot horizontal
 Figure 15: Kustomisasi bar plot
 </p>
 </div>
-<p>Untuk bar plot dengan <em>multiple group</em>, tersedia dua pengaturan posisi yaitu <em>stacked bar plot</em>(menunjukkan proporsi penyusun pada masing-masing grup) dan <em>grouped bar plot</em>(melihat perbedaan individual pada masing-masing grup). Pada Figure <a href="#fig:barplot3">16</a> dan Figure <a href="#fig:barplot4">17</a> , disajikan kedua jenis bar plot tersebut.</p>
+<p>Untuk bar plot dengan <em>multiple group</em>, tersedia dua pengaturan posisi yaitu <em>stacked bar plot</em>(menunjukkan proporsi penyusun pada masing-masing grup) dan <em>grouped bar plot</em>(melihat perbedaan individual pada masing-masing grup). Pada Figure <a href="#fig:barplot3">16</a> dan Figure <a href="#fig:barplot4">17</a>, disajikan kedua jenis bar plot tersebut.</p>
 <pre class="r"><code># staked
 barplot(VADeaths,
          col = c(&quot;lightblue&quot;, &quot;mistyrose&quot;, &quot;lightcyan&quot;, 
@@ -389,4 +393,87 @@ barplot(VADeaths,
 Figure 17: Grouped bar plot
 </p>
 </div>
+</div>
+<div id="line-plot" class="section level2">
+<h2>4.5 Line Plot</h2>
+<p>Line plot pada <code>R</code> dapat dibentuk menggunakan fungsi <code>plot()</code>. Selain itu fungsi <code>lines()</code> dapat pula digunakan untuk menambahkan line plot pada grafik. Berikut adalah sintaks untuk membuat line plot dan outputnya pada Figure <a href="#fig:line">18</a>:</p>
+<pre class="r"><code># Membuat vektor data
+x &lt;- c(1:20)
+y &lt;- 2*x
+z &lt;- x^2
+
+# Membuat line plot x vs y
+plot(y~x, type=&quot;b&quot;,
+     lty=1,
+     col=&quot;blue&quot;)
+
+# Menambahkan line plot x vs z
+lines(z~x, type=&quot;o&quot;,
+      lty=2,
+      col=&quot;red&quot;)
+
+# Menambahkan legend
+legend(&quot;topleft&quot;, legend=c(&quot;Line 1&quot;, &quot;Line 2&quot;),
+       col=c(&quot;red&quot;, &quot;blue&quot;), lty = 1:2, cex=0.8)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:line"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/line-1.png" alt="Line plot" width="672" />
+<p class="caption">
+Figure 18: Line plot
+</p>
+</div>
+</div>
+<div id="pie-chart" class="section level2">
+<h2>4.6 Pie Chart</h2>
+<p>Pie chart digunakan untuk membuat visualisasi proporsi pada sebuah data. Pie chart pada <code>R</code> dibuat menggunakan fungsi <code>pie()</code>. Berikut adalah sintaks untuk membuat pie chart dan output yang dihasilkan pada Figure <a href="#fig:pie">19</a>:</p>
+<pre class="r"><code>par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:pie"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/pie-1.png" alt="Pie chart" width="672" />
+<p class="caption">
+Figure 19: Pie chart
+</p>
+</div>
+</div>
+<div id="histogram-dan-density-plot" class="section level2">
+<h2>4.7 Histogram dan Density Plot</h2>
+<p>Fungsi <code>hist()</code> dapat digunakan untuk membuat histogram pada <code>R</code>. Secara sederhana fungsi tersebut didefinisikan sebagai berikut:</p>
+<pre class="r"><code>hist(x, breaks=&quot;Sturges&quot;)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong>: vektor numerik</li>
+<li><strong>breaks</strong>: <em>breakpoints</em> antar sel histogram.</li>
+</ul>
+</blockquote>
+<p>Pada dataset <code>trees</code> akan dibuat histogram variabel <code>Height</code>. Untuk melakukannya jalankan sintaks berikut:</p>
+<pre class="r"><code>hist(trees$Height)</code></pre>
+<p>Output yang dihasilkan disajikan pada Figure <a href="#fig:hist">20</a>:</p>
+<div class="figure" style="text-align: center"><span id="fig:hist"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/hist-1.png" alt="Histogram" width="672" />
+<p class="caption">
+Figure 20: Histogram
+</p>
+</div>
+<p>Density plot pada <code>R</code> dapat dibuat menggunakan fungsi <code>density()</code>. Berbeda dengan fungsi <code>hist()</code>, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi <code>density()</code> hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi <code>plot()</code>. Berikut adalah sintaks dan output yang dihasilkan pada Figure <a href="#fig:dens">21</a>:</p>
+<div class="figure" style="text-align: center"><span id="fig:dens"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dens-1.png" alt="Density plot" width="672" />
+<p class="caption">
+Figure 21: Density plot
+</p>
+</div>
+<p>Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan parameter <code>freq=FALSE</code> pada fungsi <code>hist()</code>. Selanjutnya tambahkan fungsi <code>polygon()</code> untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada Figure <a href="#fig:denshist">22</a>:</p>
+<div class="figure" style="text-align: center"><span id="fig:denshist"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/denshist-1.png" alt="Density plot dan histogram" width="672" />
+<p class="caption">
+Figure 22: Density plot dan histogram
+</p>
+</div>
+</div>
+<div id="qq-plot" class="section level2">
+<h2>4.8 QQ Plot</h2>
 </div>

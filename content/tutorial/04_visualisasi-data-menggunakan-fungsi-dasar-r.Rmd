@@ -17,6 +17,10 @@ type: docs
 > - [Matriks Scatterplot](#4-2-matriks-scatterplot)
 > - [Box plot](#4-3-box-plot)
 > - [Bar Plot](#4-4-bar-plot)
+> - [Line Plot](#4-5-line-plot)
+> - [Pie Chart](#4-6-pie-chart)
+> - [Histogram dan Density Plot](#4-7-histogram-dan-density-plot)
+> - [QQ Plot](#4-8-qq-plot)
 
 
 ## 4.1 Visualisasi Data Menggunakan Fungsi plot()
@@ -304,7 +308,7 @@ barplot(VADeaths[, "Rural Male"],
         horiz=TRUE)
 ```
 
-Untuk bar plot dengan *multiple group*, tersedia dua pengaturan posisi yaitu *stacked bar plot*(menunjukkan proporsi penyusun pada masing-masing grup) dan *grouped bar plot*(melihat perbedaan individual pada masing-masing grup). Pada Figure \@ref(fig:barplot3) dan Figure \@ref(fig:barplot4) , disajikan kedua jenis bar plot tersebut.
+Untuk bar plot dengan *multiple group*, tersedia dua pengaturan posisi yaitu *stacked bar plot*(menunjukkan proporsi penyusun pada masing-masing grup) dan *grouped bar plot*(melihat perbedaan individual pada masing-masing grup). Pada Figure \@ref(fig:barplot3) dan Figure \@ref(fig:barplot4), disajikan kedua jenis bar plot tersebut.
 
 ```{r barplot3, fig.cap='Stacked bar plot', tidy=FALSE, fig.align='center'}
 # staked
@@ -324,6 +328,93 @@ barplot(VADeaths,
 
 ```
 
+## 4.5 Line Plot
+
+Line plot pada `R` dapat dibentuk menggunakan fungsi `plot()`. Selain itu fungsi `lines()` dapat pula digunakan untuk menambahkan line plot pada grafik. Berikut adalah sintaks untuk membuat line plot dan outputnya pada Figure \@ref(fig:line):
+
+```{r line, fig.cap='Line plot', tidy=FALSE, fig.align='center'}
+# Membuat vektor data
+x <- c(1:20)
+y <- 2*x
+z <- x^2
+
+# Membuat line plot x vs y
+plot(y~x, type="b",
+     lty=1,
+     col="blue")
+
+# Menambahkan line plot x vs z
+lines(z~x, type="o",
+      lty=2,
+      col="red")
+
+# Menambahkan legend
+legend("topleft", legend=c("Line 1", "Line 2"),
+       col=c("red", "blue"), lty = 1:2, cex=0.8)
+```
+
+## 4.6 Pie Chart
+
+Pie chart digunakan untuk membuat visualisasi proporsi pada sebuah data. Pie chart pada `R` dibuat menggunakan fungsi `pie()`. Berikut adalah sintaks untuk membuat pie chart dan output yang dihasilkan pada Figure \@ref(fig:pie):
+
+```{r pie, fig.cap='Pie chart', tidy=FALSE, fig.align='center'}
+par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+```
+
+## 4.7 Histogram dan Density Plot
+
+Fungsi `hist()` dapat digunakan untuk membuat histogram pada `R`. Secara sederhana fungsi tersebut didefinisikan sebagai berikut:
+```{r, eval=FALSE}
+hist(x, breaks="Sturges")
+```
+
+> **Note: **
+>
+> - **x**: vektor numerik
+> - **breaks**: *breakpoints* antar sel histogram.
+
+Pada dataset `trees` akan dibuat histogram variabel `Height`. Untuk melakukannya jalankan sintaks berikut:
+
+```{r, eval=FALSE}
+hist(trees$Height)
+```
+
+Output yang dihasilkan disajikan pada Figure \@ref(fig:hist): 
+
+```{r hist,fig.cap='Histogram', tidy=FALSE, fig.align='center', echo=FALSE}
+hist(trees$Height, col="steelblue")
+```
+
+Density plot pada `R` dapat dibuat menggunakan fungsi `density()`. Berbeda dengan fungsi `hist()`, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi `density()` hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi `plot()`. Berikut adalah sintaks dan output yang dihasilkan pada  Figure \@ref(fig:dens):
+
+```{r dens,fig.cap='Density plot', tidy=FALSE, fig.align='center', echo=FALSE}
+# menghitung kernel density
+dens <- density(trees$Height)
+
+# plot densitas dengan outline merah
+plot(dens,col="red")
+```
+
+Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan parameter `freq=FALSE` pada fungsi `hist()`. Selanjutnya tambahkan fungsi `polygon()` untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada  Figure \@ref(fig:denshist):
+
+```{r denshist,fig.cap='Density plot dan histogram', tidy=FALSE, fig.align='center', echo=FALSE}
+# menghitung kernel density
+dens <- density(trees$Height)
+
+# histogram
+hist(trees$Height, freq=FALSE, col="steelblue")
+
+# tambahkan density plot
+polygon(dens, border="red")
+```
+
+## 4.8 QQ Plot
 
 
 

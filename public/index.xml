@@ -2967,6 +2967,10 @@ kali(4,3)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;#4-2-matriks-scatterplot&#34;&gt;Matriks Scatterplot&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#4-3-box-plot&#34;&gt;Box plot&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#4-4-bar-plot&#34;&gt;Bar Plot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#4-5-line-plot&#34;&gt;Line Plot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#4-6-pie-chart&#34;&gt;Pie Chart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#4-7-histogram-dan-density-plot&#34;&gt;Histogram dan Density Plot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#4-8-qq-plot&#34;&gt;QQ Plot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div id=&#34;visualisasi-data-menggunakan-fungsi-plot&#34; class=&#34;section level2&#34;&gt;
@@ -3313,7 +3317,7 @@ Figure 14: a. bar plot vertikal, b. bar plot horizontal
 Figure 15: Kustomisasi bar plot
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Untuk bar plot dengan &lt;em&gt;multiple group&lt;/em&gt;, tersedia dua pengaturan posisi yaitu &lt;em&gt;stacked bar plot&lt;/em&gt;(menunjukkan proporsi penyusun pada masing-masing grup) dan &lt;em&gt;grouped bar plot&lt;/em&gt;(melihat perbedaan individual pada masing-masing grup). Pada Figure &lt;a href=&#34;#fig:barplot3&#34;&gt;16&lt;/a&gt; dan Figure &lt;a href=&#34;#fig:barplot4&#34;&gt;17&lt;/a&gt; , disajikan kedua jenis bar plot tersebut.&lt;/p&gt;
+&lt;p&gt;Untuk bar plot dengan &lt;em&gt;multiple group&lt;/em&gt;, tersedia dua pengaturan posisi yaitu &lt;em&gt;stacked bar plot&lt;/em&gt;(menunjukkan proporsi penyusun pada masing-masing grup) dan &lt;em&gt;grouped bar plot&lt;/em&gt;(melihat perbedaan individual pada masing-masing grup). Pada Figure &lt;a href=&#34;#fig:barplot3&#34;&gt;16&lt;/a&gt; dan Figure &lt;a href=&#34;#fig:barplot4&#34;&gt;17&lt;/a&gt;, disajikan kedua jenis bar plot tersebut.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# staked
 barplot(VADeaths,
          col = c(&amp;quot;lightblue&amp;quot;, &amp;quot;mistyrose&amp;quot;, &amp;quot;lightcyan&amp;quot;, 
@@ -3336,6 +3340,89 @@ barplot(VADeaths,
 Figure 17: Grouped bar plot
 &lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;line-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;4.5 Line Plot&lt;/h2&gt;
+&lt;p&gt;Line plot pada &lt;code&gt;R&lt;/code&gt; dapat dibentuk menggunakan fungsi &lt;code&gt;plot()&lt;/code&gt;. Selain itu fungsi &lt;code&gt;lines()&lt;/code&gt; dapat pula digunakan untuk menambahkan line plot pada grafik. Berikut adalah sintaks untuk membuat line plot dan outputnya pada Figure &lt;a href=&#34;#fig:line&#34;&gt;18&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat vektor data
+x &amp;lt;- c(1:20)
+y &amp;lt;- 2*x
+z &amp;lt;- x^2
+
+# Membuat line plot x vs y
+plot(y~x, type=&amp;quot;b&amp;quot;,
+     lty=1,
+     col=&amp;quot;blue&amp;quot;)
+
+# Menambahkan line plot x vs z
+lines(z~x, type=&amp;quot;o&amp;quot;,
+      lty=2,
+      col=&amp;quot;red&amp;quot;)
+
+# Menambahkan legend
+legend(&amp;quot;topleft&amp;quot;, legend=c(&amp;quot;Line 1&amp;quot;, &amp;quot;Line 2&amp;quot;),
+       col=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;), lty = 1:2, cex=0.8)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:line&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/line-1.png&#34; alt=&#34;Line plot&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 18: Line plot
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pie-chart&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;4.6 Pie Chart&lt;/h2&gt;
+&lt;p&gt;Pie chart digunakan untuk membuat visualisasi proporsi pada sebuah data. Pie chart pada &lt;code&gt;R&lt;/code&gt; dibuat menggunakan fungsi &lt;code&gt;pie()&lt;/code&gt;. Berikut adalah sintaks untuk membuat pie chart dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:pie&#34;&gt;19&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
+  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
+  init.angle = -50, border = NA
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/pie-1.png&#34; alt=&#34;Pie chart&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 19: Pie chart
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;histogram-dan-density-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;4.7 Histogram dan Density Plot&lt;/h2&gt;
+&lt;p&gt;Fungsi &lt;code&gt;hist()&lt;/code&gt; dapat digunakan untuk membuat histogram pada &lt;code&gt;R&lt;/code&gt;. Secara sederhana fungsi tersebut didefinisikan sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(x, breaks=&amp;quot;Sturges&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;breaks&lt;/strong&gt;: &lt;em&gt;breakpoints&lt;/em&gt; antar sel histogram.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Pada dataset &lt;code&gt;trees&lt;/code&gt; akan dibuat histogram variabel &lt;code&gt;Height&lt;/code&gt;. Untuk melakukannya jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(trees$Height)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Output yang dihasilkan disajikan pada Figure &lt;a href=&#34;#fig:hist&#34;&gt;20&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:hist&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/hist-1.png&#34; alt=&#34;Histogram&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 20: Histogram
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Density plot pada &lt;code&gt;R&lt;/code&gt; dapat dibuat menggunakan fungsi &lt;code&gt;density()&lt;/code&gt;. Berbeda dengan fungsi &lt;code&gt;hist()&lt;/code&gt;, fungsi ini tidak langsung menghasilkan grafik densitas. Fungsi &lt;code&gt;density()&lt;/code&gt; hanya menghitung kernel densitas pada data. Densitas yang telah dihitung selanjutnya diplotkan menggunakan fungsi &lt;code&gt;plot()&lt;/code&gt;. Berikut adalah sintaks dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:dens&#34;&gt;21&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dens&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dens-1.png&#34; alt=&#34;Density plot&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 21: Density plot
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan parameter &lt;code&gt;freq=FALSE&lt;/code&gt; pada fungsi &lt;code&gt;hist()&lt;/code&gt;. Selanjutnya tambahkan fungsi &lt;code&gt;polygon()&lt;/code&gt; untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:denshist&#34;&gt;22&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:denshist&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/denshist-1.png&#34; alt=&#34;Density plot dan histogram&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 22: Density plot dan histogram
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;qq-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;4.8 QQ Plot&lt;/h2&gt;
 &lt;/div&gt;
 </description>
     </item>
