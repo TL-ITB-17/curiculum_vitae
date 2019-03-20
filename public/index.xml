@@ -3572,7 +3572,7 @@ Figure 26: Menambahkan Judul (2)
 &lt;/div&gt;
 &lt;p&gt;Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi &lt;code&gt;title()&lt;/code&gt;. Parameter yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title3&#34;&gt;27&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menambahkan judul
-barplot(c(2,5))
+barplot(c(2,5,8))
 
 # menambahkan judul
 title(main=&amp;quot;Main title&amp;quot;,
