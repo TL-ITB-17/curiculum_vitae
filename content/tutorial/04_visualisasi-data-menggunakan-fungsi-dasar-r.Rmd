@@ -154,13 +154,13 @@ Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek `iris` kedal
 pairs(iris)
 ```
 
-Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter `lower.panel=NULL`. Output yang dihasilkan akan tampak seperti pada Figure \@ref(fig:matscat2).
+Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan argumen `lower.panel=NULL`. Output yang dihasilkan akan tampak seperti pada Figure \@ref(fig:matscat2).
 
 ```{r matscat2, fig.cap='Matriks scatterplot iris tanpa panel bawah', tidy=FALSE, fig.align='center'}
 pairs(iris, lower.panel=NULL)
 ```
 
-Kita dapat merubah warna titik berdasarkan factor `Species`. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel `Species` pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi `pairs()`. Warna berdasarkan grup diberikan dengan menambahkan parameter `col= ` pada fungsi `pairs()`. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure \@ref(fig:matscat3):
+Kita dapat merubah warna titik berdasarkan factor `Species`. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel `Species` pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi `pairs()`. Warna berdasarkan grup diberikan dengan menambahkan argumen `col= ` pada fungsi `pairs()`. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure \@ref(fig:matscat3):
 
 ```{r matscat3, fig.cap='Matriks scatterplot iris tanpa panel bawah', tidy=FALSE, fig.align='center'}
 # drop variabel Species
@@ -209,7 +209,7 @@ pairs(iris2,
       upper.panel= upper.panel)
 ```
 
-Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter `upper.panel= `. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure \@ref(fig:matscat5):
+Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada argumen `upper.panel= `. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure \@ref(fig:matscat5):
 
 ```{r matscat5, fig.cap='Matriks scatterplot iris dengan koefisien korelasi di panel atas', tidy=FALSE, fig.align='center'}
 # kustomisasi panel atas
@@ -403,7 +403,7 @@ dens <- density(trees$Height)
 plot(dens,col="red")
 ```
 
-Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan parameter `freq=FALSE` pada fungsi `hist()`. Selanjutnya tambahkan fungsi `polygon()` untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada  Figure \@ref(fig:denshist):
+Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan argumen `freq=FALSE` pada fungsi `hist()`. Selanjutnya tambahkan fungsi `polygon()` untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada  Figure \@ref(fig:denshist):
 
 ```{r denshist,fig.cap='Density plot dan histogram', tidy=FALSE, fig.align='center'}
 # menghitung kernel density
@@ -474,14 +474,14 @@ b. mengubah skala axis, simbol plot, jenis garis, dan warna.
 
 Pada grafik di `R`, kita dapat menambahkan judul dengan dua cara, yaitu: pada plot melalui parameter dan melalui fungsi plot(). Kedua cara tersebut tidak berbeda satu sama lain pada parameter input.
 
-Untuk menambahkan judul pada plot secara langsung, kita dapat menggunakan parameter tambahan sebagai berikut:
+Untuk menambahkan judul pada plot secara langsung, kita dapat menggunakan argumen tambahan sebagai berikut:
 
 a. **main**: teks untuk judul.
 b. **xlab**: teks untuk keterangan axis X.
 c. **ylab**: teks untuk keterangan axis y.
 d. **sub**: teks untuk sub-judul.
 
-Berikut contoh sintaks penerapan masing-masing parameter tersebut beserta dengan output yang dihasilkan pada Figure \@ref(fig:title):
+Berikut contoh sintaks penerapan masing-masing argumen tersebut beserta dengan output yang dihasilkan pada Figure \@ref(fig:title):
 
 ```{r title,fig.cap='Menambahkan Judul', tidy=FALSE, fig.align='center'}
 # menambahkan judul
@@ -491,13 +491,13 @@ barplot(c(2,5), main="Main title",
         sub="Sub-title")
 ```
 
-kita juga dapat melakukan kustomisasi pada warna, *font style*, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan parameter sebagai berikut:
+kita juga dapat melakukan kustomisasi pada warna, *font style*, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan argumen sebagai berikut:
 
 a. **col.main**: warna untuk judul.
 b. **col.lab**: warna untuk keterangan axis.
 c. **col.sub**: warna untuk sub-judul
 
-Untuk kustomisasi font judul, kita dapat menambahkan parameter berikut:
+Untuk kustomisasi font judul, kita dapat menambahkan argumen berikut:
 
 a. **font.main**: *font style* untuk judul.
 b. **font.lab**: *font style* untuk keterangan axis.
@@ -519,7 +519,7 @@ a. **cex.main**: ukuran teks judul.
 b. **cex.lab**: ukuran teks keterangan axis.
 c. **cex.sub**: ukuran teks sub-judul.
 
-Berikut sintaks penerapan seluruh parameter tersebut beserta output yang dihasilkan pada Figure \@ref(fig:title2):
+Berikut sintaks penerapan seluruh argumen tersebut beserta output yang dihasilkan pada Figure \@ref(fig:title2):
 
 ```{r title2,fig.cap='Menambahkan Judul (2)', tidy=FALSE, fig.align='center'}
 # menambahkan judul
@@ -543,7 +543,7 @@ barplot(c(2,5),
         cex.sub=1.2)
 ```
 
-Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi `title()`. Parameter yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:title3):
+Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi `title()`. argumen yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure \@ref(fig:title3):
 
 ```{r title3,fig.cap='Menambahkan Judul (3)', tidy=FALSE, fig.align='center'}
 # menambahkan judul
@@ -568,7 +568,126 @@ title(main="Main title",
       cex.sub=1.2)
 ``` 
 
+### 4.10.2 Menambahkan Legend
 
+Fungsi `legend()` pada `R` dapat digunakan untuk menambahkan legend pada grafik. Format sederhananya adalah sebagai berikut:
 
+```{r, eval=FALSE}
+legend(x, y=NULL, legend, fill, col, bg)
+```
+
+> **Note: **
+>
+> - **x** dan **y**: koordinat yang digunakan untuk posisi legend.
+> - **legend**: teks pada legend
+> - **fill**: warna yang digunakan untuk mengisi box disamping teks legend.
+> - **col**: warna garis dan titik disamping teks legend.
+> - **bg**: warna latar belakang legend box.
+
+Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada Figure \@ref(fig:legend):
+
+```{r legend,fig.cap='Menambahkan legend', tidy=FALSE, fig.align='center'}
+# membuat vektor numerik
+x <- c(1:10)
+y <- x^2
+z <- x*2
+
+# membuat line plot
+plot(x,y, type="o", col="red", lty=1)
+
+# menambahkan line plot
+lines(x,z, type="o", col="blue", lty=2)
+
+# menambahkan legend
+legend(1, 95, legend=c("Line 1", "Line 2"),
+       col=c("red", "blue"), lty=1:2, cex=0.8)
+```
+
+Kita dapat menambahkan judul, merubah font, dan merubah warna backgroud pada legend. Argumen  yang ditambahkan pada legend adalah sebagai berikut:
+
+a. **title**: Judul legend
+b. **text.font**: integer yang menunjukkan *font style* pada teks legend. Nilai yang dapat dimasukkan adalah sebagai berikut:
+    + **1**: normal
+    + **2**: cetak tebal
+    + **3**: cetak miring
+    + **4**: cetak tebal dan miring.
+c. **bg**: warna background legend box.
+
+Berikut adalah penerapan sintaks dan output yang dihasilkan pada Figure \@ref(fig:legend2):
+
+```{r legend2,fig.cap='Menambahkan legend (2)', tidy=FALSE, fig.align='center'}
+# membuat line plot
+plot(x,y, type="o", col="red", lty=1)
+
+# menambahkan line plot
+lines(x,z, type="o", col="blue", lty=2)
+
+# menambahkan legend
+legend(1, 95, legend=c("Line 1", "Line 2"),
+       col=c("red", "blue"), lty=1:2, cex=0.8,
+       title="Line types", text.font=4, bg='lightblue')
+```
+
+Kita dapat melakukan kustomisasi pada border dari legend melalui argumen `box.lty= `(jenis garis), `box.lwd= `(ukuran garis), dan `box.col= `(warna box). Berikut adalah penerapan argumen tersebut beserta output yang dihasilkan pada Figure \@ref(fig:legend3):
+
+```{r legend3,fig.cap='Menambahkan legend (3)', tidy=FALSE, fig.align='center'}
+# membuat line plot
+plot(x,y, type="o", col="red", lty=1)
+
+# menambahkan line plot
+lines(x,z, type="o", col="blue", lty=2)
+
+# menambahkan legend
+legend(1, 95, legend=c("Line 1", "Line 2"),
+       col=c("red", "blue"), lty=1:2, cex=0.8,
+       title="Line types", text.font=4, bg='white',
+       box.lty=2, box.lwd=2, box.col="steelblue")
+```
+
+Selain menggunakan koordinat, kita juga dapat melakukan kustomisasi posisi legend menggunakan *keyword* seperti: bottomright", "bottom", "bottomleft", "left", "topleft", "top", "topright", "right" and "center". Sejumlah kustomisasi legend berdasarkan *keyword* disajikan pada Figure \@ref(fig:legend4):
+
+```{r legend4,fig.cap='Kustomisasi posisi legend', tidy=FALSE, fig.align='center'}
+# plot
+plot(x,y, type = "n")
+
+# posisi kiri atas, inset =0.05
+legend("topleft",
+  legend = "(x,y)",
+  title = "topleft, inset = .05",
+  inset = 0.05)
+# posisi atas
+legend("top",
+       legend = "(x,y)",
+       title = "top")
+# posisi kanan atas inset = .02
+legend("topright",
+       legend = "(x,y)",
+       title = "topright, inset = .02",
+       inset = 0.02)
+# posisi kiri
+legend("left",
+       legend = "(x,y)",
+       title = "left")
+# posisi tengah
+legend("center",
+       legend = "(x,y)",
+       title = "center")
+# posisi kanan
+legend("right",
+       legend = "(x,y)",
+       title = "right")
+# posisi kiri bawah
+legend("bottomleft",
+       legend = "(x,y)",
+       title = "bottomleft")
+# posisi bawah
+legend("bottom",
+       legend = "(x,y)",
+       title = "bottom")
+# posisi kanan bawah
+legend("bottomright",
+       legend = "(x,y)",
+       title = "bottomright")
+```
 
 

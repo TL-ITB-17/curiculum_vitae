@@ -580,7 +580,7 @@ iris</code></pre>
 Figure 5: Matriks scatterplot iris
 </p>
 </div>
-<p>Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter <code>lower.panel=NULL</code>. Output yang dihasilkan akan tampak seperti pada Figure <a href="#fig:matscat2">6</a>.</p>
+<p>Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan argumen <code>lower.panel=NULL</code>. Output yang dihasilkan akan tampak seperti pada Figure <a href="#fig:matscat2">6</a>.</p>
 <pre class="r"><code>pairs(iris, lower.panel=NULL)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:matscat2"></span>
 <img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat2-1.png" alt="Matriks scatterplot iris tanpa panel bawah" width="672" />
@@ -588,7 +588,7 @@ Figure 5: Matriks scatterplot iris
 Figure 6: Matriks scatterplot iris tanpa panel bawah
 </p>
 </div>
-<p>Kita dapat merubah warna titik berdasarkan factor <code>Species</code>. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel <code>Species</code> pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi <code>pairs()</code>. Warna berdasarkan grup diberikan dengan menambahkan parameter <code>col=</code> pada fungsi <code>pairs()</code>. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure <a href="#fig:matscat3">7</a>:</p>
+<p>Kita dapat merubah warna titik berdasarkan factor <code>Species</code>. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel <code>Species</code> pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi <code>pairs()</code>. Warna berdasarkan grup diberikan dengan menambahkan argumen <code>col=</code> pada fungsi <code>pairs()</code>. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure <a href="#fig:matscat3">7</a>:</p>
 <pre class="r"><code># drop variabel Species
 # simpan dataset baru pada objek iris2
 iris2 &lt;- iris[ ,1:4]
@@ -654,7 +654,7 @@ pairs(iris2,
 Figure 8: Matriks scatterplot iris dengan koefisien korelasi
 </p>
 </div>
-<p>Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter <code>upper.panel=</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure <a href="#fig:matscat5">9</a>:</p>
+<p>Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada argumen <code>upper.panel=</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure <a href="#fig:matscat5">9</a>:</p>
 <pre class="r"><code># kustomisasi panel atas
 upper.panel&lt;-function(x, y){
   points(x,y, col=c(&quot;#00AFBB&quot;, &quot;#E7B800&quot;, &quot;#FC4E07&quot;)[iris$Species])
@@ -892,7 +892,7 @@ plot(dens,col=&quot;red&quot;)</code></pre>
 Figure 21: Density plot
 </p>
 </div>
-<p>Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan parameter <code>freq=FALSE</code> pada fungsi <code>hist()</code>. Selanjutnya tambahkan fungsi <code>polygon()</code> untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada Figure <a href="#fig:denshist">22</a>:</p>
+<p>Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan argumen <code>freq=FALSE</code> pada fungsi <code>hist()</code>. Selanjutnya tambahkan fungsi <code>polygon()</code> untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada Figure <a href="#fig:denshist">22</a>:</p>
 <pre class="r"><code># menghitung kernel density
 dens &lt;- density(trees$Height)
 
@@ -968,14 +968,14 @@ Figure 24: Dot chart
 <div id="menambahkan-judul" class="section level3">
 <h3>4.10.1 Menambahkan Judul</h3>
 <p>Pada grafik di <code>R</code>, kita dapat menambahkan judul dengan dua cara, yaitu: pada plot melalui parameter dan melalui fungsi plot(). Kedua cara tersebut tidak berbeda satu sama lain pada parameter input.</p>
-<p>Untuk menambahkan judul pada plot secara langsung, kita dapat menggunakan parameter tambahan sebagai berikut:</p>
+<p>Untuk menambahkan judul pada plot secara langsung, kita dapat menggunakan argumen tambahan sebagai berikut:</p>
 <ol style="list-style-type: lower-alpha">
 <li><strong>main</strong>: teks untuk judul.</li>
 <li><strong>xlab</strong>: teks untuk keterangan axis X.</li>
 <li><strong>ylab</strong>: teks untuk keterangan axis y.</li>
 <li><strong>sub</strong>: teks untuk sub-judul.</li>
 </ol>
-<p>Berikut contoh sintaks penerapan masing-masing parameter tersebut beserta dengan output yang dihasilkan pada Figure <a href="#fig:title">25</a>:</p>
+<p>Berikut contoh sintaks penerapan masing-masing argumen tersebut beserta dengan output yang dihasilkan pada Figure <a href="#fig:title">25</a>:</p>
 <pre class="r"><code># menambahkan judul
 barplot(c(2,5), main=&quot;Main title&quot;,
         xlab=&quot;X axis title&quot;,
@@ -987,13 +987,13 @@ barplot(c(2,5), main=&quot;Main title&quot;,
 Figure 25: Menambahkan Judul
 </p>
 </div>
-<p>kita juga dapat melakukan kustomisasi pada warna, <em>font style</em>, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan parameter sebagai berikut:</p>
+<p>kita juga dapat melakukan kustomisasi pada warna, <em>font style</em>, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan argumen sebagai berikut:</p>
 <ol style="list-style-type: lower-alpha">
 <li><strong>col.main</strong>: warna untuk judul.</li>
 <li><strong>col.lab</strong>: warna untuk keterangan axis.</li>
 <li><strong>col.sub</strong>: warna untuk sub-judul</li>
 </ol>
-<p>Untuk kustomisasi font judul, kita dapat menambahkan parameter berikut:</p>
+<p>Untuk kustomisasi font judul, kita dapat menambahkan argumen berikut:</p>
 <ol style="list-style-type: lower-alpha">
 <li><strong>font.main</strong>: <em>font style</em> untuk judul.</li>
 <li><strong>font.lab</strong>: <em>font style</em> untuk keterangan axis.</li>
@@ -1016,7 +1016,7 @@ Figure 25: Menambahkan Judul
 <li><strong>cex.lab</strong>: ukuran teks keterangan axis.</li>
 <li><strong>cex.sub</strong>: ukuran teks sub-judul.</li>
 </ol>
-<p>Berikut sintaks penerapan seluruh parameter tersebut beserta output yang dihasilkan pada Figure <a href="#fig:title2">26</a>:</p>
+<p>Berikut sintaks penerapan seluruh argumen tersebut beserta output yang dihasilkan pada Figure <a href="#fig:title2">26</a>:</p>
 <pre class="r"><code># menambahkan judul
 barplot(c(2,5), 
         # menambahkan judul
@@ -1042,7 +1042,7 @@ barplot(c(2,5),
 Figure 26: Menambahkan Judul (2)
 </p>
 </div>
-<p>Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi <code>title()</code>. Parameter yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="#fig:title3">27</a>:</p>
+<p>Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi <code>title()</code>. argumen yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure <a href="#fig:title3">27</a>:</p>
 <pre class="r"><code># menambahkan judul
 barplot(c(2,5,8))
 
@@ -1067,6 +1067,137 @@ title(main=&quot;Main title&quot;,
 <img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title3-1.png" alt="Menambahkan Judul (3)" width="672" />
 <p class="caption">
 Figure 27: Menambahkan Judul (3)
+</p>
+</div>
+</div>
+<div id="menambahkan-legend" class="section level3">
+<h3>4.10.2 Menambahkan Legend</h3>
+<p>Fungsi <code>legend()</code> pada <code>R</code> dapat digunakan untuk menambahkan legend pada grafik. Format sederhananya adalah sebagai berikut:</p>
+<pre class="r"><code>legend(x, y=NULL, legend, fill, col, bg)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong> dan <strong>y</strong>: koordinat yang digunakan untuk posisi legend.</li>
+<li><strong>legend</strong>: teks pada legend</li>
+<li><strong>fill</strong>: warna yang digunakan untuk mengisi box disamping teks legend.</li>
+<li><strong>col</strong>: warna garis dan titik disamping teks legend.</li>
+<li><strong>bg</strong>: warna latar belakang legend box.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada Figure <a href="#fig:legend">28</a>:</p>
+<pre class="r"><code># membuat vektor numerik
+x &lt;- c(1:10)
+y &lt;- x^2
+z &lt;- x*2
+
+# membuat line plot
+plot(x,y, type=&quot;o&quot;, col=&quot;red&quot;, lty=1)
+
+# menambahkan line plot
+lines(x,z, type=&quot;o&quot;, col=&quot;blue&quot;, lty=2)
+
+# menambahkan legend
+legend(1, 95, legend=c(&quot;Line 1&quot;, &quot;Line 2&quot;),
+       col=c(&quot;red&quot;, &quot;blue&quot;), lty=1:2, cex=0.8)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:legend"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend-1.png" alt="Menambahkan legend" width="672" />
+<p class="caption">
+Figure 28: Menambahkan legend
+</p>
+</div>
+<p>Kita dapat menambahkan judul, merubah font, dan merubah warna backgroud pada legend. Argumen yang ditambahkan pada legend adalah sebagai berikut:</p>
+<ol style="list-style-type: lower-alpha">
+<li><strong>title</strong>: Judul legend</li>
+<li><strong>text.font</strong>: integer yang menunjukkan <em>font style</em> pada teks legend. Nilai yang dapat dimasukkan adalah sebagai berikut:
+<ul>
+<li><strong>1</strong>: normal</li>
+<li><strong>2</strong>: cetak tebal</li>
+<li><strong>3</strong>: cetak miring</li>
+<li><strong>4</strong>: cetak tebal dan miring.</li>
+</ul></li>
+<li><strong>bg</strong>: warna background legend box.</li>
+</ol>
+<p>Berikut adalah penerapan sintaks dan output yang dihasilkan pada Figure <a href="#fig:legend2">29</a>:</p>
+<pre class="r"><code># membuat line plot
+plot(x,y, type=&quot;o&quot;, col=&quot;red&quot;, lty=1)
+
+# menambahkan line plot
+lines(x,z, type=&quot;o&quot;, col=&quot;blue&quot;, lty=2)
+
+# menambahkan legend
+legend(1, 95, legend=c(&quot;Line 1&quot;, &quot;Line 2&quot;),
+       col=c(&quot;red&quot;, &quot;blue&quot;), lty=1:2, cex=0.8,
+       title=&quot;Line types&quot;, text.font=4, bg=&#39;lightblue&#39;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:legend2"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend2-1.png" alt="Menambahkan legend (2)" width="672" />
+<p class="caption">
+Figure 29: Menambahkan legend (2)
+</p>
+</div>
+<p>Kita dapat melakukan kustomisasi pada border dari legend melalui argumen <code>box.lty=</code>(jenis garis), <code>box.lwd=</code>(ukuran garis), dan <code>box.col=</code>(warna box). Berikut adalah penerapan argumen tersebut beserta output yang dihasilkan pada Figure <a href="#fig:legend3">30</a>:</p>
+<pre class="r"><code># membuat line plot
+plot(x,y, type=&quot;o&quot;, col=&quot;red&quot;, lty=1)
+
+# menambahkan line plot
+lines(x,z, type=&quot;o&quot;, col=&quot;blue&quot;, lty=2)
+
+# menambahkan legend
+legend(1, 95, legend=c(&quot;Line 1&quot;, &quot;Line 2&quot;),
+       col=c(&quot;red&quot;, &quot;blue&quot;), lty=1:2, cex=0.8,
+       title=&quot;Line types&quot;, text.font=4, bg=&#39;white&#39;,
+       box.lty=2, box.lwd=2, box.col=&quot;steelblue&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:legend3"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend3-1.png" alt="Menambahkan legend (3)" width="672" />
+<p class="caption">
+Figure 30: Menambahkan legend (3)
+</p>
+</div>
+<p>Selain menggunakan koordinat, kita juga dapat melakukan kustomisasi posisi legend menggunakan <em>keyword</em> seperti: bottomright“,”bottom“,”bottomleft“,”left“,”topleft“,”top“,”topright“,”right&quot; and “center”. Sejumlah kustomisasi legend berdasarkan <em>keyword</em> disajikan pada Figure <a href="#fig:legend4">31</a>:</p>
+<pre class="r"><code># plot
+plot(x,y, type = &quot;n&quot;)
+
+# posisi kiri atas, inset =0.05
+legend(&quot;topleft&quot;,
+  legend = &quot;(x,y)&quot;,
+  title = &quot;topleft, inset = .05&quot;,
+  inset = 0.05)
+# posisi atas
+legend(&quot;top&quot;,
+       legend = &quot;(x,y)&quot;,
+       title = &quot;top&quot;)
+# posisi kanan atas inset = .02
+legend(&quot;topright&quot;,
+       legend = &quot;(x,y)&quot;,
+       title = &quot;topright, inset = .02&quot;,
+       inset = 0.02)
+# posisi kiri
+legend(&quot;left&quot;,
+       legend = &quot;(x,y)&quot;,
+       title = &quot;left&quot;)
+# posisi tengah
+legend(&quot;center&quot;,
+       legend = &quot;(x,y)&quot;,
+       title = &quot;center&quot;)
+# posisi kanan
+legend(&quot;right&quot;,
+       legend = &quot;(x,y)&quot;,
+       title = &quot;right&quot;)
+# posisi kiri bawah
+legend(&quot;bottomleft&quot;,
+       legend = &quot;(x,y)&quot;,
+       title = &quot;bottomleft&quot;)
+# posisi bawah
+legend(&quot;bottom&quot;,
+       legend = &quot;(x,y)&quot;,
+       title = &quot;bottom&quot;)
+# posisi kanan bawah
+legend(&quot;bottomright&quot;,
+       legend = &quot;(x,y)&quot;,
+       title = &quot;bottomright&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:legend4"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend4-1.png" alt="Kustomisasi posisi legend" width="672" />
+<p class="caption">
+Figure 31: Kustomisasi posisi legend
 </p>
 </div>
 </div>

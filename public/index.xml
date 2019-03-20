@@ -3108,7 +3108,7 @@ iris&lt;/code&gt;&lt;/pre&gt;
 Figure 5: Matriks scatterplot iris
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan parameter &lt;code&gt;lower.panel=NULL&lt;/code&gt;. Output yang dihasilkan akan tampak seperti pada Figure &lt;a href=&#34;#fig:matscat2&#34;&gt;6&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan argumen &lt;code&gt;lower.panel=NULL&lt;/code&gt;. Output yang dihasilkan akan tampak seperti pada Figure &lt;a href=&#34;#fig:matscat2&#34;&gt;6&lt;/a&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pairs(iris, lower.panel=NULL)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:matscat2&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat2-1.png&#34; alt=&#34;Matriks scatterplot iris tanpa panel bawah&#34; width=&#34;672&#34; /&gt;
@@ -3116,7 +3116,7 @@ Figure 5: Matriks scatterplot iris
 Figure 6: Matriks scatterplot iris tanpa panel bawah
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Kita dapat merubah warna titik berdasarkan factor &lt;code&gt;Species&lt;/code&gt;. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel &lt;code&gt;Species&lt;/code&gt; pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi &lt;code&gt;pairs()&lt;/code&gt;. Warna berdasarkan grup diberikan dengan menambahkan parameter &lt;code&gt;col=&lt;/code&gt; pada fungsi &lt;code&gt;pairs()&lt;/code&gt;. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:matscat3&#34;&gt;7&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Kita dapat merubah warna titik berdasarkan factor &lt;code&gt;Species&lt;/code&gt;. Langkah pertama yang perlu dilakukan adalah melakukan drop variabel &lt;code&gt;Species&lt;/code&gt; pada dataset dan memasukkan objek baru tanpa variabel tersebut kedalam fungsi &lt;code&gt;pairs()&lt;/code&gt;. Warna berdasarkan grup diberikan dengan menambahkan argumen &lt;code&gt;col=&lt;/code&gt; pada fungsi &lt;code&gt;pairs()&lt;/code&gt;. Berikut adalah contoh penerapannya dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:matscat3&#34;&gt;7&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# drop variabel Species
 # simpan dataset baru pada objek iris2
 iris2 &amp;lt;- iris[ ,1:4]
@@ -3182,7 +3182,7 @@ pairs(iris2,
 Figure 8: Matriks scatterplot iris dengan koefisien korelasi
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada parameter &lt;code&gt;upper.panel=&lt;/code&gt;. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure &lt;a href=&#34;#fig:matscat5&#34;&gt;9&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Jika kita tidak ingin nilai korelasi ditampilkan di panel bawah, kita dapat merubahnya sehingga dapat tampil pada panel atas bersamaan dengan scatterplot. Untuk melakukannya kita perlu mendefinisikan fungsi pada panel atas dan memasukkannya pada argumen &lt;code&gt;upper.panel=&lt;/code&gt;. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Figure &lt;a href=&#34;#fig:matscat5&#34;&gt;9&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# kustomisasi panel atas
 upper.panel&amp;lt;-function(x, y){
   points(x,y, col=c(&amp;quot;#00AFBB&amp;quot;, &amp;quot;#E7B800&amp;quot;, &amp;quot;#FC4E07&amp;quot;)[iris$Species])
@@ -3420,7 +3420,7 @@ plot(dens,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 Figure 21: Density plot
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan parameter &lt;code&gt;freq=FALSE&lt;/code&gt; pada fungsi &lt;code&gt;hist()&lt;/code&gt;. Selanjutnya tambahkan fungsi &lt;code&gt;polygon()&lt;/code&gt; untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:denshist&#34;&gt;22&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Kita juga dapat menambahkan grafik densitas pada histogram sehingga mempermudah pembacaan pada histogram. Untuk melakukannya kita perlu mengubah kernel histigram dari frekuensi menjadi density dengan menambahkan argumen &lt;code&gt;freq=FALSE&lt;/code&gt; pada fungsi &lt;code&gt;hist()&lt;/code&gt;. Selanjutnya tambahkan fungsi &lt;code&gt;polygon()&lt;/code&gt; untuk memplotkan grafik densitas. Berikut adalah sintak dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:denshist&#34;&gt;22&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menghitung kernel density
 dens &amp;lt;- density(trees$Height)
 
@@ -3496,14 +3496,14 @@ Figure 24: Dot chart
 &lt;div id=&#34;menambahkan-judul&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;4.10.1 Menambahkan Judul&lt;/h3&gt;
 &lt;p&gt;Pada grafik di &lt;code&gt;R&lt;/code&gt;, kita dapat menambahkan judul dengan dua cara, yaitu: pada plot melalui parameter dan melalui fungsi plot(). Kedua cara tersebut tidak berbeda satu sama lain pada parameter input.&lt;/p&gt;
-&lt;p&gt;Untuk menambahkan judul pada plot secara langsung, kita dapat menggunakan parameter tambahan sebagai berikut:&lt;/p&gt;
+&lt;p&gt;Untuk menambahkan judul pada plot secara langsung, kita dapat menggunakan argumen tambahan sebagai berikut:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
 &lt;li&gt;&lt;strong&gt;main&lt;/strong&gt;: teks untuk judul.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;xlab&lt;/strong&gt;: teks untuk keterangan axis X.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;ylab&lt;/strong&gt;: teks untuk keterangan axis y.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;sub&lt;/strong&gt;: teks untuk sub-judul.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Berikut contoh sintaks penerapan masing-masing parameter tersebut beserta dengan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title&#34;&gt;25&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Berikut contoh sintaks penerapan masing-masing argumen tersebut beserta dengan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title&#34;&gt;25&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menambahkan judul
 barplot(c(2,5), main=&amp;quot;Main title&amp;quot;,
         xlab=&amp;quot;X axis title&amp;quot;,
@@ -3515,13 +3515,13 @@ barplot(c(2,5), main=&amp;quot;Main title&amp;quot;,
 Figure 25: Menambahkan Judul
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;kita juga dapat melakukan kustomisasi pada warna, &lt;em&gt;font style&lt;/em&gt;, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan parameter sebagai berikut:&lt;/p&gt;
+&lt;p&gt;kita juga dapat melakukan kustomisasi pada warna, &lt;em&gt;font style&lt;/em&gt;, dan ukuran font judul. Untuk melakukan kustomisasi pada warna pada judul, kita dapat menambahkan argumen sebagai berikut:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
 &lt;li&gt;&lt;strong&gt;col.main&lt;/strong&gt;: warna untuk judul.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;col.lab&lt;/strong&gt;: warna untuk keterangan axis.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;col.sub&lt;/strong&gt;: warna untuk sub-judul&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Untuk kustomisasi font judul, kita dapat menambahkan parameter berikut:&lt;/p&gt;
+&lt;p&gt;Untuk kustomisasi font judul, kita dapat menambahkan argumen berikut:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
 &lt;li&gt;&lt;strong&gt;font.main&lt;/strong&gt;: &lt;em&gt;font style&lt;/em&gt; untuk judul.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;font.lab&lt;/strong&gt;: &lt;em&gt;font style&lt;/em&gt; untuk keterangan axis.&lt;/li&gt;
@@ -3544,7 +3544,7 @@ Figure 25: Menambahkan Judul
 &lt;li&gt;&lt;strong&gt;cex.lab&lt;/strong&gt;: ukuran teks keterangan axis.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;cex.sub&lt;/strong&gt;: ukuran teks sub-judul.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Berikut sintaks penerapan seluruh parameter tersebut beserta output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title2&#34;&gt;26&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Berikut sintaks penerapan seluruh argumen tersebut beserta output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title2&#34;&gt;26&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menambahkan judul
 barplot(c(2,5), 
         # menambahkan judul
@@ -3570,7 +3570,7 @@ barplot(c(2,5),
 Figure 26: Menambahkan Judul (2)
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi &lt;code&gt;title()&lt;/code&gt;. Parameter yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title3&#34;&gt;27&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Kita telah belajar bagaimana menambahkan judul langsung pada fungsi plot. Selain cara tersebut, telah penulis jelaskan bahwa kita dapat menambahkan judul melalui fungsi &lt;code&gt;title()&lt;/code&gt;. argumen yang dimasukkan pada dasarnya tidak berbeda dengan ketika kita menambahkan judul secara langsung pada plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:title3&#34;&gt;27&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menambahkan judul
 barplot(c(2,5,8))
 
@@ -3595,6 +3595,137 @@ title(main=&amp;quot;Main title&amp;quot;,
 &lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title3-1.png&#34; alt=&#34;Menambahkan Judul (3)&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 27: Menambahkan Judul (3)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;menambahkan-legend&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;4.10.2 Menambahkan Legend&lt;/h3&gt;
+&lt;p&gt;Fungsi &lt;code&gt;legend()&lt;/code&gt; pada &lt;code&gt;R&lt;/code&gt; dapat digunakan untuk menambahkan legend pada grafik. Format sederhananya adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;legend(x, y=NULL, legend, fill, col, bg)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt; dan &lt;strong&gt;y&lt;/strong&gt;: koordinat yang digunakan untuk posisi legend.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;legend&lt;/strong&gt;: teks pada legend&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;fill&lt;/strong&gt;: warna yang digunakan untuk mengisi box disamping teks legend.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;col&lt;/strong&gt;: warna garis dan titik disamping teks legend.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bg&lt;/strong&gt;: warna latar belakang legend box.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh sintaks dan ouput penerapan argumen disajikan pada Figure &lt;a href=&#34;#fig:legend&#34;&gt;28&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor numerik
+x &amp;lt;- c(1:10)
+y &amp;lt;- x^2
+z &amp;lt;- x*2
+
+# membuat line plot
+plot(x,y, type=&amp;quot;o&amp;quot;, col=&amp;quot;red&amp;quot;, lty=1)
+
+# menambahkan line plot
+lines(x,z, type=&amp;quot;o&amp;quot;, col=&amp;quot;blue&amp;quot;, lty=2)
+
+# menambahkan legend
+legend(1, 95, legend=c(&amp;quot;Line 1&amp;quot;, &amp;quot;Line 2&amp;quot;),
+       col=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;), lty=1:2, cex=0.8)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:legend&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend-1.png&#34; alt=&#34;Menambahkan legend&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 28: Menambahkan legend
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Kita dapat menambahkan judul, merubah font, dan merubah warna backgroud pada legend. Argumen yang ditambahkan pada legend adalah sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;strong&gt;title&lt;/strong&gt;: Judul legend&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;text.font&lt;/strong&gt;: integer yang menunjukkan &lt;em&gt;font style&lt;/em&gt; pada teks legend. Nilai yang dapat dimasukkan adalah sebagai berikut:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1&lt;/strong&gt;: normal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2&lt;/strong&gt;: cetak tebal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3&lt;/strong&gt;: cetak miring&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4&lt;/strong&gt;: cetak tebal dan miring.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bg&lt;/strong&gt;: warna background legend box.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Berikut adalah penerapan sintaks dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:legend2&#34;&gt;29&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat line plot
+plot(x,y, type=&amp;quot;o&amp;quot;, col=&amp;quot;red&amp;quot;, lty=1)
+
+# menambahkan line plot
+lines(x,z, type=&amp;quot;o&amp;quot;, col=&amp;quot;blue&amp;quot;, lty=2)
+
+# menambahkan legend
+legend(1, 95, legend=c(&amp;quot;Line 1&amp;quot;, &amp;quot;Line 2&amp;quot;),
+       col=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;), lty=1:2, cex=0.8,
+       title=&amp;quot;Line types&amp;quot;, text.font=4, bg=&amp;#39;lightblue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:legend2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend2-1.png&#34; alt=&#34;Menambahkan legend (2)&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 29: Menambahkan legend (2)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Kita dapat melakukan kustomisasi pada border dari legend melalui argumen &lt;code&gt;box.lty=&lt;/code&gt;(jenis garis), &lt;code&gt;box.lwd=&lt;/code&gt;(ukuran garis), dan &lt;code&gt;box.col=&lt;/code&gt;(warna box). Berikut adalah penerapan argumen tersebut beserta output yang dihasilkan pada Figure &lt;a href=&#34;#fig:legend3&#34;&gt;30&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat line plot
+plot(x,y, type=&amp;quot;o&amp;quot;, col=&amp;quot;red&amp;quot;, lty=1)
+
+# menambahkan line plot
+lines(x,z, type=&amp;quot;o&amp;quot;, col=&amp;quot;blue&amp;quot;, lty=2)
+
+# menambahkan legend
+legend(1, 95, legend=c(&amp;quot;Line 1&amp;quot;, &amp;quot;Line 2&amp;quot;),
+       col=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;), lty=1:2, cex=0.8,
+       title=&amp;quot;Line types&amp;quot;, text.font=4, bg=&amp;#39;white&amp;#39;,
+       box.lty=2, box.lwd=2, box.col=&amp;quot;steelblue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:legend3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend3-1.png&#34; alt=&#34;Menambahkan legend (3)&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 30: Menambahkan legend (3)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Selain menggunakan koordinat, kita juga dapat melakukan kustomisasi posisi legend menggunakan &lt;em&gt;keyword&lt;/em&gt; seperti: bottomright“,”bottom“,”bottomleft“,”left“,”topleft“,”top“,”topright“,”right&amp;quot; and “center”. Sejumlah kustomisasi legend berdasarkan &lt;em&gt;keyword&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:legend4&#34;&gt;31&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot
+plot(x,y, type = &amp;quot;n&amp;quot;)
+
+# posisi kiri atas, inset =0.05
+legend(&amp;quot;topleft&amp;quot;,
+  legend = &amp;quot;(x,y)&amp;quot;,
+  title = &amp;quot;topleft, inset = .05&amp;quot;,
+  inset = 0.05)
+# posisi atas
+legend(&amp;quot;top&amp;quot;,
+       legend = &amp;quot;(x,y)&amp;quot;,
+       title = &amp;quot;top&amp;quot;)
+# posisi kanan atas inset = .02
+legend(&amp;quot;topright&amp;quot;,
+       legend = &amp;quot;(x,y)&amp;quot;,
+       title = &amp;quot;topright, inset = .02&amp;quot;,
+       inset = 0.02)
+# posisi kiri
+legend(&amp;quot;left&amp;quot;,
+       legend = &amp;quot;(x,y)&amp;quot;,
+       title = &amp;quot;left&amp;quot;)
+# posisi tengah
+legend(&amp;quot;center&amp;quot;,
+       legend = &amp;quot;(x,y)&amp;quot;,
+       title = &amp;quot;center&amp;quot;)
+# posisi kanan
+legend(&amp;quot;right&amp;quot;,
+       legend = &amp;quot;(x,y)&amp;quot;,
+       title = &amp;quot;right&amp;quot;)
+# posisi kiri bawah
+legend(&amp;quot;bottomleft&amp;quot;,
+       legend = &amp;quot;(x,y)&amp;quot;,
+       title = &amp;quot;bottomleft&amp;quot;)
+# posisi bawah
+legend(&amp;quot;bottom&amp;quot;,
+       legend = &amp;quot;(x,y)&amp;quot;,
+       title = &amp;quot;bottom&amp;quot;)
+# posisi kanan bawah
+legend(&amp;quot;bottomright&amp;quot;,
+       legend = &amp;quot;(x,y)&amp;quot;,
+       title = &amp;quot;bottomright&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:legend4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend4-1.png&#34; alt=&#34;Kustomisasi posisi legend&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 31: Kustomisasi posisi legend
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
