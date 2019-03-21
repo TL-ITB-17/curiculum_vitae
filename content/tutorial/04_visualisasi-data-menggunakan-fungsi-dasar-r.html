@@ -847,4 +847,248 @@ Figure 34: Menambahkan teks (3)
 </p>
 </div>
 </div>
+<div id="menambahkan-garis-pada-plot" class="section level3">
+<h3>4.10.4 Menambahkan Garis Pada Plot</h3>
+<p>Fungsi <code>abline()</code> dapat digunakan untuk menamabahkan garis pada plot. Garis yang ditambahkan dapat berupa garis vertikal, horizontal, maupun garis regresi. Format yang digunakan adalah sebagi berikut:</p>
+<pre class="r"><code>abline(v=y)</code></pre>
+<p>Berikut adalah contoh sintaks bagaimana menambahkan garis pada sebuah plot dan output yang dihasilkan disajikan pada Figure <a href="#fig:abline"><strong>??</strong></a>:</p>
+<pre class="r"><code># membuat plot
+plot(mtcars$wt, mtcars$mpg, main=&quot;Milage vs. Car Weight&quot;,
+      xlab=&quot;Weight&quot;, ylab=&quot;Miles/(US) gallon&quot;)
+
+# menambahkan garis vertikal di titik rata-rata weight
+abline(v=mean(mtcars$wt), col=&quot;red&quot;, lwd=3, lty=2)
+
+# menambahkan garis horizontal di titik rata-rata  mpg
+abline(h=mean(mtcars$mpg), col=&quot;blue&quot;, lwd=3, lty=3)
+
+# menambahkan garis regresi
+abline(lm(mpg~wt, data=mtcars), lwd=4, lty=4)</code></pre>
+<p><img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+</div>
+<div id="merubah-simbol-plot-dan-jenis-garis" class="section level3">
+<h3>4.10.5 Merubah Simbol plot dan Jenis Garis</h3>
+<p>Simbol plot (jenis titik) dapat diubah dengan menambahkan argumen <code>pch=</code> pada plot. Nilai yang dimasukkan pada argumen tersebut adalah integer dengan kemungkinan nilai sebagai berikut:</p>
+<ul>
+<li>pch = 0,square</li>
+<li>pch = 1,circle (default)</li>
+<li>pch = 2,triangle point up</li>
+<li>pch = 3,plus</li>
+<li>pch = 4,cross</li>
+<li>pch = 5,diamond</li>
+<li>pch = 6,triangle point down</li>
+<li>pch = 7,square cross</li>
+<li>pch = 8,star</li>
+<li>pch = 9,diamond plus</li>
+<li>pch = 10,circle plus</li>
+<li>pch = 11,triangles up and down</li>
+<li>pch = 12,square plus</li>
+<li>pch = 13,circle cross</li>
+<li>pch = 14,square and triangle down</li>
+<li>pch = 15, filled square</li>
+<li>pch = 16, filled circle</li>
+<li>pch = 17, filled triangle point-up</li>
+<li>pch = 18, filled diamond</li>
+<li>pch = 19, solid circle</li>
+<li>pch = 20,bullet (smaller circle)</li>
+<li>pch = 21, filled circle blue</li>
+<li>pch = 22, filled square blue</li>
+<li>pch = 23, filled diamond blue</li>
+<li>pch = 24, filled triangle point-up blue</li>
+<li>pch = 25, filled triangle point down blue</li>
+</ul>
+<p>Untuk lebih memahami bentuk simbol tersebut, penulis akan menyajikan sintaks yang menampilkan seluruh simbol tersebut pada satu grafik. Output yang dihasilkan disajikan pada Figure <a href="#fig:symbol">35</a>:</p>
+<pre class="r"><code>generateRPointShapes&lt;-function(){
+  # menentukan parameter plot
+  oldPar&lt;-par()
+  par(font=2, mar=c(0.5,0,0,0))
+  # produksi titik axis
+  y=rev(c(rep(1,6),rep(2,5), rep(3,5), rep(4,5), rep(5,5)))
+  x=c(rep(1:5,5),6)
+  # plot seluruh titik dan label
+  plot(x, y, pch = 0:25, cex=1.5, ylim=c(1,5.5), xlim=c(1,6.5), 
+       axes=FALSE, xlab=&quot;&quot;, ylab=&quot;&quot;, bg=&quot;blue&quot;)
+  text(x, y, labels=0:25, pos=3)
+  par(mar=oldPar$mar,font=oldPar$font )
+}
+
+# Print
+generateRPointShapes()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:symbol"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/symbol-1.png" alt="Symbol plot" width="672" />
+<p class="caption">
+Figure 35: Symbol plot
+</p>
+</div>
+<p>Pada <code>R</code> kita juga dapat mengatur jenis garis yang akan ditampilkan pada plot dengan menambahkan argumen <code>lty=</code> (<em>line type</em>) pada fungsi plot. Nilai yang dapat dimasukkan adalah nilai integer. Keterangan masing-masing nilai tersebut adalah sebagai berikut:</p>
+<ul>
+<li>lty = 0, blank</li>
+<li>lty = 1, solid (default)</li>
+<li>lty = 2, dashed</li>
+<li>lty = 3, dotted</li>
+<li>lty = 4, dotdash</li>
+<li>lty = 5, longdash</li>
+<li>lty = 6, twodash</li>
+</ul>
+<p>Untuk lebih memahaminya, pada sintaks berikut disajikan plot seluruh jenis garis tersebut beserta output yang dihasilkannya pada Figure <a href="#fig:lty">36</a>:</p>
+<pre class="r"><code>generateRLineTypes&lt;-function(){
+  oldPar&lt;-par()
+  par(font=2, mar=c(0,0,0,0))
+  plot(1, pch=&quot;&quot;, ylim=c(0,6), xlim=c(0,0.7), axes = FALSE ,xlab=&quot;&quot;, ylab=&quot;&quot;)
+  for(i in 0:6) lines(c(0.3,0.7), c(i,i), lty=i, lwd=3)
+  text(rep(0.1,6), 0:6, 
+       labels=c(&quot;0.&#39;blank&#39;&quot;, &quot;1.&#39;solid&#39;&quot;, &quot;2.&#39;dashed&#39;&quot;, &quot;3.&#39;dotted&#39;&quot;, 
+                &quot;4.&#39;dotdash&#39;&quot;, &quot;5.&#39;longdash&#39;&quot;, &quot;6.&#39;twodash&#39;&quot;))
+  par(mar=oldPar$mar,font=oldPar$font )
+}
+generateRLineTypes()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:lty"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/lty-1.png" alt="Line type" width="672" />
+<p class="caption">
+Figure 36: Line type
+</p>
+</div>
+</div>
+<div id="mengatur-axis-plot" class="section level3">
+<h3>4.10.6 Mengatur Axis Plot</h3>
+<p>Kita dapat melakukan pengaturan lebih jauh terhadap axis, seperti: menambahkan axis tambahan pada atas dan bawah frame, mengubah rentang nilai axis, serta kustomisasi <em>tick mark</em> pada nilai axis. Hal ini diperlukan karena fungsi grafik dasar <code>R</code> tidak dapat mengatur axis secara otomatis saat plot baru ditambahkan pada plot pertama dan rentang nilai plot baru lebih besar dibanding plot pertama, sehingga sebagian nilai plot baru tidak ditampilkan pada hasil akhir.</p>
+<p>Untuk menambahkan axis pada <code>R</code> kita dapat menambahkan fungsi <code>axis()</code> setelah plot dilakukan. Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>axis(side, at=NULL, labels=TRUE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>side</strong>: nilai integer yang mengidikasikan posisi axix yang hendak ditambahkan. Nilai yang dapat dimasukkan adalah sebagai berikut:
+<ul>
+<li><strong>1</strong>: bawah</li>
+<li><strong>2</strong>: kiri</li>
+<li><strong>3</strong>: atas</li>
+<li><strong>4</strong>: kanan.</li>
+</ul></li>
+<li><strong>at</strong>: titik dimana <em>tick-mark</em> hendak digambarkan. Nilai yang dapat dimasukkan sama dengan <strong>side</strong>.</li>
+<li><strong>labels</strong>: Teks label <em>tick-mark</em>. Dapat juga secara logis menentukan apakah anotasi harus dibuat pada <em>tick mark</em>.</li>
+</ul>
+</blockquote>
+<p>Berikut contoh sintaks penerapan fungsi tersebut dan output yang dihasilkan pada Figure <a href="#fig:axis">37</a>:</p>
+<pre class="r"><code># membuat vektor numerik
+x &lt;- c(1:4)
+y &lt;- x^2
+
+# plot
+plot(x, y, pch=18, col=&quot;red&quot;, type=&quot;b&quot;,
+     frame=FALSE, xaxt=&quot;n&quot;) # Remove x axis
+
+# menambahkan axis
+# bawah
+axis(1, 1:4, LETTERS[1:4], col.axis=&quot;blue&quot;)
+# atas
+axis(3, col = &quot;darkgreen&quot;, lty = 2, lwd = 0.5)
+# kanan
+axis(4, col = &quot;violet&quot;, col.axis = &quot;dark violet&quot;, lwd = 2)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:axis"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/axis-1.png" alt="Menambahkan axis" width="672" />
+<p class="caption">
+Figure 37: Menambahkan axis
+</p>
+</div>
+<p>Kita dapat mengubah rentang nilai pada axis menggunakan fungsi <code>xlim()</code> dan <code>ylim()</code> yang menyatakan vektor nilai masimum dan minimum rentang. Selain itu kita dapat juga melakukan tranformasi baik pada sumbu x dan sumbu y. Berikut adalah argumen yang dapat ditambahkan pada fungsi grafik:</p>
+<ul>
+<li><strong>xlim</strong>: limit nilai sumbu x dengan format: <code>xlim(min, max)</code>.</li>
+<li><strong>ylim</strong>: limit nilai sumbu x dengan format: <code>ylim(min, max)</code>.</li>
+</ul>
+<p>Untuk transformasi skala log, kita dapat menambahkan argumen berikut:</p>
+<ul>
+<li><strong>log=“x”</strong>: transformasi log sumbu x.</li>
+<li><strong>log=“y”</strong>: transformasi log sumbu y.</li>
+<li><strong>log=“xy”</strong>: transformasi log sumbu x dan y.</li>
+</ul>
+<p>Berikut adalah contoh sintaks penerapan argumen tersebut beserta output yang dihasilkan pada Figure <a href="#fig:axis2">38</a>:</p>
+<pre class="r"><code># membagi jendela grafik menjadi 1 baris dan 3 kolom
+par(mfrow=c(1,3))
+
+# membuat vektor numerik
+x&lt;-c(1:10); y&lt;-x*x
+
+# simple plot
+plot(x, y)
+
+# plot dengan pengaturan rentang skala
+plot(x, y, xlim=c(1,15), ylim=c(1,150))
+
+# plot dengan transformasi skala log
+plot(x, y, log=&quot;y&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:axis2"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/axis2-1.png" alt="Mengubah rentang dan skala axis" width="672" />
+<p class="caption">
+Figure 38: Mengubah rentang dan skala axis
+</p>
+</div>
+<p>Kita dapat melakukan kustomisasi pada <em>tick mark</em>. Kustomisasi yang dapat dilakukan adalah merubah warna, <em>font style</em>, ukuran font, orientasi, serta menyembunyikan <em>tick mark</em>.</p>
+<p>Argumen yang ditambahkan adalah sebagai berikut:</p>
+<ul>
+<li><strong>col.axis</strong>: warna <em>tick mark</em>.</li>
+<li><strong>font.axis</strong>: integer yang menunjukkan <em>font style</em>. Sama dengan pengaturan judul.</li>
+<li><strong>cex.axis</strong>: pengaturan ukuran <em>tick mark</em>.</li>
+<li><p><strong>las</strong>: mengatur orientasi <em>tick mark</em>. Nilai yang dapat dimasukkan adalah sebagai berikut:</p></li>
+<li><strong>0</strong>: paralel terhadap posisi axis (default)</li>
+<li><strong>1</strong>: selalu horizontal</li>
+<li><strong>2</strong>: selalu perpendikular dengan posisi axis</li>
+<li><p><strong>3</strong>: selalu vertikal</p></li>
+<li><p><strong>xaxt</strong> dan <strong>yaxt</strong>: karakter untuk menunjukkan apakah axis akan ditampilkan atau tidak. nilai dapat berupa “n”(sembunyika) dan “s”(tampilkan).</p></li>
+</ul>
+<p>Berikut adalah contoh penerapan argumen tersebut beserta output pada Figure <a href="#fig:axis3">39</a>:</p>
+<pre class="r"><code># membuat vektor numerik
+x&lt;-c(1:10); y&lt;-x*x
+
+# plot
+plot(x,y,
+     # warna
+     col.axis=&quot;red&quot;,
+     # font style
+     font.axis=2,
+     # ukuran
+     cex=1.5,
+     # orientasi
+     las=3,
+     # sembunyikan sumbu x
+     xaxt=&quot;n&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:axis3"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/axis3-1.png" alt="Kustomisasi tick mark" width="672" />
+<p class="caption">
+Figure 39: Kustomisasi tick mark
+</p>
+</div>
+</div>
+<div id="mengatur-warna" class="section level3">
+<h3>4.10.7 Mengatur Warna</h3>
+<p>Pada fungsi dasar <code>R</code>, warna dapat diatur dengan mengetikkan nama warna maupun kode hexadesimal. Selain itu kita juga dapat menamambahkan warna lain melalui library lain yang tidak dijelaskan pada chapter ini.</p>
+<p>Untuk penggunaan warna hexadesima kita perlu mengetikkan “#” yang diukuti oleh 6 kode warna. Untuk memperlajari kode-kode dan warna yang dihasilkan, silahkan pembaca mengunjungi situs <a href="http://www.visibone.com/" class="uri">http://www.visibone.com/</a>.</p>
+<p>Pada sintaks berikut disajikan visualisasi nama-nama warna bawaan yang ada pada <code>R</code>. Output yang dihasilkan disajikan pada Figure <a href="#fig:color">40</a>:</p>
+<pre class="r"><code>showCols &lt;- function(cl=colors(), bg = &quot;grey&quot;,
+                     cex = 0.75, rot = 30) {
+    m &lt;- ceiling(sqrt(n &lt;-length(cl)))
+    length(cl) &lt;- m*m; cm &lt;- matrix(cl, m)
+    require(&quot;grid&quot;)
+    grid.newpage(); vp &lt;- viewport(w = .92, h = .92)
+    grid.rect(gp=gpar(fill=bg))
+    grid.text(cm, x = col(cm)/m, y = rev(row(cm))/m, rot = rot,
+              vp=vp, gp=gpar(cex = cex, col = cm))
+}
+
+# print 60 nama warna pertama
+showCols(bg=&quot;gray20&quot;, cl=colors()[1:60], rot=30, cex=0.9)</code></pre>
+<pre><code>## Loading required package: grid</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:color"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/color-1.png" alt="Nama warna" width="672" />
+<p class="caption">
+Figure 40: Nama warna
+</p>
+</div>
+<p><strong>Referensi</strong></p>
+<ol style="list-style-type: decimal">
+<li>Maindonald, J.H. 2008. <strong>Using R for Data Analysis and Graphics Introduction, Code and Commentary</strong>. Centre for Mathematics and Its Applications Australian National University.</li>
+<li>Scherber, C. 2007. <strong>An introduction to statistical data analysis using R</strong>. R_Manual Goettingen.</li>
+<li>Venables, W.N. Smith D.M. and R Core Team. 2018. <strong>An Introduction to R</strong>. R Manuals.</li>
+<li>STHDA. <strong>R Base Graphs</strong>. <a href="http://www.sthda.com/english/wiki/r-base-graphs" class="uri">http://www.sthda.com/english/wiki/r-base-graphs</a></li>
+</ol>
+</div>
 </div>

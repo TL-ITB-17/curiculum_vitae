@@ -757,11 +757,250 @@ plot(1:10, 1:10,
 mtext("Magic function", side=3)
 ```
 
+### 4.10.4 Menambahkan Garis Pada Plot
 
+Fungsi `abline()` dapat digunakan untuk menamabahkan garis pada plot. Garis yang ditambahkan dapat berupa garis vertikal, horizontal, maupun garis regresi. Format yang digunakan adalah sebagi berikut:
 
+```{r, eval=FALSE}
+abline(v=y)
+```
 
+Berikut adalah contoh sintaks bagaimana menambahkan garis pada sebuah plot dan output yang dihasilkan disajikan pada Figure \@ref(fig:abline):
 
+```{r}
+# membuat plot
+plot(mtcars$wt, mtcars$mpg, main="Milage vs. Car Weight",
+      xlab="Weight", ylab="Miles/(US) gallon")
 
+# menambahkan garis vertikal di titik rata-rata weight
+abline(v=mean(mtcars$wt), col="red", lwd=3, lty=2)
+
+# menambahkan garis horizontal di titik rata-rata  mpg
+abline(h=mean(mtcars$mpg), col="blue", lwd=3, lty=3)
+
+# menambahkan garis regresi
+abline(lm(mpg~wt, data=mtcars), lwd=4, lty=4)
+
+```
+
+### 4.10.5 Merubah Simbol plot dan Jenis Garis
+
+Simbol plot (jenis titik) dapat diubah dengan menambahkan argumen `pch= ` pada plot. Nilai yang dimasukkan pada argumen tersebut adalah integer dengan kemungkinan nilai sebagai berikut:
+
+- pch = 0,square
+- pch = 1,circle (default)
+- pch = 2,triangle point up
+- pch = 3,plus
+- pch = 4,cross
+- pch = 5,diamond
+- pch = 6,triangle point down
+- pch = 7,square cross
+- pch = 8,star
+- pch = 9,diamond plus
+- pch = 10,circle plus
+- pch = 11,triangles up and down
+- pch = 12,square plus
+- pch = 13,circle cross
+- pch = 14,square and triangle down
+- pch = 15, filled square
+- pch = 16, filled circle
+- pch = 17, filled triangle point-up
+- pch = 18, filled diamond
+- pch = 19, solid circle
+- pch = 20,bullet (smaller circle)
+- pch = 21, filled circle blue
+- pch = 22, filled square blue
+- pch = 23, filled diamond blue
+- pch = 24, filled triangle point-up blue
+- pch = 25, filled triangle point down blue
+
+Untuk lebih memahami bentuk simbol tersebut, penulis akan menyajikan sintaks yang menampilkan seluruh simbol tersebut pada satu grafik. Output yang dihasilkan disajikan pada Figure \@ref(fig:symbol):
+
+```{r symbol,fig.cap='Symbol plot', tidy=FALSE, fig.align='center'}
+generateRPointShapes<-function(){
+  # menentukan parameter plot
+  oldPar<-par()
+  par(font=2, mar=c(0.5,0,0,0))
+  # produksi titik axis
+  y=rev(c(rep(1,6),rep(2,5), rep(3,5), rep(4,5), rep(5,5)))
+  x=c(rep(1:5,5),6)
+  # plot seluruh titik dan label
+  plot(x, y, pch = 0:25, cex=1.5, ylim=c(1,5.5), xlim=c(1,6.5), 
+       axes=FALSE, xlab="", ylab="", bg="blue")
+  text(x, y, labels=0:25, pos=3)
+  par(mar=oldPar$mar,font=oldPar$font )
+}
+
+# Print
+generateRPointShapes()
+```
+
+Pada `R` kita juga dapat mengatur jenis garis yang akan ditampilkan pada plot dengan menambahkan argumen `lty= ` (*line type*) pada fungsi plot. Nilai yang dapat dimasukkan adalah nilai integer. Keterangan masing-masing nilai tersebut adalah sebagai berikut:
+
+- lty = 0, blank
+- lty = 1, solid (default)
+- lty = 2, dashed
+- lty = 3, dotted
+- lty = 4, dotdash
+- lty = 5, longdash
+- lty = 6, twodash
+
+Untuk lebih memahaminya, pada sintaks berikut disajikan plot seluruh jenis garis tersebut beserta output yang dihasilkannya pada Figure \@ref(fig:lty):
+
+```{r lty,fig.cap='Line type', tidy=FALSE, fig.align='center'}
+generateRLineTypes<-function(){
+  oldPar<-par()
+  par(font=2, mar=c(0,0,0,0))
+  plot(1, pch="", ylim=c(0,6), xlim=c(0,0.7), axes = FALSE ,xlab="", ylab="")
+  for(i in 0:6) lines(c(0.3,0.7), c(i,i), lty=i, lwd=3)
+  text(rep(0.1,6), 0:6, 
+       labels=c("0.'blank'", "1.'solid'", "2.'dashed'", "3.'dotted'", 
+                "4.'dotdash'", "5.'longdash'", "6.'twodash'"))
+  par(mar=oldPar$mar,font=oldPar$font )
+}
+generateRLineTypes()
+```
+
+### 4.10.6 Mengatur Axis Plot
+
+Kita dapat melakukan pengaturan lebih jauh terhadap axis, seperti: menambahkan axis tambahan pada atas dan bawah frame, mengubah rentang nilai axis, serta kustomisasi *tick mark* pada nilai axis. Hal ini diperlukan karena fungsi grafik dasar `R` tidak dapat mengatur axis secara otomatis saat plot baru ditambahkan pada plot pertama dan rentang nilai plot baru lebih besar dibanding plot pertama, sehingga sebagian nilai plot baru tidak ditampilkan pada hasil akhir.
+
+Untuk menambahkan axis pada `R` kita dapat menambahkan fungsi `axis()` setelah plot dilakukan. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+axis(side, at=NULL, labels=TRUE)
+```
+
+> **Note: **
+>
+> - **side**: nilai integer yang mengidikasikan posisi axix yang hendak ditambahkan. Nilai yang dapat dimasukkan adalah sebagai berikut:
+>     + **1**: bawah
+>     + **2**: kiri
+>     + **3**: atas
+>     + **4**: kanan.
+> - **at**: titik dimana *tick-mark* hendak digambarkan. Nilai yang dapat dimasukkan sama dengan **side**.
+> - **labels**: Teks label *tick-mark*. Dapat juga secara logis menentukan apakah anotasi harus dibuat pada *tick mark*.
+
+Berikut contoh sintaks penerapan fungsi tersebut dan output yang dihasilkan pada Figure \@ref(fig:axis):
+
+```{r axis,fig.cap='Menambahkan axis', tidy=FALSE, fig.align='center'}
+# membuat vektor numerik
+x <- c(1:4)
+y <- x^2
+
+# plot
+plot(x, y, pch=18, col="red", type="b",
+     frame=FALSE, xaxt="n") # Remove x axis
+
+# menambahkan axis
+# bawah
+axis(1, 1:4, LETTERS[1:4], col.axis="blue")
+# atas
+axis(3, col = "darkgreen", lty = 2, lwd = 0.5)
+# kanan
+axis(4, col = "violet", col.axis = "dark violet", lwd = 2)
+```
+
+Kita dapat mengubah rentang nilai pada axis menggunakan fungsi `xlim()` dan `ylim()` yang menyatakan vektor nilai masimum dan minimum rentang. Selain itu kita dapat juga melakukan tranformasi baik pada sumbu x dan sumbu y. Berikut adalah argumen yang dapat ditambahkan pada fungsi grafik:
+
+- **xlim**: limit nilai sumbu x dengan format: `xlim(min, max)`.
+- **ylim**: limit nilai sumbu x dengan format: `ylim(min, max)`.
+
+Untuk transformasi skala log, kita dapat menambahkan argumen berikut:
+
+- **log="x"**: transformasi log sumbu x.
+- **log="y"**: transformasi log sumbu y.
+- **log="xy"**: transformasi log sumbu x dan y.
+
+Berikut adalah contoh sintaks penerapan argumen tersebut beserta output yang dihasilkan pada Figure \@ref(fig:axis2):
+
+```{r axis2,fig.cap='Mengubah rentang dan skala axis', tidy=FALSE, fig.align='center'}
+# membagi jendela grafik menjadi 1 baris dan 3 kolom
+par(mfrow=c(1,3))
+
+# membuat vektor numerik
+x<-c(1:10); y<-x*x
+
+# simple plot
+plot(x, y)
+
+# plot dengan pengaturan rentang skala
+plot(x, y, xlim=c(1,15), ylim=c(1,150))
+
+# plot dengan transformasi skala log
+plot(x, y, log="y")
+```
+
+```{r, echo=FALSE}
+par(mfrow=c(1,1))
+```
+
+Kita dapat melakukan kustomisasi pada *tick mark*. Kustomisasi yang dapat dilakukan adalah merubah warna, *font style*, ukuran font, orientasi, serta menyembunyikan *tick mark*.
+
+Argumen yang ditambahkan adalah sebagai berikut:
+
+- **col.axis**: warna *tick mark*.
+- **font.axis**: integer yang menunjukkan *font style*. Sama dengan pengaturan judul.
+- **cex.axis**: pengaturan ukuran *tick mark*.
+- **las**: mengatur orientasi *tick mark*. Nilai yang dapat dimasukkan adalah sebagai berikut:
+
+  + **0**: paralel terhadap posisi axis (default)
+  + **1**: selalu horizontal
+  + **2**: selalu perpendikular dengan posisi axis
+  + **3**: selalu vertikal
+
+- **xaxt** dan **yaxt**: karakter untuk menunjukkan apakah axis akan ditampilkan atau tidak. nilai dapat berupa "n"(sembunyika) dan "s"(tampilkan).
+
+Berikut adalah contoh penerapan argumen tersebut beserta output pada Figure \@ref(fig:axis3):
+
+```{r axis3,fig.cap='Kustomisasi tick mark', tidy=FALSE, fig.align='center'}
+# membuat vektor numerik
+x<-c(1:10); y<-x*x
+
+# plot
+plot(x,y,
+     # warna
+     col.axis="red",
+     # font style
+     font.axis=2,
+     # ukuran
+     cex=1.5,
+     # orientasi
+     las=3,
+     # sembunyikan sumbu x
+     xaxt="n")
+```
+
+### 4.10.7 Mengatur Warna
+
+Pada fungsi dasar `R`, warna dapat diatur dengan mengetikkan nama warna maupun kode hexadesimal. Selain itu kita juga dapat menamambahkan warna lain melalui library lain yang tidak dijelaskan pada chapter ini.
+
+Untuk penggunaan warna hexadesima kita perlu mengetikkan "#" yang diukuti oleh 6 kode warna. Untuk memperlajari kode-kode dan warna yang dihasilkan, silahkan pembaca mengunjungi situs <http://www.visibone.com/>.
+
+Pada sintaks berikut disajikan visualisasi nama-nama warna bawaan yang ada pada `R`. Output yang dihasilkan disajikan pada Figure \@ref(fig:color):
+
+```{r color,fig.cap='Nama warna', tidy=FALSE, fig.align='center'}
+showCols <- function(cl=colors(), bg = "grey",
+                     cex = 0.75, rot = 30) {
+    m <- ceiling(sqrt(n <-length(cl)))
+    length(cl) <- m*m; cm <- matrix(cl, m)
+    require("grid")
+    grid.newpage(); vp <- viewport(w = .92, h = .92)
+    grid.rect(gp=gpar(fill=bg))
+    grid.text(cm, x = col(cm)/m, y = rev(row(cm))/m, rot = rot,
+              vp=vp, gp=gpar(cex = cex, col = cm))
+}
+
+# print 60 nama warna pertama
+showCols(bg="gray20", cl=colors()[1:60], rot=30, cex=0.9)
+```
+
+**Referensi**
+
+1. Maindonald, J.H. 2008. **Using R for Data Analysis and Graphics Introduction, Code and Commentary**. Centre for Mathematics and Its Applications Australian National University.
+2. Scherber, C. 2007. **An introduction to statistical data analysis using R**. R_Manual Goettingen.
+3. Venables, W.N. Smith D.M. and R Core Team. 2018. **An Introduction to R**. R Manuals.
+4. STHDA. **R Base Graphs**. <http://www.sthda.com/english/wiki/r-base-graphs>
 
 
 
