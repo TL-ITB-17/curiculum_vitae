@@ -1201,6 +1201,71 @@ Figure 31: Kustomisasi posisi legend
 </p>
 </div>
 </div>
+<div id="menambahkan-teks-pada-grafik" class="section level3">
+<h3>4.10.3 Menambahkan Teks Pada Grafik</h3>
+<p>Teks pada grafik dapat kita tambahkan baik sebagai keterangan yang menunjukkan label suatu observasi, keterangan tambahan disekitar bingkai grafik, maupun sebuah persamaan yang ada pada bidang grafik. Untuk menambahkannya kita dapat menggunakan dua buah fungsi yaitu: <code>text()</code> dan <code>mtext()</code>.</p>
+<p>FUngsi <code>text()</code> berguna untuk menambahkan teks di dalam bidang grafik seperti label titik observasi dan persamaan di dalam bidang grafik. Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>text(x, y, labels)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>x</strong> dan <strong>y</strong>: vektor numerik yang menunjukkan koordinat posisi teks.</li>
+<li><strong>labels</strong>: vektor karakter yang menunjukkan teks yang hendak ditulis.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh sintaks untuk memberi label pada sejumlah data yang memiliki kriteria yang kita inginkan dan output yang dihasilkan pada Figure <a href="#fig:text">32</a>:</p>
+<pre class="r"><code># tandai observasi yang memiliki nilai
+# mpg &lt; 15 dan wt &gt; 5
+d &lt;- mtcars[mtcars$wt &gt;= 5 &amp; mtcars &lt;= 15, ]
+
+# plot
+plot(mtcars$wt, mtcars$mpg, main=&quot;Milage vs. Car Weight&quot;,
+      xlab=&quot;Weight&quot;, ylab=&quot;Miles/(US) gallon&quot;)
+
+# menambahkan text
+text(d[,&#39;wt&#39;], d[,&#39;mpg&#39;],  row.names(d),
+     cex=0.65, pos=3,col=&quot;red&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:text"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text-1.png" alt="Menambahkan teks" width="672" />
+<p class="caption">
+Figure 32: Menambahkan teks
+</p>
+</div>
+<p>Sedangkan sintaks berikut adalah contoh bagaimana menambahkan persamaan kedalam bidang grafik dan output yang dihasilkan pada Figure <a href="#fig:text2">33</a>:</p>
+<pre class="r"><code>plot(1:10, 1:10, 
+     main=&quot;text(...) examples\n~~~~~~~~~~~&quot;)
+text(4, 9, expression(hat(beta) == (X^t * X)^{-1} * X^t * y))
+text(7, 4, expression(bar(x) == sum(frac(x[i], n), i==1, n)))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:text2"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text2-1.png" alt="Menambahkan teks (2)" width="672" />
+<p class="caption">
+Figure 33: Menambahkan teks (2)
+</p>
+</div>
+<p>Fungsi <code>mtext()</code> berguna untuk menambahkan teks pada frame sekitar bidang grafik. Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>mtext(text, side=3)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>text</strong>: teks yang akan ditulis.</li>
+<li><strong>side</strong>: integer yang menunjukkan lokasi teks yang akan ditulis. Nilai yang dapat dimasukkan antara lain:</li>
+<li><strong>1</strong>: bawah</li>
+<li><strong>2</strong>: kiri</li>
+<li><strong>3</strong>: atas</li>
+<li><strong>4</strong>: kanan.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapan dan output yang dihasilkan pada Figure <a href="#fig:text3">34</a>:</p>
+<pre class="r"><code>plot(1:10, 1:10, 
+     main=&quot;mtext(...) examples\n~~~~~~~~~~~&quot;)
+mtext(&quot;Magic function&quot;, side=3)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:text3"></span>
+<img src="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text3-1.png" alt="Menambahkan teks (3)" width="672" />
+<p class="caption">
+Figure 34: Menambahkan teks (3)
+</p>
+</div>
+</div>
 </div>
 
           </div>

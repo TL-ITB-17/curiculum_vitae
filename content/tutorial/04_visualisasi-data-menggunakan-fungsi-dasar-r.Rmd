@@ -690,4 +690,79 @@ legend("bottomright",
        title = "bottomright")
 ```
 
+### 4.10.3 Menambahkan Teks Pada Grafik
+
+Teks pada grafik dapat kita tambahkan baik sebagai keterangan yang menunjukkan label suatu observasi, keterangan tambahan disekitar bingkai grafik, maupun sebuah persamaan yang ada pada bidang grafik. Untuk menambahkannya kita dapat menggunakan dua buah fungsi yaitu: `text()` dan `mtext()`.
+
+FUngsi `text()` berguna untuk menambahkan teks di dalam bidang grafik seperti label titik observasi dan persamaan di dalam bidang grafik. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+text(x, y, labels)
+```
+
+> **Note: **
+>
+> - **x** dan **y**: vektor numerik yang menunjukkan koordinat posisi teks.
+> - **labels**: vektor karakter yang menunjukkan teks yang hendak ditulis.
+
+Berikut adalah contoh sintaks untuk memberi label pada sejumlah data yang memiliki kriteria yang kita inginkan dan output yang dihasilkan pada Figure \@ref(fig:text):
+
+```{r text,fig.cap='Menambahkan teks', tidy=FALSE, fig.align='center'}
+
+# tandai observasi yang memiliki nilai
+# mpg < 15 dan wt > 5
+d <- mtcars[mtcars$wt >= 5 & mtcars <= 15, ]
+
+# plot
+plot(mtcars$wt, mtcars$mpg, main="Milage vs. Car Weight",
+      xlab="Weight", ylab="Miles/(US) gallon")
+
+# menambahkan text
+text(d[,'wt'], d[,'mpg'],  row.names(d),
+     cex=0.65, pos=3,col="red")
+
+```
+
+Sedangkan sintaks berikut adalah contoh bagaimana menambahkan persamaan kedalam bidang grafik dan output yang dihasilkan pada Figure \@ref(fig:text2):
+
+```{r text2,fig.cap='Menambahkan teks (2)', tidy=FALSE, fig.align='center'}
+
+plot(1:10, 1:10, 
+     main="text(...) examples\n~~~~~~~~~~~")
+text(4, 9, expression(hat(beta) == (X^t * X)^{-1} * X^t * y))
+text(7, 4, expression(bar(x) == sum(frac(x[i], n), i==1, n)))
+
+```
+
+Fungsi `mtext()` berguna untuk menambahkan teks pada frame sekitar bidang grafik. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+mtext(text, side=3)
+```
+
+> **Note: **
+>
+> - **text**: teks yang akan ditulis.
+> - **side**: integer yang menunjukkan lokasi teks yang akan ditulis. Nilai yang dapat dimasukkan antara lain:
+>   + **1**: bawah
+>   + **2**: kiri
+>   + **3**: atas
+>   + **4**: kanan.
+
+Berikut adalah contoh penerapan dan output yang dihasilkan pada Figure \@ref(fig:text3):
+
+```{r text3, fig.cap='Menambahkan teks (3)', tidy=FALSE, fig.align='center'}
+plot(1:10, 1:10, 
+     main="mtext(...) examples\n~~~~~~~~~~~")
+mtext("Magic function", side=3)
+```
+
+
+
+
+
+
+
+
+
 

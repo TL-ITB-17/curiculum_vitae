@@ -3729,6 +3729,71 @@ Figure 31: Kustomisasi posisi legend
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div id=&#34;menambahkan-teks-pada-grafik&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;4.10.3 Menambahkan Teks Pada Grafik&lt;/h3&gt;
+&lt;p&gt;Teks pada grafik dapat kita tambahkan baik sebagai keterangan yang menunjukkan label suatu observasi, keterangan tambahan disekitar bingkai grafik, maupun sebuah persamaan yang ada pada bidang grafik. Untuk menambahkannya kita dapat menggunakan dua buah fungsi yaitu: &lt;code&gt;text()&lt;/code&gt; dan &lt;code&gt;mtext()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;FUngsi &lt;code&gt;text()&lt;/code&gt; berguna untuk menambahkan teks di dalam bidang grafik seperti label titik observasi dan persamaan di dalam bidang grafik. Format yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;text(x, y, labels)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt; dan &lt;strong&gt;y&lt;/strong&gt;: vektor numerik yang menunjukkan koordinat posisi teks.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;labels&lt;/strong&gt;: vektor karakter yang menunjukkan teks yang hendak ditulis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh sintaks untuk memberi label pada sejumlah data yang memiliki kriteria yang kita inginkan dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:text&#34;&gt;32&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# tandai observasi yang memiliki nilai
+# mpg &amp;lt; 15 dan wt &amp;gt; 5
+d &amp;lt;- mtcars[mtcars$wt &amp;gt;= 5 &amp;amp; mtcars &amp;lt;= 15, ]
+
+# plot
+plot(mtcars$wt, mtcars$mpg, main=&amp;quot;Milage vs. Car Weight&amp;quot;,
+      xlab=&amp;quot;Weight&amp;quot;, ylab=&amp;quot;Miles/(US) gallon&amp;quot;)
+
+# menambahkan text
+text(d[,&amp;#39;wt&amp;#39;], d[,&amp;#39;mpg&amp;#39;],  row.names(d),
+     cex=0.65, pos=3,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:text&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text-1.png&#34; alt=&#34;Menambahkan teks&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 32: Menambahkan teks
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Sedangkan sintaks berikut adalah contoh bagaimana menambahkan persamaan kedalam bidang grafik dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:text2&#34;&gt;33&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(1:10, 1:10, 
+     main=&amp;quot;text(...) examples\n~~~~~~~~~~~&amp;quot;)
+text(4, 9, expression(hat(beta) == (X^t * X)^{-1} * X^t * y))
+text(7, 4, expression(bar(x) == sum(frac(x[i], n), i==1, n)))&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:text2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text2-1.png&#34; alt=&#34;Menambahkan teks (2)&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 33: Menambahkan teks (2)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Fungsi &lt;code&gt;mtext()&lt;/code&gt; berguna untuk menambahkan teks pada frame sekitar bidang grafik. Format yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtext(text, side=3)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;text&lt;/strong&gt;: teks yang akan ditulis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;side&lt;/strong&gt;: integer yang menunjukkan lokasi teks yang akan ditulis. Nilai yang dapat dimasukkan antara lain:&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1&lt;/strong&gt;: bawah&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2&lt;/strong&gt;: kiri&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3&lt;/strong&gt;: atas&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4&lt;/strong&gt;: kanan.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penerapan dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:text3&#34;&gt;34&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(1:10, 1:10, 
+     main=&amp;quot;mtext(...) examples\n~~~~~~~~~~~&amp;quot;)
+mtext(&amp;quot;Magic function&amp;quot;, side=3)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:text3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text3-1.png&#34; alt=&#34;Menambahkan teks (3)&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 34: Menambahkan teks (3)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
