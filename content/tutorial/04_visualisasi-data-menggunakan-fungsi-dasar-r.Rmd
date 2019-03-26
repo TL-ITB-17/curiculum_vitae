@@ -767,7 +767,7 @@ abline(v=y)
 
 Berikut adalah contoh sintaks bagaimana menambahkan garis pada sebuah plot dan output yang dihasilkan disajikan pada Figure \@ref(fig:abline):
 
-```{r}
+```{r abline, fig.cap='Menambahkan garis', tidy=FALSE, fig.align='center'}
 # membuat plot
 plot(mtcars$wt, mtcars$mpg, main="Milage vs. Car Weight",
       xlab="Weight", ylab="Miles/(US) gallon")
