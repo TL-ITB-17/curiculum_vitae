@@ -1353,6 +1353,10 @@ Figure 3: Jarak vs rata-rata delay
       <description>
 
 
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
 &lt;blockquote&gt;
 &lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi&lt;/h2&gt;
 &lt;ul&gt;
@@ -4068,6 +4072,10 @@ Figure 41: Nama warna
       <description>
 
 
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Daftar Isi&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -5277,7 +5285,7 @@ Figure 53: Scatterplot dengan tema Wall Street Journal
 ##             plot.title = element_text(hjust = 0, face = &amp;quot;bold&amp;quot;), 
 ##             plot.margin = unit(c(1, 1, 1, 1), &amp;quot;lines&amp;quot;), strip.background = element_rect())
 ## }
-## &amp;lt;bytecode: 0x00000000197090e8&amp;gt;
+## &amp;lt;bytecode: 0x000000001ac0fc88&amp;gt;
 ## &amp;lt;environment: namespace:ggthemes&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Berdasarkan output yang disajikan kita dapat merubah sejumlah argumen seperti base size, color, base_family, dll.&lt;/p&gt;
 &lt;/div&gt;

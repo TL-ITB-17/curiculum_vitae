@@ -27,7 +27,7 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
       <guid>/tutorial/01_mengenal-bahasa-r/</guid>
-      <description>Daftar IsiSejarah RFitur dan Karakteristik RKelebihan dan Kekurangan RRStudioMenginstall R dan RStudioWorking DirectoryFasilitas Help1.1 Sejarah RR Merupakan bahasa yang digunakan dalam komputasi statistik yang pertama kali dikembangkan oleh Ross Ihaka dan Robert Gentlement di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum R dikenal ada S yang dikembangkan oleh John Chambers dan rekan-rekan dari Bell Laboratories yang memiliki fungsi yang sama untuk komputasi statistik.</description>
+      <description>body{text-align: justify}Daftar IsiSejarah RFitur dan Karakteristik RKelebihan dan Kekurangan RRStudioMenginstall R dan RStudioWorking DirectoryFasilitas Help1.1 Sejarah RR Merupakan bahasa yang digunakan dalam komputasi statistik yang pertama kali dikembangkan oleh Ross Ihaka dan Robert Gentlement di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum R dikenal ada S yang dikembangkan oleh John Chambers dan rekan-rekan dari Bell Laboratories yang memiliki fungsi yang sama untuk komputasi statistik.</description>
     </item>
     
     <item>
@@ -58,9 +58,8 @@ plot(x, y, type=&amp;quot;p&amp;quot;)Note:
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
       <guid>/tutorial/05_visualisasi-data-menggunakan-ggplot/</guid>
-      <description>Daftar Isi
-ScatterplotBox Plot dan Violin PlotBar PlotLine PlotPie ChartHistogram dan Density PlotQQ PlotDot ChartECDF PlotParameter GrafikLibrary ggplot2 merupakan implementasi dari The Grammar of Graphics yang ditulis oleh Leland Wilkinson. ggplot2 merupakan library yang dikembangkan oleh Hadley Wicham ketika ia sedang menempuh kuliah di Lowa State Universuty dan masih dikembangkan hingga sekarang.
-ggplot2 merupakan paket visualisasi yang powerfull.</description>
+      <description>body{text-align: justify}Daftar Isi
+ScatterplotBox Plot dan Violin PlotBar PlotLine PlotPie ChartHistogram dan Density PlotQQ PlotDot ChartECDF PlotParameter GrafikLibrary ggplot2 merupakan implementasi dari The Grammar of Graphics yang ditulis oleh Leland Wilkinson. ggplot2 merupakan library yang dikembangkan oleh Hadley Wicham ketika ia sedang menempuh kuliah di Lowa State Universuty dan masih dikembangkan hingga sekarang.</description>
     </item>
     
   </channel>
