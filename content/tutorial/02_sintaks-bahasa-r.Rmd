@@ -11,6 +11,11 @@ linktitle: Sintaks Bahasa R
 type: docs
 ---
 
+<style>
+body{
+text-align: justify}
+</style>
+
 > ## Daftar Isi
 >
 > * [Operator Aritmatika](#2-1-operator-aritmatika)

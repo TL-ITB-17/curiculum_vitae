@@ -11,6 +11,11 @@ linktitle: Visualisasi Data Menggunakan GGPLOT
 type: docs
 ---
 
+<style>
+body{
+text-align: justify}
+</style>
+
 > **Daftar Isi**
 >
 > - [Scatterplot](#5-1-scatterplot)

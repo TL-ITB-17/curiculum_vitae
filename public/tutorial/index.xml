@@ -17,7 +17,7 @@
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
       <guid>/tutorial/03_manajemen-data-r/</guid>
-      <description>Daftar Isi:Import FileEksport FileTibble Data FormatMerapikan DataTransformasi Data3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
+      <description>body{text-align: justify}Daftar Isi:Import FileEksport FileTibble Data FormatMerapikan DataTransformasi Data3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
 Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan.</description>
     </item>
     
@@ -36,9 +36,8 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
       <guid>/tutorial/02_sintaks-bahasa-r/</guid>
-      <description>Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision MakingFungsi2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
-2+4*2## [1] 10Bandingkan dengan sintaks berikut:
-(2+4)*2## [1] 12R dapat digunakan sebagai kalkulator</description>
+      <description>body{text-align: justify}Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision MakingFungsi2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
+2+4*2## [1] 10Bandingkan dengan sintaks berikut:</description>
     </item>
     
     <item>
@@ -47,7 +46,7 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
       <guid>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</guid>
-      <description>Daftar Isi
+      <description>body{text-align: justify}Daftar Isi
 Visualisasi Data Menggunakan Fungsi plotMatriks ScatterplotBox plotBar PlotLine PlotPie ChartHistogram dan Density PlotQQ PlotDot ChartKustomisasi Parameter Grafik4.1 Visualisasi Data Menggunakan Fungsi plot()Fungsi plot() merupakan fungsi umum yang digunakan untuk membuat plot pada R. Format dasarnya adalah sebagai berikut:
 plot(x, y, type=&amp;quot;p&amp;quot;)Note: 
 x dan y: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.</description>

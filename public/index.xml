@@ -18,6 +18,10 @@
       <description>
 
 
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
 &lt;blockquote&gt;
 &lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi:&lt;/h2&gt;
 &lt;ul&gt;
@@ -1604,6 +1608,10 @@ Figure 8: Jendela help search dokumentasi fungsi mean().
       <description>
 
 
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
 &lt;blockquote&gt;
 &lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi&lt;/h2&gt;
 &lt;ul&gt;
@@ -2960,6 +2968,10 @@ kali(4,3)&lt;/code&gt;&lt;/pre&gt;
       <description>
 
 
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Daftar Isi&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;

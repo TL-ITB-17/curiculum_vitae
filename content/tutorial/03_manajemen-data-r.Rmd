@@ -11,6 +11,11 @@ linktitle: Manajemen Data R
 type: docs
 ---
 
+<style>
+body{
+text-align: justify}
+</style>
+
 > ## Daftar Isi:
 >
 > * [Import File](#3-1-import-file)

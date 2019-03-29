@@ -9,6 +9,11 @@ title: Overview
 type: docs
 ---
 
+<style>
+body{
+text-align: justify}
+</style>
+
 Pada section ini penulis akan menyajikan beberapa tutorial terkait analisa data dan modeling menggunakan `R`. Tutorial secara garis besar akan membahas:
 
 * Analisa dan modeling data menggunakan metode statistik di `R`
