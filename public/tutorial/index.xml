@@ -53,5 +53,16 @@ plot(x, y, type=&amp;quot;p&amp;quot;)Note:
 x dan y: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.</description>
     </item>
     
+    <item>
+      <title>5. Visualisasi Data Menggunakan GGPLOT</title>
+      <link>/tutorial/05_visualisasi-data-menggunakan-ggplot/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/05_visualisasi-data-menggunakan-ggplot/</guid>
+      <description>Daftar Isi
+ScatterplotBox Plot dan Violin PlotBar PlotLine PlotPie ChartHistogram dan Density PlotQQ PlotDot ChartECDF PlotParameter GrafikLibrary ggplot2 merupakan implementasi dari The Grammar of Graphics yang ditulis oleh Leland Wilkinson. ggplot2 merupakan library yang dikembangkan oleh Hadley Wicham ketika ia sedang menempuh kuliah di Lowa State Universuty dan masih dikembangkan hingga sekarang.
+ggplot2 merupakan paket visualisasi yang powerfull.</description>
+    </item>
+    
   </channel>
 </rss>

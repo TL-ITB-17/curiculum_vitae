@@ -1,0 +1,1666 @@
+---
+title: "5. Visualisasi Data Menggunakan GGPLOT"
+draft: false
+date: '2019-03-09T00:00:00+07:00'
+output: pdf_document
+menu:
+  tutorial:
+    parent: Visualisasi Data
+    weight: 3
+linktitle: Visualisasi Data Menggunakan GGPLOT
+type: docs
+---
+
+
+
+<blockquote>
+<p><strong>Daftar Isi</strong></p>
+<ul>
+<li><a href="#5-1-scatterplot">Scatterplot</a></li>
+<li><a href="#5-2-box-plot-dan-violin-plot">Box Plot dan Violin Plot</a></li>
+<li><a href="#5-3-bar-plot">Bar Plot</a></li>
+<li><a href="#5-4-line-plot">Line Plot</a></li>
+<li><a href="#5-5-pie-chart">Pie Chart</a></li>
+<li><a href="#5-6-histogram-dan-density-plot">Histogram dan Density Plot</a></li>
+<li><a href="#5-7-qq-plot">QQ Plot</a></li>
+<li><a href="#5-8-dot-chart">Dot Chart</a></li>
+<li><a href="#5-9-ecdf-plot">ECDF Plot</a></li>
+<li><a href="#5-10-parameter-grafik">Parameter Grafik</a></li>
+</ul>
+</blockquote>
+<p>Library <code>ggplot2</code> merupakan implementasi dari <em>The Grammar of Graphics</em> yang ditulis oleh <strong>Leland Wilkinson</strong>. <code>ggplot2</code> merupakan library yang dikembangkan oleh <strong>Hadley Wicham</strong> ketika ia sedang menempuh kuliah di <strong>Lowa State Universuty</strong> dan masih dikembangkan hingga sekarang.</p>
+<p><code>ggplot2</code> merupakan paket visualisasi yang powerfull. Kita dapat menggunakannya bersamaan dengan <em>piping operator</em> yang disediakan oleh paket <code>dplyr</code> sehingga menambah kemudahan kita dalam melakukan analisis data.</p>
+<p>Grafik <code>ggplot2</code> terdiri dari sejumlah komponen kunci. Berikut adalah sejumlah komponen kunci yang membentuk grafik <code>ggplot2</code>.</p>
+<ul>
+<li><strong>data frame</strong>: menyimpan semua data yang akan ditampilkan di plot.</li>
+<li><strong>aesthetic mapping</strong>: menggambarkan bagaimana data dipetakan ke warna, ukuran, bentuk, lokasi. Dalam plot diberikan pada fungsi <code>aes()</code></li>
+<li><strong>geoms</strong>: objek geometris seperti titik, garis, bentuk.</li>
+<li><strong>facets</strong>: menjelaskan bagaimana plot bersyarat / panel harus dibangun.</li>
+<li><strong>stats</strong>: transformasi statistik seperti binning, quantiles, smoothing.</li>
+<li><strong>scales</strong>: skala apa yang digunakan oleh <em>aesthetic map</em> (contoh: pria = merah, wanita = biru).</li>
+<li><strong>coordinate system</strong>: menggambarkan sistem di mana lokasi geom akan digambarkan.</li>
+</ul>
+<p>Sebelum kita mulai memcoba melakukan visualisasi data menggunakan <code>ggplot2</code>, kita perlu menginstall dan memuat terlebih dahulu library <code>ggplot2</code>. Berikut adalah sintaks yang digunakan untuk menginstall dan memuat paket <code>ggplot2</code>:</p>
+<pre class="r"><code># memasang paket
+# install.packages(&#39;ggplot2&#39;)
+
+# memuat paket
+library(ggplot2)</code></pre>
+<p>Dataset yang akan kita gunakan adalah dataset <code>gapminder</code>. Dataset ini berisi data demografi penduduk dari berbagai negara dan benua. Untuk dapat menggunakannya kita perlu menginstall dan memuatnya terlebih dahulu. Berikut adalah sintaks untuk menginstall dan memuat dataset tersebut:</p>
+<pre class="r"><code># memasang paket
+# install.packages(&quot;gapminder&quot;)
+
+# memuat paket
+library(gapminder)</code></pre>
+<pre><code>## Warning: package &#39;gapminder&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code># memuat paket dplyr dan tibble
+library(dplyr)
+library(tibble)</code></pre>
+<pre class="r"><code># melihat struktur dataset
+glimpse(gapminder)</code></pre>
+<pre><code>## Observations: 1,704
+## Variables: 6
+## $ country   &lt;fct&gt; Afghanistan, Afghanistan, Afghanistan, Afghanistan, ...
+## $ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia...
+## $ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992...
+## $ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.8...
+## $ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 1488...
+## $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 78...</code></pre>
+<pre class="r"><code># melihat variabel year
+unique(gapminder$year)</code></pre>
+<pre><code>##  [1] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 2002 2007</code></pre>
+<p>Dataset gapminder memiliki 6 variabel dan 1704 observasi. 20 observasi pertama dataset gapminder dapat dilihat pada Tabel <a href="#tab:gapminder">1</a></p>
+<table>
+<caption><span id="tab:gapminder">Table 1: </span>20 observasi pertama dataset gapminder</caption>
+<thead>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1952</td>
+<td align="right">28.801</td>
+<td align="right">8425333</td>
+<td align="right">779.4453</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1957</td>
+<td align="right">30.332</td>
+<td align="right">9240934</td>
+<td align="right">820.8530</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1962</td>
+<td align="right">31.997</td>
+<td align="right">10267083</td>
+<td align="right">853.1007</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1967</td>
+<td align="right">34.020</td>
+<td align="right">11537966</td>
+<td align="right">836.1971</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1972</td>
+<td align="right">36.088</td>
+<td align="right">13079460</td>
+<td align="right">739.9811</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1977</td>
+<td align="right">38.438</td>
+<td align="right">14880372</td>
+<td align="right">786.1134</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1982</td>
+<td align="right">39.854</td>
+<td align="right">12881816</td>
+<td align="right">978.0114</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1987</td>
+<td align="right">40.822</td>
+<td align="right">13867957</td>
+<td align="right">852.3959</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1992</td>
+<td align="right">41.674</td>
+<td align="right">16317921</td>
+<td align="right">649.3414</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1997</td>
+<td align="right">41.763</td>
+<td align="right">22227415</td>
+<td align="right">635.3414</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">2002</td>
+<td align="right">42.129</td>
+<td align="right">25268405</td>
+<td align="right">726.7341</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">2007</td>
+<td align="right">43.828</td>
+<td align="right">31889923</td>
+<td align="right">974.5803</td>
+</tr>
+<tr class="odd">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1952</td>
+<td align="right">55.230</td>
+<td align="right">1282697</td>
+<td align="right">1601.0561</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1957</td>
+<td align="right">59.280</td>
+<td align="right">1476505</td>
+<td align="right">1942.2842</td>
+</tr>
+<tr class="odd">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1962</td>
+<td align="right">64.820</td>
+<td align="right">1728137</td>
+<td align="right">2312.8890</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1967</td>
+<td align="right">66.220</td>
+<td align="right">1984060</td>
+<td align="right">2760.1969</td>
+</tr>
+<tr class="odd">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1972</td>
+<td align="right">67.690</td>
+<td align="right">2263554</td>
+<td align="right">3313.4222</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1977</td>
+<td align="right">68.930</td>
+<td align="right">2509048</td>
+<td align="right">3533.0039</td>
+</tr>
+<tr class="odd">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1982</td>
+<td align="right">70.420</td>
+<td align="right">2780097</td>
+<td align="right">3630.8807</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1987</td>
+<td align="right">72.000</td>
+<td align="right">3075321</td>
+<td align="right">3738.9327</td>
+</tr>
+</tbody>
+</table>
+<div id="scatterplot" class="section level2">
+<h2>5.1 Scatterplot</h2>
+<p>Scatterplot dapat dibuat pada <code>ggplot2</code> menggunakan fungsi <code>geom_point()</code>. Format sederhananya dituliskan sebagai berikut:</p>
+<pre class="r"><code>ggplot(data, aes(...))+
+  geom_point(size, color, shape)</code></pre>
+<p>Berikut adalah contoh sederhana scatterplot variabel <code>lifeExp</code> terhadap variabel <code>gdpPercap</code>. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggscatter">1</a>:</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  geom_point()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter-1.png" alt="Scatterplot lifeExp vs gdpPercap" width="70%" />
+<p class="caption">
+Figure 1: Scatterplot lifeExp vs gdpPercap
+</p>
+</div>
+<p>Kita dapat mengubah warna, jenis, dan ukuran titik pada scatterplot. Pengubahan warna dan jenis titik berguna untuk menunjukkan grup data pada grafik. Sedangkan perubahan ukuran titik sangat berguna untuk menunjukkan nilai variabel lain khususnya variabel kontinyu pada sebuah titik. Berikut adalah contoh penerapannya. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggscatter2">2</a> sampai dengan Gambar <a href="#fig:ggscatter4">4</a>:</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap,lifeExp, color=continent))+
+  geom_point()+
+  # merubah sumbu x kedalam fungsi log
+  scale_x_log10()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter2-1.png" alt="Scatterplot lifeExp vs gdpPercap tiap benua (1)" width="70%" />
+<p class="caption">
+Figure 2: Scatterplot lifeExp vs gdpPercap tiap benua (1)
+</p>
+</div>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap,lifeExp, shape=continent))+
+  geom_point()+
+  # merubah sumbu x kedalam fungsi log
+  scale_x_log10()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter3-1.png" alt="Scatterplot lifeExp vs gdpPercap tiap benua (2)" width="70%" />
+<p class="caption">
+Figure 3: Scatterplot lifeExp vs gdpPercap tiap benua (2)
+</p>
+</div>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap,lifeExp, 
+                      size=pop, color=continent))+
+  geom_point()+
+  # merubah sumbu x kedalam fungsi log
+  scale_x_log10()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter4"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter4-1.png" alt="Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua" width="70%" />
+<p class="caption">
+Figure 4: Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua
+</p>
+</div>
+<p>Untuk menujukkan asosiasi antara dua variabel kontinyu kita juga dapat menambahkan garis regresi dan confidence interval garis regresinya. Fungsi yang digunakan adalah <code>geom_smooth()</code>. Secara default fungsi tersebut akan membuat garis loess regression pada grafik. Agar dapat membuat garis regresi linier kita perlu menambahkan argumen <code>method=&quot;lm&quot;</code>. Selain itu, jika kita tidak ingin menampilkan garis confidence interval kita dapat menambahkan argumen <code>se=FALSE</code>. Format sederhananya disajikan pada sintaks berikut:</p>
+<pre class="r"><code>geom_smooth(method=&quot;auto&quot;, se=TRUE, fullrange=FALSE, level=0.95)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><p><strong>method</strong>: metode penghalusan yang digunakan. Nilai yang dapat dimasukkan adalah lm, glm, gam, loess, rlm.</p></li>
+<li>method=“loess”: merupakan nilai default pada fungsi dan menghasilkan metode penghalusan loess regression.</li>
+<li><p>method=“lm”: menghasilkan metode penghalusan regresi linier. Kita juga dapat melakukan spesifikasi terhadap fungsi persamaan regresi yang digunakan dengan menambahkan argumen formula=y~x….</p></li>
+<li><strong>se</strong>: nilai logis. Jika TRUE garis confidence interval akan ditampilkan sepanjang garis penghalusan.</li>
+<li><strong>fullrange</strong>: nilai logis. Jika TRUE kecocokan mencakup seluruh plot.</li>
+<li><p>level: level confidence interal yang digunakan. Secara default bernilai 0.95.</p></li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh sintaks penerapan pada variabel <code>gdpPercap</code> dan <code>lifeExp</code>. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggscatter5">5</a>:</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap,lifeExp))+
+  geom_point()+
+  # merubah sumbu x kedalam fungsi log
+  scale_x_log10()+
+  # menambahkan smoothing method
+  geom_smooth(method=&quot;lm&quot;, level=0.99)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggscatter5"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter5-1.png" alt="Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier" width="70%" />
+<p class="caption">
+Figure 5: Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier
+</p>
+</div>
+</div>
+<div id="box-plot-dan-violin-plot" class="section level2">
+<h2>5.2 Box Plot dan Violin Plot</h2>
+<p>Box plot merupakan visualisasi yang powerful dalam menggambarkan distribusi data, melihat adanya outlier, serta membandingkan distribusi antar data. Format visualisasi dapat dituliskan sebagai berikut:</p>
+<pre class="r"><code>ggplot(data, aes(...))+
+  geom_boxplot(geom_boxplot(outlier.colour=&quot;black&quot;, 
+                            outlier.shape=16,
+                            outlier.size=2, 
+                            notch=FALSE))</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>outlier.colour, outlier.shape, outlier.size</strong>: Warna, bentuk dan ukuran untuk titik-titik outlier.</li>
+<li><strong>notch</strong>: nilai logis. Jika TRUE, buat <strong>notched box plot</strong>. <em>Notch</em> menunjukkan <em>confidence interval</em> di sekitar median yang biasanya didasarkan pada median <span class="math inline">\(\pm1,58\cdot\frac{\left(IQR\right)}{\sqrt{\left(n\right)}}\)</span>. <em>Notch</em> digunakan untuk membandingkan kelompok; jika takik dua kotak tidak tumpang tindih, ini adalah bukti kuat bahwa median berbeda.</li>
+</ul>
+</blockquote>
+<p>Berikut merupakan contoh visualisasi variabel <code>lifeExp</code> pada dataset <code>gapminder</code>. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggboxplot">6</a>:</p>
+<pre class="r"><code>ggplot(gapminder, aes(&quot;&quot;, lifeExp))+
+  geom_boxplot()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggboxplot"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot-1.png" alt="Box plot variabel lifeExp" width="70%" />
+<p class="caption">
+Figure 6: Box plot variabel lifeExp
+</p>
+</div>
+<p>Kita dapat melakukan visualisasi bagi setiap kelompok data. Pada sintaks berikut visualisasi dilakukan untuk variabel <code>lifeExp</code> pada tiap <code>continent</code>. Pada contoh berikut akan ditampilkan cara menmabahkan titik rata-rata dan warna pada masing-masing grup. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggboxplot2">7</a>:</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, lifeExp, color=continent))+
+  geom_boxplot()+
+  stat_summary(fun.y=mean, geom=&quot;point&quot;, 
+               shape=23, size=3, color=&quot;red&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggboxplot2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot2-1.png" alt="Box plot variabel lifeExp pada tiap continent" width="70%" />
+<p class="caption">
+Figure 7: Box plot variabel lifeExp pada tiap continent
+</p>
+</div>
+<p>Misalkan kita ingin mengetahui perubahan distribusi dari variabel <code>lifeExp</code> pada masing-masing <code>continet</code> pada tahun 1952 dan 2007. Untuk melakukannya kita perlu melakukan subset pada dataset <code>gapminder</code> untuk memfilter data pada tahun 1952 dan 2007. Data selanjutnya dilakukan input kedalam fungsi <code>ggplot()</code>. Berikut adalah contoh sintaks yang digunakan. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggboxplot3">8</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  filter(year==1952 | year==2007) %&gt;%
+  ggplot(aes(continent, lifeExp, fill=factor(year)))+
+  geom_boxplot(notch=TRUE)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggboxplot3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot3-1.png" alt="Box plot variabel lifeExp pada tiap continent (1952 dan 2007)" width="70%" />
+<p class="caption">
+Figure 8: Box plot variabel lifeExp pada tiap continent (1952 dan 2007)
+</p>
+</div>
+<p>Berdasarkan Gambar <a href="#fig:ggboxplot3">8</a> terlihat bahwa usia harapan hidup pada tiap benua meningkat sejak tahun 1952 sampai 2007. Selain itu, peningkatan tersebut bersifat signifikan yang ditunjukkan dari tidak adanya <em>notch</em> yang saling overlap pada masing-masing benua.</p>
+<p>Untuk lebih detailnya kita akan coba melakukan visualisasi pada benua Asia untuk melihat perubahan variabel <code>lifeExp</code>. Berikut adalah sintaks yang digunakan dan output yang dihasilkan disajikan pada Gambar <a href="#fig:ggboxplot4">9</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  filter(continent==&quot;Asia&quot;) %&gt;%
+  ggplot(aes(factor(year), lifeExp))+
+  geom_boxplot()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggboxplot4"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot4-1.png" alt="Box plot variabel lifeExp Benua Asia" width="70%" />
+<p class="caption">
+Figure 9: Box plot variabel lifeExp Benua Asia
+</p>
+</div>
+<p>Violin plot memiliki kesamaan dengan box plot. Perbedaanya terletak pada violin plot tidak hanya menyajikan data titik-titikkuartil data, namun violin plot juga menampilkan kernel probabilitas distibusi data. Fungsi yang digunakan untuk membuatnya adalah <code>geom_violin()</code>.</p>
+<p>Pada dataset <code>gapminder</code> kita ingin meisualisasikan distribusi <code>lifeExp</code> pada masing-masing <code>continent</code>. Berikut adalah contoh sintaks untuk membuat visualisasi dasar violin plot. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggviolin">10</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  ggplot(aes(continent, lifeExp, fill=continent))+
+  # violin plot
+  geom_violin()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggviolin"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggviolin-1.png" alt="Violin plot variabel lifeExp pada masing-masing benua" width="70%" />
+<p class="caption">
+Figure 10: Violin plot variabel lifeExp pada masing-masing benua
+</p>
+</div>
+<p>Kita juga dapat melakukan modifikasi terhadap violin plot tersebut seperti penambahan titik kuartil, titik mean dan modifikasi terhadap warna tampilaknnya. COntoh sintaksnya dan output disajikan pada Gambar <a href="#fig:ggviolin2">11</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  ggplot(aes(continent, lifeExp, fill=continent))+
+  # violin plot
+  geom_violin()+
+  # menambahkan boxplot dengan lebar 0.1
+  geom_boxplot(width=0.1, fill=&quot;white&quot;)+
+  # menambahkan titik mean
+  stat_summary(fun.y=mean, geom=&quot;point&quot;,
+               # ukuran dan jenis titik
+               size=1, shape=23,
+               # warna titik
+               color=&quot;red&quot;, fill=&quot;white&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggviolin2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggviolin2-1.png" alt="Violin plot variabel lifeExp pada masing-masing benua (2)" width="70%" />
+<p class="caption">
+Figure 11: Violin plot variabel lifeExp pada masing-masing benua (2)
+</p>
+</div>
+</div>
+<div id="bar-plot" class="section level2">
+<h2>5.3 Bar Plot</h2>
+<p>Pada <code>ggplot2</code> bar plot dapat dibuat menggunakan fungsi <code>geom_bar()</code>. Untuk membuat bar plot, langkah pertama yang perlu dilakukan adalah membuat tabulasi data variabel terlebih dahulu. Berikut adalah contoh sintaks untuk membuat bar plot dari rata-rata <code>lifeExp</code> pada masing-masing <code>continent</code>. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggbar">12</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  # kelompokkan berdasarkan continet
+  group_by(continent)%&gt;%
+  # membuat ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp))%&gt;%
+  # urutkan dari yang terbesar
+  arrange(desc(mean_lifeExp))%&gt;%
+  # plot
+  ggplot(aes(continent, mean_lifeExp))+
+  # membuat bar plot berdasarkan nilai observasi
+  geom_bar(stat=&quot;identity&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggbar"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggbar-1.png" alt="Bar plot rata-rata lifeExp masing-masing benua" width="70%" />
+<p class="caption">
+Figure 12: Bar plot rata-rata lifeExp masing-masing benua
+</p>
+</div>
+<p>Kita juga dapat membuat bar plot dengan garis confidence interval. Untuk melakukannya kita perlu terlebih dahulu menghitung standard error dari data. Standard error selanjutnya digunakan untuk menghitung nilai atas dan bawah dari nilai rata-rata. Berikut adalah contoh visualisasi bar plot dengan confidence interval (Gambar <a href="#fig:ggbar2">13</a>):</p>
+<pre class="r"><code>gapminder %&gt;%
+  # kelompokkan berdasarkan continet
+  group_by(continent)%&gt;%
+  # membuat ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp),
+            n=n(), sd=sd(lifeExp), 
+            se=sd/sqrt(n))%&gt;%
+  # plot
+  ggplot(aes(continent, mean_lifeExp))+
+  # membuat bar plot
+  geom_bar(stat=&quot;identity&quot;, color=&quot;white&quot;)+
+  # menambahkan error bar
+  geom_errorbar(aes(ymin=mean_lifeExp-se,
+                    ymax=mean_lifeExp+se),
+                width=0.2)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggbar2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggbar2-1.png" alt="Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval" width="70%" />
+<p class="caption">
+Figure 13: Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval
+</p>
+</div>
+<p>Kita juga dapat melakukannya pada visualisasi data beberapa grup. Berikut adalah contoh sintaks dan output (Gambar <a href="#fig:ggbar3">14</a>) bar plot dengan beberapa grup:</p>
+<pre class="r"><code>gapminder %&gt;%
+  # filter data tahun 1952 dan 2007
+  filter(year==1952|year==2007)%&gt;%
+  # Ubah year menjadi factor
+  mutate(year=as.factor(year))%&gt;%
+  # kelompokkan berdasarkan continet
+  group_by(continent,year)%&gt;%
+  # membuat ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp),
+            n=n(), sd=sd(lifeExp), 
+            se=sd/sqrt(n))%&gt;%
+  # plot
+  ggplot(aes(continent, mean_lifeExp, 
+             fill=year))+
+  # membuat bar plot
+  geom_bar(stat=&quot;identity&quot;, 
+           position=position_dodge())+
+  # menambahkan error bar
+  geom_errorbar(aes(ymin=mean_lifeExp-se,
+                    ymax=mean_lifeExp+se),
+                width=0.2,
+                position=position_dodge(0.9))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggbar3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggbar3-1.png" alt="Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval" width="70%" />
+<p class="caption">
+Figure 14: Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval
+</p>
+</div>
+</div>
+<div id="line-plot" class="section level2">
+<h2>5.4 Line Plot</h2>
+<p>Line plot dapat digunakan untuk menunjukkan adanya perubahan pada selang waktu tertentu. Pada <code>ggplot2</code>, line plot dapat dibuat menggunakan fungsi <code>geom_line()</code>. Berikut adalah contoh sintaks dan grafik (Gambar <a href="#fig:ggline">15</a>) untuk membuat line plot:</p>
+<pre class="r"><code>gapminder%&gt;%
+  # kelompokkan data berdasarkan year dan continent
+  group_by(year,continent)%&gt;%
+  # ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp))%&gt;%
+  # plot
+  ggplot(aes(year, mean_lifeExp, 
+             linetype=continent))+
+  # membuat line plot
+  geom_line()+
+  # menambahkan point
+  geom_point()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggline"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggline-1.png" alt="Line plot lifeExp masing-masing benua " width="70%" />
+<p class="caption">
+Figure 15: Line plot lifeExp masing-masing benua
+</p>
+</div>
+<p>Kita juga dapat menambahkan error bar pada line plot. Berikut adalah contoh sintak dan grafik (Gambar <a href="#fig:ggline2">16</a>) yang dihasilkan:</p>
+<pre class="r"><code>gapminder%&gt;%
+  # filter benua asia
+  filter(continent==&quot;Asia&quot;)%&gt;%
+  # kelompokkan data berdasarkan year dan continent
+  group_by(year)%&gt;%
+  # ringkasan data
+  summarize(mean_lifeExp=mean(lifeExp), 
+            sd=sd(lifeExp))%&gt;%
+  # plot
+  ggplot(aes(year, mean_lifeExp))+
+  # membuat line plot
+  geom_line()+
+  # menambahkan point
+  geom_point(size=2)+
+  # menambahkan error bar
+  geom_errorbar(aes(ymin=mean_lifeExp-sd,
+                    ymax=mean_lifeExp+sd),
+                width=0.2, color=&quot;red&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggline2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggline2-1.png" alt="Histogram lifeExp " width="70%" />
+<p class="caption">
+Figure 16: Histogram lifeExp
+</p>
+</div>
+</div>
+<div id="pie-chart" class="section level2">
+<h2>5.5 Pie Chart</h2>
+<p>Pie chart pada <code>ggplot2</code> dapat dibuat menggunakan fungsi <code>geom_bar()</code> dan <code>coord_polar()</code>.Berikut adalah contoh sintaks yang digunakan dan output (Gambar <a href="#fig:ggpie">17</a>) yang dihasilkan:</p>
+<pre class="r"><code>total &lt;- sum(gapminder$pop)
+gapminder%&gt;%
+  # kelompokkan berdasarkan continent
+  group_by(continent)%&gt;%
+  # ringkasan data 
+  summarize(pop=sum(as.numeric(pop)), percent=(pop/total)*100)%&gt;%
+  ggplot(aes(x=&quot;&quot;, percent, fill=continent))+
+  geom_bar(stat=&quot;identity&quot;)+
+  coord_polar(&quot;y&quot;, start=0)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggpie"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpie-1.png" alt="Pie chart pop" width="70%" />
+<p class="caption">
+Figure 17: Pie chart pop
+</p>
+</div>
+</div>
+<div id="histogram-dan-desity-plot" class="section level2">
+<h2>5.6 Histogram dan Desity Plot</h2>
+<p>Histogram pada <code>ggplot2</code> dapat dibuat dengan fungsi <code>geom_histogram()</code>. Berikut adalah sintaks untuk membuat hitogram pada variabel <code>lifeExp</code>. Output yang dihasilkan disajikan pada Gambar <a href="#fig:gghist">18</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  ggplot(aes(lifeExp))+
+  geom_histogram()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gghist"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gghist-1.png" alt="Histogram lifeExp " width="70%" />
+<p class="caption">
+Figure 18: Histogram lifeExp
+</p>
+</div>
+<p>Kita dapat membuat grafik histogram berdasarkan grup data. Pada contoh sebelumnya dibuat histogram berdasarkan variabel <code>continent</code>. Berikut adalah sintaks dan output yang dihasilkan pada Gambar <a href="#fig:gghist2">19</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  ggplot(aes(lifeExp, fill=continent))+
+  geom_histogram(alpha=0.5, 
+                 # atur posisi agar sesuai grup
+                 position=&quot;identity&quot;,
+                 color=&quot;black&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gghist2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gghist2-1.png" alt="Histogram lifeExp berdasarkan benua" width="70%" />
+<p class="caption">
+Figure 19: Histogram lifeExp berdasarkan benua
+</p>
+</div>
+<p>Density plot dapat dibuat dengan menggunakan fungsi <code>geom_density()</code>. Berikut adalah contoh sintaks untuk membuat density plot variabel <code>lifeExp</code>. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggdens">20</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  ggplot(aes(lifeExp))+
+  geom_density()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggdens"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggdens-1.png" alt="Density plot lifeExp " width="70%" />
+<p class="caption">
+Figure 20: Density plot lifeExp
+</p>
+</div>
+<p>Kita juga dapat membuat grafik density berdasarkan grup data. Pada contoh sebelumnya dibuat density plot berdasarkan variabel <code>continent</code>. Berikut adalah sintaks dan output yang dihasilkan pada Gambar <a href="#fig:ggdens2">21</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  ggplot(aes(lifeExp, fill=continent))+
+  geom_density(alpha=0.5, 
+                 # atur posisi agar sesuai grup
+                 position=&quot;identity&quot;,
+                 color=&quot;black&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggdens2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggdens2-1.png" alt="Density plot lifeExp berdasarkan benua" width="70%" />
+<p class="caption">
+Figure 21: Density plot lifeExp berdasarkan benua
+</p>
+</div>
+<p>Jika dinginkan kita juga dapat menambahkan density plot pada histogram. Pada Gambar <a href="#fig:hist"><strong>??</strong></a> ditambahkan density plot sehingga dihasilkan output seperti Gambar <a href="#fig:ggdenshist">22</a>.</p>
+<pre class="r"><code>gapminder %&gt;%
+  ggplot(aes(lifeExp))+
+  geom_histogram(aes(y=..density..),
+                 # spesifikasi warna bar
+                 color=&quot;black&quot;, fill=&quot;white&quot;)+
+  geom_density(fill=&quot;red&quot;, alpha=0.3)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggdenshist"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggdenshist-1.png" alt="histogram dan density plot lifeExp " width="70%" />
+<p class="caption">
+Figure 22: histogram dan density plot lifeExp
+</p>
+</div>
+</div>
+<div id="qq-plot" class="section level2">
+<h2>5.7 QQ Plot</h2>
+<p>QQ plot pada paket <code>ggplot2</code> dapat dibuat dengan menggunakan fungsi <code>stat_qq()</code>. Berikut adalah contoh sintaks untuk melakukannya. Output yang dihasilkan disajikna pada Gambar <a href="#fig:ggqq">23</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(sample=lifeExp))+
+  # qq plot
+  stat_qq()+
+  # garis referensi
+  stat_qq_line()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggqq"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggqq-1.png" alt="QQ plot variabel lifeExp" width="70%" />
+<p class="caption">
+Figure 23: QQ plot variabel lifeExp
+</p>
+</div>
+</div>
+<div id="dot-plot" class="section level2">
+<h2>5.8 Dot Plot</h2>
+<p>Dot plot dapat dibuat menggunakan fungsi <code>geom_dotplot</code> atau <code>geom_jitter()</code>. Perbedaan keduanya adalah <code>geom_jitter()</code> menambahkan <em>noise</em> pada plot sehingga mencegah terjadinya <em>overplotting</em>. Berikut adalah contoh sintaks untuk membuat dotplot pada multiple group dan output yang dihasilkan pada Gambar <a href="#fig:dotplot">24</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  filter(year==1952 | year==2007) %&gt;%
+  ggplot(aes(continent, lifeExp, fill=factor(year)))+
+  geom_dotplot(binaxis=&quot;y&quot;, 
+               # spesifikasi posisi plot
+               stackdir=&quot;center&quot;,
+               position=position_dodge(0.8),
+               size=0.1)</code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: size</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:dotplot"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/dotplot-1.png" alt="Dot plot variabel lifeExp masing-masing benua (1952-2007)" width="70%" />
+<p class="caption">
+Figure 24: Dot plot variabel lifeExp masing-masing benua (1952-2007)
+</p>
+</div>
+<p>Kita juga dapat menambahkan plot dari dari plot yang sudah ada seperti box plot atau violin plot. Berikut adalah contoh sintaks dan output yang dihasilkan pada Gambar <a href="#fig:dotplot2">25</a>:</p>
+<pre class="r"><code>gapminder %&gt;%
+  filter(year==1952 | year==2007) %&gt;%
+  ggplot(aes(continent, lifeExp, fill=factor(year)))+
+  # box plot dibawah
+  geom_boxplot(position=position_dodge(0.8))+
+  # dot plot diatas
+  geom_dotplot(binaxis=&quot;y&quot;, 
+               # spesifikasi posisi plot
+               stackdir=&quot;center&quot;,
+               position=position_dodge(0.8))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:dotplot2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/dotplot2-1.png" alt="Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)" width="70%" />
+<p class="caption">
+Figure 25: Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)
+</p>
+</div>
+</div>
+<div id="ecdf-plot" class="section level2">
+<h2>5.9 ECDF Plot</h2>
+<p><em>Empirical Cumulative Density FUnction</em> (ECDF) plot merupakan grafik yang digunakan untuk menggambarkan ditribusi suatu data. Dari grafik ini kita dapat mengetahui faraksi suatu data baik yang terendah maupun yang tertinggi. ECDF pada <code>ggplot2</code> dapat dibuat dengan dua cara yaitu dengan <code>geom_line()</code> dan <code>stat_ecdf()</code>. Jika menggunakan fungsi <code>geom_line()</code> kita perlu membuat fraksi kumulatif dari variabel yang akan kita plotkan. Sedangkan dengan menggunakan <code>stat_ecdf()</code>, kita tidak perlu melakukannya karena fungsi tersebut akan secara otomatis memproses data kita. Berikut adalah sintaks dan output (Gambar <a href="#fig:ggecdf">26</a>) contoh ecdf:</p>
+<pre class="r"><code>ggplot(gapminder, aes(lifeExp))+
+  stat_ecdf(geom=&quot;line&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggecdf"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggecdf-1.png" alt="ECDF plot variabel lifeExp" width="70%" />
+<p class="caption">
+Figure 26: ECDF plot variabel lifeExp
+</p>
+</div>
+</div>
+<div id="parameter-grafik" class="section level2">
+<h2>5.10 Parameter Grafik</h2>
+<p>Pada bagian ini penulis akan menjelaskan bagaimana cara mengatur parameter grafik seperti judul grafik, legend, warna, tema, dll. Pengaturan parameter grafik pada <code>ggplot2</code> sebenarnya jauh lebih sederhana dibandingkan dengan fungsi dasar visualisasi <code>R</code>. Selain itu, kita dapat membuat tampilan grafik kita jauh lebih menarik dengan membuat tema kustom pada grafik kita.</p>
+<div id="merubah-judul-grafik-keterangan-axis-dan-legend" class="section level3">
+<h3>5.10.1 Merubah Judul Grafik, Keterangan Axis dan Legend</h3>
+<p>Untuk merubah judul grafik dan keterangan axis kita dapat melakukannya melalui dua cara. Cara pertama adalah dengan memasukkan mengubahnya satu persatu menggunakan fungsi <code>ggtitle()</code> (judul grafik), <code>xlab()</code> (keterangan sumbu x), dan <code>ylab()</code> (keterangan pada sumbu y). Cara kedua adalah dengan menggunakan fungsi <code>labs()</code> dimana selain dapat mengubah judul grafik dan keterangan axis fungsi tersebut dapat juga digunakan untuk mengubah keterangan legend.</p>
+<p>Pada sintaks berikut penulis akan memberikan contoh bagaimana mengubah judul grafik dan keterangan axis menggunakan dua cara tersebut. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggtitle">27</a>.</p>
+<pre class="r"><code># Cara 1
+ggplot(gapminder, aes(continent, gdpPercap, fill=continent))+
+  # membuat box plot
+  geom_boxplot()+
+  # menambahkan judul
+  ggtitle(&quot;GDP Per Capita Tiap Benua&quot;)+
+  # mengubah keterangan axis
+  xlab(&quot;Benua&quot;)+
+  ylab(&quot;GDP Per Kapita&quot;)</code></pre>
+<pre class="r"><code># cara 2
+ggplot(gapminder, aes(continent, gdpPercap, fill=continent))+
+  # membuat box plot
+  geom_boxplot()+
+  # kustomisasi judul dan keterangan axis
+  labs(title=&quot;GDP Per Capita Tiap Benua&quot;,
+       x=&quot;Benua&quot;, y=&quot;GDP Per Kapita&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggtitle"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtitle-1.png" alt="Mengubah judul grafik dan keterangan axis" width="70%" />
+<p class="caption">
+Figure 27: Mengubah judul grafik dan keterangan axis
+</p>
+</div>
+<p>Pada Gambar <a href="#fig:ggtitle">27</a> kita belum mengubah keterangan legend. Berikut adalah sintaks untuk mengubah keterangan legend pada grafik tersebut beserta output yang disajikan pada Gambar <a href="#fig:ggtitle2">28</a>.</p>
+<pre class="r"><code># cara 2
+ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna box berdasarkan benua
+                      fill=continent))+
+  # membuat box plot
+  geom_boxplot()+
+  # kustomisasi judul dan keterangan axis
+  labs(title=&quot;GDP Per Capita Tiap Benua&quot;,
+       x=&quot;Benua&quot;, y=&quot;GDP Per Kapita&quot;,
+       # mengubah keterangan legend
+       fill=&quot;Benua&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggtitle2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtitle2-1.png" alt="Mengubah keterangan legend pada grafik" width="70%" />
+<p class="caption">
+Figure 28: Mengubah keterangan legend pada grafik
+</p>
+</div>
+<p>Judul, keterangan axis, dan keterangan legend dapat dikustomisasi menggunakan fungsi <code>theme()</code> dan <code>element_text()</code>. Berikut adalah format yang digunakan:</p>
+<pre class="r"><code># Judul
+&lt;ggplot&gt; + theme(plot.title = element_text(family, face, colour, size))
+# keterangan sumbu x
+&lt;ggplot&gt; + theme(axis.title.x = element_text(family, face, colour, size))
+# keterangan sumbu y
+&lt;ggplot&gt; + theme(axis.title.y = element_text(family, face, colour, size))
+# keterangan legend
+&lt;ggplot&gt; + theme(axis.title.y = element_text(family, face, colour, size))</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>family</strong>: font family.</li>
+<li><strong>face</strong>: tampilan font. Nilai yang dapat digunakan antara lain: “plain”, “italic”, “bold” dan “bold.italic”.</li>
+<li><strong>colour</strong>: warna teks.</li>
+<li><strong>size</strong>: ukuran teks</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapan fungsi tersebut pada grafik Gambar <a href="#fig:ggtitle2">28</a>. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggtitle3">29</a>.</p>
+<pre class="r"><code># cara 2
+ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna box berdasarkan benua
+                      fill=continent))+
+  # membuat box plot
+  geom_boxplot()+
+  # kustomisasi judul dan keterangan axis
+  labs(title=&quot;GDP Per Capita Tiap Benua&quot;,
+       x=&quot;Benua&quot;, y=&quot;GDP Per Kapita&quot;,
+       # mengubah keterangan legend
+       fill=&quot;Benua&quot;)+
+  theme(
+      plot.title = element_text(color=&quot;red&quot;, size=14, face=&quot;bold.italic&quot;),
+      axis.title.x = element_text(color=&quot;blue&quot;, size=14, face=&quot;bold&quot;),
+      axis.title.y = element_text(color=&quot;#993333&quot;, size=14, face=&quot;bold&quot;),
+      legend.text = element_text(colour=&quot;blue&quot;, size=10, face=&quot;bold&quot;)
+      )</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggtitle3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtitle3-1.png" alt="Kustomisasi judul grafik dan keterangan axis" width="70%" />
+<p class="caption">
+Figure 29: Kustomisasi judul grafik dan keterangan axis
+</p>
+</div>
+</div>
+<div id="merubah-tampilan-dan-posisi-legend" class="section level3">
+<h3>5.10.2 Merubah Tampilan dan Posisi Legend</h3>
+<p>Posisi legend dapat diubah dengan menambahkan argumen <code>legend.position</code> pada fungsi <code>theme()</code>. Posisi legend dapat diubah dengan memasukkan nilai berupa karakter seperti “left”,“top”, “right”, dan “bottom”. Selain itu, posisi legend dapat dispesifikasi menggunakan vektor numerik c(x,Y). Nilai x dan y berkisar antara 0 sampai 1. Nilai c(0,0) menandakan posisi legend pada bagian kiri bawah dan c(0,1) menyatakan kiri atas.</p>
+<p>Penggunaan karakter dan vektor numerik akan menghasilkan output posisi legend yang berbeda. Jika menggunakan karakter posisi legend akan diubah diluar bidang plot. Sedangkan vektor numerik akan mengubah posisi legend menjadi ada pada bidang plot. Untuk lebih memahaminya berikut disajikan dua buah gambar. Gambar <a href="#fig:gglegend">30</a> menyajikan pengaturan legend menggunakan karakter, sedangkan Gambar <a href="#fig:gglegend2">31</a> menyajikan pengaturan legend menggunakan vektor numerik.</p>
+<pre class="r"><code># cara 2
+ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna box berdasarkan benua
+                      fill=continent))+
+  # membuat box plot
+  geom_boxplot()+
+  # kustomisasi judul dan keterangan axis
+  labs(title=&quot;GDP Per Capita Tiap Benua&quot;,
+       x=&quot;Benua&quot;, y=&quot;GDP Per Kapita&quot;,
+       # mengubah keterangan legend
+       fill=&quot;Benua&quot;)+
+  theme(legend.position=&quot;top&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglegend"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend-1.png" alt="Kustomisasi posisi legend berdasarkan karakter" width="70%" />
+<p class="caption">
+Figure 30: Kustomisasi posisi legend berdasarkan karakter
+</p>
+</div>
+<pre class="r"><code># cara 2
+ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna box berdasarkan benua
+                      fill=continent))+
+  # membuat box plot
+  geom_boxplot()+
+  # kustomisasi judul dan keterangan axis
+  labs(title=&quot;GDP Per Capita Tiap Benua&quot;,
+       x=&quot;Benua&quot;, y=&quot;GDP Per Kapita&quot;,
+       # mengubah keterangan legend
+       fill=&quot;Benua&quot;)+
+  theme(legend.position=c(0.9,0.75))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglegend2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend2-1.png" alt="Kustomisasi posisi legend berdasarkan vektor numerik" width="70%" />
+<p class="caption">
+Figure 31: Kustomisasi posisi legend berdasarkan vektor numerik
+</p>
+</div>
+<p>Pada fungsi <code>theme()</code> kita juga dapat merubah backgroud dari legend box menggunakan argumen <code>legend.bacground</code> dan <code>element_rect</code>. Selain itu kita juga dapat mengubah orientasi dari legend yang semula vertikal menjadi horizontal dengan menambahkan argumen <code>legend.box</code>. Berikut adalah contoh sintaks penerapannya. Output yang dihasilkan disajikan pada Gambar <a href="#fig:gglegend3">32</a>.</p>
+<pre class="r"><code># cara 2
+ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna box berdasarkan benua
+                      fill=continent,
+                      # warna outline berdasarkan benua
+                      color=continent))+
+  # membuat box plot
+  geom_boxplot()+
+  # kustomisasi judul dan keterangan axis
+  labs(title=&quot;GDP Per Capita Tiap Benua&quot;,
+       x=&quot;Benua&quot;, y=&quot;GDP Per Kapita&quot;,
+       # mengubah keterangan legend
+       fill=&quot;Benua (fill)&quot;,
+       color=&quot;Benua (outline)&quot;)+
+  theme(legend.position=&quot;bottom&quot;,
+        # mengubah tampilan legend box 
+        legend.background = element_rect(fill=&quot;lightblue&quot;,
+                                  size=0.5, linetype=&quot;solid&quot;, 
+                                  colour =&quot;darkblue&quot;),
+        # mengubah orientasi legend
+        legend.box= &quot;horizontal&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglegend3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend3-1.png" alt="Kustomisasi tampilan legend" width="70%" />
+<p class="caption">
+Figure 32: Kustomisasi tampilan legend
+</p>
+</div>
+<p>Kita dapat juga menghilangkan legend baik seluruh legend maupun legend spesifik. Pada Gambar <a href="#fig:gglegend4">33</a> dan Gambar <a href="#fig:gglegend5">34</a> disajikan contoh cara menghilangkan seluruh legend maupun sebagian legend.</p>
+<pre class="r"><code># Menghilangkan seluruh legend
+ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna box berdasarkan benua
+                      fill=continent,
+                      # warna outline berdasarkan benua
+                      color=continent))+
+  # membuat box plot
+  geom_boxplot()+
+  # kustomisasi judul dan keterangan axis
+  labs(title=&quot;GDP Per Capita Tiap Benua&quot;,
+       x=&quot;Benua&quot;, y=&quot;GDP Per Kapita&quot;,
+       # mengubah keterangan legend
+       fill=&quot;Benua&quot;)+
+  theme(legend.position=&quot;none&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglegend4"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend4-1.png" alt="Menghilangkan seluruh legend" width="70%" />
+<p class="caption">
+Figure 33: Menghilangkan seluruh legend
+</p>
+</div>
+<pre class="r"><code># Menghilangkan seluruh legend
+ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna box berdasarkan benua
+                      fill=continent,
+                      # warna outline berdasarkan benua
+                      color=continent))+
+  # membuat box plot
+  geom_boxplot()+
+  # kustomisasi judul dan keterangan axis
+  labs(title=&quot;GDP Per Capita Tiap Benua&quot;,
+       x=&quot;Benua&quot;, y=&quot;GDP Per Kapita&quot;,
+       # mengubah keterangan legend
+       fill=&quot;Benua (fill)&quot;,
+       color=&quot;Benua (outline)&quot;)+
+  theme(legend.position=&quot;bottom&quot;,
+        # mengubah tampilan legend box 
+        legend.background = element_rect(fill=&quot;lightblue&quot;,
+                                  size=0.5, linetype=&quot;solid&quot;, 
+                                  colour =&quot;darkblue&quot;))+
+  # Menghilangkan legend Benua (outline)
+  guides(color=FALSE)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglegend5"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend5-1.png" alt="Menghilangkan sebagian legend legend" width="70%" />
+<p class="caption">
+Figure 34: Menghilangkan sebagian legend legend
+</p>
+</div>
+</div>
+<div id="merubah-warana-pada-grafik-secara-otomatis-dan-manual" class="section level3">
+<h3>5.10.3 Merubah Warana Pada Grafik Secara Otomatis dan Manual</h3>
+<p>Kita dapat merubah warna grafik baik secara otomatis dan manual. Secara otomatis warna dapat diubah dengan memasukkan nama variabel kedalam argumen <code>fill</code> dan <code>color</code>. Namun, jika kita inginkan kita dapat memasukkan kode warna untuk memperoleh warna yang seragam pada seluruh kelompok data.</p>
+<p>Pada contoh sintaks berikut diberikan contoh bagaimana merubah warna pada seluruh grup data dengan satu warna yang seragam. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggcolor">35</a>:</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, lifeExp))+
+  # spesifikasi warna tunggal
+  geom_boxplot(color=&quot;darkred&quot;,fill=&quot;#A4A4A4&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggcolor"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor-1.png" alt="Merubah warna grup berdasarkan satu warna" width="70%" />
+<p class="caption">
+Figure 35: Merubah warna grup berdasarkan satu warna
+</p>
+</div>
+<p>Selain itu, kita dapat mengubah warna berdasarkan grup baik secara otomatis maupun manual. Berikut adalah contoh sintaks warna berdasarkan grup secara otomatis. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggcolor2">36</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna berdasarkan grup
+                      fill=continent))+
+  geom_boxplot()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggcolor2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor2-1.png" alt="Merubah warna grup secara otomatis" width="70%" />
+<p class="caption">
+Figure 36: Merubah warna grup secara otomatis
+</p>
+</div>
+<p>Kita dapat mengatur pecahayaan (l) dan intensitas warna (c) dari warna yang kita tampilkan menggunakan fungsi <code>scale_fill_hue()</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggcolor3">37</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna berdasarkan grup
+                      fill=continent))+
+  geom_boxplot()+
+  # merubah l dan c
+  scale_color_hue(l=40, c=35)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggcolor3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor3-1.png" alt="Merubah pencahayaan dan intensitas warna" width="70%" />
+<p class="caption">
+Figure 37: Merubah pencahayaan dan intensitas warna
+</p>
+</div>
+<p>Jika kita tidak menginginkan warna yang secara otomatis ditampilkan oleh <code>ggplot2</code>, kita dapat mengubahnya secara manual menggunakan fungsi <code>scale_fill_manual()</code> (untuk box plot, bar plot, dll) dan <code>scale_color_manual()</code> (untuk line plot, dot plot dan scatterplot). Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggcolor4">38</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna berdasarkan grup
+                      fill=continent))+
+  geom_boxplot()+
+  # merubah warna secara manual
+  scale_fill_manual(values=c(&quot;#999999&quot;, &quot;#E69F00&quot;, &quot;#56B4E9&quot;,
+                             &quot;#B47846&quot;,&quot;#B4464B&quot;))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggcolor4"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor4-1.png" alt="Merubah warna secara manual" width="70%" />
+<p class="caption">
+Figure 38: Merubah warna secara manual
+</p>
+</div>
+<p>JIka kita tidak hafal dengan kode hexadesimal warna tersebut kita dapat juga menggunakan palet warna. Contoh palet warna yang akan digunakan adalah dari library <code>RColorBrewer</code>. Berikut adalah contoh sintaks untuk menginstal dan memuat paket tersebut:</p>
+<pre class="r"><code># memasang paket
+# install.packages(&quot;RColorBrewer&quot;)
+
+# memuat paket
+library(RColorBrewer)</code></pre>
+<p>Pada sintak berikut penulis akan menampilkan seluruh palet warna pada pekt tersebut. Output yang dihasilkan disajikan pada Gambar <a href="#fig:ggcolor5">39</a>.</p>
+<pre class="r"><code>display.brewer.all()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggcolor5"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor5-1.png" alt="Palet warna RColorBrewer" width="672" />
+<p class="caption">
+Figure 39: Palet warna RColorBrewer
+</p>
+</div>
+<p>Pada Gambar <a href="#fig:ggcolor5">39</a> terdapat 3 jenis warna antara lain:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Sequential palettes</strong>, digunakan untuk menunjukkan urutan dari rendah ke tinggi atau gradien. Nama palet yang ada antara lain: Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges, OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu YlOrBr,dan YlOrRd.</li>
+<li><strong>Diverging palettes</strong>, digunakan untuk menunjukkan perubahan pada data yang memiliki nilai positif dan negatif. Palet yang tersedia antara lain: BrBG, PiYG, PRGn, PuOr, RdBu, RdGy, RdYlBu, RdYlGn, dan Spectral.</li>
+<li><strong>Qualitative palettes</strong>, digunakan untuk merepresentasikan variabel nominal atau kategori karena tidak menunjukkan besaran atau perbedaan nilai antar grup. Palete yang tersedia antara lain: Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, dan Set3.</li>
+</ol>
+<p>Pada contoh sintaks berikut disajikan contoh penerapan dan output yang dihasilkan pada Gambar <a href="#fig:ggcolor6">40</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna berdasarkan grup
+                      fill=continent))+
+  geom_boxplot()+
+  # merubah warna menggunakan palet
+  scale_color_brewer(palette=&quot;Dark2&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggcolor6"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor6-1.png" alt="Merubah warna menggunakan palet" width="70%" />
+<p class="caption">
+Figure 40: Merubah warna menggunakan palet
+</p>
+</div>
+<p>Jika kita tidak menginginkan warna-warna terang, kita dapat menggunakan fungsi <code>scale_color_grey()</code> (untuk line plot, dot plot, dan scatterplot) dan <code>scale_fill_grey()</code> (untuk bar plot, histogram, box plot, dll). Funsi tersebut akan memberikan warna palet gray pada plot. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggcolor7">41</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, gdpPercap, 
+                      # warna berdasarkan grup
+                      fill=continent))+
+  geom_boxplot()+
+  # merubah warna menggunakan palet
+  scale_fill_grey()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggcolor7"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor7-1.png" alt="Merubah warna menggunakan palet gray" width="70%" />
+<p class="caption">
+Figure 41: Merubah warna menggunakan palet gray
+</p>
+</div>
+</div>
+<div id="kustomisasi-titik" class="section level3">
+<h3>5.10.4 Kustomisasi Titik</h3>
+<p>Untuk mengubah jenis titik pada scatterplot, outlier pada box plot, dan dot plot, kita dapat menambahkan argumen <code>shape</code> pada fungsi geometrinya. Nilai yang mungkin dimasukkan berupa nilai diskrit yang berkisar antara 0 sampai 25. Selain itu, ukuran dari titik dapat diinput dengan menambahkan argumen <code>size</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggpoint">42</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  # spesifikasi jenis, ukuran dan warna titik
+  geom_point(shape=4, size=2, color=&quot;blue&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggpoint"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpoint-1.png" alt="Kustomisasi jenis, ukuran dan warna titik" width="70%" />
+<p class="caption">
+Figure 42: Kustomisasi jenis, ukuran dan warna titik
+</p>
+</div>
+<p>Untuk data dengan multiple group, kita dapat mengubah jenis, ukuran dan warna secara otomatis dengan memasukkan nama variabel kedalam argumen <code>shape</code>, <code>size</code> dan <code>color</code>. Sedangkan secara manual kita dapat menambahkan fungsi <code>scale_shape_manual()</code> (jenis titik), <code>scale_color_manual()</code> (warna titik), dan <code>scale_size_manual()</code> (ukuran titik). Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggpoint2">43</a> dan Gambar <a href="#fig:ggpoint3">44</a>.</p>
+<pre class="r"><code># cara otomatis
+ggplot(gapminder, aes(gdpPercap, lifeExp,
+                      # spesifikasi jenis, ukuran dan warna
+                      shape=continent, color=continent,
+                      size=pop))+
+  geom_point()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggpoint2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpoint2-1.png" alt="Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara otomatis" width="70%" />
+<p class="caption">
+Figure 43: Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara otomatis
+</p>
+</div>
+<pre class="r"><code># cara manual
+ggplot(gapminder, aes(gdpPercap, lifeExp,
+                      # spesifikasi jenis, ukuran dan warna
+                      shape=continent, color=continent,
+                      size=pop))+
+  geom_point()+
+  scale_shape_manual(values=c(1:5))+
+  scale_color_manual(values=c(&quot;#999999&quot;, &quot;#E69F00&quot;, &quot;#56B4E9&quot;,
+                             &quot;#B47846&quot;,&quot;#B4464B&quot;))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggpoint3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpoint3-1.png" alt="Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara manual" width="70%" />
+<p class="caption">
+Figure 44: Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara manual
+</p>
+</div>
+</div>
+<div id="kustomisasi-jenis-garis" class="section level3">
+<h3>5.10.5 Kustomisasi Jenis Garis</h3>
+<p>Jenis, warna dan ukuran garis dapat diatur dengan menambahkan argumen <code>linetype</code>, <code>size</code> dan <code>color</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:gglty">45</a>.</p>
+<pre class="r"><code>gapminder%&gt;%
+  filter(continent==&quot;Asia&quot;)%&gt;%
+  group_by(year)%&gt;%
+  summarize(mean_pop=mean(pop))%&gt;%
+  # plot
+  ggplot(aes(year, mean_pop))+
+    geom_line(linetype=&quot;dashed&quot;, color=&quot;blue&quot;,
+              size=1)+
+    geom_point(shape=1, color=&quot;red&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglty"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglty-1.png" alt="Kustomisasi jenis, ukuran dan warna garis" width="70%" />
+<p class="caption">
+Figure 45: Kustomisasi jenis, ukuran dan warna garis
+</p>
+</div>
+<p>Untuk data dengan multiple group, kita dapat mengubah jenis garis, warna dan ukuran secara manual maupun secara otomatis. Secara otomatis kita dapat menginputkan nama variabel kedalam argumen <code>linetype</code>, <code>size</code> dan <code>color</code>. Secara manual, kita dapat mengubah jenis, warna dan ukuran menggunakan fungsi <code>scale_linetype_manual()</code> (jenis garis), <code>scale_color_manual()</code> (warna garis), dan <code>scale_size_manual()</code> (ukuran garis). Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:gglty2">46</a> dan Gambar <a href="#fig:gglty3">47</a>.</p>
+<pre class="r"><code># cara otomatis
+gapminder%&gt;%
+  filter(continent %in% c(&quot;Asia&quot;,&quot;Africa&quot;))%&gt;%
+  group_by(year, continent)%&gt;%
+  summarize(mean_pop=mean(pop))%&gt;%
+  # plot
+  ggplot(aes(year, mean_pop,
+             linetype=continent,
+             color=continent))+
+    geom_line()+
+    geom_point(shape=1, color=&quot;red&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglty2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglty2-1.png" alt="Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara otomatis" width="70%" />
+<p class="caption">
+Figure 46: Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara otomatis
+</p>
+</div>
+<pre class="r"><code># cara manual
+gapminder%&gt;%
+  filter(continent %in% c(&quot;Asia&quot;,&quot;Africa&quot;))%&gt;%
+  group_by(year, continent)%&gt;%
+  summarize(mean_pop=mean(pop))%&gt;%
+  # plot
+  ggplot(aes(year, mean_pop,
+             linetype=continent,
+             color=continent))+
+    geom_line()+
+    geom_point(shape=1, color=&quot;red&quot;)+
+    scale_linetype_manual(values=c(&quot;dotted&quot;, &quot;twodash&quot;))+
+    scale_color_manual(values=c(&quot;red&quot;,&quot;blue&quot;))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglty3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglty3-1.png" alt="Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara manual" width="70%" />
+<p class="caption">
+Figure 47: Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara manual
+</p>
+</div>
+</div>
+<div id="menambahkan-label-pada-titik-observasi-dan-bidang-plot" class="section level3">
+<h3>5.10.6 Menambahkan Label Pada Titik Observasi dan Bidang Plot</h3>
+<p>Pada artikel ini penulis akan menjelaskan bagaimana kita dapat menambahkan teks pada plot. Fungsi-fungsi yang dapat digunakan antara lain:</p>
+<ul>
+<li><code>geom_text()</code>: menambahkan teks secara langsung pada plot.</li>
+<li><code>geom_label()</code>: menambahkan teks dengan kotak disekelilingnya.</li>
+<li><code>annotate()</code>: menambahkan teks tertentu pada bagian tertentu bidang plot.</li>
+<li><code>annotation_custom()</code>: menambahkan anotasi statik yang sama pada setiap panel.</li>
+</ul>
+<p>Misal kita akan membuat plot antara variabel <code>pop</code> vs <code>gdpPercap</code> seperti yang ditunjukkan pada Gambar <a href="#fig:gglabel">48</a> berikut:</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap, pop))+
+  geom_point()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglabel"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel-1.png" alt="Scatterplot variabel pop vs gdpPercap" width="70%" />
+<p class="caption">
+Figure 48: Scatterplot variabel pop vs gdpPercap
+</p>
+</div>
+<p>Misalkan kita ingin menandai negara yang memiliki gdpPercap &gt; 50000. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:gglabel2">49</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap, pop))+
+  geom_point(shape=1)+
+  geom_label(
+    # subset data sesua kriteria
+    data=subset(gapminder,gdpPercap&gt;50000),
+    # label berdasarkan kriteria
+    aes(label=country),
+    # ukuran teks
+    size = 3)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglabel2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel2-1.png" alt="Scatterplot variabel pop vs gdpPercap dengan label" width="70%" />
+<p class="caption">
+Figure 49: Scatterplot variabel pop vs gdpPercap dengan label
+</p>
+</div>
+<p>Selain teks yang menunjukkan observasi, kita dapat menambahkan anotasi pada grafik. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:gglabel3">50</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap, pop))+
+  geom_point(shape=1)+
+  # menambahkan label sesuai kriteria data
+  geom_label(
+    # subset data sesua kriteria
+    data=subset(gapminder,gdpPercap&gt;50000),
+    # label berdasarkan kriteria
+    aes(label=country),
+    # ukuran teks
+    size = 3)+
+  annotate(geom=&quot;text&quot;, x=90000,
+          y=2e+08, label=&quot;outlier&quot;,
+          color=&quot;red&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglabel3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel3-1.png" alt="Scatterplot variabel pop vs gdpPercap dengan label dan notasi" width="70%" />
+<p class="caption">
+Figure 50: Scatterplot variabel pop vs gdpPercap dengan label dan notasi
+</p>
+</div>
+<p>Kita dapat pula menambahkan teks statik yang sama pada setiap panel. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:gglabel4">51</a>.</p>
+<pre class="r"><code>library(grid)
+
+# membuat teks
+d &lt;- grob &lt;- grobTree(textGrob(&quot;Scatter plot&quot;, x=0.1,  y=0.95, hjust=0,
+  gp=gpar(col=&quot;red&quot;, fontsize=13, fontface=&quot;italic&quot;)))
+
+# plot
+ggplot(gapminder, aes(gdpPercap, pop))+
+  geom_point(shape=1)+
+  # menambahkan anotasi
+  annotation_custom(d)+
+  # membagi plot menjadi beberapa panel
+  facet_wrap(~continent, scales=&quot;free&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglabel4"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel4-1.png" alt="Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada tiap panel" width="70%" />
+<p class="caption">
+Figure 51: Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada tiap panel
+</p>
+</div>
+</div>
+<div id="kustomisasi-tema-pada-plot" class="section level3">
+<h3>5.10.7 Kustomisasi Tema Pada Plot</h3>
+<p>Kita dapat melakukan kustomisasi tema plot untuk membuat tampilan plot kita lebih menarik. Pada bagian ini penulis akan membahas tema yang dapat digunakan serta cara untuk melakukan edit terhadap tema yang telah ada sebelumnya.</p>
+<p>Tema-tema yang telah terpasang secara defautl pada paket <code>ggplot2</code> antara lain:</p>
+<ul>
+<li><strong>theme_gray</strong>: backround dengan warna abu-abu dengan garis grid putih.</li>
+<li><strong>theme_bw</strong>: background putih dan garis grid berwarna abu-abu.</li>
+<li><strong>theme_linedraw</strong>: garis hitam di sekeliling bidang plot.</li>
+<li><strong>theme_light</strong>: garis grid dan axis berwarna abu-abu terang.</li>
+<li><strong>theme_minimal</strong>: tidak memiliki frame disekeliling bidang plot.</li>
+<li><strong>theme_classic</strong>: tidak ada garis grid dan axis.</li>
+<li><strong>theme_void</strong>: tema kosong</li>
+<li><strong>theme_dark</strong>: background gelap.</li>
+</ul>
+<p>Pada contoh berikut disajikan sebagian contoh penerapan tema pada plot. Output yang dihasilkan pada Gambar <a href="#fig:ggtema">52</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_bw()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggtema"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtema-1.png" alt="Scatterplot dengan tema black and white" width="70%" />
+<p class="caption">
+Figure 52: Scatterplot dengan tema black and white
+</p>
+</div>
+<p>Kita juga dapat menggunakan tema kustom yang terdapat pada library <code>ggthemes</code>. Berikut adalah sintaks yang digunakan untuk menginstall dan memuat paket tersebut:</p>
+<pre class="r"><code># Memasang paket
+install.packages(&quot;ggthemes&quot;)</code></pre>
+<pre class="r"><code># memuat paket
+library(ggthemes)</code></pre>
+<pre><code>## Warning: package &#39;ggthemes&#39; was built under R version 3.5.3</code></pre>
+<p>tema-tema yang tersedia pada paket tersebut antara lain:</p>
+<ul>
+<li><strong>theme_tufte</strong>: tema minimalis.</li>
+<li><strong>theme_economist</strong>: tema yang digunakan pada majalah Economist.</li>
+<li><strong>theme_stata</strong>: tema yang digunakan pada visualisasi progra stata.</li>
+<li><strong>theme_wsj</strong>: tema yang digunakan pada Wall Street Journal.</li>
+<li><strong>theme_cal</strong>: tema yang digunakan pada LibreOffice Calc dan Google Docs.</li>
+<li><strong>theme_hc</strong>: tema yang didasarkan pada Highcharts JS.</li>
+</ul>
+<p>Pada contoh berikut disajikan sebagian contoh penerapan tema pada plot. Output yang dihasilkan pada Gambar <a href="#fig:ggtema2">53</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap, lifeExp, 
+                      color=continent))+
+  geom_point()+
+  theme_wsj()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggtema2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtema2-1.png" alt="Scatterplot dengan tema Wall Street Journal" width="70%" />
+<p class="caption">
+Figure 53: Scatterplot dengan tema Wall Street Journal
+</p>
+</div>
+<p>Kita dapat juga membuat tema kustom berdasarkan tema yang telah ada. Untuk melakukannya kita hanya perlu merubah sejumlah argument default yang ada pada fungsi tema dan menamai tema sesuai dengan yang kita inginkan menggunakan <em>user define function</em>. Berikut adalah contoh argumen yang dapat diubah pada <code>theme_wsj</code>.</p>
+<pre class="r"><code>theme_wsj</code></pre>
+<pre><code>## function (base_size = 12, color = &quot;brown&quot;, base_family = &quot;sans&quot;, 
+##     title_family = &quot;mono&quot;) 
+## {
+##     colorhex &lt;- ggthemes::ggthemes_data$wsj$bg[color]
+##     theme_foundation(base_size = base_size, base_family = base_family) + 
+##         theme(line = element_line(linetype = 1, colour = &quot;black&quot;), 
+##             rect = element_rect(fill = colorhex, linetype = 0, 
+##                 colour = NA), text = element_text(colour = &quot;black&quot;), 
+##             title = element_text(family = title_family, size = rel(2)), 
+##             axis.title = element_blank(), axis.text = element_text(face = &quot;bold&quot;, 
+##                 size = rel(1)), axis.text.x = element_text(colour = NULL), 
+##             axis.text.y = element_text(colour = NULL), axis.ticks = element_line(colour = NULL), 
+##             axis.ticks.y = element_blank(), axis.ticks.x = element_line(colour = NULL), 
+##             axis.line = element_line(), axis.line.y = element_blank(), 
+##             legend.background = element_rect(), legend.position = &quot;top&quot;, 
+##             legend.direction = &quot;horizontal&quot;, legend.box = &quot;vertical&quot;, 
+##             panel.grid = element_line(colour = NULL, linetype = 3), 
+##             panel.grid.major = element_line(colour = &quot;black&quot;), 
+##             panel.grid.major.x = element_blank(), panel.grid.minor = element_blank(), 
+##             plot.title = element_text(hjust = 0, face = &quot;bold&quot;), 
+##             plot.margin = unit(c(1, 1, 1, 1), &quot;lines&quot;), strip.background = element_rect())
+## }
+## &lt;bytecode: 0x00000000197090e8&gt;
+## &lt;environment: namespace:ggthemes&gt;</code></pre>
+<p>Berdasarkan output yang disajikan kita dapat merubah sejumlah argumen seperti base size, color, base_family, dll.</p>
+</div>
+<div id="penskalaan-dan-transformasi-axis" class="section level3">
+<h3>5.10.8 Penskalaan dan Transformasi Axis</h3>
+<p>Pada bagian ini penulis akan menjelaskan bagaimana cara melakukan modifikasi terhadap sumbu x dan y seperti menetapkan limit nilai maksimum dan minimum axis serta melakukan transformasi pada tiap axis.</p>
+<p>Untuk mengatur rentang nilai axis, kita dapat melakukannya dengan fungsi sebagai berikut:</p>
+<ul>
+<li><strong>xlim()</strong> dan <strong>ylim()</strong>: mengatur limit aksis sumbu x dan y.</li>
+<li><strong>expand_limits()</strong>: mengatur limit sumbu x dan y sekaligus dapat mengatur intercept kedua sumbu tersebut.</li>
+<li><strong>scale_x_continous()</strong> dan <strong>scale_y_continous()</strong>: megatur limit axis termasuk axis tick dan label.</li>
+</ul>
+<p>Pada contoh berikut akan disajikan cara mengatur limit axis dengan menggunakan <code>xlim()</code> dan <code>ylim()</code> serta menggunakan <code>expand_limits()</code>. Output yang dihasilkan disajikan pada Gambar <a href="#fig:gglimits">54</a>.</p>
+<pre class="r"><code>gapminder%&gt;%
+  filter(continent==&quot;Europe&quot;)%&gt;%
+  ggplot(aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_wsj(base_size=7)+
+  labs(title=&quot;GDP per Capita vs Life Expectancy&quot;,
+       y=&quot;Life Expectancy&quot;,
+       x=&quot;GDP per Capita (US Dollar)&quot;)+
+  # mengatur limit axis
+  expand_limits(x=c(0, 55000), y=c(0, 90))</code></pre>
+<pre class="r"><code># atau
+gapminder%&gt;%
+  filter(continent==&quot;Europe&quot;)%&gt;%
+  ggplot(aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_wsj(base_size=7)+
+  labs(title=&quot;GDP per Capita vs Life Expectancy&quot;,
+       y=&quot;Life Expectancy&quot;,
+       x=&quot;GDP per Capita (US Dollar)&quot;)+
+  # mengatur limit axis
+  xlim(0,55000)+
+  ylim(0,90)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglimits"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits-1.png" alt="Scatterplot dengan axis limits " width="70%" />
+<p class="caption">
+Figure 54: Scatterplot dengan axis limits
+</p>
+</div>
+<p>Kita juga dapat menggunakan fungsi <code>scale_x_continuous()</code> dan <code>scale_y_continuous()</code> untuk mengatur limit axis ,<em>axis tick</em> dan label. Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>scale_x_continuous(name, breaks, labels, limits, trans)
+scale_y_continuous(name, breaks, labels, limits, trans)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>name</strong>: label axis sumbu x dan y.</li>
+<li><p><strong>breaks</strong>: untuk mengontrol jeda dalam panduan (<em>axis tick</em>, garis grid, …). Di antara nilai-nilai yang mungkin, adalah sebagai berikut:</p></li>
+<li>NULL: menyembunyikan seluruh breaks.</li>
+<li><strong>waiver()</strong>: komputasi break default.</li>
+<li><p>vektor numerik atau karakter untuk menspesifikasikan break yang akan ditampilkan.</p></li>
+<li><strong>labels</strong>: label axis. Nilai yang dapat dimasukkan antara lain;</li>
+<li>NULL: tanpa label.</li>
+<li><strong>waiver()</strong>: label default.</li>
+<li><p>vektor karakter yang digunakan untuk spesifikasi label break.</p></li>
+<li><strong>limits</strong>: vektor numerik untuk spesifikasi limit sumbu x dan y.</li>
+<li><p><strong>trans</strong>: transformasi axis. Nilai yang dapat digunakan adalah “log2”, “log10”, dll.</p></li>
+</ul>
+</blockquote>
+<p>Pada contoh berikut disajikan contoh mengatur limit axis dan label axis menggunakan fungsi <code>scale_x_continous()</code> dan <code>scale_y_continous()</code>. Grafik yang dihasilkan akan tampak seperti Gambar <a href="#fig:gglimits2">55</a>.</p>
+<pre class="r"><code># atau
+gapminder%&gt;%
+  filter(continent==&quot;Asia&quot;)%&gt;%
+  ggplot(aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_wsj(base_size=7)+
+  ggtitle(&quot;GDP per Capita vs Life Expectancy&quot;)+
+  # spesifikasi limit dan label axis
+  scale_x_continuous(name=&quot;GDP per Capita&quot;, 
+                     limits=c(0, 125000))+
+  scale_y_continuous(name=&quot;Life Expectancy&quot;,
+                     limits=c(0,100))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglimits2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits2-1.png" alt="Scatterplot dengan axis limits (2) " width="70%" />
+<p class="caption">
+Figure 55: Scatterplot dengan axis limits (2)
+</p>
+</div>
+<p>Tranformasi axis dapat dilakukan dengan fungsi bawaan dari <code>ggplot2</code>. Fungsi transformasi bawaan berupa transformasi log dan sqrt. Berikut adalah fungsi bawaan untuk transformasi tersebut:</p>
+<ul>
+<li><strong>scale_x_log10()</strong> dan <strong>scale_y_log10()</strong>: transformasi log basis 10.</li>
+<li><strong>scale_x_sqrt()</strong> dan <strong>scale_y_sqrt()</strong>: transformasi akar kuadrat.</li>
+<li><strong>scale_x_reverse()</strong> dan <strong>scale_x_reverse()</strong>: membalikkan koordinat.</li>
+<li><strong>coord_trans(x=“log10”, y=“log10”)</strong>: memungkinkan transformasi untuk kedua axis sesuai fungsi yang diinputkan pada sumbu x dan sumbu y seperti “log2”, “log10”, “sqrt”, dll.</li>
+<li><strong>scale_x_continuous(trans=“log2”)</strong> dan <strong>scale_y_continuous(trans=“log2”)</strong>: nilai lain yang dapat diinputkan adalah “log10”.</li>
+</ul>
+<p>Pada contoh berikut disajikan contoh transformasi sumbu x menggunakan fungsi <code>scale_x_log10()</code>. Grafik yang dihasilkan akan tampak seperti Gambar <a href="#fig:gglimits3">56</a>.</p>
+<pre class="r"><code># atau
+gapminder%&gt;%
+  filter(continent==&quot;Europe&quot;)%&gt;%
+  ggplot(aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_wsj(base_size=7)+
+  labs(title=&quot;log(GDP per Capita) vs Life Expectancy&quot;,
+       y=&quot;Life Expectancy&quot;,
+       x=&quot;GDP per Capita (US Dollar)&quot;)+
+  # transformasi sumbu x
+  scale_x_log10()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglimits3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits3-1.png" alt="Scatterplot dengan transformasi axis " width="70%" />
+<p class="caption">
+Figure 56: Scatterplot dengan transformasi axis
+</p>
+</div>
+<p><em>Tick mark</em> pada axis juga dapat kita atur menggunakan fungsi <code>scale_x_continous()</code> dan <code>scale_y_continous()</code>. Untuk mengubah format dan label <em>tick mark</em> kita perlu menginstall dan memuat library <code>scales</code> yang berfungsi untuk mengakses fungsi pada argumen break. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:gglimits4">57</a>.</p>
+<pre class="r"><code># memasang paket
+# install.packages(&quot;scales&quot;)
+
+# memuat paket
+library(scales)</code></pre>
+<pre><code>## Warning: package &#39;scales&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code># plot
+ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  geom_point()+
+  theme_bw()+
+  # kustomisasi tick mark sumbu y
+  scale_y_continuous(trans= log2_trans(),
+                     breaks=trans_breaks(&quot;log2&quot;, function(x) 2^x),
+                     labels= trans_format(&quot;log2&quot;, math_format(2^.x)))+
+  # kustomisasi sumbu x
+  scale_x_continuous(labels = dollar)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gglimits4"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits4-1.png" alt="Scatterplot dengan transformasi tick mark axis " width="70%" />
+<p class="caption">
+Figure 57: Scatterplot dengan transformasi tick mark axis
+</p>
+</div>
+</div>
+<div id="kustomisasi-tick-mark-axis" class="section level3">
+<h3>5.10.9 Kustomisasi Tick Mark Axis</h3>
+<p>Pada bagian ini pembaca akan mempelajari bagaimana melakukan kustomisasi tampilan <em>tick mark</em>. Selain itu kita juga akan belajar bagaimana melakukan pengaturan pada garis axis.</p>
+<p>Warna, ukuran font, dan tampilan font (<em>font style</em>) pada <em>tick mark</em> dapat diubah menggunakan fungsi <code>theme()</code> dan <code>element_text()</code>. Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code># x axis tick mark labels
+&lt;plot&gt; + theme(axis.text.x= element_text(family, face, colour, size, angle))
+# y axis tick mark labels
+&lt;plot&gt; + theme(axis.text.y = element_text(family, face, colour, size, angle))</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>family</strong>: <em>font family</em>, seperti: “sans”,“times new roman”, dll.</li>
+<li><strong>face</strong>: <em>font face</em>, nilai yang mungkin adalah “plain”, “italic”, “bold” dan “bold.italic”.</li>
+<li><strong>color</strong>: warna teks.</li>
+<li><strong>size</strong>: ukuran teks dalam satuan pts.</li>
+<li><strong>angle</strong>: sudut kemiringan teks berkisar antara 0 sampai 360.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggtick">58</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, gdpPercap,
+                      fill=continent))+
+  geom_boxplot()+
+  theme_economist()+
+  scale_fill_economist()+
+  # kustomisasi tick mark
+  theme(axis.text.x = element_text(face=&quot;bold&quot;, 
+                                   color=&quot;#993333&quot;,
+                                   size=10, 
+                                   angle=30),
+          axis.text.y = element_text(face=&quot;bold&quot;, 
+                                     color=&quot;#993333&quot;,
+                                     size=10, 
+                                     angle=30))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggtick"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick-1.png" alt="Mengubah tampilan dari tick mark" width="70%" />
+<p class="caption">
+Figure 58: Mengubah tampilan dari tick mark
+</p>
+</div>
+<p>Untuk menonaktifkan <em>tick mark</em> pada plot kita dapat menggunakan fungsi <code>element_blank()</code>. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggtick2">59</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, gdpPercap,
+                      fill=continent))+
+  geom_boxplot()+
+  theme_stata()+
+  scale_fill_stata()+
+  # menyembunyikan tick mark dan tick mark label
+  theme(axis.text.x=element_blank(),
+  axis.text.y=element_blank(),
+  axis.ticks=element_blank())</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggtick2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick2-1.png" alt="Menyembunyikan tampilan dari tick mark" width="70%" />
+<p class="caption">
+Figure 59: Menyembunyikan tampilan dari tick mark
+</p>
+</div>
+<p>Kita dapat melakukan pengaturan terhadap garis axis menggunakan argumen <code>axis.lines</code> dan fungsi <code>element_line</code>. Berikut adalah format yang digunakan:</p>
+<pre class="r"><code>&lt;plot&gt; + theme(axis.line = element_line(color,size, linetype,
+                                        lineend, color))</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>color</strong>: warna garis.</li>
+<li><strong>size</strong>: ukuran garis.</li>
+<li><strong>linetype</strong>: jenis garis.</li>
+<li><strong>lineend</strong>: akhir dari garis. Nilai yang dapat dimasukkan antara lain: “round”, “butt” atau “square”.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggtick3">60</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, gdpPercap,
+                      fill=continent))+
+  geom_boxplot()+
+  theme_wsj()+
+  scale_fill_wsj()+
+  # kustomisasi garis axis
+  theme(axis.line = element_line(colour = &quot;darkblue&quot;, 
+                      size = 1, linetype = &quot;solid&quot;))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggtick3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick3-1.png" alt="Kustomisasi tampilan dari garis axis" width="70%" />
+<p class="caption">
+Figure 60: Kustomisasi tampilan dari garis axis
+</p>
+</div>
+<p>Kita dapat mengatur <em>tick</em> pada axis baik yang memiliki skala diskrit maupun kontinyu. Fungsi yang digunakan adalah <code>scale_x_continous()</code> dan <code>scale_y_continous()</code> untuk <em>tick</em> dengan nilai kontinyu dan <code>scale_x_discrete()</code> dan <code>scale_y_discrete()</code>.</p>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggtick4">61</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, lifeExp,
+                      fill=continent))+
+  geom_boxplot()+
+  theme_gdocs()+
+  scale_fill_gdocs()+
+  # kustomisasi tick mark
+  scale_y_continuous(
+    # nilai dari 0 sampai 100 tiap 10 tick
+    breaks=seq(0,100,10))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggtick4"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick4-1.png" alt="Kustomisasi tick mark" width="70%" />
+<p class="caption">
+Figure 61: Kustomisasi tick mark
+</p>
+</div>
+</div>
+<div id="menambahkan-garis-lurus-pada-plot" class="section level3">
+<h3>5.10.10 Menambahkan Garis Lurus Pada Plot</h3>
+<p>Fungsi yang dapat digunakan untuk menambahkan garis lurus antara lain:</p>
+<ul>
+<li><strong>geom_hline()</strong>: menambahkan garis horizontal.</li>
+<li><strong>geom_abline()</strong>: menambahkan garis regresi.</li>
+<li><strong>geom_vline()</strong>: menambahkan garis vertikal.</li>
+<li><strong>geom_segment()</strong>: menambahkan garis segmen.</li>
+</ul>
+<p>Format yang digunakan untuk fungsi <code>geom_hline()</code> dan <code>geom_vline()</code> adalah sebagai berikut:</p>
+<pre class="r"><code>geom_hline(yintercept, linetype, color, size)
+geom_vline(xintercept, linetype, color, size)</code></pre>
+<p>Berikut adalah contoh penerapan kedua fungsi tersebut yang disajikan pada Gambar <a href="#fig:ggvline">62</a> dan Gambar <a href="#fig:gghline">63</a>:</p>
+<pre class="r"><code>ggplot(gapminder, aes(lifeExp, fill=..count..))+
+  geom_histogram()+
+  theme_calc()+
+  # menambahkan garis vertikal
+  geom_vline(xintercept=mean(gapminder$lifeExp), 
+             linetype=&quot;twodash&quot;,
+             color=&quot;red&quot;,
+             size=1.5)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggvline"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggvline-1.png" alt="Penerapan vline" width="70%" />
+<p class="caption">
+Figure 62: Penerapan vline
+</p>
+</div>
+<pre class="r"><code>ggplot(gapminder, aes(continent, lifeExp, 
+                      fill=continent))+
+  geom_boxplot()+
+  theme_calc()+
+  scale_fill_calc()+
+  # menambahkan garis horizontal
+  geom_hline(yintercept=mean(gapminder$lifeExp), 
+             linetype=&quot;twodash&quot;,
+             color=&quot;red&quot;,
+             size=1.5)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:gghline"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gghline-1.png" alt="Penerapan hline" width="70%" />
+<p class="caption">
+Figure 63: Penerapan hline
+</p>
+</div>
+<p>Selain menggunakan fungsi <code>geom_smooth()</code>, garis regresi dapat ditambahkan melalui fungsi `geom_abline(). Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>geom_abline(intercept, slope, linetype, color, size)</code></pre>
+<p>Untuk membuat garis regresi kita perlu membuat model regresi terlebih dahulu menggunakn fungsi <code>lm()</code>. Berikut adalah contoh model yang dibuat beserta koefisien regresinya.</p>
+<pre class="r"><code># membuat model regresi
+mod &lt;- lm(lifeExp~gdpPercap, data=gapminder)
+
+# print model
+mod</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = lifeExp ~ gdpPercap, data = gapminder)
+## 
+## Coefficients:
+## (Intercept)    gdpPercap  
+##   5.396e+01    7.649e-04</code></pre>
+<pre class="r"><code># koefisien regresi model
+coef &lt;- coefficients(mod)
+
+# print koefisien
+coef</code></pre>
+<pre><code>##  (Intercept)    gdpPercap 
+## 5.395556e+01 7.648826e-04</code></pre>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggabline">64</a> untuk membuat plot regresi linier.</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  geom_point(shape=1, color=&quot;grey&quot;)+
+  theme_stata()+
+  # menambahkan garis regresi
+  geom_abline(intercept=5.395556e+01,
+         slope=7.648826e-04,
+         linetype=&quot;twodash&quot;,
+             color=&quot;red&quot;,
+             size=1)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggabline"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggabline-1.png" alt="Penerapan abline" width="70%" />
+<p class="caption">
+Figure 64: Penerapan abline
+</p>
+</div>
+<p>Kita dapat menambahkan garis segment untuk menunjukkan sebuah observasi. Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>geom_segment(aes(x, y, xend, yend))</code></pre>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggsegment">65</a> untuk membuat garis segmen.</p>
+<pre class="r"><code>library(grid)
+ggplot(gapminder, aes(gdpPercap, lifeExp))+
+  geom_point(shape=1, color=&quot;grey&quot;)+
+  theme_stata()+
+  # menambahkan tanda panah
+  geom_segment(x=70000, y=80,
+                   xend=60000, yend=70,
+                   arrow=arrow(length=unit(0.1, &quot;inches&quot;)),
+               linetype=&quot;twodash&quot;,
+               color=&quot;red&quot;,
+               size=1)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggsegment"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggsegment-1.png" alt="Penerapan garis segmen" width="70%" />
+<p class="caption">
+Figure 65: Penerapan garis segmen
+</p>
+</div>
+</div>
+<div id="melakukan-rotasi-pada-grafik" class="section level3">
+<h3>5.10.11 Melakukan Rotasi Pada Grafik</h3>
+<p>Rotasi grafik atau pembalikan axis dapat dilakukan menggunakan fungsi berikut:</p>
+<ul>
+<li><strong>coord_flip()</strong>: untuk membuat plot horizontal.Rotasi axis sehingga sumbu x dapat menjadi sumbu y dan sebaliknya.</li>
+<li><strong>scale_x_reverse()</strong> dan <strong>scale_x_reverse()</strong>: pembalikan skala pada axis.</li>
+</ul>
+<p>Misalkan kita ingin membuat plot horizontal pada box plot sehingga mempermudah kita dalam melakukan perbandingan terhadap masing-masing grup. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggcoord">66</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(continent, lifeExp, 
+                      fill=continent))+
+  geom_boxplot()+
+  theme_economist()+
+  scale_fill_economist()+
+  # rotasi axis
+  coord_flip()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggcoord"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcoord-1.png" alt="Rotasi axis" width="70%" />
+<p class="caption">
+Figure 66: Rotasi axis
+</p>
+</div>
+<p>Kita dapat juga melakukan pembalikan skala pada axis sehingga skala yang semula berawal dari min ke max menjadi sebaliknya. Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggyreverse">67</a>.</p>
+<pre class="r"><code>ggplot(gapminder, aes(lifeExp, fill=..count..))+
+  geom_histogram()+
+  theme_wsj()+
+  # pembalikan sumbu y
+  scale_y_reverse()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggyreverse"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggyreverse-1.png" alt="Pembalikan sumbu y" width="70%" />
+<p class="caption">
+Figure 67: Pembalikan sumbu y
+</p>
+</div>
+</div>
+<div id="facet" class="section level3">
+<h3>5.10.12 Facet</h3>
+<p>Facet digunakan untuk membagi plot menjadi panel matriks. Setiap panel menunjukkan setiap kelompok data. Fungsi facet yang dapat digunakan antara lain:</p>
+<ul>
+<li><strong>facet_grid()</strong></li>
+<li><strong>facet_wrap()</strong></li>
+</ul>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggfacetgrid">68</a> dan Gambar <a href="#fig:ggfacetgrid2">69</a> untuk membuat facet pada satu variabel.</p>
+<pre class="r"><code>ggplot(gapminder, aes(lifeExp, fill=..count..))+
+  geom_histogram()+
+  theme_gdocs()+
+  facet_grid(.~continent)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggfacetgrid"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid-1.png" alt="Facet horizontal satu variabel" width="90%" />
+<p class="caption">
+Figure 68: Facet horizontal satu variabel
+</p>
+</div>
+<pre class="r"><code>ggplot(gapminder, aes(lifeExp, fill=..count..))+
+  geom_histogram()+
+  theme_gdocs()+
+  facet_grid(continent~.)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggfacetgrid2"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid2-1.png" alt="Facet vertikal satu variabel" width="80%" />
+<p class="caption">
+Figure 69: Facet vertikal satu variabel
+</p>
+</div>
+<p>Kita dapat pula melakukan facet terhadap dua buah variabel.Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggfacetgrid3">70</a> untuk membuat facet pada dua variabel.</p>
+<pre class="r"><code>gapminder%&gt;%
+  filter(year==1952|year==2007,
+         continent %in% c(&quot;Asia&quot;,&quot;Americas&quot;))%&gt;%
+  ggplot(aes(continent, lifeExp, 
+             fill=factor(year)))+
+  geom_boxplot()+
+  theme_stata()+
+  scale_fill_stata()+
+  facet_grid(continent~factor(year))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggfacetgrid3"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid3-1.png" alt="Facet dua variabel" width="80%" />
+<p class="caption">
+Figure 70: Facet dua variabel
+</p>
+</div>
+<p>Kita dapat mengatur skala dari axis menggunakan argument sebagai berikut:</p>
+<ul>
+<li><strong>free</strong>: skala akan disesuaikan berdasarkan pada setiap axis.</li>
+<li><strong>free_x</strong>: skala pada sumbu x akan dibiarkan menyesuaikan secara bebas.</li>
+<li><strong>free_y</strong>: skala pada sumbu y akan dibiarkan menyesuaikan secara bebas.</li>
+<li><strong>fixed</strong> (default): skala axis diseragamkan pada seluruh panel.</li>
+</ul>
+<p>Berikut adalah sintaks yang digunakan beserta output yang dihasilkan pada Gambar <a href="#fig:ggfacetgrid4">71</a> untuk membuat facet pada dua variabel dengan skala bebas pada sumbu y.</p>
+<pre class="r"><code>gapminder%&gt;%
+  filter(year==1952|year==2007,
+         continent %in% c(&quot;Asia&quot;,&quot;Americas&quot;))%&gt;%
+  ggplot(aes(continent, lifeExp, 
+             fill=factor(year)))+
+  geom_boxplot()+
+  theme_stata()+
+  scale_fill_stata()+
+  facet_grid(continent~factor(year), scales=&quot;free_y&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ggfacetgrid4"></span>
+<img src="/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid4-1.png" alt="Facet dua variabel dengan skala bebas pada sumbu y" width="80%" />
+<p class="caption">
+Figure 71: Facet dua variabel dengan skala bebas pada sumbu y
+</p>
+</div>
+<p><strong>Referensi</strong></p>
+<ol style="list-style-type: decimal">
+<li>Wickham, H. Grolemund G. 2016. <strong>R For Data Science: Import, Tidy, Transform, Visualize, And Model Data</strong>. O’Reilly Media, Inc.</li>
+<li>Peng, R.D. 2015. <strong>Exploratory Data Analysis with R</strong>. Leanpub book.</li>
+<li>GGPLOT2 Documentation. <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a></li>
+<li>STHDA. ggplot2 - Essentials. &lt;www.sthda.com/english/wiki/ggplot2-essentials&gt;</li>
+</ol>
+</div>
+</div>
