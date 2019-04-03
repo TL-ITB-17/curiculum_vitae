@@ -41,7 +41,7 @@ text-align: justify}
 &lt;p&gt;Nilai rata-rata (mean) dan nilai tengah (median) merupakan dua nilai yang paling umum digunakan untuk menyatakan lokasi pemusatan data meskipun kedua nilai bukanlah satu atau dua ukuran yang tersedia. Apa sajakah properti dari kedua ukuran tersebut dan kapan salah satu atau keduanya dapat digunakan bersamaan?.&lt;/p&gt;
 &lt;div id=&#34;pengukuran-klasik-mean&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;6.1.1 Pengukuran Klasik-Mean&lt;/h3&gt;
-&lt;p&gt;Nilai mean (&lt;code&gt;$\overline{X}$&lt;/code&gt;) diperoleh dengan menjumlahkan seluruh data dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti Persamaan &lt;a href=&#34;#eq:mean&#34;&gt;(1)&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Nilai mean (&lt;span class=&#34;math inline&#34;&gt;\(\overline{X}\)&lt;/span&gt;) diperoleh dengan menjumlahkan seluruh data dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti Persamaan &lt;a href=&#34;#eq:mean&#34;&gt;(1)&lt;/a&gt;:&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:mean&#34;&gt;\[\begin{equation}
   \overline{X}=\text{}\sum_{_{i=1}}^n\frac{X_i}{n}
   \tag{1}
