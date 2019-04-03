@@ -2,120 +2,120 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homes on Environmental Data Modeling</title>
-    <link>/home/</link>
+    <link>https://environmentalanalysist.netlify.com/home/</link>
     <description>Recent content in Homes on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://environmentalanalysist.netlify.com/home/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>/home/slider/</link>
+      <link>https://environmentalanalysist.netlify.com/home/slider/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/slider/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/slider/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Academic</title>
-      <link>/home/hero/</link>
+      <link>https://environmentalanalysist.netlify.com/home/hero/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/hero/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/hero/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Biography</title>
-      <link>/home/about/</link>
+      <link>https://environmentalanalysist.netlify.com/home/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/about/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/about/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Skills</title>
-      <link>/home/skills/</link>
+      <link>https://environmentalanalysist.netlify.com/home/skills/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/skills/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/skills/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Experience</title>
-      <link>/home/experience/</link>
+      <link>https://environmentalanalysist.netlify.com/home/experience/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/experience/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/experience/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Accomplish&amp;shy;ments</title>
-      <link>/home/accomplishments/</link>
+      <link>https://environmentalanalysist.netlify.com/home/accomplishments/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/accomplishments/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/accomplishments/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Featured Publications</title>
-      <link>/home/publications_featured/</link>
+      <link>https://environmentalanalysist.netlify.com/home/publications_featured/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/publications_featured/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/publications_featured/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Recent Publications</title>
-      <link>/home/publications/</link>
+      <link>https://environmentalanalysist.netlify.com/home/publications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/publications/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/publications/</guid>
       <description> Quickly discover relevant content by filtering publications.
   </description>
     </item>
     
     <item>
       <title>Recent &amp; Upcoming Talks</title>
-      <link>/home/talks/</link>
+      <link>https://environmentalanalysist.netlify.com/home/talks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/talks/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/talks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Recent Posts</title>
-      <link>/home/posts/</link>
+      <link>https://environmentalanalysist.netlify.com/home/posts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/posts/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/posts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>/home/projects/</link>
+      <link>https://environmentalanalysist.netlify.com/home/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/projects/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/projects/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Teaching</title>
-      <link>/home/teaching/</link>
+      <link>https://environmentalanalysist.netlify.com/home/teaching/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/teaching/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/teaching/</guid>
       <description>  This is an example of using the custom widget to create your own homepage section.
 This section also demonstrates how to apply the background option to create an image parallax effect. Backgrounds can be applied to any section.
   Example content I am a teaching instructor for the following courses at University X:
@@ -124,37 +124,37 @@ This section also demonstrates how to apply the background option to create an i
     
     <item>
       <title>Gallery</title>
-      <link>/home/gallery/</link>
+      <link>https://environmentalanalysist.netlify.com/home/gallery/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/gallery/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/gallery/</guid>
       <description>          </description>
     </item>
     
     <item>
       <title>Popular Topics</title>
-      <link>/home/tags/</link>
+      <link>https://environmentalanalysist.netlify.com/home/tags/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/tags/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/tags/</guid>
       <description></description>
     </item>
     
     <item>
       <title>People</title>
-      <link>/home/people/</link>
+      <link>https://environmentalanalysist.netlify.com/home/people/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/people/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/people/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>/home/contact/</link>
+      <link>https://environmentalanalysist.netlify.com/home/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/contact/</guid>
+      <guid>https://environmentalanalysist.netlify.com/home/contact/</guid>
       <description></description>
     </item>
     

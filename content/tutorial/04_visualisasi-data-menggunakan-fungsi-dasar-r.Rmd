@@ -5,7 +5,7 @@ date: '2019-03-09T00:00:00+07:00'
 output: pdf_document
 menu:
   tutorial:
-    parent: Visualisasi Data
+    parent: PART 2 - Visualisasi Data
     weight: 3
 linktitle: Visualisasi Data Menggunakan Fungsi Dasar R
 type: docs

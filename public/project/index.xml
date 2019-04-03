@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Environmental Data Modeling</title>
-    <link>/project/</link>
+    <link>https://environmentalanalysist.netlify.com/project/</link>
     <description>Recent content in Projects on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0700</lastBuildDate>
     
-	<atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://environmentalanalysist.netlify.com/project/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Environmental Learning Website Project</title>
-      <link>/project/environmental-learning-website/</link>
+      <link>https://environmentalanalysist.netlify.com/project/environmental-learning-website/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0700</pubDate>
       
-      <guid>/project/environmental-learning-website/</guid>
+      <guid>https://environmentalanalysist.netlify.com/project/environmental-learning-website/</guid>
       <description>This project is a website in the form of a collection of topics related to data analysis and modeling in the environmental field. This website is structured in such a way as to contain a number of material related to statistics, advanced mathematics, environmental engineering modeling, and operations research in the field of environmental engineering.
 The website is updated every week where each author update will share on the author&amp;rsquo;s social media account.</description>
     </item>
     
     <item>
       <title>External Project</title>
-      <link>/project/external-project/</link>
+      <link>https://environmentalanalysist.netlify.com/project/external-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0700</pubDate>
       
-      <guid>/project/external-project/</guid>
+      <guid>https://environmentalanalysist.netlify.com/project/external-project/</guid>
       <description></description>
     </item>
     

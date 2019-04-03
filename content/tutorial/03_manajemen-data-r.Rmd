@@ -5,7 +5,7 @@ date: '2019-03-09T00:00:00+07:00'
 output: pdf_document
 menu:
   tutorial:
-    parent: Bahasa Pemrograman R
+    parent: PART 1 - Bahasa Pemrograman R
     weight: 3
 linktitle: Manajemen Data R
 type: docs

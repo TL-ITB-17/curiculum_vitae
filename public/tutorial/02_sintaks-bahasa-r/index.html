@@ -32,7 +32,7 @@
 2&#43;4*2## [1] 10Bandingkan dengan sintaks berikut:">
 
   
-  <link rel="alternate" hreflang="en-us" href="/tutorial/02_sintaks-bahasa-r/">
+  <link rel="alternate" hreflang="en-us" href="https://environmentalanalysist.netlify.com/tutorial/02_sintaks-bahasa-r/">
 
   
 
@@ -99,15 +99,15 @@
   
 
   
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
-  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  <link rel="alternate" href="https://environmentalanalysist.netlify.com/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  <link rel="feed" href="https://environmentalanalysist.netlify.com/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tutorial/02_sintaks-bahasa-r/">
+  <link rel="canonical" href="https://environmentalanalysist.netlify.com/tutorial/02_sintaks-bahasa-r/">
 
   
   
@@ -119,10 +119,10 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Environmental Data Modeling">
-  <meta property="og:url" content="/tutorial/02_sintaks-bahasa-r/">
+  <meta property="og:url" content="https://environmentalanalysist.netlify.com/tutorial/02_sintaks-bahasa-r/">
   <meta property="og:title" content="2. Sintaks Bahasa R | Environmental Data Modeling">
   <meta property="og:description" content="body{text-align: justify}Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision MakingFungsi2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
-2&#43;4*2## [1] 10Bandingkan dengan sintaks berikut:"><meta property="og:image" content="/img/icon-192.png">
+2&#43;4*2## [1] 10Bandingkan dengan sintaks berikut:"><meta property="og:image" content="https://environmentalanalysist.netlify.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-03-09T00:00:00&#43;07:00">
@@ -386,7 +386,7 @@ MathJax.Hub.Config({
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/tutorial/01_mengenal-bahasa-r/">Bahasa Pemrograman R</a>
+    <a class="docs-toc-link" href="/tutorial/01_mengenal-bahasa-r/">PART 1 - Bahasa Pemrograman R</a>
     <ul class="nav docs-sidenav">
       
       <li >
@@ -407,20 +407,7 @@ MathJax.Hub.Config({
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/tutorial/06_ringkasan-numerik/">Statistika Deskriptif</a>
-    <ul class="nav docs-sidenav">
-      
-      <li >
-        <a href="/tutorial/06_ringkasan-numerik/">Ringkasan Data</a>
-      </li>
-      
-    </ul>
-    
-
-  </div>
-  
-  <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">Visualisasi Data</a>
+    <a class="docs-toc-link" href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">PART 2 - Visualisasi Data</a>
     <ul class="nav docs-sidenav">
       
       <li >
@@ -429,6 +416,19 @@ MathJax.Hub.Config({
       
       <li >
         <a href="/tutorial/05_visualisasi-data-menggunakan-ggplot/">Visualisasi Data Menggunakan GGPLOT</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/06_ringkasan-numerik/">PART 3 - Statistika Deskriptif</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/tutorial/06_ringkasan-numerik/">Ringkasan Data</a>
       </li>
       
     </ul>
@@ -1541,6 +1541,7 @@ keluarga</code></pre>
 <p><em>Loop</em> merupakan kode program yang berulang-ulang. <em>Loop</em> berguna saat kita ingin melakukan sebuah perintah yang perlu dijalankan berulang-ulang seperti melakukan perhitungan maupaun melakukan visualisasi terhadap banyak variabel secara serentak. Hal ini tentu saja membantu kita karena kita tidak perlu menulis sejumlah sintaks yang berulang-ulang. Kita hanya perlu mengatur <em>statement</em> berdasarkan hasil yang kita harapkan.</p>
 <p>Pada <code>R</code> bentuk <em>loop</em> dapat bermacam-macam (“<em>for loop</em>”,“<em>while loop</em>”, dll). <code>R</code> menyederhanakan bentuk <em>loop</em> ini dengan menyediakan sejumlah fungsi seperti <code>apply()</code>,<code>tapply()</code>, dll. Sehingga <code>loop</code> jarang sekali muncul dalam kode <code>R</code>. Sehingga <code>R</code> sering disebut sebagai <em>loopless loop</em>.</p>
 <p>Meski <em>loop</em> jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat <em>loop</em> yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure <a href="#fig:loop">1</a></p>
+<pre><code>## Warning: package &#39;knitr&#39; was built under R version 3.5.3</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:loop"></span>
 <img src="/skema_loop.png" alt="Diagram umum loop (sumber: Primartha, 2018)."  />
 <p class="caption">
@@ -1816,10 +1817,6 @@ kali(4,3)</code></pre>
       </article>
 
       <footer class="site-footer">
-  
-  <p class="powered-by">
-    <a href="/privacy/">Privacy Policy</a>
-  </p>
   
 
   <p class="powered-by">

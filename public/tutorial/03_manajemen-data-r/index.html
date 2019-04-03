@@ -32,7 +32,7 @@
 Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/tutorial/03_manajemen-data-r/">
+  <link rel="alternate" hreflang="en-us" href="https://environmentalanalysist.netlify.com/tutorial/03_manajemen-data-r/">
 
   
 
@@ -99,15 +99,15 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
   
 
   
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
-  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  <link rel="alternate" href="https://environmentalanalysist.netlify.com/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  <link rel="feed" href="https://environmentalanalysist.netlify.com/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tutorial/03_manajemen-data-r/">
+  <link rel="canonical" href="https://environmentalanalysist.netlify.com/tutorial/03_manajemen-data-r/">
 
   
   
@@ -119,10 +119,10 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Environmental Data Modeling">
-  <meta property="og:url" content="/tutorial/03_manajemen-data-r/">
+  <meta property="og:url" content="https://environmentalanalysist.netlify.com/tutorial/03_manajemen-data-r/">
   <meta property="og:title" content="3. Manajemen Data R | Environmental Data Modeling">
   <meta property="og:description" content="body{text-align: justify}Daftar Isi:Import FileEksport FileTibble Data FormatMerapikan DataTransformasi Data3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
-Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan."><meta property="og:image" content="/img/icon-192.png">
+Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan."><meta property="og:image" content="https://environmentalanalysist.netlify.com/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-03-09T00:00:00&#43;07:00">
@@ -386,7 +386,7 @@ MathJax.Hub.Config({
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/tutorial/01_mengenal-bahasa-r/">Bahasa Pemrograman R</a>
+    <a class="docs-toc-link" href="/tutorial/01_mengenal-bahasa-r/">PART 1 - Bahasa Pemrograman R</a>
     <ul class="nav docs-sidenav">
       
       <li >
@@ -407,20 +407,7 @@ MathJax.Hub.Config({
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/tutorial/06_ringkasan-numerik/">Statistika Deskriptif</a>
-    <ul class="nav docs-sidenav">
-      
-      <li >
-        <a href="/tutorial/06_ringkasan-numerik/">Ringkasan Data</a>
-      </li>
-      
-    </ul>
-    
-
-  </div>
-  
-  <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">Visualisasi Data</a>
+    <a class="docs-toc-link" href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">PART 2 - Visualisasi Data</a>
     <ul class="nav docs-sidenav">
       
       <li >
@@ -429,6 +416,19 @@ MathJax.Hub.Config({
       
       <li >
         <a href="/tutorial/05_visualisasi-data-menggunakan-ggplot/">Visualisasi Data Menggunakan GGPLOT</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/06_ringkasan-numerik/">PART 3 - Statistika Deskriptif</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/tutorial/06_ringkasan-numerik/">Ringkasan Data</a>
       </li>
       
     </ul>
@@ -786,6 +786,7 @@ library(tibble)</code></pre>
 <div id="membuat-tibble" class="section level3">
 <h3>3.3.1 Membuat Tibble</h3>
 <p>Untuk dapat membuat tibble kita dapat melakukan konversi data frame yang sudah ada menjadi tibble menggunakan fungsi <code>as_tibble()</code>. Berikut adalah contoh bagaimana membuat tibble mengunakan data <code>iris</code>:</p>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.3</code></pre>
 <pre class="r"><code># memuat data mtcars
 data(&quot;iris&quot;)
 
@@ -1001,6 +1002,7 @@ storms</code></pre>
 <li>Setiap nilai berada pada sel tersendiri</li>
 </ul>
 <p>Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan <em>tidy</em>. Ketiga syarat tersebut dapat divisualisasikan melalui Figure <a href="#fig:tidy">1</a></p>
+<pre><code>## Warning: package &#39;knitr&#39; was built under R version 3.5.3</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:tidy"></span>
 <img src="/tidy.png" alt="Visualisasi 3 rule tidy data"  />
 <p class="caption">
@@ -1791,10 +1793,6 @@ Figure 3: Jarak vs rata-rata delay
       </article>
 
       <footer class="site-footer">
-  
-  <p class="powered-by">
-    <a href="/privacy/">Privacy Policy</a>
-  </p>
   
 
   <p class="powered-by">

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Environmental Data Modeling on Environmental Data Modeling</title>
-    <link>/</link>
+    <link>https://environmentalanalysist.netlify.com/</link>
     <description>Recent content in Environmental Data Modeling on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -11,10 +11,10 @@
     
     <item>
       <title>6. Ringkasan Data</title>
-      <link>/tutorial/06_ringkasan-numerik/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/06_ringkasan-numerik/</link>
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/06_ringkasan-numerik/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/06_ringkasan-numerik/</guid>
       <description>
 
 
@@ -68,13 +68,13 @@ text-align: justify}
 &lt;p&gt;Untuk lebih memahami pengaruh observasi terhadap nilai rata-rata, disajikan dua buah gambar yaitu: Gambar &lt;a href=&#34;#fig:mean1&#34;&gt;1&lt;/a&gt; dan Gambar &lt;a href=&#34;#fig:mean2&#34;&gt;2&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:mean1&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/mean1.png&#34; alt=&#34;Nilai mean (segitiga) sebagai titik kesetimbangan pada data.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/mean1.png&#34; alt=&#34;Nilai mean (segitiga) sebagai titik kesetimbangan pada data.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Nilai mean (segitiga) sebagai titik kesetimbangan pada data.
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:mean2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/mean2.png&#34; alt=&#34;Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/mean2.png&#34; alt=&#34;Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.
 &lt;/p&gt;
@@ -155,7 +155,7 @@ Figure 2: Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.
 &lt;/table&gt;
 &lt;p&gt;Data pada Tabel &lt;a href=&#34;#tab:debitsungai&#34;&gt;1&lt;/a&gt; dapat divisualisasikan seperti pada Gambar &lt;a href=&#34;#fig:debitvis&#34;&gt;3&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:debitvis&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/06_ringkasan-numerik_files/figure-html/debitvis-1.png&#34; alt=&#34;Visualisasi debit sungai pada sampel&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/06_ringkasan-numerik_files/figure-html/debitvis-1.png&#34; alt=&#34;Visualisasi debit sungai pada sampel&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Visualisasi debit sungai pada sampel
 &lt;/p&gt;
@@ -428,13 +428,13 @@ data_gw&amp;lt;-data_gw %&amp;gt;%
 &lt;p&gt;Visualisasi data Tabel &lt;a href=&#34;#tab:gwtdsur&#34;&gt;2&lt;/a&gt;, disajikan pada Gambar &lt;a href=&#34;#fig:gwvis1&#34;&gt;4&lt;/a&gt; dan Gambar &lt;a href=&#34;#fig:gwvis2&#34;&gt;5&lt;/a&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;ggthemes&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gwvis1&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/06_ringkasan-numerik_files/figure-html/gwvis1-1.png&#34; alt=&#34;Visualisasi konsentrasi TDS pada air tanah&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/06_ringkasan-numerik_files/figure-html/gwvis1-1.png&#34; alt=&#34;Visualisasi konsentrasi TDS pada air tanah&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 4: Visualisasi konsentrasi TDS pada air tanah
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gwvis2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/06_ringkasan-numerik_files/figure-html/gwvis2-1.png&#34; alt=&#34;Visualisasi konsentrasi Uranium pada air tanah&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/06_ringkasan-numerik_files/figure-html/gwvis2-1.png&#34; alt=&#34;Visualisasi konsentrasi Uranium pada air tanah&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 5: Visualisasi konsentrasi Uranium pada air tanah
 &lt;/p&gt;
@@ -515,7 +515,7 @@ Figure 5: Visualisasi konsentrasi Uranium pada air tanah
 &lt;p&gt;Berdasarkan hasil komputasi diperoleh nilai &lt;em&gt;geometric mean&lt;/em&gt; debit sungai sebesar 112.431498 &lt;span class=&#34;math inline&#34;&gt;\(m^3/detik\)&lt;/span&gt;. Nilai yang diperoleh tidak berbeda dengan nilai median sebesar 117 &lt;span class=&#34;math inline&#34;&gt;\(m^3/detik\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Kompromi antara median dan mean tersedia dengan memotong beberapa observasi terendah dan tertinggi, dan menghitung mean dari apa yang tersisa. Perkiraan pemusatan data seperti itu tidak dipengaruhi oleh observasi yang paling ekstrem (dan mungkin anomali), seperti mean. Namun mereka memungkinkan besarnya sebagian besar nilai untuk mempengaruhi estimasi, tidak seperti median. Estimator ini disebut “&lt;em&gt;trimmed mean&lt;/em&gt;”, dan persentase data yang diinginkan dapat dipangkas. Pemangkasan yang paling umum adalah menghapus 25 persen dari data di setiap ujung - rata-rata yang dihasilkan dari 50 persen pusat data biasanya disebut “&lt;em&gt;trimmed mean&lt;/em&gt;”, tetapi lebih tepatnya 25 persen &lt;em&gt;trimmed mean&lt;/em&gt;. “&lt;em&gt;trimmed mean&lt;/em&gt; 0%” adalah mean sampel itu sendiri, sementara memangkas semua kecuali 1 atau 2 nilai pusat menghasilkan median. Persentase pemangkasan harus secara eksplisit dinyatakan saat digunakan. &lt;em&gt;Trimmed mean&lt;/em&gt; adalah estimator yang resistan, karena tidak sangat dipengaruhi oleh &lt;em&gt;outlier&lt;/em&gt;, dan bekerja dengan baik untuk berbagai macam bentuk distribusi (normal, lognormal, dll). Ini dapat dianggap sebagai rata-rata tertimbang (&lt;em&gt;weighted mean&lt;/em&gt;), di mana data di luar ‘jendela’ cutoff diberi bobot 0, dan mereka yang berada di dalam jendela bobot 1,0 (lihat Gambar &lt;a href=&#34;#fig:tm&#34;&gt;6&lt;/a&gt;).&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:tm&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tm.png&#34; alt=&#34;Jendela diagram trimmed mean.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tm.png&#34; alt=&#34;Jendela diagram trimmed mean.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 6: Jendela diagram trimmed mean.
 &lt;/p&gt;
@@ -685,13 +685,13 @@ stat.desc(data_gw)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;6.4 Ukuran Kemencengan Data&lt;/h2&gt;
 &lt;p&gt;Ketika data memiliki kemencengan, nilai mean tidak sama dengan median, tetapi bergeser ke arah ekor distribusi. Jadi untuk kemencengan positif, nilai mean melebihi lebih dari 50% dari data, seperti pada Gambar &lt;a href=&#34;#fig:skew&#34;&gt;7&lt;/a&gt; dan Gambar &lt;a href=&#34;#fig:skew2&#34;&gt;8&lt;/a&gt;. Simpangan baku juga meningkat dengan data di bagian ekor. Data yang menceng juga mempertanyakan penerapan tes hipotesis yang didasarkan pada asumsi bahwa data memiliki distribusi normal. Tes-tes ini, yang disebut tes parametrik, mungkin bernilai dipertanyakan ketika diterapkan pada data seperti data sumber daya air, karena data seringkali tidak normal atau bahkan simetris.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:skew&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/skewness.png&#34; alt=&#34;a) Kemencengan negatif, b) Kemencengan positif.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/skewness.png&#34; alt=&#34;a) Kemencengan negatif, b) Kemencengan positif.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 7: a) Kemencengan negatif, b) Kemencengan positif.
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:skew2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/skewnessbox.png&#34; alt=&#34;Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/skewnessbox.png&#34; alt=&#34;Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.
 &lt;/p&gt;
@@ -764,7 +764,7 @@ Figure 8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan posi
 &lt;p&gt;Untuk membuat distribusi asimetris menjadi lebih simetris, data dapat diubah atau diekspresikan kembali menjadi unit baru. Unit-unit baru ini mengubah jarak antara pengamatan pada plot garis. Efeknya adalah memperluas atau mengecilkan jarak ke pengamatan ekstrem di satu sisi median, membuatnya lebih pada setiap sisinya. Transformasi yang paling umum digunakan dalam bidang lingkungan adalah logaritma, seperti Log debit air, konduktivitas hidrolik, atau konsentrasi sering diambil sebelum analisis statistik dilakukan.&lt;/p&gt;
 &lt;p&gt;Transformasi data biasanya melibatkan fungsi power seperti pada fungsi &lt;span class=&#34;math inline&#34;&gt;\(y=x^\theta\)&lt;/span&gt;, dimana x merupakan data yang belum ditransformasi, y adalah data yang telah ditransformasi, dan &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; merupakan power eksponensial. Pada Gambar &lt;a href=&#34;#fig:power&#34;&gt;9&lt;/a&gt; nilai &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; di-list kedalam “&lt;em&gt;ladder of powers&lt;/em&gt;” (Velleman dan Hoaglin, 1981 dalam helsel dan Hirsch, 2002), sebuah struktur yang berguna untuk menentukan nilai &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; yang tepat.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:power&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/ladder.png&#34; alt=&#34;Ladder of power&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/ladder.png&#34; alt=&#34;Ladder of power&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 9: Ladder of power
 &lt;/p&gt;
@@ -773,7 +773,7 @@ Figure 9: Ladder of power
 &lt;p&gt;Namun, kecenderungan untuk mencari transformasi ‘terbaik’ harus dihindari. Misalnya, ketika berhadapan dengan beberapa set data yang serupa, mungkin lebih baik untuk menemukan satu transformasi yang bekerja cukup baik untuk semua, daripada menggunakan yang sedikit berbeda untuk masing-masingnya. Harus diingat bahwa setiap set data adalah sampel dari populasi yang lebih besar, dan sampel lain dari populasi yang sama kemungkinan akan menunjukkan transformasi ‘terbaik’ yang sedikit berbeda. Penentuan ‘terbaik’ dalam ketelitian tinggi adalah pendekatan yang jarang sepadan dengan usaha.&lt;/p&gt;
 &lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:gwvis2&#34;&gt;5&lt;/a&gt; kosentrasi distribusi &lt;code&gt;Uranium&lt;/code&gt; pada tiap grup memiliki kemencengan positif. Untuk membuatnya simetris kita perlu melakukan transformasi yang sesuai jenis transformasi yang dilakukan dapat dimulai dari akar kuadrat sampai invers akar kuadrat (berdasarkan Gambar &lt;a href=&#34;#fig:power&#34;&gt;9&lt;/a&gt;). Pada contoh ini kita akan mencoba melakukan trasnformasi logaritmik. Berikut adalah contoh visualisasi hasil transformasinya (lihat Gambar &lt;a href=&#34;#fig:urantrans&#34;&gt;10&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:urantrans&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/06_ringkasan-numerik_files/figure-html/urantrans-1.png&#34; alt=&#34;Visualisasi konsentrasi Uranium  hasil tansformasi pada air tanah&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/06_ringkasan-numerik_files/figure-html/urantrans-1.png&#34; alt=&#34;Visualisasi konsentrasi Uranium  hasil tansformasi pada air tanah&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 10: Visualisasi konsentrasi Uranium hasil tansformasi pada air tanah
 &lt;/p&gt;
@@ -793,10 +793,10 @@ Figure 10: Visualisasi konsentrasi Uranium hasil tansformasi pada air tanah
     
     <item>
       <title>5. Visualisasi Data Menggunakan GGPLOT</title>
-      <link>/tutorial/05_visualisasi-data-menggunakan-ggplot/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot/</link>
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/05_visualisasi-data-menggunakan-ggplot/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot/</guid>
       <description>
 
 
@@ -1046,7 +1046,7 @@ unique(gapminder$year)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gapminder, aes(gdpPercap, lifeExp))+
   geom_point()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggscatter&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Scatterplot lifeExp vs gdpPercap
 &lt;/p&gt;
@@ -1057,7 +1057,7 @@ Figure 1: Scatterplot lifeExp vs gdpPercap
   # merubah sumbu x kedalam fungsi log
   scale_x_log10()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggscatter2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter2-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap tiap benua (1)&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter2-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap tiap benua (1)&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Scatterplot lifeExp vs gdpPercap tiap benua (1)
 &lt;/p&gt;
@@ -1067,7 +1067,7 @@ Figure 2: Scatterplot lifeExp vs gdpPercap tiap benua (1)
   # merubah sumbu x kedalam fungsi log
   scale_x_log10()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggscatter3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter3-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap tiap benua (2)&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter3-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap tiap benua (2)&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Scatterplot lifeExp vs gdpPercap tiap benua (2)
 &lt;/p&gt;
@@ -1078,7 +1078,7 @@ Figure 3: Scatterplot lifeExp vs gdpPercap tiap benua (2)
   # merubah sumbu x kedalam fungsi log
   scale_x_log10()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggscatter4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter4-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter4-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 4: Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua
 &lt;/p&gt;
@@ -1104,7 +1104,7 @@ Figure 4: Scatterplot lifeExp vs gdpPercap dan populasi tiap negara dan benua
   # menambahkan smoothing method
   geom_smooth(method=&amp;quot;lm&amp;quot;, level=0.99)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggscatter5&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter5-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggscatter5-1.png&#34; alt=&#34;Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 5: Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi linier
 &lt;/p&gt;
@@ -1129,7 +1129,7 @@ Figure 5: Scatterplot lifeExp vs gdpPercap dengan garis penghalusan regresi lini
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gapminder, aes(&amp;quot;&amp;quot;, lifeExp))+
   geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggboxplot&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot-1.png&#34; alt=&#34;Box plot variabel lifeExp&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot-1.png&#34; alt=&#34;Box plot variabel lifeExp&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 6: Box plot variabel lifeExp
 &lt;/p&gt;
@@ -1140,7 +1140,7 @@ Figure 6: Box plot variabel lifeExp
   stat_summary(fun.y=mean, geom=&amp;quot;point&amp;quot;, 
                shape=23, size=3, color=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggboxplot2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot2-1.png&#34; alt=&#34;Box plot variabel lifeExp pada tiap continent&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot2-1.png&#34; alt=&#34;Box plot variabel lifeExp pada tiap continent&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 7: Box plot variabel lifeExp pada tiap continent
 &lt;/p&gt;
@@ -1151,7 +1151,7 @@ Figure 7: Box plot variabel lifeExp pada tiap continent
   ggplot(aes(continent, lifeExp, fill=factor(year)))+
   geom_boxplot(notch=TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggboxplot3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot3-1.png&#34; alt=&#34;Box plot variabel lifeExp pada tiap continent (1952 dan 2007)&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot3-1.png&#34; alt=&#34;Box plot variabel lifeExp pada tiap continent (1952 dan 2007)&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 8: Box plot variabel lifeExp pada tiap continent (1952 dan 2007)
 &lt;/p&gt;
@@ -1163,7 +1163,7 @@ Figure 8: Box plot variabel lifeExp pada tiap continent (1952 dan 2007)
   ggplot(aes(factor(year), lifeExp))+
   geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggboxplot4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot4-1.png&#34; alt=&#34;Box plot variabel lifeExp Benua Asia&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggboxplot4-1.png&#34; alt=&#34;Box plot variabel lifeExp Benua Asia&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 9: Box plot variabel lifeExp Benua Asia
 &lt;/p&gt;
@@ -1175,7 +1175,7 @@ Figure 9: Box plot variabel lifeExp Benua Asia
   # violin plot
   geom_violin()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggviolin&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggviolin-1.png&#34; alt=&#34;Violin plot variabel lifeExp pada masing-masing benua&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggviolin-1.png&#34; alt=&#34;Violin plot variabel lifeExp pada masing-masing benua&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 10: Violin plot variabel lifeExp pada masing-masing benua
 &lt;/p&gt;
@@ -1194,7 +1194,7 @@ Figure 10: Violin plot variabel lifeExp pada masing-masing benua
                # warna titik
                color=&amp;quot;red&amp;quot;, fill=&amp;quot;white&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggviolin2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggviolin2-1.png&#34; alt=&#34;Violin plot variabel lifeExp pada masing-masing benua (2)&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggviolin2-1.png&#34; alt=&#34;Violin plot variabel lifeExp pada masing-masing benua (2)&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 11: Violin plot variabel lifeExp pada masing-masing benua (2)
 &lt;/p&gt;
@@ -1215,7 +1215,7 @@ Figure 11: Violin plot variabel lifeExp pada masing-masing benua (2)
   # membuat bar plot berdasarkan nilai observasi
   geom_bar(stat=&amp;quot;identity&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggbar&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggbar-1.png&#34; alt=&#34;Bar plot rata-rata lifeExp masing-masing benua&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggbar-1.png&#34; alt=&#34;Bar plot rata-rata lifeExp masing-masing benua&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 12: Bar plot rata-rata lifeExp masing-masing benua
 &lt;/p&gt;
@@ -1237,7 +1237,7 @@ Figure 12: Bar plot rata-rata lifeExp masing-masing benua
                     ymax=mean_lifeExp+se),
                 width=0.2)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggbar2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggbar2-1.png&#34; alt=&#34;Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggbar2-1.png&#34; alt=&#34;Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 13: Bar plot rata-rata lifeExp masing-masing benua dengan confidence interval
 &lt;/p&gt;
@@ -1266,7 +1266,7 @@ Figure 13: Bar plot rata-rata lifeExp masing-masing benua dengan confidence inte
                 width=0.2,
                 position=position_dodge(0.9))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggbar3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggbar3-1.png&#34; alt=&#34;Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggbar3-1.png&#34; alt=&#34;Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 14: Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan confidence interval
 &lt;/p&gt;
@@ -1288,7 +1288,7 @@ Figure 14: Bar plot rata-rata lifeExp masing-masing benua (1952 dan 2007) dengan
   # menambahkan point
   geom_point()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggline&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggline-1.png&#34; alt=&#34;Line plot lifeExp masing-masing benua &#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggline-1.png&#34; alt=&#34;Line plot lifeExp masing-masing benua &#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 15: Line plot lifeExp masing-masing benua
 &lt;/p&gt;
@@ -1313,7 +1313,7 @@ Figure 15: Line plot lifeExp masing-masing benua
                     ymax=mean_lifeExp+sd),
                 width=0.2, color=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggline2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggline2-1.png&#34; alt=&#34;Histogram lifeExp &#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggline2-1.png&#34; alt=&#34;Histogram lifeExp &#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 16: Histogram lifeExp
 &lt;/p&gt;
@@ -1332,7 +1332,7 @@ gapminder%&amp;gt;%
   geom_bar(stat=&amp;quot;identity&amp;quot;)+
   coord_polar(&amp;quot;y&amp;quot;, start=0)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggpie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpie-1.png&#34; alt=&#34;Pie chart pop&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpie-1.png&#34; alt=&#34;Pie chart pop&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 17: Pie chart pop
 &lt;/p&gt;
@@ -1345,7 +1345,7 @@ Figure 17: Pie chart pop
   ggplot(aes(lifeExp))+
   geom_histogram()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gghist&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gghist-1.png&#34; alt=&#34;Histogram lifeExp &#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gghist-1.png&#34; alt=&#34;Histogram lifeExp &#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 18: Histogram lifeExp
 &lt;/p&gt;
@@ -1358,7 +1358,7 @@ Figure 18: Histogram lifeExp
                  position=&amp;quot;identity&amp;quot;,
                  color=&amp;quot;black&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gghist2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gghist2-1.png&#34; alt=&#34;Histogram lifeExp berdasarkan benua&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gghist2-1.png&#34; alt=&#34;Histogram lifeExp berdasarkan benua&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 19: Histogram lifeExp berdasarkan benua
 &lt;/p&gt;
@@ -1368,7 +1368,7 @@ Figure 19: Histogram lifeExp berdasarkan benua
   ggplot(aes(lifeExp))+
   geom_density()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggdens&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggdens-1.png&#34; alt=&#34;Density plot lifeExp &#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggdens-1.png&#34; alt=&#34;Density plot lifeExp &#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 20: Density plot lifeExp
 &lt;/p&gt;
@@ -1381,7 +1381,7 @@ Figure 20: Density plot lifeExp
                  position=&amp;quot;identity&amp;quot;,
                  color=&amp;quot;black&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggdens2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggdens2-1.png&#34; alt=&#34;Density plot lifeExp berdasarkan benua&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggdens2-1.png&#34; alt=&#34;Density plot lifeExp berdasarkan benua&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 21: Density plot lifeExp berdasarkan benua
 &lt;/p&gt;
@@ -1394,7 +1394,7 @@ Figure 21: Density plot lifeExp berdasarkan benua
                  color=&amp;quot;black&amp;quot;, fill=&amp;quot;white&amp;quot;)+
   geom_density(fill=&amp;quot;red&amp;quot;, alpha=0.3)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggdenshist&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggdenshist-1.png&#34; alt=&#34;histogram dan density plot lifeExp &#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggdenshist-1.png&#34; alt=&#34;histogram dan density plot lifeExp &#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 22: histogram dan density plot lifeExp
 &lt;/p&gt;
@@ -1409,7 +1409,7 @@ Figure 22: histogram dan density plot lifeExp
   # garis referensi
   stat_qq_line()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggqq&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggqq-1.png&#34; alt=&#34;QQ plot variabel lifeExp&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggqq-1.png&#34; alt=&#34;QQ plot variabel lifeExp&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 23: QQ plot variabel lifeExp
 &lt;/p&gt;
@@ -1428,7 +1428,7 @@ Figure 23: QQ plot variabel lifeExp
                size=0.1)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: size&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dotplot&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/dotplot-1.png&#34; alt=&#34;Dot plot variabel lifeExp masing-masing benua (1952-2007)&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/dotplot-1.png&#34; alt=&#34;Dot plot variabel lifeExp masing-masing benua (1952-2007)&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 24: Dot plot variabel lifeExp masing-masing benua (1952-2007)
 &lt;/p&gt;
@@ -1445,7 +1445,7 @@ Figure 24: Dot plot variabel lifeExp masing-masing benua (1952-2007)
                stackdir=&amp;quot;center&amp;quot;,
                position=position_dodge(0.8))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dotplot2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/dotplot2-1.png&#34; alt=&#34;Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/dotplot2-1.png&#34; alt=&#34;Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 25: Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)
 &lt;/p&gt;
@@ -1457,7 +1457,7 @@ Figure 25: Dot plot variabel lifeExp masing-masing benua (1952-2007) (2)
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gapminder, aes(lifeExp))+
   stat_ecdf(geom=&amp;quot;line&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggecdf&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggecdf-1.png&#34; alt=&#34;ECDF plot variabel lifeExp&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggecdf-1.png&#34; alt=&#34;ECDF plot variabel lifeExp&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 26: ECDF plot variabel lifeExp
 &lt;/p&gt;
@@ -1487,7 +1487,7 @@ ggplot(gapminder, aes(continent, gdpPercap, fill=continent))+
   labs(title=&amp;quot;GDP Per Capita Tiap Benua&amp;quot;,
        x=&amp;quot;Benua&amp;quot;, y=&amp;quot;GDP Per Kapita&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggtitle&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtitle-1.png&#34; alt=&#34;Mengubah judul grafik dan keterangan axis&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtitle-1.png&#34; alt=&#34;Mengubah judul grafik dan keterangan axis&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 27: Mengubah judul grafik dan keterangan axis
 &lt;/p&gt;
@@ -1505,7 +1505,7 @@ ggplot(gapminder, aes(continent, gdpPercap,
        # mengubah keterangan legend
        fill=&amp;quot;Benua&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggtitle2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtitle2-1.png&#34; alt=&#34;Mengubah keterangan legend pada grafik&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtitle2-1.png&#34; alt=&#34;Mengubah keterangan legend pada grafik&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 28: Mengubah keterangan legend pada grafik
 &lt;/p&gt;
@@ -1547,7 +1547,7 @@ ggplot(gapminder, aes(continent, gdpPercap,
       legend.text = element_text(colour=&amp;quot;blue&amp;quot;, size=10, face=&amp;quot;bold&amp;quot;)
       )&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggtitle3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtitle3-1.png&#34; alt=&#34;Kustomisasi judul grafik dan keterangan axis&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtitle3-1.png&#34; alt=&#34;Kustomisasi judul grafik dan keterangan axis&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 29: Kustomisasi judul grafik dan keterangan axis
 &lt;/p&gt;
@@ -1570,7 +1570,7 @@ ggplot(gapminder, aes(continent, gdpPercap,
        fill=&amp;quot;Benua&amp;quot;)+
   theme(legend.position=&amp;quot;top&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglegend&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend-1.png&#34; alt=&#34;Kustomisasi posisi legend berdasarkan karakter&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend-1.png&#34; alt=&#34;Kustomisasi posisi legend berdasarkan karakter&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 30: Kustomisasi posisi legend berdasarkan karakter
 &lt;/p&gt;
@@ -1588,7 +1588,7 @@ ggplot(gapminder, aes(continent, gdpPercap,
        fill=&amp;quot;Benua&amp;quot;)+
   theme(legend.position=c(0.9,0.75))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglegend2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend2-1.png&#34; alt=&#34;Kustomisasi posisi legend berdasarkan vektor numerik&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend2-1.png&#34; alt=&#34;Kustomisasi posisi legend berdasarkan vektor numerik&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 31: Kustomisasi posisi legend berdasarkan vektor numerik
 &lt;/p&gt;
@@ -1616,7 +1616,7 @@ ggplot(gapminder, aes(continent, gdpPercap,
         # mengubah orientasi legend
         legend.box= &amp;quot;horizontal&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglegend3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend3-1.png&#34; alt=&#34;Kustomisasi tampilan legend&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend3-1.png&#34; alt=&#34;Kustomisasi tampilan legend&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 32: Kustomisasi tampilan legend
 &lt;/p&gt;
@@ -1637,7 +1637,7 @@ ggplot(gapminder, aes(continent, gdpPercap,
        fill=&amp;quot;Benua&amp;quot;)+
   theme(legend.position=&amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglegend4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend4-1.png&#34; alt=&#34;Menghilangkan seluruh legend&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend4-1.png&#34; alt=&#34;Menghilangkan seluruh legend&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 33: Menghilangkan seluruh legend
 &lt;/p&gt;
@@ -1664,7 +1664,7 @@ ggplot(gapminder, aes(continent, gdpPercap,
   # Menghilangkan legend Benua (outline)
   guides(color=FALSE)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglegend5&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend5-1.png&#34; alt=&#34;Menghilangkan sebagian legend legend&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglegend5-1.png&#34; alt=&#34;Menghilangkan sebagian legend legend&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 34: Menghilangkan sebagian legend legend
 &lt;/p&gt;
@@ -1678,7 +1678,7 @@ Figure 34: Menghilangkan sebagian legend legend
   # spesifikasi warna tunggal
   geom_boxplot(color=&amp;quot;darkred&amp;quot;,fill=&amp;quot;#A4A4A4&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggcolor&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor-1.png&#34; alt=&#34;Merubah warna grup berdasarkan satu warna&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor-1.png&#34; alt=&#34;Merubah warna grup berdasarkan satu warna&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 35: Merubah warna grup berdasarkan satu warna
 &lt;/p&gt;
@@ -1689,7 +1689,7 @@ Figure 35: Merubah warna grup berdasarkan satu warna
                       fill=continent))+
   geom_boxplot()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggcolor2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor2-1.png&#34; alt=&#34;Merubah warna grup secara otomatis&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor2-1.png&#34; alt=&#34;Merubah warna grup secara otomatis&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 36: Merubah warna grup secara otomatis
 &lt;/p&gt;
@@ -1702,7 +1702,7 @@ Figure 36: Merubah warna grup secara otomatis
   # merubah l dan c
   scale_color_hue(l=40, c=35)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggcolor3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor3-1.png&#34; alt=&#34;Merubah pencahayaan dan intensitas warna&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor3-1.png&#34; alt=&#34;Merubah pencahayaan dan intensitas warna&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 37: Merubah pencahayaan dan intensitas warna
 &lt;/p&gt;
@@ -1716,7 +1716,7 @@ Figure 37: Merubah pencahayaan dan intensitas warna
   scale_fill_manual(values=c(&amp;quot;#999999&amp;quot;, &amp;quot;#E69F00&amp;quot;, &amp;quot;#56B4E9&amp;quot;,
                              &amp;quot;#B47846&amp;quot;,&amp;quot;#B4464B&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggcolor4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor4-1.png&#34; alt=&#34;Merubah warna secara manual&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor4-1.png&#34; alt=&#34;Merubah warna secara manual&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 38: Merubah warna secara manual
 &lt;/p&gt;
@@ -1730,7 +1730,7 @@ library(RColorBrewer)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Pada sintak berikut penulis akan menampilkan seluruh palet warna pada pekt tersebut. Output yang dihasilkan disajikan pada Gambar &lt;a href=&#34;#fig:ggcolor5&#34;&gt;39&lt;/a&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;display.brewer.all()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggcolor5&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor5-1.png&#34; alt=&#34;Palet warna RColorBrewer&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor5-1.png&#34; alt=&#34;Palet warna RColorBrewer&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 39: Palet warna RColorBrewer
 &lt;/p&gt;
@@ -1749,7 +1749,7 @@ Figure 39: Palet warna RColorBrewer
   # merubah warna menggunakan palet
   scale_color_brewer(palette=&amp;quot;Dark2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggcolor6&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor6-1.png&#34; alt=&#34;Merubah warna menggunakan palet&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor6-1.png&#34; alt=&#34;Merubah warna menggunakan palet&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 40: Merubah warna menggunakan palet
 &lt;/p&gt;
@@ -1762,7 +1762,7 @@ Figure 40: Merubah warna menggunakan palet
   # merubah warna menggunakan palet
   scale_fill_grey()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggcolor7&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor7-1.png&#34; alt=&#34;Merubah warna menggunakan palet gray&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcolor7-1.png&#34; alt=&#34;Merubah warna menggunakan palet gray&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 41: Merubah warna menggunakan palet gray
 &lt;/p&gt;
@@ -1775,7 +1775,7 @@ Figure 41: Merubah warna menggunakan palet gray
   # spesifikasi jenis, ukuran dan warna titik
   geom_point(shape=4, size=2, color=&amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggpoint&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpoint-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna titik&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpoint-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna titik&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 42: Kustomisasi jenis, ukuran dan warna titik
 &lt;/p&gt;
@@ -1788,7 +1788,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp,
                       size=pop))+
   geom_point()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggpoint2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpoint2-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara otomatis&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpoint2-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara otomatis&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 43: Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara otomatis
 &lt;/p&gt;
@@ -1803,7 +1803,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp,
   scale_color_manual(values=c(&amp;quot;#999999&amp;quot;, &amp;quot;#E69F00&amp;quot;, &amp;quot;#56B4E9&amp;quot;,
                              &amp;quot;#B47846&amp;quot;,&amp;quot;#B4464B&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggpoint3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpoint3-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara manual&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggpoint3-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara manual&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 44: Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara manual
 &lt;/p&gt;
@@ -1822,7 +1822,7 @@ Figure 44: Kustomisasi jenis, ukuran dan warna titik untuk multiple group secara
               size=1)+
     geom_point(shape=1, color=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglty&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglty-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna garis&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglty-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna garis&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 45: Kustomisasi jenis, ukuran dan warna garis
 &lt;/p&gt;
@@ -1840,7 +1840,7 @@ gapminder%&amp;gt;%
     geom_line()+
     geom_point(shape=1, color=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglty2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglty2-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara otomatis&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglty2-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara otomatis&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 46: Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara otomatis
 &lt;/p&gt;
@@ -1859,7 +1859,7 @@ gapminder%&amp;gt;%
     scale_linetype_manual(values=c(&amp;quot;dotted&amp;quot;, &amp;quot;twodash&amp;quot;))+
     scale_color_manual(values=c(&amp;quot;red&amp;quot;,&amp;quot;blue&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglty3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglty3-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara manual&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglty3-1.png&#34; alt=&#34;Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara manual&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 47: Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara manual
 &lt;/p&gt;
@@ -1878,7 +1878,7 @@ Figure 47: Kustomisasi jenis, ukuran dan warna garis untuk multiple group secara
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gapminder, aes(gdpPercap, pop))+
   geom_point()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglabel&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel-1.png&#34; alt=&#34;Scatterplot variabel pop vs gdpPercap&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel-1.png&#34; alt=&#34;Scatterplot variabel pop vs gdpPercap&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 48: Scatterplot variabel pop vs gdpPercap
 &lt;/p&gt;
@@ -1894,7 +1894,7 @@ Figure 48: Scatterplot variabel pop vs gdpPercap
     # ukuran teks
     size = 3)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglabel2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel2-1.png&#34; alt=&#34;Scatterplot variabel pop vs gdpPercap dengan label&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel2-1.png&#34; alt=&#34;Scatterplot variabel pop vs gdpPercap dengan label&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 49: Scatterplot variabel pop vs gdpPercap dengan label
 &lt;/p&gt;
@@ -1914,7 +1914,7 @@ Figure 49: Scatterplot variabel pop vs gdpPercap dengan label
           y=2e+08, label=&amp;quot;outlier&amp;quot;,
           color=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglabel3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel3-1.png&#34; alt=&#34;Scatterplot variabel pop vs gdpPercap dengan label dan notasi&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel3-1.png&#34; alt=&#34;Scatterplot variabel pop vs gdpPercap dengan label dan notasi&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 50: Scatterplot variabel pop vs gdpPercap dengan label dan notasi
 &lt;/p&gt;
@@ -1934,7 +1934,7 @@ ggplot(gapminder, aes(gdpPercap, pop))+
   # membagi plot menjadi beberapa panel
   facet_wrap(~continent, scales=&amp;quot;free&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglabel4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel4-1.png&#34; alt=&#34;Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada tiap panel&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglabel4-1.png&#34; alt=&#34;Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada tiap panel&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 51: Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada tiap panel
 &lt;/p&gt;
@@ -1959,7 +1959,7 @@ Figure 51: Scatterplot variabel pop vs gdpPercap dengan label dan notasi pada ti
   geom_point()+
   theme_bw()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggtema&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtema-1.png&#34; alt=&#34;Scatterplot dengan tema black and white&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtema-1.png&#34; alt=&#34;Scatterplot dengan tema black and white&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 52: Scatterplot dengan tema black and white
 &lt;/p&gt;
@@ -1985,7 +1985,7 @@ library(ggthemes)&lt;/code&gt;&lt;/pre&gt;
   geom_point()+
   theme_wsj()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggtema2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtema2-1.png&#34; alt=&#34;Scatterplot dengan tema Wall Street Journal&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtema2-1.png&#34; alt=&#34;Scatterplot dengan tema Wall Street Journal&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 53: Scatterplot dengan tema Wall Street Journal
 &lt;/p&gt;
@@ -2014,7 +2014,7 @@ Figure 53: Scatterplot dengan tema Wall Street Journal
 ##             plot.title = element_text(hjust = 0, face = &amp;quot;bold&amp;quot;), 
 ##             plot.margin = unit(c(1, 1, 1, 1), &amp;quot;lines&amp;quot;), strip.background = element_rect())
 ## }
-## &amp;lt;bytecode: 0x000000001843de78&amp;gt;
+## &amp;lt;bytecode: 0x0000000019a56b20&amp;gt;
 ## &amp;lt;environment: namespace:ggthemes&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Berdasarkan output yang disajikan kita dapat merubah sejumlah argumen seperti base size, color, base_family, dll.&lt;/p&gt;
 &lt;/div&gt;
@@ -2051,7 +2051,7 @@ gapminder%&amp;gt;%
   xlim(0,55000)+
   ylim(0,90)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglimits&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits-1.png&#34; alt=&#34;Scatterplot dengan axis limits &#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits-1.png&#34; alt=&#34;Scatterplot dengan axis limits &#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 54: Scatterplot dengan axis limits
 &lt;/p&gt;
@@ -2089,7 +2089,7 @@ gapminder%&amp;gt;%
   scale_y_continuous(name=&amp;quot;Life Expectancy&amp;quot;,
                      limits=c(0,100))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglimits2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits2-1.png&#34; alt=&#34;Scatterplot dengan axis limits (2) &#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits2-1.png&#34; alt=&#34;Scatterplot dengan axis limits (2) &#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 55: Scatterplot dengan axis limits (2)
 &lt;/p&gt;
@@ -2115,7 +2115,7 @@ gapminder%&amp;gt;%
   # transformasi sumbu x
   scale_x_log10()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglimits3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits3-1.png&#34; alt=&#34;Scatterplot dengan transformasi axis &#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits3-1.png&#34; alt=&#34;Scatterplot dengan transformasi axis &#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 56: Scatterplot dengan transformasi axis
 &lt;/p&gt;
@@ -2138,7 +2138,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp))+
   # kustomisasi sumbu x
   scale_x_continuous(labels = dollar)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gglimits4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits4-1.png&#34; alt=&#34;Scatterplot dengan transformasi tick mark axis &#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gglimits4-1.png&#34; alt=&#34;Scatterplot dengan transformasi tick mark axis &#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 57: Scatterplot dengan transformasi tick mark axis
 &lt;/p&gt;
@@ -2178,7 +2178,7 @@ Figure 57: Scatterplot dengan transformasi tick mark axis
                                      size=10, 
                                      angle=30))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggtick&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick-1.png&#34; alt=&#34;Mengubah tampilan dari tick mark&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick-1.png&#34; alt=&#34;Mengubah tampilan dari tick mark&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 58: Mengubah tampilan dari tick mark
 &lt;/p&gt;
@@ -2194,7 +2194,7 @@ Figure 58: Mengubah tampilan dari tick mark
   axis.text.y=element_blank(),
   axis.ticks=element_blank())&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggtick2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick2-1.png&#34; alt=&#34;Menyembunyikan tampilan dari tick mark&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick2-1.png&#34; alt=&#34;Menyembunyikan tampilan dari tick mark&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 59: Menyembunyikan tampilan dari tick mark
 &lt;/p&gt;
@@ -2221,7 +2221,7 @@ Figure 59: Menyembunyikan tampilan dari tick mark
   theme(axis.line = element_line(colour = &amp;quot;darkblue&amp;quot;, 
                       size = 1, linetype = &amp;quot;solid&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggtick3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick3-1.png&#34; alt=&#34;Kustomisasi tampilan dari garis axis&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick3-1.png&#34; alt=&#34;Kustomisasi tampilan dari garis axis&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 60: Kustomisasi tampilan dari garis axis
 &lt;/p&gt;
@@ -2238,7 +2238,7 @@ Figure 60: Kustomisasi tampilan dari garis axis
     # nilai dari 0 sampai 100 tiap 10 tick
     breaks=seq(0,100,10))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggtick4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick4-1.png&#34; alt=&#34;Kustomisasi tick mark&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggtick4-1.png&#34; alt=&#34;Kustomisasi tick mark&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 61: Kustomisasi tick mark
 &lt;/p&gt;
@@ -2266,7 +2266,7 @@ geom_vline(xintercept, linetype, color, size)&lt;/code&gt;&lt;/pre&gt;
              color=&amp;quot;red&amp;quot;,
              size=1.5)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggvline&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggvline-1.png&#34; alt=&#34;Penerapan vline&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggvline-1.png&#34; alt=&#34;Penerapan vline&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 62: Penerapan vline
 &lt;/p&gt;
@@ -2282,7 +2282,7 @@ Figure 62: Penerapan vline
              color=&amp;quot;red&amp;quot;,
              size=1.5)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gghline&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gghline-1.png&#34; alt=&#34;Penerapan hline&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/gghline-1.png&#34; alt=&#34;Penerapan hline&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 63: Penerapan hline
 &lt;/p&gt;
@@ -2320,7 +2320,7 @@ coef&lt;/code&gt;&lt;/pre&gt;
              color=&amp;quot;red&amp;quot;,
              size=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggabline&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggabline-1.png&#34; alt=&#34;Penerapan abline&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggabline-1.png&#34; alt=&#34;Penerapan abline&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 64: Penerapan abline
 &lt;/p&gt;
@@ -2340,7 +2340,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp))+
                color=&amp;quot;red&amp;quot;,
                size=1)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggsegment&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggsegment-1.png&#34; alt=&#34;Penerapan garis segmen&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggsegment-1.png&#34; alt=&#34;Penerapan garis segmen&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 65: Penerapan garis segmen
 &lt;/p&gt;
@@ -2362,7 +2362,7 @@ Figure 65: Penerapan garis segmen
   # rotasi axis
   coord_flip()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggcoord&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcoord-1.png&#34; alt=&#34;Rotasi axis&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggcoord-1.png&#34; alt=&#34;Rotasi axis&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 66: Rotasi axis
 &lt;/p&gt;
@@ -2374,7 +2374,7 @@ Figure 66: Rotasi axis
   # pembalikan sumbu y
   scale_y_reverse()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggyreverse&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggyreverse-1.png&#34; alt=&#34;Pembalikan sumbu y&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggyreverse-1.png&#34; alt=&#34;Pembalikan sumbu y&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 67: Pembalikan sumbu y
 &lt;/p&gt;
@@ -2393,7 +2393,7 @@ Figure 67: Pembalikan sumbu y
   theme_gdocs()+
   facet_grid(.~continent)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggfacetgrid&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid-1.png&#34; alt=&#34;Facet horizontal satu variabel&#34; width=&#34;90%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid-1.png&#34; alt=&#34;Facet horizontal satu variabel&#34; width=&#34;90%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 68: Facet horizontal satu variabel
 &lt;/p&gt;
@@ -2403,7 +2403,7 @@ Figure 68: Facet horizontal satu variabel
   theme_gdocs()+
   facet_grid(continent~.)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggfacetgrid2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid2-1.png&#34; alt=&#34;Facet vertikal satu variabel&#34; width=&#34;80%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid2-1.png&#34; alt=&#34;Facet vertikal satu variabel&#34; width=&#34;80%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 69: Facet vertikal satu variabel
 &lt;/p&gt;
@@ -2419,7 +2419,7 @@ Figure 69: Facet vertikal satu variabel
   scale_fill_stata()+
   facet_grid(continent~factor(year))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggfacetgrid3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid3-1.png&#34; alt=&#34;Facet dua variabel&#34; width=&#34;80%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid3-1.png&#34; alt=&#34;Facet dua variabel&#34; width=&#34;80%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 70: Facet dua variabel
 &lt;/p&gt;
@@ -2442,7 +2442,7 @@ Figure 70: Facet dua variabel
   scale_fill_stata()+
   facet_grid(continent~factor(year), scales=&amp;quot;free_y&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ggfacetgrid4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid4-1.png&#34; alt=&#34;Facet dua variabel dengan skala bebas pada sumbu y&#34; width=&#34;80%&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot_files/figure-html/ggfacetgrid4-1.png&#34; alt=&#34;Facet dua variabel dengan skala bebas pada sumbu y&#34; width=&#34;80%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 71: Facet dua variabel dengan skala bebas pada sumbu y
 &lt;/p&gt;
@@ -2461,10 +2461,10 @@ Figure 71: Facet dua variabel dengan skala bebas pada sumbu y
     
     <item>
       <title>3. Manajemen Data R</title>
-      <link>/tutorial/03_manajemen-data-r/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/03_manajemen-data-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/03_manajemen-data-r/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/03_manajemen-data-r/</guid>
       <description>
 
 
@@ -2800,6 +2800,7 @@ library(tibble)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;membuat-tibble&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;3.3.1 Membuat Tibble&lt;/h3&gt;
 &lt;p&gt;Untuk dapat membuat tibble kita dapat melakukan konversi data frame yang sudah ada menjadi tibble menggunakan fungsi &lt;code&gt;as_tibble()&lt;/code&gt;. Berikut adalah contoh bagaimana membuat tibble mengunakan data &lt;code&gt;iris&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;tibble&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat data mtcars
 data(&amp;quot;iris&amp;quot;)
 
@@ -3015,8 +3016,9 @@ storms&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Setiap nilai berada pada sel tersendiri&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan &lt;em&gt;tidy&lt;/em&gt;. Ketiga syarat tersebut dapat divisualisasikan melalui Figure &lt;a href=&#34;#fig:tidy&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:tidy&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tidy.png&#34; alt=&#34;Visualisasi 3 rule tidy data&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tidy.png&#34; alt=&#34;Visualisasi 3 rule tidy data&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Visualisasi 3 rule tidy data
 &lt;/p&gt;
@@ -3345,7 +3347,7 @@ library(dplyr)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Operator “&amp;gt;” merupakan operator relasi (lihat chapter 2: operator relasi). Operator tersebut banyak digunakan untuk melakukan filter terhadap variabel/kolom yang mengandung nilai numerik.&lt;/p&gt;
 &lt;p&gt;Operator “==” merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Figure &lt;a href=&#34;#fig:filter&#34;&gt;2&lt;/a&gt; berikut:&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:filter&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/filter.png&#34; alt=&#34;Diagram operasi Boolean&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/filter.png&#34; alt=&#34;Diagram operasi Boolean&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Diagram operasi Boolean
 &lt;/p&gt;
@@ -3773,7 +3775,7 @@ mutate(flights_sml,
 ##     mpg&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:distvsave&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/03_manajemen-data-r_files/figure-html/distvsave-1.png&#34; alt=&#34;Jarak vs rata-rata delay&#34; width=&#34;480&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/03_manajemen-data-r_files/figure-html/distvsave-1.png&#34; alt=&#34;Jarak vs rata-rata delay&#34; width=&#34;480&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Jarak vs rata-rata delay
 &lt;/p&gt;
@@ -3796,10 +3798,10 @@ Figure 3: Jarak vs rata-rata delay
     
     <item>
       <title>1. Mengenal Bahasa R</title>
-      <link>/tutorial/01_mengenal-bahasa-r/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/01_mengenal-bahasa-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/01_mengenal-bahasa-r/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/01_mengenal-bahasa-r/</guid>
       <description>
 
 
@@ -3822,8 +3824,9 @@ text-align: justify}
 &lt;div id=&#34;sejarah-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;1.1 Sejarah R&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; Merupakan bahasa yang digunakan dalam komputasi &lt;strong&gt;statistik&lt;/strong&gt; yang pertama kali dikembangkan oleh &lt;strong&gt;Ross Ihaka&lt;/strong&gt; dan &lt;strong&gt;Robert Gentlement&lt;/strong&gt; di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum &lt;code&gt;R&lt;/code&gt; dikenal ada &lt;code&gt;S&lt;/code&gt; yang dikembangkan oleh &lt;strong&gt;John Chambers&lt;/strong&gt; dan rekan-rekan dari &lt;strong&gt;Bell Laboratories&lt;/strong&gt; yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah &lt;code&gt;R&lt;/code&gt; merupakan sistem komputasi yang bersifat gratis.Logo &lt;code&gt;R&lt;/code&gt; dapat dilihat pada Figure &lt;a href=&#34;#fig:Logo&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:Logo&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/r-icon.png&#34; alt=&#34;Logo R.&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/r-icon.png&#34; alt=&#34;Logo R.&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Logo R.
 &lt;/p&gt;
@@ -3887,13 +3890,13 @@ A == B&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 &lt;p&gt;Jendela aplikasi yang telah terpasang ditampilkan pada Figure &lt;a href=&#34;#fig:jendela-R&#34;&gt;2&lt;/a&gt; dan Figure &lt;a href=&#34;#fig:jendela-RStudio&#34;&gt;3&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:jendela-R&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/jendela_r.png&#34; alt=&#34;Jendela R.&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/jendela_r.png&#34; alt=&#34;Jendela R.&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Jendela R.
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:jendela-RStudio&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/jendela_rstudio.png&#34; alt=&#34;Jendela RStudio.&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/jendela_rstudio.png&#34; alt=&#34;Jendela RStudio.&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Jendela RStudio.
 &lt;/p&gt;
@@ -3920,7 +3923,7 @@ Figure 3: Jendela RStudio.
 &lt;p&gt;Untuk mengecek apakah proses perubahan telah terjadi, kita dapat mengeceknya dengan menjalankan perintah berikut untuk melihat lokasi &lt;em&gt;working directory&lt;/em&gt; kita yang baru.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;getwd()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:working&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/working.png&#34; alt=&#34;Mengubah working directory.&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/working.png&#34; alt=&#34;Mengubah working directory.&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 4: Mengubah working directory.
 &lt;/p&gt;
@@ -3937,7 +3940,7 @@ setwd(&amp;quot;/Documents/R&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Pada proses yang telah penulis jelaskan sebelumnya. Proses perubahan &lt;em&gt;working directory&lt;/em&gt; hanya berlaku pada saat pekerjaan tersebut dilakukan. Setelah pekerjaan selesai dan kita menjalankan kembali &lt;code&gt;R&lt;/code&gt; maka &lt;em&gt;working directory&lt;/em&gt; akan kembali secara default pada working directory lama.&lt;/p&gt;
 &lt;p&gt;Untuk membuat lokasi default &lt;em&gt;working directory&lt;/em&gt; pindah, kita dapat melakukannya dengan memilih pada menu: &lt;strong&gt;Tools &amp;gt; Global options &amp;gt; pada “General” klik pada “Browse” dan pilih lokasi working directory yang diinginkan&lt;/strong&gt;. Proses tersebut ditampilkan pada Figure &lt;a href=&#34;#fig:default&#34;&gt;5&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:default&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/default.png&#34; alt=&#34;Merubah working directory melalui Global options.&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/default.png&#34; alt=&#34;Merubah working directory melalui Global options.&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 5: Merubah working directory melalui Global options.
 &lt;/p&gt;
@@ -3960,7 +3963,7 @@ Figure 5: Merubah working directory melalui Global options.
 ?mean&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Perintah tersebut akan memunculkan hasil berupa dokumentasi yang ditampilkan pada Figure &lt;a href=&#34;#fig:meandoc&#34;&gt;6&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:meandoc&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/meandoc.png&#34; alt=&#34;Jendela help dokumentasi fungsi mean().&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/meandoc.png&#34; alt=&#34;Jendela help dokumentasi fungsi mean().&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 6: Jendela help dokumentasi fungsi mean().
 &lt;/p&gt;
@@ -4013,7 +4016,7 @@ mean(x)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;help.start()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Output yang dihasilkan berupa link pada sejumlah dokumen yang dapat kita klik. Tampilan halaman yang dihasilkan disajikan pada Figure &lt;a href=&#34;#fig:generalhelp&#34;&gt;7&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:generalhelp&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/generalhelp.png&#34; alt=&#34;Jendela general help dokumentasi fungsi mean().&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/generalhelp.png&#34; alt=&#34;Jendela general help dokumentasi fungsi mean().&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 7: Jendela general help dokumentasi fungsi mean().
 &lt;/p&gt;
@@ -4035,7 +4038,7 @@ Figure 7: Jendela general help dokumentasi fungsi mean().
 ??mean&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;*Output yang dihasilkan akan tampak seperti pada Figure &lt;a href=&#34;#fig:helpsearch&#34;&gt;8&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:helpsearch&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/helpsearch.png&#34; alt=&#34;Jendela help search dokumentasi fungsi mean().&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/helpsearch.png&#34; alt=&#34;Jendela help search dokumentasi fungsi mean().&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 8: Jendela help search dokumentasi fungsi mean().
 &lt;/p&gt;
@@ -4055,10 +4058,10 @@ Figure 8: Jendela help search dokumentasi fungsi mean().
     
     <item>
       <title>2. Sintaks Bahasa R</title>
-      <link>/tutorial/02_sintaks-bahasa-r/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/02_sintaks-bahasa-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/02_sintaks-bahasa-r/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/02_sintaks-bahasa-r/</guid>
       <description>
 
 
@@ -5149,8 +5152,9 @@ keluarga&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; merupakan kode program yang berulang-ulang. &lt;em&gt;Loop&lt;/em&gt; berguna saat kita ingin melakukan sebuah perintah yang perlu dijalankan berulang-ulang seperti melakukan perhitungan maupaun melakukan visualisasi terhadap banyak variabel secara serentak. Hal ini tentu saja membantu kita karena kita tidak perlu menulis sejumlah sintaks yang berulang-ulang. Kita hanya perlu mengatur &lt;em&gt;statement&lt;/em&gt; berdasarkan hasil yang kita harapkan.&lt;/p&gt;
 &lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; bentuk &lt;em&gt;loop&lt;/em&gt; dapat bermacam-macam (“&lt;em&gt;for loop&lt;/em&gt;”,“&lt;em&gt;while loop&lt;/em&gt;”, dll). &lt;code&gt;R&lt;/code&gt; menyederhanakan bentuk &lt;em&gt;loop&lt;/em&gt; ini dengan menyediakan sejumlah fungsi seperti &lt;code&gt;apply()&lt;/code&gt;,&lt;code&gt;tapply()&lt;/code&gt;, dll. Sehingga &lt;code&gt;loop&lt;/code&gt; jarang sekali muncul dalam kode &lt;code&gt;R&lt;/code&gt;. Sehingga &lt;code&gt;R&lt;/code&gt; sering disebut sebagai &lt;em&gt;loopless loop&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Meski &lt;em&gt;loop&lt;/em&gt; jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat &lt;em&gt;loop&lt;/em&gt; yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure &lt;a href=&#34;#fig:loop&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:loop&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/skema_loop.png&#34; alt=&#34;Diagram umum loop (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/skema_loop.png&#34; alt=&#34;Diagram umum loop (sumber: Primartha, 2018).&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Diagram umum loop (sumber: Primartha, 2018).
 &lt;/p&gt;
@@ -5303,7 +5307,7 @@ repeat{
 &lt;h3&gt;2.13.1 if statement&lt;/h3&gt;
 &lt;p&gt;Pola &lt;em&gt;if statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:ifstatement&#34;&gt;2&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ifstatement&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/ifstatement.png&#34; alt=&#34;Diagram if statement (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/ifstatement.png&#34; alt=&#34;Diagram if statement (sumber: Primartha, 2018).&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Diagram if statement (sumber: Primartha, 2018).
 &lt;/p&gt;
@@ -5319,7 +5323,7 @@ if(is.vector(x)){
 &lt;h3&gt;2.13.2 if else statement&lt;/h3&gt;
 &lt;p&gt;Pola dari &lt;em&gt;if else statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:ifelse&#34;&gt;3&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ifelse&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/ifelse.png&#34; alt=&#34;Diagram if else statement (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/ifelse.png&#34; alt=&#34;Diagram if else statement (sumber: Primartha, 2018).&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Diagram if else statement (sumber: Primartha, 2018).
 &lt;/p&gt;
@@ -5339,7 +5343,7 @@ if(&amp;quot;Rina&amp;quot; %in% x){
 &lt;h3&gt;2.13.3 switch statement&lt;/h3&gt;
 &lt;p&gt;Pola dari &lt;em&gt;switch statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:switch&#34;&gt;4&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:switch&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/switch.png&#34; alt=&#34;Diagram switch statement (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/switch.png&#34; alt=&#34;Diagram switch statement (sumber: Primartha, 2018).&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 4: Diagram switch statement (sumber: Primartha, 2018).
 &lt;/p&gt;
@@ -5415,10 +5419,10 @@ kali(4,3)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>4. Visualisasi Data Menggunakan Fungsi Dasar R</title>
-      <link>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</guid>
       <description>
 
 
@@ -5472,13 +5476,14 @@ for (i in type){
        main= paste(&amp;quot;type=&amp;quot;, i))
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:plot&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-1.png&#34; alt=&#34;Plot berbagai jenis setting type&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/plot-1.png&#34; alt=&#34;Plot berbagai jenis setting type&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Plot berbagai jenis setting type
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Pada contoh selanjutnya akan dilakukan plot terhadap dataset &lt;code&gt;trees&lt;/code&gt;. Untuk memuatnya jalankan sintaks berikut:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;tibble&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat dataset
 trees &amp;lt;- as_tibble(trees)
 
@@ -5503,7 +5508,7 @@ trees&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau 
 with(trees, plot(Height, Volume))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:scatter&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/scatter-1.png&#34; alt=&#34;Scatterplot Height vs Volume&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/scatter-1.png&#34; alt=&#34;Scatterplot Height vs Volume&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Scatterplot Height vs Volume
 &lt;/p&gt;
@@ -5516,7 +5521,7 @@ plot(y~x)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Fungsi &lt;code&gt;plot()&lt;/code&gt; juga dapat digunakan untuk membentuk matriks scatterplot. Untuk membuatnya kita hanya perlu memasukkan seluruh dataset kedalam fungsi &lt;code&gt;plot()&lt;/code&gt;. Berikut adalah sintaks dan output yang dihasilkan berupa Figure &lt;a href=&#34;#fig:scatter2&#34;&gt;3&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(trees)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:scatter2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/scatter2-1.png&#34; alt=&#34;Matriks scatterplot dataset trees&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/scatter2-1.png&#34; alt=&#34;Matriks scatterplot dataset trees&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Matriks scatterplot dataset trees
 &lt;/p&gt;
@@ -5528,7 +5533,7 @@ par(mfrow=c(2,2))
 # plot
 plot(lm(Volume~Height, data=trees))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:diag&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-1.png&#34; alt=&#34;Plot diagnostik regresi linier&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/diag-1.png&#34; alt=&#34;Plot diagnostik regresi linier&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 4: Plot diagnostik regresi linier
 &lt;/p&gt;
@@ -5569,7 +5574,7 @@ iris&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Untuk membuat matriks scatterplot kita hanya perlu memasukkan objek &lt;code&gt;iris&lt;/code&gt; kedalam fungsi &lt;code&gt;pairs()&lt;/code&gt;. Berikut adalah sintaks yang digunakan dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:matscat&#34;&gt;5&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pairs(iris)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:matscat&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat-1.png&#34; alt=&#34;Matriks scatterplot iris&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat-1.png&#34; alt=&#34;Matriks scatterplot iris&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 5: Matriks scatterplot iris
 &lt;/p&gt;
@@ -5577,7 +5582,7 @@ Figure 5: Matriks scatterplot iris
 &lt;p&gt;Kita dapat melakukan drop terhadap panel bawah grafik tersebut. Untuk melakukannya kita perlu memasukkan argumen &lt;code&gt;lower.panel=NULL&lt;/code&gt;. Output yang dihasilkan akan tampak seperti pada Figure &lt;a href=&#34;#fig:matscat2&#34;&gt;6&lt;/a&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pairs(iris, lower.panel=NULL)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:matscat2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat2-1.png&#34; alt=&#34;Matriks scatterplot iris tanpa panel bawah&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat2-1.png&#34; alt=&#34;Matriks scatterplot iris tanpa panel bawah&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 6: Matriks scatterplot iris tanpa panel bawah
 &lt;/p&gt;
@@ -5611,7 +5616,7 @@ pairs(iris2, lower.panel=NULL,
       # spesifikasi warna
       col= my_col[iris$Species])&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:matscat3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat3-1.png&#34; alt=&#34;Matriks scatterplot iris tanpa panel bawah&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat3-1.png&#34; alt=&#34;Matriks scatterplot iris tanpa panel bawah&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 7: Matriks scatterplot iris tanpa panel bawah
 &lt;/p&gt;
@@ -5643,7 +5648,7 @@ pairs(iris2,
       lower.panel= panel.cor,
       upper.panel= upper.panel)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:matscat4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat4-1.png&#34; alt=&#34;Matriks scatterplot iris dengan koefisien korelasi&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat4-1.png&#34; alt=&#34;Matriks scatterplot iris dengan koefisien korelasi&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 8: Matriks scatterplot iris dengan koefisien korelasi
 &lt;/p&gt;
@@ -5663,7 +5668,7 @@ upper.panel&amp;lt;-function(x, y){
 pairs(iris2, lower.panel = NULL, 
       upper.panel = upper.panel)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:matscat5&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat5-1.png&#34; alt=&#34;Matriks scatterplot iris dengan koefisien korelasi di panel atas&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/matscat5-1.png&#34; alt=&#34;Matriks scatterplot iris dengan koefisien korelasi di panel atas&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 9: Matriks scatterplot iris dengan koefisien korelasi di panel atas
 &lt;/p&gt;
@@ -5674,7 +5679,7 @@ Figure 9: Matriks scatterplot iris dengan koefisien korelasi di panel atas
 &lt;p&gt;Box plot pada &lt;code&gt;R&lt;/code&gt; dapat dibuat menggunakan fungsi &lt;code&gt;boxplot()&lt;/code&gt;. Berikut adalah sintaks untuk membuat boxplot variabel &lt;code&gt;Sepal.Lenght&lt;/code&gt; pada dataset &lt;code&gt;iris&lt;/code&gt; dan output yang dihasilkan pada Figure &lt;a href=&#34;#fig:boxplot&#34;&gt;10&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(iris$Sepal.Length)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boxplot&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot-1.png&#34; alt=&#34;Boxplot variabel Sepal.Length&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot-1.png&#34; alt=&#34;Boxplot variabel Sepal.Length&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 10: Boxplot variabel Sepal.Length
 &lt;/p&gt;
@@ -5682,7 +5687,7 @@ Figure 10: Boxplot variabel Sepal.Length
 &lt;p&gt;Boxplot juga dapat dibuat berdasarkan variabel factor. Hal ini berguna untuk melihat perbedaan ditribusi data pada masing-masing grup. Pada sintaks berikut dibuat boxplot berdasarkan variabel &lt;code&gt;Species&lt;/code&gt;. Output yang dihasilkan disajikan pada Figure &lt;a href=&#34;#fig:boxplot2&#34;&gt;11&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(iris$Sepal.Length~iris$Species)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boxplot2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot2-1.png&#34; alt=&#34;Boxplot berdasarkan variabel species&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot2-1.png&#34; alt=&#34;Boxplot berdasarkan variabel species&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 11: Boxplot berdasarkan variabel species
 &lt;/p&gt;
@@ -5694,7 +5699,7 @@ Figure 11: Boxplot berdasarkan variabel species
         # ubah warna box berdasarkan grup
         col= c(&amp;quot;#999999&amp;quot;, &amp;quot;#E69F00&amp;quot;, &amp;quot;#56B4E9&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boxplot3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot3-1.png&#34; alt=&#34;Boxplot dengan warna berdasarkan spesies&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot3-1.png&#34; alt=&#34;Boxplot dengan warna berdasarkan spesies&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 12: Boxplot dengan warna berdasarkan spesies
 &lt;/p&gt;
@@ -5742,7 +5747,7 @@ ToothGrowth&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(len ~ supp*dose, data = ToothGrowth,
         col = c(&amp;quot;white&amp;quot;, &amp;quot;steelblue&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boxplot4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot4-1.png&#34; alt=&#34;Boxplot multiple group&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/boxplot4-1.png&#34; alt=&#34;Boxplot multiple group&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 13: Boxplot multiple group
 &lt;/p&gt;
@@ -5763,7 +5768,7 @@ Figure 13: Boxplot multiple group
 barplot(VADeaths[, &amp;quot;Rural Male&amp;quot;], main=&amp;quot;a&amp;quot;)
 barplot(VADeaths[, &amp;quot;Rural Male&amp;quot;], main=&amp;quot;b&amp;quot;, horiz=TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:barplot&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot-1.png&#34; alt=&#34;a. bar plot vertikal, b. bar plot horizontal&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot-1.png&#34; alt=&#34;a. bar plot vertikal, b. bar plot horizontal&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 14: a. bar plot vertikal, b. bar plot horizontal
 &lt;/p&gt;
@@ -5780,7 +5785,7 @@ Figure 14: a. bar plot vertikal, b. bar plot horizontal
         # ubah orientasi menajadi horizontal
         horiz=TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:barplot2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot2-1.png&#34; alt=&#34;Kustomisasi bar plot&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot2-1.png&#34; alt=&#34;Kustomisasi bar plot&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 15: Kustomisasi bar plot
 &lt;/p&gt;
@@ -5792,7 +5797,7 @@ barplot(VADeaths,
                  &amp;quot;lavender&amp;quot;, &amp;quot;cornsilk&amp;quot;),
         legend = rownames(VADeaths))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:barplot3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot3-1.png&#34; alt=&#34;Stacked bar plot&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot3-1.png&#34; alt=&#34;Stacked bar plot&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 16: Stacked bar plot
 &lt;/p&gt;
@@ -5803,7 +5808,7 @@ barplot(VADeaths,
                  &amp;quot;lavender&amp;quot;, &amp;quot;cornsilk&amp;quot;),
         legend = rownames(VADeaths), beside = TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:barplot4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot4-1.png&#34; alt=&#34;Grouped bar plot&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/barplot4-1.png&#34; alt=&#34;Grouped bar plot&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 17: Grouped bar plot
 &lt;/p&gt;
@@ -5831,7 +5836,7 @@ lines(z~x, type=&amp;quot;o&amp;quot;,
 legend(&amp;quot;topleft&amp;quot;, legend=c(&amp;quot;Line 1&amp;quot;, &amp;quot;Line 2&amp;quot;),
        col=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;), lty = 1:2, cex=0.8)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:line&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/line-1.png&#34; alt=&#34;Line plot&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/line-1.png&#34; alt=&#34;Line plot&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 18: Line plot
 &lt;/p&gt;
@@ -5848,7 +5853,7 @@ pie(
   init.angle = -50, border = NA
 )&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/pie-1.png&#34; alt=&#34;Pie chart&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/pie-1.png&#34; alt=&#34;Pie chart&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 19: Pie chart
 &lt;/p&gt;
@@ -5869,7 +5874,7 @@ Figure 19: Pie chart
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(trees$Height)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Output yang dihasilkan disajikan pada Figure &lt;a href=&#34;#fig:hist&#34;&gt;20&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:hist&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/hist-1.png&#34; alt=&#34;Histogram&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/hist-1.png&#34; alt=&#34;Histogram&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 20: Histogram
 &lt;/p&gt;
@@ -5881,7 +5886,7 @@ dens &amp;lt;- density(trees$Height)
 # plot densitas dengan outline merah
 plot(dens,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dens&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dens-1.png&#34; alt=&#34;Density plot&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dens-1.png&#34; alt=&#34;Density plot&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 21: Density plot
 &lt;/p&gt;
@@ -5896,7 +5901,7 @@ hist(trees$Height, freq=FALSE, col=&amp;quot;steelblue&amp;quot;)
 # tambahkan density plot
 polygon(dens, border=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:denshist&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/denshist-1.png&#34; alt=&#34;Density plot dan histogram&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/denshist-1.png&#34; alt=&#34;Density plot dan histogram&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 22: Density plot dan histogram
 &lt;/p&gt;
@@ -5909,7 +5914,7 @@ Figure 22: Density plot dan histogram
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qqnorm(trees$Volume)
 qqline(trees$Volume, col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:qq&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/qq-1.png&#34; alt=&#34;QQ plot&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/qq-1.png&#34; alt=&#34;QQ plot&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 23: QQ plot
 &lt;/p&gt;
@@ -5946,7 +5951,7 @@ dotchart(mtcars$mpg, labels = row.names(mtcars),
          color = my_cols[grps],
          cex = 0.6,  pch = 19, xlab = &amp;quot;mpg&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dot&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dot-1.png&#34; alt=&#34;Dot chart&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/dot-1.png&#34; alt=&#34;Dot chart&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 24: Dot chart
 &lt;/p&gt;
@@ -5976,7 +5981,7 @@ barplot(c(2,5), main=&amp;quot;Main title&amp;quot;,
         ylab=&amp;quot;Y axis title&amp;quot;,
         sub=&amp;quot;Sub-title&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:title&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title-1.png&#34; alt=&#34;Menambahkan Judul&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title-1.png&#34; alt=&#34;Menambahkan Judul&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 25: Menambahkan Judul
 &lt;/p&gt;
@@ -6031,7 +6036,7 @@ barplot(c(2,5),
         cex.lab=1.7, 
         cex.sub=1.2)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:title2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title2-1.png&#34; alt=&#34;Menambahkan Judul (2)&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title2-1.png&#34; alt=&#34;Menambahkan Judul (2)&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 26: Menambahkan Judul (2)
 &lt;/p&gt;
@@ -6058,7 +6063,7 @@ title(main=&amp;quot;Main title&amp;quot;,
       cex.lab=1.7, 
       cex.sub=1.2)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:title3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title3-1.png&#34; alt=&#34;Menambahkan Judul (3)&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/title3-1.png&#34; alt=&#34;Menambahkan Judul (3)&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 27: Menambahkan Judul (3)
 &lt;/p&gt;
@@ -6094,7 +6099,7 @@ lines(x,z, type=&amp;quot;o&amp;quot;, col=&amp;quot;blue&amp;quot;, lty=2)
 legend(1, 95, legend=c(&amp;quot;Line 1&amp;quot;, &amp;quot;Line 2&amp;quot;),
        col=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;), lty=1:2, cex=0.8)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:legend&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend-1.png&#34; alt=&#34;Menambahkan legend&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend-1.png&#34; alt=&#34;Menambahkan legend&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 28: Menambahkan legend
 &lt;/p&gt;
@@ -6123,7 +6128,7 @@ legend(1, 95, legend=c(&amp;quot;Line 1&amp;quot;, &amp;quot;Line 2&amp;quot;),
        col=c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;), lty=1:2, cex=0.8,
        title=&amp;quot;Line types&amp;quot;, text.font=4, bg=&amp;#39;lightblue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:legend2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend2-1.png&#34; alt=&#34;Menambahkan legend (2)&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend2-1.png&#34; alt=&#34;Menambahkan legend (2)&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 29: Menambahkan legend (2)
 &lt;/p&gt;
@@ -6141,7 +6146,7 @@ legend(1, 95, legend=c(&amp;quot;Line 1&amp;quot;, &amp;quot;Line 2&amp;quot;),
        title=&amp;quot;Line types&amp;quot;, text.font=4, bg=&amp;#39;white&amp;#39;,
        box.lty=2, box.lwd=2, box.col=&amp;quot;steelblue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:legend3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend3-1.png&#34; alt=&#34;Menambahkan legend (3)&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend3-1.png&#34; alt=&#34;Menambahkan legend (3)&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 30: Menambahkan legend (3)
 &lt;/p&gt;
@@ -6189,7 +6194,7 @@ legend(&amp;quot;bottomright&amp;quot;,
        legend = &amp;quot;(x,y)&amp;quot;,
        title = &amp;quot;bottomright&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:legend4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend4-1.png&#34; alt=&#34;Kustomisasi posisi legend&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/legend4-1.png&#34; alt=&#34;Kustomisasi posisi legend&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 31: Kustomisasi posisi legend
 &lt;/p&gt;
@@ -6220,7 +6225,7 @@ plot(mtcars$wt, mtcars$mpg, main=&amp;quot;Milage vs. Car Weight&amp;quot;,
 text(d[,&amp;#39;wt&amp;#39;], d[,&amp;#39;mpg&amp;#39;],  row.names(d),
      cex=0.65, pos=3,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:text&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text-1.png&#34; alt=&#34;Menambahkan teks&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text-1.png&#34; alt=&#34;Menambahkan teks&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 32: Menambahkan teks
 &lt;/p&gt;
@@ -6231,7 +6236,7 @@ Figure 32: Menambahkan teks
 text(4, 9, expression(hat(beta) == (X^t * X)^{-1} * X^t * y))
 text(7, 4, expression(bar(x) == sum(frac(x[i], n), i==1, n)))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:text2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text2-1.png&#34; alt=&#34;Menambahkan teks (2)&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text2-1.png&#34; alt=&#34;Menambahkan teks (2)&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 33: Menambahkan teks (2)
 &lt;/p&gt;
@@ -6254,7 +6259,7 @@ Figure 33: Menambahkan teks (2)
      main=&amp;quot;mtext(...) examples\n~~~~~~~~~~~&amp;quot;)
 mtext(&amp;quot;Magic function&amp;quot;, side=3)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:text3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text3-1.png&#34; alt=&#34;Menambahkan teks (3)&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/text3-1.png&#34; alt=&#34;Menambahkan teks (3)&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 34: Menambahkan teks (3)
 &lt;/p&gt;
@@ -6278,7 +6283,7 @@ abline(h=mean(mtcars$mpg), col=&amp;quot;blue&amp;quot;, lwd=3, lty=3)
 # menambahkan garis regresi
 abline(lm(mpg~wt, data=mtcars), lwd=4, lty=4)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:abline&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/abline-1.png&#34; alt=&#34;Menambahkan garis&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/abline-1.png&#34; alt=&#34;Menambahkan garis&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 35: Menambahkan garis
 &lt;/p&gt;
@@ -6333,7 +6338,7 @@ Figure 35: Menambahkan garis
 # Print
 generateRPointShapes()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:symbol&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/symbol-1.png&#34; alt=&#34;Symbol plot&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/symbol-1.png&#34; alt=&#34;Symbol plot&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 36: Symbol plot
 &lt;/p&gt;
@@ -6361,7 +6366,7 @@ Figure 36: Symbol plot
 }
 generateRLineTypes()&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:lty&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/lty-1.png&#34; alt=&#34;Line type&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/lty-1.png&#34; alt=&#34;Line type&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 37: Line type
 &lt;/p&gt;
@@ -6403,7 +6408,7 @@ axis(3, col = &amp;quot;darkgreen&amp;quot;, lty = 2, lwd = 0.5)
 # kanan
 axis(4, col = &amp;quot;violet&amp;quot;, col.axis = &amp;quot;dark violet&amp;quot;, lwd = 2)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:axis&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/axis-1.png&#34; alt=&#34;Menambahkan axis&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/axis-1.png&#34; alt=&#34;Menambahkan axis&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 38: Menambahkan axis
 &lt;/p&gt;
@@ -6435,7 +6440,7 @@ plot(x, y, xlim=c(1,15), ylim=c(1,150))
 # plot dengan transformasi skala log
 plot(x, y, log=&amp;quot;y&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:axis2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/axis2-1.png&#34; alt=&#34;Mengubah rentang dan skala axis&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/axis2-1.png&#34; alt=&#34;Mengubah rentang dan skala axis&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 39: Mengubah rentang dan skala axis
 &lt;/p&gt;
@@ -6470,7 +6475,7 @@ plot(x,y,
      # sembunyikan sumbu x
      xaxt=&amp;quot;n&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:axis3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/axis3-1.png&#34; alt=&#34;Kustomisasi tick mark&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/axis3-1.png&#34; alt=&#34;Kustomisasi tick mark&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 40: Kustomisasi tick mark
 &lt;/p&gt;
@@ -6496,7 +6501,7 @@ Figure 40: Kustomisasi tick mark
 showCols(bg=&amp;quot;gray20&amp;quot;, cl=colors()[1:60], rot=30, cex=0.9)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Loading required package: grid&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:color&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/color-1.png&#34; alt=&#34;Nama warna&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r_files/figure-html/color-1.png&#34; alt=&#34;Nama warna&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 41: Nama warna
 &lt;/p&gt;
@@ -6515,14 +6520,15 @@ Figure 41: Nama warna
     
     <item>
       <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
-      <link>/post/mengenal-r/mengenal-lebih-jauh-r/</link>
+      <link>https://environmentalanalysist.netlify.com/post/mengenal-r/mengenal-lebih-jauh-r/</link>
       <pubDate>Sat, 02 Mar 2019 21:13:14 -0500</pubDate>
       
-      <guid>/post/mengenal-r/mengenal-lebih-jauh-r/</guid>
+      <guid>https://environmentalanalysist.netlify.com/post/mengenal-r/mengenal-lebih-jauh-r/</guid>
       <description>
 
 
-&lt;p&gt;&lt;img src=&#34;/Restaurant-Website-Analytics.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://environmentalanalysist.netlify.com/Restaurant-Website-Analytics.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena &lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang sangat powerfull.&lt;/p&gt;
 &lt;p&gt;Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun &lt;code&gt;R&lt;/code&gt; tidak didesain untuk melakukannya.&lt;/p&gt;
 &lt;p&gt;Penulis telah membuat tutorial langkah-langkah penggunaan &lt;code&gt;R&lt;/code&gt; yang dapat dibaca pada section &lt;code&gt;Tutorial&lt;/code&gt; yang akan diupdate setiap minggu. Adapun tema yang akan dibahas mengenai &lt;code&gt;R&lt;/code&gt; antara lain penerapannya dalam bidang: 1. Statistik 2. Visualisasi Data 3. Model Matematik 4. Model Sistem Dinamik 5. Optimasi (mis: linear Programming)&lt;/p&gt;
@@ -6531,10 +6537,10 @@ Figure 41: Nama warna
     
     <item>
       <title>Display Jupyter Notebooks with Academic</title>
-      <link>/post/jupyter/</link>
+      <link>https://environmentalanalysist.netlify.com/post/jupyter/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/jupyter/</guid>
+      <guid>https://environmentalanalysist.netlify.com/post/jupyter/</guid>
       <description>
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from IPython.core.display import Image
@@ -6593,21 +6599,11 @@ rm Untitled.md
     </item>
     
     <item>
-      <title>Privacy Policy</title>
-      <link>/privacy/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0700</pubDate>
-      
-      <guid>/privacy/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Example Talk</title>
-      <link>/talk/example/</link>
+      <link>https://environmentalanalysist.netlify.com/talk/example/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0700</pubDate>
       
-      <guid>/talk/example/</guid>
+      <guid>https://environmentalanalysist.netlify.com/talk/example/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     &lt;p&gt;Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.&lt;/p&gt;
@@ -6630,10 +6626,10 @@ rm Untitled.md
     
     <item>
       <title>Environmental Learning Website Project</title>
-      <link>/project/environmental-learning-website/</link>
+      <link>https://environmentalanalysist.netlify.com/project/environmental-learning-website/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0700</pubDate>
       
-      <guid>/project/environmental-learning-website/</guid>
+      <guid>https://environmentalanalysist.netlify.com/project/environmental-learning-website/</guid>
       <description>&lt;p&gt;This project is a website in the form of a collection of topics related to data analysis and modeling in the environmental field. This website is structured in such a way as to contain a number of material related to statistics, advanced mathematics, environmental engineering modeling, and operations research in the field of environmental engineering.&lt;/p&gt;
 
 &lt;p&gt;The website is updated every week where each author update will share on the author&amp;rsquo;s social media account. Readers can continue to follow the writing on the website by visiting the site environmental &lt;code&gt;learning.wordpress.com&lt;/code&gt;.&lt;/p&gt;
@@ -6642,19 +6638,19 @@ rm Untitled.md
     
     <item>
       <title>External Project</title>
-      <link>/project/external-project/</link>
+      <link>https://environmentalanalysist.netlify.com/project/external-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0700</pubDate>
       
-      <guid>/project/external-project/</guid>
+      <guid>https://environmentalanalysist.netlify.com/project/external-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Academic: the website designer for Hugo</title>
-      <link>/post/getting-started/</link>
+      <link>https://environmentalanalysist.netlify.com/post/getting-started/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0700</pubDate>
       
-      <guid>/post/getting-started/</guid>
+      <guid>https://environmentalanalysist.netlify.com/post/getting-started/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;Academic&lt;/strong&gt; makes it easy to create a beautiful website for free using Markdown. Customize anything on your site with widgets, themes, and language packs.&lt;/p&gt;
@@ -6727,8 +6723,8 @@ rm Untitled.md
       
     
     
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-1950s_huaf5482f8cea0c5a703a328640e3b7509_21614_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
+  &lt;img src=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-1950s_huaf5482f8cea0c5a703a328640e3b7509_21614_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -6754,8 +6750,8 @@ rm Untitled.md
       
     
     
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-apogee_hu4b45d99db97150df01464c393bfd17d4_24119_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
+  &lt;img src=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-apogee_hu4b45d99db97150df01464c393bfd17d4_24119_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -6781,8 +6777,8 @@ rm Untitled.md
       
     
     
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-coffee-playfair_hu446a8f670cc5622adcc77b97ba95f6c5_22462_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
+  &lt;img src=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-coffee-playfair_hu446a8f670cc5622adcc77b97ba95f6c5_22462_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -6808,8 +6804,8 @@ rm Untitled.md
       
     
     
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-cupcake.png&#34; data-caption=&#34;Cupcake&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-cupcake_hueba8cfa8cfbc7543924fcbf387a99e92_23986_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-cupcake.png&#34; data-caption=&#34;Cupcake&#34;&gt;
+  &lt;img src=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-cupcake_hueba8cfa8cfbc7543924fcbf387a99e92_23986_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -6835,8 +6831,8 @@ rm Untitled.md
       
     
     
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-dark_hu1e8601ecc47f58eada7743fdcd709d3d_21456_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
+  &lt;img src=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-dark_hu1e8601ecc47f58eada7743fdcd709d3d_21456_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -6862,8 +6858,8 @@ rm Untitled.md
       
     
     
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-default_huba6228b7bdf30e2f03f12ea91b2cba0d_21751_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
+  &lt;img src=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-default_huba6228b7bdf30e2f03f12ea91b2cba0d_21751_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -6889,8 +6885,8 @@ rm Untitled.md
       
     
     
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-forest_hu4f093a1c683134431456584193ea41ee_21797_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
+  &lt;img src=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-forest_hu4f093a1c683134431456584193ea41ee_21797_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -6916,8 +6912,8 @@ rm Untitled.md
       
     
     
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-ocean_hu14831ccafc2219f30a7a096fa7617e01_21760_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
+  &lt;img src=&#34;https://environmentalanalysist.netlify.com/post/getting-started/gallery/theme-ocean_hu14831ccafc2219f30a7a096fa7617e01_21760_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
 
@@ -7033,10 +7029,10 @@ git submodule update --init --recursive
     
     <item>
       <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
+      <link>https://environmentalanalysist.netlify.com/post/2015-07-23-r-rmarkdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <guid>https://environmentalanalysist.netlify.com/post/2015-07-23-r-rmarkdown/</guid>
       <description>
 
 
@@ -7073,7 +7069,7 @@ pie(
   init.angle = -50, border = NA
 )&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://environmentalanalysist.netlify.com/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: A fancy pie chart.
 &lt;/p&gt;
@@ -7084,10 +7080,10 @@ Figure 1: A fancy pie chart.
     
     <item>
       <title></title>
-      <link>/cv/</link>
+      <link>https://environmentalanalysist.netlify.com/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/cv/</guid>
+      <guid>https://environmentalanalysist.netlify.com/cv/</guid>
       <description>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -7230,6 +7226,15 @@ pageTracker._trackPageview();
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</description>
+    </item>
+    
+    <item>
+      <title>Perancangan Instalasi Pengolahan Air Limbah (IPAL) Industri Kertas Halus</title>
+      <link>https://environmentalanalysist.netlify.com/publication/perancangan-ipal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://environmentalanalysist.netlify.com/publication/perancangan-ipal/</guid>
+      <description></description>
     </item>
     
   </channel>

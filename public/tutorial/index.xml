@@ -2,70 +2,70 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Overview on Environmental Data Modeling</title>
-    <link>/tutorial/</link>
+    <link>https://environmentalanalysist.netlify.com/tutorial/</link>
     <description>Recent content in Overview on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Mar 2019 00:00:00 +0700</lastBuildDate>
     
-	<atom:link href="/tutorial/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://environmentalanalysist.netlify.com/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>6. Ringkasan Data</title>
-      <link>/tutorial/06_ringkasan-numerik/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/06_ringkasan-numerik/</link>
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/06_ringkasan-numerik/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/06_ringkasan-numerik/</guid>
       <description>body{text-align: justify}Daftar Isi
 Ukuran Pemusatan DataUkuran Sebaran DataRingkasan Data Menggunakan Fungsi summary dan stat.descUkuran Kemencengan DataOutlierTransformasi DataPada bidang lingkungan kita sering kali menemui sebuah pernyataan “konsentrasi rata-rata TSS pada sungai tersebut adalah 30 mg/l” atau “kedalaman penampang saluran tersebut berkisar antara 1 sampai 2 meter”. Kedua pernyataan tersebut merupakan sebuah penyapaian informasi terkait karakteristik data yang ada.</description>
     </item>
     
     <item>
       <title>5. Visualisasi Data Menggunakan GGPLOT</title>
-      <link>/tutorial/05_visualisasi-data-menggunakan-ggplot/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot/</link>
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/05_visualisasi-data-menggunakan-ggplot/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot/</guid>
       <description>body{text-align: justify}Daftar Isi
 ScatterplotBox Plot dan Violin PlotBar PlotLine PlotPie ChartHistogram dan Density PlotQQ PlotDot ChartECDF PlotParameter GrafikLibrary ggplot2 merupakan implementasi dari The Grammar of Graphics yang ditulis oleh Leland Wilkinson. ggplot2 merupakan library yang dikembangkan oleh Hadley Wicham ketika ia sedang menempuh kuliah di Lowa State Universuty dan masih dikembangkan hingga sekarang.</description>
     </item>
     
     <item>
       <title>3. Manajemen Data R</title>
-      <link>/tutorial/03_manajemen-data-r/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/03_manajemen-data-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/03_manajemen-data-r/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/03_manajemen-data-r/</guid>
       <description>body{text-align: justify}Daftar Isi:Import FileEksport FileTibble Data FormatMerapikan DataTransformasi Data3.1 Import FilePada sesi bagian ini penulis akan menjelaskan cara mengimport file pada R. File yang diimport ke dalam R terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
 Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library readr serta kelebihan dari metode import data yang digunakan.</description>
     </item>
     
     <item>
       <title>1. Mengenal Bahasa R</title>
-      <link>/tutorial/01_mengenal-bahasa-r/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/01_mengenal-bahasa-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/01_mengenal-bahasa-r/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/01_mengenal-bahasa-r/</guid>
       <description>body{text-align: justify}Daftar IsiSejarah RFitur dan Karakteristik RKelebihan dan Kekurangan RRStudioMenginstall R dan RStudioWorking DirectoryFasilitas Help1.1 Sejarah RR Merupakan bahasa yang digunakan dalam komputasi statistik yang pertama kali dikembangkan oleh Ross Ihaka dan Robert Gentlement di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum R dikenal ada S yang dikembangkan oleh John Chambers dan rekan-rekan dari Bell Laboratories yang memiliki fungsi yang sama untuk komputasi statistik.</description>
     </item>
     
     <item>
       <title>2. Sintaks Bahasa R</title>
-      <link>/tutorial/02_sintaks-bahasa-r/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/02_sintaks-bahasa-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/02_sintaks-bahasa-r/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/02_sintaks-bahasa-r/</guid>
       <description>body{text-align: justify}Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision MakingFungsi2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
 2+4*2## [1] 10Bandingkan dengan sintaks berikut:</description>
     </item>
     
     <item>
       <title>4. Visualisasi Data Menggunakan Fungsi Dasar R</title>
-      <link>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</link>
+      <link>https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
-      <guid>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</guid>
+      <guid>https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</guid>
       <description>body{text-align: justify}Daftar Isi
 Visualisasi Data Menggunakan Fungsi plotMatriks ScatterplotBox plotBar PlotLine PlotPie ChartHistogram dan Density PlotQQ PlotDot ChartKustomisasi Parameter Grafik4.1 Visualisasi Data Menggunakan Fungsi plot()Fungsi plot() merupakan fungsi umum yang digunakan untuk membuat plot pada R. Format dasarnya adalah sebagai berikut:
 plot(x, y, type=&amp;quot;p&amp;quot;)Note: 
