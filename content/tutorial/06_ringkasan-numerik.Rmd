@@ -323,7 +323,7 @@ Kompromi antara median dan mean tersedia dengan memotong beberapa observasi tere
 
 ```{r tm, echo=FALSE, fig.cap='Jendela diagram trimmed mean.', tidy=FALSE, out.width='70%', fig.align='center'}
 library(knitr)
-img1_path <- "tm.png"
+img1_path <- "/tm.png"
 include_graphics(img1_path)
 
 ```
