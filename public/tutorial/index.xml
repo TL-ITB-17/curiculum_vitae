@@ -12,6 +12,26 @@
     
     
     <item>
+      <title>6. Ringkasan Data</title>
+      <link>/tutorial/06_ringkasan-numerik/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/06_ringkasan-numerik/</guid>
+      <description>body{text-align: justify}Daftar Isi
+Ukuran Pemusatan DataUkuran Sebaran DataRingkasan Data Menggunakan Fungsi summary dan stat.descUkuran Kemencengan DataOutlierTransformasi DataPada bidang lingkungan kita sering kali menemui sebuah pernyataan “konsentrasi rata-rata TSS pada sungai tersebut adalah 30 mg/l” atau “kedalaman penampang saluran tersebut berkisar antara 1 sampai 2 meter”. Kedua pernyataan tersebut merupakan sebuah penyapaian informasi terkait karakteristik data yang ada.</description>
+    </item>
+    
+    <item>
+      <title>5. Visualisasi Data Menggunakan GGPLOT</title>
+      <link>/tutorial/05_visualisasi-data-menggunakan-ggplot/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/05_visualisasi-data-menggunakan-ggplot/</guid>
+      <description>body{text-align: justify}Daftar Isi
+ScatterplotBox Plot dan Violin PlotBar PlotLine PlotPie ChartHistogram dan Density PlotQQ PlotDot ChartECDF PlotParameter GrafikLibrary ggplot2 merupakan implementasi dari The Grammar of Graphics yang ditulis oleh Leland Wilkinson. ggplot2 merupakan library yang dikembangkan oleh Hadley Wicham ketika ia sedang menempuh kuliah di Lowa State Universuty dan masih dikembangkan hingga sekarang.</description>
+    </item>
+    
+    <item>
       <title>3. Manajemen Data R</title>
       <link>/tutorial/03_manajemen-data-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
@@ -50,16 +70,6 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
 Visualisasi Data Menggunakan Fungsi plotMatriks ScatterplotBox plotBar PlotLine PlotPie ChartHistogram dan Density PlotQQ PlotDot ChartKustomisasi Parameter Grafik4.1 Visualisasi Data Menggunakan Fungsi plot()Fungsi plot() merupakan fungsi umum yang digunakan untuk membuat plot pada R. Format dasarnya adalah sebagai berikut:
 plot(x, y, type=&amp;quot;p&amp;quot;)Note: 
 x dan y: titik koordinat plot Berupa variabel dengan panjang atau jumlah observasi yang sama.</description>
-    </item>
-    
-    <item>
-      <title>5. Visualisasi Data Menggunakan GGPLOT</title>
-      <link>/tutorial/05_visualisasi-data-menggunakan-ggplot/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
-      
-      <guid>/tutorial/05_visualisasi-data-menggunakan-ggplot/</guid>
-      <description>body{text-align: justify}Daftar Isi
-ScatterplotBox Plot dan Violin PlotBar PlotLine PlotPie ChartHistogram dan Density PlotQQ PlotDot ChartECDF PlotParameter GrafikLibrary ggplot2 merupakan implementasi dari The Grammar of Graphics yang ditulis oleh Leland Wilkinson. ggplot2 merupakan library yang dikembangkan oleh Hadley Wicham ketika ia sedang menempuh kuliah di Lowa State Universuty dan masih dikembangkan hingga sekarang.</description>
     </item>
     
   </channel>

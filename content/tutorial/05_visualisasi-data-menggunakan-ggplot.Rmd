@@ -1,12 +1,12 @@
 ---
 title: "5. Visualisasi Data Menggunakan GGPLOT"
 draft: false
-date: '2019-03-09T00:00:00+07:00'
+date: '2019-03-25T00:00:00+07:00'
 output: pdf_document
 menu:
   tutorial:
     parent: Visualisasi Data
-    weight: 3
+    weight: 5
 linktitle: Visualisasi Data Menggunakan GGPLOT
 type: docs
 ---
@@ -409,7 +409,7 @@ gapminder %>%
   
 ```
 
-Jika dinginkan kita juga dapat menambahkan density plot pada histogram. Pada Gambar \@ref(fig:hist) ditambahkan density plot sehingga dihasilkan output seperti Gambar \@ref(fig:ggdenshist).
+Jika dinginkan kita juga dapat menambahkan density plot pada histogram. Pada Gambar \@ref(fig:gghist) ditambahkan density plot sehingga dihasilkan output seperti Gambar \@ref(fig:ggdenshist).
 
 ```{r ggdenshist,fig.cap='histogram dan density plot lifeExp ', tidy=FALSE, fig.align='center', out.width='70%', message=FALSE}
 gapminder %>%

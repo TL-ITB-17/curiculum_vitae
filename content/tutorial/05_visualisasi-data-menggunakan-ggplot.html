@@ -1,12 +1,12 @@
 ---
 title: "5. Visualisasi Data Menggunakan GGPLOT"
 draft: false
-date: '2019-03-09T00:00:00+07:00'
+date: '2019-03-25T00:00:00+07:00'
 output: pdf_document
 menu:
   tutorial:
     parent: Visualisasi Data
-    weight: 3
+    weight: 5
 linktitle: Visualisasi Data Menggunakan GGPLOT
 type: docs
 ---
@@ -60,6 +60,7 @@ library(gapminder)</code></pre>
 <pre class="r"><code># memuat paket dplyr dan tibble
 library(dplyr)
 library(tibble)</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.3</code></pre>
 <pre class="r"><code># melihat struktur dataset
 glimpse(gapminder)</code></pre>
 <pre><code>## Observations: 1,704
@@ -598,7 +599,7 @@ Figure 20: Density plot lifeExp
 Figure 21: Density plot lifeExp berdasarkan benua
 </p>
 </div>
-<p>Jika dinginkan kita juga dapat menambahkan density plot pada histogram. Pada Gambar <a href="#fig:hist"><strong>??</strong></a> ditambahkan density plot sehingga dihasilkan output seperti Gambar <a href="#fig:ggdenshist">22</a>.</p>
+<p>Jika dinginkan kita juga dapat menambahkan density plot pada histogram. Pada Gambar <a href="#fig:gghist">18</a> ditambahkan density plot sehingga dihasilkan output seperti Gambar <a href="#fig:ggdenshist">22</a>.</p>
 <pre class="r"><code>gapminder %&gt;%
   ggplot(aes(lifeExp))+
   geom_histogram(aes(y=..density..),
@@ -1226,7 +1227,7 @@ Figure 53: Scatterplot dengan tema Wall Street Journal
 ##             plot.title = element_text(hjust = 0, face = &quot;bold&quot;), 
 ##             plot.margin = unit(c(1, 1, 1, 1), &quot;lines&quot;), strip.background = element_rect())
 ## }
-## &lt;bytecode: 0x000000001ac0fc88&gt;
+## &lt;bytecode: 0x000000001843de78&gt;
 ## &lt;environment: namespace:ggthemes&gt;</code></pre>
 <p>Berdasarkan output yang disajikan kita dapat merubah sejumlah argumen seperti base size, color, base_family, dll.</p>
 </div>

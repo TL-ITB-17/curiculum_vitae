@@ -4,6 +4,22 @@
     
     <url>
     
+      <loc>/tutorial/06_ringkasan-numerik/</loc>
+      <lastmod>2019-03-25T00:00:00+07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tutorial/05_visualisasi-data-menggunakan-ggplot/</loc>
+      <lastmod>2019-03-25T00:00:00+07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/tutorial/03_manajemen-data-r/</loc>
       <lastmod>2019-03-09T00:00:00+07:00</lastmod>
     </url>
@@ -29,14 +45,6 @@
     <url>
     
       <loc>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</loc>
-      <lastmod>2019-03-09T00:00:00+07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>/tutorial/05_visualisasi-data-menggunakan-ggplot/</loc>
       <lastmod>2019-03-09T00:00:00+07:00</lastmod>
     </url>
     
@@ -172,7 +180,7 @@
     <url>
     
       <loc>/</loc>
-      <lastmod>2019-03-09T00:00:00+07:00</lastmod>
+      <lastmod>2019-03-25T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     
