@@ -37,7 +37,7 @@ Nilai rata-rata (mean) dan nilai tengah (median) merupakan dua nilai yang paling
 
 ### 6.1.1 Pengukuran Klasik-Mean
 
-Nilai mean ($\overline{X}$) diperoleh dengan menjumlahkan seluruh data dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti Persamaan \@ref(eq:mean):
+Nilai mean (`$\overline{X}$`) diperoleh dengan menjumlahkan seluruh data dan membaginya dengan jumlah observasinya yang dapat dituliskan seperti Persamaan \@ref(eq:mean):
 
 \begin{equation}
   \overline{X}=\text{}\sum_{_{i=1}}^n\frac{X_i}{n}
