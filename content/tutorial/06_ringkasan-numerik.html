@@ -2,9 +2,7 @@
 title: "6. Ringkasan Data"
 draft: no
 date: '2019-04-03T00:00:00+07:00'
-output:
-  html_document:
-    df_print: paged
+output: pdf_document
 menu:
   tutorial:
     parent: Statistika Deskriptif
@@ -65,13 +63,13 @@ text-align: justify}
 <p>Untuk lebih memahami pengaruh observasi terhadap nilai rata-rata, disajikan dua buah gambar yaitu: Gambar <a href="#fig:mean1">1</a> dan Gambar <a href="#fig:mean2">2</a></p>
 <pre><code>## Warning: package &#39;knitr&#39; was built under R version 3.5.3</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:mean1"></span>
-<img src="mean1.png" alt="Nilai mean (segitiga) sebagai titik kesetimbangan pada data." width="70%" />
+<img src="/mean1.png" alt="Nilai mean (segitiga) sebagai titik kesetimbangan pada data." width="70%" />
 <p class="caption">
 Figure 1: Nilai mean (segitiga) sebagai titik kesetimbangan pada data.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:mean2"></span>
-<img src="mean2.png" alt="Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier." width="70%" />
+<img src="/mean2.png" alt="Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier." width="70%" />
 <p class="caption">
 Figure 2: Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.
 </p>
@@ -682,13 +680,13 @@ stat.desc(data_gw)</code></pre>
 <h2>6.4 Ukuran Kemencengan Data</h2>
 <p>Ketika data memiliki kemencengan, nilai mean tidak sama dengan median, tetapi bergeser ke arah ekor distribusi. Jadi untuk kemencengan positif, nilai mean melebihi lebih dari 50% dari data, seperti pada Gambar <a href="#fig:skew">7</a> dan Gambar <a href="#fig:skew2">8</a>. Simpangan baku juga meningkat dengan data di bagian ekor. Data yang menceng juga mempertanyakan penerapan tes hipotesis yang didasarkan pada asumsi bahwa data memiliki distribusi normal. Tes-tes ini, yang disebut tes parametrik, mungkin bernilai dipertanyakan ketika diterapkan pada data seperti data sumber daya air, karena data seringkali tidak normal atau bahkan simetris.</p>
 <div class="figure" style="text-align: center"><span id="fig:skew"></span>
-<img src="skewness.png" alt="a) Kemencengan negatif, b) Kemencengan positif." width="70%" />
+<img src="/skewness.png" alt="a) Kemencengan negatif, b) Kemencengan positif." width="70%" />
 <p class="caption">
 Figure 7: a) Kemencengan negatif, b) Kemencengan positif.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:skew2"></span>
-<img src="skewnessbox.png" alt="Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif." width="70%" />
+<img src="/skewnessbox.png" alt="Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif." width="70%" />
 <p class="caption">
 Figure 8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.
 </p>
@@ -761,7 +759,7 @@ Figure 8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan posi
 <p>Untuk membuat distribusi asimetris menjadi lebih simetris, data dapat diubah atau diekspresikan kembali menjadi unit baru. Unit-unit baru ini mengubah jarak antara pengamatan pada plot garis. Efeknya adalah memperluas atau mengecilkan jarak ke pengamatan ekstrem di satu sisi median, membuatnya lebih pada setiap sisinya. Transformasi yang paling umum digunakan dalam bidang lingkungan adalah logaritma, seperti Log debit air, konduktivitas hidrolik, atau konsentrasi sering diambil sebelum analisis statistik dilakukan.</p>
 <p>Transformasi data biasanya melibatkan fungsi power seperti pada fungsi <span class="math inline">\(y=x^\theta\)</span>, dimana x merupakan data yang belum ditransformasi, y adalah data yang telah ditransformasi, dan <span class="math inline">\(\theta\)</span> merupakan power eksponensial. Pada Gambar <a href="#fig:power">9</a> nilai <span class="math inline">\(\theta\)</span> di-list kedalam “<em>ladder of powers</em>” (Velleman dan Hoaglin, 1981 dalam helsel dan Hirsch, 2002), sebuah struktur yang berguna untuk menentukan nilai <span class="math inline">\(\theta\)</span> yang tepat.</p>
 <div class="figure" style="text-align: center"><span id="fig:power"></span>
-<img src="ladder.png" alt="Ladder of power" width="70%" />
+<img src="/ladder.png" alt="Ladder of power" width="70%" />
 <p class="caption">
 Figure 9: Ladder of power
 </p>

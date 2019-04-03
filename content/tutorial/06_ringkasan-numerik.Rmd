@@ -2,9 +2,7 @@
 title: "6. Ringkasan Data"
 draft: no
 date: '2019-04-03T00:00:00+07:00'
-output:
-  html_document:
-    df_print: paged
+output: pdf_document
 menu:
   tutorial:
     parent: Statistika Deskriptif
@@ -79,14 +77,14 @@ Untuk lebih memahami pengaruh observasi terhadap nilai rata-rata, disajikan dua 
 
 ```{r mean1, echo=FALSE, fig.cap='Nilai mean (segitiga) sebagai titik kesetimbangan pada data.', tidy=FALSE, out.width='70%', fig.align='center', message=FALSE}
 library(knitr)
-img1_path <- "mean1.png"
+img1_path <- "/mean1.png"
 include_graphics(img1_path)
 
 ```
 
 ```{r mean2, echo=FALSE, fig.cap='Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.', tidy=FALSE, out.width='70%', fig.align='center', message=FALSE}
 library(knitr)
-img1_path <- "mean2.png"
+img1_path <- "/mean2.png"
 include_graphics(img1_path)
 
 ```
@@ -528,14 +526,14 @@ Ketika data memiliki kemencengan, nilai mean tidak sama dengan median, tetapi be
 
 ```{r skew, echo=FALSE, fig.cap='a) Kemencengan negatif, b) Kemencengan positif.', tidy=FALSE, out.width='70%', fig.align='center'}
 library(knitr)
-img1_path <- "skewness.png"
+img1_path <- "/skewness.png"
 include_graphics(img1_path)
 
 ```
 
 ```{r skew2, echo=FALSE, fig.cap='Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.', tidy=FALSE, out.width='70%', fig.align='center'}
 library(knitr)
-img1_path <- "skewnessbox.png"
+img1_path <- "/skewnessbox.png"
 include_graphics(img1_path)
 
 ```
@@ -632,7 +630,7 @@ Transformasi data biasanya melibatkan fungsi power seperti pada fungsi $y=x^\the
 
 ```{r power, echo=FALSE, fig.cap='Ladder of power', tidy=FALSE, out.width='70%', fig.align='center'}
 library(knitr)
-img1_path <- "ladder.png"
+img1_path <- "/ladder.png"
 include_graphics(img1_path)
 
 ```

@@ -68,13 +68,13 @@ text-align: justify}
 &lt;p&gt;Untuk lebih memahami pengaruh observasi terhadap nilai rata-rata, disajikan dua buah gambar yaitu: Gambar &lt;a href=&#34;#fig:mean1&#34;&gt;1&lt;/a&gt; dan Gambar &lt;a href=&#34;#fig:mean2&#34;&gt;2&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:mean1&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;mean1.png&#34; alt=&#34;Nilai mean (segitiga) sebagai titik kesetimbangan pada data.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;/mean1.png&#34; alt=&#34;Nilai mean (segitiga) sebagai titik kesetimbangan pada data.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Nilai mean (segitiga) sebagai titik kesetimbangan pada data.
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:mean2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;mean2.png&#34; alt=&#34;Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;/mean2.png&#34; alt=&#34;Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Pergeseran nilai mean (segitiga) ke kiri setelah penghilangan outlier.
 &lt;/p&gt;
@@ -685,13 +685,13 @@ stat.desc(data_gw)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;6.4 Ukuran Kemencengan Data&lt;/h2&gt;
 &lt;p&gt;Ketika data memiliki kemencengan, nilai mean tidak sama dengan median, tetapi bergeser ke arah ekor distribusi. Jadi untuk kemencengan positif, nilai mean melebihi lebih dari 50% dari data, seperti pada Gambar &lt;a href=&#34;#fig:skew&#34;&gt;7&lt;/a&gt; dan Gambar &lt;a href=&#34;#fig:skew2&#34;&gt;8&lt;/a&gt;. Simpangan baku juga meningkat dengan data di bagian ekor. Data yang menceng juga mempertanyakan penerapan tes hipotesis yang didasarkan pada asumsi bahwa data memiliki distribusi normal. Tes-tes ini, yang disebut tes parametrik, mungkin bernilai dipertanyakan ketika diterapkan pada data seperti data sumber daya air, karena data seringkali tidak normal atau bahkan simetris.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:skew&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;skewness.png&#34; alt=&#34;a) Kemencengan negatif, b) Kemencengan positif.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;/skewness.png&#34; alt=&#34;a) Kemencengan negatif, b) Kemencengan positif.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 7: a) Kemencengan negatif, b) Kemencengan positif.
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:skew2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;skewnessbox.png&#34; alt=&#34;Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;/skewnessbox.png&#34; alt=&#34;Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan positif.
 &lt;/p&gt;
@@ -764,7 +764,7 @@ Figure 8: Box plot untuk data dengan a) Kemencengan negatif, b) Kemencengan posi
 &lt;p&gt;Untuk membuat distribusi asimetris menjadi lebih simetris, data dapat diubah atau diekspresikan kembali menjadi unit baru. Unit-unit baru ini mengubah jarak antara pengamatan pada plot garis. Efeknya adalah memperluas atau mengecilkan jarak ke pengamatan ekstrem di satu sisi median, membuatnya lebih pada setiap sisinya. Transformasi yang paling umum digunakan dalam bidang lingkungan adalah logaritma, seperti Log debit air, konduktivitas hidrolik, atau konsentrasi sering diambil sebelum analisis statistik dilakukan.&lt;/p&gt;
 &lt;p&gt;Transformasi data biasanya melibatkan fungsi power seperti pada fungsi &lt;span class=&#34;math inline&#34;&gt;\(y=x^\theta\)&lt;/span&gt;, dimana x merupakan data yang belum ditransformasi, y adalah data yang telah ditransformasi, dan &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; merupakan power eksponensial. Pada Gambar &lt;a href=&#34;#fig:power&#34;&gt;9&lt;/a&gt; nilai &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; di-list kedalam “&lt;em&gt;ladder of powers&lt;/em&gt;” (Velleman dan Hoaglin, 1981 dalam helsel dan Hirsch, 2002), sebuah struktur yang berguna untuk menentukan nilai &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; yang tepat.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:power&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;ladder.png&#34; alt=&#34;Ladder of power&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;/ladder.png&#34; alt=&#34;Ladder of power&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 9: Ladder of power
 &lt;/p&gt;
