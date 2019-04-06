@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.0.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Mohammad Rosidi, S.T.">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="body{text-align: justify}Daftar Isi
+Grafik Untuk Melihat Ditribusi DataGrafik Untuk Melihat Beda Distribusi Data Antar GrupGrafik Untuk Memvisualisasikan Korelasi Antar VariabelGrafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar VariabelGrafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang WaktuPada Chapter 4 dan 5 kita telah belajar bagaimana cara membuat grafik menggunakan R. Sejauh ini kita belum belajar kegunaan dari masing-masing grafik yang telah kita pelajarai.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/tutorial/07_eksplorasi-data-menggunakan-grafik/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#328cc1">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Environmental Data Modeling">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/tutorial/07_eksplorasi-data-menggunakan-grafik/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Environmental Data Modeling">
+  <meta property="og:url" content="/tutorial/07_eksplorasi-data-menggunakan-grafik/">
+  <meta property="og:title" content="7. Ekplorasi Data Menggunakan Grafik | Environmental Data Modeling">
+  <meta property="og:description" content="body{text-align: justify}Daftar Isi
+Grafik Untuk Melihat Ditribusi DataGrafik Untuk Melihat Beda Distribusi Data Antar GrupGrafik Untuk Memvisualisasikan Korelasi Antar VariabelGrafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar VariabelGrafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang WaktuPada Chapter 4 dan 5 kita telah belajar bagaimana cara membuat grafik menggunakan R. Sejauh ini kita belum belajar kegunaan dari masing-masing grafik yang telah kita pelajarai."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-03-25T00:00:00&#43;07:00">
+  
+  <meta property="article:modified_time" content="2019-03-25T00:00:00&#43;07:00">
+  
+
+  
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script async type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  <title>7. Ekplorasi Data Menggunakan Grafik | Environmental Data Modeling</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Environmental Data Modeling</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications_featured">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/tutorial/">
+            
+            <span>Tutorials</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/cv/">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" id="search-query" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/">Overview</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/01_mengenal-bahasa-r/">PART 1 - Bahasa Pemrograman R</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/tutorial/01_mengenal-bahasa-r/">Mengenal Bahasa R</a>
+      </li>
+      
+      <li >
+        <a href="/tutorial/02_sintaks-bahasa-r/">Sintaks Bahasa R</a>
+      </li>
+      
+      <li >
+        <a href="/tutorial/03_manajemen-data-r/">Manajemen Data R</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">PART 2 - Visualisasi Data</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/">Visualisasi Data Menggunakan Fungsi Dasar R</a>
+      </li>
+      
+      <li >
+        <a href="/tutorial/05_visualisasi-data-menggunakan-ggplot/">Visualisasi Data Menggunakan GGPLOT</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/06_ringkasan-numerik/">PART 3 - Statistika Deskriptif</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/tutorial/06_ringkasan-numerik/">Ringkasan Data</a>
+      </li>
+      
+      <li class="active">
+        <a href="/tutorial/07_eksplorasi-data-menggunakan-grafik/">Ekplorasi Data Menggunakan Grafik</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article" itemscope itemtype="http://schema.org/Article">
+
+        <div class="docs-article-container">
+          <h1 itemprop="name">7. Ekplorasi Data Menggunakan Grafik</h1>
+
+          <div class="article-style" itemprop="articleBody">
+            
+
+
+<style>
+body{
+text-align: justify}
+</style>
+<blockquote>
+<p><strong>Daftar Isi</strong></p>
+<ul>
+<li><a href="#7-1-grafik-untuk-melihat-ditribusi-data">Grafik Untuk Melihat Ditribusi Data</a></li>
+<li><a href="#7-2-grafik-untuk-melihat-beda-distribusi-data-antar-grup">Grafik Untuk Melihat Beda Distribusi Data Antar Grup</a></li>
+<li><a href="#7-3-grafik-untuk-memvisualisasikan-korelasi-antar-variabel">Grafik Untuk Memvisualisasikan Korelasi Antar Variabel</a></li>
+<li><a href="#7-4-grafik-yang-digunakan-untuk-memvisualisasikan-asosiasi-antar-variabel">Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar Variabel</a></li>
+<li><a href="#7-5-grafik-yang-digunakan-untuk-memisualisasikan-ukuran-sampel-dan-perubahan-sepanjang-waktu">Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang Waktu</a></li>
+</ul>
+</blockquote>
+<p>Pada Chapter 4 dan 5 kita telah belajar bagaimana cara membuat grafik menggunakan <code>R</code>. Sejauh ini kita belum belajar kegunaan dari masing-masing grafik yang telah kita pelajarai. Pada Chapter ini kita tidak lagi akan membahas bagaimana membuat grafik menggunakan <code>R</code>. Kita akan fokus terhadap fungsi grafik tersebut dalam analisa kita. Secara umum grafik dibuat untuk memvisualisasikan distribusi, perbedaan antar sampel, korelasi dan asosiasi antar sampel, serta ukuran sampel.</p>
+<p>Penulis dan pembaca pasti sepakat bahwa visualisasi data merupakan tahapan awal yang perlu kita lakukan sebelum memutuskan untuk melakukan analisa data seperti uji hipotesis dan modeling. Angka yang ditampilkan dalam ringkasan data tidaklah cukup untuk melihat data terutama kaitannya dengan pengecekan terhadap asumsi model.</p>
+<p>Pada Gambar <a href="#fig:visscat">1</a> disajikan delapan buah scatterplot dengan koefisien korelasi yang sama persis. Komputasi statistik tanpa melihat pada visualisasi data akan menyebabkan misinterpretasi pada data. Grafik memberikan ringkasan visual data dengan cepat dan lengkap dibandingkan penyajian data dalam tabel angka.</p>
+<pre><code>## Warning: package &#39;knitr&#39; was built under R version 3.5.3</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:visscat"></span>
+<img src="/visscat.png" alt="Scatterplot dengan koefisien korelasi r=0,7." width="80%" />
+<p class="caption">
+Figure 1: Scatterplot dengan koefisien korelasi r=0,7.
+</p>
+</div>
+<p>Grafik sangat penting untuk dua tujuan:</p>
+<ol style="list-style-type: decimal">
+<li>untuk memberikan wawasan bagi analis ke dalam data di bawah pengawasan, dan</li>
+<li>untuk mengilustrasikan konsep-konsep penting ketika mempresentasikan hasil kepada orang lain.</li>
+</ol>
+<p>Tugas pertama disebut <strong>Analisis Data Eksplorasi (EDA)</strong>, dan merupakan subjek Chapter ini. Prosedur EDA seringkali merupakan (atau seharusnya) menjadi ‘pandangan pertama’ pada data. Pola dan teori tentang bagaimana sistem berperilaku dikembangkan dengan mengamati data melalui grafik. Ini adalah prosedur induktif - data dirangkum dibanding dilakukan pengujian. Hasil mereka memberikan panduan untuk pemilihan prosedur pengujian hipotesis deduktif yang tepat.</p>
+<p>Setelah analisis selesai, temuan harus dilaporkan kepada orang lain. Apakah laporan tertulis atau presentasi lisan, analis harus meyakinkan audiens bahwa kesimpulan yang dicapai didukung oleh data. Tidak ada cara yang lebih baik untuk melakukan ini selain melalui grafik. Banyak metode grafis yang sama yang merangkum informasi dengan ringkas untuk analis juga akan memberikan wawasan tentang data untuk pembaca atau audiens.</p>
+<div id="grafik-untuk-melihat-ditribusi-data" class="section level2">
+<h2>7.1 Grafik Untuk Melihat Ditribusi Data</h2>
+<p>Analisis yang umumnya dilihat pada distribusi data adalah apakah data berdistribusi normal atau tidak. Hal ini akan mempengaruhi jenis analisis statistika yang digunakan pada data. Terdapat beberapa grafik yang dapat digunakan untuk melihat bentuk ditribusi data. Grafik-grafik tersebut antara lain: <em>stem and leaf</em>, histogram, density plot, QQ-plot, serta box plot atau violin plot. Pada analisis distribusi <em>stem and leaf</em> kurang populer untuk digunakan. Hal ini disebabkan karena visualisasinya kurang cocok diterapkan pada data dengan jumlah observasi besar. Selain itu, kita juga tidak bisa melakukan perbandingan antar grup menggunakan jenis visualisasi tersebut.</p>
+<div id="histogram" class="section level3">
+<h3>7.1.1 Histogram</h3>
+<p>Histogram adalah grafik yang sudah dikenal, dan konstruksinya dirinci dalam berbagai teks pengantar tentang statistik. Batang digambar dengan tinggi <span class="math inline">\(n_i\)</span>, atau fraksi <span class="math inline">\(n_i/n\)</span>, dari data yang termasuk dalam salah satu dari beberapa kategori atau interval (Gambar <a href="#fig:histeda">2</a>). Iman dan Conover (1983) mengemukakan bahwa untuk ukuran sampel <span class="math inline">\(n\)</span>, jumlah interval <span class="math inline">\(k\)</span> harus bilangan bulat terkecil sehingga <span class="math inline">\(2^k≥n\)</span>.</p>
+<p>Histogram sangat berguna untuk menggambarkan perbedaan besar dalam bentuk data seperti apakah data simetris seperti distribusi normal atau memiliki kemencengan. Histogram tidak dapat digunakan untuk penilaian yang lebih tepat karena tampilan dipengaruhi oleh jumlah batang yang digunakan. Untuk lebih memahaminya perhatikan Gambar <a href="#fig:histeda">2</a> dan Gambar <a href="#fig:histeda2">3</a>. Kedua histogram tersebut tampak berbeda meskipun data input yang diberikan sama. Pada Gambar <a href="#fig:histeda">2</a> kita akan melihat bahwa debit dengan kejadian terbanyak terjadi pada rentang 800-900 cfs, sedangkan pada Gambar <a href="#fig:histeda2">3</a> kita melihat bahwa debit dengan kejadian terbanyak terjadi pada 800-1200 cfs.</p>
+<pre class="r"><code># memuat library
+library(readxl)</code></pre>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(ggthemes)</code></pre>
+<pre><code>## Warning: package &#39;ggthemes&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code># memuat data excel
+sungai &lt;- read_excel(&quot;hhappc.xls&quot;, sheet=&quot;appc1&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:histeda"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/histeda-1.png" alt="Histogram dengan bin.width=default debit sungai Saddle" width="70%" />
+<p class="caption">
+Figure 2: Histogram dengan bin.width=default debit sungai Saddle
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:histeda2"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/histeda2-1.png" alt="Histogram dengan bin.width=500 debit sungai Saddle" width="70%" />
+<p class="caption">
+Figure 3: Histogram dengan bin.width=500 debit sungai Saddle
+</p>
+</div>
+</div>
+<div id="density-plot" class="section level3">
+<h3>7.1.2 Density Plot</h3>
+<p>Density plot memecahkan masalah yang dimiliki histogram dalam melihat grafik dengan menyajikan data bukan dari jumlah kejadian atau observasi, namun data disajikan berdasarkan frekuensi relatif data (density) yang digambarkan dalam bentuk <em>smooth curve</em>. Contoh density plot dapat dilijat pada Gambar <a href="#fig:denseda">4</a>. Dari grafik yang dihasilkan sekaran tampak jelas bahwa distibusi data memiliki kemencengan positif dengan frekuensi relatif debit terbanyak berada pada debit 1000 cfs.</p>
+<div class="figure" style="text-align: center"><span id="fig:denseda"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/denseda-1.png" alt="Density plot debit sungai Saddle" width="70%" />
+<p class="caption">
+Figure 4: Density plot debit sungai Saddle
+</p>
+</div>
+</div>
+<div id="qq-plot" class="section level3">
+<h3>7.1.3 QQ-plot</h3>
+<p>Kita telah mempelajari sebelumnya pada Chapter 5 bahwa QQ-plot data digunakan untuk mengecek apakah data yang kita miliki berdistribusi normal atau tidak. Contoh QQ-plot dapat dilijat pada Gambar <a href="#fig:qqeda">5</a>. Pada grafik yang dihasilkan terlihat bahwa data tidak berdistribusi normal. Hal ini terlihat dari sebagian observasi pada debit &lt;1000 cfs yang tidak mengikuti garis referensi.</p>
+<pre class="r"><code>ggplot(sungai, aes(sample=Flow))+
+  # qq plot
+  stat_qq()+
+  # garis referensi
+  stat_qq_line()+
+  theme_economist()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:qqeda"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/qqeda-1.png" alt="QQ plot debit sungai Saddle" width="70%" />
+<p class="caption">
+Figure 5: QQ plot debit sungai Saddle
+</p>
+</div>
+</div>
+<div id="box-plot-dan-violin-plot" class="section level3">
+<h3>7.1.4 Box Plot dan Violin Plot</h3>
+<p>Grafik lain yang dapat digunakan untuk menggambarkan distribusi data adalah box plot dan violin plot. Box plot memberikan cara yang simpel untuk melihat ditribusi data seperti melihat posisi sejumlah kuartil, nilai minimum dan maksimum. Selain itu kita juga dapat melihat adanya outlier pada data.</p>
+<p>Kita dapat menambah fungsionalitas dari box plot ini dengan menambahkan violin plot. Pada Chapter 5 kita telah belajar bahwa kita dapat menambahkan box plot pada violin plot atau sebaliknya sehingga memudahkan dalam mendeskripsikan bentuk distribusi data. Jika dengan box plot kita tidak dapat melihat secara baik bentuk dari data yang sesungguhnya karena hanya menampilkan lokasi sejumlah kuartil. Pada violin plot kita dapat melihat bentuk data yang ada melalui tampilan dua denisty plot (tampak seperti biola) yang digambarkan. Kekurangannya adalah kita tidak dapat melihat observasi mana yang menjadi outlier, sehingga kedua grafik ini biasa digambarkan secara bersamaan. Berikut adalah contoh box plot dan violin plot dari data debit sungai Saddle (Gambar <a href="#fig:bpeda">6</a>).</p>
+<pre class="r"><code>ggplot(sungai, aes(x=&quot;&quot;, y=Flow))+
+  geom_violin(fill=&quot;blue&quot;, alpha=0.5, color=&quot;white&quot;)+
+  geom_boxplot(width=0.1)+
+  theme_economist()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:bpeda"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/bpeda-1.png" alt="Box plot dan violin plot debit sungai Saddle" width="70%" />
+<p class="caption">
+Figure 6: Box plot dan violin plot debit sungai Saddle
+</p>
+</div>
+<p>Berdasarkan grafik yang dihasilkan pada Gambar <a href="#fig:bpeda">6</a> kita dapat melihat bahwa ditribusi data debit sungai memiliki kemencengan positif. Hal ini terjadi karena terdapat satu <em>outlier</em> pada data yang disebabkan karena nilai observasinya diluar dari nilai maksimum data yang ditetapkan sebagai <span class="math inline">\(max=Q3 + 1,5*IQR\)</span>.</p>
+</div>
+</div>
+<div id="grafik-untuk-melihat-beda-distribusi-data-antar-grup" class="section level2">
+<h2>7.2 Grafik Untuk Melihat Beda Distribusi Data Antar Grup</h2>
+<p>Grafik yang telah dijelaskan sebelumnya seperti box plot, violin plot, histogram, dan density plot merupakan grafik yang bagus untuk memvisualisasikan beda distribusi data antar grup untuk data numerik. Untuk data berupa kategori kita dapat menggunakan bar plot. Pada penerapannya bar plot juga dapat memvisualisasikan ringkasan data seperti nilai mean dan sebarannya pada data.</p>
+<p>Pada contoh ini penulis hanya akan memberikan contoh penerapan menggunakan box plot dan bar plot menggunakan data konsentrasi Antrazine yang diukur pada bulan Juni dan September. Untuk melakukannya kita perlu memuat data dan melakukan transformasi terhadap datanya terlebih dahulu.</p>
+<pre class="r"><code># memuat data excel
+atrazine &lt;- read_excel(&quot;hhappc.xls&quot;, sheet=&quot;appc4&quot;)
+
+# print
+head(atrazine)</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   June_atrazine Sept_atrazine
+##           &lt;dbl&gt;         &lt;dbl&gt;
+## 1          0.38         2.66 
+## 2          0.04         0.63 
+## 3         -0.01         0.59 
+## 4          0.03         0.05 
+## 5          0.03         0.84 
+## 6          0.05         0.580</code></pre>
+<pre class="r"><code># transformasi data
+library(tidyr)</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code>atrazine &lt;- gather(atrazine,
+                 key=&quot;month&quot;,
+                 value=&quot;concentration&quot;)
+
+# print
+head(atrazine)</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   month         concentration
+##   &lt;chr&gt;                 &lt;dbl&gt;
+## 1 June_atrazine          0.38
+## 2 June_atrazine          0.04
+## 3 June_atrazine         -0.01
+## 4 June_atrazine          0.03
+## 5 June_atrazine          0.03
+## 6 June_atrazine          0.05</code></pre>
+<p>Pada data konsentrasi Atrazine tersebut terdapat nilai negatif yang dalam hal ini merupakan kesalahan dalam pengukuran dari alat. Untuk membersihkannya kita dapat membuat nilai observasi tersebut menjadi NA.</p>
+<pre class="r"><code>atrazine$concentration[atrazine$concentration&lt;0]&lt;-NA
+
+head(atrazine)</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   month         concentration
+##   &lt;chr&gt;                 &lt;dbl&gt;
+## 1 June_atrazine          0.38
+## 2 June_atrazine          0.04
+## 3 June_atrazine         NA   
+## 4 June_atrazine          0.03
+## 5 June_atrazine          0.03
+## 6 June_atrazine          0.05</code></pre>
+<p>Selanjutnya kita akan memvisualisasikan beda antara distribusi data pada kedua bulan menggunakan box plot (Gambar <a href="#fig:bpgeda">7</a>). Konsentrasi rata-rata Atrazine akan divisualisasikan menggunakan bar plot (Gambar <a href="#fig:bargeda">8</a>).</p>
+<pre class="r"><code>ggplot(atrazine, aes(month, concentration, fill=month))+
+  geom_boxplot()+
+  theme_economist()+
+  scale_fill_economist()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:bpgeda"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/bpgeda-1.png" alt="Box plot konsentrasi Atrazine pada bulan Juni dan September" width="70%" />
+<p class="caption">
+Figure 7: Box plot konsentrasi Atrazine pada bulan Juni dan September
+</p>
+</div>
+<pre class="r"><code>library(dplyr)
+atrazine %&gt;%
+  group_by(month) %&gt;%
+  summarize(mean_atrazine=mean(concentration, na.rm=TRUE)) %&gt;%
+  ggplot(aes(month, mean_atrazine, fill=month))+
+    geom_bar(stat=&quot;identity&quot;)+
+    theme_economist()+
+    scale_fill_economist()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:bargeda"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/bargeda-1.png" alt="Bar plot konsentrasi Atrazine pada bulan Juni dan September" width="70%" />
+<p class="caption">
+Figure 8: Bar plot konsentrasi Atrazine pada bulan Juni dan September
+</p>
+</div>
+<p>Pada visualisasi yang dihasilkan terdapat perbedaan signifikan antara distribusi dan nilai rata-rata konsentrasi Atrazine pada dua periode tersebut. Hal ini disebabkan karena terdapat sebuah outlier pada periode Sepetember yang menyebabkan nilai rata-rata yang dihasilkan bergeser jauh kearah outlier. Pembaca dapat membuat visualisasi data pada data tersebut tanpa <em>outlier</em> dengan terlebih dahulu melakukan filter terhadap <em>outlier</em>.</p>
+</div>
+<div id="grafik-untuk-memvisualisasikan-korelasi-antar-variabel" class="section level2">
+<h2>7.3 Grafik Untuk Memvisualisasikan Korelasi Antar Variabel</h2>
+<p>Scatterplot dapat digunakan untuk memvisualisasikan korelasi antar dua variabel. Pada bagian ini akan diberikan contoh visualisasi antara variabel konsentrasi TDS dan Uranium pada air tanah.</p>
+<p>Untuk melakukannya kita perlu memuat terlebih dahulu dataset yang digunakan. Visualisasi data disajikan pada Gambar <a href="#fig:scateda">9</a>.</p>
+<pre class="r"><code># memuat data excel
+gw &lt;- read_excel(&quot;hhappc.xls&quot;, sheet=&quot;appc16&quot;)</code></pre>
+<pre class="r"><code>ggplot(gw, aes(TDS, Uranium))+
+  geom_point()+
+  geom_smooth(method=&quot;lm&quot;)+
+  theme_economist()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:scateda"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/scateda-1.png" alt="Scatterplot hubungan antara konsentrasi TDS dan Uranium pada airtanah" width="70%" />
+<p class="caption">
+Figure 9: Scatterplot hubungan antara konsentrasi TDS dan Uranium pada airtanah
+</p>
+</div>
+<p>Berdasarkan grafik yang dihasilkan terdapat hubungan linier antara konsentrasi TDS dan Uranium pada airtanah. Meningkatnya konsentrasi TDS pada air tanah juga menyebabkan peningkatan konsentrasi Uranium pada airtanah.</p>
+</div>
+<div id="grafik-yang-digunakan-untuk-memvisualisasikan-asosiasi-antar-variabel" class="section level2">
+<h2>7.4 Grafik Yang Digunakan Untuk Memvisualisasikan Asosiasi Antar Variabel</h2>
+<p>Asosiasi antar variabel kategori dapat dilakukan baik dengan pie chart maupun dengan bar plot. Pie chart kurang sering digunakan untuk visualisasi <em>multiple group</em> sehingga bar plot lebih sering digunakan.</p>
+<p>Pada contoh kali ini penulis akan melihat terdapat asoiasi antara musim dan strata terhadap jumlah Corbicula di sungai Tennessee. Untuk melakukannya kita perlu memuat terlebih dahulu dataset yang digunakan. Visualisasi data disajikan pada Gambar <a href="#fig:barteneda">10</a>.</p>
+<pre class="r"><code># memuat data excel
+corbicula&lt;- read_excel(&quot;hhappc.xls&quot;, sheet=&quot;appc8&quot;)
+
+# print
+head(corbicula)</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##    Year Season Strata Corbicula
+##   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1  1969 Winter      1        25
+## 2  1969 Winter      1        20
+## 3  1969 Winter      1        30
+## 4  1969 Spring      1         9
+## 5  1969 Spring      1         8
+## 6  1969 Spring      1         9</code></pre>
+<pre class="r"><code>corbicula %&gt;%
+  mutate(Season=as.factor(Season),
+         Strata=as.factor(Strata)) %&gt;%
+  group_by(Season,Strata) %&gt;%
+  summarize(Corbicula=mean(Corbicula)) %&gt;%
+  ggplot(aes(Season, Corbicula, fill=Strata))+
+    geom_bar(stat=&quot;identity&quot;,position=position_dodge2())+
+    theme_economist()+
+    scale_fill_economist()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:barteneda"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/barteneda-1.png" alt="Bar plot Jumlah rata-rata corbicula pada sungai Tennessee" width="70%" />
+<p class="caption">
+Figure 10: Bar plot Jumlah rata-rata corbicula pada sungai Tennessee
+</p>
+</div>
+<p>Berdasarkan grafik yang dihasilkan terdapat pengaruh musim dan strata terhadap jumlah corbicula di sungai Tennessee. Jumlah tertinggi berada saat musim semi pada strata 3, sedangkan terendah berada pada musim dingin juga pada strata 3.</p>
+</div>
+<div id="grafik-yang-digunakan-untuk-memisualisasikan-ukuran-sampel-dan-perubahan-sepanjang-waktu" class="section level2">
+<h2>7.5 Grafik Yang Digunakan Untuk Memisualisasikan Ukuran Sampel dan Perubahan Sepanjang Waktu</h2>
+<p>Untuk memvisualisasikan perubahan sepanjang waktu, kita dapat menggunakan line plot. Pada data <code>corbicula</code> kita ingin memvisualisasikan perubahan jumlah corbicula rata-rata pada setiap tahun. Visualisasi dari data disajikan pada Gambar <a href="#fig:lineeda">11</a>.</p>
+<pre class="r"><code>corbicula %&gt;%
+  group_by(Year) %&gt;%
+  summarize(Corbicula=mean(Corbicula)) %&gt;%
+  ggplot(aes(Year, Corbicula))+
+    geom_line()+
+    geom_point(shape=1)+
+    theme_economist()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:lineeda"></span>
+<img src="/tutorial/07_eksplorasi-data-menggunakan-grafik_files/figure-html/lineeda-1.png" alt="Line plot perubahan jumlah rata-rata corbicula di sungai Tennessee" width="70%" />
+<p class="caption">
+Figure 11: Line plot perubahan jumlah rata-rata corbicula di sungai Tennessee
+</p>
+</div>
+<p>Berdasarkan garfik yang dihasilkan dapat disimpulkan bahwa jumlah rata-rata corbicula menurun setiap tahunnya.</p>
+<p><strong>Referensi</strong></p>
+<ol style="list-style-type: decimal">
+<li>Gardener, M. 2012. <strong>Statistics for Ecologists Using R and Excel-Data collection, exploration, analysis and presentation</strong>. Pelagic Publishing.</li>
+<li>Helsel, D.R., Hirsch, R.M. 2002. <strong>statistical Methods in Water Resources</strong>. USGS.</li>
+<li>Ofungwu, J. 2014. <strong>Statistical Applications For Environmental Analysis and Risk Assessment</strong>. John Wiley &amp; Sons, Inc.</li>
+<li>Peck, R.Devore, J.L. 2012. <strong>Statistics The Exploration &amp; Analysis of Data- Seventh Edition</strong>. Brooks/Cole.</li>
+</ol>
+</div>
+
+          </div>
+
+          
+
+        </div>
+
+        <div class="body-footer">
+          Last updated on Mar 25, 2019
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script async defer src="//maps.googleapis.com/maps/api/js?key="></script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js" integrity="sha256-7vjlAeb8OaTrCXZkCNun9djzuB2owUsaO72kXaFDBJs=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//ROSIDI.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.109caa4f51ff39522c6dfc25fb05b6e9.js"></script>
+
+  </body>
+</html>
+
+

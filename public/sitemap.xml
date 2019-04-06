@@ -4,7 +4,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tutorial/06_ringkasan-numerik/</loc>
+      <loc>/tutorial/06_ringkasan-numerik/</loc>
       <lastmod>2019-04-03T00:00:00+07:00</lastmod>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tutorial/05_visualisasi-data-menggunakan-ggplot/</loc>
+      <loc>/tutorial/07_eksplorasi-data-menggunakan-grafik/</loc>
       <lastmod>2019-03-25T00:00:00+07:00</lastmod>
     </url>
     
@@ -20,7 +20,15 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tutorial/03_manajemen-data-r/</loc>
+      <loc>/tutorial/05_visualisasi-data-menggunakan-ggplot/</loc>
+      <lastmod>2019-03-25T00:00:00+07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tutorial/03_manajemen-data-r/</loc>
       <lastmod>2019-03-09T00:00:00+07:00</lastmod>
     </url>
     
@@ -28,7 +36,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tutorial/01_mengenal-bahasa-r/</loc>
+      <loc>/tutorial/01_mengenal-bahasa-r/</loc>
       <lastmod>2019-03-09T00:00:00+07:00</lastmod>
     </url>
     
@@ -36,7 +44,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tutorial/02_sintaks-bahasa-r/</loc>
+      <loc>/tutorial/02_sintaks-bahasa-r/</loc>
       <lastmod>2019-03-09T00:00:00+07:00</lastmod>
     </url>
     
@@ -44,7 +52,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</loc>
+      <loc>/tutorial/04_visualisasi-data-menggunakan-fungsi-dasar-r/</loc>
       <lastmod>2019-03-09T00:00:00+07:00</lastmod>
     </url>
     
@@ -52,7 +60,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/post/mengenal-r/mengenal-lebih-jauh-r/</loc>
+      <loc>/post/mengenal-r/mengenal-lebih-jauh-r/</loc>
       <lastmod>2019-03-02T21:13:14-05:00</lastmod>
     </url>
     
@@ -60,7 +68,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tutorial/</loc>
+      <loc>/tutorial/</loc>
       <lastmod>2019-03-01T00:00:00+07:00</lastmod>
     </url>
     
@@ -68,7 +76,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/post/jupyter/</loc>
+      <loc>/post/jupyter/</loc>
       <lastmod>2019-02-05T00:00:00+00:00</lastmod>
     </url>
     
@@ -76,7 +84,15 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/talk/example/</loc>
+      <loc>/privacy/</loc>
+      <lastmod>2018-06-28T00:00:00+07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/talk/example/</loc>
       <lastmod>2017-01-01T00:00:00+07:00</lastmod>
     </url>
     
@@ -84,7 +100,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/project/environmental-learning-website/</loc>
+      <loc>/project/environmental-learning-website/</loc>
       <lastmod>2016-04-27T00:00:00+07:00</lastmod>
     </url>
     
@@ -92,7 +108,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/project/external-project/</loc>
+      <loc>/project/external-project/</loc>
       <lastmod>2016-04-27T00:00:00+07:00</lastmod>
     </url>
     
@@ -100,7 +116,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/post/getting-started/</loc>
+      <loc>/post/getting-started/</loc>
       <lastmod>2018-01-13T00:00:00+07:00</lastmod>
     </url>
     
@@ -108,7 +124,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/post/2015-07-23-r-rmarkdown/</loc>
+      <loc>/post/2015-07-23-r-rmarkdown/</loc>
       <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     </url>
     
@@ -116,21 +132,21 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/cv/</loc>
+      <loc>/cv/</loc>
     </url>
     
   
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/author/admin/</loc>
+      <loc>/author/admin/</loc>
     </url>
     
   
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/publication_types/2/</loc>
+      <loc>/publication_types/2/</loc>
       <priority>0</priority>
     </url>
     
@@ -138,7 +154,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tags/academic/</loc>
+      <loc>/tags/academic/</loc>
       <lastmod>2018-01-13T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -147,7 +163,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/author/</loc>
+      <loc>/author/</loc>
       <priority>0</priority>
     </url>
     
@@ -155,7 +171,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/authors/</loc>
+      <loc>/authors/</loc>
       <priority>0</priority>
     </url>
     
@@ -163,7 +179,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/categories/</loc>
+      <loc>/categories/</loc>
       <priority>0</priority>
     </url>
     
@@ -171,7 +187,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/</loc>
+      <loc>/</loc>
       <lastmod>2019-04-03T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -180,7 +196,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/authors/mohammad-razif/</loc>
+      <loc>/authors/mohammad-razif/</loc>
       <priority>0</priority>
     </url>
     
@@ -188,7 +204,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/authors/mohammad-rosidi/</loc>
+      <loc>/authors/mohammad-rosidi/</loc>
       <priority>0</priority>
     </url>
     
@@ -196,14 +212,14 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/publication/perancangan-ipal/</loc>
+      <loc>/publication/perancangan-ipal/</loc>
     </url>
     
   
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/post/</loc>
+      <loc>/post/</loc>
       <lastmod>2019-03-02T21:13:14-05:00</lastmod>
     </url>
     
@@ -211,7 +227,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/project/</loc>
+      <loc>/project/</loc>
       <lastmod>2016-04-27T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -220,7 +236,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/publication_types/</loc>
+      <loc>/publication_types/</loc>
       <priority>0</priority>
     </url>
     
@@ -228,14 +244,23 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/publication/</loc>
+      <loc>/publication/</loc>
     </url>
     
   
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tags/r/</loc>
+      <loc>/categories/r/</loc>
+      <lastmod>2019-03-02T21:13:14-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/r/</loc>
       <lastmod>2016-04-27T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -244,7 +269,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/categories/r/</loc>
+      <loc>/tags/r-markdown/</loc>
       <lastmod>2019-03-02T21:13:14-05:00</lastmod>
       <priority>0</priority>
     </url>
@@ -253,16 +278,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tags/r-markdown/</loc>
-      <lastmod>2019-03-02T21:13:14-05:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://environmentalanalysist.netlify.com/talk/</loc>
+      <loc>/talk/</loc>
       <lastmod>2017-01-01T00:00:00+07:00</lastmod>
     </url>
     
@@ -270,7 +286,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/slides/</loc>
+      <loc>/slides/</loc>
       <priority>0</priority>
     </url>
     
@@ -278,14 +294,14 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/slides/example-slides/</loc>
+      <loc>/slides/example-slides/</loc>
     </url>
     
   
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tags/statistics/</loc>
+      <loc>/tags/statistics/</loc>
       <lastmod>2016-04-27T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -294,7 +310,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tags/</loc>
+      <loc>/tags/</loc>
       <lastmod>2018-01-13T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
@@ -303,7 +319,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tags/tutorial/</loc>
+      <loc>/tags/tutorial/</loc>
       <lastmod>2019-03-02T21:13:14-05:00</lastmod>
       <priority>0</priority>
     </url>
@@ -312,7 +328,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/authors/admin/</loc>
+      <loc>/authors/admin/</loc>
       <lastmod>2019-02-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -321,7 +337,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tags/plot/</loc>
+      <loc>/tags/plot/</loc>
       <lastmod>2015-07-23T21:13:14-05:00</lastmod>
       <priority>0</priority>
     </url>
@@ -330,7 +346,7 @@
     
     <url>
     
-      <loc>https://environmentalanalysist.netlify.com/tags/regression/</loc>
+      <loc>/tags/regression/</loc>
       <lastmod>2015-07-23T21:13:14-05:00</lastmod>
       <priority>0</priority>
     </url>
