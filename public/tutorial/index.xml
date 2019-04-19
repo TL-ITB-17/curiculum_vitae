@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>8. Penaksiran Secara Statistika</title>
+      <link>/tutorial/10_penaksiran_secara_statistika/</link>
+      <pubDate>Wed, 03 Apr 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/10_penaksiran_secara_statistika/</guid>
+      <description>body{text-align: justify}Daftar Isi
+Definisi Interval EstimasiInterpretasi Interval EstimasiInterval Kepercayaan MedianInterval Kepercayaan MeanInterval Prediksi NonparametrikTransformasi DataInterval Prediksi ParametrikInterval Kepercayaan Persentil (Interval Toleransi)Interval Kepercayaan Menggunakan Metode BootstrapKegunaan Lain Dari Interval KepercayaanPada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut kunci dari data seperti \(\overline{X}\) dan \(s\). Kedua nilai tersebut disebut sebagai nilai estimasi sampel dari populasi (untuk mean \(\mu\) dan simpangan baku \(\sigma\)).</description>
+    </item>
+    
+    <item>
       <title>6. Ringkasan Data</title>
       <link>/tutorial/06_ringkasan-numerik/</link>
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0700</pubDate>

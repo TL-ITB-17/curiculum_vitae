@@ -22,7 +22,7 @@ text-align: justify}
 > - [Ukuran Sebaran Data](#6-2-ukuran-sebaran-data)
 > - [Ringkasan Data Menggunakan Fungsi summary dan stat.desc](#6-3-ringkasan-data-menggunakan-fungsi-summary-dan-stat.desc)
 > - [Ukuran Kemencengan Data](#6-4-ukuran-kemencengan-data)
-> - [Outlier](#g-5-outlier)
+> - [Outlier](#6-5-outlier)
 > - [Transformasi Data](#6-6-transformasi-data)
 
 Pada bidang lingkungan kita sering kali menemui sebuah pernyataan "konsentrasi rata-rata TSS pada sungai tersebut adalah 30 mg/l" atau "kedalaman penampang saluran tersebut berkisar antara 1 sampai 2 meter". Kedua pernyataan tersebut merupakan sebuah penyapaian informasi terkait karakteristik data yang ada. Pernyataan yang pertama menyatakan karakteristik nilai pemusatan data, sedangkan yang kedua menyatakan karakteristik sebaran suatu data.

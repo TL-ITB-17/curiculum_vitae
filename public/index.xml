@@ -10,6 +10,1624 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>8. Penaksiran Secara Statistika</title>
+      <link>/tutorial/10_penaksiran_secara_statistika/</link>
+      <pubDate>Wed, 03 Apr 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/10_penaksiran_secara_statistika/</guid>
+      <description>
+
+
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Daftar Isi&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#8-1-definisi-interval-estimasi&#34;&gt;Definisi Interval Estimasi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-2-interpretasi-interval-estimasi&#34;&gt;Interpretasi Interval Estimasi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-3-interval-kepercayaan-median&#34;&gt;Interval Kepercayaan Median&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-4-interval-kepercayaan-mean&#34;&gt;Interval Kepercayaan Mean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-5-interval-prediksi-nonparametrik&#34;&gt;Interval Prediksi Nonparametrik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-6-interval-prediksi-parametrik&#34;&gt;Transformasi DataInterval Prediksi Parametrik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-7-interval-kepercayaan-persentil&#34;&gt;Interval Kepercayaan Persentil (Interval Toleransi)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-8-interval-kepercayaan-menggunakan-metode-bootstrap&#34;&gt;Interval Kepercayaan Menggunakan Metode Bootstrap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-9-kegunaan-lain-dari-interval-kepercayaan&#34;&gt;Kegunaan Lain Dari Interval Kepercayaan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Pada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut kunci dari data seperti &lt;span class=&#34;math inline&#34;&gt;\(\overline{X}\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;. Kedua nilai tersebut disebut sebagai nilai estimasi sampel dari populasi (untuk mean &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; dan simpangan baku &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;). Pada Chapter ini kita akan melakukan eksplorasi lebih jauh lagi mengenai interval estimasi (&lt;em&gt;interval estimate&lt;/em&gt;) yang akan menyinggung kedua nilai tersebut lebih jauh.&lt;/p&gt;
+&lt;div id=&#34;definisi-interval-estimasi&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.1 Definisi Interval Estimasi&lt;/h2&gt;
+&lt;p&gt;Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi menggunakan kedua nilai tersebut disebut sebagai estimasi titik (&lt;em&gt;point estimation&lt;/em&gt;). Estimasi titik sendiri tidak menggambarkan reliabilitas atau kurangnya reliabilitas (variabilitas) dari estimasi ini. Sebagai contoh, anggaplah terdapat dua data X dan Y dengan mean 5 dengan jumlah observasi yang sama. Data Y memiliki nilai mean 5 dengan sangat sedikit variasi didalamnya, sedangkan data X jauh lebih bervariasi. Perkiraan titik 5 untuk X jauh lebih tidak dapat diandalkan dibandingkan dengan untuk Y karena variabilitas yang lebih besar dalam data X. Dengan kata lain, lebih banyak kehati-hatian diperlukan ketika menyatakan bahwa 5 memperkirakan mean populasi sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang perbedaan ini.&lt;/p&gt;
+&lt;p&gt;Sebagai alternatif untuk estimasi titik, estimasi interval adalah interval yang memiliki probabilitas yang dinyatakan mengandung nilai populasi sebenarnya. interval lebih lebar untuk set data yang memiliki variabilitas lebih besar. Jadi dalam contoh di atas, interval antara 4,7 dan 5,3 mungkin memiliki kemungkinan 95% untuk mengandung mean populasi Y yang sebenarnya (tidak diketahui). Butuh interval yang jauh lebih luas, katakanlah antara 2,0 dan 8,0, untuk memiliki probabilitas yang sama untuk mengandung rerata sebenarnya dari X. Karena itu, perbedaan keandalan dari dua estimasi dengan jelas dinyatakan menggunakan estimasi interval. Estimasi interval dapat memberikan dua informasi yang estimasi poin tidak dapat berikan, antara lain:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Pernyataan probabilitas atau kemungkinan bahwa interval berisi nilai populasi sebenarnya (keandalannya).&lt;/li&gt;
+&lt;li&gt;Pernyataan kemungkinan bahwa satu titik data dengan besaran tertentu berasal dari populasi yang diteliti.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Estimasi interval untuk poin pertama disebut sebagai interval kepercayaan (&lt;em&gt;confidence interval&lt;/em&gt;), sedangkan yang kedua disebut sebagai interval prediksi (&lt;em&gt;prediction interal&lt;/em&gt;). Meskipun salin terkait, pembaca perlu berhati-hati sebab kedua definisi tersebut sering kali tertukar satu sama lain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interpretasi-interval-estimasi&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.2 Interpretasi Interval Estimasi&lt;/h2&gt;
+&lt;p&gt;Untuk lebih memahami mengenai definisi interval estimasi pada sub-chapter ini akan diberikan contoh yang diambil dari buku &lt;strong&gt;statistical Methods in Water Resources&lt;/strong&gt; karya Helsel dan Hirsch (2012). Misalkan mean populasi sebenarnya &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; konsentrasi dalam akuifer adalah 10. Sleain itu, anggaplah bahwa varians populasi sebenarnya &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2\)&lt;/span&gt; sama dengan 1. Karena nilai-nilai ini dalam praktiknya tidak pernah diketahui, sampel diambil untuk memperkirakannya dengan mean sampel &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; dan sampel varian &lt;span class=&#34;math inline&#34;&gt;\(s^2\)&lt;/span&gt; . Dana yang cukup tersedia untuk mengambil 12 sampel air (kira-kira satu per bulan) selama satu tahun, dan hari-hari di mana pengambilan sampel terjadi dipilih secara acak. Dari 12 sampel ini &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;x dan &lt;span class=&#34;math inline&#34;&gt;\(s^2\)&lt;/span&gt; dihitung. Meskipun pada kenyataannya hanya satu set 12 sampel akan diambil setiap tahun, menggunakan komputer 12 hari dapat dipilih beberapa kali untuk menggambarkan konsep perkiraan interval. Untuk masing-masing dari 10 set independen dari 12 sampel, interval kepercayaan pada mean dihitung dengan menggunakan persamaan yang diberikan pada Tabel &lt;a href=&#34;#tab:iie&#34;&gt;1&lt;/a&gt; dan Gambar &lt;a href=&#34;#fig:iievis&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:iie&#34;&gt;Table 1: &lt;/span&gt; Sepuluh interval kepercayaan 90% sekitar nilai mean sebenarnya sebesar 10 (Data berdistribusi normal dan Tanda plus menyatakan data tidak disertakan dalam nilai mean sebenarnya)&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;No.&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;N&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Mean&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;St.Dev&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;90% Interval kepercayaan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;10,06&lt;/td&gt;
+&lt;td&gt;1,11&lt;/td&gt;
+&lt;td&gt;9,46 sampai 10,64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;10,60&lt;/td&gt;
+&lt;td&gt;0,81&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(^+\)&lt;/span&gt; 10,18 sampai 11,02&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;9,95&lt;/td&gt;
+&lt;td&gt;1,26&lt;/td&gt;
+&lt;td&gt;9,29 sampai 10,60&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;10,18&lt;/td&gt;
+&lt;td&gt;1,26&lt;/td&gt;
+&lt;td&gt;9,52 sampai 10,83&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;10,17&lt;/td&gt;
+&lt;td&gt;1,33&lt;/td&gt;
+&lt;td&gt;9,48 sampai 10,85&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;10,22&lt;/td&gt;
+&lt;td&gt;1,19&lt;/td&gt;
+&lt;td&gt;9,60 sampai 10,84&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;9,71&lt;/td&gt;
+&lt;td&gt;1,51&lt;/td&gt;
+&lt;td&gt;8,92 sampai 10,49&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;9,90&lt;/td&gt;
+&lt;td&gt;1,01&lt;/td&gt;
+&lt;td&gt;9,38 sampai 10,43&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;9,95&lt;/td&gt;
+&lt;td&gt;0.10&lt;/td&gt;
+&lt;td&gt;9,43 sampai 10,46&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;9,88&lt;/td&gt;
+&lt;td&gt;1,37&lt;/td&gt;
+&lt;td&gt;9,17 sampai 10,59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Kesepuluh interval pada contoh di atas disebut dengan dengan &lt;strong&gt;interval kepercayaan 90%&lt;/strong&gt; dari nilai mean sesungguhnya. Nilai mean sebenarnya akan terdapat pada interval tersebut dengan probabilitas 90%. Sehingga berdasarkan Tabel &lt;a href=&#34;#tab:iie&#34;&gt;1&lt;/a&gt; terdapat 9 interval yang memiliki nilai mean sesungguhnya didalamnya (probabilitas 90%). Jika kita sekali lagi melakukan sampling dengan jumlah sampling yang sama pada interval nilai baru yang dihasilkan akan mengandung nilai mean sesungguhnya dan dapat juga tidak. Probabilitas interval tersebut mengandung nilai mean sesungguhnya disebut sebagai &lt;strong&gt;tingkat kepercayaan&lt;/strong&gt; (&lt;em&gt;confidence level&lt;/em&gt;). Probabilitas nilai interval tidak mengandung mean sesungguhnya disebut sebagai &lt;strong&gt;alpha level&lt;/strong&gt; (&lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;) yang ditulis berdasarkan Persamaan &lt;a href=&#34;#eq:alpha&#34;&gt;(1)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:alpha&#34;&gt;\[\begin{equation}
+  \alpha=1-confidence\ level\ 
+  \tag{1}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Lebar interval kepercayaan adalah fungsi dari bentuk distribusi data (variabilitas dan kemencengannya), ukuran sampel, dan tingkat kepercayaan yang diinginkan. Ketika tingkat kepercayaan meningkat, lebar interval juga meningkat, karena interval yang lebih besar lebih mungkin mengandung nilai sebenarnya daripada interval yang lebih pendek. Dengan demikian interval kepercayaan 95% akan lebih luas daripada interval 90% untuk data yang sama.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:iievis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/iievis.png&#34; alt=&#34;Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Interval kepercayaan simetris pada rata-rata biasanya dihitung dengan asumsi data mengikuti distribusi normal. Jika tidak, distribusi rerata itu sendiri akan mendekati normal sepanjang ukuran sampel besar (katakanlah 50 pengamatan atau lebih besar). Interval kepercayaan dengan asumsi normalitas kemudian akan memasukkan mean sebenarnya (&lt;span class=&#34;math inline&#34;&gt;\(1-\alpha\)&lt;/span&gt;)% dari waktu. Dalam contoh di atas, data dihasilkan dari distribusi normal, sehingga ukuran sampel kecil 12 tidak menjadi masalah. Namun ketika data memiliki kemencengan dan ukuran sampel di bawah 50 atau lebih, interval kepercayaan simetris tidak akan mengandung rata-rata (&lt;span class=&#34;math inline&#34;&gt;\(1-\alpha\)&lt;/span&gt;)% sepanjang waktu. Dalam contoh di bawah ini, interval kepercayaan simetris secara salah dihitung untuk data yang miring (Gambar &lt;a href=&#34;#fig:iiedata&#34;&gt;2&lt;/a&gt;). Hasil (Gambar &lt;a href=&#34;#fig:iievis2&#34;&gt;3&lt;/a&gt; dan Tabel &lt;a href=&#34;#tab:iie2&#34;&gt;2&lt;/a&gt;) menunjukkan bahwa interval kepercayaan kehilangan nilai sebenarnya dari 1 lebih sering daripada yang seharusnya. Semakin besar skewness, semakin besar ukuran sampel harus sebelum interval kepercayaan simetris dapat diandalkan. Sebagai alternatif, interval kepercayaan asimetris dapat dihitung untuk situasi umum data yang memiliki kemencengan.&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:iie2&#34;&gt;Table 2: &lt;/span&gt; Sepuluh interval kepercayaan 90% sekitar nilai mean sebenarnya sebesar 1 (Data tidak berdistribusi normal dan Tanda plus menyatakan data tidak disertakan dalam nilai mean sebenarnya)&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;No.&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;N&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Mean&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;St.Dev&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;90% Interval kepercayaan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0,784&lt;/td&gt;
+&lt;td&gt;0,320&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(^+\)&lt;/span&gt; 0,618 sampai 0,950&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0,811&lt;/td&gt;
+&lt;td&gt;0,299&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(^+\)&lt;/span&gt; 0,656 sampai 0,966&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;1,178&lt;/td&gt;
+&lt;td&gt;0,700&lt;/td&gt;
+&lt;td&gt;0,815 sampai 1,541&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;1,030&lt;/td&gt;
+&lt;td&gt;0,459&lt;/td&gt;
+&lt;td&gt;0,792 sampai 1,267&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;1,079&lt;/td&gt;
+&lt;td&gt;0,573&lt;/td&gt;
+&lt;td&gt;0,782 sampai 1,376&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0,833&lt;/td&gt;
+&lt;td&gt;0,363&lt;/td&gt;
+&lt;td&gt;0,644 sampai 1,021&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0,789&lt;/td&gt;
+&lt;td&gt;0,240&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(^+\)&lt;/span&gt; 0,644 sampai 0,913&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;1,159&lt;/td&gt;
+&lt;td&gt;0,815&lt;/td&gt;
+&lt;td&gt;0,736 sampai 1,581&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0,822&lt;/td&gt;
+&lt;td&gt;0,365&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(^+\)&lt;/span&gt; 0,633 sampai 0,992&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0,837&lt;/td&gt;
+&lt;td&gt;0,478&lt;/td&gt;
+&lt;td&gt;0,589 sampai 1,085&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:iiedata&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/iiedata.png&#34; alt=&#34;Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:iievis2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/iievis2.png&#34; alt=&#34;Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya  (Helsel dan Hirsch, 2002)&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya (Helsel dan Hirsch, 2002)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-kepercayaan-median&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.3 Interval Kepercayaan Median&lt;/h2&gt;
+&lt;p&gt;Interval kepercayaan median populasi dapat dihitung tanpa perlu mengikuti asumsi distribusi tertentu. Sehingga nilai median dapat digunakan untuk memperkirakan nilai pusat data untuk distribusi data yang tidak berdistribusi normal.&lt;/p&gt;
+&lt;div id=&#34;interval-estimasi-median-metode-nonparametrik&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.3.1 Interval Estimasi Median Metode Nonparametrik&lt;/h3&gt;
+&lt;p&gt;Interval estimasi nonparametrik untuk median populasi sebenarnya dihitung menggunakan distribusi binomial. Pertama, tingkat signifikansi yang diinginkan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dinyatakan, error yang dapat diterima tidak termasuk median yang sebenarnya. Satu-setengah (&lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;) dari error ini digunakan untuk setiap akhir interval (Gambar &lt;a href=&#34;#fig:iemednp&#34;&gt;4&lt;/a&gt;). Tabel distribusi binomial memberikan nilai kritis bawah dan atas &lt;span class=&#34;math inline&#34;&gt;\(x&amp;#39;\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; pada setengah tingkat alfa yang diinginkan (&lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;). Nilai-nilai kritis ini ditransformasikan ke dalam rangking &lt;span class=&#34;math inline&#34;&gt;\(R_l\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(R_u\)&lt;/span&gt; yang sesuai dengan titik data &lt;span class=&#34;math inline&#34;&gt;\(C_l\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(C_u\)&lt;/span&gt; di ujung interval kepercayaan.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:iemednp&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/iemednp.png&#34; alt=&#34;Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Untuk ukuran sampel kecil, tabel binomial dimasukkan pada kolom p = 0,5 (median) untuk menghitung interval kepercayaan pada median. Nilai kritis &lt;span class=&#34;math inline&#34;&gt;\(x&amp;#39;\)&lt;/span&gt; diperoleh dari tabel distribusi binomial yang sesuai dengan &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;, atau sedekat mungkin dengan &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;. Nilai kritis ini kemudian digunakan untuk menghitung peringkat &lt;span class=&#34;math inline&#34;&gt;\(R_u\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(R_l\)&lt;/span&gt; yang sesuai dengan nilai data pada batas kepercayaan atas dan bawah untuk median. Batas-batas ini adalah titik data peringkat &lt;span class=&#34;math inline&#34;&gt;\(R_l\)&lt;/span&gt;th yang masuk dari setiap ujung daftar n observasi. Interval kepercayaan yang dihasilkan akan mencerminkan bentuk (menceng atau simetris) dari data asli.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:rl&#34;&gt;\[\begin{equation}
+  R_l=x&amp;#39;+1 
+  \tag{2}
+\end{equation}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:ru&#34;&gt;\[\begin{equation}
+  R_u=n-x&amp;#39;=x\ untuk\ x&amp;#39;\ dan\ x\ dari\ tabel\ dist.\ binomial 
+  \tag{3}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Interval nonparametrik tidak selalu dapat secara tepat menghasilkan tingkat kepercayaan yang diinginkan ketika ukuran sampel kecil. Ini karena mereka terpisah, melompat dari satu nilai data ke yang berikutnya di ujung interval. Namun, tingkat kepercayaan yang dekat dengan yang diinginkan tersedia untuk semua kecuali ukuran sampel terkecil.&lt;/p&gt;
+&lt;p&gt;Untuk lebih memahaminya diberikan data 25 pengukuran konsentrasi arsenin di air tanah dalam ppb yang disajikan pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;tibble&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:gwardat&#34;&gt;Table 3: &lt;/span&gt;Konsentrasi Arsenik dalam air tanah (ppb)&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;observasi&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;konsentrasi&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;8&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;9&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;10&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;11&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;12.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;13&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;19.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;14&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;23.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;15&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;41.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;16&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;80.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;17&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;100.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;18&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;110.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;19&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;120.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;190.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;21&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;240.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;22&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;250.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;23&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;300.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;24&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;340.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;580.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Visualisasi Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt; ditunjukkan pada Gambar &lt;a href=&#34;#fig:gwardatvis&#34;&gt;5&lt;/a&gt;. Berdasarkan gambar tersebut terlihat bahwa data memiliki kemencengan yang positif sehingga penaksiran rata-rata populasi menggunakan nilai mean tidak dapat dilakukan.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;ggthemes&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gwardatvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/10_penaksiran_secara_statistika_files/figure-html/gwardatvis-1.png&#34; alt=&#34;Distribusi konsentrasi arsenik dalam air tanah&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 5: Distribusi konsentrasi arsenik dalam air tanah
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berdasarkan data pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt;, median konsentrasi arsenik &lt;span class=&#34;math inline&#34;&gt;\(\hat{C}_{0.5}\)&lt;/span&gt;=19 yang berada pada urutan data ke-13 dari data yang telah diurutkan dari yang terkecil ke yang terbesar. Untuk menentukan interval kepercayaan 95% median kosentrasi arsenik &lt;span class=&#34;math inline&#34;&gt;\(C_{0.5}\)&lt;/span&gt;, nilai kritis berdasarkan nilai error mendekati &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;=0,025 adalah &lt;span class=&#34;math inline&#34;&gt;\(x&amp;#39;\)&lt;/span&gt;=7. Untuk lebih memahaminya pembaca dapat mengunduh tabel distribusi binomial pada laman &lt;a href=&#34;https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf&#34;&gt;berikut&lt;/a&gt;. Nilai &lt;span class=&#34;math inline&#34;&gt;\(x&amp;#39;\)&lt;/span&gt;=7 diperoleh menggunakan Tabel distribusi binomial dengan &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;=25 dan &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;=0,5 yang ditampilkan pada Gambar &lt;a href=&#34;#fig:tabbinom&#34;&gt;6&lt;/a&gt; dengan nilai probabilitas sebesar 0,022 (mendekati 0,025) yang setara dengan area yang diarsir pada Gambar &lt;a href=&#34;#fig:iemednp&#34;&gt;4&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:tabbinom&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tabbinom.png&#34; alt=&#34;Lokasi probabilitas x berdasarkan tabel distribusi binomial&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berdasarkan Persamaan &lt;a href=&#34;#eq:rl&#34;&gt;(2)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:ru&#34;&gt;(3)&lt;/a&gt;, rangking &lt;span class=&#34;math inline&#34;&gt;\(R_l\)&lt;/span&gt; pada observasi yang menyatakan batas kepercayaan bawah (&lt;em&gt;lower confidence limit&lt;/em&gt;) adalah 8 (&lt;span class=&#34;math inline&#34;&gt;\(R_i\)&lt;/span&gt;=7+1) dan &lt;span class=&#34;math inline&#34;&gt;\(R_u\)&lt;/span&gt; yang menyatakan batas kepercayaan atas (&lt;em&gt;upper confidence level&lt;/em&gt;) adalah 25-7=18. Berdasarkan nilai probabilitas &lt;span class=&#34;math inline&#34;&gt;\(x&amp;#39;\)&lt;/span&gt;=0,022, maka nilai alpha yang sesunggunya sebesar &lt;span class=&#34;math inline&#34;&gt;\(\alpha=2*0,022=0,044\)&lt;/span&gt;. Nilai tersebut setara dengan tingkat kepercayaan &lt;span class=&#34;math inline&#34;&gt;\(1-0,044\)&lt;/span&gt; atau 95,6%. Nilai interval kepercayaan median antara observasi ke-8 dan 18 adalah &lt;span class=&#34;math inline&#34;&gt;\(C_l=4,8\le C_{0.5}\le110=C_u\ \ pada\ \alpha=0,044\)&lt;/span&gt;. Nilai asimetrik disekitar &lt;span class=&#34;math inline&#34;&gt;\(\hat{C}_{0.5}\)&lt;/span&gt;=19 mencerminkan kemencengan pada data.&lt;/p&gt;
+&lt;p&gt;Jika pembaca ingin melakukan perhitungan pada &lt;code&gt;R&lt;/code&gt;, pembaca harus membuat fungsi sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_npCI &amp;lt;- function(x,alpha){
+  # mengurutkan data
+  x_sort=sort(x)
+  # menghitung jumlah observasi
+  n=length(x)
+  # menghitung median data
+  med = median(x, na.rm=TRUE)
+  # loop untuk mencari nilai probabilitas terdekat
+  # dengan alpha
+  for(i in 1:n){
+    b = pbinom(i,n,0.5)
+    if(b&amp;gt;alpha/2){
+      break
+    }
+  }
+  # mengambil x&amp;#39;
+  x_i=i-1
+  # menghitung Rl dan Ru
+  rl=x_i+1
+  ru=n-x_i
+  # menghitung true confidence level
+  CL=1-2*(pbinom(x_i,n,0.5))
+  # menghitung Lower dan Upper CL
+  LCL=x_sort[rl]
+  UCL=x_sort[ru]
+  # menggabungkannya dalam satu data
+  data=data.frame(&amp;quot;median&amp;quot;=med,
+                  &amp;quot;True CL %&amp;quot;=CL*100,
+                  &amp;quot;Lower CL&amp;quot;=LCL,
+                  &amp;quot;Upper CL&amp;quot;=UCL)
+  return(data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Fungsi yang telah dibuat tersebut selanjutnya dapat pembaca gunakan saat akan menghitung interval kepercayaan median populasi menggunakan metode Nonparametrik. Berikut penerapannya menggunakan data pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt; yang telah disimpan kedalam objek &lt;code&gt;gwardat&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_npCI(x=gwardat$konsentrasi, alpha=0.05)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   median True.CL.. Lower.CL Upper.CL
+## 1     19  95.67147      4.8      110&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Alternatif lain yang dapat digunakan untuk menghitung interval kepercayaan jika sampel cukup besar n&amp;gt;20 menggunakan metode Nonparametrik adalah dengan menggunakan pendekatan tabel distribusi normal untuk memperkirakan distribusi binomial. Dengan menggunakan pendekatan ini, hanya sebagian kecil tabel distribusi binomial (n=20) yang diperlukan untuk melakukannya. Nilai kritis &lt;span class=&#34;math inline&#34;&gt;\(z_{\alpha/2}\)&lt;/span&gt; dari tabel distribusi normal menentukan rangking atas dan bawah observasi yang menyatakan awal dan akhir nilai interval kepercayaan yang dinyatakan pada Persamaan &lt;a href=&#34;#eq:rlz&#34;&gt;(4)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:ruz&#34;&gt;(5)&lt;/a&gt;. Pembulatan diperlukan dalam proses ini sebab nilai ranking harus berupa integer.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:rlz&#34;&gt;\[\begin{equation}
+  R_l=\frac{n-z_{\frac{\alpha}{2}}\cdot\sqrt{n}}{2} 
+  \tag{4}
+\end{equation}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:ruz&#34;&gt;\[\begin{equation}
+   R_l=\frac{n-z_{\frac{\alpha}{2}}\cdot\sqrt{n}}{2}+1
+  \tag{5}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Menggunakan contoh data pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt;, dengan 95% interval kepercayaan (&lt;span class=&#34;math inline&#34;&gt;\(z_{\alpha/2}\)&lt;/span&gt;=1,96) median dapat dihitung seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  R_l=\frac{25-1,96\cdot\sqrt{25}}{2}=7,6 
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  R_l=\frac{25+1,96\cdot\sqrt{25}}{2}+1=18,4 
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil perhitungan diperoleh rangking bawah adalah data ke-8 dan rangking atas adalah 18. Kedua data dibulatkan berdasarkan integer terdekat. Nilai interval kepercayaan median yang diperoleh sama dengan metode sebelumnya sebab rangking batas bawah dan atasnya yang seragam.&lt;/p&gt;
+&lt;p&gt;Jika pembaca ingin menggunakan &lt;code&gt;R&lt;/code&gt;, maka fungsi yang sebelumya telah kita buat dapat dimodifikasi seperti berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_norCI &amp;lt;- function(x, alpha){
+  # mengurutkan data dari yang terkecil
+  x_sort=sort(x)
+  # menghitung jumlah observasi
+  n = length(x)
+  # menghitung median data
+  med = median(x, na.rm=TRUE)
+  # menghitung Rl dan Ru
+  rl=round((n-abs(qnorm(alpha/2))*sqrt(n))/2,0)
+  ru=round(((n+abs(qnorm(alpha/2))*sqrt(n))/2)+1,0)
+  # menghitung Lower dan Upper CL
+  LCL=x_sort[rl]
+  UCL=x_sort[ru]
+  # menggabungkannya dalam satu data
+  data=data.frame(&amp;quot;median&amp;quot;=med,
+                  &amp;quot;Lower CL&amp;quot;=LCL,
+                  &amp;quot;Upper CL&amp;quot;=UCL)
+  return(data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Fungsi &lt;code&gt;med_norCI()&lt;/code&gt; sama dengan fungsi &lt;code&gt;med_npCI()&lt;/code&gt;. Perbedaannya terletak pada penggunaan distribusi normal pada proses penentuan titik kritisnya.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan fungsi &lt;code&gt;med_norCI()&lt;/code&gt;, rentang kepercayaan median dapat dihitung seperti berikut:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_norCI(x=gwardat$konsentrasi, alpha=0.05)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   median Lower.CL Upper.CL
+## 1     19      4.8      110&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Jika kita tidak ingin menggunakan vektor dalam fungsi, kita dapat juga menggunakan data frame sebagai inputnya. Kelebihannya adalah kita dapat menghitung rentang kepercayaan seluruh kolom dalam satu kali proses. Hal ini tentunya akan menghemat waktu yang digunakan. Berikut adalah contoh sintaks fungsi untuk menghitung interval kepercayaan median menggunakan distribusi normal dengan metode nonparametrik yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_norCI &amp;lt;- function(df, alpha){
+  # membuat matrik untuk menyimpan
+  # hasil loop
+  med = rep(NA, ncol(df))
+  LCL = rep(NA, ncol(df))
+  UCL = rep(NA, ncol(df))
+  var = rep(NA, ncol(df))
+  # looping
+  for(i in 1:ncol(df)){
+    # mengurutkan data
+    x_sort = sort(df[, i])
+    # mengambil nama kolom dataset
+    var[i] = colnames(df[i])
+    # menghitung jumlah observasi
+    n = length(x_sort)
+    # menghitung median data
+    med[i] = median(x_sort, na.rm=TRUE)
+    # menghitung Lower dan Upper CL
+    LCL[i]=x_sort[(round((n-abs(qnorm(alpha/2))*sqrt(n))/2,0))]
+    UCL[i]=x_sort[(round(((n+abs(qnorm(alpha/2))*sqrt(n))/2)+1,0))]
+  }
+  # menggabungkannya dalam satu data
+  data=data.frame(&amp;quot;variabel&amp;quot;=var,
+                  &amp;quot;median&amp;quot;=med,
+                  &amp;quot;Lower CL&amp;quot;=LCL,
+                  &amp;quot;Upper CL&amp;quot;=UCL)
+  return(data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;df&lt;/strong&gt;: data frame&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Fungsi tersebut dapat menghitung sekaligus Interval kepercayaan median dengan metode nonparametrik. Pembaca dapat mencobanya dengan menggunakan dataset yang pembaca miliki. Pembaca dapat mengabaikan peringatan yang muncul dan berfokus pada hasil yang diperoleh. Sebagai contoh jalankan fungsi tersebut menggunakan dataset &lt;code&gt;airquality&lt;/code&gt; berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_norCI(df=airquality, alpha=0.05)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;metode-parametrik-interval-estimasi-median&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.3.2 Metode Parametrik Interval Estimasi Median&lt;/h3&gt;
+&lt;p&gt;Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik merupakan merupakan nilai rata-rata yang digunakan untuk mengestimasi median sampel untuk data yang memiliki kemencengan dengan transformasi yang digunakan agar data simetris adalah transformasi logaritmik &lt;span class=&#34;math inline&#34;&gt;\(y=\ln(x)\)&lt;/span&gt;. Pada metode ini data diasumsikan memiliki distribusi lognormal (kemencengan positif). Rerata dan interval geometris akan lebih efisien (interval lebih pendek) dari median dan interval kepercayaannya ketika data benar-benar lognormal. Median sampel dan intervalnya lebih tepat dan lebih efisien jika logaritma data masih menunjukkan kemencengan dan/atau &lt;em&gt;outlier&lt;/em&gt;. Estimasi media menggunakan metode parametrik dituliskan kedalam Persamaan &lt;a href=&#34;#eq:gmci&#34;&gt;(6)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:gmci2&#34;&gt;(7)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:gmci&#34;&gt;\[\begin{equation}
+  GM_x=\exp\left(\overline{y}\right) 
+  \tag{6}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(y=\ln(x)\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\overline{y}\)&lt;/span&gt;=mean sampel &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:gmci2&#34;&gt;\[\begin{equation}
+  \exp\left(\overline{y}-t_{\left(\frac{\alpha}{2},n-1\right)}\sqrt{\frac{s_y^2}{n}}\right)\le GM_x\le\exp\left(\overline{y}+t_{\left(\frac{\alpha}{2},n-1\right)}\sqrt{\frac{s_y^2}{n}}\right) 
+  \tag{7}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(s_{y}^2\)&lt;/span&gt;= varians sampel y pada unit log natural.&lt;/p&gt;
+&lt;p&gt;Pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt;, untuk menghitung interval keyakinan median menggunakan pendekatan mean geometrik &lt;span class=&#34;math inline&#34;&gt;\(GM_x\)&lt;/span&gt; kita perlu mentransformasi datanya terlebih dahulu sehingga menjadi bentuk natural log. hasil transformasi disajikan pada Tabel &lt;a href=&#34;#tab:gwardat2&#34;&gt;4&lt;/a&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:gwardat2&#34;&gt;Table 4: &lt;/span&gt;Tranformasi logaritmik konsentrasi Arsenik dalam air tanah (ppb)&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;observasi&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;konsentrasi&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.2623643&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4054651&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5877867&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9555114&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.0296194&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.2527630&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.3862944&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;8&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.5686159&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;9&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.0794415&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;10&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.2512918&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;11&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.4849066&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.6390573&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;13&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.9444390&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;14&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.1354942&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;15&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.7135721&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;16&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.3820266&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;17&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.6051702&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;18&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.7004804&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;19&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.7874917&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.2470241&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;21&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.4806389&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;22&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.5214609&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;23&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.7037825&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;24&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.8289456&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6.3630281&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;visualisasi distribusi yang baru disajikan pada Gambar &lt;a href=&#34;#fig:gwardatvis2&#34;&gt;7&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gwardatvis2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/10_penaksiran_secara_statistika_files/figure-html/gwardatvis2-1.png&#34; alt=&#34;Distribusi logaritmik konsentrasi arsenik dalam air tanah&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 7: Distribusi logaritmik konsentrasi arsenik dalam air tanah
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Nilai mean dari data tersebut adalah 3,17 dengan simpangan baku sebesar 1,96. Berdasarkan Gambar &lt;a href=&#34;#fig:gwardatvis2&#34;&gt;7&lt;/a&gt;, kita telah memperoleh distribusi yang simetris.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan Persamaan &lt;a href=&#34;#eq:gmci&#34;&gt;(6)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:gmci2&#34;&gt;(7)&lt;/a&gt; selanjutnya dapat dihitung interval kepercayaannya dengan derajat kepercayaan 95%.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  GM_x=\exp\left(3,17\right)=23,8
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  \exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)\le GM_x\le\exp\left(3.17-2,064\cdot\sqrt{\frac{1.96^2}{25}}\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  \exp\left(2,36\right)\le GM_x\le\exp\left(3,98\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  10,6\le GM_x\le53,5
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan &lt;code&gt;R&lt;/code&gt; dapat dikerjakan menggunakan fungsi sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_gm &amp;lt;- function(x, alpha){
+  x = log(x)
+  # rata-rata geometrik
+  gm = exp(mean(x, na.rm=TRUE))
+  # menghitung derajat kebebasan
+  df = length(x)-1
+  # menghitung batas bawah dan atas
+  LCL = exp(mean(x, na.rm=TRUE)-qt(1-alpha/2,df)*sqrt(var(x, na.rm=TRUE)/length(x)))
+  UCL = exp(mean(x, na.rm=TRUE)+qt(1-alpha/2,df)*sqrt(var(x, na.rm=TRUE)/length(x)))
+  # menggabungkan hasil
+  data=data.frame(&amp;quot;GM&amp;quot;=gm,
+                  &amp;quot;Lower CL&amp;quot;=LCL,
+                  &amp;quot;Upper CL&amp;quot;=UCL)
+  return(data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_gm(x=gwardat$konsentrasi, alpha=0.05)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         GM Lower.CL Upper.CL
+## 1 23.87106 10.63118 53.59966&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Fungsi &lt;code&gt;med_gm()&lt;/code&gt; dapat dilakukan sejumlah modifikasi seperti penggunaan data frame sebagai input serta proses transformasi yang dilakukan didalam fungsi yang ada sekaligus. Berikut adalah contoh fungsi yang digunakan untuk input berupa data frame dan proses transformasi termasuk didalamnya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_gm &amp;lt;- function(df, alpha){
+  # membuat vektor untuk menyimpan hasil loop
+  var = rep(NA, ncol(df))
+  gm = rep(NA, ncol(df))
+  LCL = rep(NA, ncol(df))
+  UCL = rep(NA, ncol(df))
+  # looping
+  for(i in 1:ncol(df)){
+    # mengambil nama kolom
+    var[i] = colnames(df[i])
+    # transformasi variabel (logaritmik)
+    x = log(df[,i])
+    # rata-rata geometrik
+    gm[i] = exp(mean(x, na.rm=TRUE))
+    # menghitung derajat kebebasan
+    d = length(x)-1
+    # menghitung batas bawah dan atas
+    LCL[i] = exp(mean(x, na.rm=TRUE)-qt(1-alpha/2,d)*sqrt(var(x, na.rm=TRUE)/length(x)))
+    UCL[i] = exp(mean(x, na.rm=TRUE)+qt(1-alpha/2,d)*sqrt(var(x,na.rm=TRUE)/length(x)))
+  }
+  # menggabungkan hasil
+  data=data.frame(&amp;quot;Variabel&amp;quot;=var,
+                  &amp;quot;GM&amp;quot;=gm,
+                  &amp;quot;Lower CL&amp;quot;=LCL,
+                  &amp;quot;Upper CL&amp;quot;=UCL)
+  return(data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;df&lt;/strong&gt;: data frame&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk menguji fungsi tersebut jalankan fungsi tersebut menggunakan dataset yang pembaca miliki. Dalam contoh ini ak diberikan contoh penerapannya menggunakan dataset &lt;code&gt;airquality&lt;/code&gt;. Jalankan fungsi berikut untuk memperoleh hasilnya.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_gm(airquality, 0.05)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pembaca perlu berhati-hati dalam menentukan apakah akan menggunakan metode Nonparametrik atau parametrik. Jika data berditribusi lognormal kita dapat menggunakan metode parametrik.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-kepercayaan-mean&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.4 Interval Kepercayaan Mean&lt;/h2&gt;
+&lt;p&gt;Estimasi interval juga dapat dihitung untuk mean populasi sebenarnya &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;. Hal ini sangat sesuai jika pusat data menjadi fokus dalam analisa statistik. Interval simetris di sekitar sampel rata-rata X paling sering dihitung. Untuk ukuran sampel besar, interval simetris secara memadai menggambarkan variasi rata-rata, terlepas dari bentuk distribusi data. Ini karena distribusi rata-rata sampel akan mendekati dengan distribusi normal ketika ukuran sampel semakin besar, meskipun data mungkin tidak terdistribusi secara normal. Untuk ukuran sampel yang lebih kecil, rata-rata tidak akan didistribusikan secara normal kecuali jika data itu sendiri terdistribusi secara normal. Ketika data meningkat kemencengannya, lebih banyak data diperlukan sebelum distribusi rata-rata dapat didekati secara memadai oleh distribusi normal. Untuk distribusi yang sangat miring atau data yang mengandung &lt;em&gt;outlier&lt;/em&gt;, mungkin diperlukan lebih dari 100 pengamatan sebelum nilai rata-rata tidak akan terpengaruh oleh nilai terbesar untuk mengasumsikan bahwa distribusinya akan simetris.&lt;/p&gt;
+&lt;div id=&#34;interval-kepercayaan-mean-untuk-distribusi-yang-simetris&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.4.1 Interval Kepercayaan Mean Untuk Distribusi Yang Simetris&lt;/h3&gt;
+&lt;p&gt;Interval kepercayaan mean untuk distribusi simetris dihitung menggunakan tabel distribusi &lt;em&gt;student’s t&lt;/em&gt; yang tersedia dalam buku teks statistik dan perangkat lunak. Tabel ini dimasukkan untuk menemukan nilai kritis untuk t pada setengah tingkat alfa yang diinginkan. Pada buku lain sering dijelaskan bahwa distribusi t hanya digunakan untuk sampel kecil (beberapa menyebutkan n&amp;lt;30), sedangkan untuk distribusi besar digunakan distribusi normal. Penggunaan distribusi normal jarang digunakan dalam prakiraan. Hal ini disebabkan karena pada proses perhitungan diperlukan nilai simpangan baku &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;. Pada kenyataannya pada pengukuran dilapangan kita sering sekalin melakukan estimasi terhadap simpangan baku melalui sampel &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; karena kita tidak mengetahui nilai simpangan baku populasinya sehingga pada buku ini akan digali lebih jauh metode estimasi interval menggunakan persamaan distribusi t.&lt;/p&gt;
+&lt;p&gt;Lebar interval kepercayaan adalah fungsi dari nilai-nilai kritis dari tabel distribusi t, simpangan baku data, dan ukuran sampel. Ketika data memiliki kemecengan atau mengandung &lt;em&gt;outlier&lt;/em&gt;, asumsi di balik interval t dan distribusi normal tidak berlaku. Interval simetris yang dihasilkan akan sangat luas sehingga sebagian besar pengamatan akan dimasukkan di dalamnya. Ini juga dapat mencapai di bawah nol di ujung bawah. Titik akhir negatif dari interval kepercayaan untuk data yang tidak dapat menjadi negatif adalah sinyal yang jelas bahwa asumsi interval kepercayaan simetris tidak diperlukan. Untuk data tersebut, dengan asumsi distribusi lognormal seperti yang dijelaskan dalam sub chapter sebelumnya (interval kepercayaan median) akan lebih tepat. Interval kepercayaan dihitung menggunakan Persamaan &lt;a href=&#34;#eq:pmeancisim&#34;&gt;(8)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pmeancisim&#34;&gt;\[\begin{equation}
+  \overline{x}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{\frac{s^2}{n}}\le\mu\le\overline{x}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{\frac{s^2}{n}}
+  \tag{8}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk lebih memahami cara penerapannya, kita akan menggunakan kembali data pada Tabel &lt;a href=&#34;#tab:gwardat2&#34;&gt;4&lt;/a&gt;. Langkah pertama yang perlu dilakukan adalah menghitung mean sampel &lt;span class=&#34;math inline&#34;&gt;\(\overline{x}\)&lt;/span&gt; dan simpangan baku sampel &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;. Berdasarkan hasil perhitungan diperoleh nilai &lt;span class=&#34;math inline&#34;&gt;\(\overline{x}\)&lt;/span&gt; =98.352 dan &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; = 144.685. Dengan meggunakan Persamaan &lt;a href=&#34;#eq:pmeancisim&#34;&gt;(8)&lt;/a&gt;, interval estimasi mean dengan tingkat kepercayaan 95% dapat dihitung sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}\le\mu\le3,17\ -\ t_{\left(0.25,24\right)}\cdot\sqrt{\frac{1,96^2}{25}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  2,36\le\mu\le3,98
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh terdapat 95% peluang nilai mean populasi &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; terletak pada interval 2,36 sampai 3,98. Perlu diingat bahwa metode parametrik sangat sensitif dengan adanya &lt;em&gt;outlier&lt;/em&gt; sehingga jika pembaca ingin menggunakannya pastikan terlebih dahulu tidak ada &lt;em&gt;outlier&lt;/em&gt; pada data dengan cara melakukan visualisasi data.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; kita dapat menggunakan fungsi &lt;code&gt;stat.desc()&lt;/code&gt; untuk menhitung statistika deskriptif serta interval kepercayaan mean-nya. Berikut adalah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat paket
+library(pastecs)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;pastecs&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ringkasan data
+r=stat.desc(gwardat2$konsentrasi)
+r&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      nbr.val     nbr.null       nbr.na          min          max 
+##   25.0000000    0.0000000    0.0000000    0.2623643    6.3630281 
+##        range          sum       median         mean      SE.mean 
+##    6.1006638   79.3166718    2.9444390    3.1726669    0.3919164 
+## CI.mean.0.95          var      std.dev     coef.var 
+##    0.8088758    3.8399625    1.9595822    0.6176451&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# batas bawah (LCL)
+mean(gwardat2$konsentrasi)-r[[11]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2.363791&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# batas atas (UCL)
+mean(gwardat2$konsentrasi)+r[[11]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.981543&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Selain itu , kita juga dapat menghitung interval kepercayaan mean menggunakan fungsi &lt;code&gt;t.test()&lt;/code&gt;. Fungsi ini pada dasarnya dilakukan untuk melakukan uji hipotesis terhadap satu rata-rata. Untuk lebih tahu mengenai fungsi tersebut jalankan sintaks bantuan berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;?t.test&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk menghitung interval kepercayaan mean jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t.test(gwardat$konsentrasi, conf.level= 0.95) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  One Sample t-test
+## 
+## data:  gwardat$konsentrasi
+## t = 3.3988, df = 24, p-value = 0.002364
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##   38.62894 158.07506
+## sample estimates:
+## mean of x 
+##    98.352&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-kepercayaan-mean-untuk-distribusi-yang-asimetris&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.4.2 Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris&lt;/h3&gt;
+&lt;p&gt;Mean dan interval kepercayaan dapat dihitung dengan mengasumsikan distribusi data mengikuti distribusi logaritmik &lt;span class=&#34;math inline&#34;&gt;\(y=\ln{(x)}\)&lt;/span&gt;. Metode ini berguna untuk jenis data yang memiliki bentuk distribusi data yang memiliki kemencengan positif (perlu transformasi logaritmik agar simetris).Metode ini memberikan perkiraan rata-rata yang lebih dapat diandalkan (varians lebih rendah) daripada perhitungan rata-rata sampel biasa tanpa transformasi log.&lt;/p&gt;
+&lt;p&gt;Untuk memperkirakan rata-rata populasi &lt;span class=&#34;math inline&#34;&gt;\(\mu_x\)&lt;/span&gt; dalam unit aslinya, anggap datanya berdistribusi normal. Satu-setengah varians logaritma ditambahkan ke &lt;span class=&#34;math inline&#34;&gt;\(\overline{y}\)&lt;/span&gt; (rata-rata log) sebelum eksponensial. Karena varians sampel &lt;span class=&#34;math inline&#34;&gt;\(s^2_y\)&lt;/span&gt; hanya perkiraan varians sebenarnya dari logaritma, estimasi sampel rata-rata akan menjadi bias. Namun, untuk sampel dengan &lt;span class=&#34;math inline&#34;&gt;\(s^2_y\)&lt;/span&gt; kecil dan ukuran sampel besar bias dapat diabaikan. Interval kepercayaan dapat dituliskan berdasarkan Persamaan &lt;a href=&#34;#eq:pmeanciasim&#34;&gt;(9)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pmeanciasim&#34;&gt;\[\begin{equation}
+  \mu_x=\exp\left(\overline{y}+0,5\cdot s_y^2\right)
+  \tag{9}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(y=\ln{(x)}\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\overline{y}\)&lt;/span&gt;= mean sampel dan &lt;span class=&#34;math inline&#34;&gt;\(s^2_y\)&lt;/span&gt;= varians sampel y dalam unit log natural.&lt;/p&gt;
+&lt;p&gt;Interval kepercayaan sekitar &lt;span class=&#34;math inline&#34;&gt;\(\mu_x\)&lt;/span&gt; bukan estimasi interval yang dihitung untuk rata-rata geometri dalam Persamaan &lt;a href=&#34;#eq:gmci2&#34;&gt;(7)&lt;/a&gt;. Interval kepercayaan tidak dapat dihitung hanya dengan mengekspansi interval sekitar &lt;span class=&#34;math inline&#34;&gt;\(\overline{y}\)&lt;/span&gt;. Interval kepercayaan yang tepat dalam satuan asli untuk rata-rata data lognormal dapat dihitung. Untuk lebih jelasnya pembaca dapat melihatnya pada situs &lt;a href=&#34;http://jse.amstat.org/v13n1/olsson.html&#34; class=&#34;uri&#34;&gt;http://jse.amstat.org/v13n1/olsson.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Metode Cox dapat digunakan untuk menghitung interval keyakinan dengan nilai estimasi rata-rata menggunakan Persamaan &lt;a href=&#34;#eq:pmeanciasim&#34;&gt;(9)&lt;/a&gt;. Persamaan yang digunakan dapat dituliskan sebagai berikut (Persamaan &lt;a href=&#34;#eq:pmeanciasimci&#34;&gt;(10)&lt;/a&gt;).&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pmeanciasimci&#34;&gt;\[\begin{equation}
+  \ln\left(\mu_x\right)=\overline{Y}+\frac{s_y^2}{2}\pm z_{\left(\frac{\alpha}{2}\right)}\sqrt{\frac{s_y^2}{n}+\frac{s_y^4}{2\left(n-1\right)}}
+  \tag{10}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Persamaan &lt;a href=&#34;#eq:pmeanciasimci&#34;&gt;(10)&lt;/a&gt; dapat dimodifikasi dengan menggunakan distribusi t dibanding menggunakan distribusi normal. Penggunaan distribusi t akan memperbaiki kelemahan penggunaan distribusi normal pada sampel yang berukuran kecil.&lt;/p&gt;
+&lt;p&gt;Data Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt; dapat kita gunakan untuk menghitung rata-rata menggunakan Persamaan &lt;a href=&#34;#eq:pmeanciasimci&#34;&gt;(10)&lt;/a&gt;. Hal ini disebabkan karena data yang ada memiliki kemencengan positif sehingga dapat dianggap bahwa transformasi logaritmik dapat membentuk distribusi ini menjadi lebih simetris.&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil perhitungan diperoleh nilai &lt;span class=&#34;math inline&#34;&gt;\(\overline{Y}\)&lt;/span&gt; =3.173 dan &lt;span class=&#34;math inline&#34;&gt;\(s^2_y\)&lt;/span&gt; = 1.96. Sehingga nilai interval selanjutnya dapat dihitung menggunakan Persamaan &lt;a href=&#34;#eq:pmeanciasimci&#34;&gt;(10)&lt;/a&gt; dengan interval keyakinan 95%.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  \ln\left(\mu_x\right)=3,17+\frac{1,96^2}{2}\pm1,96\sqrt{\frac{1,96^2}{25}+\frac{1,96^4}{2\left(25-1\right)}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  \ln\left(\mu_x\right)=5,10\pm1,33
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Sehingga&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  \exp\left(5,10-1,33\right)\le\mu_x\le\exp\left(5,10+1,33\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  43,38\le\mu_x\le620,17
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Nilai interval yang dihasilkan sangat panjang sehingga nilai rata-rata yang dihasilkan tidak dapat diandalkan untuk memperkirankan lokasi nilai mean populasi.&lt;/p&gt;
+&lt;p&gt;Pada contoh berikut akan disajikan sintaks untuk menghitung interval kepercayaan mean data pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt; berdasarkan Persamaan &lt;a href=&#34;#eq:pmeanciasimci&#34;&gt;(10)&lt;/a&gt; dan sitribusi yang digunakan adalah distribusi t. Pembaca dapat memodifikasi sintaks berikut jika ingin menggunakan distribusi normal.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean_asci&amp;lt;-function(x,alpha){
+  m=mean(x, na.rm=TRUE)
+  # mean data hasil transformasi logaritmik
+  ave = mean(log(x), na.rm=TRUE)
+  # simpangan baku data hasil transformasi
+  sd = sd(log(x), na.rm=TRUE)
+  # jumlah observasi
+  n = length(x)
+  # derajat kebebasa
+  df = n-1
+  # interval keyakinan satu sisi
+  re = 1-(alpha/2)
+  # CI menggunakan distribusi t
+  LCL = exp(ave+(0.5*sd^2)-qt(re,df)*sqrt(((sd^2)/n)+((sd^4)/(2*df))))
+  UCL = exp(ave+(0.5*sd^2)+qt(re,df)*sqrt(((sd^2)/n)+((sd^4)/(2*df))))
+  # menggabungkan hasil
+  data = data.frame(&amp;quot;Mean&amp;quot;=m,
+                  &amp;quot;Lower CL&amp;quot;=LCL,
+                  &amp;quot;Upper CL&amp;quot;=UCL)
+  return(data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean_asci(x=gwardat$konsentrasi, alpha=0.05)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Mean Lower.CL Upper.CL
+## 1 98.352 40.11052 660.9363&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Jika pembaca ingin menggunakan data frame sebagai input yang digunakan selain vektor, fungsi tersebut dapat dimodifikasi seperti berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean_asci&amp;lt;-function(df,alpha){
+  # membuat vektor untuk menyimpan hasil loop
+  var = rep(NA, ncol(df))
+  m = rep(NA, ncol(df))
+  LCL = rep(NA, ncol(df))
+  UCL = rep(NA, ncol(df))
+  # looping
+  for(i in 1:ncol(df)){
+    # mengambil nama kolom
+    var[i] = colnames(df[i])
+    # menghitung mean data
+    m[i]=mean(df[,i], na.rm=TRUE)
+    # mean data hasil transformasi logaritmik
+    ave = mean(log(df[,i]), na.rm=TRUE)
+    # simpangan baku data hasil transformasi
+    sd = sd(log(df[,i]), na.rm=TRUE)
+    # jumlah observasi
+    n = length(df[,i])
+    # derajat kebebasa
+    d = n-1
+    # interval keyakinan satu sisi
+    re = 1-(alpha/2)
+    # CI menggunakan distribusi t
+    LCL[i] = exp(ave+(0.5*sd^2)-qt(re,d)*sqrt(((sd^2)/n)+((sd^4)/(2*d))))
+    UCL[i] = exp(ave+(0.5*sd^2)+qt(re,d)*sqrt(((sd^2)/n)+((sd^4)/(2*d))))
+  }
+  # menggabungkan hasil
+  data = data.frame(&amp;quot;Variabel&amp;quot;=var,
+                    &amp;quot;Mean&amp;quot;=m,
+                    &amp;quot;Lower CL&amp;quot;=LCL,
+                    &amp;quot;Upper CL&amp;quot;=UCL)
+  return(data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;df&lt;/strong&gt;: data frame&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk menguji fungsi tersebut, pembaca dapat memasukkan data frame yang pembaca miliki kedalam persamaan tersebut. Berikut adalah contoh sintaks yang digunakan untuk menghitung interval kepercayaan mean pada dataset &lt;code&gt;airquality&lt;/code&gt;. Pembaca dapat menjalankannya pada komputer pembaca.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean_asci(airquality, 0.05)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-prediksi-nonparametrik&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.5 Interval Prediksi Nonparametrik&lt;/h2&gt;
+&lt;p&gt;Pertanyaan yang sering diajukan adalah apakah satu pengamatan baru kemungkinan berasal dari distribusi yang sama dengan data yang dikumpulkan sebelumnya, atau sebagai alternatif dari distribusi yang berbeda. Pertanyaan dapat dievaluasi dengan menentukan apakah pengamatan baru di luar interval prediksi yang dihitung dari data yang ada. Interval prediksi mengandung &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\left(1-\alpha\right)\)&lt;/span&gt; persen dari distribusi data, sementara &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\alpha\)&lt;/span&gt; persen berada di luar interval. Jika pengamatan baru datang dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\alpha\)&lt;/span&gt; persen bahwa pengamatan baru tersebut akan berada di luar interval prediksi. Karena pengamatan baru tersebut berada di luar interval tidak “membuktikan” pengamatan baru itu berbeda, hanya saja sepertinya begitu. Seberapa besar kemungkinan ini tergantung pada pilihan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; yang ditentukan oleh peneliti.&lt;/p&gt;
+&lt;p&gt;Interval prediksi dihitung dengan tujuan yang berbeda dari interval kepercayaan. Interval prediksi terkait dengan nilai data individu yang berlawanan dengan ringkasan statistik seperti nilai mean. Interval prediksi lebih luas daripada interval kepercayaan, karena pengamatan individu lebih bervariasi daripada ringkasan statistik yang dihitung dari beberapa pengamatan. Tidak seperti interval kepercayaan, interval prediksi memperhitungkan variabilitas titik data tunggal di sekitar median atau rata-rata, di samping kesalahan dalam memperkirakan pusat distribusi. Ketika mean &lt;span class=&#34;math inline&#34;&gt;\(\pm\)&lt;/span&gt; 2 simpangan baku secara keliru digunakan untuk memperkirakan lebar interval prediksi, data baru dinyatakan berasal dari populasi yang berbeda lebih sering daripada yang seharusnya.&lt;/p&gt;
+&lt;div id=&#34;interval-prediksi-nonparametrik-dua-sisi&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.5.1 Interval Prediksi Nonparametrik Dua Sisi&lt;/h3&gt;
+&lt;p&gt;Interval prediksi tingkat kepercayaan nonparametrik &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; secara sederhana dinyatakan sebagai interval antara persentil distribusi &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(1-\left(\frac{\alpha}{2}\right)\)&lt;/span&gt; (Gambar &lt;a href=&#34;#fig:ipnds&#34;&gt;8&lt;/a&gt;). Interval ini mengandung &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\left(1-\alpha\right)\)&lt;/span&gt; data, sedangkan &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\alpha\)&lt;/span&gt; persen berada di luar interval. Oleh karena itu jika titik data tambahan baru berasal dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\alpha\)&lt;/span&gt; persen bahwa itu akan berada di luar interval prediksi. Interval akan mencerminkan bentuk data yang dikembangkannya, dan tidak ada asumsi tentang bentuk bentuk yang perlu dibuat. Interval prediksi nonparametrik dua sisi dinyatakan berdasarkan Persamaan &lt;a href=&#34;#eq:eqipnds&#34;&gt;(11)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:eqipnds&#34;&gt;\[\begin{equation}
+  PI_{np}=X_{\frac{\alpha}{2}\cdot\left(n+1\right)}\ sampai\ dengan\ X_{\left[1-\left(\frac{\alpha}{2}\right)\right]\cdot\left(n+1\right)}
+  \tag{11}
+\end{equation}\]&lt;/span&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ipnds&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/ipnds.png&#34; alt=&#34;Prediksi interval dua sisi (Helsel dan Hirsch, 2002)&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 8: Prediksi interval dua sisi (Helsel dan Hirsch, 2002)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Kita akan kembali menggunakan data pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt;. Dengan menggunakan tingkat kepercayaan 90% kita diminta untuk menentukan interval prediksi dari konsentrasi arsenik pada data tersebut tanpa mengasumsikan distribusi dari data.&lt;/p&gt;
+&lt;p&gt;Untuk melakukannya kita perlu menentukan observasi ke-2,5 dan 97,5 (berdasarkan nilai &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;) dengan rangking observasi berdasarkan Persamaan &lt;a href=&#34;#eq:eqipnds&#34;&gt;(11)&lt;/a&gt; adalah &lt;span class=&#34;math inline&#34;&gt;\((0,05*26)\)&lt;/span&gt; atau rangking observasi antara observasi 1 (&lt;span class=&#34;math inline&#34;&gt;\(R_1\)&lt;/span&gt;) dan 2 (&lt;span class=&#34;math inline&#34;&gt;\(R_2\)&lt;/span&gt;) dan &lt;span class=&#34;math inline&#34;&gt;\((0,95*26)\)&lt;/span&gt; rangking observasi antara observasi 24 (&lt;span class=&#34;math inline&#34;&gt;\(R_{24}\)&lt;/span&gt;) dan 25 (&lt;span class=&#34;math inline&#34;&gt;\(R_{25}\)&lt;/span&gt;). Dengan menggunakan interpolasi linier pada observasi ke-1, 2 , 24 dan 25, interval prediksi yang diperoleh adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  X_1+\left(\frac{R_{\left(0.05\cdot26\right)}-R_1}{R_2-R_1}\right)\cdot\left(X_2-X_1\right)\ sampai\ dengan\ X_{24}+\left(\frac{R_{\left(0.95\cdot26\right)}-R_{24}}{R_{25}-R_{24}}\right)\cdot\left(X_{25}-X_4\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  1,3+\left(\frac{1,3-1}{2-1}\right)\cdot\left(1,5-1,3\right)\ sampai\ dengan\ 340+\left(\frac{24,5-24}{25-24}\right)\cdot\left(580-340\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  1,4\ sampai\ dengan\ 508\ ppb
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Observasi baru diluar rentang tersebut akan dianggap berasal dari distribusi yang berbeda dengan tingkat error sebesar 10% (&lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;=10%).&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan &lt;code&gt;R&lt;/code&gt; pembaca depat menghitung interval prediksi menggunakan fungsi berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;PInp &amp;lt;- function(x, alpha){
+  # mengurutkan data
+  x_sort = sort(x)
+  # jumlah observasi
+  n = length(x)
+  # menghitung alpha masing-masing sisi
+  err &amp;lt;- alpha/2
+  # menentukan rangkin observasi sesuai alpha
+  rl = err*(n+1)
+  ru = (1-err)*(n+1)
+  # menentukan observasi untuk interpolasi linier
+  rl_1= ceiling(rl) # bulatkan ke bawah
+  rl_2= floor(rl) # bulatkan ke atas
+  ru_1= ceiling(ru) 
+  ru_2= floor(ru)
+  # menentukan interval prediksi
+  LPI = round(x_sort[rl_1]+((rl-rl_1)/(rl_2-rl_1))*(x_sort[rl_2]-x_sort[rl_1]),1)
+  UPI = round(x_sort[ru_1]+((ru-ru_1)/(ru_2-ru_1))*(x_sort[ru_2]-x[ru_1]),1)
+  # menggabungkan hasil
+  data = data.frame(&amp;quot;Lower PI&amp;quot;=LPI,
+                    &amp;quot;Upper PI&amp;quot;=UPI)
+  return(data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;PInp(x=gwardat$konsentrasi, alpha=0.1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   Lower.PI Upper.PI
+## 1      1.4      508&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-prediksi-nonparametrik-satu-sisi&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.5.2 Interval Prediksi Nonparametrik Satu Sisi&lt;/h3&gt;
+&lt;p&gt;Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dibanding &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt; sebagai nilai error, menempatkan semua error di satu sisi interval (Gambar &lt;a href=&#34;#fig:ipss&#34;&gt;9&lt;/a&gt;). Interval prediksi dituliskan berdasarkan Persamaan &lt;a href=&#34;#eq:eqipss&#34;&gt;(12)&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ipss&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/ipss.png&#34; alt=&#34;Prediksi interval satu sisi (Helsel dan Hirsch, 2002)&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 9: Prediksi interval satu sisi (Helsel dan Hirsch, 2002)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:eqipss&#34;&gt;\[\begin{equation}
+  PI_{np}:\ x_{baru}&amp;lt;X_{\alpha\cdot\left(n+1\right)}\ atau\ x_{baru}&amp;gt;X_{\left[1-\alpha\right]\cdot\left(n+1\right)}
+  \tag{12}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk memahami penerapannya, misalkan kita memiliki nilai arsenik baru dengan konsentrasi 355 ppb. Kita perlu menentukan apakah nilai tersebut lebih besar dari sebagian besar data yang ada.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan Persamaan &lt;a href=&#34;#eq:eqipss&#34;&gt;(12)&lt;/a&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;=0,1 atau tingkat kepercayaan 90%, interval prediksi satu sisi atau data teratas dari persentil ke-90 dari data yang ada adalah &lt;span class=&#34;math inline&#34;&gt;\(X_{0,9}*26=X_{23,4}\)&lt;/span&gt;. Dengan menggunakan interpolasi linier pada observasi data dengan rangking ke-23 (&lt;span class=&#34;math inline&#34;&gt;\(R_{23}\)&lt;/span&gt;) dan 24 (&lt;span class=&#34;math inline&#34;&gt;\(R_{23}\)&lt;/span&gt;) diperoleh:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+  X_{23}+0,4\cdot\left(X_{24}-X_{23}\right)=300+0,4\cdot40=316\ ppb
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdasarkan data yang diperoleh diketahui bahwa batas atas dari interval prediksi adalah 316&amp;lt;355 pbb, sehingga disimpulkan bahwa konsentrasi 355 pbb lebih besar dari sebagian besar data yang ada.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan &lt;code&gt;R&lt;/code&gt; interval prediksi menggunakan satu sisi dapat dihitung menggunakan fungsi berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;PInp_os &amp;lt;- function(x, obs, alpha, side){
+  # mengurutkan data dari yang terkecil
+  x_sort = sort(x)
+  # jumlah observasi
+  n = length(x)
+  # rangking observasi
+  ru = (1-alpha)*(n+1)
+  ru_1 = ceiling(ru)
+  ru_2 = floor(ru)
+  rl = alpha*(n+1)
+  rl_1 = ceiling(rl)
+  rl_2 = floor(rl)
+  # perhitungan interval atas dan bawah
+  PIup = x_sort[ru_1]+((ru-ru_1)/(ru_2-ru_1))*(x_sort[ru_2]-x_sort[ru_1])
+  PIdown = x_sort[rl_1]+((rl-rl_1)/(rl_2-rl_1))*(x_sort[rl_2]-x_sort[rl_1])
+  # decision making
+  if((side==&amp;quot;upper&amp;quot;) &amp;amp; (PIup&amp;lt;obs)){
+    cat(&amp;quot;PI =&amp;quot;,PIup,&amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih besar dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  } else if((side==&amp;quot;lower&amp;quot;) &amp;amp; (PIdown&amp;gt;obs)){
+    cat(&amp;quot;PI =&amp;quot;,PIdown, &amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  } else if(side==&amp;quot;&amp;quot;){
+    print(&amp;quot;side belum ditentukan tentukan apakah lower atau upper&amp;quot;)
+  } else{
+    cat(&amp;quot;batas bawah =&amp;quot;,PIdown,&amp;quot;, batas atas =&amp;quot;,PIup)
+    cat(&amp;quot;\n---------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi sama dengan sebagian besar nilai yang ada&amp;quot;)
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;obs&lt;/strong&gt;: observasi baru yang akan dibandingkan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;side&lt;/strong&gt;: untuk memilih jenis uji satu sisi yang digunakan. nilai yang mungkin adalah &lt;strong&gt;Upper&lt;/strong&gt; (membandingkan dengan limit atas) dan &lt;strong&gt;Lower&lt;/strong&gt; (membandingkan dengan limit bawah)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;PInp_os(x=gwardat$konsentrasi, obs=355, alpha=0.1, side=&amp;quot;upper&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## PI = 316 ,observasi baru= 355
+## ----------------------------------------------------------------------
+## Kesimpulan:
+## nilai observasi lebih besar dibandingkan sebagian besar nilai yang ada&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-prediksi-parametrik&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.6 Interval Prediksi Parametrik&lt;/h2&gt;
+&lt;p&gt;Interval prediksi parametrik juga digunakan untuk menentukan apakah pengamatan baru kemungkinan berasal dari distribusi yang berbeda dari data yang dikumpulkan sebelumnya. Namun, pada metode parametrik asumsi bentuk dari distribusi data akan diperhitungkan. Asumsi ini memberikan lebih banyak informasi untuk membangun interval, asalkan asumsi tersebut valid. Jika data tidak mengikuti distribusi yang diasumsikan, interval prediksi mungkin tidak akurat.&lt;/p&gt;
+&lt;div id=&#34;interval-prediksi-distribusi-simetris&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.6.1 Interval Prediksi Distribusi Simetris&lt;/h3&gt;
+&lt;p&gt;Asumsi yang digunakan untuk melakukan perhitungan interval prediksi untuk distribusi data yang simetris adalah data haruslah berdistribusi normal. Interval prediksi selanjutnya dibentuk secara simetris pada kedua sisi nilai mean. Interval ini lebih lebar rentangnya dibandingkan dengan interval kepercayaan nilai mean. Persamaan matematis yang digunakan untuk menghitungnya dituliskan pada Persamaan &lt;a href=&#34;#eq:ipds&#34;&gt;(13)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:ipds&#34;&gt;\[\begin{equation}
+  PI=\overline{X}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}sampai\ \overline{X}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}
+  \tag{13}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk interval satu sisi Persamaan &lt;a href=&#34;#eq:ipds&#34;&gt;(13)&lt;/a&gt;, menjadi Persamaan &lt;a href=&#34;#eq:ipds2&#34;&gt;(14)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:ipds2&#34;&gt;\[\begin{equation}
+  PI=\overline{X}-t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}sampai\ \overline{X}+t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}
+  \tag{14}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk lebih memahaminya misalkan terdapat hasil pengukuran baru konsentrasi arsenik sebesar 350 ppb dengan menggunakan data pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt; sebagai pembanding. Buktikan bahwa observasi baru tersebut berasal dari distrubusi yang sama dengan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;=5%.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan Persamaan &lt;a href=&#34;#eq:ipds&#34;&gt;(13)&lt;/a&gt;, interval prediksi dapat dihitung sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+PI\ =\ 98,4-t_{\left(0.025,24\right)}\cdot\sqrt{144,7^2+\frac{144,7^2}{25}\ }sampai\ \ 98,4+t_{\left(0.025,24\right)}\cdot\sqrt{144,7^2+\frac{144,7^2}{25}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+PI\ =\ 98,4-2,064\cdot147,6\ \ sampai\ \ 98,4+2,064\cdot147,6
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+PI\ =\ -206,25\ \ sampai\ \ 403,05
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil perhitungan yang dilakukan terlihat bahwa limit interval prediksi yang dihasilkanterdapat nilai negatif. Kosentrasi negatif mengindikasikan bahwa data yang digunakan tidaklah simetris sehingga penggunaan interval prediksi untuk data yang simetris tidak dapat digunakan pada data tersebut. Metode perhitungan interval prediksi untuk data asimetris lebih cocok untuk digunakan.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; interval prediksi disekitar nilai mean dapat dihitung menggunakan fungsi berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;PI_sim &amp;lt;- function(x, obs, alpha, side){
+  # menghitung nilai mean
+  ave = mean(x, na.rm=TRUE)
+  # menghitung nilai varians dara
+  var = var(x, na.rm=TRUE)
+  # menghitung df
+  n = length(x)
+  df = n-1
+  # perhitungan rentang satu sisi
+  pi_l1 = ave-qt((1-alpha), df)*sqrt(var+(var/n))
+  pi_u1 = ave+qt((1-alpha), df)*sqrt(var+(var/n))
+  # perhitungan rentang dua sisi
+  pi_l2 = ave-qt((1-alpha/2), df)*sqrt(var+(var/n))
+  pi_u2 = ave+qt((1-alpha/2), df)*sqrt(var+(var/n))
+  # decision making
+  if(side==&amp;quot;upper&amp;quot; &amp;amp; obs&amp;gt;pi_u1){
+    cat(&amp;quot;PI Atas =&amp;quot;,pi_u1,&amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih besar dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;lower&amp;quot; &amp;amp; obs&amp;lt;pi_l1){
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l1,&amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;two side&amp;quot; &amp;amp; obs&amp;gt;pi_u2){
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l2,&amp;quot;,observasi baru=&amp;quot;,obs, &amp;quot;,PI Atas =&amp;quot;,pi_u2)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih besar dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;two side&amp;quot; &amp;amp; obs&amp;lt;pi_l2){
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l2,&amp;quot;,observasi baru=&amp;quot;,obs, &amp;quot;,PI Atas =&amp;quot;,pi_u2)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;upper&amp;quot; &amp;amp; obs&amp;lt;pi_u1){
+    cat(&amp;quot;PI Atas =&amp;quot;,pi_u1,&amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi sama dengan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;lower&amp;quot; &amp;amp; obs&amp;gt;pi_l1){
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l1,&amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi sama dengan sebagian besar nilai yang ada&amp;quot;)
+  }else{
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l2, &amp;quot;,observasi baru=&amp;quot;,obs,&amp;quot;,PI Atas =&amp;quot;,pi_u2)
+    cat(&amp;quot;\n---------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi sama dengan sebagian besar nilai yang ada&amp;quot;)
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;obs&lt;/strong&gt;: observasi baru yang akan dibandingkan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;side&lt;/strong&gt;: untuk memilih jenis uji digunakan. nilai yang mungkin adalah &lt;strong&gt;upper&lt;/strong&gt; (membandingkan dengan limit atas uji satu sisi), &lt;strong&gt;lower&lt;/strong&gt; (membandingkan dengan limit bawah uji satu sisi) dan &lt;strong&gt;two side&lt;/strong&gt; (uji dua sisi).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# interval prediksi satu sisi
+PI_sim(x = gwardat$konsentrasi, obs = 350, alpha=0.05, side=2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## PI Bawah = -206.177 ,observasi baru= 350 ,PI Atas = 402.881
+## ---------------------------------------------------------
+## Kesimpulan:
+## nilai observasi sama dengan sebagian besar nilai yang ada&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-prediksi-untuk-distribusi-data-yang-tidak-simetris&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.6.2 Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris&lt;/h3&gt;
+&lt;p&gt;Untuk distribusi data yang tidak simetris, data perlu dilakukan transformasi terlebih dahulu sebelum dilakukan. Data di lingkungan khusunya parameter di air cenderung memiliki bentuk distribusi tidak simetris (cenderung memiliki kemencengan positif). Transformasi logaritmik biasanya dapat digunakan untuk data tersebut agar bentuknya dapat simetris dan dapat memenuhi asumsi normalitas pada data. Data yang telah dilakukan transformasi selanjutnya dihitung menggunakan Persamaan &lt;a href=&#34;#eq:ipds&#34;&gt;(13)&lt;/a&gt; untuk interval prediksi dua sisi dan Persamaan &lt;a href=&#34;#eq:ipds2&#34;&gt;(14)&lt;/a&gt; untuk interval prediksi satu sisi. Hasil perhitungan selanjutnya dilakukan transformasi kembali sesuai dengan invers dari transformasinya dalam hal ini menggunakan transformasi eksponensial (jika tranformasi awalnya adalah natural log). Untuk data dengan bentuk distribusi logaritmik (kemencengan positif), interval prediksi yang digunakan disajikan pada Persamaan &lt;a href=&#34;#eq:ipdas&#34;&gt;(15)&lt;/a&gt; (dua sisi) dan Persamaan &lt;a href=&#34;#eq:ipdas2&#34;&gt;(16)&lt;/a&gt; (satu sisi).&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:ipdas&#34;&gt;\[\begin{equation}
+  PI=\exp\left(\overline{X}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)\ sampai\ \exp\left(\overline{X}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)
+  \tag{15}
+\end{equation}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:ipdas2&#34;&gt;\[\begin{equation}
+  PI=\exp\left(\overline{X}-t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)\ sampai\ \ \exp\left(\overline{X}+t_{\left(\alpha,n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)
+  \tag{16}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(y=\ln{(x)}\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\overline{y}\)&lt;/span&gt; adalah nilai rata-rata dari tranformasi logaritmik data, dan &lt;span class=&#34;math inline&#34;&gt;\(s^2_y\)&lt;/span&gt; adalah varians dari tranformasi logaritmik data.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan contoh soal sebelumnya misalkan terdapat observasi baru konsentrasi arsenik sebesar 350 ppb. Kita perlu menentukan apakah observasi baru tersebut berasal dari distribusi yang sama berdasarkan data pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil visualisasi diketahui bahwa distribusi data yang dihasilkan memiliki bentuk kemencengan positif sehingga interval prediksi asimetris dapat digunakan. Dengan menggunakan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;=5% prediksi interval dua sisi dapat dihitung menggunakan Persamaan &lt;a href=&#34;#eq:ipdas&#34;&gt;(15)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\ln\left(PI\right)\ =\ 3,71-t_{\left(0.025,24\right)}\cdot\sqrt{1,96^2+\frac{1,96^2}{25}\ }sampai\ \ 3,71+t_{\left(0.025,24\right)}\cdot\sqrt{1,96^2+\frac{1,96^2}{25}\ }
+\]&lt;/span&gt; &lt;span class=&#34;math display&#34;&gt;\[
+\ln\left(PI\right)\ =\ 3,71-2,064\cdot2,11\ sampai\ \ 3,71+2,064\cdot2,11
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\ln\left(PI\right)\ =\ -1,19\ \ sampai\ \ 7,53
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+PI=\ 0,31\ \ sampai\ \ 1476.07
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh diketahui bahwa observasi baru berada diantara rentang tersebut. Rentang yang dihasilkan cukup besar yang disebabkan karena tinkat kepercayaan yang digunakan juga besar (95%). Pembaca dapat juga menggunakan tingkat kepercayaan yang lain seperti 99% dan 90%. Semakin besar alpha yang digunakan interval prediksi yang dihasilkan semakin kecil. Namun perlu diingat bahwa semakin kecil rentangnya maka error (alpha) juga semakin besar.&lt;/p&gt;
+&lt;p&gt;Pembaca juga dapat menggunakan bentuk transformasi lain untuk membentuk data yang lebih simetris dan memnuhi asumsi distribusi normal. Bentuk transformasi lain akan mengubah bentuk persamaan yang digunakan. Transformasi kuadrat misalnya akan mengubah transformasi pada ersamaan &lt;a href=&#34;#eq:ipdas&#34;&gt;(15)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:ipdas2&#34;&gt;(16)&lt;/a&gt; menjadi akar kuadrat.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; interval prediksi dengan bentuk transformasi data logaritmik dapat dituliskan sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;PI_asim &amp;lt;- function(x, obs, alpha, side){
+  # transformasi logaritmik (kemencengan positif)
+  x_trans = log(x)
+  # menghitung nilai mean
+  ave = mean(x_trans)
+  # menghitung nilai varians dara
+  var = var(x_trans)
+  # menghitung df
+  n = length(x)
+  df = n-1
+  # perhitungan rentang satu sisi
+  pi_l1 = exp(ave-qt((1-alpha), df)*sqrt(var+(var/n)))
+  pi_u1 = exp(ave+qt((1-alpha), df)*sqrt(var+(var/n)))
+  # perhitungan rentang dua sisi
+  pi_l2 = exp(ave-qt((1-alpha/2), df)*sqrt(var+(var/n)))
+  pi_u2 = exp(ave+qt((1-alpha/2), df)*sqrt(var+(var/n)))
+  # decision making
+  if(side==&amp;quot;upper&amp;quot; &amp;amp; obs&amp;gt;pi_u1){
+    cat(&amp;quot;PI Atas =&amp;quot;,pi_u1,&amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih besar dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;lower&amp;quot; &amp;amp; obs&amp;lt;pi_l1){
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l1,&amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;two side&amp;quot; &amp;amp; obs&amp;gt;pi_u2){
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l2,&amp;quot;,observasi baru=&amp;quot;,obs, &amp;quot;,PI Atas =&amp;quot;,pi_u2)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih besar dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;two side&amp;quot; &amp;amp; obs&amp;lt;pi_l2){
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l2,&amp;quot;,observasi baru=&amp;quot;,obs, &amp;quot;,PI Atas =&amp;quot;,pi_u2)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi lebih kecil dibandingkan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;upper&amp;quot; &amp;amp; obs&amp;lt;pi_u1){
+    cat(&amp;quot;PI Atas =&amp;quot;,pi_u1,&amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi sama dengan sebagian besar nilai yang ada&amp;quot;)
+  }else if(side==&amp;quot;lower&amp;quot; &amp;amp; obs&amp;gt;pi_l1){
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l1,&amp;quot;,observasi baru=&amp;quot;,obs)
+    cat(&amp;quot;\n----------------------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi sama dengan sebagian besar nilai yang ada&amp;quot;)
+  }else{
+    cat(&amp;quot;PI Bawah =&amp;quot;,pi_l2, &amp;quot;,observasi baru=&amp;quot;,obs,&amp;quot;,PI Atas =&amp;quot;,pi_u2)
+    cat(&amp;quot;\n---------------------------------------------------------&amp;quot;)
+    cat(&amp;quot;\nKesimpulan:&amp;quot;)
+    cat(&amp;quot;\nnilai observasi sama dengan sebagian besar nilai yang ada&amp;quot;)
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;obs&lt;/strong&gt;: observasi baru yang akan dibandingkan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;side&lt;/strong&gt;: untuk memilih jenis uji digunakan. nilai yang mungkin adalah &lt;strong&gt;upper&lt;/strong&gt; (membandingkan dengan limit atas uji satu sisi), &lt;strong&gt;lower&lt;/strong&gt; (membandingkan dengan limit bawah uji satu sisi) dan &lt;strong&gt;two side&lt;/strong&gt; (uji dua sisi).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# interval prediksi satu sisi
+PI_asim(x = gwardat$konsentrasi, obs = 350, alpha=0.05, side=2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## PI Bawah = 0.386043 ,observasi baru= 350 ,PI Atas = 1476.073
+## ---------------------------------------------------------
+## Kesimpulan:
+## nilai observasi sama dengan sebagian besar nilai yang ada&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-kepercayaan-persentil&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.7 Interval Kepercayaan Persentil&lt;/h2&gt;
+&lt;p&gt;Kuantil atau persentil telah digunakan secara tradisional dalam sumber daya air untuk menggambarkan frekuensi kejadian banjir. Dengan demikian banjir 100 tahun adalah persentil ke-99 (0,99 kuantil) dari distribusi puncak banjir tahunan. Besarnya banjir yang diperkirakan hanya akan dilampaui sekali dalam 100 tahun. Banjir 20 tahun besarnya besarnya yang diperkirakan hanya akan dilampaui sekali dalam 20 tahun (5 kali dalam 100 tahun), atau merupakan persentil ke-95 dari puncak tahunan. Demikian pula, banjir 2 tahun adalah median atau persentil ke-50 dari puncak tahunan. Persentil banjir ditentukan dengan asumsi bahwa aliran puncak mengikuti distribusi yang ditentukan seperti distribusi Log Pearson type III atau distribusi Gumbel.&lt;/p&gt;
+&lt;p&gt;Interal kepercayaan persentil berbeda dengan interval kepercayaan median. Hal yang paling jelas terlihat adalah interval kepercayaan persentil mengukur interval kepercayaan pada setiap persentil data yang ada, sedangkan intervak kepercayaan media hanya mengukur pada lokasi pusat data atau persentil ke-50.&lt;/p&gt;
+&lt;p&gt;Interval kepercayaan persentil juga disebut sebagai interval toleransi. Nilai persentil digunakan sebagai &lt;strong&gt;koefisien cakupan&lt;/strong&gt; dari interal toleransi. Pada chapter ini akan dibahas lebih jauh mengenai metode perhitungan interval toleransi baikdengan metode parametrik maupun dengan metode nonparametrik.&lt;/p&gt;
+&lt;div id=&#34;interval-kepercayaan-nonparametrik-persentil&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.7.1 Interval Kepercayaan Nonparametrik Persentil&lt;/h3&gt;
+&lt;p&gt;Metode perhitungan interval kepercayaan nonparametrik persentil mirip dengan perhitungan interval kepercayaan median. Kita akan menggunakan kembali tabel binomial jika sampel kita kecil untuk menentukan limit atas dan bawah yang merupakan nilai kritis dari alpha yang telah kita tetapkan. Nilai kritis ini selanjutnya akan ditransformasikan kedalam bentuk rangking pada data yang menunjukkan titik observasi ujung pada interval kepercayaan.&lt;/p&gt;
+&lt;p&gt;Tabel binomial dimasukkan pada kolom dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, persentil yang diinginkan interval kepercayaannya. Jadi untuk interval kepercayaan pada persentil ke-75, kolom &lt;span class=&#34;math inline&#34;&gt;\(p=0,75\)&lt;/span&gt; digunakan. Cari pada baris kolom tersebut sampai &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; dengan probabilitas mendekati alpha level (&lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;) ditemukan. Nilai kritis &lt;span class=&#34;math inline&#34;&gt;\(x_l\)&lt;/span&gt; bawah adalah bilangan bulat yang sesuai dengan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(p^*\)&lt;/span&gt;. Nilai kritis kedua &lt;span class=&#34;math inline&#34;&gt;\(x_u\)&lt;/span&gt; juga diperoleh dengan melanjutkan pada kolom tersebut sampai menemukan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(p&amp;#39;=\left(1-\frac{\alpha}{2}\right)\)&lt;/span&gt;. Nilai kritis &lt;span class=&#34;math inline&#34;&gt;\(x_l\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(x_u\)&lt;/span&gt; digunakan untuk menghitung rangking &lt;span class=&#34;math inline&#34;&gt;\(R_l\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(R_u\)&lt;/span&gt; yang sesuai dengan nilai data di ujung atas dan bawah limit kepercayaan (Persamaan &lt;a href=&#34;#eq:iknp&#34;&gt;(17)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:iknp2&#34;&gt;(18)&lt;/a&gt;). Level interval kepercayaan yang dihasilkan akan sama dengan &lt;span class=&#34;math inline&#34;&gt;\(\left(p&amp;#39;-p\cdot\right)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:iknp&#34;&gt;\[\begin{equation}
+  R_l=x_l+1
+  \tag{17}
+\end{equation}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:iknp2&#34;&gt;\[\begin{equation}
+  R_u=x_u
+  \tag{18}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk memahami mengenai penerapan interval kepercayaan persentil diberikan sebuah contoh kita diminta untuk menentukan 95% interval kepercayaan nilai persentil ke-20 (&lt;span class=&#34;math inline&#34;&gt;\(C_{0.20}\)&lt;/span&gt;) data konsentrasi arsenik pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt; (p=0,2).&lt;/p&gt;
+&lt;p&gt;Berdasarkan data pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt;, nilai persentil ke-20 (&lt;span class=&#34;math inline&#34;&gt;\(\overline{C}_{0.20}\)&lt;/span&gt;)= 3.36ppb, yaitu data yang berada pada rangking 0,2*(26)=5,2 atau dua per sepuluh jarak antara data ke-5 dan ke-6. Untuk menentukan rentang kepercayaan persentil ke-20 sebenarnya dari data, kita perlu menggunakan kembali tabel binomial dengan menginputkan nilai p=0,2. nilai kritis &lt;span class=&#34;math inline&#34;&gt;\(x_l\)&lt;/span&gt; diperoleh dengan mencari probabilitas data pada kolom p=0,2 yang mendekati nilai &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;=0,025 adalah 1 (&lt;span class=&#34;math inline&#34;&gt;\(p&amp;#39;\)&lt;/span&gt;=0,027, error probabilitas sisi bawah distribusi). Dengan menggunakan Persamaan &lt;a href=&#34;#eq:iknp&#34;&gt;(17)&lt;/a&gt;, diperoleh &lt;span class=&#34;math inline&#34;&gt;\(R_l=2\)&lt;/span&gt;. Dengan cara sama untuk sisi atas distribusi nilai kritis atas &lt;span class=&#34;math inline&#34;&gt;\(x_u\)&lt;/span&gt; diperoleh dengan menginputkan nilai p=0,20 dengan nilai probabilitas mendekati &lt;span class=&#34;math inline&#34;&gt;\(1-\frac{\alpha}{2}\)&lt;/span&gt;= 0,975 diperoleh sebesar 9 (&lt;span class=&#34;math inline&#34;&gt;\(p&amp;#39;\)&lt;/span&gt;=0,983, error probabilitas sisi atas distribusi). Sehingga rentang kepercayaang 95,6% (0,983-0,027=0,956) untuk persentil ke-20 berada pada range data dengan rangkin ke-2 dan ke-9, atau&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+1,5\le C_{0.20}\le8\ pada\ \alpha=0,044
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Jika data yang kita miliki cukup besar dengan jumlah sampel &lt;span class=&#34;math inline&#34;&gt;\(n&amp;gt;20\)&lt;/span&gt; (sebagian buku menyebutkan &lt;span class=&#34;math inline&#34;&gt;\(n&amp;gt;30\)&lt;/span&gt;), kita dapat menggunakan distribusi normal untuk memperkirakan rentang kepercayaan persentil.Persamaan yang digunakan untuk menentukan batas atas dan bawah disajikan pada Persamaan &lt;a href=&#34;#eq:iknp3&#34;&gt;(19)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:iknp4&#34;&gt;(20)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:iknp3&#34;&gt;\[\begin{equation}
+  R_l=np+z_{\frac{\alpha}{2}}\cdot\sqrt{np\left(1-p\right)}+0,5
+  \tag{19}
+\end{equation}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:iknp4&#34;&gt;\[\begin{equation}
+  R_l=np+z_{\left[1-\frac{\alpha}{2}\right]}\cdot\sqrt{np\left(1-p\right)}+0,5
+  \tag{20}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Dengan menggunakan contoh sebelumnya kita dapat menghitung kembali rentang kepercayaan 95% persentil ke-20 menggunakan Persamaan &lt;a href=&#34;#eq:iknp3&#34;&gt;(19)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:iknp4&#34;&gt;(20)&lt;/a&gt; diperoleh rangking data batas bawah dan atas sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+R_l=25\cdot0,2+\left(-1,96\right)\cdot\sqrt{25\cdot0,2\left(1-0,2\right)}+0,5\ =\ 5-1,96\cdot2+0,5=1,6
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+R_u=25\cdot0,2+1,96\cdot\sqrt{25\cdot0,2\left(1-0,2\right)}+0,5\ =\ 5+1,96\cdot2+0,5=9,4
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil perhitungan diperoleh rangking data batas bawah dan batas atas secara berurutan adalah data ke-2 (batas bawah) dan data-9 (batas atas). Hasil yang diperoleh ini sama dengan yang telah diperoleh sebelumnya.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; kita dapat membentuk fungsi untuk menghitung interval kepercayaan persentil sesuai dengan yang kita inginkan seperti lokasi persentil yang ingin kita uji serta jenis uji yang digunakan berdasarkan jumlah sampel yang kita inputkan. Selain itu rentang kepercayaan ini dapat pula digunakann untuk menghitung rentang kepercayaan median atau persentil ke-50.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CI_npPercent &amp;lt;- function(x, p, alpha){
+  # jumlah observasi
+  n = length(x)
+  # mengurutkan data
+  x = sort(x)
+  # membuat vektor yang akan menyimpan
+  # hasil loop
+  bl = rep(NA,n)
+  bu = rep(NA,n)
+  # decision makin
+  if(n&amp;lt;= 20){
+    # looping
+    for(i in 1:n){
+      bl[i] = pbinom(i, n, p)
+      if(b&amp;gt;alpha/2){
+        break
+      }
+    }
+    for(i in 1:n){
+      bu[i] = pbinom(i, n, p)
+      if(b&amp;gt;(1-(alpha/2))){
+        break
+      }
+    }
+   # menghitung selisih terhadap alpha  
+   dbl = abs(alpha-bl)
+   dbu = abs(alpha-bu)
+   # mencari titik kritis
+   min_bl = which.min(dbl)
+   min_bu = which.min(dbu)
+   # menhitung rangking nilai bawah dan atas
+   rl = min_bl + 1
+   ru = min-bu
+   # mencari data sesuai rangking bawah dan atas
+   LCI = x[rl]
+   UCI = x[ru]
+  }else{
+    # menghitung rangking nilai bawah dan atas
+    rl = (n*p)+qnorm(alpha/2)*sqrt((n*p)*(1-p))+0.5
+    ru = (n*p)+(qnorm(1-(alpha/2))*sqrt((n*p)*(1-p)))+0.5
+    # mencari data sesuai rangking bawah dan atas
+    LCI = x[floor(rl)]+ 
+      ((rl-floor(rl))/(ceiling(rl)-floor(rl)))*(x[ceiling(rl)]-x[floor(rl)])
+    UCI = x[floor(ru)]+ 
+      ((ru-floor(ru))/(ceiling(ru)-floor(ru)))*(x[ceiling(ru)]-x[floor(ru)])
+  }
+  cat(&amp;quot;Lower CI=&amp;quot;, LCI,&amp;quot; &amp;lt;= C(&amp;quot;, p, &amp;quot;) &amp;lt;= &amp;quot;, 
+       &amp;quot;Upper CI=&amp;quot;, UCI)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;p&lt;/strong&gt;: persentil yang ingin dicari. Nilai berkisar antara 0 sampai 1.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alpha&lt;/strong&gt;: alpha level yang digunakan.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Pembaca dapat menjalankan fungsi tersebut mengggunakan data pada contoh soal sebelumnya yaitu mencari interval kepercayaan persentil ke-20. Jalankan sintaks berikut untuk mengetahui hasil yang diperoleh.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CI_npPercent(x= gwardat$konsentrasi, p= 0.2, alpha=0.05)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;uji-nonparametrik-untuk-persentil&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.7.2 Uji Nonparametrik Untuk Persentil&lt;/h3&gt;
+&lt;p&gt;Pengujian persentil dilakukan untuk mengecek apakah sebuah persentil berbeda (lebih besar atau lebih kecil) dibandingkan dengan sejumlah nilai. Sebagai contoh misalkan terdapat median kualitas harian suatu parameter tidak boleh melebihi standar yang berlaku sebesar &lt;span class=&#34;math inline&#34;&gt;\(X_0\)&lt;/span&gt; ppb. Contoh lain dalam bidang hidrologi periode ulang hujan (PUH) 10 tahun atau persentil ke-90 dari debit puncak tahunan suatu kawasan dapat dilakukan pengujian apakah nilai yang ada dilapangan berbeda dengan PUH 10 tahunan yang telah kita hitung untuk digunakan dalam mendesain saluran drainase. Pembahasan pengujian persentil tersebut tidak akan sampai menyinggung pengujian hipotesis yang akan dibahas pada Chapter selanjutnya. Pembahasan akan berkisar membandingkan suatu nilai dengan interval kepercayaan seperti yang telah dijelaskan pada pembahasan terkait interval prediksi.&lt;/p&gt;
+&lt;p&gt;Pengujian apakah sebuah nilai &lt;span class=&#34;math inline&#34;&gt;\(X_0\)&lt;/span&gt; berbeda dengan sejumlah rentang nilai yang ditetapkan dapat dilakukan dengan pengujian dua sisi dan satu sisi. Pengujian satu sisi melihat apakah suatu nilai &lt;span class=&#34;math inline&#34;&gt;\(X_0\)&lt;/span&gt; berada diluar interval kepercayaan persentil atau diantara nilai batas bawah &lt;span class=&#34;math inline&#34;&gt;\(X_l\)&lt;/span&gt; dan nilai batas atasnya &lt;span class=&#34;math inline&#34;&gt;\(X_u\)&lt;/span&gt; (lihat Gambar &lt;a href=&#34;#fig:unup1&#34;&gt;10&lt;/a&gt;). Sedangkan pengujian satu sisi melihat apakah suatu nilai lebih besar atau lebih kecil (tergantung apakah pengujian satu sisi sebelah atas distribusi atau sebelah bawah distribusi) dari interval kepercayaan persentil yang digunakan (lihat Gambar &lt;a href=&#34;#fig:unup2&#34;&gt;11&lt;/a&gt; dan Gambar &lt;a href=&#34;#fig:unup3&#34;&gt;12&lt;/a&gt;).&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unup1&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;unup1.png&#34; alt=&#34;Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 10: Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unup2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;unup2.png&#34; alt=&#34;Interval estimasi persentil Xp sebagai penguji apakah Xp&amp;gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 11: Interval estimasi persentil Xp sebagai penguji apakah Xp&amp;gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unup3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;unup3.png&#34; alt=&#34;Interval estimasi persentil Xp sebagai penguji apakah Xp&amp;gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 12: Interval estimasi persentil Xp sebagai penguji apakah Xp&amp;gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Untuk menghitungnya secara nonparametrik menggunakan Persamaan &lt;a href=&#34;#eq:iknp3&#34;&gt;(19)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:iknp4&#34;&gt;(20)&lt;/a&gt; untuk jumlah sampel kecil sedangkan untuk sampel besar kita dapat menggunakan Persamaan &lt;a href=&#34;#eq:iknp3&#34;&gt;(19)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:iknp4&#34;&gt;(20)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan kembali data pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt; kita akan menghitung apakah kadar arsenik kualitas air tanah tersebut melebihi baku mutu arsenik pada air minum dengan baku mutu konsentrasi arsenik tidak melampaui 300 ppb. Dengan menggunakan nilai &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;=0,05 dan batas bawah persentil yang digunakan sebagai acuan pembanding adalah persentil ke-90 dapat dihitung sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\overline{C}_{0.90}=\left(25+1\right)\cdot0,9=23,4\ \left(data\ point\right)=300+0,4\left(340-300\right)=316\ ppb
+\]&lt;/span&gt; Karena jumlah sampel lebih besar dari 20, maka kita dapat menghitung batas atas data menggunakan Persamaan &lt;a href=&#34;#eq:iknp4&#34;&gt;(20)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+R_l=np+z_{0,05}\sqrt{np\left(1-p\right)}=25\cdot0,9+\left(-1,64\right)\cdot\sqrt{2,25}+0,5=20,5
+\]&lt;/span&gt; Kita dapat membulatkan hasilnya menjadi observasi 20 atau 21. Interpolasi linier dapat dilakukan sehingga diperoleh nilai observasi sebesar 215 ppb. Nilai ini lebih kecil dibandingkan &lt;span class=&#34;math inline&#34;&gt;\(X_0\)&lt;/span&gt;=300 ppb, sehingga baku mutu arsenik belum terlampaui oleh kualitas air tanah tersebut.&lt;/p&gt;
+&lt;p&gt;Kita dapat menggunakan fungsi &lt;code&gt;CI_npPercent()&lt;/code&gt; untuk menghitung rentang persentil yang kita inginkan. Untuk pengujian satu sisi nilai &lt;code&gt;alpha&lt;/code&gt; yang akan diinputkan perlu dikali oleh dua karena fungsi tersebut pada dasarnya digunakan untuk menghitung rentang kepercayaan persentil secara nonparametrik (nilai alpha dibagi pada kedua sisi). Berikut adalah contoh sintaks untuk menguji apakah sampel yang kita miliki melebihi baku mutu (persentil ke-90 dan alpha=5%):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CI_npPercent(gwardat$konsentrasi, 0.9, 0.1)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-kepercayaan-parametrik-untuk-persentil&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.7.3 Interval Kepercayaan Parametrik Untuk Persentil&lt;/h3&gt;
+&lt;p&gt;Interval kepercayaan untuk persentil juga dapat dihitung dengan mengasumsikan bahwa data mengikuti distribusi tertentu. Asumsi distribusi digunakan karena sering ada data yang tidak cukup untuk menghitung persentil dengan presisi yang diperlukan. Menambahkan informasi yang terkandung dalam distribusi akan meningkatkan ketepatan estimasi selama asumsi distribusi masuk akal. Namun ketika distribusi yang diasumsikan tidak sesuai dengan data dengan baik, estimasi yang dihasilkan kurang akurat, dan lebih menyesatkan, daripada jika tidak ada yang diasumsikan. Sayangnya, situasi di mana asumsi paling dibutuhkan ketika ukuran sampel yang kecil, adalah situasi yang sama di mana sulit untuk menentukan apakah data mengikuti distribusi yang diasumsikan.&lt;/p&gt;
+&lt;p&gt;Pada interval kepercayaan parametrik asumsi terhadap kecocokan data terhadap suatu distribusi perlu diperhatikan. Data di lingkungan umumnya memiliki bentuk distribusimengikuti distribusi lognormal. Selain itu, distribusi yang sering sekali digunakan adalah distribusi Pearson Tipe III dan Gumbel. Kedua pendekatan distribusi tersebut akan mempengaruhi metode perhitungan yang digunakan. Sehingga pengetahuan yang lebih baik mengenaik distribusi tersebut diperlukan. Pada buku ini kita hanya akan membahas mengenai perhitungan interval kepercayaan menggunakan distribusi lognormal. Pembaca dapat membaca mengenai penerapan distribusi lainnya melalui junal yang ditulis oleh &lt;a href=&#34;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=28&amp;amp;ved=2ahUKEwjnkojIgNnhAhXBh3AKHSJOBLM4ChAWMBF6BAgHEAI&amp;amp;url=https%3A%2F%2Fwww.preprints.org%2Fmanuscript%2F201901.0164%2Fv1%2Fdownload&amp;amp;usg=AOvVaw0evYfNso3_IwVWnmJMKsSp&#34;&gt;Wei dan Song (2019)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Perhitungan estimasi titik dan interval untuk persentil dengan asumsi distribusi lognormal dapat dilakukan dengan mudah. Pertama sampel rata-rata &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; dan sampel simpangan baku &lt;span class=&#34;math inline&#34;&gt;\(s_y\)&lt;/span&gt; logaritma dihitung. Estimasi titik kemudian dihitung menggunakan Persamaan &lt;a href=&#34;#eq:ikp1&#34;&gt;(21)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:ikp1&#34;&gt;\[\begin{equation}
+  X_p=\exp\left(\overline{y}+z_p\cdot s_y\right)
+  \tag{21}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(z_p\)&lt;/span&gt; merupakan kuantil ke-&lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; dari distribusi normal standard dan &lt;span class=&#34;math inline&#34;&gt;\(y=\ln{(x)}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Estimasi interval untuk median sebelumnya diberikan pada Persamaan &lt;a href=&#34;#eq:gmci2&#34;&gt;(7)&lt;/a&gt; dengan asumsi bahwa data mengikuti distribusi lognormal. Untuk persentil lainnya, interval kepercayaan dihitung menggunakan distribusi t non-sentral &lt;a href=&#34;https://www.researchgate.net/publication/277664323_Confidence_Intervals_for_Design_Events&#34;&gt;(Stedinger, 1983)&lt;/a&gt;. Tabel distribusi itu ditemukan dalam artikel Stedinger, dengan list yang lebih lengkap terdapat pada perpustakaan online atau perangkat lunak matematika. Interval kepercayaan pada &lt;span class=&#34;math inline&#34;&gt;\(X_p\)&lt;/span&gt; dihitung menggunakan Persamaan &lt;a href=&#34;#eq:ikp2&#34;&gt;(22)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:ikp2&#34;&gt;\[\begin{equation}
+  CI\left(X_p\right)=\exp\left(\overline{y}+\zeta_{\frac{\alpha}{2}}\cdot s_y,\ \overline{y}+\zeta_{\left[1-\frac{\alpha}{2}\right]}\cdot s_y\right)
+  \tag{22}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(\zeta{\alpha/2}\)&lt;/span&gt; merupakan &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt; dari kuantil distribusi t non-sentral untuk persentil dengan ukuran sampel &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; yang diinginkan.&lt;/p&gt;
+&lt;p&gt;Untuk lebih memahami penerapannya pembaca dapat mengerjakan contoh soal pada bagian sebelumnya. Dengan menggunakan estimasi interval 90% kita perlu menentukan interval estimasi persentil ke-90 dari data konsentrasi arsenik dengan asumsi distribusi yang digunakan berupa distribusi lognormal.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan Persamaan &lt;a href=&#34;#eq:ikp1&#34;&gt;(21)&lt;/a&gt; estimasi titik persentil ke-90 dapat dihitung.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+C_{0,90}=\exp\left(3,17+1,28\cdot1,96\right)=292,6\ ppb
+\]&lt;/span&gt; Nilai tersebut lebih rentanh dibanding estimasi konsentrasi sebelumnya asumsi data mengikuti distribusi lognormal dengan konsentrasi persentil ke-90 arsenik sebesar 316 ppb.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan Persamaan &lt;a href=&#34;#eq:ikp2&#34;&gt;(22)&lt;/a&gt;, interval kepercayaan 90% dapat dihitung.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\exp\left(3,17+0,898\cdot1,96\right)&amp;lt;C_{0,90}&amp;lt;\exp\left(3,17+1,838\cdot1,96\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+138,4&amp;lt;C_{0,90}&amp;lt;873,5
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;uji-parametrik-untuk-persentil&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.7.4 Uji Parametrik Untuk Persentil&lt;/h3&gt;
+&lt;p&gt;Seperti pada bagian sebelumnya kita ingin melihat apakah persentil dari sekumpulan data berbeda dengan nilai tertentu (dapat berupa baku mutu). Pengujian dilakukan dengan melihat apakah nilai tertentu tersebut berada diantara interval kepercayaan persentil dari data (uji dua sisi), lebih besar atau lebih kecil dari batas bawah atau batas atas interval kepercayaan persentil (uji satu sisi). Langkah pengujian dilakukan sama dengan sebelumnya dengan menghitung terlebih dulu batas atas atau batas bawah persentil data yang selanjutnya dibandingkan dengan nilai tertentu.&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan hasil dari perhitungan sebelumnya, dengan menggunakan alpha=0,05 kita perlu menentukan apakah batas bawah interval kepercayaan melampaui baku mutu arsenik sebesar 300 ppb (uji satu sisi). Berdasarkan hasil perhitungan diperoleh batas bawah interval kepercayaan persentil ke-90 sebesar 138,4 ppb atau lebih kecil dibandingkan batas yang ditentukan, sehingga disimpulkan bahwa konsentrasi arsenik persentil ke-90 pada data tidak melampaui baku mutu yang ditentukan.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interval-kepercayaan-menggunakan-metode-bootstrap&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.8 Interval Kepercayaan Menggunakan Metode Bootstrap&lt;/h2&gt;
+&lt;p&gt;Bootstrap merupakan metode inferensi populasi menggunakan data sampel. Metode ini dikembangkan oleh Bradley Efron pada tahun 1979. Jika pembaca ingin lebih mengenal metode ini pembaca dapat membaca makalahnya di tautan &lt;a href=&#34;https://projecteuclid.org/euclid.aos/1176344552&#34;&gt;berikut&lt;/a&gt;. Pembaca dapat membaca makalah tersebut secara gratis.&lt;/p&gt;
+&lt;p&gt;Bootstrap mengandalkan pengambilan sampel dengan pengembalian dari data sampel. Teknik ini dapat digunakan untuk memperkirakan standard error (se) dari setiap statistik dan untuk memperoleh interval kepercayaan (CI) untuk itu. Bootstrap sangat berguna ketika CI tidak memiliki bentuk tertutup, atau memiliki bentuk yang sangat rumit.&lt;/p&gt;
+&lt;p&gt;Misalkan kita memiliki sejumlah sampel dengan ukuran &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;: &lt;span class=&#34;math inline&#34;&gt;\(X=\left\{x_1,x_2,...,x_n\right\}\)&lt;/span&gt; dan kita tertarik dengan CI dari beberapa statistik data &lt;span class=&#34;math inline&#34;&gt;\(T=t\left(X\right)\)&lt;/span&gt;. Metode ini sangat mudah untuk dikerjakan. Kita hanya perlu mengulang sejumlah &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; kali skema berikut: Untuk pengulangan ke-&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;, sampling dengan pengembalian &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; data dari data sampel yang tersedia. Namai sampel baru tersebut sebagai sampel bootstrap ke-&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; , &lt;span class=&#34;math inline&#34;&gt;\(X_i\)&lt;/span&gt;, dan hitung statistik (mean, median atu persentil) yang ingin dihitung interval kepercayaannya.&lt;/p&gt;
+&lt;p&gt;Sebagai hasilnya, kita akan mendapatkan nilai R dari statistik yang telah kita hitung: &lt;span class=&#34;math inline&#34;&gt;\(T_1,T_2,\ ....,\ T_R\)&lt;/span&gt;. Kita dapat menyebutnya sebagai realisasi bootstrap dari &lt;span class=&#34;math inline&#34;&gt;\(T\)&lt;/span&gt; atau distribusi bootstrap dari &lt;span class=&#34;math inline&#34;&gt;\(T\)&lt;/span&gt;. Berdasarkan hal tersebut, kita dapat menghitung CI untuk T.&lt;/p&gt;
+&lt;p&gt;Pada contoh kali ini penulis akan menyajikan cara melakukan bootstrap untuk menghitung interval kepercayaan pada mean, median, dan persentil. Data yang penulis gunakan adalah data &lt;code&gt;gwardat&lt;/code&gt; pada Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Bootstrap pada &lt;code&gt;R&lt;/code&gt; dilakukan dengan menggunakan library &lt;code&gt;boot&lt;/code&gt;. Berikut adalah contoh pertama menghitung interval kepercayaan median:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat paket
+library(boot)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat hasil yang diperoleh lebih random
+# dan reproducible
+set.seed(100)
+
+# membuat fungsi boot
+med.boot.func &amp;lt;- function(x,i){
+  median(x[i])
+}
+
+# melakukan bootstrap
+median.boot &amp;lt;- boot(gwardat$konsentrasi,
+                    # memasukkan fungsi boot
+                    med.boot.func,
+                    # menentukan jumlah replikasi
+                    R=1000)
+# print hasil
+median.boot&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = gwardat$konsentrasi, statistic = med.boot.func, R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original  bias    std. error
+## t1*       19  9.2795     27.3119&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh diketahui bahwa median dataset original sebesar 19. Pada hasil juga diperoleh nilai bias bootstrap. Nilai bias tersebut merupakan selisih dari nilai rata-rata 1000 median hasil bootstrap dikurangi dengan median sampel keseluruhan (original median). Standard error merupakan standard deviasi dari 1000 median yang terhitung.&lt;/p&gt;
+&lt;p&gt;Untuk mengetahui distribusi sampling yang telah kita lakukan. kita dapat melihat distribusi dengan mengeplotkan semua sampel bootstrap pada histogram dan QQ-plot dengan menjalankan sintaks berikut:&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boot1&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/10_penaksiran_secara_statistika_files/figure-html/boot1-1.png&#34; alt=&#34;Distribusi bootstrap median&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 13: Distribusi bootstrap median
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berdasarkan Gambar &lt;a href=&#34;#fig:boot1&#34;&gt;13&lt;/a&gt; diketahui bahwa median tidak berdistribusi normal. Hal ini ditunjukkan dari distribusi pada histogram yang membentuk kemencengan positif. Selain itu, distribusi data pada QQ-plot juga tidak mengikuti garis referensi yang ada sehingga dapat disimpulkan bahwa distribusi median bootstrap tidak berdistribusi normal.&lt;/p&gt;
+&lt;p&gt;Untuk menghitung interval kepercayaan median dengan tingkat kepercayaan 95%, kita dapat menggunakan fungsi &lt;code&gt;boot.ci()&lt;/code&gt;. Berikut adalah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boot.ci(boot.out=median.boot, conf=0.95)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in boot.ci(boot.out = median.boot, conf = 0.95): bootstrap
+## variances needed for studentized intervals&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = median.boot, conf = 0.95)
+## 
+## Intervals : 
+## Level      Normal              Basic         
+## 95%   (-43.81,  63.25 )   (-72.00,  33.20 )  
+## 
+## Level     Percentile            BCa          
+## 95%   (  4.8, 110.0 )   (  4.8, 100.0 )  
+## Calculations and Intervals on Original Scale&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Terdapat 4 buah hasil dari 4 buah metode yang dihasilkan sebagai output fungsi tersebut. Metode Normal mengasumsikan distribusi median bootstrap berdistribusi normal. Berdasarkan hasil visualisasi yang diperoleh diketahui bahwa distribusi data cenderung memiliki kemencengan positif sehingga metode ini tidak dapat digunakan, Selain itu, rentang yang dihasilkan juga terdapat nilai negatif yang mustahik dihasilkan pada konsentrasi arsenik (sebagian besar parameter lingkungan memiliki nilai terkecil &lt;span class=&#34;math inline&#34;&gt;\(\le0\)&lt;/span&gt;). Metode &lt;em&gt;Basic&lt;/em&gt; memiliki asumsi bahwa tidak ada bias antara median data dengan median rata-rata hasil bootstrap. Berdasarkan hasil perhitungan yang dilakukan terlihat bahwa terdapat bias pada hasil bootstrap yang cukup besar sehingga metode ini tidak dapat diterapkan. Metode ketiga adalah metode persentil. Metode ini mengasumsikan bahwa distribusi median simetris, yang telah disinggung sebelumnya bahwa distribusi median tidak simetris sehingga metode ini tidak dapat diterapkan pada kasus ini. Metode terakhir adalah metode BCa (&lt;em&gt;bias-corrected and accelerated&lt;/em&gt;) mengoreksi bias dan membuat lebih sedikit asumsi. Metode ini akan sering banyak kita gunakan pada data kita. Berdasarkan seluruh hasil yang telah diperoleh dapat kita simpulkan bahwa metode BCa cukup baik dalam menjelaskan interval kepercayaan median. Selain itu, metode persentil juga mempunyai hasil yang relatif mirip dengan BCa meskipun dari asumsi yang digunakan keempat metode tersebut tidak ada yang terpenuhi.&lt;/p&gt;
+&lt;p&gt;Pesan peringatan dalam &lt;em&gt;output&lt;/em&gt; hasil menunjukkan bahwa interval kepercayaan kelima, disebut sebagai &lt;em&gt;studentized interval&lt;/em&gt;, tidak dapat dihitung karena varians untuk sampel bootstrap tidak disediakan. Interval kepercayaan &lt;em&gt;studentized&lt;/em&gt; berusaha untuk mengoreksi bias dengan “&lt;em&gt;studentizing&lt;/em&gt;” setiap median yang dihitung (misal: mengurangi rata-rata median dan kemudian membaginya dengan standard error). Tampaknya tidak ada rumus umum untuk menghitung standard error untuk median, tetapi ada pedoman dalam literatur untuk memperkirakan kesalahan standar ketika populasi data yang mendasarinya diasumsikan terdistribusi secara normal. Dalam contoh ini, interval BCa tampaknya cukup baik. Perhatikan bahwa dalam beberapa kasus, mungkin ada peringatan bahwa “beberapa interval BCa mungkin tidak stabil.” Dalam hal itu, hasil BCa harus diabaikan jika intervalnya tampak tidak masuk akal, dan pilihan dibuat dari opsi lain yang tersisa, berdasarkan pada Ulasan histogram dan plot probabilitas estimasi bootstrap.&lt;/p&gt;
+&lt;p&gt;Setelah pembaca memahami prosedur melakukan bootstrap pada median, pembaca dapat melakukan bootstrap pada persentil dan mean. Untuk bootstrap mean jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat hasil yang diperoleh lebih random
+# dan reproducible
+set.seed(100)
+
+# membuat fungsi boot
+mean.boot.func &amp;lt;- function(x,i){
+  mean(x[i])
+}
+
+# melakukan bootstrap
+mean.boot &amp;lt;- boot(gwardat$konsentrasi,
+                    # memasukkan fungsi boot
+                    mean.boot.func,
+                    # menentukan jumlah replikasi
+                    R=1000)
+# print hasil
+mean.boot&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = gwardat$konsentrasi, statistic = mean.boot.func, 
+##     R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original    bias    std. error
+## t1*   98.352 -1.396536    27.84389&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Distribusi mean bootstrap disajikan pada Gambar &lt;a href=&#34;#fig:boot2&#34;&gt;14&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boot2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/10_penaksiran_secara_statistika_files/figure-html/boot2-1.png&#34; alt=&#34;Distribusi bootstrap mean&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 14: Distribusi bootstrap mean
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berdasrkan hasil yang diperoleh, distribusi mean bootstrap mengikuti distribusi normal. Untuk memperoleh interval kepercayaan mean bootstrap jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boot.ci(boot.out=mean.boot, conf=0.95)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in boot.ci(boot.out = mean.boot, conf = 0.95): bootstrap variances
+## needed for studentized intervals&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = mean.boot, conf = 0.95)
+## 
+## Intervals : 
+## Level      Normal              Basic         
+## 95%   ( 45.18, 154.32 )   ( 39.21, 149.05 )  
+## 
+## Level     Percentile            BCa          
+## 95%   ( 47.66, 157.50 )   ( 56.43, 175.06 )  
+## Calculations and Intervals on Original Scale
+## Some BCa intervals may be unstable&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh dapat dilihat bahwa metode BCa tidak dapat digunakan karena hasil yang diperoleh tidak stabil, Ketiga metode lainnya dapat digunakan karena asumsi normalitas (simetri) terpenuhi. Selain itu bias yang dihasilkan relatif kecil sehingga metode &lt;em&gt;Basic&lt;/em&gt; juga dapat digunakan.&lt;/p&gt;
+&lt;p&gt;Bootstrap terkahir yang kita lakukan adalah untuk memperoleh interval kepercayaan persentil dalam hal ini penulis akan mencobanya dengan persentil ke-90. Berikut alah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat hasil yang diperoleh lebih random
+# dan reproducible
+set.seed(100)
+
+# membuat fungsi boot
+p90.boot.func &amp;lt;- function(x,i){
+  quantile(x[i], probs=0.9)
+}
+
+# melakukan bootstrap
+p90.boot &amp;lt;- boot(gwardat$konsentrasi,
+                    # memasukkan fungsi boot
+                    p90.boot.func,
+                    # menentukan jumlah replikasi
+                    R=1000)
+# print hasil
+p90.boot&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## ORDINARY NONPARAMETRIC BOOTSTRAP
+## 
+## 
+## Call:
+## boot(data = gwardat$konsentrasi, statistic = p90.boot.func, R = 1000)
+## 
+## 
+## Bootstrap Statistics :
+##     original  bias    std. error
+## t1*      280 -0.9156    85.66162&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Visualisasi distribusi bootstrap persentil 90 disajikan pada Gambar &lt;a href=&#34;#fig:boot3&#34;&gt;15&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:boot3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/10_penaksiran_secara_statistika_files/figure-html/boot3-1.png&#34; alt=&#34;Distribusi bootstrap persentil 90&#34; width=&#34;65%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 15: Distribusi bootstrap persentil 90
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Bentuk visualisasi distribusi bootstrap persentil ke-90 yang dihasilkan pada Gambar &lt;a href=&#34;#fig:boot3&#34;&gt;15&lt;/a&gt; terlihat sedikit memiliki kemencengan positif. untuk menghitung interval kepercayaan 95% persentil ke-90 jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boot.ci(boot.out=p90.boot, conf=0.95)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in boot.ci(boot.out = p90.boot, conf = 0.95): bootstrap variances
+## needed for studentized intervals&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = p90.boot, conf = 0.95)
+## 
+## Intervals : 
+## Level      Normal              Basic         
+## 95%   (113.0, 448.8 )   ( 76.0, 448.0 )  
+## 
+## Level     Percentile            BCa          
+## 95%   (112, 484 )   (120, 580 )  
+## Calculations and Intervals on Original Scale&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan keempat hasil yang diperoleh, metode BCa cukup baik digunakan sebab distribusi bootstrap yang dihasilkan tidak memenuhi asumsi ketiga metode lainnya.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;kegunaan-lain-dari-interval-kepercayaan&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.9 Kegunaan Lain Dari Interval Kepercayaan&lt;/h2&gt;
+&lt;p&gt;Selain digunakan untuk menghitung interval estimasi, interval kepercayaan dapat pula digunakan sebagai pendeteksi adanya &lt;em&gt;outlier&lt;/em&gt;, kontrol kualitas, dan penentuan ukuran sampel yang akan digunakan pada suatu penelitian agar hasil yang diperoleh lebih presisi. Pembahasan juga akan disertai apakah normalitas pada distribusi data akan mempengaruhi performa dari ketiga jenis kegunaan interval kepercayaan.&lt;/p&gt;
+&lt;div id=&#34;implikasi-non-normalitas-pada-pendeteksian-outlier&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.9.1 Implikasi Non-Normalitas Pada Pendeteksian &lt;em&gt;Outlier&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Outlier&lt;/em&gt; merupakan pengamatan yang tampak berbeda karakteristiknya dibandingkan sebagian besar pengamatan yang ada. Pengamatan ini seringkli dihapus dari prosedur analisis yang mengharuskan distribusi suatu data mengikuti distribusi normal. Penghapusan observasi ini bisa jadi tidak baik dilakukan sebab bisa saja observasi tersebut valid. Observasi yang bersifat &lt;em&gt;outlier&lt;/em&gt; bisa jadi merupakan observasi terpenting sebab bisa saja dapat memberikan gambaran penting pada suatu kondisi ekstrim atau hubungan kausatif yang penting. Penghapusan ini tidak perlu dilakukan selam prosedur pengukuran yang sejenis tersedia dan tidak mengharuskan suatu distribusi data mengikuti distribusi tertentu, meskipun terdapat kelebihan dan kekurangan yang perlu kita perhatikan.&lt;/p&gt;
+&lt;p&gt;Untuk menghapus observasi yang kita identifikasikan sebagai &lt;em&gt;outlier&lt;/em&gt;, aturan atau tes perlu dilakukan seperti tes yang diajukan oleh Beckman dan Cook (1983). Tes yang paling umum didasarkan pada interval-t, dan mengasumsikan data mengikuti distribusi normal. Biasanya Persamaan &lt;a href=&#34;#eq:ipds&#34;&gt;(13)&lt;/a&gt; untuk interval pediksi data yang mengikuti distribusi normal disederhanakan dengan mengabaikan nilai &lt;span class=&#34;math inline&#34;&gt;\(\frac{s^2}{n}\)&lt;/span&gt;. Nilai diluar interval prediksi tersebut selanjutnya dapat dinyatakan sebagai &lt;em&gt;oulier&lt;/em&gt;. Uji lain yang dapat dilakukan adalah dengan visualisasi menggunakan box plot. Nilai diluar &lt;span class=&#34;math inline&#34;&gt;\(Q1-1,5IQR\)&lt;/span&gt; atau &lt;span class=&#34;math inline&#34;&gt;\(Q3+1,5IQR\)&lt;/span&gt; dinyatakan sebagai &lt;em&gt;outlier&lt;/em&gt;. Namun pada Chapter ini tidak akan dibahas lebih lanjut sebab pada Chapter 7 telah dibahas mengenai deteksi &lt;em&gt;outlier&lt;/em&gt; mellaui visualisasi data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;implikasi-non-normalitas-pada-kontrol-kualitas&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.9.2 Implikasi Non-Normalitas Pada Kontrol Kualitas&lt;/h3&gt;
+&lt;p&gt;Presentasi visual interval kepercayaan yang digunakan secara luas dalam proses industri adalah kontrol chart. Sejumlah kecil produk disampel dari total kemungkinan pada titik waktu tertentu, dan rerata dihitung. Pengambilan sampel diulang pada interval reguler atau acak, tergantung pada desain, menghasilkan serangkaian cara sampel. Ini digunakan untuk membangun satu jenis kontrol chart, xbar chart. Chart ini secara visual mendeteksi ketika rata-rata sampel masa depan menjadi berbeda dari yang digunakan untuk membangun grafik. Keputusan perbedaan didasarkan pada melebihi interval kepercayaan parametrik di sekitar rata-rata yang telah dijelaskan dibagian lain Chapter ini.&lt;/p&gt;
+&lt;p&gt;Misalkan laboratorium kimia mengukur larutan standar yang sama beberapa kali selama sehari untuk menentukan apakah peralatan dan operator menghasilkan hasil yang konsisten. Untuk serangkaian pengukuran &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; pada interval waktu &lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt;, ukuran sampel total &lt;span class=&#34;math inline&#34;&gt;\(N=N\cdot M\)&lt;/span&gt;. Perkiraan konsentrasi terbaik untuk standar itu adalah rata-rata keseluruhan yang dihitung menggunakan Persamaan &lt;a href=&#34;#eq:innpkk&#34;&gt;(23)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:innpkk&#34;&gt;\[\begin{equation}
+  \overline{X}=\sum_{i=1}^N\frac{X_i}{N}
+  \tag{23}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\overline{X}\)&lt;/span&gt; diplot sebagai garis tengah grafik. Interval kepercayaan pada rata-rata tersebut dijelaskan oleh Persamaan &lt;a href=&#34;#eq:pmeancisim&#34;&gt;(8)&lt;/a&gt;, menggunakan ukuran sampel &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; yang tersedia untuk menghitung setiap nilai rata-rata individu. Batas interval tersebut juga diplotkan sebagai garis paralel pada chart kontrol kualitas. Nilai rata-rata yang akan berada diluar batas plot rata-rata ini hanya sebesar &lt;span class=&#34;math inline&#34;&gt;\(\alpha\cdot100\%\)&lt;/span&gt; dari waktu jika rata-rata berditribusi normal. Observasi yang berada di luar batas lebih sering daripada ini diambil untuk menunjukkan bahwa sesuatu dalam proses telah berubah.&lt;/p&gt;
+&lt;p&gt;Jika &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; besar (katakanlah 30 atau lebih), Teorema Limit Pusat menyatakan bahwa rata-rata akan terdistribusi secara normal meskipun data yang mendasarinya mungkin tidak. Namun jika &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; jauh lebih kecil, seperti yang sering terjadi, berarti mungkin tidak mengikuti pola ini. Khususnya, untuk data yang memiliki kemencengan (data dengan &lt;em&gt;outlier&lt;/em&gt; hanya pada satu sisi), distribusi di sekitar rata-rata mungkin masih memiliki kemencengan. Hasilnya adalah nilai besar untuk simpangan baku, dan pita kepercayaan yang lebar. Oleh karena itu, chart akan memiliki kekuatan yang lebih rendah untuk mendeteksi observasi yang mulai menjauh dari nilai rata-rata yang diharapkan daripada jika data tidak memiliki kemencengan.&lt;/p&gt;
+&lt;p&gt;Chart kontrol juga diproduksi untuk menggambarkan varians proses. Chart kontrol juga menggunakan nilai range (R chart) atau simpangan baku (S chart). Kedua grafik bahkan lebih sensitif terhadap perubahan data dari kondisi normal dibandingkan &lt;span class=&#34;math inline&#34;&gt;\(\overline{X}\)&lt;/span&gt; chart. Keduanya akan mengalami kesulitan dalam mendeteksi perubahan varian ketika data yang mendasarinya tidak normal, dan ukuran sampel &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; untuk setiap rata-rata kecil.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;non-normalitas-terhadap-desain-sampling&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.9.3 Non-Normalitas Terhadap Desain Sampling&lt;/h3&gt;
+&lt;p&gt;Persamaan t-interval juga digunakan untuk menentukan jumlah sampel yang diperlukan untuk memperkirakan rata-rata dengan tingkat presisi yang ditentukan. Namun, persamaan tersebut membutuhkan data untuk kira-kira mengikuti distribusi normal. Persamaan tersebut harus mempertimbangkan &lt;em&gt;power&lt;/em&gt; serta lebar interval. Artinya kita harus memutuskan apakah mean adalah karakteristik yang paling tepat untuk mengukur data yang memiliki kemencengan.&lt;/p&gt;
+&lt;p&gt;Untuk memperkirakan ukuran sampel telah cukup untuk menentukan interval estimasi dengan lebar spesifik dapat menggunakan Persamaan &lt;a href=&#34;#eq:inntds&#34;&gt;(24)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:inntds&#34;&gt;\[\begin{equation}
+  n=\left(\frac{t_{\frac{\alpha}{2},n-1}\cdot s}{\Delta}\right)^2
+  \tag{24}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; merupakan simpangan baku sampel dan &lt;span class=&#34;math inline&#34;&gt;\(\Delta\)&lt;/span&gt; merupakan setengah lebar interval yang diinginkan. Seperti yang telah dibahas di atas, untuk ukuran sampel kurang dari 30 hingga 50 dan bahkan lebih besar dengan data yang sangat menceng, perhitungan ini mungkin memiliki kesalahan besar. Perkiraan &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; akan tidak akurat, dan akan sangat sangat meningkat nilainya karena kemencenga dan/atau &lt;em&gt;outlier&lt;/em&gt; apapun. Karenanya, estimasi &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; yang dihasilkan akan besar. Sebagai contoh, Hakanson (1984) memperkirakan jumlah sampel yang diperlukan untuk memberikan lebar interval yang masuk akal untuk karakteristik sedimen sungai dan danau, termasuk kimia sedimen. Berdasarkan koefisien variasi yang dilaporkan dalam artikel, data untuk sedimen sungai cukup menceng, seperti yang mungkin diharapkan. Ukuran sampel yang diperlukan untuk sungai dihitung pada 200 dan lebih tinggi.&lt;/p&gt;
+&lt;p&gt;Sebelum menggunakan persamaan sederhana seperti itu, data yang menceng harus ditransformasi terlebih dahulu sehingga lebih simetris, jika bukan berdistribusi normal. Misalnya, logaritma akan secara drastis menurunkan taksiran ukuran sampel untuk data miring, setara dengan Persamaan &lt;a href=&#34;#eq:ipdas&#34;&gt;(15)&lt;/a&gt;. Ukuran sampel akan dihasilkan yang memungkinkan median (rata-rata geometris) diperkirakan dalam faktor toleransi multiplikasi sama dengan &lt;span class=&#34;math inline&#34;&gt;\(\pm2\Delta\)&lt;/span&gt;dalam satuan log.&lt;/p&gt;
+&lt;p&gt;Masalah kedua dengan Persamaan &lt;a href=&#34;#eq:inntds&#34;&gt;(24)&lt;/a&gt; untuk memperkirakan ukuran sampel, bahkan ketika data mengikuti distribusi normal, ditunjukkan oleh Kupper dan Hafner (1989). Mereka menunjukkan Persamaan &lt;a href=&#34;#eq:inntds&#34;&gt;(24)&lt;/a&gt; meremehkan ukuran sampel sebenarnya yang diperlukan untuk tingkat presisi tertentu, bahkan untuk perkiraan &lt;span class=&#34;math inline&#34;&gt;\(n\le40\)&lt;/span&gt;. Hal ini disebabkan karena Persamaan &lt;a href=&#34;#eq:inntds&#34;&gt;(24)&lt;/a&gt; tidak mengakui bahwa simpangan baku &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; hanya estimasi dari nilai sebenarnya &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;. Mereka menyarankan menambahkan probabilitas toleransi ke Persamaan &lt;a href=&#34;#eq:inntds&#34;&gt;(24)&lt;/a&gt;, mirip dengan &lt;em&gt;statement of power&lt;/em&gt;. Maka perkiraan lebar interval setidaknya sekecil lebar interval yang diinginkan untuk beberapa persentase tertentu (katakanlah 90 atau 95%) dari waktu tersebut. Misalnya, ketika &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; akan sama dengan 40 berdasarkan Persamaan &lt;a href=&#34;#eq:inntds&#34;&gt;(24)&lt;/a&gt;, lebar interval yang dihasilkan akan lebih kecil dari lebar yang diinginkan &lt;span class=&#34;math inline&#34;&gt;\(2\Delta\)&lt;/span&gt; hanya sekitar 42% dari waktu. Ukuran sampel seharusnya menjadi 53 untuk memastikan lebar interval berada dalam kisaran toleransi 90% dari waktu.&lt;/p&gt;
+&lt;p&gt;Ukuran sampel yang diperlukan untuk estimasi interval median atau untuk melakukan tes nonparametrik dari Chapter selanjutnya dapat diturunkan tanpa asumsi normalitas yang diperlukan di atas untuk interval-t. Noether (1987) menjelaskan estimasi ukuran sampel yang lebih kuat ini, yang memasukkan pertimbangan &lt;em&gt;power&lt;/em&gt; sehingga lebih valid daripada Persamaan &lt;a href=&#34;#eq:inntds&#34;&gt;(24)&lt;/a&gt;. Namun, baik estimasi normalitas distribusi data atau nonparametric mempertimbangkan efek penting dan sering diamati dari musiman atau tren, dan karenanya mungkin tidak pernah memberikan perkiraan yang cukup akurat untuk menjadi sesuatu yang lebih dari sekadar panduan kasar.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Bachman, L. J. 1984. &lt;strong&gt;Field and laboratory analyses of water from the Columbia Aquifer in Eastern Maryland&lt;/strong&gt;. Ground Water 22. 460-467.&lt;/li&gt;
+&lt;li&gt;Damanhuri, E. 2011. &lt;strong&gt;Statitika Lingkunga&lt;/strong&gt;. Penerbit ITB.&lt;/li&gt;
+&lt;li&gt;Deryto, T. tanpa tahun. &lt;strong&gt;Bootstrap in R&lt;/strong&gt;. Datacamp. &lt;a href=&#34;https://www.datacamp.com/community/tutorials/bootstrap-r&#34; class=&#34;uri&#34;&gt;https://www.datacamp.com/community/tutorials/bootstrap-r&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Efron, B. 1979. &lt;strong&gt;Bootstrap Methods: Another Look at The Jacknife&lt;/strong&gt;. The Annuals of Statistics. Vol:7(1). 1-26.&lt;/li&gt;
+&lt;li&gt;Helsel, D.R., Hirsch, R.M. 2002. &lt;strong&gt;statistical Methods in Water Resources&lt;/strong&gt;. USGS.&lt;/li&gt;
+&lt;li&gt;Kupper, L. L., and K. B. Hafner. 1989. &lt;strong&gt;How appropriate are popular sample size formulas?&lt;/strong&gt;. American Statistician 43. 101-105.&lt;/li&gt;
+&lt;li&gt;Noether, G. E. 1987. &lt;strong&gt;Sample size determination for some common nonparametric tests&lt;/strong&gt;. Journal American Statistical Assoc.. 82, 645-647.&lt;/li&gt;
+&lt;li&gt;Ofungwu, J. 2014. &lt;strong&gt;Statistical Applications For Environmental Analysis and Risk Assessment&lt;/strong&gt;. John Wiley &amp;amp; Sons, Inc.&lt;/li&gt;
+&lt;li&gt;Ting Wei, Songbai Song. 2019. &lt;strong&gt;Confidence interval estimation for precipitation quantiles based on principle of maximum entropy&lt;/strong&gt;. Entropy. 21.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>6. Ringkasan Data</title>
       <link>/tutorial/06_ringkasan-numerik/</link>
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0700</pubDate>
@@ -29,7 +1647,7 @@ text-align: justify}
 &lt;li&gt;&lt;a href=&#34;#6-2-ukuran-sebaran-data&#34;&gt;Ukuran Sebaran Data&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#6-3-ringkasan-data-menggunakan-fungsi-summary-dan-stat.desc&#34;&gt;Ringkasan Data Menggunakan Fungsi summary dan stat.desc&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#6-4-ukuran-kemencengan-data&#34;&gt;Ukuran Kemencengan Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#g-5-outlier&#34;&gt;Outlier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#6-5-outlier&#34;&gt;Outlier&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#6-6-transformasi-data&#34;&gt;Transformasi Data&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
@@ -7302,57 +8920,6 @@ git submodule update --init --recursive
 &lt;p&gt;Copyright 2016-present &lt;a href=&#34;https://georgecushen.com&#34; target=&#34;_blank&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Released under the &lt;a href=&#34;https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md&#34; target=&#34;_blank&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
-      <description>
-
-
-&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;R Markdown&lt;/h1&gt;
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &amp;lt;- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Including Plots&lt;/h1&gt;
-&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
-  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
-  init.angle = -50, border = NA
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: A fancy pie chart.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 </description>
     </item>
     
