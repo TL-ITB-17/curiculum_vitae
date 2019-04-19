@@ -22,16 +22,6 @@ Pada Chapter Penaksiran Secara Statistika, penulis telah menambahkan pembahasan 
     </item>
     
     <item>
-      <title>Update Tutorial Part 1: Statistika Inferensial</title>
-      <link>/post/update-tutorial-part-1/update-tutorial-part-1/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0700</pubDate>
-      
-      <guid>/post/update-tutorial-part-1/update-tutorial-part-1/</guid>
-      <description>library(knitr) img1_path &amp;lt;- &amp;quot;/code_chunk.png&amp;quot; include_graphics(img1_path)  Tutorial telah memasuki Part 4. Banyak sekali materi yang dapat pembaca pelajari. Chapter Penaksiran Secara Statistika merupakan Chapter yang paling lama proses pembuatannya. Pada Chapter tersebut penulis membuat sejumlah sintaks fungsi yang belum tersedia di R. Kedepan fungsi-fungsi yang penulis kerjakan pada seluruh Chapter tutorial akan penulis jadikan satu repository git sehingga pembaca dapat dengan mudah menggunakannya sewaktu-waktu tanpa perlu menulis sintaks panjang.
-Pada Chapter Penaksiran Secara Statistika, penulis telah menambahkan pembahasan mengenai simulasi dengan metode bootstrap.</description>
-    </item>
-    
-    <item>
       <title>Display Jupyter Notebooks with Academic</title>
       <link>/post/jupyter/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>

@@ -4,8 +4,8 @@ authors:
 date: "2019-04-19T00:00:00+07:00"
 draft: false
 image:
-  caption: 'Image credit: [**Moh. Rosidi*](/code_chunk.PNG)'
-  focal_point: ""
+  caption: ""
+  focal_point: Smart
   preview_only: false
 lastmod: "2019-04-19T00:00:00+07:00"
 subtitle: 'Penaksiran Secara Statistika Menggunakan Metode Parameterik dan Nonparametrik :rocket:'
@@ -14,14 +14,6 @@ tags:
 - Academic
 title: 'Update Tutorial Part 1: Statistika Inferensial'
 ---
-
-
-```{r, echo=FALSE, message=FALSE,warning=FALSE}
-library(knitr)
-img1_path <- "/code_chunk.png"
-include_graphics(img1_path)
-
-```
 
 Tutorial telah memasuki Part 4. Banyak sekali materi yang dapat pembaca pelajari. **Chapter Penaksiran Secara Statistika** merupakan Chapter yang paling lama proses pembuatannya. Pada Chapter tersebut penulis membuat sejumlah sintaks fungsi yang belum tersedia di `R`. Kedepan fungsi-fungsi yang penulis kerjakan pada seluruh Chapter tutorial akan penulis jadikan satu repository git sehingga pembaca dapat dengan mudah menggunakannya sewaktu-waktu tanpa perlu menulis sintaks panjang.
 

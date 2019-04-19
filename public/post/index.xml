@@ -22,16 +22,6 @@ Pada Chapter Penaksiran Secara Statistika, penulis telah menambahkan pembahasan 
     </item>
     
     <item>
-      <title>Update Tutorial Part 1: Statistika Inferensial</title>
-      <link>/post/update-tutorial-part-1/update-tutorial-part-1/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0700</pubDate>
-      
-      <guid>/post/update-tutorial-part-1/update-tutorial-part-1/</guid>
-      <description>library(knitr) img1_path &amp;lt;- &amp;quot;/code_chunk.png&amp;quot; include_graphics(img1_path)  Tutorial telah memasuki Part 4. Banyak sekali materi yang dapat pembaca pelajari. Chapter Penaksiran Secara Statistika merupakan Chapter yang paling lama proses pembuatannya. Pada Chapter tersebut penulis membuat sejumlah sintaks fungsi yang belum tersedia di R. Kedepan fungsi-fungsi yang penulis kerjakan pada seluruh Chapter tutorial akan penulis jadikan satu repository git sehingga pembaca dapat dengan mudah menggunakannya sewaktu-waktu tanpa perlu menulis sintaks panjang.
-Pada Chapter Penaksiran Secara Statistika, penulis telah menambahkan pembahasan mengenai simulasi dengan metode bootstrap.</description>
-    </item>
-    
-    <item>
       <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
       <link>/post/mengenal-r/mengenal-lebih-jauh-r/</link>
       <pubDate>Sat, 02 Mar 2019 21:13:14 -0500</pubDate>
@@ -72,6 +62,15 @@ Follow our easy step by step guide to learn how to build your own free website w
       <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/update-tutorial-part-1/update-tutorial-part-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/update-tutorial-part-1/update-tutorial-part-1/</guid>
+      <description>Update Tutorial Part 1: Statistika Inferensialcode{white-space: pre;}pre:not([class]) {background-color: white;}if (window.hljs) {hljs.configure({languages: []});hljs.initHighlightingOnLoad();if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) {window.setTimeout(function() { hljs.initHighlighting(); }, 0);}}h1 {font-size: 34px;}h1.title {font-size: 38px;}h2 {font-size: 30px;}h3 {font-size: 24px;}h4 {font-size: 18px;}h5 {font-size: 16px;}h6 {font-size: 12px;}.</description>
     </item>
     
   </channel>
