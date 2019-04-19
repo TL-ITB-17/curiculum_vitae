@@ -137,7 +137,7 @@ text-align: justify}
 <p>Lebar interval kepercayaan adalah fungsi dari bentuk distribusi data (variabilitas dan kemencengannya), ukuran sampel, dan tingkat kepercayaan yang diinginkan. Ketika tingkat kepercayaan meningkat, lebar interval juga meningkat, karena interval yang lebih besar lebih mungkin mengandung nilai sebenarnya daripada interval yang lebih pendek. Dengan demikian interval kepercayaan 95% akan lebih luas daripada interval 90% untuk data yang sama.</p>
 <pre><code>## Warning: package &#39;knitr&#39; was built under R version 3.5.3</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:iievis"></span>
-<img src="/iievis.png" alt="Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)" width="65%" />
+<img src="/iievis.png" alt="Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)" width="80%" />
 <p class="caption">
 Figure 1: Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)
 </p>
@@ -228,13 +228,13 @@ Figure 1: Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarn
 </tbody>
 </table>
 <div class="figure" style="text-align: center"><span id="fig:iiedata"></span>
-<img src="/iiedata.png" alt="Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)" width="70%" />
+<img src="/iiedata.png" alt="Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)" width="80%" />
 <p class="caption">
 Figure 2: Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:iievis2"></span>
-<img src="/iievis2.png" alt="Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya  (Helsel dan Hirsch, 2002)" width="65%" />
+<img src="/iievis2.png" alt="Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya  (Helsel dan Hirsch, 2002)" width="80%" />
 <p class="caption">
 Figure 3: Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya (Helsel dan Hirsch, 2002)
 </p>
@@ -247,7 +247,7 @@ Figure 3: Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarn
 <h3>8.3.1 Interval Estimasi Median Metode Nonparametrik</h3>
 <p>Interval estimasi nonparametrik untuk median populasi sebenarnya dihitung menggunakan distribusi binomial. Pertama, tingkat signifikansi yang diinginkan <span class="math inline">\(\alpha\)</span> dinyatakan, error yang dapat diterima tidak termasuk median yang sebenarnya. Satu-setengah (<span class="math inline">\(\alpha/2\)</span>) dari error ini digunakan untuk setiap akhir interval (Gambar <a href="#fig:iemednp">4</a>). Tabel distribusi binomial memberikan nilai kritis bawah dan atas <span class="math inline">\(x&#39;\)</span> dan <span class="math inline">\(x\)</span> pada setengah tingkat alfa yang diinginkan (<span class="math inline">\(\alpha/2\)</span>). Nilai-nilai kritis ini ditransformasikan ke dalam rangking <span class="math inline">\(R_l\)</span> dan <span class="math inline">\(R_u\)</span> yang sesuai dengan titik data <span class="math inline">\(C_l\)</span> dan <span class="math inline">\(C_u\)</span> di ujung interval kepercayaan.</p>
 <div class="figure" style="text-align: center"><span id="fig:iemednp"></span>
-<img src="/iemednp.png" alt="Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)" width="65%" />
+<img src="/iemednp.png" alt="Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)" width="80%" />
 <p class="caption">
 Figure 4: Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)
 </p>
@@ -910,7 +910,7 @@ mean(gwardat2$konsentrasi)+r[[11]]</code></pre>
   \tag{11}
 \end{equation}\]</span>
 <div class="figure" style="text-align: center"><span id="fig:ipnds"></span>
-<img src="/ipnds.png" alt="Prediksi interval dua sisi (Helsel dan Hirsch, 2002)" width="65%" />
+<img src="/ipnds.png" alt="Prediksi interval dua sisi (Helsel dan Hirsch, 2002)" width="80%" />
 <p class="caption">
 Figure 8: Prediksi interval dua sisi (Helsel dan Hirsch, 2002)
 </p>
@@ -966,7 +966,7 @@ Figure 8: Prediksi interval dua sisi (Helsel dan Hirsch, 2002)
 <h3>8.5.2 Interval Prediksi Nonparametrik Satu Sisi</h3>
 <p>Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan <span class="math inline">\(\alpha\)</span> dibanding <span class="math inline">\(\alpha/2\)</span> sebagai nilai error, menempatkan semua error di satu sisi interval (Gambar <a href="#fig:ipss">9</a>). Interval prediksi dituliskan berdasarkan Persamaan <a href="#eq:eqipss">(12)</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:ipss"></span>
-<img src="/ipss.png" alt="Prediksi interval satu sisi (Helsel dan Hirsch, 2002)" width="65%" />
+<img src="/ipss.png" alt="Prediksi interval satu sisi (Helsel dan Hirsch, 2002)" width="80%" />
 <p class="caption">
 Figure 9: Prediksi interval satu sisi (Helsel dan Hirsch, 2002)
 </p>
@@ -1333,19 +1333,19 @@ R_u=25\cdot0,2+1,96\cdot\sqrt{25\cdot0,2\left(1-0,2\right)}+0,5\ =\ 5+1,96\cdot2
 <p>Pengujian persentil dilakukan untuk mengecek apakah sebuah persentil berbeda (lebih besar atau lebih kecil) dibandingkan dengan sejumlah nilai. Sebagai contoh misalkan terdapat median kualitas harian suatu parameter tidak boleh melebihi standar yang berlaku sebesar <span class="math inline">\(X_0\)</span> ppb. Contoh lain dalam bidang hidrologi periode ulang hujan (PUH) 10 tahun atau persentil ke-90 dari debit puncak tahunan suatu kawasan dapat dilakukan pengujian apakah nilai yang ada dilapangan berbeda dengan PUH 10 tahunan yang telah kita hitung untuk digunakan dalam mendesain saluran drainase. Pembahasan pengujian persentil tersebut tidak akan sampai menyinggung pengujian hipotesis yang akan dibahas pada Chapter selanjutnya. Pembahasan akan berkisar membandingkan suatu nilai dengan interval kepercayaan seperti yang telah dijelaskan pada pembahasan terkait interval prediksi.</p>
 <p>Pengujian apakah sebuah nilai <span class="math inline">\(X_0\)</span> berbeda dengan sejumlah rentang nilai yang ditetapkan dapat dilakukan dengan pengujian dua sisi dan satu sisi. Pengujian satu sisi melihat apakah suatu nilai <span class="math inline">\(X_0\)</span> berada diluar interval kepercayaan persentil atau diantara nilai batas bawah <span class="math inline">\(X_l\)</span> dan nilai batas atasnya <span class="math inline">\(X_u\)</span> (lihat Gambar <a href="#fig:unup1">10</a>). Sedangkan pengujian satu sisi melihat apakah suatu nilai lebih besar atau lebih kecil (tergantung apakah pengujian satu sisi sebelah atas distribusi atau sebelah bawah distribusi) dari interval kepercayaan persentil yang digunakan (lihat Gambar <a href="#fig:unup2">11</a> dan Gambar <a href="#fig:unup3">12</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:unup1"></span>
-<img src="unup1.png" alt="Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)" width="65%" />
+<img src="unup1.png" alt="Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)" width="80%" />
 <p class="caption">
 Figure 10: Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:unup2"></span>
-<img src="unup2.png" alt="Interval estimasi persentil Xp sebagai penguji apakah Xp&gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)" width="65%" />
+<img src="unup2.png" alt="Interval estimasi persentil Xp sebagai penguji apakah Xp&gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)" width="80%" />
 <p class="caption">
 Figure 11: Interval estimasi persentil Xp sebagai penguji apakah Xp&gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:unup3"></span>
-<img src="unup3.png" alt="Interval estimasi persentil Xp sebagai penguji apakah Xp&gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)" width="65%" />
+<img src="unup3.png" alt="Interval estimasi persentil Xp sebagai penguji apakah Xp&gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)" width="80%" />
 <p class="caption">
 Figure 12: Interval estimasi persentil Xp sebagai penguji apakah Xp&gt;X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)
 </p>
@@ -1437,7 +1437,7 @@ median.boot</code></pre>
 <p>Berdasarkan hasil yang diperoleh diketahui bahwa median dataset original sebesar 19. Pada hasil juga diperoleh nilai bias bootstrap. Nilai bias tersebut merupakan selisih dari nilai rata-rata 1000 median hasil bootstrap dikurangi dengan median sampel keseluruhan (original median). Standard error merupakan standard deviasi dari 1000 median yang terhitung.</p>
 <p>Untuk mengetahui distribusi sampling yang telah kita lakukan. kita dapat melihat distribusi dengan mengeplotkan semua sampel bootstrap pada histogram dan QQ-plot dengan menjalankan sintaks berikut:</p>
 <div class="figure" style="text-align: center"><span id="fig:boot1"></span>
-<img src="/tutorial/10_penaksiran_secara_statistika_files/figure-html/boot1-1.png" alt="Distribusi bootstrap median" width="65%" />
+<img src="/tutorial/10_penaksiran_secara_statistika_files/figure-html/boot1-1.png" alt="Distribusi bootstrap median" width="80%" />
 <p class="caption">
 Figure 13: Distribusi bootstrap median
 </p>
@@ -1494,7 +1494,7 @@ mean.boot</code></pre>
 ## t1*   98.352 -1.396536    27.84389</code></pre>
 <p>Distribusi mean bootstrap disajikan pada Gambar <a href="#fig:boot2">14</a></p>
 <div class="figure" style="text-align: center"><span id="fig:boot2"></span>
-<img src="/tutorial/10_penaksiran_secara_statistika_files/figure-html/boot2-1.png" alt="Distribusi bootstrap mean" width="65%" />
+<img src="/tutorial/10_penaksiran_secara_statistika_files/figure-html/boot2-1.png" alt="Distribusi bootstrap mean" width="80%" />
 <p class="caption">
 Figure 14: Distribusi bootstrap mean
 </p>
@@ -1549,7 +1549,7 @@ p90.boot</code></pre>
 ## t1*      280 -0.9156    85.66162</code></pre>
 <p>Visualisasi distribusi bootstrap persentil 90 disajikan pada Gambar <a href="#fig:boot3">15</a></p>
 <div class="figure" style="text-align: center"><span id="fig:boot3"></span>
-<img src="/tutorial/10_penaksiran_secara_statistika_files/figure-html/boot3-1.png" alt="Distribusi bootstrap persentil 90" width="65%" />
+<img src="/tutorial/10_penaksiran_secara_statistika_files/figure-html/boot3-1.png" alt="Distribusi bootstrap persentil 90" width="80%" />
 <p class="caption">
 Figure 15: Distribusi bootstrap persentil 90
 </p>

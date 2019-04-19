@@ -69,7 +69,7 @@ Kesepuluh interval pada contoh di atas disebut dengan dengan **interval kepercay
 
 Lebar interval kepercayaan adalah fungsi dari bentuk distribusi data (variabilitas dan kemencengannya), ukuran sampel, dan tingkat kepercayaan yang diinginkan. Ketika tingkat kepercayaan meningkat, lebar interval juga meningkat, karena interval yang lebih besar lebih mungkin mengandung nilai sebenarnya daripada interval yang lebih pendek. Dengan demikian interval kepercayaan 95% akan lebih luas daripada interval 90% untuk data yang sama.
 
-```{r iievis, echo=FALSE, fig.cap='Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r iievis, echo=FALSE, fig.cap='Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya 10 (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
 img1_path <- "/iievis.png"
 include_graphics(img1_path)
@@ -93,14 +93,14 @@ Interval kepercayaan simetris pada rata-rata biasanya dihitung dengan asumsi dat
 
 : (\#tab:iie2) Sepuluh  interval kepercayaan 90% sekitar nilai mean sebenarnya sebesar 1 (Data tidak berdistribusi normal dan Tanda plus menyatakan data tidak disertakan dalam nilai mean sebenarnya)
 
-```{r iiedata, echo=FALSE, fig.cap='Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='70%', fig.align='center'}
+```{r iiedata, echo=FALSE, fig.cap='Histogram data dengan nilai mean populasi 1 dan simpangan baku populasi 0.75 (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
 img1_path <- "/iiedata.png"
 include_graphics(img1_path)
 ```
 
 
-```{r iievis2, echo=FALSE, fig.cap='Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya  (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r iievis2, echo=FALSE, fig.cap='Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarnya  (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
 img1_path <- "/iievis2.png"
 include_graphics(img1_path)
@@ -114,7 +114,7 @@ Interval kepercayaan median populasi dapat dihitung tanpa perlu mengikuti asumsi
 
 Interval estimasi nonparametrik untuk median populasi sebenarnya dihitung menggunakan distribusi binomial. Pertama, tingkat signifikansi yang diinginkan $\alpha$ dinyatakan, error yang dapat diterima tidak termasuk median yang sebenarnya. Satu-setengah ($\alpha/2$) dari error ini digunakan untuk setiap akhir interval (Gambar \@ref(fig:iemednp)). Tabel distribusi binomial memberikan nilai kritis bawah dan atas $x'$ dan $x$ pada setengah tingkat alfa yang diinginkan ($\alpha/2$). Nilai-nilai kritis ini ditransformasikan ke dalam rangking $R_l$ dan $R_u$ yang sesuai dengan titik data $C_l$ dan $C_u$ di ujung interval kepercayaan.
 
-```{r iemednp, echo=FALSE, fig.cap='Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r iemednp, echo=FALSE, fig.cap='Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
 img1_path <- "/iemednp.png"
 include_graphics(img1_path)
@@ -686,7 +686,7 @@ Interval prediksi tingkat kepercayaan nonparametrik $\alpha$ secara sederhana di
   (\#eq:eqipnds)
 \end{equation}
 
-```{r ipnds, echo=FALSE, fig.cap='Prediksi interval dua sisi (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r ipnds, echo=FALSE, fig.cap='Prediksi interval dua sisi (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
 img1_path <- "/ipnds.png"
 include_graphics(img1_path)
@@ -751,7 +751,7 @@ PInp(x=gwardat$konsentrasi, alpha=0.1)
 
 Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan $\alpha$ dibanding $\alpha/2$ sebagai nilai error, menempatkan semua error di satu sisi interval (Gambar \@ref(fig:ipss)). Interval prediksi dituliskan berdasarkan Persamaan \@ref(eq:eqipss).
 
-```{r ipss, echo=FALSE, fig.cap='Prediksi interval satu sisi (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r ipss, echo=FALSE, fig.cap='Prediksi interval satu sisi (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
 img1_path <- "/ipss.png"
 include_graphics(img1_path)
@@ -1168,19 +1168,19 @@ Pengujian persentil dilakukan untuk mengecek apakah sebuah persentil berbeda (le
 
 Pengujian apakah sebuah nilai $X_0$ berbeda dengan sejumlah rentang nilai yang ditetapkan dapat dilakukan dengan pengujian dua sisi dan satu sisi. Pengujian satu sisi melihat apakah suatu nilai $X_0$ berada diluar interval kepercayaan persentil atau diantara nilai batas bawah $X_l$ dan nilai batas atasnya $X_u$ (lihat Gambar \@ref(fig:unup1)). Sedangkan pengujian satu sisi melihat apakah suatu nilai lebih besar atau lebih kecil (tergantung apakah pengujian satu sisi sebelah atas distribusi atau sebelah bawah distribusi) dari interval kepercayaan persentil yang digunakan (lihat Gambar \@ref(fig:unup2) dan Gambar \@ref(fig:unup3)).
 
-```{r unup1, echo=FALSE, fig.cap='Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r unup1, echo=FALSE, fig.cap='Interval estimasi persentil Xp sebagai penguji apakah Xp=X0. A) X0 didalam interval estimasi sehingga Xp tidak berbeda secara signifikan dari X0, B) X0 berada diluar rentang estimasi sehingga Xp berbeda secara signifikan dari X0. (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
 img1_path <- "unup1.png"
 include_graphics(img1_path)
 ```
 
-```{r unup2, echo=FALSE, fig.cap='Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r unup2, echo=FALSE, fig.cap='Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih besar dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih besar dari X0. (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
 img1_path <- "unup2.png"
 include_graphics(img1_path)
 ```
 
-```{r unup3, echo=FALSE, fig.cap='Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r unup3, echo=FALSE, fig.cap='Interval estimasi persentil Xp sebagai penguji apakah Xp>X0. A) X0 didalam interval estimasi sehingga Xp tidak signifikan lebih kecil dari X0, B) X0 berada diluar rentang estimasi sehingga Xp signifikan lebih kecil dari X0. (Helsel dan Hirsch, 2002)', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
 img1_path <- "unup3.png"
 include_graphics(img1_path)
@@ -1298,7 +1298,7 @@ Berdasarkan hasil yang diperoleh diketahui bahwa median dataset original sebesar
 
 Untuk mengetahui distribusi sampling yang telah kita lakukan. kita dapat melihat distribusi dengan mengeplotkan semua sampel bootstrap pada histogram dan QQ-plot dengan menjalankan sintaks berikut:
 
-```{r boot1, echo=FALSE, fig.cap='Distribusi bootstrap median', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r boot1, echo=FALSE, fig.cap='Distribusi bootstrap median', tidy=FALSE, out.width='80%', fig.align='center'}
 plot(median.boot)
 ```
 
@@ -1338,7 +1338,7 @@ mean.boot
 
 Distribusi mean bootstrap disajikan pada Gambar \@ref(fig:boot2)
 
-```{r boot2, echo=FALSE, fig.cap='Distribusi bootstrap mean', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r boot2, echo=FALSE, fig.cap='Distribusi bootstrap mean', tidy=FALSE, out.width='80%', fig.align='center'}
 plot(mean.boot)
 ```
 
@@ -1374,7 +1374,7 @@ p90.boot
 
 Visualisasi distribusi bootstrap persentil 90 disajikan pada Gambar \@ref(fig:boot3)
 
-```{r boot3, echo=FALSE, fig.cap='Distribusi bootstrap persentil 90', tidy=FALSE, out.width='65%', fig.align='center'}
+```{r boot3, echo=FALSE, fig.cap='Distribusi bootstrap persentil 90', tidy=FALSE, out.width='80%', fig.align='center'}
 plot(p90.boot)
 ```
 
