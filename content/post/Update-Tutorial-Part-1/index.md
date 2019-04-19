@@ -11,7 +11,8 @@ lastmod: "2019-04-19T00:00:00+07:00"
 subtitle: 'Penaksiran Secara Statistika Menggunakan Metode Parameterik dan Nonparametrik :rocket:'
 summary: Penaksiran Secara Statistika Menggunakan Metode Parameterik dan Nonparametrik.
 tags:
-- Academic
+- R
+- Tutorial
 title: 'Update Tutorial Part 1: Statistika Inferensial'
 ---
 
