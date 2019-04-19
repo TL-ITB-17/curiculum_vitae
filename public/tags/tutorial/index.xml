@@ -6,10 +6,20 @@
     <description>Recent content in Tutorial on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Mar 2019 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 19 Apr 2019 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Update Tutorial Part 1- Statistika Inferensial</title>
+      <link>/post/update-tutorial-part-1/update-tutorial-part-1/</link>
+      <pubDate>Fri, 19 Apr 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/post/update-tutorial-part-1/update-tutorial-part-1/</guid>
+      <description>Tutorial telah memasuki Part 4. Banyak sekali materi yang dapat pembaca pelajari. Chapter Penaksiran Secara Statistika merupakan Chapter yang paling lama proses pembuatannya. Pada Chapter tersebut penulis membuat sejumlah sintaks fungsi yang belum tersedia di R. Kedepan fungsi-fungsi yang penulis kerjakan pada seluruh Chapter tutorial akan penulis jadikan satu repository git sehingga pembaca dapat dengan mudah menggunakannya sewaktu-waktu tanpa perlu menulis sintaks panjang.
+Pada Chapter Penaksiran Secara Statistika, penulis telah menambahkan pembahasan mengenai simulasi dengan metode bootstrap.</description>
+    </item>
     
     <item>
       <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
