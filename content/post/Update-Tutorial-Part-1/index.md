@@ -5,7 +5,7 @@ date: "2019-04-19T00:00:00+07:00"
 draft: false
 image:
   caption: ""
-  focal_point: Smart
+  focal_point: 
   preview_only: false
 lastmod: "2019-04-19T00:00:00+07:00"
 subtitle: 'Penaksiran Secara Statistika Menggunakan Metode Parameterik dan Nonparametrik :rocket:'

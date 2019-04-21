@@ -6,8 +6,30 @@
     <description>Recent content in Environmental Data Modeling on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 21 Apr 2019 00:00:00 +0700</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
+      <link>/post/mengenal-r/</link>
+      <pubDate>Sun, 21 Apr 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/post/mengenal-r/</guid>
+      <description>&lt;p&gt;&lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena &lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang sangat powerfull.&lt;/p&gt;
+
+&lt;p&gt;Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun &lt;code&gt;R&lt;/code&gt; tidak didesain untuk melakukannya.&lt;/p&gt;
+
+&lt;p&gt;Penulis telah membuat tutorial langkah-langkah penggunaan &lt;code&gt;R&lt;/code&gt; yang dapat dibaca pada section &lt;code&gt;Tutorial&lt;/code&gt; yang akan diupdate setiap minggu. Adapun tema yang akan dibahas mengenai &lt;code&gt;R&lt;/code&gt; antara lain penerapannya dalam bidang:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Statistik&lt;/li&gt;
+&lt;li&gt;Visualisasi Data&lt;/li&gt;
+&lt;li&gt;Model Matematik&lt;/li&gt;
+&lt;li&gt;Model Sistem Dinamik&lt;/li&gt;
+&lt;li&gt;Optimasi (mis: linear Programming)&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>Update Tutorial Part 1: Statistika Inferensial</title>
@@ -8415,23 +8437,6 @@ Figure 41: Nama warna
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
-      <link>/post/mengenal-r/mengenal-lebih-jauh-r/</link>
-      <pubDate>Sat, 02 Mar 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/post/mengenal-r/mengenal-lebih-jauh-r/</guid>
-      <description>
-
-
-&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/Restaurant-Website-Analytics.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena &lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang sangat powerfull.&lt;/p&gt;
-&lt;p&gt;Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun &lt;code&gt;R&lt;/code&gt; tidak didesain untuk melakukannya.&lt;/p&gt;
-&lt;p&gt;Penulis telah membuat tutorial langkah-langkah penggunaan &lt;code&gt;R&lt;/code&gt; yang dapat dibaca pada section &lt;code&gt;Tutorial&lt;/code&gt; yang akan diupdate setiap minggu. Adapun tema yang akan dibahas mengenai &lt;code&gt;R&lt;/code&gt; antara lain penerapannya dalam bidang: 1. Statistik 2. Visualisasi Data 3. Model Matematik 4. Model Sistem Dinamik 5. Optimasi (mis: linear Programming)&lt;/p&gt;
 </description>
     </item>
     

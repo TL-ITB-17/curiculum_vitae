@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 21 Apr 2019 00:00:00 +0700</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
+      <link>/post/mengenal-r/</link>
+      <pubDate>Sun, 21 Apr 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/post/mengenal-r/</guid>
+      <description>R merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena R merupakan bahasa pemrograman yang sangat powerfull.
+Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun R tidak didesain untuk melakukannya.</description>
+    </item>
     
     <item>
       <title>Update Tutorial Part 1: Statistika Inferensial</title>
@@ -19,16 +29,6 @@
       <guid>/post/update-tutorial-part-1/</guid>
       <description>Tutorial telah memasuki Part 4. Banyak sekali materi yang dapat pembaca pelajari. Chapter Penaksiran Secara Statistika merupakan Chapter yang paling lama proses pembuatannya. Pada Chapter tersebut penulis membuat sejumlah sintaks fungsi yang belum tersedia di R. Kedepan fungsi-fungsi yang penulis kerjakan pada seluruh Chapter tutorial akan penulis jadikan satu repository git sehingga pembaca dapat dengan mudah menggunakannya sewaktu-waktu tanpa perlu menulis sintaks panjang.
 Pada Chapter Penaksiran Secara Statistika, penulis telah menambahkan pembahasan mengenai simulasi dengan metode bootstrap.</description>
-    </item>
-    
-    <item>
-      <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
-      <link>/post/mengenal-r/mengenal-lebih-jauh-r/</link>
-      <pubDate>Sat, 02 Mar 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/post/mengenal-r/mengenal-lebih-jauh-r/</guid>
-      <description>## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3R merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena R merupakan bahasa pemrograman yang sangat powerfull.
-Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun R tidak didesain untuk melakukannya.</description>
     </item>
     
     <item>
