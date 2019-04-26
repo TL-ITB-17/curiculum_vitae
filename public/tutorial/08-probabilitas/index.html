@@ -619,8 +619,23 @@ S</code></pre>
 ## 5  5 0.1666667
 ## 6  6 0.1666667</code></pre>
 <pre class="r"><code># membuat subset peristiwa 1 dan 2
-P1 &lt;- subset(S, X1==1)
-P6 &lt;- subset(S, X1==6)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:prob&#39;:
+## 
+##     intersect, setdiff, union</code></pre>
+<pre><code>## The following objects are masked from &#39;package:timeSeries&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>P1 &lt;- filter(S, X1==1)
+P6 &lt;- filter(S, X1==6)
 
 # menghitung probabilitas gabungan
 P1$probs + P6$probs</code></pre>
@@ -759,10 +774,10 @@ library(tidyr)</code></pre>
 
 # melakukan subset dan menghitung probabilitas
 # peluang responden merupakan pegawai
-E &lt;- subset(S, status_pekerjaan==&quot;bekerja&quot;)
+E &lt;- filter(S, status_pekerjaan==&quot;bekerja&quot;)
 P_E &lt;- sum(E$frekuensi)/sum(S$frekuensi)
 # peluang reponden laki-laki dan berkerja
-E_M &lt;- subset(S, status_pekerjaan==&quot;bekerja&quot;&amp;jenis_kelamin==&quot;laki-laki&quot;)
+E_M &lt;- filter(S, status_pekerjaan==&quot;bekerja&quot;&amp;jenis_kelamin==&quot;laki-laki&quot;)
 P_E_M &lt;-sum(E_M$frekuensi)/sum(S$frekuensi)
 
 # Probabilitas kondisional
@@ -782,8 +797,8 @@ P\left(L\cap E\right)=\frac{500}{900}\cdot\frac{300}{900}=\frac{5}{27}
 \]</span></p>
 <p>Dengan menggunakan <code>R</code> sintaks yang digunakan adalah sebagai berikut:</p>
 <pre class="r"><code># subset responden laki-laki
-L &lt;- subset(S, jenis_kelamin==&quot;laki-laki&quot;)
-E &lt;- subset(S, status_pekerjaan==&quot;bekerja&quot;)
+L &lt;- filter(S, jenis_kelamin==&quot;laki-laki&quot;)
+E &lt;- filter(S, status_pekerjaan==&quot;bekerja&quot;)
 
 # probabilitas
 P_L &lt;- sum(L$frekuensi)/sum(S$frekuensi)

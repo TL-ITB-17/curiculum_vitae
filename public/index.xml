@@ -1806,8 +1806,23 @@ S&lt;/code&gt;&lt;/pre&gt;
 ## 5  5 0.1666667
 ## 6  6 0.1666667&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat subset peristiwa 1 dan 2
-P1 &amp;lt;- subset(S, X1==1)
-P6 &amp;lt;- subset(S, X1==6)
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:prob&amp;#39;:
+## 
+##     intersect, setdiff, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:timeSeries&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;P1 &amp;lt;- filter(S, X1==1)
+P6 &amp;lt;- filter(S, X1==6)
 
 # menghitung probabilitas gabungan
 P1$probs + P6$probs&lt;/code&gt;&lt;/pre&gt;
@@ -1946,10 +1961,10 @@ library(tidyr)&lt;/code&gt;&lt;/pre&gt;
 
 # melakukan subset dan menghitung probabilitas
 # peluang responden merupakan pegawai
-E &amp;lt;- subset(S, status_pekerjaan==&amp;quot;bekerja&amp;quot;)
+E &amp;lt;- filter(S, status_pekerjaan==&amp;quot;bekerja&amp;quot;)
 P_E &amp;lt;- sum(E$frekuensi)/sum(S$frekuensi)
 # peluang reponden laki-laki dan berkerja
-E_M &amp;lt;- subset(S, status_pekerjaan==&amp;quot;bekerja&amp;quot;&amp;amp;jenis_kelamin==&amp;quot;laki-laki&amp;quot;)
+E_M &amp;lt;- filter(S, status_pekerjaan==&amp;quot;bekerja&amp;quot;&amp;amp;jenis_kelamin==&amp;quot;laki-laki&amp;quot;)
 P_E_M &amp;lt;-sum(E_M$frekuensi)/sum(S$frekuensi)
 
 # Probabilitas kondisional
@@ -1969,8 +1984,8 @@ P\left(L\cap E\right)=\frac{500}{900}\cdot\frac{300}{900}=\frac{5}{27}
 \]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Dengan menggunakan &lt;code&gt;R&lt;/code&gt; sintaks yang digunakan adalah sebagai berikut:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset responden laki-laki
-L &amp;lt;- subset(S, jenis_kelamin==&amp;quot;laki-laki&amp;quot;)
-E &amp;lt;- subset(S, status_pekerjaan==&amp;quot;bekerja&amp;quot;)
+L &amp;lt;- filter(S, jenis_kelamin==&amp;quot;laki-laki&amp;quot;)
+E &amp;lt;- filter(S, status_pekerjaan==&amp;quot;bekerja&amp;quot;)
 
 # probabilitas
 P_L &amp;lt;- sum(L$frekuensi)/sum(S$frekuensi)
