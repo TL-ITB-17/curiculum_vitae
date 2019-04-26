@@ -46,7 +46,7 @@
     </item>
     
     <item>
-      <title>8. Penaksiran Secara Statistika</title>
+      <title>10. Penaksiran Secara Statistika</title>
       <link>/tutorial/10_penaksiran_secara_statistika/</link>
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0700</pubDate>
       
@@ -61,20 +61,20 @@ text-align: justify}
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Daftar Isi&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#8-1-definisi-interval-estimasi&#34;&gt;Definisi Interval Estimasi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-2-interpretasi-interval-estimasi&#34;&gt;Interpretasi Interval Estimasi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-3-interval-kepercayaan-median&#34;&gt;Interval Kepercayaan Median&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-4-interval-kepercayaan-mean&#34;&gt;Interval Kepercayaan Mean&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-5-interval-prediksi-nonparametrik&#34;&gt;Interval Prediksi Nonparametrik&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-6-interval-prediksi-parametrik&#34;&gt;Transformasi DataInterval Prediksi Parametrik&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-7-interval-kepercayaan-persentil&#34;&gt;Interval Kepercayaan Persentil (Interval Toleransi)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-8-interval-kepercayaan-menggunakan-metode-bootstrap&#34;&gt;Interval Kepercayaan Menggunakan Metode Bootstrap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-9-kegunaan-lain-dari-interval-kepercayaan&#34;&gt;Kegunaan Lain Dari Interval Kepercayaan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#10-1-definisi-interval-estimasi&#34;&gt;Definisi Interval Estimasi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#10-2-interpretasi-interval-estimasi&#34;&gt;Interpretasi Interval Estimasi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#10-3-interval-kepercayaan-median&#34;&gt;Interval Kepercayaan Median&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#10-4-interval-kepercayaan-mean&#34;&gt;Interval Kepercayaan Mean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#10-5-interval-prediksi-nonparametrik&#34;&gt;Interval Prediksi Nonparametrik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#10-6-interval-prediksi-parametrik&#34;&gt;Transformasi DataInterval Prediksi Parametrik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#10-7-interval-kepercayaan-persentil&#34;&gt;Interval Kepercayaan Persentil (Interval Toleransi)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#10-8-interval-kepercayaan-menggunakan-metode-bootstrap&#34;&gt;Interval Kepercayaan Menggunakan Metode Bootstrap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#10-9-kegunaan-lain-dari-interval-kepercayaan&#34;&gt;Kegunaan Lain Dari Interval Kepercayaan&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Pada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut kunci dari data seperti &lt;span class=&#34;math inline&#34;&gt;\(\overline{X}\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;. Kedua nilai tersebut disebut sebagai nilai estimasi sampel dari populasi (untuk mean &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; dan simpangan baku &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;). Pada Chapter ini kita akan melakukan eksplorasi lebih jauh lagi mengenai interval estimasi (&lt;em&gt;interval estimate&lt;/em&gt;) yang akan menyinggung kedua nilai tersebut lebih jauh.&lt;/p&gt;
 &lt;div id=&#34;definisi-interval-estimasi&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;8.1 Definisi Interval Estimasi&lt;/h2&gt;
+&lt;h2&gt;10.1 Definisi Interval Estimasi&lt;/h2&gt;
 &lt;p&gt;Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi menggunakan kedua nilai tersebut disebut sebagai estimasi titik (&lt;em&gt;point estimation&lt;/em&gt;). Estimasi titik sendiri tidak menggambarkan reliabilitas atau kurangnya reliabilitas (variabilitas) dari estimasi ini. Sebagai contoh, anggaplah terdapat dua data X dan Y dengan mean 5 dengan jumlah observasi yang sama. Data Y memiliki nilai mean 5 dengan sangat sedikit variasi didalamnya, sedangkan data X jauh lebih bervariasi. Perkiraan titik 5 untuk X jauh lebih tidak dapat diandalkan dibandingkan dengan untuk Y karena variabilitas yang lebih besar dalam data X. Dengan kata lain, lebih banyak kehati-hatian diperlukan ketika menyatakan bahwa 5 memperkirakan mean populasi sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang perbedaan ini.&lt;/p&gt;
 &lt;p&gt;Sebagai alternatif untuk estimasi titik, estimasi interval adalah interval yang memiliki probabilitas yang dinyatakan mengandung nilai populasi sebenarnya. interval lebih lebar untuk set data yang memiliki variabilitas lebih besar. Jadi dalam contoh di atas, interval antara 4,7 dan 5,3 mungkin memiliki kemungkinan 95% untuk mengandung mean populasi Y yang sebenarnya (tidak diketahui). Butuh interval yang jauh lebih luas, katakanlah antara 2,0 dan 8,0, untuk memiliki probabilitas yang sama untuk mengandung rerata sebenarnya dari X. Karena itu, perbedaan keandalan dari dua estimasi dengan jelas dinyatakan menggunakan estimasi interval. Estimasi interval dapat memberikan dua informasi yang estimasi poin tidak dapat berikan, antara lain:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
@@ -84,7 +84,7 @@ text-align: justify}
 &lt;p&gt;Estimasi interval untuk poin pertama disebut sebagai interval kepercayaan (&lt;em&gt;confidence interval&lt;/em&gt;), sedangkan yang kedua disebut sebagai interval prediksi (&lt;em&gt;prediction interal&lt;/em&gt;). Meskipun salin terkait, pembaca perlu berhati-hati sebab kedua definisi tersebut sering kali tertukar satu sama lain.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interpretasi-interval-estimasi&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;8.2 Interpretasi Interval Estimasi&lt;/h2&gt;
+&lt;h2&gt;10.2 Interpretasi Interval Estimasi&lt;/h2&gt;
 &lt;p&gt;Untuk lebih memahami mengenai definisi interval estimasi pada sub-chapter ini akan diberikan contoh yang diambil dari buku &lt;strong&gt;statistical Methods in Water Resources&lt;/strong&gt; karya Helsel dan Hirsch (2012). Misalkan mean populasi sebenarnya &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; konsentrasi dalam akuifer adalah 10. Sleain itu, anggaplah bahwa varians populasi sebenarnya &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2\)&lt;/span&gt; sama dengan 1. Karena nilai-nilai ini dalam praktiknya tidak pernah diketahui, sampel diambil untuk memperkirakannya dengan mean sampel &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; dan sampel varian &lt;span class=&#34;math inline&#34;&gt;\(s^2\)&lt;/span&gt; . Dana yang cukup tersedia untuk mengambil 12 sampel air (kira-kira satu per bulan) selama satu tahun, dan hari-hari di mana pengambilan sampel terjadi dipilih secara acak. Dari 12 sampel ini &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;x dan &lt;span class=&#34;math inline&#34;&gt;\(s^2\)&lt;/span&gt; dihitung. Meskipun pada kenyataannya hanya satu set 12 sampel akan diambil setiap tahun, menggunakan komputer 12 hari dapat dipilih beberapa kali untuk menggambarkan konsep perkiraan interval. Untuk masing-masing dari 10 set independen dari 12 sampel, interval kepercayaan pada mean dihitung dengan menggunakan persamaan yang diberikan pada Tabel &lt;a href=&#34;#tab:iie&#34;&gt;1&lt;/a&gt; dan Gambar &lt;a href=&#34;#fig:iievis&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
 &lt;table&gt;
 &lt;caption&gt;&lt;span id=&#34;tab:iie&#34;&gt;Table 1: &lt;/span&gt; Sepuluh interval kepercayaan 90% sekitar nilai mean sebenarnya sebesar 10 (Data berdistribusi normal dan Tanda plus menyatakan data tidak disertakan dalam nilai mean sebenarnya)&lt;/caption&gt;
@@ -282,10 +282,10 @@ Figure 3: Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarn
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-kepercayaan-median&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;8.3 Interval Kepercayaan Median&lt;/h2&gt;
+&lt;h2&gt;10.3 Interval Kepercayaan Median&lt;/h2&gt;
 &lt;p&gt;Interval kepercayaan median populasi dapat dihitung tanpa perlu mengikuti asumsi distribusi tertentu. Sehingga nilai median dapat digunakan untuk memperkirakan nilai pusat data untuk distribusi data yang tidak berdistribusi normal.&lt;/p&gt;
 &lt;div id=&#34;interval-estimasi-median-metode-nonparametrik&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.3.1 Interval Estimasi Median Metode Nonparametrik&lt;/h3&gt;
+&lt;h3&gt;10.3.1 Interval Estimasi Median Metode Nonparametrik&lt;/h3&gt;
 &lt;p&gt;Interval estimasi nonparametrik untuk median populasi sebenarnya dihitung menggunakan distribusi binomial. Pertama, tingkat signifikansi yang diinginkan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dinyatakan, error yang dapat diterima tidak termasuk median yang sebenarnya. Satu-setengah (&lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;) dari error ini digunakan untuk setiap akhir interval (Gambar &lt;a href=&#34;#fig:iemednp&#34;&gt;4&lt;/a&gt;). Tabel distribusi binomial memberikan nilai kritis bawah dan atas &lt;span class=&#34;math inline&#34;&gt;\(x&amp;#39;\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; pada setengah tingkat alfa yang diinginkan (&lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;). Nilai-nilai kritis ini ditransformasikan ke dalam rangking &lt;span class=&#34;math inline&#34;&gt;\(R_l\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(R_u\)&lt;/span&gt; yang sesuai dengan titik data &lt;span class=&#34;math inline&#34;&gt;\(C_l\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(C_u\)&lt;/span&gt; di ujung interval kepercayaan.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:iemednp&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;/iemednp.png&#34; alt=&#34;Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)&#34; width=&#34;80%&#34; /&gt;
@@ -417,6 +417,7 @@ Figure 4: Probabilitas median populasi P50 pada dua sisi interval estimasi (Hels
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Visualisasi Tabel &lt;a href=&#34;#tab:gwardat&#34;&gt;3&lt;/a&gt; ditunjukkan pada Gambar &lt;a href=&#34;#fig:gwardatvis&#34;&gt;5&lt;/a&gt;. Berdasarkan gambar tersebut terlihat bahwa data memiliki kemencengan yang positif sehingga penaksiran rata-rata populasi menggunakan nilai mean tidak dapat dilakukan.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;ggplot2&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;ggthemes&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gwardatvis&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;/tutorial/10_penaksiran_secara_statistika_files/figure-html/gwardatvis-1.png&#34; alt=&#34;Distribusi konsentrasi arsenik dalam air tanah&#34; width=&#34;70%&#34; /&gt;
@@ -565,7 +566,7 @@ Figure 6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;med_norCI(df=airquality, alpha=0.05)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;metode-parametrik-interval-estimasi-median&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.3.2 Metode Parametrik Interval Estimasi Median&lt;/h3&gt;
+&lt;h3&gt;10.3.2 Metode Parametrik Interval Estimasi Median&lt;/h3&gt;
 &lt;p&gt;Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik merupakan merupakan nilai rata-rata yang digunakan untuk mengestimasi median sampel untuk data yang memiliki kemencengan dengan transformasi yang digunakan agar data simetris adalah transformasi logaritmik &lt;span class=&#34;math inline&#34;&gt;\(y=\ln(x)\)&lt;/span&gt;. Pada metode ini data diasumsikan memiliki distribusi lognormal (kemencengan positif). Rerata dan interval geometris akan lebih efisien (interval lebih pendek) dari median dan interval kepercayaannya ketika data benar-benar lognormal. Median sampel dan intervalnya lebih tepat dan lebih efisien jika logaritma data masih menunjukkan kemencengan dan/atau &lt;em&gt;outlier&lt;/em&gt;. Estimasi media menggunakan metode parametrik dituliskan kedalam Persamaan &lt;a href=&#34;#eq:gmci&#34;&gt;(6)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:gmci2&#34;&gt;(7)&lt;/a&gt;.&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:gmci&#34;&gt;\[\begin{equation}
   GM_x=\exp\left(\overline{y}\right) 
@@ -777,10 +778,10 @@ Figure 7: Distribusi logaritmik konsentrasi arsenik dalam air tanah
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-kepercayaan-mean&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;8.4 Interval Kepercayaan Mean&lt;/h2&gt;
+&lt;h2&gt;10.4 Interval Kepercayaan Mean&lt;/h2&gt;
 &lt;p&gt;Estimasi interval juga dapat dihitung untuk mean populasi sebenarnya &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;. Hal ini sangat sesuai jika pusat data menjadi fokus dalam analisa statistik. Interval simetris di sekitar sampel rata-rata X paling sering dihitung. Untuk ukuran sampel besar, interval simetris secara memadai menggambarkan variasi rata-rata, terlepas dari bentuk distribusi data. Ini karena distribusi rata-rata sampel akan mendekati dengan distribusi normal ketika ukuran sampel semakin besar, meskipun data mungkin tidak terdistribusi secara normal. Untuk ukuran sampel yang lebih kecil, rata-rata tidak akan didistribusikan secara normal kecuali jika data itu sendiri terdistribusi secara normal. Ketika data meningkat kemencengannya, lebih banyak data diperlukan sebelum distribusi rata-rata dapat didekati secara memadai oleh distribusi normal. Untuk distribusi yang sangat miring atau data yang mengandung &lt;em&gt;outlier&lt;/em&gt;, mungkin diperlukan lebih dari 100 pengamatan sebelum nilai rata-rata tidak akan terpengaruh oleh nilai terbesar untuk mengasumsikan bahwa distribusinya akan simetris.&lt;/p&gt;
 &lt;div id=&#34;interval-kepercayaan-mean-untuk-distribusi-yang-simetris&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.4.1 Interval Kepercayaan Mean Untuk Distribusi Yang Simetris&lt;/h3&gt;
+&lt;h3&gt;10.4.1 Interval Kepercayaan Mean Untuk Distribusi Yang Simetris&lt;/h3&gt;
 &lt;p&gt;Interval kepercayaan mean untuk distribusi simetris dihitung menggunakan tabel distribusi &lt;em&gt;student’s t&lt;/em&gt; yang tersedia dalam buku teks statistik dan perangkat lunak. Tabel ini dimasukkan untuk menemukan nilai kritis untuk t pada setengah tingkat alfa yang diinginkan. Pada buku lain sering dijelaskan bahwa distribusi t hanya digunakan untuk sampel kecil (beberapa menyebutkan n&amp;lt;30), sedangkan untuk distribusi besar digunakan distribusi normal. Penggunaan distribusi normal jarang digunakan dalam prakiraan. Hal ini disebabkan karena pada proses perhitungan diperlukan nilai simpangan baku &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;. Pada kenyataannya pada pengukuran dilapangan kita sering sekalin melakukan estimasi terhadap simpangan baku melalui sampel &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; karena kita tidak mengetahui nilai simpangan baku populasinya sehingga pada buku ini akan digali lebih jauh metode estimasi interval menggunakan persamaan distribusi t.&lt;/p&gt;
 &lt;p&gt;Lebar interval kepercayaan adalah fungsi dari nilai-nilai kritis dari tabel distribusi t, simpangan baku data, dan ukuran sampel. Ketika data memiliki kemecengan atau mengandung &lt;em&gt;outlier&lt;/em&gt;, asumsi di balik interval t dan distribusi normal tidak berlaku. Interval simetris yang dihasilkan akan sangat luas sehingga sebagian besar pengamatan akan dimasukkan di dalamnya. Ini juga dapat mencapai di bawah nol di ujung bawah. Titik akhir negatif dari interval kepercayaan untuk data yang tidak dapat menjadi negatif adalah sinyal yang jelas bahwa asumsi interval kepercayaan simetris tidak diperlukan. Untuk data tersebut, dengan asumsi distribusi lognormal seperti yang dijelaskan dalam sub chapter sebelumnya (interval kepercayaan median) akan lebih tepat. Interval kepercayaan dihitung menggunakan Persamaan &lt;a href=&#34;#eq:pmeancisim&#34;&gt;(8)&lt;/a&gt;.&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:pmeancisim&#34;&gt;\[\begin{equation}
@@ -831,7 +832,7 @@ mean(gwardat2$konsentrasi)+r[[11]]&lt;/code&gt;&lt;/pre&gt;
 ##    98.352&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-kepercayaan-mean-untuk-distribusi-yang-asimetris&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.4.2 Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris&lt;/h3&gt;
+&lt;h3&gt;10.4.2 Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris&lt;/h3&gt;
 &lt;p&gt;Mean dan interval kepercayaan dapat dihitung dengan mengasumsikan distribusi data mengikuti distribusi logaritmik &lt;span class=&#34;math inline&#34;&gt;\(y=\ln{(x)}\)&lt;/span&gt;. Metode ini berguna untuk jenis data yang memiliki bentuk distribusi data yang memiliki kemencengan positif (perlu transformasi logaritmik agar simetris).Metode ini memberikan perkiraan rata-rata yang lebih dapat diandalkan (varians lebih rendah) daripada perhitungan rata-rata sampel biasa tanpa transformasi log.&lt;/p&gt;
 &lt;p&gt;Untuk memperkirakan rata-rata populasi &lt;span class=&#34;math inline&#34;&gt;\(\mu_x\)&lt;/span&gt; dalam unit aslinya, anggap datanya berdistribusi normal. Satu-setengah varians logaritma ditambahkan ke &lt;span class=&#34;math inline&#34;&gt;\(\overline{y}\)&lt;/span&gt; (rata-rata log) sebelum eksponensial. Karena varians sampel &lt;span class=&#34;math inline&#34;&gt;\(s^2_y\)&lt;/span&gt; hanya perkiraan varians sebenarnya dari logaritma, estimasi sampel rata-rata akan menjadi bias. Namun, untuk sampel dengan &lt;span class=&#34;math inline&#34;&gt;\(s^2_y\)&lt;/span&gt; kecil dan ukuran sampel besar bias dapat diabaikan. Interval kepercayaan dapat dituliskan berdasarkan Persamaan &lt;a href=&#34;#eq:pmeanciasim&#34;&gt;(9)&lt;/a&gt;.&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:pmeanciasim&#34;&gt;\[\begin{equation}
@@ -940,11 +941,11 @@ mean(gwardat2$konsentrasi)+r[[11]]&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-prediksi-nonparametrik&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;8.5 Interval Prediksi Nonparametrik&lt;/h2&gt;
+&lt;h2&gt;10.5 Interval Prediksi Nonparametrik&lt;/h2&gt;
 &lt;p&gt;Pertanyaan yang sering diajukan adalah apakah satu pengamatan baru kemungkinan berasal dari distribusi yang sama dengan data yang dikumpulkan sebelumnya, atau sebagai alternatif dari distribusi yang berbeda. Pertanyaan dapat dievaluasi dengan menentukan apakah pengamatan baru di luar interval prediksi yang dihitung dari data yang ada. Interval prediksi mengandung &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\left(1-\alpha\right)\)&lt;/span&gt; persen dari distribusi data, sementara &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\alpha\)&lt;/span&gt; persen berada di luar interval. Jika pengamatan baru datang dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\alpha\)&lt;/span&gt; persen bahwa pengamatan baru tersebut akan berada di luar interval prediksi. Karena pengamatan baru tersebut berada di luar interval tidak “membuktikan” pengamatan baru itu berbeda, hanya saja sepertinya begitu. Seberapa besar kemungkinan ini tergantung pada pilihan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; yang ditentukan oleh peneliti.&lt;/p&gt;
 &lt;p&gt;Interval prediksi dihitung dengan tujuan yang berbeda dari interval kepercayaan. Interval prediksi terkait dengan nilai data individu yang berlawanan dengan ringkasan statistik seperti nilai mean. Interval prediksi lebih luas daripada interval kepercayaan, karena pengamatan individu lebih bervariasi daripada ringkasan statistik yang dihitung dari beberapa pengamatan. Tidak seperti interval kepercayaan, interval prediksi memperhitungkan variabilitas titik data tunggal di sekitar median atau rata-rata, di samping kesalahan dalam memperkirakan pusat distribusi. Ketika mean &lt;span class=&#34;math inline&#34;&gt;\(\pm\)&lt;/span&gt; 2 simpangan baku secara keliru digunakan untuk memperkirakan lebar interval prediksi, data baru dinyatakan berasal dari populasi yang berbeda lebih sering daripada yang seharusnya.&lt;/p&gt;
 &lt;div id=&#34;interval-prediksi-nonparametrik-dua-sisi&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.5.1 Interval Prediksi Nonparametrik Dua Sisi&lt;/h3&gt;
+&lt;h3&gt;10.5.1 Interval Prediksi Nonparametrik Dua Sisi&lt;/h3&gt;
 &lt;p&gt;Interval prediksi tingkat kepercayaan nonparametrik &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; secara sederhana dinyatakan sebagai interval antara persentil distribusi &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(1-\left(\frac{\alpha}{2}\right)\)&lt;/span&gt; (Gambar &lt;a href=&#34;#fig:ipnds&#34;&gt;8&lt;/a&gt;). Interval ini mengandung &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\left(1-\alpha\right)\)&lt;/span&gt; data, sedangkan &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\alpha\)&lt;/span&gt; persen berada di luar interval. Oleh karena itu jika titik data tambahan baru berasal dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan &lt;span class=&#34;math inline&#34;&gt;\(100\cdot\alpha\)&lt;/span&gt; persen bahwa itu akan berada di luar interval prediksi. Interval akan mencerminkan bentuk data yang dikembangkannya, dan tidak ada asumsi tentang bentuk bentuk yang perlu dibuat. Interval prediksi nonparametrik dua sisi dinyatakan berdasarkan Persamaan &lt;a href=&#34;#eq:eqipnds&#34;&gt;(11)&lt;/a&gt;.&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:eqipnds&#34;&gt;\[\begin{equation}
   PI_{np}=X_{\frac{\alpha}{2}\cdot\left(n+1\right)}\ sampai\ dengan\ X_{\left[1-\left(\frac{\alpha}{2}\right)\right]\cdot\left(n+1\right)}
@@ -1004,7 +1005,7 @@ Figure 8: Prediksi interval dua sisi (Helsel dan Hirsch, 2002)
 ## 1      1.4      508&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-prediksi-nonparametrik-satu-sisi&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.5.2 Interval Prediksi Nonparametrik Satu Sisi&lt;/h3&gt;
+&lt;h3&gt;10.5.2 Interval Prediksi Nonparametrik Satu Sisi&lt;/h3&gt;
 &lt;p&gt;Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dibanding &lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt; sebagai nilai error, menempatkan semua error di satu sisi interval (Gambar &lt;a href=&#34;#fig:ipss&#34;&gt;9&lt;/a&gt;). Interval prediksi dituliskan berdasarkan Persamaan &lt;a href=&#34;#eq:eqipss&#34;&gt;(12)&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ipss&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;/ipss.png&#34; alt=&#34;Prediksi interval satu sisi (Helsel dan Hirsch, 2002)&#34; width=&#34;80%&#34; /&gt;
@@ -1075,10 +1076,10 @@ Figure 9: Prediksi interval satu sisi (Helsel dan Hirsch, 2002)
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-prediksi-parametrik&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;8.6 Interval Prediksi Parametrik&lt;/h2&gt;
+&lt;h2&gt;10.6 Interval Prediksi Parametrik&lt;/h2&gt;
 &lt;p&gt;Interval prediksi parametrik juga digunakan untuk menentukan apakah pengamatan baru kemungkinan berasal dari distribusi yang berbeda dari data yang dikumpulkan sebelumnya. Namun, pada metode parametrik asumsi bentuk dari distribusi data akan diperhitungkan. Asumsi ini memberikan lebih banyak informasi untuk membangun interval, asalkan asumsi tersebut valid. Jika data tidak mengikuti distribusi yang diasumsikan, interval prediksi mungkin tidak akurat.&lt;/p&gt;
 &lt;div id=&#34;interval-prediksi-distribusi-simetris&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.6.1 Interval Prediksi Distribusi Simetris&lt;/h3&gt;
+&lt;h3&gt;10.6.1 Interval Prediksi Distribusi Simetris&lt;/h3&gt;
 &lt;p&gt;Asumsi yang digunakan untuk melakukan perhitungan interval prediksi untuk distribusi data yang simetris adalah data haruslah berdistribusi normal. Interval prediksi selanjutnya dibentuk secara simetris pada kedua sisi nilai mean. Interval ini lebih lebar rentangnya dibandingkan dengan interval kepercayaan nilai mean. Persamaan matematis yang digunakan untuk menghitungnya dituliskan pada Persamaan &lt;a href=&#34;#eq:ipds&#34;&gt;(13)&lt;/a&gt;.&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:ipds&#34;&gt;\[\begin{equation}
   PI=\overline{X}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}sampai\ \overline{X}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}
@@ -1171,7 +1172,7 @@ PI_sim(x = gwardat$konsentrasi, obs = 350, alpha=0.05, side=2)&lt;/code&gt;&lt;/
 ## nilai observasi sama dengan sebagian besar nilai yang ada&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-prediksi-untuk-distribusi-data-yang-tidak-simetris&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.6.2 Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris&lt;/h3&gt;
+&lt;h3&gt;10.6.2 Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris&lt;/h3&gt;
 &lt;p&gt;Untuk distribusi data yang tidak simetris, data perlu dilakukan transformasi terlebih dahulu sebelum dilakukan. Data di lingkungan khusunya parameter di air cenderung memiliki bentuk distribusi tidak simetris (cenderung memiliki kemencengan positif). Transformasi logaritmik biasanya dapat digunakan untuk data tersebut agar bentuknya dapat simetris dan dapat memenuhi asumsi normalitas pada data. Data yang telah dilakukan transformasi selanjutnya dihitung menggunakan Persamaan &lt;a href=&#34;#eq:ipds&#34;&gt;(13)&lt;/a&gt; untuk interval prediksi dua sisi dan Persamaan &lt;a href=&#34;#eq:ipds2&#34;&gt;(14)&lt;/a&gt; untuk interval prediksi satu sisi. Hasil perhitungan selanjutnya dilakukan transformasi kembali sesuai dengan invers dari transformasinya dalam hal ini menggunakan transformasi eksponensial (jika tranformasi awalnya adalah natural log). Untuk data dengan bentuk distribusi logaritmik (kemencengan positif), interval prediksi yang digunakan disajikan pada Persamaan &lt;a href=&#34;#eq:ipdas&#34;&gt;(15)&lt;/a&gt; (dua sisi) dan Persamaan &lt;a href=&#34;#eq:ipdas2&#34;&gt;(16)&lt;/a&gt; (satu sisi).&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:ipdas&#34;&gt;\[\begin{equation}
   PI=\exp\left(\overline{X}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)\ sampai\ \exp\left(\overline{X}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)
@@ -1270,12 +1271,12 @@ PI_asim(x = gwardat$konsentrasi, obs = 350, alpha=0.05, side=2)&lt;/code&gt;&lt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-kepercayaan-persentil&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;8.7 Interval Kepercayaan Persentil&lt;/h2&gt;
+&lt;h2&gt;10.7 Interval Kepercayaan Persentil&lt;/h2&gt;
 &lt;p&gt;Kuantil atau persentil telah digunakan secara tradisional dalam sumber daya air untuk menggambarkan frekuensi kejadian banjir. Dengan demikian banjir 100 tahun adalah persentil ke-99 (0,99 kuantil) dari distribusi puncak banjir tahunan. Besarnya banjir yang diperkirakan hanya akan dilampaui sekali dalam 100 tahun. Banjir 20 tahun besarnya besarnya yang diperkirakan hanya akan dilampaui sekali dalam 20 tahun (5 kali dalam 100 tahun), atau merupakan persentil ke-95 dari puncak tahunan. Demikian pula, banjir 2 tahun adalah median atau persentil ke-50 dari puncak tahunan. Persentil banjir ditentukan dengan asumsi bahwa aliran puncak mengikuti distribusi yang ditentukan seperti distribusi Log Pearson type III atau distribusi Gumbel.&lt;/p&gt;
 &lt;p&gt;Interal kepercayaan persentil berbeda dengan interval kepercayaan median. Hal yang paling jelas terlihat adalah interval kepercayaan persentil mengukur interval kepercayaan pada setiap persentil data yang ada, sedangkan intervak kepercayaan media hanya mengukur pada lokasi pusat data atau persentil ke-50.&lt;/p&gt;
 &lt;p&gt;Interval kepercayaan persentil juga disebut sebagai interval toleransi. Nilai persentil digunakan sebagai &lt;strong&gt;koefisien cakupan&lt;/strong&gt; dari interal toleransi. Pada chapter ini akan dibahas lebih jauh mengenai metode perhitungan interval toleransi baikdengan metode parametrik maupun dengan metode nonparametrik.&lt;/p&gt;
 &lt;div id=&#34;interval-kepercayaan-nonparametrik-persentil&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.7.1 Interval Kepercayaan Nonparametrik Persentil&lt;/h3&gt;
+&lt;h3&gt;10.7.1 Interval Kepercayaan Nonparametrik Persentil&lt;/h3&gt;
 &lt;p&gt;Metode perhitungan interval kepercayaan nonparametrik persentil mirip dengan perhitungan interval kepercayaan median. Kita akan menggunakan kembali tabel binomial jika sampel kita kecil untuk menentukan limit atas dan bawah yang merupakan nilai kritis dari alpha yang telah kita tetapkan. Nilai kritis ini selanjutnya akan ditransformasikan kedalam bentuk rangking pada data yang menunjukkan titik observasi ujung pada interval kepercayaan.&lt;/p&gt;
 &lt;p&gt;Tabel binomial dimasukkan pada kolom dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, persentil yang diinginkan interval kepercayaannya. Jadi untuk interval kepercayaan pada persentil ke-75, kolom &lt;span class=&#34;math inline&#34;&gt;\(p=0,75\)&lt;/span&gt; digunakan. Cari pada baris kolom tersebut sampai &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; dengan probabilitas mendekati alpha level (&lt;span class=&#34;math inline&#34;&gt;\(\alpha/2\)&lt;/span&gt;) ditemukan. Nilai kritis &lt;span class=&#34;math inline&#34;&gt;\(x_l\)&lt;/span&gt; bawah adalah bilangan bulat yang sesuai dengan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(p^*\)&lt;/span&gt;. Nilai kritis kedua &lt;span class=&#34;math inline&#34;&gt;\(x_u\)&lt;/span&gt; juga diperoleh dengan melanjutkan pada kolom tersebut sampai menemukan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(p&amp;#39;=\left(1-\frac{\alpha}{2}\right)\)&lt;/span&gt;. Nilai kritis &lt;span class=&#34;math inline&#34;&gt;\(x_l\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(x_u\)&lt;/span&gt; digunakan untuk menghitung rangking &lt;span class=&#34;math inline&#34;&gt;\(R_l\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(R_u\)&lt;/span&gt; yang sesuai dengan nilai data di ujung atas dan bawah limit kepercayaan (Persamaan &lt;a href=&#34;#eq:iknp&#34;&gt;(17)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:iknp2&#34;&gt;(18)&lt;/a&gt;). Level interval kepercayaan yang dihasilkan akan sama dengan &lt;span class=&#34;math inline&#34;&gt;\(\left(p&amp;#39;-p\cdot\right)\)&lt;/span&gt;.&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:iknp&#34;&gt;\[\begin{equation}
@@ -1370,7 +1371,7 @@ R_u=25\cdot0,2+1,96\cdot\sqrt{25\cdot0,2\left(1-0,2\right)}+0,5\ =\ 5+1,96\cdot2
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CI_npPercent(x= gwardat$konsentrasi, p= 0.2, alpha=0.05)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;uji-nonparametrik-untuk-persentil&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.7.2 Uji Nonparametrik Untuk Persentil&lt;/h3&gt;
+&lt;h3&gt;10.7.2 Uji Nonparametrik Untuk Persentil&lt;/h3&gt;
 &lt;p&gt;Pengujian persentil dilakukan untuk mengecek apakah sebuah persentil berbeda (lebih besar atau lebih kecil) dibandingkan dengan sejumlah nilai. Sebagai contoh misalkan terdapat median kualitas harian suatu parameter tidak boleh melebihi standar yang berlaku sebesar &lt;span class=&#34;math inline&#34;&gt;\(X_0\)&lt;/span&gt; ppb. Contoh lain dalam bidang hidrologi periode ulang hujan (PUH) 10 tahun atau persentil ke-90 dari debit puncak tahunan suatu kawasan dapat dilakukan pengujian apakah nilai yang ada dilapangan berbeda dengan PUH 10 tahunan yang telah kita hitung untuk digunakan dalam mendesain saluran drainase. Pembahasan pengujian persentil tersebut tidak akan sampai menyinggung pengujian hipotesis yang akan dibahas pada Chapter selanjutnya. Pembahasan akan berkisar membandingkan suatu nilai dengan interval kepercayaan seperti yang telah dijelaskan pada pembahasan terkait interval prediksi.&lt;/p&gt;
 &lt;p&gt;Pengujian apakah sebuah nilai &lt;span class=&#34;math inline&#34;&gt;\(X_0\)&lt;/span&gt; berbeda dengan sejumlah rentang nilai yang ditetapkan dapat dilakukan dengan pengujian dua sisi dan satu sisi. Pengujian satu sisi melihat apakah suatu nilai &lt;span class=&#34;math inline&#34;&gt;\(X_0\)&lt;/span&gt; berada diluar interval kepercayaan persentil atau diantara nilai batas bawah &lt;span class=&#34;math inline&#34;&gt;\(X_l\)&lt;/span&gt; dan nilai batas atasnya &lt;span class=&#34;math inline&#34;&gt;\(X_u\)&lt;/span&gt; (lihat Gambar &lt;a href=&#34;#fig:unup1&#34;&gt;10&lt;/a&gt;). Sedangkan pengujian satu sisi melihat apakah suatu nilai lebih besar atau lebih kecil (tergantung apakah pengujian satu sisi sebelah atas distribusi atau sebelah bawah distribusi) dari interval kepercayaan persentil yang digunakan (lihat Gambar &lt;a href=&#34;#fig:unup2&#34;&gt;11&lt;/a&gt; dan Gambar &lt;a href=&#34;#fig:unup3&#34;&gt;12&lt;/a&gt;).&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unup1&#34;&gt;&lt;/span&gt;
@@ -1403,7 +1404,7 @@ R_l=np+z_{0,05}\sqrt{np\left(1-p\right)}=25\cdot0,9+\left(-1,64\right)\cdot\sqrt
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CI_npPercent(gwardat$konsentrasi, 0.9, 0.1)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-kepercayaan-parametrik-untuk-persentil&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.7.3 Interval Kepercayaan Parametrik Untuk Persentil&lt;/h3&gt;
+&lt;h3&gt;10.7.3 Interval Kepercayaan Parametrik Untuk Persentil&lt;/h3&gt;
 &lt;p&gt;Interval kepercayaan untuk persentil juga dapat dihitung dengan mengasumsikan bahwa data mengikuti distribusi tertentu. Asumsi distribusi digunakan karena sering ada data yang tidak cukup untuk menghitung persentil dengan presisi yang diperlukan. Menambahkan informasi yang terkandung dalam distribusi akan meningkatkan ketepatan estimasi selama asumsi distribusi masuk akal. Namun ketika distribusi yang diasumsikan tidak sesuai dengan data dengan baik, estimasi yang dihasilkan kurang akurat, dan lebih menyesatkan, daripada jika tidak ada yang diasumsikan. Sayangnya, situasi di mana asumsi paling dibutuhkan ketika ukuran sampel yang kecil, adalah situasi yang sama di mana sulit untuk menentukan apakah data mengikuti distribusi yang diasumsikan.&lt;/p&gt;
 &lt;p&gt;Pada interval kepercayaan parametrik asumsi terhadap kecocokan data terhadap suatu distribusi perlu diperhatikan. Data di lingkungan umumnya memiliki bentuk distribusimengikuti distribusi lognormal. Selain itu, distribusi yang sering sekali digunakan adalah distribusi Pearson Tipe III dan Gumbel. Kedua pendekatan distribusi tersebut akan mempengaruhi metode perhitungan yang digunakan. Sehingga pengetahuan yang lebih baik mengenaik distribusi tersebut diperlukan. Pada buku ini kita hanya akan membahas mengenai perhitungan interval kepercayaan menggunakan distribusi lognormal. Pembaca dapat membaca mengenai penerapan distribusi lainnya melalui junal yang ditulis oleh &lt;a href=&#34;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=28&amp;amp;ved=2ahUKEwjnkojIgNnhAhXBh3AKHSJOBLM4ChAWMBF6BAgHEAI&amp;amp;url=https%3A%2F%2Fwww.preprints.org%2Fmanuscript%2F201901.0164%2Fv1%2Fdownload&amp;amp;usg=AOvVaw0evYfNso3_IwVWnmJMKsSp&#34;&gt;Wei dan Song (2019)&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Perhitungan estimasi titik dan interval untuk persentil dengan asumsi distribusi lognormal dapat dilakukan dengan mudah. Pertama sampel rata-rata &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; dan sampel simpangan baku &lt;span class=&#34;math inline&#34;&gt;\(s_y\)&lt;/span&gt; logaritma dihitung. Estimasi titik kemudian dihitung menggunakan Persamaan &lt;a href=&#34;#eq:ikp1&#34;&gt;(21)&lt;/a&gt;.&lt;/p&gt;
@@ -1432,13 +1433,13 @@ C_{0,90}=\exp\left(3,17+1,28\cdot1,96\right)=292,6\ ppb
 \]&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;uji-parametrik-untuk-persentil&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.7.4 Uji Parametrik Untuk Persentil&lt;/h3&gt;
+&lt;h3&gt;10.7.4 Uji Parametrik Untuk Persentil&lt;/h3&gt;
 &lt;p&gt;Seperti pada bagian sebelumnya kita ingin melihat apakah persentil dari sekumpulan data berbeda dengan nilai tertentu (dapat berupa baku mutu). Pengujian dilakukan dengan melihat apakah nilai tertentu tersebut berada diantara interval kepercayaan persentil dari data (uji dua sisi), lebih besar atau lebih kecil dari batas bawah atau batas atas interval kepercayaan persentil (uji satu sisi). Langkah pengujian dilakukan sama dengan sebelumnya dengan menghitung terlebih dulu batas atas atau batas bawah persentil data yang selanjutnya dibandingkan dengan nilai tertentu.&lt;/p&gt;
 &lt;p&gt;Dengan menggunakan hasil dari perhitungan sebelumnya, dengan menggunakan alpha=0,05 kita perlu menentukan apakah batas bawah interval kepercayaan melampaui baku mutu arsenik sebesar 300 ppb (uji satu sisi). Berdasarkan hasil perhitungan diperoleh batas bawah interval kepercayaan persentil ke-90 sebesar 138,4 ppb atau lebih kecil dibandingkan batas yang ditentukan, sehingga disimpulkan bahwa konsentrasi arsenik persentil ke-90 pada data tidak melampaui baku mutu yang ditentukan.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interval-kepercayaan-menggunakan-metode-bootstrap&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;8.8 Interval Kepercayaan Menggunakan Metode Bootstrap&lt;/h2&gt;
+&lt;h2&gt;10.8 Interval Kepercayaan Menggunakan Metode Bootstrap&lt;/h2&gt;
 &lt;p&gt;Bootstrap merupakan metode inferensi populasi menggunakan data sampel. Metode ini dikembangkan oleh Bradley Efron pada tahun 1979. Jika pembaca ingin lebih mengenal metode ini pembaca dapat membaca makalahnya di tautan &lt;a href=&#34;https://projecteuclid.org/euclid.aos/1176344552&#34;&gt;berikut&lt;/a&gt;. Pembaca dapat membaca makalah tersebut secara gratis.&lt;/p&gt;
 &lt;p&gt;Bootstrap mengandalkan pengambilan sampel dengan pengembalian dari data sampel. Teknik ini dapat digunakan untuk memperkirakan standard error (se) dari setiap statistik dan untuk memperoleh interval kepercayaan (CI) untuk itu. Bootstrap sangat berguna ketika CI tidak memiliki bentuk tertutup, atau memiliki bentuk yang sangat rumit.&lt;/p&gt;
 &lt;p&gt;Misalkan kita memiliki sejumlah sampel dengan ukuran &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;: &lt;span class=&#34;math inline&#34;&gt;\(X=\left\{x_1,x_2,...,x_n\right\}\)&lt;/span&gt; dan kita tertarik dengan CI dari beberapa statistik data &lt;span class=&#34;math inline&#34;&gt;\(T=t\left(X\right)\)&lt;/span&gt;. Metode ini sangat mudah untuk dikerjakan. Kita hanya perlu mengulang sejumlah &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; kali skema berikut: Untuk pengulangan ke-&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;, sampling dengan pengembalian &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; data dari data sampel yang tersedia. Namai sampel baru tersebut sebagai sampel bootstrap ke-&lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; , &lt;span class=&#34;math inline&#34;&gt;\(X_i\)&lt;/span&gt;, dan hitung statistik (mean, median atu persentil) yang ingin dihitung interval kepercayaannya.&lt;/p&gt;
@@ -1615,15 +1616,15 @@ Figure 15: Distribusi bootstrap persentil 90
 &lt;p&gt;Berdasarkan keempat hasil yang diperoleh, metode BCa cukup baik digunakan sebab distribusi bootstrap yang dihasilkan tidak memenuhi asumsi ketiga metode lainnya.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;kegunaan-lain-dari-interval-kepercayaan&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;8.9 Kegunaan Lain Dari Interval Kepercayaan&lt;/h2&gt;
+&lt;h2&gt;10.9 Kegunaan Lain Dari Interval Kepercayaan&lt;/h2&gt;
 &lt;p&gt;Selain digunakan untuk menghitung interval estimasi, interval kepercayaan dapat pula digunakan sebagai pendeteksi adanya &lt;em&gt;outlier&lt;/em&gt;, kontrol kualitas, dan penentuan ukuran sampel yang akan digunakan pada suatu penelitian agar hasil yang diperoleh lebih presisi. Pembahasan juga akan disertai apakah normalitas pada distribusi data akan mempengaruhi performa dari ketiga jenis kegunaan interval kepercayaan.&lt;/p&gt;
 &lt;div id=&#34;implikasi-non-normalitas-pada-pendeteksian-outlier&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.9.1 Implikasi Non-Normalitas Pada Pendeteksian &lt;em&gt;Outlier&lt;/em&gt;&lt;/h3&gt;
+&lt;h3&gt;10.9.1 Implikasi Non-Normalitas Pada Pendeteksian &lt;em&gt;Outlier&lt;/em&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Outlier&lt;/em&gt; merupakan pengamatan yang tampak berbeda karakteristiknya dibandingkan sebagian besar pengamatan yang ada. Pengamatan ini seringkli dihapus dari prosedur analisis yang mengharuskan distribusi suatu data mengikuti distribusi normal. Penghapusan observasi ini bisa jadi tidak baik dilakukan sebab bisa saja observasi tersebut valid. Observasi yang bersifat &lt;em&gt;outlier&lt;/em&gt; bisa jadi merupakan observasi terpenting sebab bisa saja dapat memberikan gambaran penting pada suatu kondisi ekstrim atau hubungan kausatif yang penting. Penghapusan ini tidak perlu dilakukan selam prosedur pengukuran yang sejenis tersedia dan tidak mengharuskan suatu distribusi data mengikuti distribusi tertentu, meskipun terdapat kelebihan dan kekurangan yang perlu kita perhatikan.&lt;/p&gt;
 &lt;p&gt;Untuk menghapus observasi yang kita identifikasikan sebagai &lt;em&gt;outlier&lt;/em&gt;, aturan atau tes perlu dilakukan seperti tes yang diajukan oleh Beckman dan Cook (1983). Tes yang paling umum didasarkan pada interval-t, dan mengasumsikan data mengikuti distribusi normal. Biasanya Persamaan &lt;a href=&#34;#eq:ipds&#34;&gt;(13)&lt;/a&gt; untuk interval pediksi data yang mengikuti distribusi normal disederhanakan dengan mengabaikan nilai &lt;span class=&#34;math inline&#34;&gt;\(\frac{s^2}{n}\)&lt;/span&gt;. Nilai diluar interval prediksi tersebut selanjutnya dapat dinyatakan sebagai &lt;em&gt;oulier&lt;/em&gt;. Uji lain yang dapat dilakukan adalah dengan visualisasi menggunakan box plot. Nilai diluar &lt;span class=&#34;math inline&#34;&gt;\(Q1-1,5IQR\)&lt;/span&gt; atau &lt;span class=&#34;math inline&#34;&gt;\(Q3+1,5IQR\)&lt;/span&gt; dinyatakan sebagai &lt;em&gt;outlier&lt;/em&gt;. Namun pada Chapter ini tidak akan dibahas lebih lanjut sebab pada Chapter 7 telah dibahas mengenai deteksi &lt;em&gt;outlier&lt;/em&gt; mellaui visualisasi data.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;implikasi-non-normalitas-pada-kontrol-kualitas&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.9.2 Implikasi Non-Normalitas Pada Kontrol Kualitas&lt;/h3&gt;
+&lt;h3&gt;10.9.2 Implikasi Non-Normalitas Pada Kontrol Kualitas&lt;/h3&gt;
 &lt;p&gt;Presentasi visual interval kepercayaan yang digunakan secara luas dalam proses industri adalah kontrol chart. Sejumlah kecil produk disampel dari total kemungkinan pada titik waktu tertentu, dan rerata dihitung. Pengambilan sampel diulang pada interval reguler atau acak, tergantung pada desain, menghasilkan serangkaian cara sampel. Ini digunakan untuk membangun satu jenis kontrol chart, xbar chart. Chart ini secara visual mendeteksi ketika rata-rata sampel masa depan menjadi berbeda dari yang digunakan untuk membangun grafik. Keputusan perbedaan didasarkan pada melebihi interval kepercayaan parametrik di sekitar rata-rata yang telah dijelaskan dibagian lain Chapter ini.&lt;/p&gt;
 &lt;p&gt;Misalkan laboratorium kimia mengukur larutan standar yang sama beberapa kali selama sehari untuk menentukan apakah peralatan dan operator menghasilkan hasil yang konsisten. Untuk serangkaian pengukuran &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; pada interval waktu &lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt;, ukuran sampel total &lt;span class=&#34;math inline&#34;&gt;\(N=N\cdot M\)&lt;/span&gt;. Perkiraan konsentrasi terbaik untuk standar itu adalah rata-rata keseluruhan yang dihitung menggunakan Persamaan &lt;a href=&#34;#eq:innpkk&#34;&gt;(23)&lt;/a&gt;.&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:innpkk&#34;&gt;\[\begin{equation}
@@ -1635,7 +1636,7 @@ Figure 15: Distribusi bootstrap persentil 90
 &lt;p&gt;Chart kontrol juga diproduksi untuk menggambarkan varians proses. Chart kontrol juga menggunakan nilai range (R chart) atau simpangan baku (S chart). Kedua grafik bahkan lebih sensitif terhadap perubahan data dari kondisi normal dibandingkan &lt;span class=&#34;math inline&#34;&gt;\(\overline{X}\)&lt;/span&gt; chart. Keduanya akan mengalami kesulitan dalam mendeteksi perubahan varian ketika data yang mendasarinya tidak normal, dan ukuran sampel &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; untuk setiap rata-rata kecil.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;non-normalitas-terhadap-desain-sampling&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;8.9.3 Non-Normalitas Terhadap Desain Sampling&lt;/h3&gt;
+&lt;h3&gt;10.9.3 Non-Normalitas Terhadap Desain Sampling&lt;/h3&gt;
 &lt;p&gt;Persamaan t-interval juga digunakan untuk menentukan jumlah sampel yang diperlukan untuk memperkirakan rata-rata dengan tingkat presisi yang ditentukan. Namun, persamaan tersebut membutuhkan data untuk kira-kira mengikuti distribusi normal. Persamaan tersebut harus mempertimbangkan &lt;em&gt;power&lt;/em&gt; serta lebar interval. Artinya kita harus memutuskan apakah mean adalah karakteristik yang paling tepat untuk mengukur data yang memiliki kemencengan.&lt;/p&gt;
 &lt;p&gt;Untuk memperkirakan ukuran sampel telah cukup untuk menentukan interval estimasi dengan lebar spesifik dapat menggunakan Persamaan &lt;a href=&#34;#eq:inntds&#34;&gt;(24)&lt;/a&gt;.&lt;/p&gt;
 &lt;span class=&#34;math display&#34; id=&#34;eq:inntds&#34;&gt;\[\begin{equation}
@@ -1659,6 +1660,393 @@ Figure 15: Distribusi bootstrap persentil 90
 &lt;li&gt;Ting Wei, Songbai Song. 2019. &lt;strong&gt;Confidence interval estimation for precipitation quantiles based on principle of maximum entropy&lt;/strong&gt;. Entropy. 21.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>8. Probabilitas</title>
+      <link>/tutorial/08-probabilitas/</link>
+      <pubDate>Wed, 03 Apr 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/08-probabilitas/</guid>
+      <description>
+
+
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Daftar Isi&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#8-1-aturan-dasar-probabilitas&#34;&gt;Aturan Dasar Probabilitas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-2-teori-bayes&#34;&gt;Teori Bayes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-3-ekspektasi-matematis&#34;&gt;Ekspektasi Matematis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Probabilitas merupakan kemungkinan suatu peristiwa akan terjadi. Probabilitas memiliki rentang nilai dari 0 sampai dengan 1. Probabilitas 0 artinya suatu peristiwa (&lt;em&gt;event&lt;/em&gt;) mustahil atau tidak pernah terjadi, sedangkan probabilitas 1 menunjukkan suatu peristiwa yang selalu terjadi.&lt;/p&gt;
+&lt;p&gt;Contoh sederhana dari probabilitas dalam kehidupan sehari-hari adalah ketika kita melempar koin ke udara untuk melihat kemungkinan sisi yang akan tampak saat koin tersebut jatuh ke tanah. Peristiwa yang mungkin akan terjadi adalah mata uang akan menampilkan sisi depan (&lt;em&gt;head&lt;/em&gt;) atau sisi belakang (&lt;em&gt;tail&lt;/em&gt;). Kemungkinan untuk mendapatkan &lt;em&gt;tail&lt;/em&gt; maupun &lt;em&gt;head&lt;/em&gt; adalah sama yaitu 0,5.&lt;/p&gt;
+&lt;p&gt;Pada contoh pelempan koin, kita misalkan kejadian munculnya sisi &lt;em&gt;head&lt;/em&gt; adalah &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt;, sedangkan peluang munculnya selain sisi &lt;em&gt;head&lt;/em&gt; (sisi lainnya) adalah &lt;span class=&#34;math inline&#34;&gt;\(A&amp;#39;\)&lt;/span&gt; Secara sederhana peluang munculnya suatu kejadian &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; pada contoh tersebut dapat dituliskan kedalam Persamaan &lt;a href=&#34;#eq:prob&#34;&gt;(1)&lt;/a&gt; dan Persamaan &lt;a href=&#34;#eq:prob&#34;&gt;(1)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:prob&#34;&gt;\[\begin{equation}
+   P\left(A\right)+P\left(A&amp;#39;\right)=1
+  \tag{1}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:prob2&#34;&gt;\[\begin{equation}
+   P_A=\frac{Jumlah\ peristiwa\ A}{Jumlah\ peristiwa\ yang\ mungkin\ terjadi}
+  \tag{2}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Pada contoh pelemparan koin, kita ingin mengetahui peluang munculnya &lt;em&gt;head&lt;/em&gt; pada pelemparan koin. Jumlah peristiwa yang mungkin terjadi saat pelemparan koin ada 2 yaitu munculnya &lt;em&gt;head&lt;/em&gt; atau &lt;em&gt;tail&lt;/em&gt;. Peluang munculnya sisi &lt;em&gt;head&lt;/em&gt; dapat dihitung menggunakan Persamaan &lt;a href=&#34;#eq:prob&#34;&gt;(1)&lt;/a&gt; seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P_{head}=\frac{Jumlah\ peristiwa\ head}{Jumlah\ peristiwa\ yang\ mungkin\ terjadi}=\frac{1}{2}=0,5
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Probabilitas suatu peristiwa dapat dibedakan kedalam 3 kategori, yaitu:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Probabilitas apriori&lt;/strong&gt;: probabilitas yang ditentukan sebelumnya tanpa perlu melakukan suatu eksperimen atau kita dapat memperkirakan sebelumnya peristiwa apa saja yang dapat terjadi. Contoh: pelemparan koin, pelemparan dadu,dll.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Probabilitas frekuensi relatif (empiris)&lt;/strong&gt;: probabilitas yang ditentukan berdasarkan fakta setelah kejadian. Contoh: Berdasarkan hasil survey 80 dari 100 orang responden mahasiswa sadar akan pentingnya memilah sampah, sehingga peluang seorang mahasiswa sadar akan pentingnya pemilahan sampah berdasarkan hasil survey tersebut adalah &lt;span class=&#34;math inline&#34;&gt;\(P_A=\frac{80}{100}=0,8\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Probabilitas subyektif&lt;/strong&gt;: probabilitas yang dilakukan berdasarkan pertimbangan perseorangan (seorang ahli atau orang yang berpengalaman). Contoh: probabilitas 10 kantong kompos memiliki berat &amp;lt; 1 kg menurut seorang penjual berdasarkan pengalamannya adalah 0,1 atau dari 10 kantong kompos terdapat satu kantong yang beratnya &amp;lt; 1 kg.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;aturan-dasar-probabilitas&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.1 Aturan Dasar Probabilitas&lt;/h2&gt;
+&lt;p&gt;Secara umum terdapat dua buah aturan dasar yang digunakan dalam perhitungan probabilitas yaitu aturan penjumlahan dan aturan perkalian. Kedua aturan tersebut akan penulis bahas secara detail pada bagian ini.&lt;/p&gt;
+&lt;p&gt;Sebelum kita membahas keduanya sebaiknya kita bahas terlebih dahulu pengertian umum yang merupakan elemen dasar dalam memahami konsep probabilitas. Berikut adalah istilah-istilah yang digunakan dalam probabilitas:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Ruang sampel (&lt;em&gt;sample space&lt;/em&gt;)&lt;/strong&gt;: gabungan dari semua kemungkinan, dan kemungkinan secara individual yang disebut sebagai titik sampel. Suatu peristiwa didefinisikan sebagai sub-himpunan (&lt;em&gt;subset&lt;/em&gt;) dari ruang sampel. Ruang sampel bisa bersifat diskrit atau kontinu, yang dapat bernilai berhingga (&lt;em&gt;finite&lt;/em&gt;) maupun tak berhingga. Peristiwa dalam pelemparan koin merupakan contoh ruang sampel berhingga. Contoh lainnya adalah pada pelemparan 2 buah dadu. Ruang sampel yang mungkin terbentuk merupakan kombinasi dari keenam masing-masing mata dadu. Berikut adalah contoh sintaks &lt;code&gt;R&lt;/code&gt; untuk menghasilkan ruang sampel pada 2 buah dadu:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install.packages(&amp;quot;prob&amp;quot;)
+library(prob)
+
+# ruang sampel 2 buah dadu
+rolldie(2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    X1 X2
+## 1   1  1
+## 2   2  1
+## 3   3  1
+## 4   4  1
+## 5   5  1
+## 6   6  1
+## 7   1  2
+## 8   2  2
+## 9   3  2
+## 10  4  2
+## 11  5  2
+## 12  6  2
+## 13  1  3
+## 14  2  3
+## 15  3  3
+## 16  4  3
+## 17  5  3
+## 18  6  3
+## 19  1  4
+## 20  2  4
+## 21  3  4
+## 22  4  4
+## 23  5  4
+## 24  6  4
+## 25  1  5
+## 26  2  5
+## 27  3  5
+## 28  4  5
+## 29  5  5
+## 30  6  5
+## 31  1  6
+## 32  2  6
+## 33  3  6
+## 34  4  6
+## 35  5  6
+## 36  6  6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan sintaks tersebut terdapat 36 ruang sampel pada pelemparan 2 buah dadu. Ruang sampel yang dihasilkan dapat ditulis &lt;span class=&#34;math inline&#34;&gt;\(Ruang\ sampel\ S=\left\{\left(X1,X2\right)\left|1\le X1\le6;\ 1\le X2\le6\right|\right\}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Peristiwa mustahil (&lt;em&gt;impossible event&lt;/em&gt;)&lt;/strong&gt;: dinyatakan dengan &lt;span class=&#34;math inline&#34;&gt;\(\phi\)&lt;/span&gt;, merupakan peristiwa yang tidak memiliki titik sampel. Dengan demikian , peristiwa tersebut mempunyai himpunan kosong.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Peristiwa tertentu (&lt;em&gt;certain event&lt;/em&gt;)&lt;/strong&gt;: dinyatakan dengan S, merupakan semua peristiwa yang mengandung semua titik sampel dalam ruang sampel.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Peristiwa komplementer (&lt;em&gt;complementary event&lt;/em&gt;)&lt;/strong&gt;: Untuk suatu peristiwa dalam ruang sampel S, peristiwa komplementer dinyatakan dengan E yang mencakup semua titik sampel dalam S yang tidak terkandung dalam E.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Setelah pembaca memahami seluruh istilah tersebut, kita akan kembali menjelaskan kedua aturan dasar perhitungan probabilitas yaitu aturan penjumlahan dan perkalian.&lt;/p&gt;
+&lt;p&gt;Aturan penjumlahan merupakan aturan yang digunakan untuk menghitung suatu peristiwa A atau peristiwa lain yaitu peristiwa B yang akan terjadi dan ditulis sebagai &lt;span class=&#34;math inline&#34;&gt;\(P\left(A\ atau\ B\right)\)&lt;/span&gt; atau &lt;span class=&#34;math inline&#34;&gt;\(P\left(A\cup B\right)\)&lt;/span&gt;. Terdapat dua buah aturan penjumlahan yaitu:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Aturan penjumlahan peristiwa &lt;em&gt;mutually exclusive&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Aturan penjumlahan untuk peristiwa &lt;em&gt;not mutually exclusive&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Aturan selanjutnya adalah aturan perkalian yaitu aturan yang digunakan untuk menghitung bahwa peristiwa A dan peristiwa B akan terjadi bersamaan dan ditulis sebagai &lt;span class=&#34;math inline&#34;&gt;\(P\left(A\ dan\ B\right)\)&lt;/span&gt; atau &lt;span class=&#34;math inline&#34;&gt;\(P\left(A\cap B\right)\)&lt;/span&gt;. Aturan ini terdiri atas:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Aturan perkalian peristiwa &lt;em&gt;independent&lt;/em&gt; (bebas).&lt;/li&gt;
+&lt;li&gt;Aturan perkalian peristiwa &lt;em&gt;dependent&lt;/em&gt; (tidak bebas).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;peristiwa-mutually-exclusive&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.1.1 Peristiwa &lt;em&gt;Mutually Exclusive&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;Peristiwa &lt;em&gt;mutually exclusive&lt;/em&gt; merupakan suatu kondisi dimana peristiwa peristiwa satu tidak memungkinkan terjadinya peristiwa lainnya (tidak mungkin terjadi bersamaan). Terjadinya peristiwa A atu B merupakan penjumlahan kemungkinan terjadinya kedua peristiwa tersebut. Probabilitas peritiwa &lt;em&gt;mutually exclusive&lt;/em&gt; dapat dituliskan menggunakan Persamaan &lt;a href=&#34;#eq:pme&#34;&gt;(3)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pme&#34;&gt;\[\begin{equation}
+   P\left(A\cup B\right)=P\left(A\right)+P\left(B\right)
+  \tag{3}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk memudahkan pembaca memahami peristiwa &lt;em&gt;mutually exclusive&lt;/em&gt; bayangkan pembaca diminta melemparkan sebuah dadu. Pembaca diminta untuk menentukan peluang munculnya angka 1 atau 6 pada dadu. Kedua peristiwa tersebut tidak mungkin terjadi bersamaan karena hanya dilakukan menggunakan satu dadu. Selain itu, jumlah himpunan masing-masing peristiwa pertama dan kedua hanyalah satu sehingga tidak memungkinkan adanya irisan pada kedua peristiwa tersebut. Untuk menghitungnya kita dapat langsung menggunakan Persamaan &lt;a href=&#34;#eq:pme&#34;&gt;(3)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(1\cup 6\right)=P\left(1\right)+P\left(6\right)=\frac{1}{6}+\frac{1}{6}=\frac{1}{3}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Peristiwa pada contoh soal tersebut dapat digambarkan menggunakan diagram venn yang ditunjukkan pada Gambar &lt;a href=&#34;#fig:pmevis&#34;&gt;1&lt;/a&gt;).&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:pmevis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;pmevis.png&#34; alt=&#34;Diagram venn peristiwa mutually exclusive&#34; width=&#34;80%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Diagram venn peristiwa mutually exclusive
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Jika pembaca ingin menggunakan &lt;code&gt;R&lt;/code&gt; untuk menghitung probabilitas peristiwa &lt;em&gt;mutually exclusive&lt;/em&gt;, pembaca dapat menggunakan fungsi &lt;code&gt;Prob()&lt;/code&gt; pada library &lt;code&gt;prob&lt;/code&gt; untuk menghitung secara langsung probabilitas dari &lt;em&gt;subset&lt;/em&gt; data. Berikut adalah contoh sintak untuk menghitung probabilitas munculnya angka 1 atau 6 dari pelemparan sebuah dadu:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menentukan ruang sampel (S)
+S &amp;lt;- rolldie(1, makespace=TRUE)
+
+# print
+S&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   X1     probs
+## 1  1 0.1666667
+## 2  2 0.1666667
+## 3  3 0.1666667
+## 4  4 0.1666667
+## 5  5 0.1666667
+## 6  6 0.1666667&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat subset peristiwa 1 dan 2
+P1 &amp;lt;- subset(S, X1==1)
+P6 &amp;lt;- subset(S, X1==6)
+
+# menghitung probabilitas gabungan
+P1$probs + P6$probs&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.3333333&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau
+Prob(P1) + Prob(P6)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.3333333&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Persamaan &lt;a href=&#34;#eq:pme&#34;&gt;(3)&lt;/a&gt; dapat diperluas tidak hanya berlaku pada dua buah peristiwa. Jika jenis peristiwa A yang ada sebanyak &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, maka Persamaan &lt;a href=&#34;#eq:pme&#34;&gt;(3)&lt;/a&gt; dapat dituliskan kembali menjadi Persamaan &lt;a href=&#34;#eq:pme2&#34;&gt;(4)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pme2&#34;&gt;\[\begin{equation}
+   P\left(A_1\cup A_2\cup...\cup A_n\right)=P\left(A_1\right)+P\left(A_2\right)+...+P\left(A_n\right)
+  \tag{4}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Kumpulan peristiwa yang terjadi &lt;span class=&#34;math inline&#34;&gt;\(\left\{A_1,\ A_2,...,A_n\right\}\)&lt;/span&gt; pada ruang sampel &lt;span class=&#34;math inline&#34;&gt;\(S\)&lt;/span&gt; disebut sebagai &lt;em&gt;partisi S&lt;/em&gt; jika &lt;span class=&#34;math inline&#34;&gt;\(A_1,\ A_2,...,A_n\)&lt;/span&gt; merupakan peristiwa dan &lt;span class=&#34;math inline&#34;&gt;\(A_1\cup A_2\cup...\cup A_n=S\)&lt;/span&gt;. Sehingga probabilitas seluruh partisi tersebut dapat dituliskan pada Persamaan &lt;a href=&#34;#eq:pme3&#34;&gt;(5)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pme3&#34;&gt;\[\begin{equation}
+   P\left(A_1\cup A_2\cup...\cup A_n\right)=P\left(A_1\right)+P\left(A_2\right)+...+P\left(A_n\right)=P\left(S\right)=1
+  \tag{5}
+\end{equation}\]&lt;/span&gt;
+&lt;/div&gt;
+&lt;div id=&#34;peristiwa-not-mutually-exclusive&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.1.2 Peristiwa &lt;em&gt;Not Mutually Exclusive&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;Bila dua buah peristiwa tidak &lt;em&gt;mutually exclusive&lt;/em&gt;, maka kedua peristiwa tersebut dapat terjadi secara bersamaan atau memiliki himpunan yang saling beririsan jika ditinjau dari pembahasan pelemparan dadu sebelumnya. Probabilitas suatu peristiwa yang tidak &lt;em&gt;mutually exclusive&lt;/em&gt; dapat dituliskan berdasarkan Persamaan &lt;a href=&#34;#eq:pnme&#34;&gt;(6)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pnme&#34;&gt;\[\begin{equation}
+   P\left(A\cup B\right)=P\left(A\right)+P\left(B\right)-P\left(A\cap B\right)
+  \tag{6}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk memahami peristiwa yang tidak &lt;em&gt;mutually exclusive&lt;/em&gt;, pembaca dapat membayangkan kembali melempar sebuah dadu. Pembaca diminta menghitung probabilitas keluar angka ganjil pada dadu atau angka prima pada dadu. Kedua peristiwa tersebut memiliki himpunannya masing-masing. Untuk peristiwa angka ganjil himpunan yang terjadi adalah ganjil={1, 3, 5}, sedangkan untuk angka prima adalah prima={1, 2, 3, 5}. Kedua peristiwa tersebut memiliki irisan himpunan yaitu saat mata dadu menunjukkan angka 1, 3, dan 5. Nilai probabilitas kedua peristiwa tersebut tidak bisa dihitung dengan langsung menjumlahkan probabilitas keduanya masing-masing karena terdapat satu peristiwa yang merupakan bagian dari peristiwa lain sehingga peristiwa tersebut sebagian perlu dihilangkan dari probabilitas salah satunya seperti yang ditulikan pada Persamaan &lt;a href=&#34;#eq:pnme&#34;&gt;(6)&lt;/a&gt;. Berdasarkan persamaan tersebut probabilitas yang peristiwa tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(ganjil\cup prima\right)=P\left(ganjil\right)+P\left(prima\right)-P\left(ganjil\cap prima\right)=\frac{3}{6}+\frac{4}{6}-\frac{3}{6}=\frac{3+4-3}{6}=\frac{2}{3}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Peristiwa &lt;em&gt;not mutually exclusiev&lt;/em&gt; dapat digambarkan menggunakan diagram venn yang ditunjukkan pada Gambar &lt;a href=&#34;#fig:pnmevis&#34;&gt;2&lt;/a&gt;).&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:pnmevis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;pnmevis.png&#34; alt=&#34;Diagram venn peristiwa not mutually exclusive&#34; width=&#34;80%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Diagram venn peristiwa not mutually exclusive
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; peristiwa tersebut dapat dihitung menggunakan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# kita akan menggunakan kembali objek S pada sintaks sebelumnya
+# melakukan subset pada masing-masing peristiwa
+ganjil &amp;lt;-subset(S, X1 %in% c(1, 3, 5))
+prima &amp;lt;-subset(S, X1 %in% c(1, 2, 3, 5))
+
+# menghitung irirsan kedua peristiwa
+irisan &amp;lt;- intersect(ganjil, prima)
+
+# menghitung probabilitas yang terbentuk
+Prob(ganjil)+Prob(prima)-Prob(irisan)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6666667&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk contoh yang lain misalkan seorang konsultan pengendalian kerugian diberikan data kerugian klien akibat kebakaran. Terdapat 250 kasus kebakaran dengan sejumlah penyebab. Penyebab utama disebabkan oleh membuang putung rokok sembarangan sebanyak 108 kasus, peralatan memasak sebanyak 95 kasus, pembakaran sebanyak 12 kasus, dan sumber kebakaran tidak diketahui sebanyak 35 kasus. Konsultan pengendalian kerugian ingin mengetahui berapa probabilitas untuk memilih klaim kebakaran dari kelompok dengan penyebab utama akibat aktivitas merokok sembarangan atau akibat pembakaran. Karena konsultan menentukan probabilitas “satu atau yang lain,” ia akan menentukan probabilitas berdasarkan peristiwa majemuk. Konsultan kemudian harus menentukan apakah peristiwa tersebut &lt;em&gt;mutually exclusive&lt;/em&gt; atau tidak. Untuk melakukannya ia harus menjawab pertanyaan “Dapatkan seseorang melakukan klaim bahwa peristiwa kebakaran dapat disebabkan oleh aktivitas merokok dan pembakaran yang dilakukan secara bersamaan?. Konsultan menentukan bahwa ini tidak mungkin Oleh karena itu, peristiwa-peristiwa tersebut &lt;em&gt;mutually exclusive&lt;/em&gt; dan probabilitas dari kedua peristiwa yang terjadi pada saat yang sama adalah nol. Probabilitas selanjutnya dapat dihitung menggunakan Persamaan &lt;a href=&#34;#eq:pnme&#34;&gt;(6)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(merokok\cup pembakaran\right)=P\left(merokor\right)+P\left(pembakaran\right)-P\left(merokok\cap pembakaran\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(merokok\cup pembakaran\right)=\left(\frac{108}{250}\right)+\left(\frac{12}{250}\right)-0=0,48\ atau\ 48\%
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Persamaan &lt;a href=&#34;#eq:pnme&#34;&gt;(6)&lt;/a&gt; dapat diperluas tidak hanya menggunakan dua buah peristiwa tapi dapat dihitung nilai probabilitasnya untuk lebih dari dua peristiwa. Pada Persamaan &lt;a href=&#34;#eq:pnme2&#34;&gt;(7)&lt;/a&gt; disajikan persamaan untuk menghitung probabilitas untuk 3 buah peristiwa.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pnme2&#34;&gt;\[\begin{equation}
+   P\left(A\cup B\cup C\right)=P\left(A\right)+P\left(B\right)+P\left(C\right)-P\left(A\cap B\right)-P\left(A\cup C\right)-P\left(B\cup C\right)+P\left(A\cup B\cup C\right)
+  \tag{7}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk peristiwa yang lebih banyak kita perlu menggambarkan terlebih dahulu diagram venn dari ruang sampel yang akan kita gunakan.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;peristiwa-dependent&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.1.3 Peristiwa &lt;em&gt;Dependent&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;Peristiwa &lt;em&gt;dependent&lt;/em&gt; terjadi bila probabilitas terjadinya satu peristiwa (peristiwa A) dipengaruhi oleh probabilitas terjadinya peristiwa lainnya (peristiwa B) atau &lt;span class=&#34;math inline&#34;&gt;\(P\left(B\mid A\right)\)&lt;/span&gt;. Peristiwa ini merupakan probabilitas kondisional karena terjadinya B dipengaruhi oleh terjadinya A. Pendekatan yang digunakan dituliskan pada Persamaan &lt;a href=&#34;#eq:pd&#34;&gt;(8)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pd&#34;&gt;\[\begin{equation}
+   P\left(A\mid B\right)=\frac{P\left(A\cap B\right)}{P\left(A\right)}\ \text{dimana P(A)&amp;gt;0}
+  \tag{8}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk memahami probabbilitas kondisional bayangkan pembaca harus melakukan survey terkait studi AMDAL di suatu kota. Responden yang digunakan merupakan seseorang yang telah menyelesaikan kuliahnya atau telah memperoleh gelar sarjana. Kategorisasi terhadap populasi dilakukan berdasarkan jenis kelamin dan status pekerjaan dengan jumlah yang proporsional dengan jumlah populasinya yang dapat dilihat pada Tabel &lt;a href=&#34;#tab:tabpd&#34;&gt;1&lt;/a&gt;. Sampel diambil dari populasi tersebut sesuai dengan proporsi jenis kelamin dan status pekerjaan. Pada studi ini ingin diketahui manfaat dari pembangunan industri pendirian industri baru bagi kota tersebut.&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:tabpd&#34;&gt;Table 1: &lt;/span&gt; Populasi orang yang telah menyelesaikan masa studinya di suatu kota.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Jenis Kelamin&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Bekerja&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Belum Bekerja&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Laki-Laki&lt;/td&gt;
+&lt;td&gt;460&lt;/td&gt;
+&lt;td&gt;40&lt;/td&gt;
+&lt;td&gt;500&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Perempuan&lt;/td&gt;
+&lt;td&gt;140&lt;/td&gt;
+&lt;td&gt;260&lt;/td&gt;
+&lt;td&gt;400&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;td&gt;300&lt;/td&gt;
+&lt;td&gt;900&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Proses survey dilakukan dengan metode wawancara. Responden yang telah dilakukan wawancara selanjutnya tidak boleh diwawancarai lagi sehingga pada jumlah keseluruhan sampel terus berkurang. Hitunglah probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja?.&lt;/p&gt;
+&lt;p&gt;Berdasarkan contoh tersebut terdapat dua buah peristiwa yaitu peristiwa responden yang telah bekerja (dilambangkan dengan E) dan responden laki-laki (dilambangkan dengan M) atau dapat dituliskan sebagai berikut:&lt;/p&gt;
+&lt;p&gt;M : seorang laki-laki yang terpilih. E : seseorang yang dipilih dan telah bekerja.&lt;/p&gt;
+&lt;p&gt;Probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja selanjutnya dihitung seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(M\mid E\right)=\frac{460}{600}=\frac{23}{30}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Misalkan &lt;span class=&#34;math inline&#34;&gt;\(n\left(A\right)\)&lt;/span&gt; merupakan notasi yang menyatakan jumlah elemen dari suatu set A. Dengan menggunakan notasi tersebut, dimana setiap orang dewasa yang telah menyelesaikan studinya memiliki kesempatan yang sama untuk dipilih sebagai responden dalam penelitian dapat dituliskan sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(M\mid E\right)=\frac{n\left(E\cap M\right)}{n\left(E\right)}=\frac{\frac{n\left(E\cap M\right)}{n\left(S\right)}}{\frac{n\left(E\right)}{n\left(S\right)}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(M\mid E\right)=\frac{P\left(E\cap M\right)}{P\left(E\right)}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Persamaan yang dihasilkan sesuai dengan Persamaan &lt;a href=&#34;#eq:pd&#34;&gt;(8)&lt;/a&gt;, dimana &lt;span class=&#34;math inline&#34;&gt;\(P\left(E\cap M\right)\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(P\left(E\right)\)&lt;/span&gt; dihitung berdasarkan besarnya ruang sampel S. Untuk memverivikasi hasil yang telah diperoleh sebelumnya, kita dapat melakukan perhitungan seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(E\right)=\frac{600}{900}
+\]&lt;/span&gt; serta&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(E\cap M\right)=\frac{460}{900}=\frac{23}{45}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Sehingga&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(E\ \mid M\right)=\frac{\frac{23}{45}}{\frac{2}{3}}=\frac{23}{30}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh telah dapat dibuktikan bahwa probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja sebesar &lt;span class=&#34;math inline&#34;&gt;\(\frac{23}{30}\)&lt;/span&gt;. Probabilitas lainnya dapat pembaca hitung sendiri untuk lebih memperdalam pengetahuan pembaca mengenai probabilitas kondisional.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; dengan menggunakan contoh soal sebelumnya kita dapat melakukan perhitungan probabilitas kondisional pengambilan sampel laki-laki akibat dari pengambilan sampel seseorang yang telah bekerja. Sintaks yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat data frame
+S &amp;lt;- data.frame(&amp;quot;jenis_kelamin&amp;quot;=c(&amp;quot;laki-laki&amp;quot;,&amp;quot;perempuan&amp;quot;),&amp;quot;bekerja&amp;quot;=c(460,140), &amp;quot;belum_bekerja&amp;quot;=c(40,260))
+
+# reshaping
+library(tidyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;tidyr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;S&amp;lt;-gather(S, key=&amp;quot;status_pekerjaan&amp;quot;,value=&amp;quot;frekuensi&amp;quot;,-jenis_kelamin)
+
+# melakukan subset dan menghitung probabilitas
+# peluang responden merupakan pegawai
+E &amp;lt;- subset(S, status_pekerjaan==&amp;quot;bekerja&amp;quot;)
+P_E &amp;lt;- sum(E$frekuensi)/sum(S$frekuensi)
+# peluang reponden laki-laki dan berkerja
+E_M &amp;lt;- subset(S, status_pekerjaan==&amp;quot;bekerja&amp;quot;&amp;amp;jenis_kelamin==&amp;quot;laki-laki&amp;quot;)
+P_E_M &amp;lt;-sum(E_M$frekuensi)/sum(S$frekuensi)
+
+# Probabilitas kondisional
+P_E_M/P_E&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.7666667&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;peristiwa-independent&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.1.4 Peristiwa &lt;em&gt;Independent&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;Untuk menentukan probabilitas dua atau lebih peristiwa akan terjadi bersamaan, perlu ditentukan terlebih dahulu apakaha peristiwa-peristiwa tersebut bersifat bebas. Misalnya dalam melempar 2 buah dadu, probabilitas munculnya angka 1 pada dadu pertama adalah &lt;span class=&#34;math inline&#34;&gt;\(\frac{1}{6}\)&lt;/span&gt; dan probabilitas munculnya angka 2 pada dadu kedua juga sama dengan dadu pertama. Jika kita menginginkan kedua nilai tersebut muncul bersamaan pada saat pelemparan, maka probabilitas kejadiannya adalah hasil perkalian kedua probabilitas peristiwa pada masing-masing dadu yaitu &lt;span class=&#34;math inline&#34;&gt;\(\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{36}\)&lt;/span&gt;. Pendekatan perhitungan probabilitas untuk peristiwa &lt;em&gt;independent&lt;/em&gt; dapat dituliskan pada Persamaan &lt;a href=&#34;#eq:pi&#34;&gt;(9)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pi&#34;&gt;\[\begin{equation}
+   P\left(A\cap B\right)=P\left(A\right)\cdot P\left(B\right)
+  \tag{9}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Dengan menggunakan contoh soal sebelumnya, kita akan menentukan probabilitas responden penelitian kita adalah laki-laki (L) dan bekerja (E). Berdasarkan Persamaan &lt;a href=&#34;#eq:pi&#34;&gt;(9)&lt;/a&gt;, probabilitas terpilihnya jenis responden tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(L\cap E\right)=\frac{500}{900}\cdot\frac{300}{900}=\frac{5}{27}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan &lt;code&gt;R&lt;/code&gt; sintaks yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset responden laki-laki
+L &amp;lt;- subset(S, jenis_kelamin==&amp;quot;laki-laki&amp;quot;)
+E &amp;lt;- subset(S, status_pekerjaan==&amp;quot;bekerja&amp;quot;)
+
+# probabilitas
+P_L &amp;lt;- sum(L$frekuensi)/sum(S$frekuensi)
+P_E &amp;lt;- sum(E$frekuensi)/sum(S$frekuensi)
+
+# Probabilitas peristiwa independen
+P_L*P_E&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.3703704&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;teori-bayes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.2 Teori Bayes&lt;/h2&gt;
+&lt;p&gt;Teori Bayes memberikan formula probabilitas suatu peristiwa yang tergantung pada kontribusi dan ragam pada tahap sebelumnya. Formula tersebut dapat dituliskan pada Persamaan &lt;a href=&#34;#eq:tb&#34;&gt;(10)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:tb&#34;&gt;\[\begin{equation}
+   P\left(B_k\mid A\right)=\frac{P\left(B_k\right)\cdot P\left(A\mid B_k\right)}{\sum_{i=1}^nP\left(B_i\right)\cdot P\left(A\mid B_i\right)}\ \text{dimana k=1,2,...,n}
+  \tag{10}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk membuktikan persamaan tersebut, kita akan menggunakan Persamaan &lt;a href=&#34;#eq:pd&#34;&gt;(8)&lt;/a&gt; dengan melihat &lt;span class=&#34;math inline&#34;&gt;\(P\left(B_k\cap A\right)\)&lt;/span&gt; dengan dua cara yang berbeda. Untuk lebih mudahnya, misalkan nilai &lt;span class=&#34;math inline&#34;&gt;\(P\left(B_k\right)&amp;gt;0\)&lt;/span&gt; untuk seluruh &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;, sehingga:&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:tb2&#34;&gt;\[\begin{equation}
+   P\left(A\right)\cdot P\left(B_k\mid A\right)=P\left(B_k\cap A\right)=P\left(B_k\right)\cdot P\left(A\mid B_k\right)
+  \tag{11}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;sejak nilai &lt;span class=&#34;math inline&#34;&gt;\(P\left(A\right)&amp;gt;0\)&lt;/span&gt; kita dapat membaginya untuk mendapatkan&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:tb3&#34;&gt;\[\begin{equation}
+   P\left(B_k\mid A\right)=\frac{P\left(B_k\right)\cdot P\left(A\mid B_k\right)}{P\left(A\right)}
+  \tag{12}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Sekarang ingat kembaili bahwa &lt;span class=&#34;math inline&#34;&gt;\(\left\{B_k\right\}\)&lt;/span&gt; adalah partisi, teorema probabilitas total probabilitas total memberikan penyebut pada persamaan terkahir menjadi&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:tb4&#34;&gt;\[\begin{equation}
+   P\left(A\right)=\sum_{k=1}^nP\left(B_k\cap A\right)=\sum_{k=1}^nP\left(B_k\right)\cdot P\left(A\mid B_k\right)
+  \tag{13}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Apa artinya? Biasanya dalam aplikasinya kita diberikan (atau tahu) probabilitas apriori &lt;span class=&#34;math inline&#34;&gt;\(P\left(B_k\right)\)&lt;/span&gt;. Kita keluar dan mengumpulkan sejumlah data yang kita gunakan untuk mewakili peristiwa A. Kita ingin tahu: bagaimana kita dapat memperbaharui &lt;span class=&#34;math inline&#34;&gt;\(P\left(B_k\mid A\right)\)&lt;/span&gt; menjadi &lt;span class=&#34;math inline&#34;&gt;\(P\left(B_k\mid A\right)\)&lt;/span&gt;? Jawabannya adalah dengan teori Bayes.&lt;/p&gt;
+&lt;p&gt;Untuk memahaminya misalkan sebuah instalasi air menggunakan tawas sebagai koagulannya. Tawas ini disuplai dari 4 perusahaan pemasok bahan kimia. Spesifikasi yang diinginkan adalah paling tidak tawas tersebut mengandung kadar efektif 60%. Data tentang perusaan pemasok dan kegagalan untuk memenuhi standar yang diinginkan adalah:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Perusahaan 1: memasok 20% dengan kegagalan 1 dalam 20 atau kegagalan = 0,05,&lt;/li&gt;
+&lt;li&gt;Perusahaan 2: memasok 60% dengan kegagalan 1 dalam 10 atau kegagalan = 0,10,&lt;/li&gt;
+&lt;li&gt;Perusahaan 3: memasok 15% dengan kegagalan 1 dalam 10 atau kegagalan = 0,10,&lt;/li&gt;
+&lt;li&gt;Perusahaan 4: memasok 5% dengan kegagalan 1 dalam 20 atau kegagalan = 0,05.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bila dari stok tawas digudang tersebut direksi ingin mengetahui berapa kemungkinan terjadinya kegagalan pada stok tawas dari perusaan 1, dengan menggunakan teori Bayes kita dapat menghitungnya seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(B_i\mid A\right)=\frac{0,20\cdot0,05}{\left(0,6\cdot0,1+0,15\cdot0,1+0,05\cdot0,05\right)}=0,114
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ekspektasi-matematis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;8.3 Ekspektasi Matematis&lt;/h2&gt;
+&lt;p&gt;Misalkan Menteri Kesehatan Republik Indonesia merilis hasil studi yang menyatakan usia harapan hidup masyarakat Indonesia adalah 70 tahun. Ini tidak berarti saat kita berusia 65 tahun kita akan meninggal 5 tahun berikutnya. Pengertian usia harapan hidup ini didasarkan pada probabilitas yaitu ekspektasi matematis yang dituliskan pada Persamaan &lt;a href=&#34;#eq:em&#34;&gt;(14)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:em&#34;&gt;\[\begin{equation}
+   E\left(X\right)=\sum_{i=1}^nx_i\cdot P\left(X_i\right)
+  \tag{14}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Misalkan terdapat eksperimen yang menghasilkan i buah peristiwa, dan masing-masing mempunyai probabilitas terjadi: p1,p2,p3,..,pi.&lt;/p&gt;
+&lt;p&gt;sehingga: p1+p2+p3+…+pk=1 maka ekspektasinya adalah &lt;span class=&#34;math inline&#34;&gt;\(E=p1\cdot x1+p2\cdot x2+p3\cdot x3+...+pi\cdot xi\)&lt;/span&gt;. Hasil perjumlahan tersebut akan menghasilkan Persamaan &lt;a href=&#34;#eq:em&#34;&gt;(14)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Untuk memahami penerapan ekspektasi matematis, misalkan sebuah konsultan sedang menyiapkan proposal untuk sebuah proyek. Biaya untuk menyiapkan proposal adalah 5 juta rupiah, sedang keuntunga kotor bila proyek ini diperoleh adalah:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;50 juta rupiah dengan probabilitas 0,20&lt;/li&gt;
+&lt;li&gt;30 juta rupiah dengan probabilitas 0,50&lt;/li&gt;
+&lt;li&gt;10 juta rupiah dengan probabilitas 0,20&lt;/li&gt;
+&lt;li&gt;0 rupiah dengan probabilitas 0,10.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bila kemungkinan mendapatkan proyek tersebut adalah 0,30, maka keuntungan yang diharapkan adalah:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Probabilitas memperoleh keuntungan 45 juta rupiah (keuntungan kotor-modal)=probabilitas mendapatkan proyek x keuntungan proyek tersebut=0,30 x 0,20 = 0,06&lt;/li&gt;
+&lt;li&gt;Probabilitas memperoleh keuntungan 25 juta = 0,30 x 0,50 = 0,15&lt;/li&gt;
+&lt;li&gt;Probabilitas memperoleh keuntungan 5 juta = 0,30 x 0,20 = 0,06&lt;/li&gt;
+&lt;li&gt;Probabilitas memperoleh kerugian 5 juta = (0,30 x 0,10)+0,70 = 0,73&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Maka ekspektasinya = (45 juta x 0,06)+(5 juta x 0,15)+(5 juta x 0,06)-(5 juta x 0,73)=3,1 juta. Dengan demikian perusahaan tersebut dapat memutuskan apakah akan meneruskan membuat proposal tersebut, dengan kemungkinan merugi sebesar 5 juta rupiah (biaya membuat proposal) dan kemungkinan untung 3 juta rupiah.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Damanhuri, E. 2011. &lt;strong&gt;Statitika Lingkunga&lt;/strong&gt;. Penerbit ITB.&lt;/li&gt;
+&lt;li&gt;Kerns, G.Jay. 2018. &lt;strong&gt;Introduction to Probability and Statistics Using R Third Edition&lt;/strong&gt;. GNU Free Documentation License.&lt;/li&gt;
+&lt;li&gt;Janicak, C.A. 2007. &lt;strong&gt;Applied Statistics in Occupational Safety and Health&lt;/strong&gt;. Government Institutes.&lt;/li&gt;
+&lt;li&gt;Walpole, E. R., Myers, H.M., Myers, S.L., Keying Ye. 2011. &lt;strong&gt;Probability $ Statistics for Engineering &amp;amp; Scientists Ninth Edition&lt;/strong&gt;. Prentice Hall.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -8549,15 +8937,6 @@ rm Untitled.md
 
 &lt;p&gt;The website is updated every week where each author update will share on the author&amp;rsquo;s social media account. Readers can continue to follow the writing on the website by visiting the site environmental &lt;code&gt;learning.wordpress.com&lt;/code&gt;.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>External Project</title>
-      <link>/project/external-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0700</pubDate>
-      
-      <guid>/project/external-project/</guid>
-      <description></description>
     </item>
     
   </channel>

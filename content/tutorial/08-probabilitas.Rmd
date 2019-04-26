@@ -1,0 +1,405 @@
+---
+title: "8. Probabilitas"
+draft: no
+date: '2019-04-03T00:00:00+07:00'
+output: pdf_document
+menu:
+  tutorial:
+    parent: PART 4 - Probabilitas dan Distribusi Probabilitas
+    weight: 8
+linktitle: Probabilitas dan Distribusi Probabilitas
+type: docs
+---
+
+<style>
+body{
+text-align: justify}
+</style>
+
+> **Daftar Isi**
+>
+> - [Aturan Dasar Probabilitas](#8-1-aturan-dasar-probabilitas)
+> - [Teori Bayes](#8-2-teori-bayes)
+> - [Ekspektasi Matematis](#8-3-ekspektasi-matematis)
+
+Probabilitas merupakan kemungkinan suatu peristiwa akan terjadi. Probabilitas memiliki rentang nilai dari 0 sampai dengan 1. Probabilitas 0 artinya suatu peristiwa (*event*) mustahil atau tidak pernah terjadi, sedangkan probabilitas 1 menunjukkan suatu peristiwa yang selalu terjadi.
+
+Contoh sederhana dari probabilitas dalam kehidupan sehari-hari adalah ketika kita melempar koin ke udara untuk melihat kemungkinan sisi yang akan tampak saat koin tersebut jatuh ke tanah. Peristiwa yang mungkin akan terjadi adalah mata uang akan menampilkan sisi depan (*head*) atau sisi belakang (*tail*). Kemungkinan untuk mendapatkan *tail* maupun *head* adalah sama yaitu 0,5. 
+
+Pada contoh pelempan koin, kita misalkan kejadian munculnya sisi *head* adalah $A$, sedangkan peluang munculnya selain sisi *head* (sisi lainnya) adalah $A'$  Secara sederhana peluang munculnya suatu kejadian $A$ pada contoh tersebut dapat dituliskan kedalam Persamaan \@ref(eq:prob) dan Persamaan \@ref(eq:prob).
+
+\begin{equation}
+   P\left(A\right)+P\left(A'\right)=1
+  (\#eq:prob)
+\end{equation}
+
+dimana
+
+\begin{equation}
+   P_A=\frac{Jumlah\ peristiwa\ A}{Jumlah\ peristiwa\ yang\ mungkin\ terjadi}
+  (\#eq:prob2)
+\end{equation}
+
+Pada contoh pelemparan koin, kita ingin mengetahui peluang munculnya *head* pada pelemparan koin. Jumlah peristiwa yang mungkin terjadi saat pelemparan koin ada 2 yaitu munculnya *head* atau *tail*. Peluang munculnya sisi *head* dapat dihitung menggunakan Persamaan \@ref(eq:prob) seperti berikut:
+
+$$
+P_{head}=\frac{Jumlah\ peristiwa\ head}{Jumlah\ peristiwa\ yang\ mungkin\ terjadi}=\frac{1}{2}=0,5
+$$
+
+Probabilitas suatu peristiwa dapat dibedakan kedalam 3 kategori, yaitu:
+
+1. **Probabilitas apriori**: probabilitas yang ditentukan sebelumnya tanpa perlu melakukan suatu eksperimen atau kita dapat memperkirakan sebelumnya peristiwa apa saja yang dapat terjadi. Contoh: pelemparan koin, pelemparan dadu,dll.
+2. **Probabilitas frekuensi relatif (empiris)**: probabilitas yang ditentukan berdasarkan fakta setelah kejadian. Contoh: Berdasarkan hasil survey 80 dari 100 orang responden mahasiswa sadar akan pentingnya memilah sampah, sehingga peluang seorang mahasiswa sadar akan pentingnya pemilahan sampah berdasarkan hasil survey tersebut adalah $P_A=\frac{80}{100}=0,8$.
+3. **Probabilitas subyektif**: probabilitas yang dilakukan berdasarkan pertimbangan perseorangan (seorang ahli atau orang yang berpengalaman). Contoh: probabilitas 10 kantong kompos memiliki berat < 1 kg menurut seorang penjual berdasarkan pengalamannya adalah 0,1 atau dari 10 kantong kompos terdapat satu kantong yang beratnya < 1 kg.
+
+## 8.1 Aturan Dasar Probabilitas
+
+Secara umum terdapat dua buah aturan dasar yang digunakan dalam perhitungan probabilitas yaitu aturan penjumlahan dan aturan perkalian. Kedua aturan tersebut akan penulis bahas secara detail pada bagian ini.
+
+Sebelum kita membahas keduanya sebaiknya kita bahas terlebih dahulu pengertian umum yang merupakan elemen dasar dalam memahami konsep probabilitas. Berikut adalah istilah-istilah yang digunakan dalam probabilitas:
+
+1. **Ruang sampel (*sample space*)**: gabungan dari semua kemungkinan, dan kemungkinan secara individual yang disebut sebagai titik sampel. Suatu peristiwa didefinisikan sebagai sub-himpunan (*subset*) dari ruang sampel. Ruang sampel bisa bersifat diskrit atau kontinu, yang dapat bernilai berhingga (*finite*) maupun tak berhingga. Peristiwa dalam pelemparan koin merupakan contoh ruang sampel berhingga. Contoh lainnya adalah pada pelemparan 2 buah dadu. Ruang sampel yang mungkin terbentuk merupakan kombinasi dari keenam masing-masing mata dadu. Berikut adalah contoh sintaks `R` untuk menghasilkan ruang sampel pada 2 buah dadu:
+
+```{r, message=FALSE,warning=FALSE}
+# install.packages("prob")
+library(prob)
+
+# ruang sampel 2 buah dadu
+rolldie(2)
+```
+
+Berdasarkan sintaks tersebut terdapat 36 ruang sampel pada pelemparan 2 buah dadu. Ruang sampel yang dihasilkan dapat ditulis $Ruang\ sampel\ S=\left\{\left(X1,X2\right)\left|1\le X1\le6;\ 1\le X2\le6\right|\right\}$.
+
+2. **Peristiwa mustahil (*impossible event*)**: dinyatakan dengan $\phi$, merupakan peristiwa yang tidak memiliki titik sampel. Dengan demikian , peristiwa tersebut mempunyai himpunan kosong.
+3. **Peristiwa tertentu (*certain event*)**: dinyatakan dengan S, merupakan semua peristiwa yang mengandung semua titik sampel dalam ruang sampel.
+4. **Peristiwa komplementer (*complementary event*)**: Untuk suatu peristiwa dalam ruang sampel S, peristiwa komplementer dinyatakan dengan E yang mencakup semua titik sampel dalam S yang tidak terkandung dalam E.
+
+Setelah pembaca memahami seluruh istilah tersebut, kita akan kembali menjelaskan kedua aturan dasar perhitungan probabilitas yaitu aturan penjumlahan dan perkalian.
+
+Aturan penjumlahan merupakan aturan yang digunakan untuk menghitung suatu peristiwa A atau peristiwa lain yaitu peristiwa B yang akan terjadi dan ditulis sebagai $P\left(A\ atau\ B\right)$ atau $P\left(A\cup B\right)$. Terdapat dua buah aturan penjumlahan yaitu:
+
+1. Aturan penjumlahan peristiwa *mutually exclusive*.
+2. Aturan penjumlahan untuk peristiwa *not mutually exclusive*.
+
+Aturan selanjutnya adalah aturan perkalian yaitu aturan yang digunakan untuk menghitung bahwa peristiwa A dan peristiwa B akan terjadi bersamaan dan ditulis sebagai $P\left(A\ dan\ B\right)$ atau $P\left(A\cap B\right)$. Aturan ini terdiri atas:
+
+1. Aturan perkalian peristiwa *independent* (bebas).
+2. Aturan perkalian peristiwa *dependent* (tidak bebas).
+
+### 8.1.1 Peristiwa *Mutually Exclusive*
+
+Peristiwa *mutually exclusive* merupakan suatu kondisi dimana peristiwa peristiwa satu tidak memungkinkan terjadinya peristiwa lainnya (tidak mungkin terjadi bersamaan). Terjadinya peristiwa A atu B merupakan penjumlahan kemungkinan terjadinya kedua peristiwa tersebut. Probabilitas peritiwa *mutually exclusive* dapat dituliskan menggunakan Persamaan \@ref(eq:pme).
+
+\begin{equation}
+   P\left(A\cup B\right)=P\left(A\right)+P\left(B\right)
+  (\#eq:pme)
+\end{equation}
+
+Untuk memudahkan pembaca memahami peristiwa *mutually exclusive* bayangkan pembaca diminta melemparkan sebuah dadu. Pembaca diminta untuk menentukan peluang munculnya angka 1 atau 6 pada dadu. Kedua peristiwa tersebut tidak mungkin terjadi bersamaan karena hanya dilakukan menggunakan satu dadu. Selain itu, jumlah himpunan masing-masing peristiwa pertama dan kedua hanyalah satu sehingga tidak memungkinkan adanya irisan pada kedua peristiwa tersebut. Untuk menghitungnya kita dapat langsung menggunakan Persamaan \@ref(eq:pme).
+
+$$
+P\left(1\cup 6\right)=P\left(1\right)+P\left(6\right)=\frac{1}{6}+\frac{1}{6}=\frac{1}{3}
+$$
+
+Peristiwa pada contoh soal tersebut dapat digambarkan menggunakan diagram venn yang ditunjukkan pada Gambar \@ref(fig:pmevis)).
+
+```{r pmevis, echo=FALSE, fig.cap='Diagram venn peristiwa mutually exclusive', tidy=FALSE, out.width='80%', fig.align='center'}
+library(knitr)
+img1_path <- "pmevis.png"
+include_graphics(img1_path)
+```
+
+Jika pembaca ingin menggunakan `R` untuk menghitung probabilitas peristiwa *mutually exclusive*, pembaca dapat menggunakan fungsi `Prob()` pada library `prob` untuk menghitung secara langsung probabilitas dari *subset* data. Berikut adalah contoh sintak untuk menghitung probabilitas munculnya angka 1 atau 6 dari pelemparan sebuah dadu:
+
+```{r}
+# menentukan ruang sampel (S)
+S <- rolldie(1, makespace=TRUE)
+
+# print
+S
+
+# membuat subset peristiwa 1 dan 2
+library(dplyr)
+P1 <- filter(S, X1==1)
+P6 <- filter(S, X1==6)
+
+# menghitung probabilitas gabungan
+P1$probs + P6$probs
+
+# atau
+Prob(P1) + Prob(P6)
+```
+
+Persamaan \@ref(eq:pme) dapat diperluas tidak hanya berlaku pada dua buah peristiwa. Jika jenis peristiwa A yang ada sebanyak $n$, maka Persamaan \@ref(eq:pme) dapat dituliskan kembali menjadi Persamaan \@ref(eq:pme2).
+
+\begin{equation}
+   P\left(A_1\cup A_2\cup...\cup A_n\right)=P\left(A_1\right)+P\left(A_2\right)+...+P\left(A_n\right)
+  (\#eq:pme2)
+\end{equation}
+
+Kumpulan peristiwa yang terjadi $\left\{A_1,\ A_2,...,A_n\right\}$ pada ruang sampel $S$ disebut sebagai *partisi S* jika $A_1,\ A_2,...,A_n$ merupakan peristiwa dan $A_1\cup A_2\cup...\cup A_n=S$. Sehingga probabilitas seluruh partisi tersebut dapat dituliskan pada Persamaan \@ref(eq:pme3).
+
+\begin{equation}
+   P\left(A_1\cup A_2\cup...\cup A_n\right)=P\left(A_1\right)+P\left(A_2\right)+...+P\left(A_n\right)=P\left(S\right)=1
+  (\#eq:pme3)
+\end{equation}  
+
+### 8.1.2 Peristiwa *Not Mutually Exclusive*
+
+Bila dua buah peristiwa tidak *mutually exclusive*, maka kedua peristiwa tersebut dapat terjadi secara bersamaan atau memiliki himpunan yang saling beririsan jika ditinjau dari pembahasan pelemparan dadu sebelumnya. Probabilitas suatu peristiwa yang tidak *mutually exclusive* dapat dituliskan berdasarkan Persamaan \@ref(eq:pnme).
+
+\begin{equation}
+   P\left(A\cup B\right)=P\left(A\right)+P\left(B\right)-P\left(A\cap B\right)
+  (\#eq:pnme)
+\end{equation}
+
+Untuk memahami peristiwa yang tidak *mutually exclusive*, pembaca dapat membayangkan kembali melempar sebuah dadu. Pembaca diminta menghitung probabilitas keluar angka ganjil pada dadu atau angka prima pada dadu. Kedua peristiwa tersebut memiliki himpunannya masing-masing. Untuk peristiwa angka ganjil himpunan yang terjadi adalah ganjil={1, 3, 5}, sedangkan untuk angka prima adalah prima={1, 2, 3, 5}. Kedua peristiwa tersebut memiliki irisan himpunan yaitu saat mata dadu menunjukkan angka 1, 3, dan 5. Nilai probabilitas kedua peristiwa tersebut tidak bisa dihitung dengan langsung menjumlahkan probabilitas keduanya masing-masing karena terdapat satu peristiwa yang merupakan bagian dari peristiwa lain sehingga peristiwa tersebut sebagian perlu dihilangkan dari probabilitas salah satunya seperti yang ditulikan pada Persamaan \@ref(eq:pnme). Berdasarkan persamaan tersebut probabilitas yang peristiwa tersebut adalah sebagai berikut:
+
+$$
+P\left(ganjil\cup prima\right)=P\left(ganjil\right)+P\left(prima\right)-P\left(ganjil\cap prima\right)=\frac{3}{6}+\frac{4}{6}-\frac{3}{6}=\frac{3+4-3}{6}=\frac{2}{3}
+$$
+
+Peristiwa *not mutually exclusiev* dapat digambarkan menggunakan diagram venn yang ditunjukkan pada Gambar \@ref(fig:pnmevis)).
+
+```{r pnmevis, echo=FALSE, fig.cap='Diagram venn peristiwa not mutually exclusive', tidy=FALSE, out.width='80%', fig.align='center'}
+library(knitr)
+img1_path <- "pnmevis.png"
+include_graphics(img1_path)
+```
+
+Pada `R` peristiwa tersebut dapat dihitung menggunakan sintaks berikut:
+
+```{r}
+# kita akan menggunakan kembali objek S pada sintaks sebelumnya
+# melakukan subset pada masing-masing peristiwa
+ganjil <-subset(S, X1 %in% c(1, 3, 5))
+prima <-subset(S, X1 %in% c(1, 2, 3, 5))
+
+# menghitung irirsan kedua peristiwa
+irisan <- intersect(ganjil, prima)
+
+# menghitung probabilitas yang terbentuk
+Prob(ganjil)+Prob(prima)-Prob(irisan)
+```
+
+Untuk contoh yang lain misalkan seorang konsultan pengendalian kerugian diberikan data kerugian klien akibat kebakaran. Terdapat 250 kasus kebakaran dengan sejumlah penyebab. Penyebab utama disebabkan oleh membuang putung rokok sembarangan sebanyak 108 kasus, peralatan memasak sebanyak 95 kasus, pembakaran sebanyak 12 kasus, dan sumber kebakaran tidak diketahui sebanyak 35 kasus. Konsultan pengendalian kerugian ingin mengetahui berapa probabilitas untuk memilih klaim kebakaran dari kelompok dengan penyebab utama akibat aktivitas merokok sembarangan atau akibat pembakaran. Karena konsultan menentukan probabilitas "satu atau yang lain," ia akan menentukan probabilitas berdasarkan peristiwa majemuk. Konsultan kemudian harus menentukan apakah peristiwa tersebut *mutually exclusive* atau tidak. Untuk melakukannya ia harus menjawab pertanyaan "Dapatkan seseorang melakukan klaim bahwa peristiwa kebakaran dapat disebabkan oleh aktivitas merokok dan pembakaran yang dilakukan secara bersamaan?. Konsultan menentukan bahwa ini tidak mungkin Oleh karena itu, peristiwa-peristiwa tersebut *mutually exclusive* dan probabilitas dari kedua peristiwa yang terjadi pada saat yang sama adalah nol. Probabilitas selanjutnya dapat dihitung menggunakan Persamaan \@ref(eq:pnme).
+
+$$
+P\left(merokok\cup pembakaran\right)=P\left(merokor\right)+P\left(pembakaran\right)-P\left(merokok\cap pembakaran\right)
+$$
+
+$$
+P\left(merokok\cup pembakaran\right)=\left(\frac{108}{250}\right)+\left(\frac{12}{250}\right)-0=0,48\ atau\ 48\%
+$$
+
+Persamaan \@ref(eq:pnme) dapat diperluas tidak hanya menggunakan dua buah peristiwa tapi dapat dihitung nilai probabilitasnya untuk lebih dari dua peristiwa. Pada Persamaan \@ref(eq:pnme2) disajikan persamaan untuk menghitung probabilitas untuk 3 buah peristiwa.
+
+\begin{equation}
+   P\left(A\cup B\cup C\right)=P\left(A\right)+P\left(B\right)+P\left(C\right)-P\left(A\cap B\right)-P\left(A\cup C\right)-P\left(B\cup C\right)+P\left(A\cup B\cup C\right)
+  (\#eq:pnme2)
+\end{equation}
+
+Untuk peristiwa yang lebih banyak kita perlu menggambarkan terlebih dahulu diagram venn dari ruang sampel yang akan kita gunakan.
+
+### 8.1.3 Peristiwa *Dependent*
+
+Peristiwa *dependent* terjadi bila probabilitas terjadinya satu peristiwa (peristiwa A) dipengaruhi oleh probabilitas terjadinya peristiwa lainnya (peristiwa B) atau $P\left(B\mid A\right)$. Peristiwa ini merupakan probabilitas kondisional karena terjadinya B dipengaruhi oleh terjadinya A. Pendekatan yang digunakan dituliskan pada Persamaan \@ref(eq:pd).
+
+\begin{equation}
+   P\left(A\mid B\right)=\frac{P\left(A\cap B\right)}{P\left(A\right)}\ \text{dimana P(A)>0}
+  (\#eq:pd)
+\end{equation}
+
+Untuk memahami probabbilitas kondisional bayangkan pembaca harus melakukan survey terkait studi AMDAL di suatu kota. Responden yang digunakan merupakan seseorang yang telah menyelesaikan kuliahnya atau telah memperoleh gelar sarjana. Kategorisasi terhadap populasi dilakukan berdasarkan jenis kelamin dan status pekerjaan dengan jumlah yang proporsional dengan jumlah populasinya yang dapat dilihat pada Tabel \@ref(tab:tabpd). Sampel diambil dari populasi tersebut sesuai dengan proporsi jenis kelamin dan status pekerjaan. Pada studi ini ingin diketahui manfaat dari pembangunan industri pendirian industri baru bagi kota tersebut.
+
+**Jenis Kelamin**  | **Bekerja** | **Belum Bekerja** | **Total**
+-------------------|-------------|-------------------|----------  
+Laki-Laki          | 460         | 40                | 500
+Perempuan          | 140         | 260               | 400
+**Total**          | 600         | 300               | 900
+
+: (\#tab:tabpd) Populasi orang yang telah menyelesaikan masa studinya di suatu kota.
+
+Proses survey dilakukan dengan metode wawancara. Responden yang telah dilakukan wawancara selanjutnya tidak boleh diwawancarai lagi sehingga pada jumlah keseluruhan sampel terus berkurang. Hitunglah probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja?.
+
+Berdasarkan contoh tersebut terdapat dua buah peristiwa yaitu peristiwa responden yang telah bekerja (dilambangkan dengan E) dan responden laki-laki (dilambangkan dengan M) atau dapat dituliskan sebagai berikut:
+
+M : seorang laki-laki yang terpilih.
+E : seseorang yang dipilih dan telah bekerja.
+
+Probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja selanjutnya dihitung seperti berikut:
+
+$$
+P\left(M\mid E\right)=\frac{460}{600}=\frac{23}{30}
+$$
+
+Misalkan $n\left(A\right)$ merupakan notasi yang menyatakan jumlah elemen dari suatu set A. Dengan menggunakan notasi tersebut, dimana setiap orang dewasa yang telah menyelesaikan studinya memiliki kesempatan yang sama untuk dipilih sebagai responden dalam penelitian dapat dituliskan sebagai berikut:
+
+$$
+P\left(M\mid E\right)=\frac{n\left(E\cap M\right)}{n\left(E\right)}=\frac{\frac{n\left(E\cap M\right)}{n\left(S\right)}}{\frac{n\left(E\right)}{n\left(S\right)}}
+$$
+
+$$
+P\left(M\mid E\right)=\frac{P\left(E\cap M\right)}{P\left(E\right)}
+$$
+
+Persamaan yang dihasilkan sesuai dengan Persamaan \@ref(eq:pd), dimana $P\left(E\cap M\right)$ dan $P\left(E\right)$ dihitung berdasarkan besarnya ruang sampel S. Untuk memverivikasi hasil yang telah diperoleh sebelumnya, kita dapat melakukan perhitungan seperti berikut:
+
+$$
+P\left(E\right)=\frac{600}{900}
+$$
+serta
+
+$$
+P\left(E\cap M\right)=\frac{460}{900}=\frac{23}{45}
+$$
+
+Sehingga
+
+$$
+P\left(E\ \mid M\right)=\frac{\frac{23}{45}}{\frac{2}{3}}=\frac{23}{30}
+$$
+
+Berdasarkan hasil yang diperoleh telah dapat dibuktikan bahwa probabilitas kondisional dari pengambilan responden laki-laki akibat pengambilan responden seseorang yang telah bekerja sebesar $\frac{23}{30}$. Probabilitas lainnya dapat pembaca hitung sendiri untuk lebih memperdalam pengetahuan pembaca mengenai probabilitas kondisional.
+
+Pada `R` dengan menggunakan contoh soal sebelumnya kita dapat melakukan perhitungan probabilitas kondisional pengambilan sampel laki-laki akibat dari pengambilan sampel seseorang yang telah bekerja. Sintaks yang digunakan adalah sebagai berikut:
+
+```{r}
+# membuat data frame
+S <- data.frame("jenis_kelamin"=c("laki-laki","perempuan"),"bekerja"=c(460,140), "belum_bekerja"=c(40,260))
+
+# reshaping
+library(tidyr)
+S<-gather(S, key="status_pekerjaan",value="frekuensi",-jenis_kelamin)
+
+# melakukan subset dan menghitung probabilitas
+# peluang responden merupakan pegawai
+E <- filter(S, status_pekerjaan=="bekerja")
+P_E <- sum(E$frekuensi)/sum(S$frekuensi)
+# peluang reponden laki-laki dan berkerja
+E_M <- filter(S, status_pekerjaan=="bekerja"&jenis_kelamin=="laki-laki")
+P_E_M <-sum(E_M$frekuensi)/sum(S$frekuensi)
+
+# Probabilitas kondisional
+P_E_M/P_E
+```
+
+### 8.1.4 Peristiwa *Independent*
+
+Untuk menentukan probabilitas dua atau lebih peristiwa akan terjadi bersamaan, perlu ditentukan terlebih dahulu apakaha peristiwa-peristiwa tersebut bersifat bebas. Misalnya dalam melempar 2 buah dadu, probabilitas munculnya angka 1 pada dadu pertama adalah $\frac{1}{6}$ dan probabilitas munculnya angka 2 pada dadu kedua juga sama dengan dadu pertama. Jika kita menginginkan kedua nilai tersebut muncul bersamaan pada saat pelemparan, maka probabilitas kejadiannya adalah hasil perkalian kedua probabilitas peristiwa pada masing-masing dadu yaitu $\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{36}$. Pendekatan perhitungan probabilitas untuk peristiwa *independent* dapat dituliskan pada Persamaan \@ref(eq:pi).
+
+\begin{equation}
+   P\left(A\cap B\right)=P\left(A\right)\cdot P\left(B\right)
+  (\#eq:pi)
+\end{equation}
+
+Dengan menggunakan contoh soal sebelumnya, kita akan menentukan probabilitas responden penelitian kita adalah laki-laki (L) dan bekerja (E). Berdasarkan Persamaan \@ref(eq:pi), probabilitas terpilihnya jenis responden tersebut adalah sebagai berikut:
+
+$$
+P\left(L\cap E\right)=\frac{500}{900}\cdot\frac{300}{900}=\frac{5}{27}
+$$
+
+Dengan menggunakan `R` sintaks yang digunakan adalah sebagai berikut:
+
+```{r}
+# subset responden laki-laki
+L <- filter(S, jenis_kelamin=="laki-laki")
+E <- filter(S, status_pekerjaan=="bekerja")
+
+# probabilitas
+P_L <- sum(L$frekuensi)/sum(S$frekuensi)
+P_E <- sum(E$frekuensi)/sum(S$frekuensi)
+
+# Probabilitas peristiwa independen
+P_L*P_E
+
+```
+
+## 8.2 Teori Bayes
+
+Teori Bayes memberikan formula probabilitas suatu peristiwa yang tergantung pada kontribusi dan ragam pada tahap sebelumnya. Formula tersebut dapat dituliskan pada Persamaan \@ref(eq:tb).
+
+\begin{equation}
+   P\left(B_k\mid A\right)=\frac{P\left(B_k\right)\cdot P\left(A\mid B_k\right)}{\sum_{i=1}^nP\left(B_i\right)\cdot P\left(A\mid B_i\right)}\ \text{dimana k=1,2,...,n}
+  (\#eq:tb)
+\end{equation}
+
+Untuk membuktikan persamaan tersebut, kita akan menggunakan Persamaan \@ref(eq:pd) dengan melihat $P\left(B_k\cap A\right)$ dengan dua cara yang berbeda. Untuk lebih mudahnya, misalkan nilai $P\left(B_k\right)>0$ untuk seluruh $k$, sehingga:
+
+\begin{equation}
+   P\left(A\right)\cdot P\left(B_k\mid A\right)=P\left(B_k\cap A\right)=P\left(B_k\right)\cdot P\left(A\mid B_k\right)
+  (\#eq:tb2)
+\end{equation}
+
+sejak nilai $P\left(A\right)>0$ kita dapat membaginya untuk mendapatkan
+
+\begin{equation}
+   P\left(B_k\mid A\right)=\frac{P\left(B_k\right)\cdot P\left(A\mid B_k\right)}{P\left(A\right)}
+  (\#eq:tb3)
+\end{equation}
+
+Sekarang ingat kembaili bahwa $\left\{B_k\right\}$ adalah partisi, teorema probabilitas total probabilitas total memberikan penyebut pada persamaan terkahir menjadi
+
+\begin{equation}
+   P\left(A\right)=\sum_{k=1}^nP\left(B_k\cap A\right)=\sum_{k=1}^nP\left(B_k\right)\cdot P\left(A\mid B_k\right)
+  (\#eq:tb4)
+\end{equation}
+
+Apa artinya? Biasanya dalam aplikasinya kita diberikan (atau tahu) probabilitas apriori $P\left(B_k\right)$. Kita keluar dan mengumpulkan sejumlah data yang kita gunakan untuk mewakili peristiwa A. Kita ingin tahu: bagaimana kita dapat memperbaharui $P\left(B_k\mid A\right)$ menjadi $P\left(B_k\mid A\right)$? Jawabannya adalah dengan teori Bayes.
+
+Untuk memahaminya misalkan sebuah instalasi air menggunakan tawas sebagai koagulannya. Tawas ini disuplai dari 4 perusahaan pemasok bahan kimia. Spesifikasi yang diinginkan adalah paling tidak tawas tersebut mengandung kadar efektif 60%. Data tentang perusaan pemasok dan kegagalan untuk memenuhi standar yang diinginkan adalah:
+
+- Perusahaan 1: memasok 20% dengan kegagalan 1 dalam 20 atau kegagalan = 0,05,
+- Perusahaan 2: memasok 60% dengan kegagalan 1 dalam 10 atau kegagalan = 0,10,
+- Perusahaan 3: memasok 15% dengan kegagalan 1 dalam 10 atau kegagalan = 0,10,
+- Perusahaan 4: memasok 5% dengan kegagalan 1 dalam 20 atau kegagalan = 0,05.
+
+Bila dari stok tawas digudang tersebut direksi ingin mengetahui berapa kemungkinan terjadinya kegagalan pada stok tawas dari perusaan 1, dengan menggunakan teori Bayes kita dapat menghitungnya seperti berikut:
+
+$$
+P\left(B_i\mid A\right)=\frac{0,20\cdot0,05}{\left(0,6\cdot0,1+0,15\cdot0,1+0,05\cdot0,05\right)}=0,114
+$$
+
+## 8.3 Ekspektasi Matematis
+
+Misalkan Menteri Kesehatan Republik Indonesia merilis hasil studi yang menyatakan usia harapan hidup masyarakat Indonesia adalah 70 tahun. Ini tidak berarti saat kita berusia 65 tahun kita akan meninggal 5 tahun berikutnya. Pengertian usia harapan hidup ini didasarkan pada probabilitas yaitu ekspektasi matematis yang dituliskan pada Persamaan \@ref(eq:em).
+
+\begin{equation}
+   E\left(X\right)=\sum_{i=1}^nx_i\cdot P\left(X_i\right)
+  (\#eq:em)
+\end{equation}
+
+Misalkan terdapat eksperimen yang menghasilkan i buah peristiwa, dan masing-masing mempunyai probabilitas terjadi: p1,p2,p3,..,pi. 
+
+sehingga: p1+p2+p3+...+pk=1
+maka ekspektasinya adalah $E=p1\cdot x1+p2\cdot x2+p3\cdot x3+...+pi\cdot xi$. Hasil perjumlahan tersebut akan menghasilkan Persamaan \@ref(eq:em).
+
+Untuk memahami penerapan ekspektasi matematis, misalkan sebuah konsultan sedang menyiapkan proposal untuk sebuah proyek. Biaya untuk menyiapkan proposal adalah 5 juta rupiah, sedang keuntunga kotor bila proyek ini diperoleh adalah:
+
+- 50 juta rupiah dengan probabilitas 0,20
+- 30 juta rupiah dengan probabilitas 0,50
+- 10 juta rupiah dengan probabilitas 0,20
+- 0 rupiah dengan probabilitas 0,10.
+
+Bila kemungkinan mendapatkan proyek tersebut adalah 0,30, maka keuntungan yang diharapkan adalah:
+
+- Probabilitas memperoleh keuntungan 45 juta rupiah (keuntungan kotor-modal)=probabilitas mendapatkan proyek x keuntungan proyek tersebut=0,30 x 0,20 = 0,06
+- Probabilitas memperoleh keuntungan 25 juta = 0,30 x 0,50 = 0,15
+- Probabilitas memperoleh keuntungan 5 juta = 0,30 x 0,20 = 0,06
+- Probabilitas memperoleh kerugian 5 juta = (0,30 x 0,10)+0,70 = 0,73
+
+Maka ekspektasinya = (45 juta x 0,06)+(5 juta x 0,15)+(5 juta x 0,06)-(5 juta x 0,73)=3,1 juta. Dengan demikian perusahaan tersebut dapat memutuskan apakah akan meneruskan membuat proposal tersebut, dengan kemungkinan merugi sebesar 5 juta rupiah (biaya membuat proposal) dan kemungkinan untung 3 juta rupiah.
+
+**Referensi**
+
+1. Damanhuri, E. 2011. **Statitika Lingkunga**. Penerbit ITB.
+2. Kerns, G.Jay. 2018. **Introduction to Probability and Statistics Using R Third Edition**. GNU Free Documentation License.
+3. Janicak, C.A. 2007. **Applied Statistics in Occupational Safety and Health**. Government Institutes.
+4. Walpole, E. R., Myers, H.M., Myers, S.L., Keying Ye. 2011. **Probability $ Statistics for Engineering & Scientists Ninth Edition**. Prentice Hall.
+
+
+
+
+
+
+

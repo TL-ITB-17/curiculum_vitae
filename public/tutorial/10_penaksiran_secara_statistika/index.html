@@ -120,7 +120,7 @@
   
   <meta property="og:site_name" content="Environmental Data Modeling">
   <meta property="og:url" content="/tutorial/10_penaksiran_secara_statistika/">
-  <meta property="og:title" content="8. Penaksiran Secara Statistika | Environmental Data Modeling">
+  <meta property="og:title" content="10. Penaksiran Secara Statistika | Environmental Data Modeling">
   <meta property="og:description" content="body{text-align: justify}Daftar Isi
 Definisi Interval EstimasiInterpretasi Interval EstimasiInterval Kepercayaan MedianInterval Kepercayaan MeanInterval Prediksi NonparametrikTransformasi DataInterval Prediksi ParametrikInterval Kepercayaan Persentil (Interval Toleransi)Interval Kepercayaan Menggunakan Metode BootstrapKegunaan Lain Dari Interval KepercayaanPada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut kunci dari data seperti \(\overline{X}\) dan \(s\). Kedua nilai tersebut disebut sebagai nilai estimasi sampel dari populasi (untuk mean \(\mu\) dan simpangan baku \(\sigma\))."><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
@@ -143,7 +143,7 @@ MathJax.Hub.Config({
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-  <title>8. Penaksiran Secara Statistika | Environmental Data Modeling</title>
+  <title>10. Penaksiran Secara Statistika | Environmental Data Modeling</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -441,7 +441,20 @@ MathJax.Hub.Config({
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/tutorial/10_penaksiran_secara_statistika/">PART 4 - Statistika Inferensial</a>
+    <a class="docs-toc-link" href="/tutorial/08-probabilitas/">PART 4 - Probabilitas dan Distribusi Probabilitas</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/tutorial/08-probabilitas/">Probabilitas dan Distribusi Probabilitas</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/10_penaksiran_secara_statistika/">PART 5 - Statistika Inferensial</a>
     <ul class="nav docs-sidenav">
       
       <li class="active">
@@ -465,7 +478,7 @@ MathJax.Hub.Config({
       <article class="article" itemscope itemtype="http://schema.org/Article">
 
         <div class="docs-article-container">
-          <h1 itemprop="name">8. Penaksiran Secara Statistika</h1>
+          <h1 itemprop="name">10. Penaksiran Secara Statistika</h1>
 
           <div class="article-style" itemprop="articleBody">
             
@@ -478,20 +491,20 @@ text-align: justify}
 <blockquote>
 <p><strong>Daftar Isi</strong></p>
 <ul>
-<li><a href="#8-1-definisi-interval-estimasi">Definisi Interval Estimasi</a></li>
-<li><a href="#8-2-interpretasi-interval-estimasi">Interpretasi Interval Estimasi</a></li>
-<li><a href="#8-3-interval-kepercayaan-median">Interval Kepercayaan Median</a></li>
-<li><a href="#8-4-interval-kepercayaan-mean">Interval Kepercayaan Mean</a></li>
-<li><a href="#8-5-interval-prediksi-nonparametrik">Interval Prediksi Nonparametrik</a></li>
-<li><a href="#8-6-interval-prediksi-parametrik">Transformasi DataInterval Prediksi Parametrik</a></li>
-<li><a href="#8-7-interval-kepercayaan-persentil">Interval Kepercayaan Persentil (Interval Toleransi)</a></li>
-<li><a href="#8-8-interval-kepercayaan-menggunakan-metode-bootstrap">Interval Kepercayaan Menggunakan Metode Bootstrap</a></li>
-<li><a href="#8-9-kegunaan-lain-dari-interval-kepercayaan">Kegunaan Lain Dari Interval Kepercayaan</a></li>
+<li><a href="#10-1-definisi-interval-estimasi">Definisi Interval Estimasi</a></li>
+<li><a href="#10-2-interpretasi-interval-estimasi">Interpretasi Interval Estimasi</a></li>
+<li><a href="#10-3-interval-kepercayaan-median">Interval Kepercayaan Median</a></li>
+<li><a href="#10-4-interval-kepercayaan-mean">Interval Kepercayaan Mean</a></li>
+<li><a href="#10-5-interval-prediksi-nonparametrik">Interval Prediksi Nonparametrik</a></li>
+<li><a href="#10-6-interval-prediksi-parametrik">Transformasi DataInterval Prediksi Parametrik</a></li>
+<li><a href="#10-7-interval-kepercayaan-persentil">Interval Kepercayaan Persentil (Interval Toleransi)</a></li>
+<li><a href="#10-8-interval-kepercayaan-menggunakan-metode-bootstrap">Interval Kepercayaan Menggunakan Metode Bootstrap</a></li>
+<li><a href="#10-9-kegunaan-lain-dari-interval-kepercayaan">Kegunaan Lain Dari Interval Kepercayaan</a></li>
 </ul>
 </blockquote>
 <p>Pada Chapter 6-Ringkasan Numerik kita telah belajar beberapa atribut kunci dari data seperti <span class="math inline">\(\overline{X}\)</span> dan <span class="math inline">\(s\)</span>. Kedua nilai tersebut disebut sebagai nilai estimasi sampel dari populasi (untuk mean <span class="math inline">\(\mu\)</span> dan simpangan baku <span class="math inline">\(\sigma\)</span>). Pada Chapter ini kita akan melakukan eksplorasi lebih jauh lagi mengenai interval estimasi (<em>interval estimate</em>) yang akan menyinggung kedua nilai tersebut lebih jauh.</p>
 <div id="definisi-interval-estimasi" class="section level2">
-<h2>8.1 Definisi Interval Estimasi</h2>
+<h2>10.1 Definisi Interval Estimasi</h2>
 <p>Median sampel dan mean sampel menyatakan titik pemusatan data. Estimasi menggunakan kedua nilai tersebut disebut sebagai estimasi titik (<em>point estimation</em>). Estimasi titik sendiri tidak menggambarkan reliabilitas atau kurangnya reliabilitas (variabilitas) dari estimasi ini. Sebagai contoh, anggaplah terdapat dua data X dan Y dengan mean 5 dengan jumlah observasi yang sama. Data Y memiliki nilai mean 5 dengan sangat sedikit variasi didalamnya, sedangkan data X jauh lebih bervariasi. Perkiraan titik 5 untuk X jauh lebih tidak dapat diandalkan dibandingkan dengan untuk Y karena variabilitas yang lebih besar dalam data X. Dengan kata lain, lebih banyak kehati-hatian diperlukan ketika menyatakan bahwa 5 memperkirakan mean populasi sebenarnya X daripada ketika menyatakan ini untuk Y. Melaporkan hanya perkiraan mean sampel (poin) 5 gagal memberikan petunjuk tentang perbedaan ini.</p>
 <p>Sebagai alternatif untuk estimasi titik, estimasi interval adalah interval yang memiliki probabilitas yang dinyatakan mengandung nilai populasi sebenarnya. interval lebih lebar untuk set data yang memiliki variabilitas lebih besar. Jadi dalam contoh di atas, interval antara 4,7 dan 5,3 mungkin memiliki kemungkinan 95% untuk mengandung mean populasi Y yang sebenarnya (tidak diketahui). Butuh interval yang jauh lebih luas, katakanlah antara 2,0 dan 8,0, untuk memiliki probabilitas yang sama untuk mengandung rerata sebenarnya dari X. Karena itu, perbedaan keandalan dari dua estimasi dengan jelas dinyatakan menggunakan estimasi interval. Estimasi interval dapat memberikan dua informasi yang estimasi poin tidak dapat berikan, antara lain:</p>
 <ol style="list-style-type: decimal">
@@ -501,7 +514,7 @@ text-align: justify}
 <p>Estimasi interval untuk poin pertama disebut sebagai interval kepercayaan (<em>confidence interval</em>), sedangkan yang kedua disebut sebagai interval prediksi (<em>prediction interal</em>). Meskipun salin terkait, pembaca perlu berhati-hati sebab kedua definisi tersebut sering kali tertukar satu sama lain.</p>
 </div>
 <div id="interpretasi-interval-estimasi" class="section level2">
-<h2>8.2 Interpretasi Interval Estimasi</h2>
+<h2>10.2 Interpretasi Interval Estimasi</h2>
 <p>Untuk lebih memahami mengenai definisi interval estimasi pada sub-chapter ini akan diberikan contoh yang diambil dari buku <strong>statistical Methods in Water Resources</strong> karya Helsel dan Hirsch (2012). Misalkan mean populasi sebenarnya <span class="math inline">\(\mu\)</span> konsentrasi dalam akuifer adalah 10. Sleain itu, anggaplah bahwa varians populasi sebenarnya <span class="math inline">\(\sigma^2\)</span> sama dengan 1. Karena nilai-nilai ini dalam praktiknya tidak pernah diketahui, sampel diambil untuk memperkirakannya dengan mean sampel <span class="math inline">\(x\)</span> dan sampel varian <span class="math inline">\(s^2\)</span> . Dana yang cukup tersedia untuk mengambil 12 sampel air (kira-kira satu per bulan) selama satu tahun, dan hari-hari di mana pengambilan sampel terjadi dipilih secara acak. Dari 12 sampel ini <span class="math inline">\(x\)</span>x dan <span class="math inline">\(s^2\)</span> dihitung. Meskipun pada kenyataannya hanya satu set 12 sampel akan diambil setiap tahun, menggunakan komputer 12 hari dapat dipilih beberapa kali untuk menggambarkan konsep perkiraan interval. Untuk masing-masing dari 10 set independen dari 12 sampel, interval kepercayaan pada mean dihitung dengan menggunakan persamaan yang diberikan pada Tabel <a href="#tab:iie">1</a> dan Gambar <a href="#fig:iievis">1</a>.</p>
 <table>
 <caption><span id="tab:iie">Table 1: </span> Sepuluh interval kepercayaan 90% sekitar nilai mean sebenarnya sebesar 10 (Data berdistribusi normal dan Tanda plus menyatakan data tidak disertakan dalam nilai mean sebenarnya)</caption>
@@ -699,10 +712,10 @@ Figure 3: Sepuluh interval kepercayaan 90 persen data dengan nilai mean sebenarn
 </div>
 </div>
 <div id="interval-kepercayaan-median" class="section level2">
-<h2>8.3 Interval Kepercayaan Median</h2>
+<h2>10.3 Interval Kepercayaan Median</h2>
 <p>Interval kepercayaan median populasi dapat dihitung tanpa perlu mengikuti asumsi distribusi tertentu. Sehingga nilai median dapat digunakan untuk memperkirakan nilai pusat data untuk distribusi data yang tidak berdistribusi normal.</p>
 <div id="interval-estimasi-median-metode-nonparametrik" class="section level3">
-<h3>8.3.1 Interval Estimasi Median Metode Nonparametrik</h3>
+<h3>10.3.1 Interval Estimasi Median Metode Nonparametrik</h3>
 <p>Interval estimasi nonparametrik untuk median populasi sebenarnya dihitung menggunakan distribusi binomial. Pertama, tingkat signifikansi yang diinginkan <span class="math inline">\(\alpha\)</span> dinyatakan, error yang dapat diterima tidak termasuk median yang sebenarnya. Satu-setengah (<span class="math inline">\(\alpha/2\)</span>) dari error ini digunakan untuk setiap akhir interval (Gambar <a href="#fig:iemednp">4</a>). Tabel distribusi binomial memberikan nilai kritis bawah dan atas <span class="math inline">\(x&#39;\)</span> dan <span class="math inline">\(x\)</span> pada setengah tingkat alfa yang diinginkan (<span class="math inline">\(\alpha/2\)</span>). Nilai-nilai kritis ini ditransformasikan ke dalam rangking <span class="math inline">\(R_l\)</span> dan <span class="math inline">\(R_u\)</span> yang sesuai dengan titik data <span class="math inline">\(C_l\)</span> dan <span class="math inline">\(C_u\)</span> di ujung interval kepercayaan.</p>
 <div class="figure" style="text-align: center"><span id="fig:iemednp"></span>
 <img src="/iemednp.png" alt="Probabilitas median populasi P50 pada dua sisi interval estimasi (Helsel dan Hirsch, 2002)" width="80%" />
@@ -834,6 +847,7 @@ Figure 4: Probabilitas median populasi P50 pada dua sisi interval estimasi (Hels
 </tbody>
 </table>
 <p>Visualisasi Tabel <a href="#tab:gwardat">3</a> ditunjukkan pada Gambar <a href="#fig:gwardatvis">5</a>. Berdasarkan gambar tersebut terlihat bahwa data memiliki kemencengan yang positif sehingga penaksiran rata-rata populasi menggunakan nilai mean tidak dapat dilakukan.</p>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
 <pre><code>## Warning: package &#39;ggthemes&#39; was built under R version 3.5.3</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:gwardatvis"></span>
 <img src="/tutorial/10_penaksiran_secara_statistika_files/figure-html/gwardatvis-1.png" alt="Distribusi konsentrasi arsenik dalam air tanah" width="70%" />
@@ -982,7 +996,7 @@ Figure 6: Lokasi probabilitas x berdasarkan tabel distribusi binomial
 <pre class="r"><code>med_norCI(df=airquality, alpha=0.05)</code></pre>
 </div>
 <div id="metode-parametrik-interval-estimasi-median" class="section level3">
-<h3>8.3.2 Metode Parametrik Interval Estimasi Median</h3>
+<h3>10.3.2 Metode Parametrik Interval Estimasi Median</h3>
 <p>Telah dijelaskan pada chapter 6 bahwa rata-rata geometrik merupakan merupakan nilai rata-rata yang digunakan untuk mengestimasi median sampel untuk data yang memiliki kemencengan dengan transformasi yang digunakan agar data simetris adalah transformasi logaritmik <span class="math inline">\(y=\ln(x)\)</span>. Pada metode ini data diasumsikan memiliki distribusi lognormal (kemencengan positif). Rerata dan interval geometris akan lebih efisien (interval lebih pendek) dari median dan interval kepercayaannya ketika data benar-benar lognormal. Median sampel dan intervalnya lebih tepat dan lebih efisien jika logaritma data masih menunjukkan kemencengan dan/atau <em>outlier</em>. Estimasi media menggunakan metode parametrik dituliskan kedalam Persamaan <a href="#eq:gmci">(6)</a> dan Persamaan <a href="#eq:gmci2">(7)</a>.</p>
 <span class="math display" id="eq:gmci">\[\begin{equation}
   GM_x=\exp\left(\overline{y}\right) 
@@ -1194,10 +1208,10 @@ Figure 7: Distribusi logaritmik konsentrasi arsenik dalam air tanah
 </div>
 </div>
 <div id="interval-kepercayaan-mean" class="section level2">
-<h2>8.4 Interval Kepercayaan Mean</h2>
+<h2>10.4 Interval Kepercayaan Mean</h2>
 <p>Estimasi interval juga dapat dihitung untuk mean populasi sebenarnya <span class="math inline">\(\mu\)</span>. Hal ini sangat sesuai jika pusat data menjadi fokus dalam analisa statistik. Interval simetris di sekitar sampel rata-rata X paling sering dihitung. Untuk ukuran sampel besar, interval simetris secara memadai menggambarkan variasi rata-rata, terlepas dari bentuk distribusi data. Ini karena distribusi rata-rata sampel akan mendekati dengan distribusi normal ketika ukuran sampel semakin besar, meskipun data mungkin tidak terdistribusi secara normal. Untuk ukuran sampel yang lebih kecil, rata-rata tidak akan didistribusikan secara normal kecuali jika data itu sendiri terdistribusi secara normal. Ketika data meningkat kemencengannya, lebih banyak data diperlukan sebelum distribusi rata-rata dapat didekati secara memadai oleh distribusi normal. Untuk distribusi yang sangat miring atau data yang mengandung <em>outlier</em>, mungkin diperlukan lebih dari 100 pengamatan sebelum nilai rata-rata tidak akan terpengaruh oleh nilai terbesar untuk mengasumsikan bahwa distribusinya akan simetris.</p>
 <div id="interval-kepercayaan-mean-untuk-distribusi-yang-simetris" class="section level3">
-<h3>8.4.1 Interval Kepercayaan Mean Untuk Distribusi Yang Simetris</h3>
+<h3>10.4.1 Interval Kepercayaan Mean Untuk Distribusi Yang Simetris</h3>
 <p>Interval kepercayaan mean untuk distribusi simetris dihitung menggunakan tabel distribusi <em>student’s t</em> yang tersedia dalam buku teks statistik dan perangkat lunak. Tabel ini dimasukkan untuk menemukan nilai kritis untuk t pada setengah tingkat alfa yang diinginkan. Pada buku lain sering dijelaskan bahwa distribusi t hanya digunakan untuk sampel kecil (beberapa menyebutkan n&lt;30), sedangkan untuk distribusi besar digunakan distribusi normal. Penggunaan distribusi normal jarang digunakan dalam prakiraan. Hal ini disebabkan karena pada proses perhitungan diperlukan nilai simpangan baku <span class="math inline">\(\sigma\)</span>. Pada kenyataannya pada pengukuran dilapangan kita sering sekalin melakukan estimasi terhadap simpangan baku melalui sampel <span class="math inline">\(s\)</span> karena kita tidak mengetahui nilai simpangan baku populasinya sehingga pada buku ini akan digali lebih jauh metode estimasi interval menggunakan persamaan distribusi t.</p>
 <p>Lebar interval kepercayaan adalah fungsi dari nilai-nilai kritis dari tabel distribusi t, simpangan baku data, dan ukuran sampel. Ketika data memiliki kemecengan atau mengandung <em>outlier</em>, asumsi di balik interval t dan distribusi normal tidak berlaku. Interval simetris yang dihasilkan akan sangat luas sehingga sebagian besar pengamatan akan dimasukkan di dalamnya. Ini juga dapat mencapai di bawah nol di ujung bawah. Titik akhir negatif dari interval kepercayaan untuk data yang tidak dapat menjadi negatif adalah sinyal yang jelas bahwa asumsi interval kepercayaan simetris tidak diperlukan. Untuk data tersebut, dengan asumsi distribusi lognormal seperti yang dijelaskan dalam sub chapter sebelumnya (interval kepercayaan median) akan lebih tepat. Interval kepercayaan dihitung menggunakan Persamaan <a href="#eq:pmeancisim">(8)</a>.</p>
 <span class="math display" id="eq:pmeancisim">\[\begin{equation}
@@ -1248,7 +1262,7 @@ mean(gwardat2$konsentrasi)+r[[11]]</code></pre>
 ##    98.352</code></pre>
 </div>
 <div id="interval-kepercayaan-mean-untuk-distribusi-yang-asimetris" class="section level3">
-<h3>8.4.2 Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris</h3>
+<h3>10.4.2 Interval Kepercayaan Mean Untuk Distribusi Yang Asimetris</h3>
 <p>Mean dan interval kepercayaan dapat dihitung dengan mengasumsikan distribusi data mengikuti distribusi logaritmik <span class="math inline">\(y=\ln{(x)}\)</span>. Metode ini berguna untuk jenis data yang memiliki bentuk distribusi data yang memiliki kemencengan positif (perlu transformasi logaritmik agar simetris).Metode ini memberikan perkiraan rata-rata yang lebih dapat diandalkan (varians lebih rendah) daripada perhitungan rata-rata sampel biasa tanpa transformasi log.</p>
 <p>Untuk memperkirakan rata-rata populasi <span class="math inline">\(\mu_x\)</span> dalam unit aslinya, anggap datanya berdistribusi normal. Satu-setengah varians logaritma ditambahkan ke <span class="math inline">\(\overline{y}\)</span> (rata-rata log) sebelum eksponensial. Karena varians sampel <span class="math inline">\(s^2_y\)</span> hanya perkiraan varians sebenarnya dari logaritma, estimasi sampel rata-rata akan menjadi bias. Namun, untuk sampel dengan <span class="math inline">\(s^2_y\)</span> kecil dan ukuran sampel besar bias dapat diabaikan. Interval kepercayaan dapat dituliskan berdasarkan Persamaan <a href="#eq:pmeanciasim">(9)</a>.</p>
 <span class="math display" id="eq:pmeanciasim">\[\begin{equation}
@@ -1357,11 +1371,11 @@ mean(gwardat2$konsentrasi)+r[[11]]</code></pre>
 </div>
 </div>
 <div id="interval-prediksi-nonparametrik" class="section level2">
-<h2>8.5 Interval Prediksi Nonparametrik</h2>
+<h2>10.5 Interval Prediksi Nonparametrik</h2>
 <p>Pertanyaan yang sering diajukan adalah apakah satu pengamatan baru kemungkinan berasal dari distribusi yang sama dengan data yang dikumpulkan sebelumnya, atau sebagai alternatif dari distribusi yang berbeda. Pertanyaan dapat dievaluasi dengan menentukan apakah pengamatan baru di luar interval prediksi yang dihitung dari data yang ada. Interval prediksi mengandung <span class="math inline">\(100\cdot\left(1-\alpha\right)\)</span> persen dari distribusi data, sementara <span class="math inline">\(100\cdot\alpha\)</span> persen berada di luar interval. Jika pengamatan baru datang dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan <span class="math inline">\(100\cdot\alpha\)</span> persen bahwa pengamatan baru tersebut akan berada di luar interval prediksi. Karena pengamatan baru tersebut berada di luar interval tidak “membuktikan” pengamatan baru itu berbeda, hanya saja sepertinya begitu. Seberapa besar kemungkinan ini tergantung pada pilihan <span class="math inline">\(\alpha\)</span> yang ditentukan oleh peneliti.</p>
 <p>Interval prediksi dihitung dengan tujuan yang berbeda dari interval kepercayaan. Interval prediksi terkait dengan nilai data individu yang berlawanan dengan ringkasan statistik seperti nilai mean. Interval prediksi lebih luas daripada interval kepercayaan, karena pengamatan individu lebih bervariasi daripada ringkasan statistik yang dihitung dari beberapa pengamatan. Tidak seperti interval kepercayaan, interval prediksi memperhitungkan variabilitas titik data tunggal di sekitar median atau rata-rata, di samping kesalahan dalam memperkirakan pusat distribusi. Ketika mean <span class="math inline">\(\pm\)</span> 2 simpangan baku secara keliru digunakan untuk memperkirakan lebar interval prediksi, data baru dinyatakan berasal dari populasi yang berbeda lebih sering daripada yang seharusnya.</p>
 <div id="interval-prediksi-nonparametrik-dua-sisi" class="section level3">
-<h3>8.5.1 Interval Prediksi Nonparametrik Dua Sisi</h3>
+<h3>10.5.1 Interval Prediksi Nonparametrik Dua Sisi</h3>
 <p>Interval prediksi tingkat kepercayaan nonparametrik <span class="math inline">\(\alpha\)</span> secara sederhana dinyatakan sebagai interval antara persentil distribusi <span class="math inline">\(\alpha/2\)</span> dan <span class="math inline">\(1-\left(\frac{\alpha}{2}\right)\)</span> (Gambar <a href="#fig:ipnds">8</a>). Interval ini mengandung <span class="math inline">\(100\cdot\left(1-\alpha\right)\)</span> data, sedangkan <span class="math inline">\(100\cdot\alpha\)</span> persen berada di luar interval. Oleh karena itu jika titik data tambahan baru berasal dari distribusi yang sama dengan data yang diukur sebelumnya, ada kemungkinan <span class="math inline">\(100\cdot\alpha\)</span> persen bahwa itu akan berada di luar interval prediksi. Interval akan mencerminkan bentuk data yang dikembangkannya, dan tidak ada asumsi tentang bentuk bentuk yang perlu dibuat. Interval prediksi nonparametrik dua sisi dinyatakan berdasarkan Persamaan <a href="#eq:eqipnds">(11)</a>.</p>
 <span class="math display" id="eq:eqipnds">\[\begin{equation}
   PI_{np}=X_{\frac{\alpha}{2}\cdot\left(n+1\right)}\ sampai\ dengan\ X_{\left[1-\left(\frac{\alpha}{2}\right)\right]\cdot\left(n+1\right)}
@@ -1421,7 +1435,7 @@ Figure 8: Prediksi interval dua sisi (Helsel dan Hirsch, 2002)
 ## 1      1.4      508</code></pre>
 </div>
 <div id="interval-prediksi-nonparametrik-satu-sisi" class="section level3">
-<h3>8.5.2 Interval Prediksi Nonparametrik Satu Sisi</h3>
+<h3>10.5.2 Interval Prediksi Nonparametrik Satu Sisi</h3>
 <p>Interval prediksi satu sisi digunakan jika kita ingin mengecek apakah pengamatan baru lebih besar dari data yang ada, atau lebih kecil dari data yang ada, tetapi tidak keduanya. Keputusan untuk menggunakan interval satu sisi harus didasarkan sepenuhnya pada pertanyaan yang menarik. Seharusnya tidak ditentukan setelah melihat data dan memutuskan bahwa pengamatan baru cenderung hanya lebih besar, atau hanya lebih kecil, daripada informasi yang ada. Interval satu sisi menggunakan <span class="math inline">\(\alpha\)</span> dibanding <span class="math inline">\(\alpha/2\)</span> sebagai nilai error, menempatkan semua error di satu sisi interval (Gambar <a href="#fig:ipss">9</a>). Interval prediksi dituliskan berdasarkan Persamaan <a href="#eq:eqipss">(12)</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:ipss"></span>
 <img src="/ipss.png" alt="Prediksi interval satu sisi (Helsel dan Hirsch, 2002)" width="80%" />
@@ -1492,10 +1506,10 @@ Figure 9: Prediksi interval satu sisi (Helsel dan Hirsch, 2002)
 </div>
 </div>
 <div id="interval-prediksi-parametrik" class="section level2">
-<h2>8.6 Interval Prediksi Parametrik</h2>
+<h2>10.6 Interval Prediksi Parametrik</h2>
 <p>Interval prediksi parametrik juga digunakan untuk menentukan apakah pengamatan baru kemungkinan berasal dari distribusi yang berbeda dari data yang dikumpulkan sebelumnya. Namun, pada metode parametrik asumsi bentuk dari distribusi data akan diperhitungkan. Asumsi ini memberikan lebih banyak informasi untuk membangun interval, asalkan asumsi tersebut valid. Jika data tidak mengikuti distribusi yang diasumsikan, interval prediksi mungkin tidak akurat.</p>
 <div id="interval-prediksi-distribusi-simetris" class="section level3">
-<h3>8.6.1 Interval Prediksi Distribusi Simetris</h3>
+<h3>10.6.1 Interval Prediksi Distribusi Simetris</h3>
 <p>Asumsi yang digunakan untuk melakukan perhitungan interval prediksi untuk distribusi data yang simetris adalah data haruslah berdistribusi normal. Interval prediksi selanjutnya dibentuk secara simetris pada kedua sisi nilai mean. Interval ini lebih lebar rentangnya dibandingkan dengan interval kepercayaan nilai mean. Persamaan matematis yang digunakan untuk menghitungnya dituliskan pada Persamaan <a href="#eq:ipds">(13)</a>.</p>
 <span class="math display" id="eq:ipds">\[\begin{equation}
   PI=\overline{X}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}sampai\ \overline{X}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}
@@ -1588,7 +1602,7 @@ PI_sim(x = gwardat$konsentrasi, obs = 350, alpha=0.05, side=2)</code></pre>
 ## nilai observasi sama dengan sebagian besar nilai yang ada</code></pre>
 </div>
 <div id="interval-prediksi-untuk-distribusi-data-yang-tidak-simetris" class="section level3">
-<h3>8.6.2 Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris</h3>
+<h3>10.6.2 Interval Prediksi Untuk Distribusi Data Yang Tidak Simetris</h3>
 <p>Untuk distribusi data yang tidak simetris, data perlu dilakukan transformasi terlebih dahulu sebelum dilakukan. Data di lingkungan khusunya parameter di air cenderung memiliki bentuk distribusi tidak simetris (cenderung memiliki kemencengan positif). Transformasi logaritmik biasanya dapat digunakan untuk data tersebut agar bentuknya dapat simetris dan dapat memenuhi asumsi normalitas pada data. Data yang telah dilakukan transformasi selanjutnya dihitung menggunakan Persamaan <a href="#eq:ipds">(13)</a> untuk interval prediksi dua sisi dan Persamaan <a href="#eq:ipds2">(14)</a> untuk interval prediksi satu sisi. Hasil perhitungan selanjutnya dilakukan transformasi kembali sesuai dengan invers dari transformasinya dalam hal ini menggunakan transformasi eksponensial (jika tranformasi awalnya adalah natural log). Untuk data dengan bentuk distribusi logaritmik (kemencengan positif), interval prediksi yang digunakan disajikan pada Persamaan <a href="#eq:ipdas">(15)</a> (dua sisi) dan Persamaan <a href="#eq:ipdas2">(16)</a> (satu sisi).</p>
 <span class="math display" id="eq:ipdas">\[\begin{equation}
   PI=\exp\left(\overline{X}-t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)\ sampai\ \exp\left(\overline{X}+t_{\left(\frac{\alpha}{2},n-1\right)}\cdot\sqrt{s^2+\left(\frac{s^2}{n}\right)}\right)
@@ -1687,12 +1701,12 @@ PI_asim(x = gwardat$konsentrasi, obs = 350, alpha=0.05, side=2)</code></pre>
 </div>
 </div>
 <div id="interval-kepercayaan-persentil" class="section level2">
-<h2>8.7 Interval Kepercayaan Persentil</h2>
+<h2>10.7 Interval Kepercayaan Persentil</h2>
 <p>Kuantil atau persentil telah digunakan secara tradisional dalam sumber daya air untuk menggambarkan frekuensi kejadian banjir. Dengan demikian banjir 100 tahun adalah persentil ke-99 (0,99 kuantil) dari distribusi puncak banjir tahunan. Besarnya banjir yang diperkirakan hanya akan dilampaui sekali dalam 100 tahun. Banjir 20 tahun besarnya besarnya yang diperkirakan hanya akan dilampaui sekali dalam 20 tahun (5 kali dalam 100 tahun), atau merupakan persentil ke-95 dari puncak tahunan. Demikian pula, banjir 2 tahun adalah median atau persentil ke-50 dari puncak tahunan. Persentil banjir ditentukan dengan asumsi bahwa aliran puncak mengikuti distribusi yang ditentukan seperti distribusi Log Pearson type III atau distribusi Gumbel.</p>
 <p>Interal kepercayaan persentil berbeda dengan interval kepercayaan median. Hal yang paling jelas terlihat adalah interval kepercayaan persentil mengukur interval kepercayaan pada setiap persentil data yang ada, sedangkan intervak kepercayaan media hanya mengukur pada lokasi pusat data atau persentil ke-50.</p>
 <p>Interval kepercayaan persentil juga disebut sebagai interval toleransi. Nilai persentil digunakan sebagai <strong>koefisien cakupan</strong> dari interal toleransi. Pada chapter ini akan dibahas lebih jauh mengenai metode perhitungan interval toleransi baikdengan metode parametrik maupun dengan metode nonparametrik.</p>
 <div id="interval-kepercayaan-nonparametrik-persentil" class="section level3">
-<h3>8.7.1 Interval Kepercayaan Nonparametrik Persentil</h3>
+<h3>10.7.1 Interval Kepercayaan Nonparametrik Persentil</h3>
 <p>Metode perhitungan interval kepercayaan nonparametrik persentil mirip dengan perhitungan interval kepercayaan median. Kita akan menggunakan kembali tabel binomial jika sampel kita kecil untuk menentukan limit atas dan bawah yang merupakan nilai kritis dari alpha yang telah kita tetapkan. Nilai kritis ini selanjutnya akan ditransformasikan kedalam bentuk rangking pada data yang menunjukkan titik observasi ujung pada interval kepercayaan.</p>
 <p>Tabel binomial dimasukkan pada kolom dengan nilai <span class="math inline">\(p\)</span>, persentil yang diinginkan interval kepercayaannya. Jadi untuk interval kepercayaan pada persentil ke-75, kolom <span class="math inline">\(p=0,75\)</span> digunakan. Cari pada baris kolom tersebut sampai <span class="math inline">\(n\)</span> dengan probabilitas mendekati alpha level (<span class="math inline">\(\alpha/2\)</span>) ditemukan. Nilai kritis <span class="math inline">\(x_l\)</span> bawah adalah bilangan bulat yang sesuai dengan probabilitas <span class="math inline">\(p^*\)</span>. Nilai kritis kedua <span class="math inline">\(x_u\)</span> juga diperoleh dengan melanjutkan pada kolom tersebut sampai menemukan probabilitas <span class="math inline">\(p&#39;=\left(1-\frac{\alpha}{2}\right)\)</span>. Nilai kritis <span class="math inline">\(x_l\)</span> dan <span class="math inline">\(x_u\)</span> digunakan untuk menghitung rangking <span class="math inline">\(R_l\)</span> dan <span class="math inline">\(R_u\)</span> yang sesuai dengan nilai data di ujung atas dan bawah limit kepercayaan (Persamaan <a href="#eq:iknp">(17)</a> dan Persamaan <a href="#eq:iknp2">(18)</a>). Level interval kepercayaan yang dihasilkan akan sama dengan <span class="math inline">\(\left(p&#39;-p\cdot\right)\)</span>.</p>
 <span class="math display" id="eq:iknp">\[\begin{equation}
@@ -1787,7 +1801,7 @@ R_u=25\cdot0,2+1,96\cdot\sqrt{25\cdot0,2\left(1-0,2\right)}+0,5\ =\ 5+1,96\cdot2
 <pre class="r"><code>CI_npPercent(x= gwardat$konsentrasi, p= 0.2, alpha=0.05)</code></pre>
 </div>
 <div id="uji-nonparametrik-untuk-persentil" class="section level3">
-<h3>8.7.2 Uji Nonparametrik Untuk Persentil</h3>
+<h3>10.7.2 Uji Nonparametrik Untuk Persentil</h3>
 <p>Pengujian persentil dilakukan untuk mengecek apakah sebuah persentil berbeda (lebih besar atau lebih kecil) dibandingkan dengan sejumlah nilai. Sebagai contoh misalkan terdapat median kualitas harian suatu parameter tidak boleh melebihi standar yang berlaku sebesar <span class="math inline">\(X_0\)</span> ppb. Contoh lain dalam bidang hidrologi periode ulang hujan (PUH) 10 tahun atau persentil ke-90 dari debit puncak tahunan suatu kawasan dapat dilakukan pengujian apakah nilai yang ada dilapangan berbeda dengan PUH 10 tahunan yang telah kita hitung untuk digunakan dalam mendesain saluran drainase. Pembahasan pengujian persentil tersebut tidak akan sampai menyinggung pengujian hipotesis yang akan dibahas pada Chapter selanjutnya. Pembahasan akan berkisar membandingkan suatu nilai dengan interval kepercayaan seperti yang telah dijelaskan pada pembahasan terkait interval prediksi.</p>
 <p>Pengujian apakah sebuah nilai <span class="math inline">\(X_0\)</span> berbeda dengan sejumlah rentang nilai yang ditetapkan dapat dilakukan dengan pengujian dua sisi dan satu sisi. Pengujian satu sisi melihat apakah suatu nilai <span class="math inline">\(X_0\)</span> berada diluar interval kepercayaan persentil atau diantara nilai batas bawah <span class="math inline">\(X_l\)</span> dan nilai batas atasnya <span class="math inline">\(X_u\)</span> (lihat Gambar <a href="#fig:unup1">10</a>). Sedangkan pengujian satu sisi melihat apakah suatu nilai lebih besar atau lebih kecil (tergantung apakah pengujian satu sisi sebelah atas distribusi atau sebelah bawah distribusi) dari interval kepercayaan persentil yang digunakan (lihat Gambar <a href="#fig:unup2">11</a> dan Gambar <a href="#fig:unup3">12</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:unup1"></span>
@@ -1820,7 +1834,7 @@ R_l=np+z_{0,05}\sqrt{np\left(1-p\right)}=25\cdot0,9+\left(-1,64\right)\cdot\sqrt
 <pre class="r"><code>CI_npPercent(gwardat$konsentrasi, 0.9, 0.1)</code></pre>
 </div>
 <div id="interval-kepercayaan-parametrik-untuk-persentil" class="section level3">
-<h3>8.7.3 Interval Kepercayaan Parametrik Untuk Persentil</h3>
+<h3>10.7.3 Interval Kepercayaan Parametrik Untuk Persentil</h3>
 <p>Interval kepercayaan untuk persentil juga dapat dihitung dengan mengasumsikan bahwa data mengikuti distribusi tertentu. Asumsi distribusi digunakan karena sering ada data yang tidak cukup untuk menghitung persentil dengan presisi yang diperlukan. Menambahkan informasi yang terkandung dalam distribusi akan meningkatkan ketepatan estimasi selama asumsi distribusi masuk akal. Namun ketika distribusi yang diasumsikan tidak sesuai dengan data dengan baik, estimasi yang dihasilkan kurang akurat, dan lebih menyesatkan, daripada jika tidak ada yang diasumsikan. Sayangnya, situasi di mana asumsi paling dibutuhkan ketika ukuran sampel yang kecil, adalah situasi yang sama di mana sulit untuk menentukan apakah data mengikuti distribusi yang diasumsikan.</p>
 <p>Pada interval kepercayaan parametrik asumsi terhadap kecocokan data terhadap suatu distribusi perlu diperhatikan. Data di lingkungan umumnya memiliki bentuk distribusimengikuti distribusi lognormal. Selain itu, distribusi yang sering sekali digunakan adalah distribusi Pearson Tipe III dan Gumbel. Kedua pendekatan distribusi tersebut akan mempengaruhi metode perhitungan yang digunakan. Sehingga pengetahuan yang lebih baik mengenaik distribusi tersebut diperlukan. Pada buku ini kita hanya akan membahas mengenai perhitungan interval kepercayaan menggunakan distribusi lognormal. Pembaca dapat membaca mengenai penerapan distribusi lainnya melalui junal yang ditulis oleh <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=28&amp;ved=2ahUKEwjnkojIgNnhAhXBh3AKHSJOBLM4ChAWMBF6BAgHEAI&amp;url=https%3A%2F%2Fwww.preprints.org%2Fmanuscript%2F201901.0164%2Fv1%2Fdownload&amp;usg=AOvVaw0evYfNso3_IwVWnmJMKsSp">Wei dan Song (2019)</a>.</p>
 <p>Perhitungan estimasi titik dan interval untuk persentil dengan asumsi distribusi lognormal dapat dilakukan dengan mudah. Pertama sampel rata-rata <span class="math inline">\(y\)</span> dan sampel simpangan baku <span class="math inline">\(s_y\)</span> logaritma dihitung. Estimasi titik kemudian dihitung menggunakan Persamaan <a href="#eq:ikp1">(21)</a>.</p>
@@ -1849,13 +1863,13 @@ C_{0,90}=\exp\left(3,17+1,28\cdot1,96\right)=292,6\ ppb
 \]</span></p>
 </div>
 <div id="uji-parametrik-untuk-persentil" class="section level3">
-<h3>8.7.4 Uji Parametrik Untuk Persentil</h3>
+<h3>10.7.4 Uji Parametrik Untuk Persentil</h3>
 <p>Seperti pada bagian sebelumnya kita ingin melihat apakah persentil dari sekumpulan data berbeda dengan nilai tertentu (dapat berupa baku mutu). Pengujian dilakukan dengan melihat apakah nilai tertentu tersebut berada diantara interval kepercayaan persentil dari data (uji dua sisi), lebih besar atau lebih kecil dari batas bawah atau batas atas interval kepercayaan persentil (uji satu sisi). Langkah pengujian dilakukan sama dengan sebelumnya dengan menghitung terlebih dulu batas atas atau batas bawah persentil data yang selanjutnya dibandingkan dengan nilai tertentu.</p>
 <p>Dengan menggunakan hasil dari perhitungan sebelumnya, dengan menggunakan alpha=0,05 kita perlu menentukan apakah batas bawah interval kepercayaan melampaui baku mutu arsenik sebesar 300 ppb (uji satu sisi). Berdasarkan hasil perhitungan diperoleh batas bawah interval kepercayaan persentil ke-90 sebesar 138,4 ppb atau lebih kecil dibandingkan batas yang ditentukan, sehingga disimpulkan bahwa konsentrasi arsenik persentil ke-90 pada data tidak melampaui baku mutu yang ditentukan.</p>
 </div>
 </div>
 <div id="interval-kepercayaan-menggunakan-metode-bootstrap" class="section level2">
-<h2>8.8 Interval Kepercayaan Menggunakan Metode Bootstrap</h2>
+<h2>10.8 Interval Kepercayaan Menggunakan Metode Bootstrap</h2>
 <p>Bootstrap merupakan metode inferensi populasi menggunakan data sampel. Metode ini dikembangkan oleh Bradley Efron pada tahun 1979. Jika pembaca ingin lebih mengenal metode ini pembaca dapat membaca makalahnya di tautan <a href="https://projecteuclid.org/euclid.aos/1176344552">berikut</a>. Pembaca dapat membaca makalah tersebut secara gratis.</p>
 <p>Bootstrap mengandalkan pengambilan sampel dengan pengembalian dari data sampel. Teknik ini dapat digunakan untuk memperkirakan standard error (se) dari setiap statistik dan untuk memperoleh interval kepercayaan (CI) untuk itu. Bootstrap sangat berguna ketika CI tidak memiliki bentuk tertutup, atau memiliki bentuk yang sangat rumit.</p>
 <p>Misalkan kita memiliki sejumlah sampel dengan ukuran <span class="math inline">\(n\)</span>: <span class="math inline">\(X=\left\{x_1,x_2,...,x_n\right\}\)</span> dan kita tertarik dengan CI dari beberapa statistik data <span class="math inline">\(T=t\left(X\right)\)</span>. Metode ini sangat mudah untuk dikerjakan. Kita hanya perlu mengulang sejumlah <span class="math inline">\(R\)</span> kali skema berikut: Untuk pengulangan ke-<span class="math inline">\(i\)</span>, sampling dengan pengembalian <span class="math inline">\(n\)</span> data dari data sampel yang tersedia. Namai sampel baru tersebut sebagai sampel bootstrap ke-<span class="math inline">\(i\)</span> , <span class="math inline">\(X_i\)</span>, dan hitung statistik (mean, median atu persentil) yang ingin dihitung interval kepercayaannya.</p>
@@ -2032,15 +2046,15 @@ Figure 15: Distribusi bootstrap persentil 90
 <p>Berdasarkan keempat hasil yang diperoleh, metode BCa cukup baik digunakan sebab distribusi bootstrap yang dihasilkan tidak memenuhi asumsi ketiga metode lainnya.</p>
 </div>
 <div id="kegunaan-lain-dari-interval-kepercayaan" class="section level2">
-<h2>8.9 Kegunaan Lain Dari Interval Kepercayaan</h2>
+<h2>10.9 Kegunaan Lain Dari Interval Kepercayaan</h2>
 <p>Selain digunakan untuk menghitung interval estimasi, interval kepercayaan dapat pula digunakan sebagai pendeteksi adanya <em>outlier</em>, kontrol kualitas, dan penentuan ukuran sampel yang akan digunakan pada suatu penelitian agar hasil yang diperoleh lebih presisi. Pembahasan juga akan disertai apakah normalitas pada distribusi data akan mempengaruhi performa dari ketiga jenis kegunaan interval kepercayaan.</p>
 <div id="implikasi-non-normalitas-pada-pendeteksian-outlier" class="section level3">
-<h3>8.9.1 Implikasi Non-Normalitas Pada Pendeteksian <em>Outlier</em></h3>
+<h3>10.9.1 Implikasi Non-Normalitas Pada Pendeteksian <em>Outlier</em></h3>
 <p><em>Outlier</em> merupakan pengamatan yang tampak berbeda karakteristiknya dibandingkan sebagian besar pengamatan yang ada. Pengamatan ini seringkli dihapus dari prosedur analisis yang mengharuskan distribusi suatu data mengikuti distribusi normal. Penghapusan observasi ini bisa jadi tidak baik dilakukan sebab bisa saja observasi tersebut valid. Observasi yang bersifat <em>outlier</em> bisa jadi merupakan observasi terpenting sebab bisa saja dapat memberikan gambaran penting pada suatu kondisi ekstrim atau hubungan kausatif yang penting. Penghapusan ini tidak perlu dilakukan selam prosedur pengukuran yang sejenis tersedia dan tidak mengharuskan suatu distribusi data mengikuti distribusi tertentu, meskipun terdapat kelebihan dan kekurangan yang perlu kita perhatikan.</p>
 <p>Untuk menghapus observasi yang kita identifikasikan sebagai <em>outlier</em>, aturan atau tes perlu dilakukan seperti tes yang diajukan oleh Beckman dan Cook (1983). Tes yang paling umum didasarkan pada interval-t, dan mengasumsikan data mengikuti distribusi normal. Biasanya Persamaan <a href="#eq:ipds">(13)</a> untuk interval pediksi data yang mengikuti distribusi normal disederhanakan dengan mengabaikan nilai <span class="math inline">\(\frac{s^2}{n}\)</span>. Nilai diluar interval prediksi tersebut selanjutnya dapat dinyatakan sebagai <em>oulier</em>. Uji lain yang dapat dilakukan adalah dengan visualisasi menggunakan box plot. Nilai diluar <span class="math inline">\(Q1-1,5IQR\)</span> atau <span class="math inline">\(Q3+1,5IQR\)</span> dinyatakan sebagai <em>outlier</em>. Namun pada Chapter ini tidak akan dibahas lebih lanjut sebab pada Chapter 7 telah dibahas mengenai deteksi <em>outlier</em> mellaui visualisasi data.</p>
 </div>
 <div id="implikasi-non-normalitas-pada-kontrol-kualitas" class="section level3">
-<h3>8.9.2 Implikasi Non-Normalitas Pada Kontrol Kualitas</h3>
+<h3>10.9.2 Implikasi Non-Normalitas Pada Kontrol Kualitas</h3>
 <p>Presentasi visual interval kepercayaan yang digunakan secara luas dalam proses industri adalah kontrol chart. Sejumlah kecil produk disampel dari total kemungkinan pada titik waktu tertentu, dan rerata dihitung. Pengambilan sampel diulang pada interval reguler atau acak, tergantung pada desain, menghasilkan serangkaian cara sampel. Ini digunakan untuk membangun satu jenis kontrol chart, xbar chart. Chart ini secara visual mendeteksi ketika rata-rata sampel masa depan menjadi berbeda dari yang digunakan untuk membangun grafik. Keputusan perbedaan didasarkan pada melebihi interval kepercayaan parametrik di sekitar rata-rata yang telah dijelaskan dibagian lain Chapter ini.</p>
 <p>Misalkan laboratorium kimia mengukur larutan standar yang sama beberapa kali selama sehari untuk menentukan apakah peralatan dan operator menghasilkan hasil yang konsisten. Untuk serangkaian pengukuran <span class="math inline">\(n\)</span> pada interval waktu <span class="math inline">\(m\)</span>, ukuran sampel total <span class="math inline">\(N=N\cdot M\)</span>. Perkiraan konsentrasi terbaik untuk standar itu adalah rata-rata keseluruhan yang dihitung menggunakan Persamaan <a href="#eq:innpkk">(23)</a>.</p>
 <span class="math display" id="eq:innpkk">\[\begin{equation}
@@ -2052,7 +2066,7 @@ Figure 15: Distribusi bootstrap persentil 90
 <p>Chart kontrol juga diproduksi untuk menggambarkan varians proses. Chart kontrol juga menggunakan nilai range (R chart) atau simpangan baku (S chart). Kedua grafik bahkan lebih sensitif terhadap perubahan data dari kondisi normal dibandingkan <span class="math inline">\(\overline{X}\)</span> chart. Keduanya akan mengalami kesulitan dalam mendeteksi perubahan varian ketika data yang mendasarinya tidak normal, dan ukuran sampel <span class="math inline">\(n\)</span> untuk setiap rata-rata kecil.</p>
 </div>
 <div id="non-normalitas-terhadap-desain-sampling" class="section level3">
-<h3>8.9.3 Non-Normalitas Terhadap Desain Sampling</h3>
+<h3>10.9.3 Non-Normalitas Terhadap Desain Sampling</h3>
 <p>Persamaan t-interval juga digunakan untuk menentukan jumlah sampel yang diperlukan untuk memperkirakan rata-rata dengan tingkat presisi yang ditentukan. Namun, persamaan tersebut membutuhkan data untuk kira-kira mengikuti distribusi normal. Persamaan tersebut harus mempertimbangkan <em>power</em> serta lebar interval. Artinya kita harus memutuskan apakah mean adalah karakteristik yang paling tepat untuk mengukur data yang memiliki kemencengan.</p>
 <p>Untuk memperkirakan ukuran sampel telah cukup untuk menentukan interval estimasi dengan lebar spesifik dapat menggunakan Persamaan <a href="#eq:inntds">(24)</a>.</p>
 <span class="math display" id="eq:inntds">\[\begin{equation}
