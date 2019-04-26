@@ -1787,7 +1787,7 @@ P\left(1\cup 6\right)=P\left(1\right)+P\left(6\right)=\frac{1}{6}+\frac{1}{6}=\f
 &lt;p&gt;Peristiwa pada contoh soal tersebut dapat digambarkan menggunakan diagram venn yang ditunjukkan pada Gambar &lt;a href=&#34;#fig:pmevis&#34;&gt;1&lt;/a&gt;).&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:pmevis&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;pmevis.png&#34; alt=&#34;Diagram venn peristiwa mutually exclusive&#34; width=&#34;80%&#34; /&gt;
+&lt;img src=&#34;/pmevis.png&#34; alt=&#34;Diagram venn peristiwa mutually exclusive&#34; width=&#34;80%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Diagram venn peristiwa mutually exclusive
 &lt;/p&gt;
@@ -1854,7 +1854,7 @@ P\left(ganjil\cup prima\right)=P\left(ganjil\right)+P\left(prima\right)-P\left(g
 \]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Peristiwa &lt;em&gt;not mutually exclusiev&lt;/em&gt; dapat digambarkan menggunakan diagram venn yang ditunjukkan pada Gambar &lt;a href=&#34;#fig:pnmevis&#34;&gt;2&lt;/a&gt;).&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:pnmevis&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;pnmevis.png&#34; alt=&#34;Diagram venn peristiwa not mutually exclusive&#34; width=&#34;80%&#34; /&gt;
+&lt;img src=&#34;/pnmevis.png&#34; alt=&#34;Diagram venn peristiwa not mutually exclusive&#34; width=&#34;80%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Diagram venn peristiwa not mutually exclusive
 &lt;/p&gt;

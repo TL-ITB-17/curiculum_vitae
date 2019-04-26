@@ -105,7 +105,7 @@ Peristiwa pada contoh soal tersebut dapat digambarkan menggunakan diagram venn y
 
 ```{r pmevis, echo=FALSE, fig.cap='Diagram venn peristiwa mutually exclusive', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
-img1_path <- "pmevis.png"
+img1_path <- "/pmevis.png"
 include_graphics(img1_path)
 ```
 
@@ -163,7 +163,7 @@ Peristiwa *not mutually exclusiev* dapat digambarkan menggunakan diagram venn ya
 
 ```{r pnmevis, echo=FALSE, fig.cap='Diagram venn peristiwa not mutually exclusive', tidy=FALSE, out.width='80%', fig.align='center'}
 library(knitr)
-img1_path <- "pnmevis.png"
+img1_path <- "/pnmevis.png"
 include_graphics(img1_path)
 ```
 
