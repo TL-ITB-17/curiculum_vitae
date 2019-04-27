@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/post/cheatsheet-r/</loc>
+      <lastmod>2019-04-27T00:00:00+07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/mengenal-r/</loc>
       <lastmod>2019-04-21T00:00:00+07:00</lastmod>
     </url>
@@ -211,8 +219,17 @@
     
     <url>
     
+      <loc>/tags/cheat-sheet/</loc>
+      <lastmod>2019-04-27T00:00:00+07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/</loc>
-      <lastmod>2019-04-21T00:00:00+07:00</lastmod>
+      <lastmod>2019-04-27T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -244,7 +261,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2019-04-21T00:00:00+07:00</lastmod>
+      <lastmod>2019-04-27T00:00:00+07:00</lastmod>
     </url>
     
   
@@ -275,8 +292,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2019-04-27T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -284,8 +301,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2019-04-21T00:00:00+07:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2015-07-23T21:13:14-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -353,7 +370,7 @@
     <url>
     
       <loc>/authors/admin/</loc>
-      <lastmod>2019-04-21T00:00:00+07:00</lastmod>
+      <lastmod>2019-04-27T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     

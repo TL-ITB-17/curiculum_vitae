@@ -10,6 +10,52 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Kumpulan R Cheat</title>
+      <link>/post/cheatsheet-r/</link>
+      <pubDate>Sun, 21 Apr 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/post/cheatsheet-r/</guid>
+      <description>&lt;p&gt;Pada postingan kali ini penulis akan memberikan kumpulan cheat sheet &lt;code&gt;R&lt;/code&gt; yang penulis ambil dari berbagai sumber.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf&#34; target=&#34;_blank&#34;&gt;Base R&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Merupakan cheat sheet yang berguna untuk memahami penggunaan fungsi dasar &lt;code&gt;R&lt;/code&gt; seperti bagaimana cara membuat matrix, vektor, list, data frame, serta bagaimana bekerja dengannya. Cheat sheet ini dibuat oleh &lt;a href=&#34;http://mhairihmcneill.com/&#34; target=&#34;_blank&#34;&gt;Mhairi McNeil&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.rstudio.com/wp-content/uploads/2016/02/advancedR.pdf&#34; target=&#34;_blank&#34;&gt;Advanced R&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Cheat sheet yang berguna jika pembaca telah menguasai dasar-dasar &lt;code&gt;R&lt;/code&gt; dan ingin mengembangkan diri keranah yang lebih mahir. Cheat sheet ini berisi kumpulan fungsi bekerja dengan &lt;em&gt;environment&lt;/em&gt;, &lt;em&gt;data structures&lt;/em&gt;, &lt;em&gt;functions&lt;/em&gt;, dan lain-lain pada &lt;code&gt;R&lt;/code&gt;. Cheat sheet ini dibuat oleh Arianne Colton dan Sean Chen.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/caret.pdf&#34; target=&#34;_blank&#34;&gt;Caret&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Cheat sheet library &lt;code&gt;caret&lt;/code&gt; yang dibuat oleh Max Kuhn. Cheat sheet ini berisi bagaimana melakukan modeling dan membuat &lt;em&gt;machine learning&lt;/em&gt; pada &lt;code&gt;R&lt;/code&gt; menggunakan library ini. Library ini sangat berguna jika pembaca juga ingin melakukan validasi dan optimasi pada model yang telah pembaca buat karena library ini dapat dibilang menyediakan fungsi yang cukup lengkap.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/cartography.pdf&#34; target=&#34;_blank&#34;&gt;Cartography&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Cheat sheet yang digunakan untuk bekerja dengan library &lt;code&gt;cartography&lt;/code&gt;. Cheat sheet ini dikembangkan oleh Timothée Giraud yang berguna visualisasi data spasial.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/datatable.pdf&#34; target=&#34;_blank&#34;&gt;data.table&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Jika pembaca pernah melakukan manipulasi data menggunakan library keluarga &lt;code&gt;tidyverse&lt;/code&gt; seperti &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;tidyr&lt;/code&gt;, &lt;code&gt;tibble&lt;/code&gt;, dll. &lt;code&gt;data.table&lt;/code&gt; adalah library alternatif untuk melakukan manipulasi data seperti &lt;code&gt;reshaping&lt;/code&gt;, &lt;code&gt;subseting&lt;/code&gt;, dll dengan kecepatan proses komputasi yang setara dengan library keluarga &lt;code&gt;tidyverse&lt;/code&gt;. Cheat sheet ini dibuat oleh Erik Petrovski.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf&#34; target=&#34;_blank&#34;&gt;lubridate&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;lubridate&lt;/code&gt; merupakan library yang digunakan untuk melakukan pengolahan data dengan format data berupa waktu dan tanggal.Cheat sheet ini berisi bagaimana bekerja dengan jenis data waktu dan tanggal seperti pembulatan tanggal, bekerja dengan zona waktu, melakukan ekstraksi elemen waktu atau tanggal, dll. Pembaca dapat memperoleh cheat sheet ini melalui situs &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Mengenal Lebih Jauh R Melalui Tutorial</title>
       <link>/post/mengenal-r/</link>
       <pubDate>Sun, 21 Apr 2019 00:00:00 +0700</pubDate>
@@ -8939,18 +8985,6 @@ rm Untitled.md
 &lt;/ul&gt;
 
 &lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Environmental Learning Website Project</title>
-      <link>/project/environmental-learning-website/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0700</pubDate>
-      
-      <guid>/project/environmental-learning-website/</guid>
-      <description>&lt;p&gt;This project is a website in the form of a collection of topics related to data analysis and modeling in the environmental field. This website is structured in such a way as to contain a number of material related to statistics, advanced mathematics, environmental engineering modeling, and operations research in the field of environmental engineering.&lt;/p&gt;
-
-&lt;p&gt;The website is updated every week where each author update will share on the author&amp;rsquo;s social media account. Readers can continue to follow the writing on the website by visiting the site environmental &lt;code&gt;learning.wordpress.com&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
