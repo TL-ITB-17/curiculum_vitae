@@ -16,6 +16,11 @@ tags:
 title: 'Kumpulan R Cheat'
 ---
 
+<style>
+body{
+text-align: justify}
+</style>
+
 Pada postingan kali ini penulis akan memberikan kumpulan cheat sheet `R` yang penulis ambil dari berbagai sumber.
 
 ## 1. [Base R](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)  oleh [Mhairi McNeil](http://mhairihmcneill.com/)

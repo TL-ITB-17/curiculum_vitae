@@ -17,6 +17,11 @@
       <guid>/post/cheatsheet-r/</guid>
       <description>
 
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
+
 &lt;p&gt;Pada postingan kali ini penulis akan memberikan kumpulan cheat sheet &lt;code&gt;R&lt;/code&gt; yang penulis ambil dari berbagai sumber.&lt;/p&gt;
 
 &lt;h2 id=&#34;1-base-r-http-github-com-rstudio-cheatsheets-raw-master-base-r-pdf-oleh-mhairi-mcneil-http-mhairihmcneill-com&#34;&gt;1. &lt;a href=&#34;http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf&#34; target=&#34;_blank&#34;&gt;Base R&lt;/a&gt;  oleh &lt;a href=&#34;http://mhairihmcneill.com/&#34; target=&#34;_blank&#34;&gt;Mhairi McNeil&lt;/a&gt;&lt;/h2&gt;
@@ -87,7 +92,12 @@
       <pubDate>Sun, 21 Apr 2019 00:00:00 +0700</pubDate>
       
       <guid>/post/mengenal-r/</guid>
-      <description>&lt;p&gt;&lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena &lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang sangat powerfull.&lt;/p&gt;
+      <description>&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
+
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena &lt;code&gt;R&lt;/code&gt; merupakan bahasa pemrograman yang sangat powerfull.&lt;/p&gt;
 
 &lt;p&gt;Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun &lt;code&gt;R&lt;/code&gt; tidak didesain untuk melakukannya.&lt;/p&gt;
 
@@ -109,7 +119,12 @@
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0700</pubDate>
       
       <guid>/post/update-tutorial-part-1/</guid>
-      <description>&lt;p&gt;Tutorial telah memasuki Part 4. Banyak sekali materi yang dapat pembaca pelajari. &lt;strong&gt;Chapter Penaksiran Secara Statistika&lt;/strong&gt; merupakan Chapter yang paling lama proses pembuatannya. Pada Chapter tersebut penulis membuat sejumlah sintaks fungsi yang belum tersedia di &lt;code&gt;R&lt;/code&gt;. Kedepan fungsi-fungsi yang penulis kerjakan pada seluruh Chapter tutorial akan penulis jadikan satu repository git sehingga pembaca dapat dengan mudah menggunakannya sewaktu-waktu tanpa perlu menulis sintaks panjang.&lt;/p&gt;
+      <description>&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
+
+&lt;p&gt;Tutorial telah memasuki Part 4. Banyak sekali materi yang dapat pembaca pelajari. &lt;strong&gt;Chapter Penaksiran Secara Statistika&lt;/strong&gt; merupakan Chapter yang paling lama proses pembuatannya. Pada Chapter tersebut penulis membuat sejumlah sintaks fungsi yang belum tersedia di &lt;code&gt;R&lt;/code&gt;. Kedepan fungsi-fungsi yang penulis kerjakan pada seluruh Chapter tutorial akan penulis jadikan satu repository git sehingga pembaca dapat dengan mudah menggunakannya sewaktu-waktu tanpa perlu menulis sintaks panjang.&lt;/p&gt;
 
 &lt;p&gt;Pada &lt;strong&gt;Chapter Penaksiran Secara Statistika&lt;/strong&gt;, penulis telah menambahkan pembahasan mengenai simulasi dengan metode bootstrap. Metode ini akan banyak berguna saat kita akan melakukan penaksiran secara statistika dan tidak terbatas pada penaksiran nilai pemusatan dan sebaran data. Metode ini akan kita jumpai lagi saat kita memasukan Part Model Statistik.&lt;/p&gt;
 

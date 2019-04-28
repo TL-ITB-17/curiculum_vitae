@@ -16,6 +16,10 @@ tags:
 title: 'Mengenal Lebih Jauh R Melalui Tutorial'
 ---
 
+<style>
+body{
+text-align: justify}
+</style>
 
 `R` merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena `R` merupakan bahasa pemrograman yang sangat powerfull.
 

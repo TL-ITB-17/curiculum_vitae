@@ -17,7 +17,7 @@
       <pubDate>Sun, 21 Apr 2019 00:00:00 +0700</pubDate>
       
       <guid>/post/cheatsheet-r/</guid>
-      <description>Pada postingan kali ini penulis akan memberikan kumpulan cheat sheet R yang penulis ambil dari berbagai sumber.
+      <description>body{ text-align: justify}  Pada postingan kali ini penulis akan memberikan kumpulan cheat sheet R yang penulis ambil dari berbagai sumber.
 1. Base R oleh Mhairi McNeil Merupakan cheat sheet yang berguna untuk memahami penggunaan fungsi dasar R seperti bagaimana cara membuat matrix, vektor, list, data frame, serta bagaimana bekerja dengannya.
 2. Advanced R oleh Arianne Colton dan Sean Chen Cheat sheet yang berguna jika pembaca telah menguasai dasar-dasar R dan ingin mengembangkan diri keranah yang lebih mahir.</description>
     </item>
@@ -28,7 +28,7 @@
       <pubDate>Sun, 21 Apr 2019 00:00:00 +0700</pubDate>
       
       <guid>/post/mengenal-r/</guid>
-      <description>R merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena R merupakan bahasa pemrograman yang sangat powerfull.
+      <description>body{ text-align: justify}  R merupakan bahasa pemrograman yang banyak digunakan untuk melakukan analisa statistik. Penggunaannya yang mudah, jumlah paket yang banyak, serta dapat digunakan oleh seluruh kalangan secara gratis membuatnya menjadi salah satu bahasa pemrograman yang paling banyak digunakan. Untuk itu sayang sekali jika kita tidak menggunakannya karena R merupakan bahasa pemrograman yang sangat powerfull.
 Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan panduan lengkap penggunaan R untuk aplikasinya dalam bidang statistik bahkan lebih jauh dapat digunakan untuk analisa lain seperti membuat model matematik dan optimasi sistem meskipun R tidak didesain untuk melakukannya.</description>
     </item>
     
@@ -38,7 +38,7 @@ Alasan tersebut membuat penulis sadar bahwa pbetapa pentingnya untuk menyajikan 
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0700</pubDate>
       
       <guid>/post/update-tutorial-part-1/</guid>
-      <description>Tutorial telah memasuki Part 4. Banyak sekali materi yang dapat pembaca pelajari. Chapter Penaksiran Secara Statistika merupakan Chapter yang paling lama proses pembuatannya. Pada Chapter tersebut penulis membuat sejumlah sintaks fungsi yang belum tersedia di R. Kedepan fungsi-fungsi yang penulis kerjakan pada seluruh Chapter tutorial akan penulis jadikan satu repository git sehingga pembaca dapat dengan mudah menggunakannya sewaktu-waktu tanpa perlu menulis sintaks panjang.
+      <description>body{ text-align: justify}  Tutorial telah memasuki Part 4. Banyak sekali materi yang dapat pembaca pelajari. Chapter Penaksiran Secara Statistika merupakan Chapter yang paling lama proses pembuatannya. Pada Chapter tersebut penulis membuat sejumlah sintaks fungsi yang belum tersedia di R. Kedepan fungsi-fungsi yang penulis kerjakan pada seluruh Chapter tutorial akan penulis jadikan satu repository git sehingga pembaca dapat dengan mudah menggunakannya sewaktu-waktu tanpa perlu menulis sintaks panjang.
 Pada Chapter Penaksiran Secara Statistika, penulis telah menambahkan pembahasan mengenai simulasi dengan metode bootstrap.</description>
     </item>
     
