@@ -66,5 +66,15 @@ Cheat sheet yang memberikan panduan bagi pembaca bagaimana bekerja dengan gramma
 
 `RStudio IDE` adalah lingkungan pengembangan terintegrasi paling populer untuk R. Apa pun yang pembaca ingin lakukan dengan `R` (seperti menulis, menjalankan, dan men-*debug* sintaks pada `R`, serta berkeja secara kolaboratif dan kontrol versi, membuat paket, dokumen serta aplikasi), RStudio IDE dapat membantu pembaca melakukannya lebih cepat. Cheat sheet ini akan memandu pembaca memahami fitur-fitur IDE yang paling berguna, serta daftar panjang pintasan keyboard yang ada di dalam `RStudio IDE`.
 
+## 13. [Shiny](https://github.com/rstudio/cheatsheets/raw/master/shiny.pdf) oleh [RStudio](https://www.rstudio.com/resources/cheatsheets/)
 
+Cheat sheet ini memberikan panduan bagaimana membangun sebuah website aplikasi interaktif menggunakan library `shiny`. Jika pembaca ingin membuat sebuah laporan dari hasil analisa pembaca kedalam bentuk aplikasi yang interaktif, `shiny` sangat tepat untuk pembaca pertimbangkan sebagai sebuah library untuk membangun aplikasi tersebut.
+
+## 14. [ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) oleh [RStudio](https://www.rstudio.com/resources/cheatsheets/)
+
+Library `ggplot2` membantu pembaca dalam membuat visualisasi data yang cantik dan mudah dikustomisasi. Library ini mengimplementasikan konsep *grammar of graphics* yang merupakan sistem yang mudah digunakan dalam membangun grafik.
+
+## 15. [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) oleh [RStudio](https://www.rstudio.com/resources/cheatsheets/)
+
+`R Markdown` merupakan suatu paket yang mengintegrasikan 3 buah perangkat lunak yaitu markdown, knitr, dan pandoc. Cheat sheet ini berisi panduan option yang digunakan pada markdown, knitr, dan pandoc yang digunakan untuk kustomisasi laporan atau slideshow yang akan pembaca buat.
 

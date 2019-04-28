@@ -66,6 +66,18 @@
 &lt;h2 id=&#34;12-rstudio-ide-https-github-com-rstudio-cheatsheets-raw-master-rstudio-ide-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;12. &lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf&#34; target=&#34;_blank&#34;&gt;RStudio IDE&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;RStudio IDE&lt;/code&gt; adalah lingkungan pengembangan terintegrasi paling populer untuk R. Apa pun yang pembaca ingin lakukan dengan &lt;code&gt;R&lt;/code&gt; (seperti menulis, menjalankan, dan men-&lt;em&gt;debug&lt;/em&gt; sintaks pada &lt;code&gt;R&lt;/code&gt;, serta berkeja secara kolaboratif dan kontrol versi, membuat paket, dokumen serta aplikasi), RStudio IDE dapat membantu pembaca melakukannya lebih cepat. Cheat sheet ini akan memandu pembaca memahami fitur-fitur IDE yang paling berguna, serta daftar panjang pintasan keyboard yang ada di dalam &lt;code&gt;RStudio IDE&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;13-shiny-https-github-com-rstudio-cheatsheets-raw-master-shiny-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;13. &lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/shiny.pdf&#34; target=&#34;_blank&#34;&gt;Shiny&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Cheat sheet ini memberikan panduan bagaimana membangun sebuah website aplikasi interaktif menggunakan library &lt;code&gt;shiny&lt;/code&gt;. Jika pembaca ingin membuat sebuah laporan dari hasil analisa pembaca kedalam bentuk aplikasi yang interaktif, &lt;code&gt;shiny&lt;/code&gt; sangat tepat untuk pembaca pertimbangkan sebagai sebuah library untuk membangun aplikasi tersebut.&lt;/p&gt;
+
+&lt;h2 id=&#34;14-ggplot2-https-github-com-rstudio-cheatsheets-raw-master-data-visualization-2-1-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;14. &lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf&#34; target=&#34;_blank&#34;&gt;ggplot2&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Library &lt;code&gt;ggplot2&lt;/code&gt; membantu pembaca dalam membuat visualisasi data yang cantik dan mudah dikustomisasi. Library ini mengimplementasikan konsep &lt;em&gt;grammar of graphics&lt;/em&gt; yang merupakan sistem yang mudah digunakan dalam membangun grafik.&lt;/p&gt;
+
+&lt;h2 id=&#34;15-r-markdown-reference-guide-https-www-rstudio-com-wp-content-uploads-2015-03-rmarkdown-reference-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;15. &lt;a href=&#34;https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf&#34; target=&#34;_blank&#34;&gt;R Markdown Reference Guide&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;R Markdown&lt;/code&gt; merupakan suatu paket yang mengintegrasikan 3 buah perangkat lunak yaitu markdown, knitr, dan pandoc. Cheat sheet ini berisi panduan option yang digunakan pada markdown, knitr, dan pandoc yang digunakan untuk kustomisasi laporan atau slideshow yang akan pembaca buat.&lt;/p&gt;
 </description>
     </item>
     
