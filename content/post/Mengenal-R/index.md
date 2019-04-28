@@ -7,7 +7,7 @@ image:
   caption: ""
   focal_point: 
   preview_only: false
-lastmod: "2019-04-21T00:00:00+07:00"
+lastmod: "2019-04-01T00:00:00+07:00"
 subtitle: 'Komputasi statistik dan matematis menggunakan R sebagai solusi bahasa pemrograman sumber terbuka. :rocket:'
 summary: Komputasi statistik dan matematis menggunakan R sebagai solusi bahasa pemrograman sumber terbuka.
 tags:

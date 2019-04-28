@@ -13,7 +13,7 @@ summary: Kumpulan cheat sheet library R paling populer.
 tags:
 - R
 - Cheat Sheet
-title: 'Kumpulan R Cheat'
+title: 'Kumpulan R Cheat [PART 1]'
 ---
 
 <style>
@@ -82,4 +82,20 @@ Library `ggplot2` membantu pembaca dalam membuat visualisasi data yang cantik da
 ## 15. [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) oleh [RStudio](https://www.rstudio.com/resources/cheatsheets/)
 
 `R Markdown` merupakan suatu paket yang mengintegrasikan 3 buah perangkat lunak yaitu markdown, knitr, dan pandoc. Cheat sheet ini berisi panduan option yang digunakan pada markdown, knitr, dan pandoc yang digunakan untuk kustomisasi laporan atau slideshow yang akan pembaca buat.
+
+## 16. [Tidyverse](https://datacamp-community-prod.s3.amazonaws.com/e63a8f6b-2aa3-4006-89e0-badc294b179c) oleh [Datacamp Community](https://www.datacamp.com/community/data-science-cheatsheets)
+
+Cheat sheet ini membantu pembaca dalam melakukan tranformasi data menggunakan library keluarga `tidyverse` yaitu `dplyr` serta visualisasi data menggunakan `ggplot2`. Cheat sheet ini sangat cocok digunakan untuk pemula yang baru belajar bagaimana cara melakukan transformasi dan visualisasi pada data.
+
+## 17. [Jupyter Notebook](https://datacamp-community-prod.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40) oleh [Datacamp Community](https://www.datacamp.com/community/data-science-cheatsheets)
+
+Cheat sheet yang menbantu pembaca dalam menyusun dokumentasi terhadap pekerjaan yang analisis data yang telah pembaca buat menggunakan `Jupyter Notebook`. Pada `Jupyter Notebook` kita tidak hanya dapat bekerja dengan bahasa pemrograman `Python` namun juga `R`. Perangkat lunak dokumentasi ini sama dengan `R Markdown` pada `R`, bedanya `R Markdown` secara luas dapat digunakan untuk penulisan akademik.
+
+## 18. [xts](https://datacamp-community-prod.s3.amazonaws.com/e04c5a6b-4aca-46f5-8cd5-803d975ccc4b) oleh [Datacamp Community](https://www.datacamp.com/community/data-science-cheatsheets?page=2)
+
+`xts` merupakan library yang memiliki fungsi yang relatif sama dengan `lubridate` bedanya adalah `xts` sering digunakan untuk transformasi data menjadi bentuk data *time series*.
+
+## 19. [Reticulate](https://github.com/rstudio/cheatsheets/raw/master/reticulate.pdf) oleh oleh [RStudio](https://www.rstudio.com/resources/cheatsheets/)
+
+[reticulate](https://rstudio.github.io/reticulate/index.html) merupakan sebuah library yang menyediakan seperangkat alat yang komprehensif untuk interoperabilitas antara `Python` dan `R`. Dengan `reticulate`, pembaca dapat memanggil `Python` dari `R` dalam berbagai cara termasuk mengimpor modul `Python` ke dalam skrip `R`, menulis potongan `R Markdown Python`, sumber skrip `Python`, dan menggunakan `Python` secara interaktif dalam  `RStudio IDE`.
 

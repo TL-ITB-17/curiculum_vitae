@@ -10,7 +10,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Kumpulan R Cheat</title>
+      <title>Kumpulan R Cheat [PART 1]</title>
       <link>/post/cheatsheet-r/</link>
       <pubDate>Sun, 21 Apr 2019 00:00:00 +0700</pubDate>
       
@@ -83,6 +83,22 @@ text-align: justify}
 &lt;h2 id=&#34;15-r-markdown-reference-guide-https-www-rstudio-com-wp-content-uploads-2015-03-rmarkdown-reference-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;15. &lt;a href=&#34;https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf&#34; target=&#34;_blank&#34;&gt;R Markdown Reference Guide&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;R Markdown&lt;/code&gt; merupakan suatu paket yang mengintegrasikan 3 buah perangkat lunak yaitu markdown, knitr, dan pandoc. Cheat sheet ini berisi panduan option yang digunakan pada markdown, knitr, dan pandoc yang digunakan untuk kustomisasi laporan atau slideshow yang akan pembaca buat.&lt;/p&gt;
+
+&lt;h2 id=&#34;16-tidyverse-https-datacamp-community-prod-s3-amazonaws-com-e63a8f6b-2aa3-4006-89e0-badc294b179c-oleh-datacamp-community-https-www-datacamp-com-community-data-science-cheatsheets&#34;&gt;16. &lt;a href=&#34;https://datacamp-community-prod.s3.amazonaws.com/e63a8f6b-2aa3-4006-89e0-badc294b179c&#34; target=&#34;_blank&#34;&gt;Tidyverse&lt;/a&gt; oleh &lt;a href=&#34;https://www.datacamp.com/community/data-science-cheatsheets&#34; target=&#34;_blank&#34;&gt;Datacamp Community&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Cheat sheet ini membantu pembaca dalam melakukan tranformasi data menggunakan library keluarga &lt;code&gt;tidyverse&lt;/code&gt; yaitu &lt;code&gt;dplyr&lt;/code&gt; serta visualisasi data menggunakan &lt;code&gt;ggplot2&lt;/code&gt;. Cheat sheet ini sangat cocok digunakan untuk pemula yang baru belajar bagaimana cara melakukan transformasi dan visualisasi pada data.&lt;/p&gt;
+
+&lt;h2 id=&#34;17-jupyter-notebook-https-datacamp-community-prod-s3-amazonaws-com-48093c40-5303-45f4-bbf9-0c96c0133c40-oleh-datacamp-community-https-www-datacamp-com-community-data-science-cheatsheets&#34;&gt;17. &lt;a href=&#34;https://datacamp-community-prod.s3.amazonaws.com/48093c40-5303-45f4-bbf9-0c96c0133c40&#34; target=&#34;_blank&#34;&gt;Jupyter Notebook&lt;/a&gt; oleh &lt;a href=&#34;https://www.datacamp.com/community/data-science-cheatsheets&#34; target=&#34;_blank&#34;&gt;Datacamp Community&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Cheat sheet yang menbantu pembaca dalam menyusun dokumentasi terhadap pekerjaan yang analisis data yang telah pembaca buat menggunakan &lt;code&gt;Jupyter Notebook&lt;/code&gt;. Pada &lt;code&gt;Jupyter Notebook&lt;/code&gt; kita tidak hanya dapat bekerja dengan bahasa pemrograman &lt;code&gt;Python&lt;/code&gt; namun juga &lt;code&gt;R&lt;/code&gt;. Perangkat lunak dokumentasi ini sama dengan &lt;code&gt;R Markdown&lt;/code&gt; pada &lt;code&gt;R&lt;/code&gt;, bedanya &lt;code&gt;R Markdown&lt;/code&gt; secara luas dapat digunakan untuk penulisan akademik.&lt;/p&gt;
+
+&lt;h2 id=&#34;18-xts-https-datacamp-community-prod-s3-amazonaws-com-e04c5a6b-4aca-46f5-8cd5-803d975ccc4b-oleh-datacamp-community-https-www-datacamp-com-community-data-science-cheatsheets-page-2&#34;&gt;18. &lt;a href=&#34;https://datacamp-community-prod.s3.amazonaws.com/e04c5a6b-4aca-46f5-8cd5-803d975ccc4b&#34; target=&#34;_blank&#34;&gt;xts&lt;/a&gt; oleh &lt;a href=&#34;https://www.datacamp.com/community/data-science-cheatsheets?page=2&#34; target=&#34;_blank&#34;&gt;Datacamp Community&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;xts&lt;/code&gt; merupakan library yang memiliki fungsi yang relatif sama dengan &lt;code&gt;lubridate&lt;/code&gt; bedanya adalah &lt;code&gt;xts&lt;/code&gt; sering digunakan untuk transformasi data menjadi bentuk data &lt;em&gt;time series&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;19-reticulate-https-github-com-rstudio-cheatsheets-raw-master-reticulate-pdf-oleh-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;19. &lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/reticulate.pdf&#34; target=&#34;_blank&#34;&gt;Reticulate&lt;/a&gt; oleh oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://rstudio.github.io/reticulate/index.html&#34; target=&#34;_blank&#34;&gt;reticulate&lt;/a&gt; merupakan sebuah library yang menyediakan seperangkat alat yang komprehensif untuk interoperabilitas antara &lt;code&gt;Python&lt;/code&gt; dan &lt;code&gt;R&lt;/code&gt;. Dengan &lt;code&gt;reticulate&lt;/code&gt;, pembaca dapat memanggil &lt;code&gt;Python&lt;/code&gt; dari &lt;code&gt;R&lt;/code&gt; dalam berbagai cara termasuk mengimpor modul &lt;code&gt;Python&lt;/code&gt; ke dalam skrip &lt;code&gt;R&lt;/code&gt;, menulis potongan &lt;code&gt;R Markdown Python&lt;/code&gt;, sumber skrip &lt;code&gt;Python&lt;/code&gt;, dan menggunakan &lt;code&gt;Python&lt;/code&gt; secara interaktif dalam  &lt;code&gt;RStudio IDE&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
