@@ -15,43 +15,57 @@
       <pubDate>Sun, 21 Apr 2019 00:00:00 +0700</pubDate>
       
       <guid>/post/cheatsheet-r/</guid>
-      <description>&lt;p&gt;Pada postingan kali ini penulis akan memberikan kumpulan cheat sheet &lt;code&gt;R&lt;/code&gt; yang penulis ambil dari berbagai sumber.&lt;/p&gt;
+      <description>
 
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf&#34; target=&#34;_blank&#34;&gt;Base R&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Pada postingan kali ini penulis akan memberikan kumpulan cheat sheet &lt;code&gt;R&lt;/code&gt; yang penulis ambil dari berbagai sumber.&lt;/p&gt;
 
-&lt;p&gt;Merupakan cheat sheet yang berguna untuk memahami penggunaan fungsi dasar &lt;code&gt;R&lt;/code&gt; seperti bagaimana cara membuat matrix, vektor, list, data frame, serta bagaimana bekerja dengannya. Cheat sheet ini dibuat oleh &lt;a href=&#34;http://mhairihmcneill.com/&#34; target=&#34;_blank&#34;&gt;Mhairi McNeil&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;base-r-http-github-com-rstudio-cheatsheets-raw-master-base-r-pdf-oleh-mhairi-mcneil-http-mhairihmcneill-com&#34;&gt;&lt;a href=&#34;http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf&#34; target=&#34;_blank&#34;&gt;Base R&lt;/a&gt;  oleh &lt;a href=&#34;http://mhairihmcneill.com/&#34; target=&#34;_blank&#34;&gt;Mhairi McNeil&lt;/a&gt;&lt;/h2&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.rstudio.com/wp-content/uploads/2016/02/advancedR.pdf&#34; target=&#34;_blank&#34;&gt;Advanced R&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Merupakan cheat sheet yang berguna untuk memahami penggunaan fungsi dasar &lt;code&gt;R&lt;/code&gt; seperti bagaimana cara membuat matrix, vektor, list, data frame, serta bagaimana bekerja dengannya.&lt;/p&gt;
 
-&lt;p&gt;Cheat sheet yang berguna jika pembaca telah menguasai dasar-dasar &lt;code&gt;R&lt;/code&gt; dan ingin mengembangkan diri keranah yang lebih mahir. Cheat sheet ini berisi kumpulan fungsi bekerja dengan &lt;em&gt;environment&lt;/em&gt;, &lt;em&gt;data structures&lt;/em&gt;, &lt;em&gt;functions&lt;/em&gt;, dan lain-lain pada &lt;code&gt;R&lt;/code&gt;. Cheat sheet ini dibuat oleh Arianne Colton dan Sean Chen.&lt;/p&gt;
+&lt;h2 id=&#34;advanced-r-https-www-rstudio-com-wp-content-uploads-2016-02-advancedr-pdf-oleh-arianne-colton-http-www-ariannecolton-com-dan-sean-chen&#34;&gt;&lt;a href=&#34;https://www.rstudio.com/wp-content/uploads/2016/02/advancedR.pdf&#34; target=&#34;_blank&#34;&gt;Advanced R&lt;/a&gt; oleh &lt;a href=&#34;http://www.ariannecolton.com/&#34; target=&#34;_blank&#34;&gt;Arianne Colton&lt;/a&gt; dan Sean Chen&lt;/h2&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/caret.pdf&#34; target=&#34;_blank&#34;&gt;Caret&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Cheat sheet yang berguna jika pembaca telah menguasai dasar-dasar &lt;code&gt;R&lt;/code&gt; dan ingin mengembangkan diri keranah yang lebih mahir. Cheat sheet ini berisi kumpulan fungsi bekerja dengan &lt;em&gt;environment&lt;/em&gt;, &lt;em&gt;data structures&lt;/em&gt;, &lt;em&gt;functions&lt;/em&gt;, dan lain-lain pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Cheat sheet library &lt;code&gt;caret&lt;/code&gt; yang dibuat oleh Max Kuhn. Cheat sheet ini berisi bagaimana melakukan modeling dan membuat &lt;em&gt;machine learning&lt;/em&gt; pada &lt;code&gt;R&lt;/code&gt; menggunakan library ini. Library ini sangat berguna jika pembaca juga ingin melakukan validasi dan optimasi pada model yang telah pembaca buat karena library ini dapat dibilang menyediakan fungsi yang cukup lengkap.&lt;/p&gt;
+&lt;h2 id=&#34;caret-https-github-com-rstudio-cheatsheets-raw-master-caret-pdf-oleh-max-kuhn-https-www-linkedin-com-in-max-kuhn-864a9110&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/caret.pdf&#34; target=&#34;_blank&#34;&gt;Caret&lt;/a&gt; oleh &lt;a href=&#34;https://www.linkedin.com/in/max-kuhn-864a9110/&#34; target=&#34;_blank&#34;&gt;Max Kuhn&lt;/a&gt;&lt;/h2&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/cartography.pdf&#34; target=&#34;_blank&#34;&gt;Cartography&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Cheat sheet library &lt;code&gt;caret&lt;/code&gt; ini berisi bagaimana melakukan modeling dan membuat &lt;em&gt;machine learning&lt;/em&gt; pada &lt;code&gt;R&lt;/code&gt; menggunakan library ini. Library ini sangat berguna jika pembaca juga ingin melakukan validasi dan optimasi pada model yang telah pembaca buat karena library ini dapat dibilang menyediakan fungsi yang cukup lengkap.&lt;/p&gt;
 
-&lt;p&gt;Cheat sheet yang digunakan untuk bekerja dengan library &lt;code&gt;cartography&lt;/code&gt;. Cheat sheet ini dikembangkan oleh Timothée Giraud yang berguna visualisasi data spasial.&lt;/p&gt;
+&lt;h2 id=&#34;cartography-https-github-com-rstudio-cheatsheets-raw-master-cartography-pdf-oleh-timothée-giraud-https-github-com-rcarto&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/cartography.pdf&#34; target=&#34;_blank&#34;&gt;Cartography&lt;/a&gt; oleh &lt;a href=&#34;https://github.com/rCarto&#34; target=&#34;_blank&#34;&gt;Timothée Giraud&lt;/a&gt;&lt;/h2&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/datatable.pdf&#34; target=&#34;_blank&#34;&gt;data.table&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Cheat sheet yang digunakan untuk bekerja dengan library &lt;code&gt;cartography&lt;/code&gt;. Cheat sheet ini berguna untuk membuat visualisasi data spasial yang interaktif.&lt;/p&gt;
 
-&lt;p&gt;Jika pembaca pernah melakukan manipulasi data menggunakan library keluarga &lt;code&gt;tidyverse&lt;/code&gt; seperti &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;tidyr&lt;/code&gt;, &lt;code&gt;tibble&lt;/code&gt;, dll. &lt;code&gt;data.table&lt;/code&gt; adalah library alternatif untuk melakukan manipulasi data seperti &lt;code&gt;reshaping&lt;/code&gt;, &lt;code&gt;subseting&lt;/code&gt;, dll dengan kecepatan proses komputasi yang setara dengan library keluarga &lt;code&gt;tidyverse&lt;/code&gt;. Cheat sheet ini dibuat oleh Erik Petrovski.&lt;/p&gt;
+&lt;h2 id=&#34;data-table-https-github-com-rstudio-cheatsheets-raw-master-datatable-pdf-oleh-erik-petrovski-https-forskning-ruc-dk-en-persons-erikp&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/datatable.pdf&#34; target=&#34;_blank&#34;&gt;data.table&lt;/a&gt; oleh &lt;a href=&#34;https://forskning.ruc.dk/en/persons/erikp&#34; target=&#34;_blank&#34;&gt;Erik Petrovski&lt;/a&gt;&lt;/h2&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf&#34; target=&#34;_blank&#34;&gt;lubridate&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Jika pembaca pernah melakukan manipulasi data menggunakan library keluarga &lt;a href=&#34;http://tidyverse.org/&#34; target=&#34;_blank&#34;&gt;tidyverse&lt;/a&gt; seperti &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;tidyr&lt;/code&gt;, &lt;code&gt;tibble&lt;/code&gt;, dll. &lt;code&gt;data.table&lt;/code&gt; adalah library alternatif untuk melakukan manipulasi data seperti &lt;code&gt;reshaping&lt;/code&gt;, &lt;code&gt;subseting&lt;/code&gt;, dll dengan kecepatan proses komputasi yang setara dengan library keluarga &lt;a href=&#34;http://tidyverse.org/&#34; target=&#34;_blank&#34;&gt;tidyverse&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;lubridate&lt;/code&gt; merupakan library yang digunakan untuk melakukan pengolahan data dengan format data berupa waktu dan tanggal.Cheat sheet ini berisi bagaimana bekerja dengan jenis data waktu dan tanggal seperti pembulatan tanggal, bekerja dengan zona waktu, melakukan ekstraksi elemen waktu atau tanggal, dll. Pembaca dapat memperoleh cheat sheet ini melalui situs &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;lubridate-https-github-com-rstudio-cheatsheets-raw-master-lubridate-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf&#34; target=&#34;_blank&#34;&gt;lubridate&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;lubridate&lt;/code&gt; merupakan library yang digunakan untuk melakukan pengolahan data dengan format data berupa waktu dan tanggal.Cheat sheet ini berisi bagaimana bekerja dengan jenis data waktu dan tanggal seperti pembulatan tanggal, bekerja dengan zona waktu, melakukan ekstraksi elemen waktu atau tanggal, dll.&lt;/p&gt;
+
+&lt;h2 id=&#34;stringr-https-github-com-rstudio-cheatsheets-raw-master-strings-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/strings.pdf&#34; target=&#34;_blank&#34;&gt;stringr&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;stringr&lt;/code&gt; meupakan paket yang berguna saat kita ingin berkerja dengan huruf atau string misalnya karakter pada data. Cheat sheet ini memberikan panduan bagi pembaca dalam manipulasi jenis data string pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;purr-https-github-com-rstudio-cheatsheets-raw-master-purrr-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/purrr.pdf&#34; target=&#34;_blank&#34;&gt;purr&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;purr&lt;/code&gt; merupakan salah satu library yang termasuk dalam keluarga library &lt;a href=&#34;http://tidyverse.org/&#34; target=&#34;_blank&#34;&gt;tidyverse&lt;/a&gt;. Library ni berguna saat pembaca ingin bekerja dengan list dan function di &lt;code&gt;R&lt;/code&gt;. Cheat sheet ini akan memberikan kita panduan bagaimana melakukan manipulasi pada list sebaik mengaplikasikan function secara iteratf pada tiap elemen list atau vektor menggunakan library &lt;code&gt;purr&lt;/code&gt; yang merupakan library alternatif yang memberikan kecepatan dalam proses komputasi dibandingkan keluarga fungsi &lt;code&gt;apply()&lt;/code&gt; pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;data-import-https-github-com-rstudio-cheatsheets-raw-master-data-import-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf&#34; target=&#34;_blank&#34;&gt;data import&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Cheat sheet ini memberikan panduan bagaimana membaca flat file (.csv, .tsv, .txt, dll) menggunakan library &lt;code&gt;readr&lt;/code&gt;, bekerja dengan hasil import berupa tibble serta melakukan &lt;em&gt;reshape&lt;/em&gt; data yang berantakan dengan &lt;code&gt;tidyr&lt;/code&gt;. Gunakan library &lt;code&gt;tidyr&lt;/code&gt; untuk mentransformasi data frame atau tibble menjadi lebih &lt;em&gt;tidy&lt;/em&gt; yang dapat bekerja lebih lancar dengan &lt;code&gt;R&lt;/code&gt; dan library &lt;a href=&#34;http://tidyverse.org/&#34; target=&#34;_blank&#34;&gt;tidyverse&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;transformasi-data-https-github-com-rstudio-cheatsheets-raw-master-data-transformation-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf&#34; target=&#34;_blank&#34;&gt;Transformasi data&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Cheat sheet yang memberikan panduan bagi pembaca bagaimana bekerja dengan grammar untuk manipulasi tabel pada dataset yang pembaca miliki menggunkan library &lt;code&gt;dplyr&lt;/code&gt;. Manipulasi tabel yang dapat dilakukan seperti &lt;code&gt;select()&lt;/code&gt;, &lt;code&gt;filter()&lt;/code&gt;, &lt;code&gt;arrange()&lt;/code&gt;, &lt;code&gt;mutate()&lt;/code&gt;, &lt;code&gt;summarise()&lt;/code&gt;, &lt;code&gt;group()&lt;/code&gt;, dan menggabungkan data frame serta tibble menggunakan kaluarga fungsi &lt;code&gt;join&lt;/code&gt; yang merupakan alternatif yang lebih &lt;em&gt;advance&lt;/em&gt; dari fungsi seperti &lt;code&gt;cbind()&lt;/code&gt; dan &lt;code&gt;rbind()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;r-markdown-https-github-com-rstudio-cheatsheets-raw-master-rmarkdown-2-0-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf&#34; target=&#34;_blank&#34;&gt;R Markdown&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;R Markdown&lt;/code&gt; adalah format penulisan yang dapat mempermudah penulisan laporan yang dapat digunakan kembali dengan R. Pembaca dapat menggabungkan kode R dengan narasi yang ditulis dalam markdown (format &lt;em&gt;plain text&lt;/em&gt; yang mudah ditulis) dan kemudian mengekspor hasilnya menjadi format html, pdf, atau File Word. Pembaca bahkan dapat menggunakan &lt;code&gt;R Markdown&lt;/code&gt; untuk membuat dokumen interaktif dan slideshow.&lt;/p&gt;
+
+&lt;h2 id=&#34;rstudio-ide-https-github-com-rstudio-cheatsheets-raw-master-rstudio-ide-pdf-oleh-rstudio-https-www-rstudio-com-resources-cheatsheets&#34;&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf&#34; target=&#34;_blank&#34;&gt;RStudio IDE&lt;/a&gt; oleh &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34;&gt;RStudio&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;RStudio IDE&lt;/code&gt; adalah lingkungan pengembangan terintegrasi paling populer untuk R. Apa pun yang pembaca ingin lakukan dengan &lt;code&gt;R&lt;/code&gt; (seperti menulis, menjalankan, dan men-&lt;em&gt;debug&lt;/em&gt; sintaks pada &lt;code&gt;R&lt;/code&gt;, serta berkeja secara kolaboratif dan kontrol versi, membuat paket, dokumen serta aplikasi), RStudio IDE dapat membantu pembaca melakukannya lebih cepat. Cheat sheet ini akan memandu pembaca memahami fitur-fitur IDE yang paling berguna, serta daftar panjang pintasan keyboard yang ada di dalam &lt;code&gt;RStudio IDE&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
