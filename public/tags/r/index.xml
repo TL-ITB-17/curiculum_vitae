@@ -18,8 +18,8 @@
       
       <guid>/post/cheatsheet-r/</guid>
       <description>Pada postingan kali ini penulis akan memberikan kumpulan cheat sheet R yang penulis ambil dari berbagai sumber.
-Base R oleh Mhairi McNeil Merupakan cheat sheet yang berguna untuk memahami penggunaan fungsi dasar R seperti bagaimana cara membuat matrix, vektor, list, data frame, serta bagaimana bekerja dengannya.
-Advanced R oleh Arianne Colton dan Sean Chen Cheat sheet yang berguna jika pembaca telah menguasai dasar-dasar R dan ingin mengembangkan diri keranah yang lebih mahir.</description>
+1. Base R oleh Mhairi McNeil Merupakan cheat sheet yang berguna untuk memahami penggunaan fungsi dasar R seperti bagaimana cara membuat matrix, vektor, list, data frame, serta bagaimana bekerja dengannya.
+2. Advanced R oleh Arianne Colton dan Sean Chen Cheat sheet yang berguna jika pembaca telah menguasai dasar-dasar R dan ingin mengembangkan diri keranah yang lebih mahir.</description>
     </item>
     
     <item>
