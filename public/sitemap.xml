@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>/tutorial/09-distribusi-probabilitas/</loc>
+      <lastmod>2019-05-21T00:00:00+07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/cheatsheet-r/</loc>
       <lastmod>2019-04-27T00:00:00+07:00</lastmod>
     </url>
@@ -13,7 +21,7 @@
     <url>
     
       <loc>/post/mengenal-r/</loc>
-      <lastmod>2019-04-01T00:00:00+07:00</lastmod>
+      <lastmod>2019-04-21T00:00:00+07:00</lastmod>
     </url>
     
   
@@ -229,7 +237,7 @@
     <url>
     
       <loc>/</loc>
-      <lastmod>2019-04-27T00:00:00+07:00</lastmod>
+      <lastmod>2019-05-21T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -361,7 +369,7 @@
     <url>
     
       <loc>/tags/tutorial/</loc>
-      <lastmod>2019-04-01T00:00:00+07:00</lastmod>
+      <lastmod>2019-04-21T00:00:00+07:00</lastmod>
       <priority>0</priority>
     </url>
     

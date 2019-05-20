@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>9. Distribusi Probabilitas</title>
+      <link>/tutorial/09-distribusi-probabilitas/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/09-distribusi-probabilitas/</guid>
+      <description>body{text-align: justify}Daftar Isi
+Properti Umum dari Distribusi ProbabilitasDistribusi Binomial dan MultinomialDistribusi HipergeometrisDistribusi Binomial Negatif dan Distribusi GeometrisDistribusi PoissonDistribusi UniformDistribusi NormalDistribusi Gamma dan EksponensialDistribusi Chi-Square, Student’s t, dan Snedecor’s FDistribusi Kontinu LainnyaDistribusi probabilitas merupakan sebuah fungsi yang menggambarkan kemungkinan memperoleh sejumlah nilai dalam suatu variabel acak. Dengan kata lain distribusi probabilitas menjelaskan bahwa nilai yang muncul pada sampel acak akan bervariasi berdasarkan distribusi probabilitas yang menyertainya.</description>
+    </item>
+    
+    <item>
       <title>10. Penaksiran Secara Statistika</title>
       <link>/tutorial/10_penaksiran_secara_statistika/</link>
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0700</pubDate>

@@ -6,8 +6,1182 @@
     <description>Recent content in Environmental Data Modeling on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Apr 2019 00:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 21 May 2019 00:00:00 +0700</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>9. Distribusi Probabilitas</title>
+      <link>/tutorial/09-distribusi-probabilitas/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/09-distribusi-probabilitas/</guid>
+      <description>
+
+
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Daftar Isi&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#9-1-properti-umum-dari-distribusi-probabilitas&#34;&gt;Properti Umum dari Distribusi Probabilitas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#9-2-distribusi-binomial-dan-multinomial&#34;&gt;Distribusi Binomial dan Multinomial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#9-3-distribusi-hipergeometris&#34;&gt;Distribusi Hipergeometris&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#9-4-distribusi-binomial-negatif-dan-distribusi-geometris&#34;&gt;Distribusi Binomial Negatif dan Distribusi Geometris&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#9-5-distribusi-poisson&#34;&gt;Distribusi Poisson&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#9-6-distribusi-uniform&#34;&gt;Distribusi Uniform&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#9-7-distribusi-normal&#34;&gt;Distribusi Normal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#9-8-distribusi-gamma-dan-eksponensial&#34;&gt;Distribusi Gamma dan Eksponensial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#9-9-distribusi-chi-square-student-s-t-dan-snedecor-s-f&#34;&gt;Distribusi Chi-Square, Student’s t, dan Snedecor’s F&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#9-10-distribusi-kontinu-lainnya&#34;&gt;Distribusi Kontinu Lainnya&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Distribusi probabilitas merupakan sebuah fungsi yang menggambarkan kemungkinan memperoleh sejumlah nilai dalam suatu variabel acak. Dengan kata lain distribusi probabilitas menjelaskan bahwa nilai yang muncul pada sampel acak akan bervariasi berdasarkan distribusi probabilitas yang menyertainya.&lt;/p&gt;
+&lt;p&gt;Untuk memahaminya misalkan kita melakukan suatu sampling dengan cara survey terhadap sejumlah responden untuk mengetahui produksi sampah hariannya. Keseluruhan nilai timbulan yang diperoleh selajutnya disebut sebagai distribusi timbulan sampah. Distribusi tersebut berguna saat kita mengetahui hasil mana yang paling mungkin, sebaran nilai potensial serta kemungkinan hasil yang berbeda.&lt;/p&gt;
+&lt;div id=&#34;properti-umum-dari-distribusi-probabilitas&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.1 Properti Umum dari Distribusi Probabilitas&lt;/h2&gt;
+&lt;p&gt;Distribusi probabilitas menjelaskan kemungkinan suatu peristiwa atau nilai muncul. Ahli statistika menjelaskan distribusi probabilitas kedalam Persamaan &lt;a href=&#34;#eq:pudbp&#34;&gt;(1)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pudbp&#34;&gt;\[\begin{equation}
+   P\left(x\right)=kemungkinan\ suatu\ variabel\ acak\ mengandung\ nilai\ x
+  \tag{1}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Jumlah seluruh probabilitas adalah 1. Selain itu retang nilai probabilitas berkisar antara 0 sampai 1, dimana hal ini telah penulis jelaskan pada Chapter sebelumnya.&lt;/p&gt;
+&lt;p&gt;Distribusi probabilitas menjelaskan sebaran nilai variabel acak. Akibatnya, jenis variabel menentukan jenis distribusi probabilitas. Untuk variabel acak tunggal, ahli statistik membagi distribusi menjadi dua jenis berikut:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Distribusi probabilitas yang diskrit&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Fungsi probabilitas diskrit dikenal sebagai fungsi massa probabilitas, dimana kita dapat mengasumsikan sejumlah nilai diskrit. Misalnya pelemparan dadu serta perhitungan sebuah peristiwa seperti flu di suatu daerah merupakan fungsi tersendiri. Kedua contoh tersebut merupakah contoh peristiwa diskrit karena tidak ada nilai antara, misalnya pada dadu tidak ada nilai antara 1 dan 2, dan seterunya. Pada perhitungan jumlah peristiwa flu juga tidak ada nilai antara orang terserang dlu dan tidak. Contoh lainnya adalah perhitungan jumlah buku diperpustakaan yang diperiksa tiap jam. Kita dapat menghitung jumlah buku perjam seperti 21 buku atau 22 buku, tetapi kita tidak dapat menghitung jumlah buku pada nilai antara kedua nilai tersebut. Distribusi probabilitas diskrit terdiri atas:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Binomial&lt;/li&gt;
+&lt;li&gt;Hypergeometric&lt;/li&gt;
+&lt;li&gt;Poisson&lt;/li&gt;
+&lt;li&gt;Geometric&lt;/li&gt;
+&lt;li&gt;Multinomial&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Distribusi probabilitas yang bersifat kontinu&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Fungsi probabilitas kontinu dikenal juga sebagai fungsi densitas probabilitas. Suatu distribusi dikatakan sebagai distribusi kontinu jika nilai yang terkandung dalam distribusi tersebut tidak terbatas serta skala yang digunakan dapat pula mengandung nilai desimal. Contoh suatu pengukuran yang menghasilkan distribusi kontinu adalah tinggi, berat, suhu, dll. Distribusi probabilitas kontinu terdiri atas:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Normal&lt;/li&gt;
+&lt;li&gt;Binomial&lt;/li&gt;
+&lt;li&gt;Uniform&lt;/li&gt;
+&lt;li&gt;Loh Normal&lt;/li&gt;
+&lt;li&gt;Gamma, dll.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-binomial-dan-multinomial&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.2 Distribusi Binomial dan Multinomial&lt;/h2&gt;
+&lt;p&gt;Suatu percobaan sering dilakukan dengan proses yang berulang-ulang. Tiap proses percobaan yang dilakukan akan menghasilkan dua luaran yaitu &lt;strong&gt;sukses&lt;/strong&gt; atau &lt;strong&gt;gagal&lt;/strong&gt;. Untuk memahaminya misalkan pembaca melakukan pelemparan sebuah koin. Jika yang keluar adalah bagian kepala (&lt;em&gt;head&lt;/em&gt;) maka proses tersebut dikatakan sukses, jika sebaliknya maka gagal. Proses penentuan sukses dan gagal tersebut tergantung pada sudut pandang kita melihatnya. Proses percobaan demikian disebut sebagai &lt;strong&gt;Bernoulli process&lt;/strong&gt; (proses bernouli). Setiap percobaan yang dilakukan disebut sebagai &lt;strong&gt;Bernoulli trial&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bernoulli process&lt;/strong&gt; memiliki ciri-ciri sebagai berikut:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Eksperimen terdiri atas sejumlah perulangan percobaan.&lt;/li&gt;
+&lt;li&gt;Setiap perulangan percobaan menghasilkan luaran yang diklasifikasikan sebagai &lt;strong&gt;sukses&lt;/strong&gt; atau &lt;strong&gt;gagal&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Probabilitas sukses (dinotasikan &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;) konstan dari setiap perulangan.&lt;/li&gt;
+&lt;li&gt;Setiap perulangan percobaan bersifat independen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Untuk memahami &lt;strong&gt;Bernoulli process&lt;/strong&gt; kita akan menggunakan contoh pelemparan dadu. Misalkan kita akan melakukan percobaan pelemparan dadu sebanyak 3 kali. Probabilitas munculnya bagian angka 1 pada dadu adalah &lt;span class=&#34;math inline&#34;&gt;\(\frac{1}{6}\)&lt;/span&gt;. Probabilitas ini konstan pada setiap perulangan. Jika kita menginginkan ketiga perulangan tersebut menghasilkan angka 1. Probabilitasnya merupakan hasil kali probabilitas pada tiap giliran pelemparan seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(111\right)=\frac{1}{6}\cdot\frac{1}{6}\cdot\frac{1}{6}=\frac{1}{216}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;distribusi-binomial&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.2.1 Distribusi Binomial&lt;/h3&gt;
+&lt;p&gt;Jumlah &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; keberhasilan atau jumlah percobaan sukses dalam percobaan Bernoulli disebut &lt;strong&gt;variabel acak binomial&lt;/strong&gt;. Distribusi probabilitas dari variabel acak diskrit ini disebut distribusi binomial, dan nilainya akan dinotasikan dengan &lt;span class=&#34;math inline&#34;&gt;\(b\left(x;n,p\right)\)&lt;/span&gt; karena mereka bergantung pada jumlah percobaan dan probabilitas keberhasilan pada percobaan yang diberikan.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bernouli trial&lt;/strong&gt; dapat menghasilkan percobaan yang sukses dengan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; dan percobaan gagal dengan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(q=1-p\)&lt;/span&gt;. Sehingga distribusi probabilitas binomial percobaan sukses untuk variabel acak &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; dengan jumlah &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; percobaan yang independen dinyatakan kedalam Persamaan &lt;a href=&#34;#eq:dbinom&#34;&gt;(2)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dbinom&#34;&gt;\[\begin{equation}
+   b\left(x;n,p\right)=\left(nC_x\right)p^xq^{n-x},\ x=0,1,2,...,n.
+  \tag{2}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dbinom2&#34;&gt;\[\begin{equation}
+   nC_x=\frac{n!}{x!\left(n-x\right)!}
+  \tag{3}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Dengan menggunakan contoh sebelumnya kita dapat menghitung probabilitas keluarnya angka 1 pada dadu untuk 3 kali percobaan (&lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;) atau seluruh percobaan menghasilkan angka 1 (&lt;span class=&#34;math inline&#34;&gt;\(n=x=3\)&lt;/span&gt;) adalah:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+b\left(3;3,\frac{1}{6}\right)=\left(\frac{3!}{3!\left(3-3\right)!}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^{\left(3-3\right)}
+\]&lt;/span&gt; &lt;span class=&#34;math display&#34;&gt;\[
+b\left(3;3,\frac{1}{6}\right)=\left(1\right)\cdot\left(\frac{1}{6}\right)^3\cdot\left(1\right)=\frac{1}{216}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Kita juga dapat melakukan perhitungan tersebut menggunakan &lt;code&gt;R&lt;/code&gt; untuk mengetahui probabilitas munculnya angka 1 pada dadu untuk 3 kali percobaan. Sintak yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dbinom(x=3, # jumlah kejadian sukses 
+       size=3, # jumlah percobaan
+       prob=1/6) # probabilitas kejadian&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.00462963&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Probabilitas Kumulatif Binomial&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pada kondisi lain kita tidak hanya tertarik dengan probabilitas munculnya suatu peristiwa. Kita terkadang tertarik untuk menghitung probabilitas kumulatif dari suatu peristiwa. Misalnya probabilitas munculnya nomor dadu &lt;span class=&#34;math inline&#34;&gt;\(&amp;lt;4\)&lt;/span&gt; atau pada perhitungan kendaraan per jam yang melalui suatu jalan kita tertarik menghitung peluang kendaraan yang melintas tiap jam &lt;span class=&#34;math inline&#34;&gt;\(&amp;lt;50\)&lt;/span&gt; kendaraan. Untuk menghitung probabilitas yang demikian kita perlu melakukan akumulasi probabilitas yang memenuhi kriteria yang telah kita tentukan sebelumnya. Probabilitas kumulatif distribusi binomial berdasarkan kondisi tertentu dinyatakan pada Persamaan &lt;a href=&#34;#eq:dbinom3&#34;&gt;(4)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dbinom3&#34;&gt;\[\begin{equation}
+   B\left(r,n,p\right)=\sum_{x=0}^rb\left(x;n,p\right)
+  \tag{4}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(r\)&lt;/span&gt; adalah kondisi probabilitas yang kita inginkan yang dapat dituliskan sebagai &lt;span class=&#34;math inline&#34;&gt;\(P\left(X&amp;lt;r\right)\)&lt;/span&gt; atau &lt;span class=&#34;math inline&#34;&gt;\(P\left(X&amp;gt;r\right)\)&lt;/span&gt;. Kondisi lain yang dapat kita gunakan adalah &lt;span class=&#34;math inline&#34;&gt;\(P\left(a\le X\le b\right)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Untuk memahaminya kita akan membuat sebuah contoh kasus. Misalkan kita diminta untuk melakukan analisis kerusakan &lt;em&gt;diffused aerator&lt;/em&gt; pada suatu instalasi air limbah. Jumlah aerator total pada instalasi tersebut adalah 10 buah. Probabilitas sebuah aerator rusak sebesar &lt;span class=&#34;math inline&#34;&gt;\(\frac{1}{10}\)&lt;/span&gt;. Tentukan berapa probabilitas jika (a) setidaknya 3 aerator tersebut tidak rusak? (b) 4 sampai 5 buah aerator rusak? serta (c) sebanyak 5 aerator rusak?.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;jika setidaknya 3 aerator tidak rusak&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X\le 3\right)=\sum _{x=0}^3b\left(x;10,0.1\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X\le3\right)=b\left(0;10,0.1\right)+b\left(1;10,0.1\right)+b\left(2;10,0.1\right)+b\left(3;10,0.1\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X\le3\right)=0,987
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Kita juga dapat memperoleh nilai tersebut dengan melihat tabel statistika yang dapat pembaca lihat pada tautan &lt;a href=&#34;https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf&#34;&gt;berikut&lt;/a&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;jika 4 sampai 5 aerator rusak&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(4\le X\le5\right)=\sum_{x=4}^5b\left(x;10,0.1\right)=\sum_{x=0}^5b\left(x;10,0.1\right)-\sum_{x=0}^3\left(x;10,0.1\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(4\le X\le5\right)=1-0,987=0,013
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;jika tepat 5 aerator rusak&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X=5\right)=b\left(5;10,0.1\right)=\sum_{x=0}^5b\left(x;10,0.1\right)-\sum_{x=0}^4b\left(x;10,0.1\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X=5\right)=1-0,998=0,002
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Untuk melakukan perhitungannya pada &lt;code&gt;R&lt;/code&gt; kita dapat menggunakan fungsi &lt;code&gt;pbinom()&lt;/code&gt;. Fungsi tersebut akan menghitung probabilitas bedasarkan nilai kondisi yang telah kita masukkan. Berikut adalah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# a) jika setidaknya 3 aerator tidak rusak
+pbinom(q=3,  
+       size=10, # jumlah percobaan
+       prob=0.1) # probabilitas sukses&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9872048&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# b) jika setidaknya 4 sampai 5 aerator rusak
+pbinom(q=5,size=10,prob=0.1)-pbinom(q=3,size=10,prob=0.1) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0126483&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# c) jika tepat 5 aerator rusak
+dbinom(x=5, # jumlah kejadian sukses
+       size=10, # jumlah percobaan
+       prob=0.1) # probabilitas sukses&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.001488035&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Menghitung Nilai Rata-Rata dan Varians Distribusi Binomial&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Kita sudah mengetahui bahwa distribusi probabilitas binomial hanya bergantung pada nilai &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, dan &lt;span class=&#34;math inline&#34;&gt;\(q\)&lt;/span&gt;. Berdasarkan tersebut nilai mean, dan varians dari distribusi probabilitasnya juga bergantung pada ketiga nilai tersebut. Nilai mean dituliskan pada Persamaan &lt;a href=&#34;#eq:dbinom4&#34;&gt;(5)&lt;/a&gt;, sedangkan varians dari distribusi probababilitas distuliskan pada Persamaan &lt;a href=&#34;#eq:dbinom5&#34;&gt;(6)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dbinom4&#34;&gt;\[\begin{equation}
+   \mu=np
+  \tag{5}
+\end{equation}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dbinom5&#34;&gt;\[\begin{equation}
+   \sigma^2=npq
+  \tag{6}
+\end{equation}\]&lt;/span&gt;
+&lt;/div&gt;
+&lt;div id=&#34;multinomial-eksperimen-dan-distribusi-multinomial&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.2.1 Multinomial Eksperimen dan Distribusi Multinomial&lt;/h3&gt;
+&lt;p&gt;Eksperimen Binomial (&lt;em&gt;Binomial process&lt;/em&gt;) dapat menjadi &lt;strong&gt;eksperimen multinomial&lt;/strong&gt; jika kita menginginkan luaran dari percobaan yang dilakukan memiliki lebih dari satu hasil. Contoh dari eksperimen multinomial ini misalnya adalah penarikan kartu dari seperangkan kartu. Kita dapat mengaggap penarikan kartu dengan pengembalian sebagai eksperimen multinomial jika luaran yang diinginkan adalah 4 jenis kartu dalam set kartu tersebut.&lt;/p&gt;
+&lt;p&gt;Secara umum, jika percobaan yang diberikan dapat menghasilkan salah satu &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; dari hasil yang mungkin &lt;span class=&#34;math inline&#34;&gt;\(E_1,E_2,...,E_k\)&lt;/span&gt; dengan probabilitas yang dihasilkan sebesar &lt;span class=&#34;math inline&#34;&gt;\(p_1,p_2,...,p_k\)&lt;/span&gt;, maka &lt;strong&gt;distribusi multinomial&lt;/strong&gt; akan memberikan nilai probabilitas yang dinyatakan &lt;span class=&#34;math inline&#34;&gt;\(E_1\)&lt;/span&gt; terjadi sebanyak &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; kali, &lt;span class=&#34;math inline&#34;&gt;\(E_2\)&lt;/span&gt; terjadi sebanyak &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; kali, sampai dengan &lt;span class=&#34;math inline&#34;&gt;\(E_k\)&lt;/span&gt; terjadi sebanyak &lt;span class=&#34;math inline&#34;&gt;\(x_k\)&lt;/span&gt; kali dalam &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; percobaan yang independent, dimana&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+x_1+x_2+...+x_k=n
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Selanjutnya fungsi probabilitas dituliskan sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f\left(x_1,x_2,...,x_k;\ p_1,p_2,...,p_k\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Seperti yang telah kita ketahui bersama bahwa nilai &lt;span class=&#34;math inline&#34;&gt;\(p_1+p_2+...+p_k=1\)&lt;/span&gt;. Sejak percobaan yang dilakukan independen, maka setiap percobaan yang menghasilkan &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; yang merupakan luaran dari &lt;span class=&#34;math inline&#34;&gt;\(E_1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; yang merupakan luaran dari &lt;span class=&#34;math inline&#34;&gt;\(E_2\)&lt;/span&gt; sampai dengan &lt;span class=&#34;math inline&#34;&gt;\(x_k\)&lt;/span&gt; yang merupakan luaran dari &lt;span class=&#34;math inline&#34;&gt;\(E_k\)&lt;/span&gt; akan terjadi dengan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(p^{x_1}p^{x_2}...p^{x_k}\)&lt;/span&gt;. Jumlah urutan yang menghasilkan hasil yang serupa untuk percobaan &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; adalah sama dengan jumlah partisi &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; item ke dalam &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; grup dengan &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; di grup pertama, &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; di grup kedua, sampai dengan &lt;span class=&#34;math inline&#34;&gt;\(x_k\)&lt;/span&gt; di grup &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;. Kondisi ini dapat dituliskan seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\binom{n}{x_1,x_2,...,x_k}=\frac{n!}{x_1!x_2!...x_k!}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Sejak seluruh partisi bersifat &lt;em&gt;mutually exlusive&lt;/em&gt; dan terjadi dengan probabilitas yang setara, kita dapat memperoleh distribusi multinomial dengan mengalikan probabilitas tiap luaran spesifik dengan jumlah total partisinya. Persamaan distribusi multinomial yang diperoleh dituliskan kedalam Persamaan &lt;a href=&#34;#eq:dmultinom&#34;&gt;(7)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dmultinom&#34;&gt;\[\begin{equation}
+   f\left(x_1,x_2,...,x_k;\ p_1,p_2,...,p_k\right)=\binom{n}{x_1,x_2,...,x_k}p^{x_1}p^{x_2}...p^{x_k}
+  \tag{7}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dmultinom2&#34;&gt;\[\begin{equation}
+   \sum_{i=1}^kx_i=n\ dan\ \sum_{i=1}^kp_i=1
+  \tag{8}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk memahami penerapan distribusi multinomial, penulis akan memberikan sebuah studi kasus. Probabilitas sejenis pompa memiliki umur ekonomis 2 tahun sebesar 0,30, antara 2-4 tahun adalah 0,50, dan 4-5 tahun adalah 0,20. Hitunglah probabilitas 8 buah pompa dimana pompa dengan umur ekonomis 2 tahun sebanyak 2 buah, 2-4 tahun sebanyak 5 buah, dan antara 4-5 sebanyak 1 buah.&lt;/p&gt;
+&lt;p&gt;Untuk menyelesaikannya kita perlu mendata jumlah kemunculan disertai dengan probabilitas kejadia pada tiap grup seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+n=8;\ x_1=2\ dengan\ p_1=0,30;\ x_2=5\ dengan\ p_2=0,50,\ dan\ x_3=1\ dengan\ p_1=0,20\ 
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;dengan menggunakan Persamaan &lt;a href=&#34;#eq:dmultinom&#34;&gt;(7)&lt;/a&gt;, maka probabilitasnya dapat dihitung seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f\left(2,5,1;0.30,0.50,0.20\right)=\binom{8}{2,5,1}\left(0,3\right)^2\left(0,5\right)^5\left(0,2\right)^1
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f\left(2,5,1;0.30,0.50,0.20\right)=0,0945
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; kita dapat menggunakan fungsi &lt;code&gt;dmultinom()&lt;/code&gt; untuk menghitung probabilitas distribusi multinomial. Komponen dari fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dmultinom(x, size, prob)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;size&lt;/strong&gt;: jumlah percobaan atau perulangan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;prob&lt;/strong&gt;: vektor numerik probabilitas tiap grup hasil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah sintaks untuk menghitung probabilitas multinomial pada contoh kasus di atas:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dmultinom(c(2,5,1), # jumlah kejadian tiap grup 
+          size=8, # jumlah percobaan
+          prob=c(0.3,0.5,0.2)) # probabilitas masing-masing luaran&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0945&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-hipergeometris&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.3 Distribusi Hipergeometris&lt;/h2&gt;
+&lt;p&gt;Distribusi hipergeometris didasarkan pada eksperimen hipergeometris yang memiliki asumsi sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Sampel dengan ukuran &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; diambil secara acak tanpa pengembalian (&lt;em&gt;sampel without replacement&lt;/em&gt;) dari populasi berukuran &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Pada populasi, &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; didefinisikan sebagai observasi yang &lt;strong&gt;sukses&lt;/strong&gt;, sedangkan &lt;span class=&#34;math inline&#34;&gt;\(N-k\)&lt;/span&gt; didefiniskan sebagai observasi yang &lt;strong&gt;gagal&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Melalui asusmsi tersebut, kita dapat menemukan perbedaan antara distribusi hipergeometris dengan distribusi binomial. Perbedaan yang paling mendasar adalah metode sampling yang digunakan, dimana distribusi binomial mengasumsikan sampel dengan pengembalian (&lt;em&gt;sample with replacement&lt;/em&gt;), sedangkan distribusi hipergeometris mengasumsikan sebaliknya.&lt;/p&gt;
+&lt;p&gt;Distribusi probabilitas hipergeometris untuk variabel acak &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; dengan jumlah sampel &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; dari populasi terpilih dengan ukuran populasi &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;, dimana &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; merupakan observasi &lt;strong&gt;sukses&lt;/strong&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(N-k\)&lt;/span&gt; merupakan observasi yang gagal dapat dituliskan berdasarkan Persamaan &lt;a href=&#34;#eq:dhiper&#34;&gt;(9)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dhiper&#34;&gt;\[\begin{equation}
+   h\left(x;N,n,k\right)=\frac{\binom{k}{x}\binom{N-k}{n-x}}{\binom{N}{n}},\ \max\left\{0,n-\left(N-k\right)\right\}\le x\le\min\left\{n,k\right\}
+  \tag{9}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Range dari &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; dapat ditentukan dari 3 koefisien binomial, dimana &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(n-x\)&lt;/span&gt; tidak lagi lebih besar dari &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(N-k\)&lt;/span&gt; dan nilai keduanya tidak boleh lebih kecil dari 0. Biasanya ketika kedua nilai &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(N-k\)&lt;/span&gt; lebih besar dari ukuran sampel &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, range dari variabel acak hipergeometris akan menjadi &lt;span class=&#34;math inline&#34;&gt;\(x=0,1,...,n\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Untuk memahami penerapan distribusi hipergeometris, kita dapat menerapkannya dalam sebuah contoh kasus. Misalkan pembaca ditugaskan untuk melakukan sortir terhadap 40 sak kompos yang akan dijual dengan berat rata-rata 2 kg. Pembaca diberi tahu bahwa 3 dari seluruh kompos tersebut memiliki berat kurang dari 2 kg sehingga tidak dapat dijual. Tugas pembaca adalah menemukan ketiga sak kompos tersebut. Untuk mempermudah proses tersebut pembaca melakukan sampling secara acak dengan jumlah sampling 5 buah kompos tanpa pengembalian. Hitunglah berapa peluang pada tiap sampling tersebut pembaca menemukan 1 kompos yang memiliki berat lebih kecil dari 2 kg tersebut?.&lt;/p&gt;
+&lt;p&gt;Berdasarkan studi kasus tersebut kita dapat menyimpulkan bahwa proses sampling yang dilakukan adalah dengan menggunakan prosedur sampling tanpa pengembalian, sehingga distribusi hipergeometris dapat diterapkan dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(n=5\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(N=40\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(k=3\)&lt;/span&gt;, dan &lt;span class=&#34;math inline&#34;&gt;\(x=1\)&lt;/span&gt;. Dengan menggunakan Persamaan &lt;a href=&#34;#eq:dhiper&#34;&gt;(9)&lt;/a&gt;, peluang ditemukan 1 sak kompos yang tidak sesuai adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+h\left(1;40,5,3\right)=\frac{\binom{3}{1}\binom{40-3}{5-1}}{\binom{40}{5}}=0,3011
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil perhitungan diketahui bahwa peluang untuk menemukan 1 sak kompos dari 3 sak kompos yang tidak sesuai sebesar 30% pada tiap kali sampling.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; distribusi probabilitas hipergeometris dapat dihitung menggunakan fungsi &lt;code&gt;dhyper()&lt;/code&gt;. Format yang digunakan pada fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dhyper(x, m, n, k)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik yang menyatakan observasi sukses pada tiap sampling&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;m&lt;/strong&gt;: jumlah observasi sukses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;n&lt;/strong&gt;: jumlah observasi gagal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;k&lt;/strong&gt;: ukuran sampel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah sintaks untuk menghitung probabilitas hipergeometris contoh kasus di atas:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dhyper(x=1, # observasi sukses tiap sampling
+       m=3, # observasi sukses (k)
+       n=37, # observasi gagal (N-k)
+       k=5) # sampel&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.3011134&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Probabilitas Kumulatif Hipergeometris&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pada contoh kasus sebelumnya, sak kompos yang tidak memenuhi kriteria bisa saja saat sampling tidak hanya ditemukan 1 sak yang tidak memenuhi, bisa dua , tiga atau sama sekali tidak ada yang ditemukan sak yang tidak memenuhi kriteria. Kondisi tersebut mengharuskan kita menghitung probabilitas kumulatif dari suatu kondisi seperti &lt;span class=&#34;math inline&#34;&gt;\(P\left(X&amp;lt;r\right),\ P\left(X&amp;gt;r\right),\ atau\ P\left(a&amp;lt;X&amp;lt;b\right)\)&lt;/span&gt; yang dapat dituliskan pada Persamaan &lt;a href=&#34;#eq:dhiper2&#34;&gt;(10)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dhiper2&#34;&gt;\[\begin{equation}
+   H\left(r;N,n,k\right)=\sum_{x=0}^rh\left(x;N,n,k\right)
+  \tag{10}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Pada contoh sebelumnya, hitunglah probabilitas jika paling banyak 2 sak kompos yang tidak memenuhi kriteria ditemukan pada sampel?.&lt;/p&gt;
+&lt;p&gt;Untuk melakukannya kita perlu menghitung probabilitas hipergeometris untuk kondisi saat &lt;span class=&#34;math inline&#34;&gt;\(x=0,1,2\)&lt;/span&gt;. Dengan menggunakan Persamaan &lt;a href=&#34;#eq:dhiper2&#34;&gt;(10)&lt;/a&gt;, nilai probabilitas yang dihasilkan adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X\le2\right)=b\left(0;40,5,3\right)+b\left(1;40,5,3\right)+b\left(2;40,5,3\right)=0,999
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; probabilitas kumulatif dapat dihitung menggunakan fungsi &lt;code&gt;phyper()&lt;/code&gt;. Format fungsi yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;phyper(q, m, n, k, lower.tail=TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;q&lt;/strong&gt;: vektor numerik yang menyatakan observasi maksimum yang sukses saat sampling&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;m&lt;/strong&gt;: jumlah observasi sukses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;n&lt;/strong&gt;: jumlah observasi gagal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;k&lt;/strong&gt;: ukuran sampel&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dengan menggunakan sintaks tersebut, probabilitas kumulatif dapat dihitung sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;phyper(q=2, # probabilitas &amp;lt;=2
+       m=3, # observasi sukses
+       n=37, # jumlah gagal
+       k=5) # jumlah sampel&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9989879&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau
+dhyper(0,3,37,5)+dhyper(1,3,37,5)+dhyper(2,3,37,5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9989879&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Menghitung Nilai Rata-Rata dan Varians Distribusi Hipergeometris&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Nilai rata-rata dan varians distribusi hipergeometris dituliskan kedalam Persamaan &lt;a href=&#34;#eq:dhiper3&#34;&gt;(11)&lt;/a&gt;:&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dhiper3&#34;&gt;\[\begin{equation}
+   \mu=\frac{nk}{N}\ dan\ \sigma^2=\frac{N-n}{N-1}\cdot n\cdot\frac{k}{N}\left(1-\frac{k}{N}\right)
+  \tag{11}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Bila nilai &lt;span class=&#34;math inline&#34;&gt;\(n&amp;lt;&amp;lt;&amp;lt;N\)&lt;/span&gt;, maka pendekatan distribusi binomial dapat dilakukan dengan pendekatan &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(p=\frac{k}{N}\)&lt;/span&gt;. Pendekatan yang dilakukan akan cukup baik bila &lt;span class=&#34;math inline&#34;&gt;\(n\le0,1N\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-binomial-negatif-dan-distribusi-geometris&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.4 Distribusi Binomial Negatif dan Distribusi Geometris&lt;/h2&gt;
+&lt;p&gt;Mari kita bayangkan percobaan di mana sifat-sifatnya (propertinya) sama dengan percobaan binomial, dengan pengecualian bahwa uji coba akan diulangi sampai sejumlah keberhasilan terjadi. Oleh karena itu, alih-alih probabilitas &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; keberhasilan dalam &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; percobaan, di mana &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; tetap, kita sekarang tertarik pada probabilitas bahwa keberhasilan &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; terjadi pada percobaan ke-&lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;. Eksperimen semacam ini disebut eksperimen &lt;strong&gt;binomial negatif&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Sifat-sifat dari percobaan binomial negatif adalah sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Percobaan terdiri atas sejumlah &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; perulangan.&lt;/li&gt;
+&lt;li&gt;Setiap percobaan memiliki dua hasil (&lt;strong&gt;sukses&lt;/strong&gt; dan &lt;strong&gt;gagal&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;Probabilitas sukses dinotasikan dengan &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; yang sama pada setiap percobaan.&lt;/li&gt;
+&lt;li&gt;Setiap percobaan bersifat independen yang berarti hasil dari sebuah percobaan tidak akan mempengaruhi hasil percobaan lainnya.&lt;/li&gt;
+&lt;li&gt;Percobaan dilakukan secara terus-menerus sampai dengan sejumlah &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; sukses terjadi, dimana &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; ditentukan terlebih dahulu.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Untuk memahaminya misalkan kita menguji sebuah obat dengan memberikannya kepada pasien yang sakit. Keberhasilan obat tersebut Obat dinyatakan sukses jika secara efektif memberikan efek pemulihan bagi pasien. Probabilitas obat tersebut melakukannya berdasarkan hasil studi yang telah dilakukan sebesar 60%. Kita tertarik untuk mengetahui probabilitas pasien kelima yang mengalami efek penyembuhan dimana pasien ini merupakan pasien ketujuh yang diberikan obat tersebut. Untuk melakukannya kita definisikan kejadian sukses dengan simbol &lt;span class=&#34;math inline&#34;&gt;\(S\)&lt;/span&gt; dan gagal dengan simbol &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt;, urutan yang mungkin dari ketujuh pasien berdasarkan respon terhadap obat adalah &lt;span class=&#34;math inline&#34;&gt;\(SFSSSFS\)&lt;/span&gt; yang probabilitas kejadian berdasarkan urutan tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\left(0,6\right)\left(0,4\right)\left(0,6\right)\left(0,6\right)\left(0,6\right)\left(0,4\right)\left(0,6\right)=\left(0,6\right)^5\left(0,4\right)^2
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Kita dapat mendaftar sejumlah luaran yang mungkin pada kejadian tersebut mengatur ulang &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(S\)&lt;/span&gt; kecuali untuk hasil terakhir, yang harus menjadi keberhasilan kelima. Jumlah total luaran yang mungkin sama dengan jumlah partisi dari enam (7-1) percobaan pertama menjadi dua kelompok dengan 2 buah gagal dan 4 buah sukses menjadi kelompok tersendiri. Hal ini dapat dilakukan berdasarkan &lt;span class=&#34;math inline&#34;&gt;\(\binom{6}{4}=15\)&lt;/span&gt; cara yang &lt;em&gt;mutually exclusive&lt;/em&gt;. Oleh karena itu, jika &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; mewakili hasil dimana keberhasilan kelima terjadi, maka&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X=7\right)=\binom{6}{4}\left(0.6\right)^2\left(0,4\right)^2=0,1866
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;distribusi-binomial-negatif&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.4.1 Distribusi Binomial Negatif&lt;/h3&gt;
+&lt;p&gt;Berdasarkan contoh kasus tersebut, kita dapat mendefinisikan formula untuk distribusi probabilitas binomial negatif. Jika percobaan yang bersifat independen dan berulang dapat menghasilkan keberhasilan (kejadian sukses) dengan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; dan kegagalan dengan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(q=1-p\)&lt;/span&gt;, maka distribusi probabilitas variabel acak &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;, jumlah percobaan di mana keberhasilan k terjadi dinyatakan pada Persamaan &lt;a href=&#34;#eq:dnegbinom&#34;&gt;(12)&lt;/a&gt;:&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dnegbinom&#34;&gt;\[\begin{equation}
+   b^{\ast}\left(x;k,p\right)=\binom{x-1}{k-1}p^kq^{x-k},\ \ \ \ \ x=k,k+1,k+2,....
+  \tag{12}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk lebih memahami penerapan dari distribusi binomial negatif. Misalkan pada suatu evan NBA (Championship series) atau final antar juara wilayah, dimana pada pertandingan puncak kedua tim dari dua wilayah akan melakukan 7 pertandingan terkahir. Suatu tim dinyatakan juara jika berhasil meraih 4 kemenangan dari 7 pertandingan yang ada. Anggaplah tim A dan B berhadapan satu sama lain. Probabilitas A memenangkan suatu pertandingan terhadap tim B sebesar 0,55, tentukan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Berapakah probabilitas tim A memenangkan kejuaraan pada pertandingan ke-6 dari 7 pertandingan yang ada?&lt;/li&gt;
+&lt;li&gt;Berapakah probabilitas A memenangkan kejuaraan?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Dengan menggunakan Persamaan &lt;a href=&#34;#eq:dnegbinom&#34;&gt;(12)&lt;/a&gt;, probabilitas kemenangan tim A terhadap tim B dapat dihitung sebagai berikut:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tim A juara pada pertandingan ke-6 (&lt;span class=&#34;math inline&#34;&gt;\(x=6\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(k=4\)&lt;/span&gt;, dan &lt;span class=&#34;math inline&#34;&gt;\(p=0,55\)&lt;/span&gt;)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+b^{\ast}\left(6;4,0.55\right)=\binom{6-1}{4-1}0,55^4\left(1-0,55\right)^{6-4}=0,1853
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tim A menjuarai kejuaraan&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tim A dapat menjuarai kejuaraan jika telah memenangkan 4 dari 7 pertandingan. Kemungkinan Tim A dapat memenangkan pertandingan tersebut dapat terjadi pada pertandingan ke-4 (menang berturut-turut), pertandingan ke-6, dan pertandingan ke-7.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+b^{\ast}\left(4;4,0.55\right)+b^{\ast}\left(5;4,0.55\right)+b^{\ast}\left(6;4,0.55\right)+b^{\ast}\left(7;4,0.55\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+0,0915+0,1647+0,1853+0,1668=0,6083
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; kita dapat menghitung probabilitas binomial negatif menggunakan fungsi &lt;code&gt;dnbinom()&lt;/code&gt;. Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dnbinom(x, size, prob)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: jumlah observasi gagal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;size&lt;/strong&gt;: jumlah observasi sukses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;prob&lt;/strong&gt;: probabilitas kejadian sukses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dengan menggunakan fungsi &lt;code&gt;dnbinom()&lt;/code&gt;, probabilitas Tim A menang pada pertandingan ke-6 dapat dihitung sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dnbinom(x=2, # jumlah observasi gagal
+        size=4, # jumlah observasi sukses
+        prob=0.55) # probabilitas sukses&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1853002&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pada pertanyaan kedua soal dapat kita impulkan bahwa kita hendak mencari probabilitas kumulatif kemenangan Tim A. Untuk melakukannya kita dapat menggunakan fungsi &lt;code&gt;pnbinom()&lt;/code&gt;. Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pnbinom(q, size, prob, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;q&lt;/strong&gt;: jumlah observasi gagal minimum&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;size&lt;/strong&gt;: jumlah observasi sukses maksimum&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;prob&lt;/strong&gt;: probabilitas sukses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dengan menggunakan fungsi tersebut, probabilitas kumulatif kemenangan Tim A adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pnbinom(q=3, # jumlah observasi gagal min
+        size=4, # jumlah observasi sukses maks
+        prob=0.55) # probabilitas sukses&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6082878&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau
+dnbinom(x=0,size=4,prob=0.55)+
+  dnbinom(x=1,size=4,prob=0.55)+
+  dnbinom(x=2,size=4,prob=0.55)+
+  dnbinom(x=3,size=4,prob=0.55)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6082878&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-geometris&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.4.2 Distribusi Geometris&lt;/h3&gt;
+&lt;p&gt;Pada kenyataannya kita hanya tertarik terhadap probabilitas kejadian sukses pertama kali akan terjadi. Probabilitas kejadian tersebut merupakan kejadian pada &lt;strong&gt;distribusi probabilitas geometris&lt;/strong&gt;. Distribusi ini merupakan kasus khusus distribusi binomial negatif.&lt;/p&gt;
+&lt;p&gt;Jika suatu suatu percobaan independen dapat menghasilkan kejadian sukses dengan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; dan gagal dengan probabilitas &lt;span class=&#34;math inline&#34;&gt;\(q=1-p\)&lt;/span&gt;, maka distribusi probabilitas variabel acak &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;, jumlah percobaan dimana sukses pertama terjadi didefinisikan pada Persamaan &lt;a href=&#34;#eq:dgeom&#34;&gt;(13)&lt;/a&gt;:&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dgeom&#34;&gt;\[\begin{equation}
+   g\left(x;p\right)=pq^{x-1},\ \ \ \ \ x=1,2,3,...
+  \tag{13}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Agar pembaca lebih memahaminya, misalkan suatu pabrik memiliki probabilitas 1 dari 100 barang produksinya merupakan produk cacat. Pemeriksaan dilakukan pada setiap barang tersebut. Tentukan probabilitas barang ke-5 hasil pengecekan merupakan barang yang cacat?&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan Persamaan &lt;a href=&#34;#eq:dgeom&#34;&gt;(13)&lt;/a&gt; probabilitas barang ke-5 merupakan produk gagal sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+g\left(5;0.01\right)=\left(0,01\right)\left(0,99\right)^{5-1}=0,0096
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; probabilitas tersebut dapat dihitung menggunakan fungsi &lt;code&gt;dgeom()&lt;/code&gt;. Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dgeom(x, prob)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik observasi dimana kejadian sukses terjadi pertama kali&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;prob&lt;/strong&gt;: probabilitas kejadian sukses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dengan menggunakan fungsi tersebut, probabilitas geometris dapat dihitung seperti berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dgeom(x=5, # observasi kejadian sukses pertama terjadi
+      prob=0.01) # probabilitas kejadian sukses&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0095099&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Terkadang kita tertarik untuk mempelajari probabilitas kejadian sukses pertama kali berdasarkan suatu rentang observasi atau dapat didefinisikan &lt;span class=&#34;math inline&#34;&gt;\(P\left(X&amp;lt;r\right),\ P\left(X&amp;gt;r\right),\ atau\ P\left(a&amp;lt;X&amp;lt;b\right)\)&lt;/span&gt; yang dapat dituliskan pada Persamaan &lt;a href=&#34;#eq:dgeom2&#34;&gt;(14)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dgeom2&#34;&gt;\[\begin{equation}
+   G\left(r;p\right)=\sum _{x=0}^rg\left(x,p\right)
+  \tag{14}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Berdasarkan contoh sebelumnya hitunglah probabilitas barang cacat pertama kali ditemukan pada observasi kurang dari sama dengan observasi ke-5?&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(P\le5\right)=g\left(0;0.01\right)+g\left(1;0.01\right)+...+g\left(5;0.01\right)=0.0585
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; fungsi yang digunakan untuk menghitung probabilitas kumulatif distribusi probabilitas geometris adalah &lt;code&gt;pgeom()&lt;/code&gt;. Format yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pgeom(q, prob, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;q&lt;/strong&gt;: batas observasi minimum terjadi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;prob&lt;/strong&gt;: probabilitas sukses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berdasarkan hal tersebut, maka probabilitas dapat dihitung seperti berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pgeom(5,0.01)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.05851985&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau
+dgeom(0,0.01)+
+  dgeom(1,0.01)+
+  dgeom(2,0.01)+
+  dgeom(3,0.01)+
+  dgeom(4,0.01)+
+  dgeom(5,0.01)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.05851985&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nilai rata-rata dan varians distribusi probabilitas geometris disajikan pada Persamaan &lt;a href=&#34;#eq:dgeom3&#34;&gt;(15)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dgeom3&#34;&gt;\[\begin{equation}
+   \mu=\frac{1}{p}\ dan\ \sigma^2=\frac{1-p}{p^2}
+  \tag{15}
+\end{equation}\]&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-poisson&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.5 Distribusi Poisson&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Distribusi probabilitas Poisson&lt;/strong&gt; menggambarkan berapa kali suatu peristiwa terjadi pada sebuah interval yang spesifik. Interval dapat berupa waktu, jarak, area, atau volume.&lt;/p&gt;
+&lt;p&gt;Distribusi Poisson didasarkan pada dua asumsi. Asumsi pertama menjelaskan bahwa probabilitas proporsional terhadap panjang interval. Asumsi yang kedua adalah interval bersifat independen. Dengan kata lain semakin panjang suatu interval, semakin besar probabilitas, dan jumlah kejadian pada sebuah interval tidak mempengaruhi interval lainnya. Distribusi ini juga merupakan bentuk terbatas dari distribusi binomial dimana probabilitas keberhasilan sangat kecil dengan ukuran sampel &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; besar.&lt;/p&gt;
+&lt;p&gt;Probabilitas Poisson memiliki karakteristik sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;variabel acak merupakan berapa kali suatu peristiwa terjadi selama interval yang ditentukan. 2.probabilitas suatu peristiwa proporsional terhadap ukuran interval.&lt;/li&gt;
+&lt;li&gt;interval tidak tumpang tindih dan bersifat independen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Distribusi probabilitas Poisson pada variabel acak &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;, merepresentasikan jumlah luaran yang terjadi pada interval waktu yang diberikan atau wilayah yang spesifik dan dinotasikan sebagai &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;. Distribusi probabilitas dituliskan pada Persamaan &lt;a href=&#34;#eq:dpoisson&#34;&gt;(16)&lt;/a&gt;:&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dpoisson&#34;&gt;\[\begin{equation}
+   p\left(x;\lambda t\right)=\frac{e^{-\lambda t}\left(\lambda t\right)^x}{x!},\ \ \ \ \ \ x=0,1,2,....
+  \tag{16}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; merupakan rata-rata jumlah luaran per satuan waktu, jarak, area, atau volume dan &lt;span class=&#34;math inline&#34;&gt;\(e=2,71828...\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Kumulatif probabilitas Poisson dituliskan berdasarkan Persamaan &lt;a href=&#34;#eq:dpoisson2&#34;&gt;(17)&lt;/a&gt;:&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dpoisson2&#34;&gt;\[\begin{equation}
+   P\left(r;\lambda t\right)=\sum_{x=0}^rp\left(x;\lambda t\right)
+  \tag{17}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dengan nilai rata-rata dan varians distribusinya disajikan pada Persamaan &lt;a href=&#34;#eq:dpoisson3&#34;&gt;(18)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dpoisson3&#34;&gt;\[\begin{equation}
+   \mu\ dan\ \sigma=\lambda t
+  \tag{18}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk lebih memahami penerapan kedua persamaan tersebut, misalkan selama melakukan eksperimen laboratorium, rata-rata jumlah partikel radioaktif yang melewati couter pada 1 milidetik sebesar 4. Berapa probabilitas 6 partikel memasuki counter pada milidetik yang diberikan?&lt;/p&gt;
+&lt;p&gt;Contoh kasus tersebut dapat diselesaikan menggunakan Persamaan &lt;a href=&#34;#eq:dpoisson&#34;&gt;(16)&lt;/a&gt; dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(x=4\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\lambda t=4\)&lt;/span&gt; seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+p\left(6;4\right)=\frac{e^{-4}\left(4\right)^6}{6!}=0,1042
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Kita dapat menggunakan fungsi &lt;code&gt;dpois()&lt;/code&gt; pada &lt;code&gt;R&lt;/code&gt; untuk menghitung probabilitas Poisson. Format yag digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dpois(x, lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lamda&lt;/strong&gt;: jumlah rata-rata luaran&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Probabilitas 6 partikel memasuki counter berdasarkan fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dpois(x=6, lambda=4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1041956&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Contoh kasus tersebut juga dapat diselesaikan menggunakan Persamaan &lt;a href=&#34;#eq:dpoisson2&#34;&gt;(17)&lt;/a&gt; dengan terlebih dahulu menghitung selisih &lt;span class=&#34;math inline&#34;&gt;\(P(X\le6)\)&lt;/span&gt; terhadap &lt;span class=&#34;math inline&#34;&gt;\(P(X\le5)\)&lt;/span&gt;. Pada &lt;code&gt;R&lt;/code&gt; fungsi yang digunakan adalah &lt;code&gt;ppois()&lt;/code&gt;. Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ppois(q, lambda, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;q&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lambda&lt;/strong&gt;: jumlah rata-rata luaran&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dengan menggunakan fungsi tersebut, hasil yang diperoleh adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ppois(6,4)-ppois(5,4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1041956&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-uniform&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.6 Distribusi Uniform&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Distribusi uniform&lt;/strong&gt; merupakan distribusi kontinu yang paling sederhana yang ditandai dengan fungsi densitas yang datar serta probabilitas yang seragam sepanjang interval tertutup. Distribusi ini juga disebut sebagai distribusi persegi panjang sebab bentuk distribusinya yang menyerupai persegi panjang. Fungsi densitas untuk distribusi uniform disajikan pada Persamaan &lt;a href=&#34;#eq:duniform&#34;&gt;(19)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:duniform&#34;&gt;\[\begin{equation}
+f(x;A,B) =
+  \begin{cases}
+    \frac{1}{B-A}       &amp;amp; \quad A\le x\le B\\
+    0                   &amp;amp; \quad\text{}
+    \end{cases}
+ \tag{19}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Nilai mean dan varians dari distribusi uniform disajikan pada Persamaan &lt;a href=&#34;#eq:duniform2&#34;&gt;(20)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:duniform2&#34;&gt;\[\begin{equation}
+   \mu=\frac{A+B}{2}\ dan\ \sigma^2=\frac{\left(B-A\right)^2}{12}
+  \tag{20}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Untuk memudahkan pemahaman pembaca mengenai distribusi ini, berikut penulis sajikan visualisasi distribusi uniform dengan nilai minimum=1 dan maksimum=3. Variabel acak dibuat menggunakan fungsi &lt;code&gt;runif()&lt;/code&gt;. Format fungsi yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;runif(n, min = 0, max = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;n&lt;/strong&gt;: jumlah data atau panjang variabel acak&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;min&lt;/strong&gt;: nilai minimum variabel acak&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;max&lt;/strong&gt;: nilai maksimum variabel acak&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Visualisasi disajikan pada Gambar &lt;a href=&#34;#fig:uniformvis&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:uniformvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/uniformvis-1.png&#34; alt=&#34;Distribusi uniform dengan nilai min 1 dan max 3&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Distribusi uniform dengan nilai min 1 dan max 3
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berdasarkan Gambar &lt;a href=&#34;#fig:uniformvis&#34;&gt;1&lt;/a&gt;, probabilitas distribusinya adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f(x;A,B) =
+  \begin{cases}
+    \frac{1}{3}       &amp;amp; \quad 0\le x\le 4\\
+    0                   &amp;amp; \quad\text{}
+    \end{cases}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Kita juga dapat menghitung probabilitas suatu nilai melalui distribusi tersebut. Sebagai contoh, hitunglah probabilitas nilai &lt;span class=&#34;math inline&#34;&gt;\(X\ge3\)&lt;/span&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left[X\ge3\right]=\int_3^4dx=\frac{1}{4}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Jika contoh tersebut divisualisasikan, maka akan tampak seperti pada Gambar &lt;a href=&#34;#fig:uniformvis2&#34;&gt;2&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:uniformvis2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/uniformvis2-1.png&#34; alt=&#34;Probabilitas distribusi uniform pada rentang nilai x 3 sampai 4&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Probabilitas distribusi uniform pada rentang nilai x 3 sampai 4
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; terdapat 2 buah fungsi untuk menghitung probabilitas distribusi unifofm. Fungsi pertama adalah &lt;code&gt;dunif()&lt;/code&gt; dan yang kedua adalah &lt;code&gt;punif()&lt;/code&gt;. Fungsi pertama akan menghasilkan probabilitas (&lt;em&gt;likelihood&lt;/em&gt;) dari suatu nilai yang kita inginkan, sedangkan fungsi kedua adalah fungsi probabilitas kumulatif yang akan menghasilkan nilai berdasarkan rentang yang dimasukkan (rentang satu arah bisa &lt;span class=&#34;math inline&#34;&gt;\(\le\)&lt;/span&gt; atau &lt;span class=&#34;math inline&#34;&gt;\(\ge\)&lt;/span&gt;).&lt;/p&gt;
+&lt;p&gt;Format fungsi &lt;code&gt;dunif()&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dunif(x, min = 0, max = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;n&lt;/strong&gt;: jumlah data atau panjang variabel acak&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;min&lt;/strong&gt;: nilai minimum variabel acak&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;max&lt;/strong&gt;: nilai maksimum variabel acak&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Format fungsi &lt;code&gt;punif&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;punif(q, min = 0, max = 1, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;q&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;min&lt;/strong&gt;: nilai minimum variabel acak&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;max&lt;/strong&gt;: nilai maksimum variabel acak&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Nilai probabilitas berdasarkan contoh soal sebelumnya merupakan contoh kasus probabilitas kumulatif sehingga digunakan fungsi &lt;code&gt;punif()&lt;/code&gt; untuk menghitung probabilitasnya.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;punif(3, min=1, max=4, lower.tail=FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.3333333&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-normal&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.7 Distribusi Normal&lt;/h2&gt;
+&lt;p&gt;Distribusi kontinu yang paling sering digunakan dalam analisa statistik adalah &lt;strong&gt;distribusi normal&lt;/strong&gt; atau disebut juga sebagai distribusi Gauss. Distribusi ini dicirikan dari bentuknya yang mirip dengan lonceng. Secara umum fungsi densitas distribusi normal disajikan pada Persamaan &lt;a href=&#34;#eq:dnorm&#34;&gt;(21)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dnorm&#34;&gt;\[\begin{equation}
+   n\left(x;\mu,\sigma\right)=\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2\sigma^2}\left(x-\mu\right)^2},\ \ \ \ \ \ -\infty&amp;lt;x&amp;lt;\infty
+  \tag{21}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(\pi=3,14159...\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(e=2,71828...\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Berdasarkan persamaan di atas terdapat dua parameter penting dalam distribusi normal yaitu nilai mean &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; dan simpangan baku &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;. Kedua nilai tersebut akan mempengaruhi bentuk dari distribusi normal yang terbentuk. Pada contoh selanjutnya akan diberikan visualisasi mengenai bentuk distribusi normal dengan berbagai variasi mean dan simpangan baku.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Distribusi normal dengan &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; berbeda dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; yang sama.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:normvis&#34;&gt;3&lt;/a&gt; disajikan visualisasi dua buah distribusi normal dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; sama dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; berbeda.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:normvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/normvis-1.png&#34; alt=&#34;Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Distribusi normal dengan &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; sama dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; yang berbeda.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:normvis2&#34;&gt;4&lt;/a&gt; disajikan visualisasi dua buah distribusi normal dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; berbeda dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; sama. Perbedaan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; menyebabkan bentuk distribusi yang lebih datar. &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; kecil membuat bentuk distribusi yang lebih lancip (sebaran data kecil), sedangkan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; akan berlaku sebaliknya.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:normvis2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/normvis2-1.png&#34; alt=&#34;Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Distribusi normal dengan nilai mean sama dan simpangan baku berbeda.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Distribusi normal dengan &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; berbeda dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; yang berbeda.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:normvis3&#34;&gt;5&lt;/a&gt; disajikan visualisasi dua buah distribusi normal dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; berbeda dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; yang berbeda pula. Perbedaan tersebut menyebabkan perbedaan letak distribsui normal serta bentuk distribusinya.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:normvis3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/normvis3-1.png&#34; alt=&#34;Distribusi normal dengan nilai mean berbeda dan simpangan baku berbeda.&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 5: Distribusi normal dengan nilai mean berbeda dan simpangan baku berbeda.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berdasarkan visualisasi di atas, sifat-sifat dasar distribusi normal adalah sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Modus distribusi normal berada pada titik horizontal dimana kurva berada pada posisi maksimum atau &lt;span class=&#34;math inline&#34;&gt;\(x=\mu\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Kurva berbentuk simestris terhadap nilai mean &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Kurva memiliki titik infleksi pada &lt;span class=&#34;math inline&#34;&gt;\(x=\mu \pm \sigma\)&lt;/span&gt;, yang cekung kebawah jika &lt;span class=&#34;math inline&#34;&gt;\(\mu-\sigma&amp;lt;X&amp;lt;\mu+\sigma\)&lt;/span&gt; dan cekung ke atas pada titik diluar rentang tersebut.&lt;/li&gt;
+&lt;li&gt;Kurva normal mendekati sumbu horizontal asimtotik saat kita melanjutkan ke arah mana pun dari rata-rata.&lt;/li&gt;
+&lt;li&gt;Luas total di bawah kurva dan di atas sumbu horizontal adalah 1.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Sifat lain yang dimiliki oleh distribusi normal adalah sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Sekitar 68% luas dibawah kurva normal berada pada kisaran 1 &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; dari nilai &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Sekitar 95% luas dibawah kurva normal berada pada kisaran 2 &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; dari nilai &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Sekitar 99,7% luas dibawah kurva normal berada pada kisaran 3 &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; dari nilai &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Secara kolektif, titik-titik ini dikenal sebagai &lt;strong&gt;aturan empiris&lt;/strong&gt; atau &lt;strong&gt;aturan 68-95-99,7&lt;/strong&gt;. Hal ini jelas, mengingat distribusi normal sebagian besar hasil akan berada dalam 3 &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; dari &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div id=&#34;luas-area-di-bawah-kurva-normal&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.7.1 Luas Area Di Bawah Kurva Normal&lt;/h3&gt;
+&lt;p&gt;Untuk memperoleh luas area dibawah distribusi normal kita perlu membuat batasan pada kurva tersebut. Dua koordinat pembatas dapat kita definisikan sebagai &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;. Luas area yang diarsir (lihat Gambar &lt;a href=&#34;#fig:normvis4&#34;&gt;6&lt;/a&gt;) selanjutnya dihitung dengan cara mengintegralkan area yang diarsir dengan batasan dua koordinat sebelumnya atau dapat ditulis sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(x_1&amp;lt;X&amp;lt;x_2\right)=\int_{x_1}^{x_2}n\left(x;\mu,\sigma\right)dx=\frac{1}{\sqrt{2\pi\sigma}}\int_{x_1}^{x_2}e^{-\frac{1}{2\sigma^2}\left(x-\mu\right)^2}dx
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:normvis4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/normvis4-1.png&#34; alt=&#34;Luas area di bawah kurva normal.&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 6: Luas area di bawah kurva normal.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Menghitung luas area di bawah kurva normal bukanlah pekerjaan yang mudah dilakukan sehingga terkadang kita memerlukan alat bantu untuk melakukan proses perhitungan. Alat bantu yang umum digunakan adalah Tabel distribusi normal standard (distribusi normal dengan &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; 0 dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2\)&lt;/span&gt; 1) yang dapat pembaca unduh pada tautan &lt;a href=&#34;https://onlinepubs.trb.org/onlinepubs/nchrp/cd-22/manual/v2appendixc.pdf&#34;&gt;berikut&lt;/a&gt;. Untuk dapat menggunakan Tabel tersebut kita perlu mengubah nilai &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; pada Gambar &lt;a href=&#34;#fig:normvis4&#34;&gt;6&lt;/a&gt; menjadi &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt;. Untuk melakukannya kita dapat menggunakan Persamaan &lt;a href=&#34;#eq:dnorm2&#34;&gt;(22)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dnorm2&#34;&gt;\[\begin{equation}
+   Z=\frac{X-\mu}{\sigma}
+  \tag{22}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Jika kita lihat berdasarkan Gambar &lt;a href=&#34;#fig:normvis4&#34;&gt;6&lt;/a&gt;, luas area yang diblok dapat dihitung dengan Tabel distribusi normal. Luas area yang dicari dihitung sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(x_1&amp;lt;z\le x_2\right)=P\left(z&amp;lt; x_2\right)+P\left(z&amp;gt; x_1\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Agar pembaca lebih memahami penerapan distribusi ini, misalkan kita diminta untuk menghitung probabilitas masa layan lampu. Rerata masa layan lampu suatu produk adalah 750 jam dengan simpangan baku 80 jam. Distribusi dari masa layan lampu tersebut diasumsikan mengikuti distribusi normal. Hitunglah probabilitas:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Lampu memiliki masa layan antara 750 sampai 830 jam?&lt;/li&gt;
+&lt;li&gt;Lampu dengan masa layan tepat 830 jam?&lt;/li&gt;
+&lt;li&gt;Lampu dengan masa layan lebih dari atau sama dengan 830 jam&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Masa layan lampu antara 750 sampai 830 jam&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Distribusi dan luasan yang dicari dapat digambarkan berdasarkan Gambar &lt;a href=&#34;#fig:normvis5&#34;&gt;7&lt;/a&gt; berikut:&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:normvis5&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/normvis5-1.png&#34; alt=&#34;Luas area masa layan lampu antara 750 sampai 830 jam.&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 7: Luas area masa layan lampu antara 750 sampai 830 jam.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Nilai rentang perlu dikonversi kedalam nilai distribusi normal standard menggunakan Persamaan &lt;a href=&#34;#eq:dnorm2&#34;&gt;(22)&lt;/a&gt;. Berikut adalah proses perhitungannya:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+Z_{750}=\frac{750-750}{80}=0\ \ \ dan\ \ \ Z_{830}=\frac{830-750}{80}=1
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan Tabel distribusi normal, probabilitas yang diinginkan dapat dihitung sehingga diperoleh nilai probabilitas sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(z&amp;lt;1\right)=0,3413
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Masa layan lampu tepat 830 jam&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pertanyaan dapat dijawab menggunakan Persamaan &lt;a href=&#34;#eq:dnorm&#34;&gt;(21)&lt;/a&gt;. Hasil yang diperoleh adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+n\left(750;750,80\right)=\frac{1}{\sqrt{2\pi\left(80\right)}}e^{-\frac{1}{2\left(80\right)^2}\left(\left(750\right)-\left(750\right)\right)^2}=0.003
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Masa layan lampu lebih dari atau sama dengan 830 jam&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Distribusi dan luasan yang dicari dapat digambarkan berdasarkan Gambar &lt;a href=&#34;#fig:normvis6&#34;&gt;8&lt;/a&gt; berikut:&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:normvis6&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/normvis6-1.png&#34; alt=&#34;Luas area masa layan lampu lebih dari atau sama dengan 830 jam.&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 8: Luas area masa layan lampu lebih dari atau sama dengan 830 jam.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Probabilitas berdasarkan luas area tersebut dapat dihitung seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(z&amp;gt;1\right)=0,5-0,3413=0,1578
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; probabilitas distribusi normal dapat dihitung menggunakan dua buah fungsi yaitu &lt;code&gt;dnorm()&lt;/code&gt; (probabilitas distribusi normal) dan &lt;code&gt;pnorm()&lt;/code&gt; (probabilitas kumulatif distribusi normal). Format yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dnorm(x, mean = 0, sd = 1)
+pnorm(q, mean = 0, sd = 1, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mean&lt;/strong&gt;: rata-rata populasi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sd&lt;/strong&gt;: simpangan baku populasi&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penyelesaian contoh soal masa layan lampu menggunakan sintaks &lt;code&gt;R&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# masa layan 750 sampai 830 jam
+pnorm(q=830, mean=750, sd=80)-pnorm(q=750, mean=750, sd=80)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.3413447&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# masa layan 830 jam
+dnorm(x=830, mean=750, sd=80)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.003024634&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# masa layan lebih dari sama dengan 830 jam
+pnorm(q=830, mean=750, sd=80, lower.tail=FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1586553&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;uji-kecocokan-distribusi-normal&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.7.2 Uji Kecocokan Distribusi Normal&lt;/h3&gt;
+&lt;p&gt;Uji kecocokan distribusi data apakah distribusi tersebut berdistribusi normal dapat dilakukan dengan dua cara yaitu: analisis grafik dan analisis numerik. Analisis grafik dilakukan dengan menggunakan grafik yaitu histogram, density plot, QQ-plot dan ECDF. Dalam Chapter sebelumnya telah penulis jelaskan bahwa ECDF dapat digunakan untuk menguji kecocokan distribusi secara umum. Metode lain yang dapat digunakan adalah metode numerik menggunakan metode Shapiro-Wilk (SW), Shapiro-Francia (SF), dll. Dalam buku ini penulis hanya akan menjelaskan uji kecocokan distribusi normal menggunakan metode Shaphiro-Wilk.&lt;/p&gt;
+&lt;p&gt;Kita adakn menggunakan dataset &lt;code&gt;airquality&lt;/code&gt; yang merupakan data pengukuran kualitas udara New York bulan Mei sampai September 1973. Pertama-tama kita perlu melihat ringkasan data dari dataset tersebut. Berikut adalah sintaks untuk melakukannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glimpse(airquality)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Observations: 153
+## Variables: 6
+## $ Ozone   &amp;lt;int&amp;gt; 41, 36, 12, 18, NA, 28, 23, 19, 8, NA, 7, 16, 11, 14, ...
+## $ Solar.R &amp;lt;int&amp;gt; 190, 118, 149, 313, NA, NA, 299, 99, 19, 194, NA, 256,...
+## $ Wind    &amp;lt;dbl&amp;gt; 7.4, 8.0, 12.6, 11.5, 14.3, 14.9, 8.6, 13.8, 20.1, 8.6...
+## $ Temp    &amp;lt;int&amp;gt; 67, 72, 74, 62, 56, 66, 65, 59, 61, 69, 74, 69, 66, 68...
+## $ Month   &amp;lt;int&amp;gt; 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ...
+## $ Day     &amp;lt;int&amp;gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita akan mengecek distribusi dari konsentrasi ozon apakah berdistribusi normal atau tidak, kita dapat memvisualisasikannya menggunakan grafik dalam contoh ini adalah grafik QQ-plot dan ECDF. Berikut adalah visualisasi yang dihasilkan&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install.packages(&amp;quot;ggpubr&amp;quot;)
+library(ggplot2)
+library(dplyr)
+library(ggpubr)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:normvis7&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/normvis7-1.png&#34; alt=&#34;Visualisasi distribusi konsentrasi ozon Kota New York a)density plot, b)boxplot, c)ecdf, d)qq-plot&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 9: Visualisasi distribusi konsentrasi ozon Kota New York a)density plot, b)boxplot, c)ecdf, d)qq-plot
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berdasarkan kedua grafik tersebut terlihat bahwa titik observasi tidak mengikuti garis referensi distribusi normal sehingga dapat disimpulkan bahwa distribusi konsentrasi ozon tidak berdistribusi normal.&lt;/p&gt;
+&lt;p&gt;Metode lain yang digunakan untuk melakukan uji kecocokan terhadap distribusi normal adalah dengan menggunakan metode Shapiro-Wilk (SW). Metode ini merupakan metode nonparametrik yang memiliki power yang cukup besar untuk ukuran sampel relatif kecil (&lt;span class=&#34;math inline&#34;&gt;\(&amp;lt;2000\)&lt;/span&gt;). Perintah yang digunakan pada &lt;code&gt;R&lt;/code&gt; untuk melakukan uji SW adalah &lt;code&gt;shapiro.test()&lt;/code&gt;. Format yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;shapiro.test(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Pengujian ini merupakan suatu bentuk pengujian statistik sehingga melibatkan dua buah hipotesis. Pengujian statistik tidak akan dijelaskan secara detail pada Chapter ini. Hipotesis yang digunakan adalah sebagai berikut&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;: Sampel berdistribusi normal&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_1\)&lt;/span&gt;: Sampel data tidak berdistribusi normal&lt;/p&gt;
+&lt;p&gt;Berikut adalah uji kecocokan yang dilakukan pada &lt;code&gt;R&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;shapiro.test(airquality$Ozone)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Shapiro-Wilk normality test
+## 
+## data:  airquality$Ozone
+## W = 0.87867, p-value = 2.79e-08&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan hasil perhitungan diperoleh nilai p-value sebesar 2.79e-08. Dengan menggunakan tingkat kepercayaan 95% (error=5%), dapat disimpulkan bahwa distribusi ozon tidak berdistribusi normal (p-value&amp;lt;error).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pendekatan-distribusi-binomial-menggunakan-distribusi-normal&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.7.3 Pendekatan Distribusi Binomial Menggunakan Distribusi Normal&lt;/h3&gt;
+&lt;p&gt;Nilai probabilitas distribusi diskrit seperti distribusi binomial dapat dihitung dengan menggunakan pendekatan distribusi binomial. Pendekatan ini berlaku jika jumlah sampel yang digunakan sangat besar. Dengan menggunakan pendekatan ini, kita dapat menghitung probabilitas kumulatif distribusi binomial menggunakan Tabel distribusi normal.&lt;/p&gt;
+&lt;p&gt;Jika &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; merupakan variabel acak binomial dengan mean &lt;span class=&#34;math inline&#34;&gt;\(\mu=np\)&lt;/span&gt; dan varians &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2=npq\)&lt;/span&gt;, maka bentuk batas distribusi &lt;span class=&#34;math inline&#34;&gt;\(z\)&lt;/span&gt; dengan pendekatan distribusi normal standard dituliskan kedalam Persamaan &lt;a href=&#34;#eq:dnorm3&#34;&gt;(23)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dnorm3&#34;&gt;\[\begin{equation}
+   Z=\frac{X-np}{\sqrt{npq}}
+  \tag{23}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(n\to\infty\)&lt;/span&gt; merupakan distribusi normal standard &lt;span class=&#34;math inline&#34;&gt;\(n\left(z;0,1\right)\)&lt;/span&gt;. Nilai &lt;span class=&#34;math inline&#34;&gt;\(z\)&lt;/span&gt; yang diperoleh selanjutnya dapat digunakan untuk mencari luasan dibawah kurva normal menggunakan Tabel distribusi normal.&lt;/p&gt;
+&lt;p&gt;Untuk memahami penerapannya, misalkan diketahui probabilitas suatu pompa air rusak disuatu kawasan adalah 0,4. Jika pada kawasan tersebut terdapat 100 buah pompa. Hitunglah probabilitas jumlah pompa rusak di kawasan tersebut kurang dari 30? ?&lt;/p&gt;
+&lt;p&gt;Pada kasus tersebut kejadian sukses didefinisikan jika terdapat pompa yang rusak. Untuk menghitungnya pertama-tama kita perlu menghitung nilai mean dan simpangan baku dari populasinya.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\mu=np=\left(100\right)\left(0,4\right)=40\ \ \ dan\ \ \ \sigma=\sqrt{npq}=\sqrt{\left(100\right)\left(0,4\right)\left(0,6\right)}=4,899
+\]&lt;/span&gt; Selanjutnya dihitung nilai &lt;span class=&#34;math inline&#34;&gt;\(z\)&lt;/span&gt; dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(X=29,5\)&lt;/span&gt; berdasarkan Persamaan &lt;a href=&#34;#eq:dnorm3&#34;&gt;(23)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+Z=\frac{29,5-40}{\sqrt{4,899}}=-2,14
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan tabel distribusi normal standard, probabilitas dari kejadian tersebut adalah sebagai berikut (lihat Gambar &lt;a href=&#34;#fig:normvis6&#34;&gt;8&lt;/a&gt;):&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X&amp;lt;30\right)\approx P\left(Z&amp;lt;-2,14\right)=0,0162.
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:normvis8&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/normvis8-1.png&#34; alt=&#34;Luas area jumlah pompa rusak kurang dari 30.&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 10: Luas area jumlah pompa rusak kurang dari 30.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; probabilitas dari peristiwa tersebut dapat dihitung seperti berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pnorm(q=29.5,mean=40,sd=4.899)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.01604473&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-gamma-dan-eksponensial&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.8 Distribusi Gamma dan Eksponensial&lt;/h2&gt;
+&lt;p&gt;Distribusi eksponensial dan gamma merupakan distribusi yang berperan penting dalam menjelaskan teori antrian dan masalah reliabilitas. Waktu antara kedatangan di fasilitas layanan dan waktu kegagalan komponen bagian dan sistem kelistrikan sering dimodelkan dengan baik oleh distribusi eksponensial. Hubungan antara gamma dan eksponensial memungkinkan gamma digunakan dalam jenis masalah yang serupa.&lt;/p&gt;
+&lt;p&gt;Variabel acak kontinu &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; memiliki distribusi gamma, dengan parameter &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;. Fungsi densitas dari distribusi tersebut dituliskan kedalam Persamaan &lt;a href=&#34;#eq:dgamma&#34;&gt;(24)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dgamma&#34;&gt;\[\begin{equation}
+f\left(x;\alpha ,\beta \right) =
+  \begin{cases}
+    \frac{1}{\beta^{\alpha}\Gamma\left(\alpha\right)}x^{\alpha-1}e^{-\frac{x}{\beta}}       &amp;amp; \quad x&amp;gt;0\\
+    0                   &amp;amp; \quad\text{}
+    \end{cases}
+ \tag{24}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(\Gamma\left(\alpha\right)\)&lt;/span&gt; merupakan fungsi gamma yang dituliskan pada Persamaan &lt;a href=&#34;#eq:dgamma2&#34;&gt;(25)&lt;/a&gt;&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dgamma2&#34;&gt;\[\begin{equation}
+   \Gamma\left(\alpha\right)=\int_0^{\infty}x^{\alpha-1}e^{-x}dx
+  \tag{25}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:gammavis&#34;&gt;11&lt;/a&gt; disajikan visualisasi distribusi gamma dengan variasi &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:gammavis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/gammavis-1.png&#34; alt=&#34;Visualisasi distribusi gamma dengan variasi alpha dengan beta 1 a) density plot, b)ecdf&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 11: Visualisasi distribusi gamma dengan variasi alpha dengan beta 1 a) density plot, b)ecdf
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Distribusi eksponensial merupakan kasus khusus dari distribusi gamma dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(\alpha=1\)&lt;/span&gt;. Distribusi probabilitas eksponensial dituliskan kedalam Persamaan &lt;a href=&#34;#eq:deksponen&#34;&gt;(26)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:deksponen&#34;&gt;\[\begin{equation}
+f\left(x;\beta \right) =
+  \begin{cases}
+    \frac{1}{\beta}e^{-\frac{x}{\beta}}       &amp;amp; \quad x&amp;gt;0\\
+    0                   &amp;amp; \quad\text{}
+    \end{cases}
+ \tag{26}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(\beta&amp;gt;0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Persamaan-persamaan berikut merupakan cara untuk menghitung mean dan varians dari kedua distribusi tersebut. Persamaan &lt;a href=&#34;#eq:dgamma3&#34;&gt;(27)&lt;/a&gt; merupakan persamaan untuk menghitung kedua nilai tersebut untuk distribusi gamma, sedangkan Persamaan &lt;a href=&#34;#eq:deksponen2&#34;&gt;(28)&lt;/a&gt; digunakan pada distribusi eksponensial.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dgamma3&#34;&gt;\[\begin{equation}
+   \mu=\alpha\beta\ \ \ dan\ \ \ \sigma^2=\alpha\beta^2
+  \tag{27}
+\end{equation}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:deksponen2&#34;&gt;\[\begin{equation}
+   \mu=\beta\ \ \ dan\ \ \ \sigma^2=\beta^2
+  \tag{28}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Misalkan dalam suatu kawasan terdapat sistem penyediaan air minum lingkup kecil dengan komponen utama pompa, dimana waktu dalam tahun dimana pompa tersebut gagal beroperasi (rusak) disimbolkan sebagai &lt;span class=&#34;math inline&#34;&gt;\(T\)&lt;/span&gt;. Variabel acak &lt;span class=&#34;math inline&#34;&gt;\(T\)&lt;/span&gt; dimodelkan dengan cukup baik menggunakan distribusi eksponensial dengan waktu sampai pompa tersebut gagal berfungsi &lt;span class=&#34;math inline&#34;&gt;\(\beta=5\)&lt;/span&gt;. Jika 5 buah pompa dipasang pada sistem yang berbeda , berapa probabilitas setidaknya 2 buah pompa masih berfungsi hingga akhir tahun ke-8?&lt;/p&gt;
+&lt;p&gt;Probabilitas suatu pompa masih dapat berfungsi setelah 8 tahun dari kasus tersebut dapat dituliskan sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(T&amp;gt;8\right)=\frac{1}{5}\int_0^{\infty}e^{-\frac{t}{5}}dt=e^{-\frac{8}{5}}\approx0,2.
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Probabilitas sedikitnya 2 buah pompa yang masih beroperasi setelah 8 tahun dapat dihitung menggunakan probabilitas kumulatif distribusi binomial seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X\ge2\right)=\sum_{x=2}^5b\left(x;5,0.2\right)=1-\sum_{x=0}^1b\left(x;5,0.2\right)=1-0,7373=0,2627
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; probabilitas gamma dapat dihitung menggunakan 2 fungsi yaitu &lt;code&gt;dgamma()&lt;/code&gt; dan &lt;code&gt;pgamma()&lt;/code&gt; (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dexp(x, rate=1)
+pexp(q, rate=1, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rate&lt;/strong&gt;: nilai 1/beta&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah sintaks yang digunakan untuk menghitung probabilitas pada contoh soal tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# probabilitas pompa masih berfungsi lebih dari 8 tahun
+pexp(q=8, rate=1/5, lower.tail=FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.2018965&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# probabilitas sedikitnya 2 pompa yang masih berfungsi
+pbinom(q=1, size=5, prob=0.2018965, lower.tail=FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.2666086&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Contoh lainnya misalkan pada pengujian toksikan terhadap hewan uji untuk menentukan dosis mematikan pada suatu hewan uji. Toksikan yang digunakan merupakan logam berat yang ada di perairan. Berdasarkan dosis tertentu, hasil percobaan menentukan bahwa &lt;em&gt;survival time&lt;/em&gt;, dalam minggu dari hewan uji, memiliki distribusi gamma dengan &lt;span class=&#34;math inline&#34;&gt;\(\alpha=5\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta=10\)&lt;/span&gt;. Hitunglah probabilitas hewan uji tidak dapat selamat tidak lebih dari 60 minggu?&lt;/p&gt;
+&lt;p&gt;Diberikan variabel acak &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; yang menyatakan &lt;em&gt;survival time&lt;/em&gt; (waktu hingga mati). Probabilitas yang terjadi dapat dituliskan sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X\le60\right)=\frac{1}{\beta^5}\int_0^{\infty}\frac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\Gamma\left(5\right)}dx
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Intergral pada persamaan diatas dapat diselesaikan dengan menggunakan &lt;strong&gt;incomplete gamma function&lt;/strong&gt;, yang menjadikan persamaan di atas menjadi fungsi distribusi kumulatif untuk distribusi gamma yang dapat dituliskan kembali seperti berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+F\left(x;\alpha\right)=\int_0^x\frac{y^{\alpha-1}e^{-y}}{\Gamma\left(\alpha\right)}dy
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;jika diberikan &lt;span class=&#34;math inline&#34;&gt;\(y=\frac{x}{\beta}\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(x=\beta y\)&lt;/span&gt;, persamaan tersebut dapat dituliskan lagi menjadi berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X\le60\right)=\int_0^6\frac{y^4e^{-y}}{\Gamma\left(\alpha\right)}dy
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;yang dapat dituliskan sebagai &lt;span class=&#34;math inline&#34;&gt;\(F\left(6;5\right)\)&lt;/span&gt; pada tabel &lt;strong&gt;incomplete gamma function&lt;/strong&gt; yang dapat pembaca lihat pada buku yang ditulis oleh Ronald E. Walpole (2012) pada Appendix A.23. Berdasarkan tabel tersebut diperoleh nilai probabilitas sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P\left(X\le60\right)=F\left(6;5\right)=0,715
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; probabilitas distribusi gamma dapat dihitung menggunakan fungsi &lt;code&gt;dgamma()&lt;/code&gt; dan &lt;code&gt;pgamma()&lt;/code&gt; (probabilitas kumulatif). Format fungsi tersebut adalah sebagi berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dgamma(x, shape, scale)
+pgamma(q, shape, scale, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;shape&lt;/strong&gt;: nilai alpha&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;scale&lt;/strong&gt;: niali beta&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah nilai probabilitas dari contoh kasus tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pgamma(q=60, shape=5, scale=10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.7149435&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-chi-square-students-t-dan-snedecors-f&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.9 Distribusi Chi-Square, Student’s t, dan Snedecor’s F&lt;/h2&gt;
+&lt;p&gt;Pada sub-chapter kali ini penulis akan menjelaskan sejumlah distribusi probabilitas yang memegang peranan penting dalam statistika inferensi. Distribusi ini tidak akan penulis jelaskan secara detail karena akan terdapat porsi tersendiri pada chapter selanjutnya.&lt;/p&gt;
+&lt;div id=&#34;distribusi-chi-square&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.9.1 Distribusi Chi-Square&lt;/h3&gt;
+&lt;p&gt;Distribusi chi-square merupakan kasus khusu lain dari distribusi gamma, dimana nilai &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; dari distribusi ini masing-masing adalah &lt;span class=&#34;math inline&#34;&gt;\(\alpha=\nu/2\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta=2\)&lt;/span&gt; dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(\nu\)&lt;/span&gt; merupakan integer positif. Distribusi ini memiliki parameter tunggal yaitu &lt;span class=&#34;math inline&#34;&gt;\(\nu\)&lt;/span&gt; yang disebut sebagai &lt;em&gt;degrees of freedom&lt;/em&gt; (derajat kebebasan). Fungsi densitas distribusi ini disajikan pada Persamaan &lt;a href=&#34;#eq:dcsq&#34;&gt;(29)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dcsq&#34;&gt;\[\begin{equation}
+f\left(x;\nu \right) =
+  \begin{cases}
+    \frac{1}{2^{\frac{\nu}{2}}\Gamma\left(\frac{\nu}{2}\right)}x^{\frac{\nu}{2}-1}e^{-\frac{x}{2}}       &amp;amp; \quad x&amp;gt;0\\
+    0                   &amp;amp; \quad\text{}
+    \end{cases}
+ \tag{29}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(\nu\)&lt;/span&gt; adalah integer positif.&lt;/p&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:csqvis&#34;&gt;12&lt;/a&gt; disajikan visualisasi distribusi chi-square dengan variasi &lt;span class=&#34;math inline&#34;&gt;\(\nu\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:csqvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/csqvis-1.png&#34; alt=&#34;Visualisasi distribusi chi-square dengan variasi derajat kebebasan a) density plot, b)ecdf&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 12: Visualisasi distribusi chi-square dengan variasi derajat kebebasan a) density plot, b)ecdf
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; terdapat dua buah fungsi yang digunakan untuk menghitung probabilitas distribusi chi-square yaitu &lt;code&gt;dchisq()&lt;/code&gt; dan &lt;code&gt;pchisq()&lt;/code&gt; (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dgamma(x, df)
+pgamma(q, df, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;df&lt;/strong&gt;: derajat kebebasan (n-1)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-students-t&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.9.2 Distribusi Student’s t&lt;/h3&gt;
+&lt;p&gt;Distribusi student’s t merupakan kasus lain dari distribusi gamma. Fungsi densitas probabilitasnya disajikan pada Persamaan &lt;a href=&#34;#eq:dst&#34;&gt;(30)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dst&#34;&gt;\[\begin{equation}
+   \frac{\Gamma\left[\frac{\left(r+1\right)}{2}\right]}{\sqrt{r\pi}\Gamma\left(\frac{r}{2}\right)}\left(1+\frac{x^2}{r}\right)^{-\frac{\left(r+1\right)}{2}},\ \ \ \ \ -\infty&amp;lt;x&amp;lt;\infty
+  \tag{30}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(r\)&lt;/span&gt; merupakan derajat kebebasan atau &lt;span class=&#34;math inline&#34;&gt;\(\left(n-1\right)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:dtvis&#34;&gt;13&lt;/a&gt; disajikan visualisasi distribusi t dengan variasi &lt;span class=&#34;math inline&#34;&gt;\(r\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dtvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/dtvis-1.png&#34; alt=&#34;Visualisasi distribusi t dengan variasi derajat kebebasan a) density plot, b)ecdf&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 13: Visualisasi distribusi t dengan variasi derajat kebebasan a) density plot, b)ecdf
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Jika kita perhatikan dengan seksama terlihat bahwa peningkatan derajat kebebasan akan membuat distribusi yag dihasilkan semakin mendekati kurva normal.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; terdapat dua fungsi yang berguna untuk menghitung probabilitas distribusi t yaitu &lt;code&gt;dt()&lt;/code&gt; dan &lt;code&gt;pt()&lt;/code&gt; (probabilitas kumulatif). Format fungsi yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dt(x, df)
+pt(q, df, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;df&lt;/strong&gt;: derajat kebebasan (n-1)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-snedecors-f&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.9.3 Distribusi Snedecor’s F&lt;/h3&gt;
+&lt;p&gt;Fungsi densitas probabilitas distribusi F disajikan pada Persamaan &lt;a href=&#34;#eq:dF&#34;&gt;(31)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dF&#34;&gt;\[\begin{equation}
+f\left(x;df1,df2 \right) =
+  \begin{cases}
+    \frac{\Gamma\left[\frac{\left(df1+df2\right)}{2}\right]}{\Gamma\left(\frac{df1}{2}\right)\Gamma\left(\frac{df2}{2}\right)}\left(\frac{df1}{df2}\right)^{\frac{df1}{2}}x^{\frac{df1}{2}-1}\left(1+\frac{df1}{df2}x\right)^{-\frac{\left(df1+df2\right)}{2}}       &amp;amp; \quad x&amp;gt;0\\
+    0                   &amp;amp; \quad\text{}
+    \end{cases}
+ \tag{31}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(df1\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(df2\)&lt;/span&gt; merupakan derajat kebebasan.&lt;/p&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:dFvis&#34;&gt;14&lt;/a&gt; disajikan visualisasi distribusi F dengan variasi &lt;span class=&#34;math inline&#34;&gt;\(df1\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(df2\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dFvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/dFvis-1.png&#34; alt=&#34;Visualisasi distribusi F dengan variasi derajat kebebasan a) density plot, b)ecdf&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 14: Visualisasi distribusi F dengan variasi derajat kebebasan a) density plot, b)ecdf
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; terdapat dua fungsi yang berguna untuk menghitung probabilitas distribusi F yaitu &lt;code&gt;df()&lt;/code&gt; dan &lt;code&gt;pf()&lt;/code&gt; (probabilitas kumulatif). Format fungsi yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dt(x, df1, df2)
+pt(q, df1, df2, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;df1,df2&lt;/strong&gt;: derajat kebebasan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-kontinu-lainnya&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;9.10 Distribusi Kontinu Lainnya&lt;/h2&gt;
+&lt;div id=&#34;distribusi-beta&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.10.1 Distribusi Beta&lt;/h3&gt;
+&lt;p&gt;Distribusi ini merupakan perluasan dari distribusi uniform. Distribusi ini didasarkan pada fungsi beta yang disajikan pada Persamaan &lt;a href=&#34;#eq:dbeta&#34;&gt;(32)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dbeta&#34;&gt;\[\begin{equation}
+   B\left(\alpha,\beta\right)=\int_0^1x^{\alpha-1}\left(1-x\right)^{\beta-1}dx=\frac{\Gamma\left(\alpha\right)\Gamma\left(\beta\right)}{\Gamma\left(\alpha+\beta\right)},\ \ \ untuk\ \alpha,\beta&amp;gt;0
+  \tag{32}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(\Gamma\left(\alpha\right)\)&lt;/span&gt; merupakan fungsi gamma.&lt;/p&gt;
+&lt;p&gt;Suatu variabel acak kontinu &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; memiliki distribusi beta dengan parameter &lt;span class=&#34;math inline&#34;&gt;\(\alpha&amp;gt;0\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta&amp;gt;0\)&lt;/span&gt; jika densitas fungsiya diberikan pada Persamaan &lt;a href=&#34;#eq:dbeta2&#34;&gt;(33)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dbeta2&#34;&gt;\[\begin{equation}
+f\left(x \right) =
+  \begin{cases}
+    \frac{1}{B\left(\alpha,\beta\right)}x^{\alpha-1}\left(1-x\right)^{\beta-1}       &amp;amp; \quad 0&amp;lt;x&amp;lt;1\\
+    0                   &amp;amp; \quad\text{}
+    \end{cases}
+ \tag{33}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Nilai mean dan varians distribusi beta dituliskan kedalam Persamaan &lt;a href=&#34;#eq:dbeta3&#34;&gt;(34)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dbeta3&#34;&gt;\[\begin{equation}
+   \mu=\frac{\alpha}{\alpha+\beta}\ \ \ \ dan\ \ \ \ \sigma^2=\frac{\alpha\beta}{\left(\alpha+\beta\right)^2\left(\alpha+\beta+1\right)}
+  \tag{34}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:dbeta&#34;&gt;15&lt;/a&gt; disajikan visualisasi distribusi beta dengan variasi &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dbeta&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/dbeta-1.png&#34; alt=&#34;Visualisasi distribusi beta dengan variasi derajat kebebasan a) density plot, b)ecdf&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 15: Visualisasi distribusi beta dengan variasi derajat kebebasan a) density plot, b)ecdf
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; terdapat dua fungsi yang berguna untuk menghitung probabilitas distribusi beta yaitu &lt;code&gt;dbeta()&lt;/code&gt; dan &lt;code&gt;pbeta()&lt;/code&gt; (probabilitas kumulatif). Format fungsi yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dbeta(x, shape1, shape2)
+pbeta(q, shape1, shape2, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;shape1&lt;/strong&gt;: alpha.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;shape2&lt;/strong&gt;: beta.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-lognormal&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.10.2 Distribusi Lognormal&lt;/h3&gt;
+&lt;p&gt;Distribusi lognormal telah digunakan pada berbagai aplikasi yang luas. Distribusi berlaku dalam kasus di mana transformasi log natural menghasilkan distribusi normal.&lt;/p&gt;
+&lt;p&gt;Suatu variabel acak &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; berdistribusi lognormal jika variabel acak &lt;span class=&#34;math inline&#34;&gt;\(Y=ln\left(X\right)\)&lt;/span&gt; berdistribusi normal dengan nilai mean &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; dan simpangan baku &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;. Fungsi densitas yang digunakan disajikan pada Persamaan &lt;a href=&#34;#eq:dlognormal&#34;&gt;(35)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dlognormal&#34;&gt;\[\begin{equation}
+f\left(x;\mu,\sigma \right) =
+  \begin{cases}
+    \frac{1}{\sqrt{2\pi\sigma x}}e^{-\frac{1}{2\sigma^2}\left[\ln\left(x\right)-\mu\right]^2}       &amp;amp; \quad x\ge 0\\
+    0                   &amp;amp; \quad x&amp;lt;0
+    \end{cases}
+ \tag{35}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Nilai mean dan varians distribusi lognormal dihitung menggunakan Persamaan &lt;a href=&#34;#eq:dlognormal2&#34;&gt;(36)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dlognormal2&#34;&gt;\[\begin{equation}
+   \mu=e^{\mu+\frac{\sigma^2}{2}}\ \ \ \ dan\ \ \ \ \sigma^2=e^{2\mu+\sigma^2}\left(e^{\sigma^2}-1\right)
+  \tag{36}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:dlognnormalvis&#34;&gt;16&lt;/a&gt; disajikan visualisasi distribusi lognormal dengan variasi &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dlognnormalvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/dlognnormalvis-1.png&#34; alt=&#34;Visualisasi distribusi beta dengan variasi mean dan sd a) density plot, b)ecdf&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 16: Visualisasi distribusi beta dengan variasi mean dan sd a) density plot, b)ecdf
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt;, fungsi utama yang digunakan untuk menghitung probabilitas distribusi lognormal adalah &lt;code&gt;dlnorm()&lt;/code&gt; dan &lt;code&gt;plnorm()&lt;/code&gt; (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dlnorm(x, meanlog = 0, sdlog = 1)
+plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;meanlog&lt;/strong&gt;: mean dalam bentuk logaritmik.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdlog&lt;/strong&gt;: simpangan baku dalam bentuk logaritmik.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-cauchy&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.10.3 Distribusi Cauchy&lt;/h3&gt;
+&lt;p&gt;Distribusi Chauchy merupakan kasus khusus dari distribusi t ketika nilai &lt;span class=&#34;math inline&#34;&gt;\(r\)&lt;/span&gt; atau derajat kebebasannya adalah 1. Distribusi ini tampak mirip dengan distribusi normal, namun dengan ekor yang lebih panjang. Parameter utama dari distribusi probabilitas ini adalah &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt; atau median. Fungsi densitas probabilitasnya dituliskan kedalam Persamaan &lt;a href=&#34;#eq:dcauchy&#34;&gt;(37)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dcauchy&#34;&gt;\[\begin{equation}
+   f\left(x;m,\beta\right)=\frac{1}{\beta\pi}\left[1+\left(\frac{x-m}{\beta}\right)^2\right]^{-1},\ \ \ \ \ \ \ \ -\infty&amp;lt;x&amp;lt;\infty
+  \tag{37}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:dcauchyvis&#34;&gt;17&lt;/a&gt; disajikan visualisasi distribusi Cauchy dengan variasi &lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dcauchyvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/dcauchyvis-1.png&#34; alt=&#34;Visualisasi distribusi t dengan variasi m dan beta a) density plot, b)ecdf&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 17: Visualisasi distribusi t dengan variasi m dan beta a) density plot, b)ecdf
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt;, fungsi utama yang digunakan untuk menghitung probabilitas distribusi Cauchy adalah &lt;code&gt;dcauchy()&lt;/code&gt; dan &lt;code&gt;pcauchy()&lt;/code&gt; (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dcauchy(x, location = 0, scale = 1)
+pcauchy(q, location = 0, scale = 1, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;location&lt;/strong&gt;: median.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;scale&lt;/strong&gt;: beta.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-logistik&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.10.4 Distribusi Logistik&lt;/h3&gt;
+&lt;p&gt;Distribusi logistik sering diterapkan untuk memodelkan pertumbuahan populasi berdasarkan asumsi tertentu seperti keterbatasan lahan atau ruang atau bahkan makanan. Fungsi densitas probabilitas distribusi logistik disajikan pada Persamaan &lt;a href=&#34;#eq:dlogistik&#34;&gt;(38)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dlogistik&#34;&gt;\[\begin{equation}
+   f\left(x;\mu,\sigma\right)=\frac{1}{\sigma}\exp\left(-\frac{x-\mu}{\sigma}\right)\left[1+\exp\left(-\frac{x-\mu}{\sigma}\right)\right]^{-2},\ \ \ \ \ \ \ \ -\infty&amp;lt;x&amp;lt;\infty
+  \tag{38}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:dlogistikvis&#34;&gt;18&lt;/a&gt; disajikan visualisasi distribusi Cauchy dengan variasi &lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:dlogistikvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/dlogistikvis-1.png&#34; alt=&#34;Visualisasi distribusi logistik dengan variasi mean dan simpangan baku, a) density plot, b)ecdf&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 18: Visualisasi distribusi logistik dengan variasi mean dan simpangan baku, a) density plot, b)ecdf
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt;, fungsi utama yang digunakan untuk menghitung probabilitas distribusi Logistik adalah &lt;code&gt;dlogis()&lt;/code&gt; dan &lt;code&gt;plogis()&lt;/code&gt; (probabilitas kumulatif). Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dlogis(x, location = 0, scale = 1)
+plogis(q, location = 0, scale = 1, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;location&lt;/strong&gt;: mean.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;scale&lt;/strong&gt;: simpangan baku&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribusi-weibull&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9.10.5 Distribusi Weibull&lt;/h3&gt;
+&lt;p&gt;Distribusi lain yang digunakan secara intensif selain distribusi gamma dan eksponensial untuk memperkirakan probabilitas kegagalan suatu proses adalah distribusi Weibull. Fungsi densitas probabilitas distribusi Weibull disajikan pada Persamaan &lt;a href=&#34;#eq:dweibull&#34;&gt;(39)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:dweibull&#34;&gt;\[\begin{equation}
+f\left(x;\alpha,\beta \right) =
+  \begin{cases}
+    f\left(x;\alpha,\beta\right)=\frac{\alpha}{\beta}\left(\frac{x}{\beta}\right)^{\alpha-1}\exp\left(\frac{x}{\beta}\right)^{\alpha}     &amp;amp; \quad x&amp;gt;0\\
+    0                   &amp;amp; \quad\text{}
+    \end{cases}
+ \tag{39}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Pada Gambar &lt;a href=&#34;#fig:weibullvis&#34;&gt;19&lt;/a&gt; disajikan visualisasi distribusi gamma dengan variasi &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:weibullvis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/09-distribusi-probabilitas_files/figure-html/weibullvis-1.png&#34; alt=&#34;Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a) density plot, b)ecdf&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 19: Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a) density plot, b)ecdf
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; probabilitas distribusi Weibull dapat dihitung menggunakan fungsi &lt;code&gt;dweibull()&lt;/code&gt; dan &lt;code&gt;pweibull()&lt;/code&gt; (probabilitas kumulatif). Format fungsi tersebut adalah sebagi berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dweibull(x, shape, scale)
+pweibull(q, shape, scale, lower.tail = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,p&lt;/strong&gt;: vektor numerik atau kuantil&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;shape&lt;/strong&gt;: nilai alpha&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;scale&lt;/strong&gt;: niali beta&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lower.tail&lt;/strong&gt;: probabilitas dihitung dari ujung bawah. Nilai yang mungkin adalah TRUE atau FALSE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Chi Yau. 2014. &lt;strong&gt;R Tutorial with Bayesian Statistics Using OpenBUGS&lt;/strong&gt;. Amazon Kindle&lt;/li&gt;
+&lt;li&gt;Damanhuri, E. 2011. &lt;strong&gt;Statitika Lingkunga&lt;/strong&gt;. Penerbit ITB.&lt;/li&gt;
+&lt;li&gt;Janicak, C.A. 2007. &lt;strong&gt;Applied Statistics in Occupational Safety and Health&lt;/strong&gt;. Government Institutes.&lt;/li&gt;
+&lt;li&gt;Kerns, G.Jay. 2018. &lt;strong&gt;Introduction to Probability and Statistics Using R Third Edition&lt;/strong&gt;. GNU Free Documentation License.&lt;/li&gt;
+&lt;li&gt;King, William B. &lt;strong&gt;PROBILITY DISTRIBUTIONS, QUANTILES, CHECKS FOR NORMALITY&lt;/strong&gt;. &lt;a href=&#34;http://ww2.coastal.edu/kingw/statistics/R-tutorials/prob.html&#34; class=&#34;uri&#34;&gt;http://ww2.coastal.edu/kingw/statistics/R-tutorials/prob.html&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Ofungwu, J. 2014. &lt;strong&gt;Statistical Applications For Environmental Analysis and Risk Assessment&lt;/strong&gt;. John Wiley &amp;amp; Sons, Inc.&lt;/li&gt;
+&lt;li&gt;Quick-R. &lt;strong&gt;Probability Plots &lt;/strong&gt;. &lt;a href=&#34;https://www.statmethods.net/advgraphs/probability.html&#34; class=&#34;uri&#34;&gt;https://www.statmethods.net/advgraphs/probability.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;STAT TREK. &lt;strong&gt;Binomial Probability Distribution&lt;/strong&gt;.&lt;a href=&#34;https://stattrek.com/probability-distributions/binomial.aspx?tutorial=prob&#34; class=&#34;uri&#34;&gt;https://stattrek.com/probability-distributions/binomial.aspx?tutorial=prob&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;____.&lt;strong&gt;Hypergeometric Distribution&lt;/strong&gt;. &lt;a href=&#34;https://stattrek.com/probability-distributions/hypergeometric.aspx?tutorial=prob&#34; class=&#34;uri&#34;&gt;https://stattrek.com/probability-distributions/hypergeometric.aspx?tutorial=prob&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;____. &lt;strong&gt;Multinomial Distribution&lt;/strong&gt;. &lt;a href=&#34;https://stattrek.com/probability-distributions/multinomial.aspx?tutorial=prob&#34; class=&#34;uri&#34;&gt;https://stattrek.com/probability-distributions/multinomial.aspx?tutorial=prob&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;____. &lt;strong&gt;Negative Binomial Distribution&lt;/strong&gt;. &lt;a href=&#34;https://stattrek.com/probability-distributions/negative-binomial.aspx?tutorial=prob&#34; class=&#34;uri&#34;&gt;https://stattrek.com/probability-distributions/negative-binomial.aspx?tutorial=prob&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;____. &lt;strong&gt;Poisson Distribution&lt;/strong&gt;. &lt;a href=&#34;https://stattrek.com/probability-distributions/poisson.aspx?tutorial=prob&#34; class=&#34;uri&#34;&gt;https://stattrek.com/probability-distributions/poisson.aspx?tutorial=prob&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;UBC. &lt;strong&gt;Probability DIstribution&lt;/strong&gt;. &lt;a href=&#34;https://www.zoology.ubc.ca/~schluter/R/probability/&#34; class=&#34;uri&#34;&gt;https://www.zoology.ubc.ca/~schluter/R/probability/&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Walpole, E. R., Myers, H.M., Myers, S.L., Keying Ye. 2011. &lt;strong&gt;Probability $ Statistics for Engineering &amp;amp; Scientists Ninth Edition&lt;/strong&gt;. Prentice Hall.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Kumpulan R Cheat [PART 1]</title>
@@ -9016,32 +10190,6 @@ rm Untitled.md
       
       <guid>/privacy/</guid>
       <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Example Talk</title>
-      <link>/talk/example/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 +0700</pubDate>
-      
-      <guid>/talk/example/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    &lt;p&gt;Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.&lt;/p&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;em&gt;Slides&lt;/em&gt; feature and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
