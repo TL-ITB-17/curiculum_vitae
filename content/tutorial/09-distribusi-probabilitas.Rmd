@@ -1029,7 +1029,7 @@ library(dplyr)
 library(ggpubr)
 ```
 
-```{r normvis7, echo=FALSE, fig.cap='Visualisasi distribusi konsentrasi ozon Kota New York a)density plot, b)boxplot, c)ecdf, d)qq-plot', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r normvis7, echo=TRUE, fig.cap='Visualisasi distribusi konsentrasi ozon Kota New York a)density plot, b)boxplot, c)ecdf, d)qq-plot', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 ## set tema default dari paket ggpubr
 theme_set(theme_pubr())
 
@@ -1186,7 +1186,7 @@ dimana $\Gamma\left(\alpha\right)$ merupakan fungsi gamma yang dituliskan pada P
 
 Pada Gambar \@ref(fig:gammavis) disajikan visualisasi distribusi gamma dengan variasi $\alpha$ dan $\beta$.
 
-```{r gammavis, echo=FALSE, fig.cap='Visualisasi distribusi gamma dengan variasi alpha dengan beta 1 a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r gammavis, echo=TRUE, fig.cap='Visualisasi distribusi gamma dengan variasi alpha dengan beta 1 a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 x <- seq(0,6, length=100)
 x1 <- dgamma(x, shape=1, scale=1); x1_cum <- cumsum(x1)/max(cumsum(x1)) 
 x2 <- dgamma(x, shape=2, scale=1); x2_cum <- cumsum(x2)/max(cumsum(x2))
@@ -1342,7 +1342,7 @@ dimana $\nu$ adalah integer positif.
 
 Pada Gambar \@ref(fig:csqvis) disajikan visualisasi distribusi chi-square dengan variasi $\nu$.
 
-```{r csqvis, echo=FALSE, fig.cap='Visualisasi distribusi chi-square dengan variasi derajat kebebasan a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r csqvis, echo=TRUE, fig.cap='Visualisasi distribusi chi-square dengan variasi derajat kebebasan a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 x <- seq(0,20, length=100)
 x1 <- dchisq(x, df=1); x1_cum <- cumsum(x1)/max(cumsum(x1))
 x2 <- dchisq(x, df=3); x2_cum <- cumsum(x2)/max(cumsum(x2))
@@ -1393,7 +1393,7 @@ dimana $r$ merupakan derajat kebebasan atau $\left(n-1\right)$.
 
 Pada Gambar \@ref(fig:dtvis) disajikan visualisasi distribusi t dengan variasi $r$.
 
-```{r dtvis, echo=FALSE, fig.cap='Visualisasi distribusi t dengan variasi derajat kebebasan a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r dtvis, echo=TRUE, fig.cap='Visualisasi distribusi t dengan variasi derajat kebebasan a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 x <- seq(-7,7, length=100)
 x1 <- dt(x, df=1); x1_cum <- cumsum(x1)/max(cumsum(x1))
 x2 <- dt(x, df=12); x2_cum <- cumsum(x2)/max(cumsum(x2))
@@ -1450,7 +1450,7 @@ dimana $df1$ dan $df2$ merupakan derajat kebebasan.
 
 Pada Gambar \@ref(fig:dFvis) disajikan visualisasi distribusi F dengan variasi $df1$ dan $df2$.
 
-```{r dFvis, echo=FALSE, fig.cap='Visualisasi distribusi F dengan variasi derajat kebebasan a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r dFvis, echo=TRUE, fig.cap='Visualisasi distribusi F dengan variasi derajat kebebasan a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 x <- seq(0,5, length=100)
 x1 <- df(x, df1=1, df2=10); x1_cum <- cumsum(x1)/max(cumsum(x1))
 x2 <- df(x, df1=6, df2=60); x2_cum <- cumsum(x2)/max(cumsum(x2))
@@ -1525,7 +1525,7 @@ Nilai mean dan varians distribusi beta dituliskan kedalam Persamaan \@ref(eq:dbe
 
 Pada Gambar \@ref(fig:dbeta) disajikan visualisasi distribusi beta dengan variasi $\alpha$ dan $\beta$.
 
-```{r dbeta, echo=FALSE, fig.cap='Visualisasi distribusi beta dengan variasi derajat kebebasan a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r dbeta, echo=TRUE, fig.cap='Visualisasi distribusi beta dengan variasi derajat kebebasan a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 x <- seq(0,1, length=100)
 x1 <- dbeta(x, shape1=1, shape2=5); x1_cum <- cumsum(x1)/max(cumsum(x1))
 x2 <- dbeta(x, shape1=6, shape2=30); x2_cum <- cumsum(x2)/max(cumsum(x2))
@@ -1592,7 +1592,7 @@ Nilai mean dan varians distribusi lognormal dihitung menggunakan Persamaan \@ref
 
 Pada Gambar \@ref(fig:dlognnormalvis) disajikan visualisasi distribusi lognormal dengan variasi $\mu$ dan $\sigma$.
 
-```{r dlognnormalvis, echo=FALSE, fig.cap='Visualisasi distribusi beta dengan variasi mean dan sd a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r dlognnormalvis, echo=TRUE, fig.cap='Visualisasi distribusi beta dengan variasi mean dan sd a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 x <- seq(0,5, length=100)
 x1 <- dlnorm(x, meanlog=0, sdlog=1); x1_cum <- cumsum(x1)/max(cumsum(x1))
 x2 <- dlnorm(x, meanlog=1, sdlog=1.5); x2_cum <- cumsum(x2)/max(cumsum(x2))
@@ -1646,7 +1646,7 @@ Distribusi Chauchy merupakan kasus khusus dari distribusi t ketika nilai $r$ ata
 
 Pada Gambar \@ref(fig:dcauchyvis) disajikan visualisasi distribusi Cauchy dengan variasi $m$ dan $\beta$.
 
-```{r dcauchyvis, echo=FALSE, fig.cap='Visualisasi distribusi t dengan variasi m dan beta a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r dcauchyvis, echo=TRUE, fig.cap='Visualisasi distribusi t dengan variasi m dan beta a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 x <- seq(-7,7, length=100)
 x1 <- dcauchy(x, location=0, scale=1); x1_cum <- cumsum(x1)/max(cumsum(x1))
 x2 <- dcauchy(x, location=0.5, scale=1.5); x2_cum <- cumsum(x2)/max(cumsum(x2))
@@ -1701,7 +1701,7 @@ Distribusi logistik sering diterapkan untuk memodelkan pertumbuahan populasi ber
 
 Pada Gambar \@ref(fig:dlogistikvis) disajikan visualisasi distribusi Cauchy dengan variasi $m$ dan $\beta$.
 
-```{r dlogistikvis, echo=FALSE, fig.cap='Visualisasi distribusi logistik dengan variasi mean dan simpangan baku, a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r dlogistikvis, echo=TRUE, fig.cap='Visualisasi distribusi logistik dengan variasi mean dan simpangan baku, a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 x <- seq(-7,7, length=100)
 x1 <- dlogis(x, location=0, scale=1); x1_cum <- cumsum(x1)/max(cumsum(x1))
 x2 <- dlogis(x, location=0.5, scale=1.5); x2_cum <- cumsum(x2)/max(cumsum(x2))
@@ -1760,7 +1760,7 @@ f\left(x;\alpha,\beta \right) =
 
 Pada Gambar \@ref(fig:weibullvis) disajikan visualisasi distribusi gamma dengan variasi $\alpha$ dan $\beta$.
 
-```{r weibullvis, echo=FALSE, fig.cap='Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
+```{r weibullvis, echo=TRUE, fig.cap='Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a) density plot, b)ecdf', tidy=FALSE, out.width='90%', fig.align='center', message=FALSE, warning=FALSE}
 x <- seq(0,6, length=100)
 x1 <- dweibull(x, shape=1, scale=1); x1_cum <- cumsum(x1)/max(cumsum(x1)) 
 x2 <- dweibull(x, shape=2, scale=1); x2_cum <- cumsum(x2)/max(cumsum(x2))

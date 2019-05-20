@@ -737,6 +737,52 @@ pnorm(q=830, mean=750, sd=80, lower.tail=FALSE)</code></pre>
 library(ggplot2)
 library(dplyr)
 library(ggpubr)</code></pre>
+<pre class="r"><code>## set tema default dari paket ggpubr
+theme_set(theme_pubr())
+
+## QQ-plot
+qq&lt;-ggplot(airquality, aes(sample=Ozone))+
+  stat_qq(color=&quot;#2E9FDF&quot;)+
+  stat_qq_line(color=&quot;#FC4E07&quot;)
+
+## membuat data frame
+x &lt;- sort(airquality[!is.na(airquality$Ozone), 1])
+
+y &lt;- rnorm(length(x),mean=mean(x),sd=sd(x))
+
+data &lt;- data.frame(x=c(x,y),
+               dist=gl(2,length(x),
+                       labels=c(&quot;Empiris&quot;,&quot;Normal&quot;)))
+## ECDF
+ecdf&lt;-ggplot(data, aes(x, colour=dist))+
+  stat_ecdf()+
+  labs(y=&quot;F(Ozon)&quot;, x=&quot;Ozon&quot;)+
+  scale_color_manual(values=c(&quot;#2E9FDF&quot;, &quot;#FC4E07&quot;))+
+  scale_x_continuous(breaks=seq(round(min(y)),round(max(x)),35))+
+  geom_rug()
+
+## density
+dens&lt;-ggplot(data, aes(x, fill=dist))+
+  geom_density(alpha=0.5)+
+  labs(x=&quot;Ozon&quot;)+
+  scale_fill_manual(values=c(&quot;#2E9FDF&quot;, &quot;#FC4E07&quot;))+
+  scale_x_continuous(breaks=seq(round(min(y)),round(max(x)),35))+
+  geom_rug()
+
+## Boxplot
+data2 &lt;- subset(data, dist==&quot;Empiris&quot;)
+bxp &lt;- ggplot(data2, aes(x=&quot;&quot;, y=x))+
+  geom_boxplot(color=&quot;#FC4E07&quot;,outlier.alpha=0)+
+  geom_jitter(color=&quot;#2E9FDF&quot;,shape=1,position=position_jitter(0.1))+
+  labs(y=&quot;Ozon&quot;, x=&quot;&quot;)+
+  scale_y_continuous(breaks=seq(round(min(y)),round(max(x)),35))+
+  coord_flip()+
+  geom_rug()
+  
+## Menggabungkan grafik
+ggarrange(dens,bxp,ecdf,qq,
+          ncol=2, nrow=2,
+          labels=c(&quot;a)&quot;,&quot;b)&quot;,&quot;c)&quot;,&quot;d)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:normvis7"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/normvis7-1.png" alt="Visualisasi distribusi konsentrasi ozon Kota New York a)density plot, b)boxplot, c)ecdf, d)qq-plot" width="90%" />
 <p class="caption">
@@ -812,6 +858,28 @@ f\left(x;\alpha ,\beta \right) =
   \tag{25}
 \end{equation}\]</span>
 <p>Pada Gambar <a href="#fig:gammavis">11</a> disajikan visualisasi distribusi gamma dengan variasi <span class="math inline">\(\alpha\)</span> dan <span class="math inline">\(\beta\)</span>.</p>
+<pre class="r"><code>x &lt;- seq(0,6, length=100)
+x1 &lt;- dgamma(x, shape=1, scale=1); x1_cum &lt;- cumsum(x1)/max(cumsum(x1)) 
+x2 &lt;- dgamma(x, shape=2, scale=1); x2_cum &lt;- cumsum(x2)/max(cumsum(x2))
+x3 &lt;- dgamma(x, shape=4, scale=1); x3_cum &lt;- cumsum(x3)/max(cumsum(x3))
+
+data &lt;- data.frame(value=c(x,x,x),
+                   density=c(x1,x2,x3),
+                   cum_dens=c(x1_cum,x2_cum,x3_cum),
+                   alpha=gl(3,length(x1),
+                       labels=c(1,2,4)))
+
+dens &lt;- ggplot(data, aes(x=value, y=density, color=alpha))+
+  geom_line()+
+  scale_color_manual(values=c(&quot;#E7B800&quot;,&quot;#2E9FDF&quot;,&quot;#FC4E07&quot;)
+)
+ecdf &lt;- ggplot(data, aes(x=value, y=cum_dens, color=alpha))+
+  geom_line()+
+  labs(y=&quot;Fn(x)&quot;)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;,&quot;#2E9FDF&quot;,&quot;#FC4E07&quot;)
+)
+
+ggarrange(dens, ecdf, nrow=1, ncol=2, labels=c(&quot;a)&quot;,&quot;b)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:gammavis"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/gammavis-1.png" alt="Visualisasi distribusi gamma dengan variasi alpha dengan beta 1 a) density plot, b)ecdf" width="90%" />
 <p class="caption">
@@ -913,6 +981,28 @@ f\left(x;\nu \right) =
 \end{equation}\]</span>
 <p>dimana <span class="math inline">\(\nu\)</span> adalah integer positif.</p>
 <p>Pada Gambar <a href="#fig:csqvis">12</a> disajikan visualisasi distribusi chi-square dengan variasi <span class="math inline">\(\nu\)</span>.</p>
+<pre class="r"><code>x &lt;- seq(0,20, length=100)
+x1 &lt;- dchisq(x, df=1); x1_cum &lt;- cumsum(x1)/max(cumsum(x1))
+x2 &lt;- dchisq(x, df=3); x2_cum &lt;- cumsum(x2)/max(cumsum(x2))
+x3 &lt;- dchisq(x, df=5); x3_cum &lt;- cumsum(x3)/max(cumsum(x3))
+x4 &lt;- dchisq(x, df=7); x4_cum &lt;- cumsum(x4)/max(cumsum(x4))
+
+
+data &lt;- data.frame(value=c(x,x,x,x),
+                   density=c(x1,x2,x3,x4),
+                   cum_dens=c(x1_cum,x2_cum,x3_cum,x4_cum),
+                   df=gl(4,length(x1),
+                       labels=c(1,3,5,7)))
+
+dens &lt;- ggplot(data, aes(x=value, y=density, color=df))+
+  geom_line()+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;, &quot;black&quot;))
+ecdf &lt;- ggplot(data, aes(x=value, y=cum_dens, color=df))+
+  geom_line()+
+  labs(y=&quot;Fn(x)&quot;)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;,&quot;black&quot;))
+
+ggarrange(dens, ecdf, nrow=1, ncol=2, labels=c(&quot;a)&quot;,&quot;b)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:csqvis"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/csqvis-1.png" alt="Visualisasi distribusi chi-square dengan variasi derajat kebebasan a) density plot, b)ecdf" width="90%" />
 <p class="caption">
@@ -940,6 +1030,28 @@ pgamma(q, df, lower.tail = TRUE)</code></pre>
 \end{equation}\]</span>
 <p>dimana <span class="math inline">\(r\)</span> merupakan derajat kebebasan atau <span class="math inline">\(\left(n-1\right)\)</span>.</p>
 <p>Pada Gambar <a href="#fig:dtvis">13</a> disajikan visualisasi distribusi t dengan variasi <span class="math inline">\(r\)</span>.</p>
+<pre class="r"><code>x &lt;- seq(-7,7, length=100)
+x1 &lt;- dt(x, df=1); x1_cum &lt;- cumsum(x1)/max(cumsum(x1))
+x2 &lt;- dt(x, df=12); x2_cum &lt;- cumsum(x2)/max(cumsum(x2))
+x3 &lt;- dt(x, df=20); x3_cum &lt;- cumsum(x3)/max(cumsum(x3))
+x4 &lt;- dnorm(x); x4_cum &lt;- cumsum(x4)/max(cumsum(x4))
+
+
+data &lt;- data.frame(value=c(x,x,x,x),
+                   density=c(x1,x2,x3,x4),
+                   cum_dens=c(x1_cum,x2_cum,x3_cum,x4_cum),
+                   df=gl(4,length(x1),
+                       labels=c(1,12,20,&quot;Normal&quot;)))
+
+dens &lt;- ggplot(data, aes(x=value, y=density, color=df))+
+  geom_line()+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;, &quot;black&quot;))
+ecdf &lt;- ggplot(data, aes(x=value, y=cum_dens, color=df))+
+  geom_line()+
+  labs(y=&quot;Fn(x)&quot;)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;, &quot;black&quot;))
+
+ggarrange(dens, ecdf, nrow=1, ncol=2, labels=c(&quot;a)&quot;,&quot;b)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:dtvis"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/dtvis-1.png" alt="Visualisasi distribusi t dengan variasi derajat kebebasan a) density plot, b)ecdf" width="90%" />
 <p class="caption">
@@ -972,6 +1084,32 @@ f\left(x;df1,df2 \right) =
 \end{equation}\]</span>
 <p>dimana <span class="math inline">\(df1\)</span> dan <span class="math inline">\(df2\)</span> merupakan derajat kebebasan.</p>
 <p>Pada Gambar <a href="#fig:dFvis">14</a> disajikan visualisasi distribusi F dengan variasi <span class="math inline">\(df1\)</span> dan <span class="math inline">\(df2\)</span>.</p>
+<pre class="r"><code>x &lt;- seq(0,5, length=100)
+x1 &lt;- df(x, df1=1, df2=10); x1_cum &lt;- cumsum(x1)/max(cumsum(x1))
+x2 &lt;- df(x, df1=6, df2=60); x2_cum &lt;- cumsum(x2)/max(cumsum(x2))
+x3 &lt;- df(x, df1=10,df2=100); x3_cum &lt;- cumsum(x3)/max(cumsum(x3))
+
+data &lt;- data.frame(value=c(x,x,x),
+                   density=c(x1,x2,x3),
+                   cum_dens=c(x1_cum,x2_cum,x3_cum),
+                   df1=gl(3,length(x1),
+                       labels=c(1,6,10)),
+                   df2=gl(3,length(x1),
+                        labels=c(10,60,100)))
+
+dens &lt;- ggplot(data, aes(x=value, y=density, color=df1, linetype=df2))+
+  geom_line()+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(color=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;))
+ecdf &lt;- ggplot(data, aes(x=value, y=cum_dens, color=df1, linetype=df2))+
+  geom_line()+
+  labs(y=&quot;Fn(x)&quot;)+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(linetype=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;))
+
+ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c(&quot;a)&quot;,&quot;b)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:dFvis"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/dFvis-1.png" alt="Visualisasi distribusi F dengan variasi derajat kebebasan a) density plot, b)ecdf" width="90%" />
 <p class="caption">
@@ -1016,6 +1154,32 @@ f\left(x \right) =
   \tag{34}
 \end{equation}\]</span>
 <p>Pada Gambar <a href="#fig:dbeta">15</a> disajikan visualisasi distribusi beta dengan variasi <span class="math inline">\(\alpha\)</span> dan <span class="math inline">\(\beta\)</span>.</p>
+<pre class="r"><code>x &lt;- seq(0,1, length=100)
+x1 &lt;- dbeta(x, shape1=1, shape2=5); x1_cum &lt;- cumsum(x1)/max(cumsum(x1))
+x2 &lt;- dbeta(x, shape1=6, shape2=30); x2_cum &lt;- cumsum(x2)/max(cumsum(x2))
+x3 &lt;- dbeta(x, shape1=10,shape2=50); x3_cum &lt;- cumsum(x3)/max(cumsum(x3))
+
+data &lt;- data.frame(value=c(x,x,x),
+                   density=c(x1,x2,x3),
+                   cum_dens=c(x1_cum,x2_cum,x3_cum),
+                   alpha=gl(3,length(x1),
+                       labels=c(1,6,10)),
+                   beta=gl(3,length(x1),
+                        labels=c(10,60,100)))
+
+dens &lt;- ggplot(data, aes(x=value, y=density, color=alpha, linetype=beta))+
+  geom_line()+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(color=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;))
+ecdf &lt;- ggplot(data, aes(x=value, y=cum_dens, color=alpha, linetype=beta))+
+  geom_line()+
+  labs(y=&quot;Fn(x)&quot;)+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(linetype=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;))
+
+ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c(&quot;a)&quot;,&quot;b)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:dbeta"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/dbeta-1.png" alt="Visualisasi distribusi beta dengan variasi derajat kebebasan a) density plot, b)ecdf" width="90%" />
 <p class="caption">
@@ -1053,6 +1217,32 @@ f\left(x;\mu,\sigma \right) =
   \tag{36}
 \end{equation}\]</span>
 <p>Pada Gambar <a href="#fig:dlognnormalvis">16</a> disajikan visualisasi distribusi lognormal dengan variasi <span class="math inline">\(\mu\)</span> dan <span class="math inline">\(\sigma\)</span>.</p>
+<pre class="r"><code>x &lt;- seq(0,5, length=100)
+x1 &lt;- dlnorm(x, meanlog=0, sdlog=1); x1_cum &lt;- cumsum(x1)/max(cumsum(x1))
+x2 &lt;- dlnorm(x, meanlog=1, sdlog=1.5); x2_cum &lt;- cumsum(x2)/max(cumsum(x2))
+x3 &lt;- dlnorm(x, meanlog=2, sdlog=2); x3_cum &lt;- cumsum(x3)/max(cumsum(x3))
+
+data &lt;- data.frame(value=c(x,x,x),
+                   density=c(x1,x2,x3),
+                   cum_dens=c(x1_cum,x2_cum,x3_cum),
+                   mean=gl(3,length(x1),
+                       labels=c(0,1,2)),
+                   sd=gl(3,length(x1),
+                        labels=c(1,1.5,2)))
+
+dens &lt;- ggplot(data, aes(x=value, y=density, color=mean, linetype=sd))+
+  geom_line()+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(color=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;))
+ecdf &lt;- ggplot(data, aes(x=value, y=cum_dens, color=mean, linetype=sd))+
+  geom_line()+
+  labs(y=&quot;Fn(x)&quot;)+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(linetype=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;, &quot;#2E9FDF&quot;, &quot;#FC4E07&quot;))
+
+ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c(&quot;a)&quot;,&quot;b)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:dlognnormalvis"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/dlognnormalvis-1.png" alt="Visualisasi distribusi beta dengan variasi mean dan sd a) density plot, b)ecdf" width="90%" />
 <p class="caption">
@@ -1080,6 +1270,33 @@ plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE)</code></pre>
   \tag{37}
 \end{equation}\]</span>
 <p>Pada Gambar <a href="#fig:dcauchyvis">17</a> disajikan visualisasi distribusi Cauchy dengan variasi <span class="math inline">\(m\)</span> dan <span class="math inline">\(\beta\)</span>.</p>
+<pre class="r"><code>x &lt;- seq(-7,7, length=100)
+x1 &lt;- dcauchy(x, location=0, scale=1); x1_cum &lt;- cumsum(x1)/max(cumsum(x1))
+x2 &lt;- dcauchy(x, location=0.5, scale=1.5); x2_cum &lt;- cumsum(x2)/max(cumsum(x2))
+x3 &lt;- dcauchy(x, location=1, scale=2); x3_cum &lt;- cumsum(x3)/max(cumsum(x3))
+x4 &lt;- dnorm(x); x4_cum &lt;- cumsum(x4)/max(cumsum(x4))
+
+data &lt;- data.frame(value=c(x,x,x,x),
+                   density=c(x1,x2,x3,x4),
+                   cum_dens=c(x1_cum,x2_cum,x3_cum,x4_cum),
+                   m=gl(4,length(x1),
+                       labels=c(0,1,1.5,&quot;Normal&quot;)),
+                   beta=gl(4,length(x1),
+                       labels=c(1,1.5,2,&quot;Normal&quot;)))
+
+dens &lt;- ggplot(data, aes(x=value, y=density, color=m, linetype=beta))+
+  geom_line()+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(color=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;,&quot;#2E9FDF&quot;,&quot;#FC4E07&quot;,&quot;black&quot;))
+ecdf &lt;- ggplot(data, aes(x=value, y=cum_dens, color=m, linetype=beta))+
+  geom_line()+
+  labs(y=&quot;Fn(x)&quot;)+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(linetype=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;,&quot;#2E9FDF&quot;,&quot;#FC4E07&quot;,&quot;black&quot;))
+
+ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c(&quot;a)&quot;,&quot;b)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:dcauchyvis"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/dcauchyvis-1.png" alt="Visualisasi distribusi t dengan variasi m dan beta a) density plot, b)ecdf" width="90%" />
 <p class="caption">
@@ -1107,6 +1324,33 @@ pcauchy(q, location = 0, scale = 1, lower.tail = TRUE)</code></pre>
   \tag{38}
 \end{equation}\]</span>
 <p>Pada Gambar <a href="#fig:dlogistikvis">18</a> disajikan visualisasi distribusi Cauchy dengan variasi <span class="math inline">\(m\)</span> dan <span class="math inline">\(\beta\)</span>.</p>
+<pre class="r"><code>x &lt;- seq(-7,7, length=100)
+x1 &lt;- dlogis(x, location=0, scale=1); x1_cum &lt;- cumsum(x1)/max(cumsum(x1))
+x2 &lt;- dlogis(x, location=0.5, scale=1.5); x2_cum &lt;- cumsum(x2)/max(cumsum(x2))
+x3 &lt;- dlogis(x, location=1, scale=2); x3_cum &lt;- cumsum(x3)/max(cumsum(x3))
+x4 &lt;- dnorm(x); x4_cum &lt;- cumsum(x4)/max(cumsum(x4))
+
+data &lt;- data.frame(value=c(x,x,x,x),
+                   density=c(x1,x2,x3,x4),
+                   cum_dens=c(x1_cum,x2_cum,x3_cum,x4_cum),
+                   mean=gl(4,length(x1),
+                       labels=c(0,1,1.5,&quot;Normal&quot;)),
+                   sd=gl(4,length(x1),
+                       labels=c(1,1.5,2,&quot;Normal&quot;)))
+
+dens &lt;- ggplot(data, aes(x=value, y=density, color=mean, linetype=sd))+
+  geom_line()+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(color=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;,&quot;#2E9FDF&quot;,&quot;#FC4E07&quot;,&quot;black&quot;))
+ecdf &lt;- ggplot(data, aes(x=value, y=cum_dens, color=mean, linetype=sd))+
+  geom_line()+
+  labs(y=&quot;Fn(x)&quot;)+
+  theme(legend.position=&quot;right&quot;, legend.box=&quot;vertical&quot;)+
+  guides(linetype=FALSE)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;,&quot;#2E9FDF&quot;,&quot;#FC4E07&quot;,&quot;black&quot;))
+
+ggarrange(dens, ecdf, nrow=2, ncol=1, labels=c(&quot;a)&quot;,&quot;b)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:dlogistikvis"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/dlogistikvis-1.png" alt="Visualisasi distribusi logistik dengan variasi mean dan simpangan baku, a) density plot, b)ecdf" width="90%" />
 <p class="caption">
@@ -1138,6 +1382,28 @@ f\left(x;\alpha,\beta \right) =
  \tag{39}
 \end{equation}\]</span>
 <p>Pada Gambar <a href="#fig:weibullvis">19</a> disajikan visualisasi distribusi gamma dengan variasi <span class="math inline">\(\alpha\)</span> dan <span class="math inline">\(\beta\)</span>.</p>
+<pre class="r"><code>x &lt;- seq(0,6, length=100)
+x1 &lt;- dweibull(x, shape=1, scale=1); x1_cum &lt;- cumsum(x1)/max(cumsum(x1)) 
+x2 &lt;- dweibull(x, shape=2, scale=1); x2_cum &lt;- cumsum(x2)/max(cumsum(x2))
+x3 &lt;- dweibull(x, shape=4, scale=1); x3_cum &lt;- cumsum(x3)/max(cumsum(x3))
+
+data &lt;- data.frame(value=c(x,x,x),
+                   density=c(x1,x2,x3),
+                   cum_dens=c(x1_cum,x2_cum,x3_cum),
+                   alpha=gl(3,length(x1),
+                       labels=c(1,2,4)))
+
+dens &lt;- ggplot(data, aes(x=value, y=density, color=alpha))+
+  geom_line()+
+  scale_color_manual(values=c(&quot;#E7B800&quot;,&quot;#2E9FDF&quot;,&quot;#FC4E07&quot;)
+)
+ecdf &lt;- ggplot(data, aes(x=value, y=cum_dens, color=alpha))+
+  geom_line()+
+  labs(y=&quot;Fn(x)&quot;)+
+  scale_color_manual(values=c(&quot;#E7B800&quot;,&quot;#2E9FDF&quot;,&quot;#FC4E07&quot;)
+)
+
+ggarrange(dens, ecdf, nrow=1, ncol=2, labels=c(&quot;a)&quot;,&quot;b)&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:weibullvis"></span>
 <img src="/tutorial/09-distribusi-probabilitas_files/figure-html/weibullvis-1.png" alt="Visualisasi distribusi weibull dengan variasi alpha dengan beta 1 a) density plot, b)ecdf" width="90%" />
 <p class="caption">
