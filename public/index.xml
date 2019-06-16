@@ -6328,6 +6328,1813 @@ Figure 71: Facet dua variabel dengan skala bebas pada sumbu y
     </item>
     
     <item>
+      <title>2. Dasar Pemrograman Menggunakan R</title>
+      <link>/tutorial/02_sintaks-bahasa-r/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/02_sintaks-bahasa-r/</guid>
+      <description>
+
+
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
+&lt;p&gt;Pada &lt;em&gt;chapter&lt;/em&gt; ini penulis hendak mengajak pembaca lebih familiar dengan sintaks atau perintah yang ada pada &lt;code&gt;R&lt;/code&gt; yang akan membantu pembaca untuk melakukan pemrograman pada &lt;code&gt;R&lt;/code&gt;. Pembaca akan mempelajari penggunaan operator dalam melakukan operasi pengolahan data pada &lt;code&gt;R&lt;/code&gt;, jenis data yang ada pada &lt;code&gt;R&lt;/code&gt;, sampai dengan bagaimana kita melakukan proses &lt;em&gt;decision making&lt;/em&gt; menggunakan &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#2-1-operator-aritmatika&#34;&gt;Operator Aritmatika&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-2-fungsi-aritmetik&#34;&gt;Fungsi Aritmetik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-3-operator-relasi&#34;&gt;Operator Relasi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-4-operator-logika&#34;&gt;Operator Logika&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-5-memasukkan-nilai-kedalam-variabel&#34;&gt;Memasukkan Nilai Kedalam Variabel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-6-tipe-data&#34;&gt;Tipe Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-7-vektor&#34;&gt;Vektor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-8-matriks&#34;&gt;Matriks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-9-faktor&#34;&gt;Faktor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-10-data-frames&#34;&gt;Data Frames&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-11-list&#34;&gt;List&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-12-loop&#34;&gt;Loop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-13-loop-menggunakan-apply-family-function&#34;&gt;Loop Menggunakan Apply Family Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-15-decision-making&#34;&gt;Decision Making&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-16-fungsi&#34;&gt;Fungsi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;operator-aritmatika&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.1 Operator Aritmatika&lt;/h2&gt;
+&lt;p&gt;Proses perhitungan akan ditangani oleh fungsi khusus. &lt;code&gt;R&lt;/code&gt; akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;2+4*2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bandingkan dengan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(2+4)*2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 12&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; dapat digunakan sebagai kalkulator&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, &lt;code&gt;R&lt;/code&gt; akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.&lt;/p&gt;
+&lt;p&gt;Operator aritmatika yang disediakan &lt;code&gt;R&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Table 1&lt;/strong&gt; Operator Aritmatika &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;15%&#34; /&gt;
+&lt;col width=&#34;84%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Simbol&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;+&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Addition&lt;/em&gt;, untuk operasi penjumlahan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Substraction&lt;/em&gt;, untuk operasi pengurangan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Multiplication&lt;/em&gt;, untuk operasi pembagian&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;/&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Division&lt;/em&gt;, untuk operasi pembagian&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;^&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Eksponentiation&lt;/em&gt;, untuk operasi pemangkatan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;%%&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Modulus&lt;/em&gt;, Untuk mencari sisa pembagian&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;%/%&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Integer&lt;/em&gt;, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Addition
+5+3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Substraction
+5-3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Multiplication
+5*3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 15&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Division
+5/3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.666667&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Eksponetiation
+5^3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 125&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Modulus
+5%%3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Integer
+5%/%3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Note: &lt;/em&gt; Pada &lt;code&gt;R&lt;/code&gt; tanda &lt;code&gt;#&lt;/code&gt; berfungsi menambahkan keterangan untuk menjelaskan sebuah sintaks pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fungsi-aritmetik&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.2 Fungsi Aritmetik&lt;/h2&gt;
+&lt;p&gt;Selain fungsi operator aritmetik, pada &lt;code&gt;R&lt;/code&gt; juga telah tersedia fungsi aritmetik yang lain seperti logaritmik, ekponensial, trigonometri, dll.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Logaritma dan eksponensial&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Untuk contoh fungsi logaritmik dan eksponensial jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;log2(8) # logaritma basis 2 untuk 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;log10(8) # logaritma basis 10 untuk 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.90309&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(8) # eksponensial 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2980.958&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Fungsi trigonometri&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;fungsi trigonometri yang ditampilkan seperti sin,cos, tan, dll.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cos(x) # cos x
+sin(x) # Sin x
+tan(x) # Tan x
+acos(x) # arc-cos x
+asin(x) # arc-sin x
+atan(x) #arc-tan x&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; x dalam fungsi trigonometri memiliki satuan radian&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah salah satu contoh penggunaannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cos(pi)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -1&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Fungsi matematik lainnya&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Fungsi lainnya yang dapat digunakan adalah fungsi absolut, akar kuadrat, dll. Berikut adalah contoh sintaks penggunaan fungsi absolut dan akar kuadrat.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;abs(-2) # nilai absolut -2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sqrt(4) # akar kuadrat 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;operator-relasi&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.3 Operator Relasi&lt;/h2&gt;
+&lt;p&gt;Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan &lt;code&gt;R&lt;/code&gt; disajikan pada Table 2.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Table 2&lt;/strong&gt; Operator Relasi &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Simbol&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;“&amp;gt;”&lt;/td&gt;
+&lt;td&gt;Lebih besar dari&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;“&amp;lt;”&lt;/td&gt;
+&lt;td&gt;Lebih Kecil dari&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;“==”&lt;/td&gt;
+&lt;td&gt;Sama dengan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;“&amp;gt;=”&lt;/td&gt;
+&lt;td&gt;Lebih besar sama dengan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;“&amp;lt;=”&lt;/td&gt;
+&lt;td&gt;Lebih kecil sama dengan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;“!=”&lt;/td&gt;
+&lt;td&gt;Tidak sama dengan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Berikut adalah penerapan operator pada tabel tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 34
+y &amp;lt;- 35
+
+# Operator &amp;gt;
+x &amp;gt; y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator &amp;lt;
+x &amp;lt; y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# operator ==
+x == y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator &amp;gt;=
+x &amp;gt;= y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator &amp;lt;=
+x &amp;lt;= y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator !=
+x != y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;operator-logika&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.4 Operator Logika&lt;/h2&gt;
+&lt;p&gt;Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika &lt;code&gt;TRUE&lt;/code&gt;. Operator logika yang disediakan &lt;code&gt;R&lt;/code&gt; dapat dilihat pada Table 3.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Table 3&lt;/strong&gt; Operator logika &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Simbol&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&amp;amp;&amp;amp;&lt;/td&gt;
+&lt;td&gt;Operator logika AND&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;!&lt;/td&gt;
+&lt;td&gt;Opeartor logika NOT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&amp;amp;&lt;/td&gt;
+&lt;td&gt;Operator logika AND element wise&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Operator logika OR element wise&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Penerapannya terdapat pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;v &amp;lt;- c(TRUE,TRUE, FALSE)
+t &amp;lt;- c(FALSE,FALSE,FALSE)
+
+# Operator &amp;amp;&amp;amp;
+print(v&amp;amp;&amp;amp;t)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator ||
+print(v||t)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator !
+print(!v)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE  TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# operator &amp;amp;
+print(v&amp;amp;t)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator |
+print(v|t)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  TRUE  TRUE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;operator &amp;amp; dan | akan mengecek logika tiap elemen pada vektor secara berpesangan (sesuai urutan dari kiri ke kanan).&lt;/p&gt;
+&lt;p&gt;Operator %% dan || hanya mengecek dari kiri ke kanan pada observasi pertama. Misal saat menggunakan &amp;amp;&amp;amp; jika observasi pertama TRUE maka observasi pertama pada vektor lainnya akan dicek, namun jika observasi pertama FALSE maka proses akan segera dihentikan dan menghasilkan FALSE.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;memasukkan-nilai-kedalam-variabel&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.5 Memasukkan Nilai Kedalam Variabel&lt;/h2&gt;
+&lt;p&gt;Variabel pada &lt;code&gt;R&lt;/code&gt; dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Harga sebuah lemon adalah 500 rupiah
+lemon &amp;lt;- 500
+
+# Atau
+500 -&amp;gt; lemon
+
+# dapat juga menggunakan tanda &amp;quot;=&amp;quot;
+lemon = 500&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;R&lt;/code&gt; memungkinkan penggunaan &amp;lt;-,-&amp;gt;, atau = sebagai perintah pengisi nilai variabel&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;R&lt;/code&gt; bersifat &lt;em&gt;case-sensitive&lt;/em&gt;. Maksudnya adalah variabel Lemon tidak sama dengan lemon (Besar kecil huruf berpengaruh)&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk mengetahui nilai dari objek &lt;code&gt;lemon&lt;/code&gt; kita dapat menggunakan fungsi &lt;code&gt;print()&lt;/code&gt; atau mengetikkan nama objeknya secara langsung.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menggunakan fungsi print()
+print(lemon)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 500&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Atau
+lemon&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 500&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; akan menyimpan variabel &lt;code&gt;lemon&lt;/code&gt; sebagai objek pada memori. Sehingga kita dapat melakukan operasi terhadap objek tersebut seperti mengalikannya atau menjumlahkannya dengan bilangan lain. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operasi perkalian terhadap objek lemon
+5*lemon&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2500&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita dapat juga mengubah nilai dari objek &lt;code&gt;lemon&lt;/code&gt; dengan cara menginput nilai baru terhadap objek yang sama. &lt;code&gt;R&lt;/code&gt; secara otomatis akan menggatikan nilai sebelumnya. Untuk lebih memahaminya jalankan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lemon &amp;lt;- 1000
+
+# Print lemon
+print(lemon)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk lebih memahaminya berikut adalah sintaks untuk menghitung volume suatu objek.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Dimensi objek
+panjang &amp;lt;- 10
+lebar &amp;lt;- 5
+tinggi &amp;lt;- 5
+
+# Menghitung volume
+volume &amp;lt;- panjang*lebar*tinggi
+
+# Print objek volume
+print(volume)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 250&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi &lt;code&gt;ls()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ls()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;lemon&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;t&amp;quot;       &amp;quot;tinggi&amp;quot;  &amp;quot;v&amp;quot;       &amp;quot;volume&amp;quot; 
+## [8] &amp;quot;x&amp;quot;       &amp;quot;y&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Kumpulan objek yang telah tersimpan dalam memori disebut sebagai &lt;strong&gt;workspace&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk menghapus objek pada memori kita dapat menggunakan fungsi &lt;code&gt;rm()&lt;/code&gt;. Pada sintaks berikut penulis hendak menghapus objek &lt;code&gt;lemon&lt;/code&gt; dan &lt;code&gt;volume&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menghapus objek lemon dan volume
+rm(lemon, volume)
+
+# Tampilkan kembali objek yang tersisa
+ls()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;t&amp;quot;       &amp;quot;tinggi&amp;quot;  &amp;quot;v&amp;quot;       &amp;quot;x&amp;quot;       &amp;quot;y&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tipe-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.6 Tipe Data&lt;/h2&gt;
+&lt;p&gt;Data pada &lt;code&gt;R&lt;/code&gt; dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada &lt;code&gt;R&lt;/code&gt; disajikan pada Table 4.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Table 4&lt;/strong&gt; Tipe Data &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Tipe Data&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Contoh&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Logical&lt;/td&gt;
+&lt;td&gt;TRUE, FALSE&lt;/td&gt;
+&lt;td&gt;Nilai Boolean&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Numeric&lt;/td&gt;
+&lt;td&gt;12.3, 5, 999&lt;/td&gt;
+&lt;td&gt;Segala jenis angka&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;23L, 97L, 3L&lt;/td&gt;
+&lt;td&gt;Bilangan integer (bilangan bulat)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Complex&lt;/td&gt;
+&lt;td&gt;2i, 3i, 9i&lt;/td&gt;
+&lt;td&gt;Bilangan kompleks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Character&lt;/td&gt;
+&lt;td&gt;‘a’, “b”, “123”&lt;/td&gt;
+&lt;td&gt;Karakter dan string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Raw&lt;/td&gt;
+&lt;td&gt;Identik dengan “hello”&lt;/td&gt;
+&lt;td&gt;Segala jenis data yang disimpan sebagai raw bytes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Sintaks berikut adalah contoh dari tipe data pada &lt;code&gt;R&lt;/code&gt;. Untuk mengetahui tipa data suatu objek kita dapat menggunakan perintah &lt;code&gt;class()&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Logical
+apel &amp;lt;- TRUE
+class(apel)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;logical&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Numeric
+x &amp;lt;- 2.3
+class(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Integer
+y &amp;lt;- 2L
+class(y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;integer&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Compleks
+z &amp;lt;- 5+2i
+class(z)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;complex&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# string
+w &amp;lt;- &amp;quot;saya&amp;quot;
+class(w)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Raw
+xy &amp;lt;- charToRaw(&amp;quot;hello world&amp;quot;)
+class(xy)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;raw&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Keenam jenis data tersebut disebut sebagai tipe data atomik. Hal ini disebabkan karena hanya dapat menangani satu tipe data saja. Misalnya hanya numeric atau hanya integer.&lt;/p&gt;
+&lt;p&gt;Selain menggunakan fungsi &lt;code&gt;class()&lt;/code&gt;, kita dapat pula menggunakan fungsi &lt;code&gt;is_numeric()&lt;/code&gt;, &lt;code&gt;is.character()&lt;/code&gt;, &lt;code&gt;is.logical()&lt;/code&gt;, dan sebagainya berdasarkan jenis data apa yang ingin kita cek. Berbeda dengan fungsi &lt;code&gt;class()&lt;/code&gt;, ouput yang dihasilkan pada fungsi seperti &lt;code&gt;is_numeric()&lt;/code&gt; adalah nilai Boolean sehingga fungsi ini hanya digunakan untuk mengecek apakah jenis data pada objek sama seperti yang kita pikirkan. Sebagai contoh disajikan pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- 25
+
+# Cek apakah objek berisi data numerik
+is.numeric(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek apakah objek adalah karakter
+is.character(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita juga dapat mengubah jenis data menjadi jenis lainnya seperti integer menjadi numerik atau sebaliknya. Fungsi yang digunakan adalah &lt;code&gt;as.numeric()&lt;/code&gt; jika ingin mengubah suatu jenis data menjadi numerik. Fungsi lainnya juga dapat digunakan sesuai dengan kita ingin mengubah jenis data objek menjadi jenis data lainnya.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Integer
+apel &amp;lt;- 2L
+
+# Ubah menjadi numerik
+as.numeric(apel)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek
+is.numeric(apel)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Logical
+nangka &amp;lt;- TRUE
+
+# Ubah logical menjadi numeric
+as.numeric(nangka)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Karakter
+minum &amp;lt;- &amp;quot;minum&amp;quot;
+
+# ubah karakter menjadi numerik
+as.numeric(minum)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: NAs introduced by coercion&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Konversi karakter menjadi numerik akan menghasilkan output NA (&lt;em&gt;not available&lt;/em&gt;). &lt;code&gt;R&lt;/code&gt; tidak mengetahui bagaimana cara merubah karakter menjadi bentuk numerik.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik &lt;em&gt;double quote&lt;/em&gt; (“”) maupun &lt;em&gt;single quote&lt;/em&gt; (’’).Jika pada teks yang kita tuliskan mengandung &lt;em&gt;quote&lt;/em&gt; maka kita harus menghentikannya menggunakan tanda (  ). Sbegai contoh kita ingin menuliskan `&lt;strong&gt;My friend’s name is “Adi”&lt;/strong&gt;, pada sintaks akan dituliskan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;&amp;#39;My friend\`s name is &amp;quot;Adi&amp;quot;&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;My friend`s name is \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Atau
+
+&amp;quot;My friend&amp;#39;s name \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;My friend&amp;#39;s name \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Struktur data diklasifikasikan berdasarkan dimensi data dan tie data di dalamnya (homogen atau heterogen). Klasifikasi jenis data disajikan pada Tabel &lt;a href=&#34;#tab:strukturdata&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:strukturdata&#34;&gt;Table 1: &lt;/span&gt; Struktur data &lt;code&gt;R&lt;/code&gt;.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Dimensi&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Homogen&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Heterogen&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;1d&lt;/td&gt;
+&lt;td&gt;Atomik vektor&lt;/td&gt;
+&lt;td&gt;List&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;2d&lt;/td&gt;
+&lt;td&gt;Matriks&lt;/td&gt;
+&lt;td&gt;Dataframe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;nd&lt;/td&gt;
+&lt;td&gt;Array&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Berdasarkan Tabel tersebut dapat kita lihat bahwa objek terbagi atas dua buah struktur data yaitu homogen dan heterogen. Objek dengan struktur data homogen hanya dapat menyimpan satu tipe atau jenis data saja (numerik saja atau factor saja), sedangkan objek dengan struktur data heterogen akan dapat menyimpan berbagai jenis data.&lt;/p&gt;
+&lt;p&gt;Berdasarkan daftar yang ada di Tabel &lt;a href=&#34;#tab:strukturdata&#34;&gt;1&lt;/a&gt;, kita tidak akan membahas struktur data Array pada buku ini. Struktur data tersebut lebih banyak digunakan untuk kepentingan akademis seperti membuat model matematis yang akan penulis bahas pada buku lain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;vektor&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.7 Vektor&lt;/h2&gt;
+&lt;p&gt;Vektor merupakan kombinasi berbagai nilai (numerik, karakter, logical, dan sebagainya berdasarkan jenis input data) pada objek yang sma. Pada contoh kasus berikut, pembaca akan memiliki sesuai jenis data input yaitu&lt;strong&gt;vektor numerik&lt;/strong&gt;, &lt;strong&gt;vector karakter&lt;/strong&gt;, &lt;strong&gt;vektor logical&lt;/strong&gt;, dll.&lt;/p&gt;
+&lt;div id=&#34;membuat-vektor&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.7.1 Membuat vektor&lt;/h3&gt;
+&lt;p&gt;Vektor dibuat dengan menggunakan fungsi &lt;code&gt;c()&lt;/code&gt;(concatenate) seperti yang disajikan pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor numerik
+x &amp;lt;- c(3,3.5,4,7)
+x # print vektor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.0 3.5 4.0 7.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor karakter
+y &amp;lt;- c(&amp;quot;Apel&amp;quot;, &amp;quot;Jeruk&amp;quot;, &amp;quot;Rambutan&amp;quot;, &amp;quot;Salak&amp;quot;)
+y # print vektor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Apel&amp;quot;     &amp;quot;Jeruk&amp;quot;    &amp;quot;Rambutan&amp;quot; &amp;quot;Salak&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor logical
+t &amp;lt;- c(&amp;quot;TRUE&amp;quot;, &amp;quot;FALSE&amp;quot;, &amp;quot;TRUE&amp;quot;)
+t # print vektor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;TRUE&amp;quot;  &amp;quot;FALSE&amp;quot; &amp;quot;TRUE&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;selain menginput nilai pada vektor, kita juga dapat memberi nama nilai setiap vektor menggunakan fungsi &lt;code&gt;names()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat vektor jumlah buah yang dibeli
+Jumlah &amp;lt;- c(5,5,6,7)
+names(Jumlah) &amp;lt;- c(&amp;quot;Apel&amp;quot;, &amp;quot;Jeruk&amp;quot;, &amp;quot;Rambutan&amp;quot;, &amp;quot;Salak&amp;quot;)
+
+# Atau
+Jumlah &amp;lt;- c(Apel=5, Jeruk=5, Rambutan=6, Salak=7)
+
+# Print
+Jumlah&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel    Jeruk Rambutan    Salak 
+##        5        5        6        7&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Vektor hanya dapat memuat satu buah jenis data. Vektor hanya dapat mengandung jenis data numerik saja, karakter saja, dll.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Untuk menentukan panjang sebuah vektor kita dapat menggunakan fungsi &lt;code&gt;lenght()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(Jumlah)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;missing-values&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.7.2 Missing Values&lt;/h3&gt;
+&lt;p&gt;Seringkali nilai pada vektor kita tidak lengkap atau terdapat nilai yang hilang (&lt;em&gt;missing value&lt;/em&gt;) pada vektor. &lt;em&gt;Missing value&lt;/em&gt; pada &lt;code&gt;R&lt;/code&gt; dilambangkan oleh &lt;code&gt;NA&lt;/code&gt;(&lt;em&gt;not available&lt;/em&gt;). Berikut adalah contoh vektor dengan &lt;em&gt;missing value&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Jumlah &amp;lt;- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk mengecek apakah dalam objek terdapat &lt;em&gt;missing value&lt;/em&gt; dapat menggunakan fungsi &lt;code&gt;is.na()&lt;/code&gt;. ouput dari fungsi tersebut adalah nilai Boolean. Jika terdapat &lt;em&gt;Missing value&lt;/em&gt;, maka output yang dihasilkan akan memberikan nilai &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.na(Jumlah)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel    Jeruk Rambutan    Salak 
+##    FALSE     TRUE    FALSE    FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Selain NA terdapat NaN (&lt;em&gt;not a number&lt;/em&gt;) sebagai &lt;em&gt;missing value8&lt;/em&gt;. Nilai tersebut muncul ketika fungsi matematika yang digunakan pada proses perhitungan tidak bekerja sebagaimana mestinya. Contoh: 0/0 = NaN&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;is.na()&lt;/code&gt; juga akan menghasilkan nilai &lt;code&gt;TRUE&lt;/code&gt; pada NaN. Untuk membedakannya dengan NA dapat digunakan fungsi &lt;code&gt;is.nan()&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subset-pada-vektor&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.7.3 Subset Pada Vektor&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Subseting vector&lt;/em&gt; terdiri atas tiga jenis, yaitu: &lt;em&gt;positive indexing&lt;/em&gt;, &lt;em&gt;Negative Indexing&lt;/em&gt;, dan .&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Positive indexing&lt;/strong&gt;: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset vektor pada urutan kedua
+Jumlah[2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Jeruk 
+##    NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset vektor pada urutan 2 dan 4
+Jumlah[c(2, 4)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Jeruk Salak 
+##    NA     7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Selain melalui urutan (indeks), kita juga dapat melakukan subset berdasarkan nama elemen vektornya.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Jumlah[&amp;quot;Jeruk&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Jeruk 
+##    NA&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Indeks pada &lt;code&gt;R&lt;/code&gt; dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Negative indexing&lt;/strong&gt;: mengecualikan (&lt;em&gt;exclude&lt;/em&gt;) elemen vektor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengecualikan elemen vektor 2 dan 4
+Jumlah[-c(2,4)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel Rambutan 
+##        5        6&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengecualikan elemen vektor 1 sampai 3
+Jumlah[-c(1:3)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Salak 
+##     7&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Subset berdasarkan vektor logical&lt;/strong&gt;: Hanya, elemen-elemen yang nilai yang bersesuaian dalam vektor pemilihan bernilai TRUE, akan disimpan dalam subset.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; panjang vektor yang digunakan untuk subset harus sama.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Jumlah &amp;lt;- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)
+
+# selecting vector
+merah &amp;lt;- c(TRUE, FALSE, TRUE, FALSE)
+
+# Subset
+Jumlah[merah==TRUE]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel Rambutan 
+##        5        6&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset untuk elemen vektor bukan missing value
+Jumlah[!is.na(Jumlah)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel Rambutan    Salak 
+##        5        6        7&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;perhitungan-menggunakan-vektor&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.7.4 Perhitungan Menggunakan Vektor&lt;/h3&gt;
+&lt;p&gt;Jika Anda melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pendapatan &amp;lt;- c(2000, 1800, 2500, 3000)
+names(pendapatan) &amp;lt;- c(&amp;quot;Andi&amp;quot;, &amp;quot;Joni&amp;quot;, &amp;quot;Lina&amp;quot;, &amp;quot;Rani&amp;quot;)
+pendapatan&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
+## 2000 1800 2500 3000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kalikan pendapatan dengan 3
+pendapatan*3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
+## 6000 5400 7500 9000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Seperti yang dapat dilihat, &lt;code&gt;R&lt;/code&gt; mengalikan setiap elemen dengan bilangan pengali.&lt;/p&gt;
+&lt;p&gt;Kita juga dapat mengalikan vektor dengan vektor lainnya.Contohnya disajikan pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor dengan panjang sama dengan dengan vektor pendapatan
+coefs &amp;lt;- c(2, 1.5, 1, 3)
+
+# Mengalikan pendapatan dengan vektor coefs
+pendapatan*coefs&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
+## 4000 2700 2500 9000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan sintaks tersebut dapat terlihat bahwa operasi matematik terhadap masing-masing vektor dapat berlangsung jika panjang vektornya sama.&lt;/p&gt;
+&lt;p&gt;Berikut adalah fungsi lain yang dapat digunakan pada operasi matematika vektor.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;max(x) # memperoleh nilai maksimum x
+min(x) # memperoleh nilai minimum x
+range(x) # memperoleh range vektor x
+length(x) # memperoleh jumlah elemen vektor x
+sum(x) # memperoleh total penjumlahan elemen vektor x
+prod(x) # memeperoleh produk elemen vektor x
+mean(x) # memperoleh nilai rata-rata seluruh elemen vektor x
+sd(x) # standar deviasi vektor x
+var(x) # varian vektor x
+sort(x) # mengurutkan elemen vektor x dari yang terbesar&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Contoh penggunaan fungsi tersebut disajikan beberapa pada sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menghitung range pendapatan
+range(pendapatan)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1800 3000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menghitung rata-rata dan standar deviasi pendapatan
+mean(pendapatan)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2325&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(pendapatan)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 537.7422&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;matriks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.8 Matriks&lt;/h2&gt;
+&lt;p&gt;Matriks seperti Excel sheet yang berisi banyak baris dan kolom (kumpulan bebrapa vektor). Matriks digunakan untuk menggabungkan vektor dengan tipe yang sama, yang bisa berupa numerik, karakter, atau logis. Matriks digunakan untuk menyimpan tabel data dalam R. Baris-baris matriks pada umumnya adalah individu / pengamatan dan kolom adalah variabel.&lt;/p&gt;
+&lt;div id=&#34;membuat-matriks&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.8.1 Membuat matriks&lt;/h3&gt;
+&lt;p&gt;Untuk membuat matriks kita dapat menggunakan fungsi &lt;code&gt;cbind()&lt;/code&gt; atau &lt;code&gt;rbind()&lt;/code&gt;. Berikut adalah contoh sintaks untuk membuat matriks.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor numerik
+col1 &amp;lt;- c(5, 6, 7, 8, 9)
+col2 &amp;lt;- c(2, 4, 5, 9, 8)
+col3 &amp;lt;- c(7, 3, 4, 8, 7)
+
+# menggabungkan vektor berdasarkan kolom
+my_data &amp;lt;- cbind(col1, col2, col3)
+my_data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## [1,]    5    2    7
+## [2,]    6    4    3
+## [3,]    7    5    4
+## [4,]    8    9    8
+## [5,]    9    8    7&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Mengubah atau menambahkan nama baris
+rownames(my_data) &amp;lt;- c(&amp;quot;row1&amp;quot;, &amp;quot;row2&amp;quot;, &amp;quot;row3&amp;quot;, &amp;quot;row4&amp;quot;, &amp;quot;row5&amp;quot;)
+my_data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## row1    5    2    7
+## row2    6    4    3
+## row3    7    5    4
+## row4    8    9    8
+## row5    9    8    7&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;cbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan kolom&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan baris&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rownames()&lt;/strong&gt;: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;colnames()&lt;/strong&gt;: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Kita dapat melakukan tranpose (merotasi matriks sehingga kolom menjadi baris dan sebaliknya) menggunakan fungsi &lt;code&gt;t()&lt;/code&gt;. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      row1 row2 row3 row4 row5
+## col1    5    6    7    8    9
+## col2    2    4    5    9    8
+## col3    7    3    4    8    7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Selain melalui pembentukan sejumlah objek vektor, kita juga dapat membuat matriks menggunakan fungsi &lt;code&gt;matrix()&lt;/code&gt;. Secara sederhana fungsi tersebut dapat dituliskan sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
+       dimnames = NULL)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt;: vektor data opsional&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;nrow&lt;/strong&gt;, &lt;strong&gt;ncol&lt;/strong&gt;: jumlah baris dan kolom yang diinginkan, masing-masing.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;byrow&lt;/strong&gt;: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;dimnames&lt;/strong&gt;: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dalam kode &lt;code&gt;R&lt;/code&gt; di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini &lt;code&gt;nrow = 3&lt;/code&gt;). &lt;code&gt;R&lt;/code&gt; akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen &lt;code&gt;byrow = FALSE&lt;/code&gt;. Jika kita ingin mengisi matriks dengan baris, gunakan &lt;code&gt;byrow = TRUE&lt;/code&gt;. Berikut adalah contoh pembuatan matriks menggunakan fungsi &lt;code&gt;matrix()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- matrix(
+           data = c(1,2,3, 11,12,13), 
+           nrow = 2, byrow = TRUE,
+           dimnames = list(c(&amp;quot;row1&amp;quot;, &amp;quot;row2&amp;quot;), c(&amp;quot;C.1&amp;quot;, &amp;quot;C.2&amp;quot;, &amp;quot;C.3&amp;quot;))
+           )
+data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      C.1 C.2 C.3
+## row1   1   2   3
+## row2  11  12  13&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk mengetahui dimensi dari suatu matriks, kita dapat menggunakan fungsi &lt;code&gt;ncol()&lt;/code&gt; untuk mengetahui jumlah kolom matriks dan &lt;code&gt;nrow()&lt;/code&gt; untuk mengetahui jumlah baris pada matriks. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengetahui jumlah kolom
+ncol(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengetahui jumlah baris
+nrow(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Jika ingin memperoleh ringkasan terkait dimensi matriks kita juga dapat mengunakan fungsi &lt;code&gt;dim()&lt;/code&gt; untuk mengetahui jumlah baris dan kolom matriks. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dim(my_data) # jumlah baris dan kolom&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5 3&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subset-pada-matriks&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.8.2 Subset Pada Matriks&lt;/h3&gt;
+&lt;p&gt;Sama dengan vektor, subset juga dapat dilakukan pada matriks. Bedanya subset dilakukan berdasarkan baris dan kolom pada matriks.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Memilih baris/kolom&lt;/strong&gt; berdasarkan pengindeksan positif&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;baris atau kolom dapat diseleksi menggunakan format &lt;code&gt;data[row, col]&lt;/code&gt;. Cara selesi ini sama dengan vektor, bedanya kita harus menetukan baris dan kolom dari data yang akan kita pilih. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris ke-2
+my_data[2,]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
+##    6    4    3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 2 sampai 4
+my_data[2:4,]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## row2    6    4    3
+## row3    7    5    4
+## row4    8    9    8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 2 dan 4
+my_data[c(2,4),]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## row2    6    4    3
+## row4    8    9    8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 2 dan kolom 3
+my_data[2, 3]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pilih berdasarkan nama baris/kolom&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Berikut adalah contoh subset berdasarkan nama baris atau kolom.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 1 dan kolom 3
+my_data[&amp;quot;row1&amp;quot;,&amp;quot;col3&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 7&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 1 sampai 4 dan kolom 3
+baris &amp;lt;- c(&amp;quot;row1&amp;quot;,&amp;quot;row2&amp;quot;,&amp;quot;row3&amp;quot;)
+my_data[baris, &amp;quot;col3&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## row1 row2 row3 
+##    7    3    4&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kecualikan baris/kolom&lt;/strong&gt; dengan pengindeksan negatif&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sama seperti vektor pengecualian data dapat dilakukan di matriks menggunakan pengindeksan negatif. Berikut cara melakukannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kecualikan baris 2 dan 3 serta kolom 3
+my_data[-c(2,3), -3]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2
+## row1    5    2
+## row4    8    9
+## row5    9    8&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pilihan dengan logik&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Dalam kode &lt;code&gt;R&lt;/code&gt; di bawah ini, misalkan kita ingin hanya menyimpan baris di mana col3&amp;gt; = 4:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;col3 &amp;lt;- my_data[, &amp;quot;col3&amp;quot;]
+my_data[col3 &amp;gt;= 4, ]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## row1    5    2    7
+## row3    7    5    4
+## row4    8    9    8
+## row5    9    8    7&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;perhitungan-menggunakan-matriks&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.8.3 Perhitungan Menggunakan Matriks&lt;/h3&gt;
+&lt;p&gt;_ Kita juga dapat melakukan operasi matematika pada matriks. Pada operasi matematika pada matriks proses yang terjadi bisa lebih kompleks dibanding pada vektor, dimana kita dapat melakukan operasi untuk memperoleh gambaran data pada tiap kolom atau baris.&lt;/p&gt;
+&lt;p&gt;Berikut adalah contoh operasi matematika sederhana pada matriks:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengalikan masing-masing elemen matriks dengan 2
+my_data*2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
+## row1   10    4   14
+## row2   12    8    6
+## row3   14   10    8
+## row4   16   18   16
+## row5   18   16   14&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memperoleh nilai log basis 2 pada masing-masing elemen matriks
+log2(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          col1     col2     col3
+## row1 2.321928 1.000000 2.807355
+## row2 2.584963 2.000000 1.584963
+## row3 2.807355 2.321928 2.000000
+## row4 3.000000 3.169925 3.000000
+## row5 3.169925 3.000000 2.807355&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Seperti yang telah penulis jelaskan sebelumnya, kita juga dapat melakukan operasi matematika untuk memperoleh hasil penjumlahan elemen pada tiap baris atau kolom dengan menggunakan fungsi &lt;code&gt;rowSums()&lt;/code&gt; untuk baris dan &lt;code&gt;colSums()&lt;/code&gt; untuk kolom.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Total pada tiap kolom
+colSums(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
+##   35   28   29&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Total pada tiap baris
+rowSums(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## row1 row2 row3 row4 row5 
+##   14   13   16   25   24&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Jika kita tertarik untuk mencari nilai rata-rata tiap baris arau kolom kita juga dapat menggunakan fungsi &lt;code&gt;rowMeans()&lt;/code&gt; atau &lt;code&gt;colMeans()&lt;/code&gt;. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata tiap baris
+rowMeans(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     row1     row2     row3     row4     row5 
+## 4.666667 4.333333 5.333333 8.333333 8.000000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata tiap kolom
+colMeans(my_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
+##  7.0  5.6  5.8&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita juga dapat melakukan perhitungan statistika lainnya menggunakan fungsi &lt;code&gt;apply()&lt;/code&gt;. Berikut adalah format sederhananya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(x, MARGIN, FUN)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;x : data matriks&lt;/li&gt;
+&lt;li&gt;MARGIN : Nilai yang dapat digunakan adalah 1 (untuk operasi pada baris) dan 2 (untuk operasi pada kolom)&lt;/li&gt;
+&lt;li&gt;FUN : fungsi yang diterapkan pada baris atau kolom&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;untuk mengetahui fungsi (&lt;code&gt;FUN&lt;/code&gt;) apa saja yang dapat diterapkan pada fungsi &lt;code&gt;apply()&lt;/code&gt; jalankan sintaks bantuan berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;help(apply)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata pada tiap baris
+apply(my_data, 1, mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     row1     row2     row3     row4     row5 
+## 4.666667 4.333333 5.333333 8.333333 8.000000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Median pada tiap kolom
+apply(my_data, 2, median)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
+##    7    5    7&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;faktor&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.9 Faktor&lt;/h2&gt;
+&lt;p&gt;Dalam bahasa &lt;code&gt;R&lt;/code&gt; , faktor merupakan verktor dengan level. Level disimpan sebagai &lt;code&gt;R&lt;/code&gt; Character. Jika kita menggunakan SPSS maka factor ini akan sama dengan jenis data numerik atau ordinal.&lt;/p&gt;
+&lt;p&gt;Faktor merepresentasikan kategori atau grup pada data. Untuk membuat faktor pada &lt;code&gt;R&lt;/code&gt;, kita dapat menggunakan fungsi &lt;code&gt;factor()&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;membuat-variabel-faktor&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.9.1 Membuat Variabel Faktor&lt;/h3&gt;
+&lt;p&gt;Berikut adalah contoh sintaks pembuatan variabel faktor.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat variabel faktor
+faktor &amp;lt;- factor(c(1,2,1,2))
+faktor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1 2 1 2
+## Levels: 1 2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pada sintaks tersebut objek faktor terdiri atas dua buah kategori atau pada &lt;code&gt;R&lt;/code&gt; disebut sebagai &lt;strong&gt;factor levels&lt;/strong&gt;. Kita dapat mengecek factor levels menggunakan fungsi &lt;code&gt;levels()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;levels(faktor)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1&amp;quot; &amp;quot;2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita juga dapat memberikan label atau mengubah level pada faktor. Berikut adalah contoh bagaimana kita melakukannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ubah level
+levels(faktor) &amp;lt;- c(&amp;quot;baik&amp;quot;,&amp;quot;tidak_baik&amp;quot;)
+faktor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] baik       tidak_baik baik       tidak_baik
+## Levels: baik tidak_baik&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ubah urutan level
+faktor &amp;lt;- factor(faktor,
+                 levels = c(&amp;quot;tidak_baik&amp;quot;,&amp;quot;baik&amp;quot;))
+faktor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] baik       tidak_baik baik       tidak_baik
+## Levels: tidak_baik baik&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fungsi &lt;code&gt;is.factor()&lt;/code&gt; dapat digunakan untuk mengecek apakah sebuah variabel adalah faktor. Hasil yang dimunculkan dapat berupa TRUE (jika faktor) atau FALSE (jika bukan)&lt;/li&gt;
+&lt;li&gt;Fungsi &lt;code&gt;as.factor()&lt;/code&gt; dapat digunakan untuk merubah sebuah variabel menjadi faktor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek jika objek faktor adalah faktor
+is.factor(faktor)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek jika objek Jumlah adalah faktor
+is.factor(Jumlah)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ubah objek Jumlah menjadi faktor
+as.factor(Jumlah)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Apel    Jeruk Rambutan    Salak 
+##        5     &amp;lt;NA&amp;gt;        6        7 
+## Levels: 5 6 7&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;perhitungan-menggunakan-faktor&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.9.2 Perhitungan Menggunakan Faktor&lt;/h3&gt;
+&lt;p&gt;Jika kita ingin mengetahui jumlah masing-masing observasi pada masing-masing faktor, kita dapat menggunakan fungsi &lt;code&gt;summary()&lt;/code&gt;. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(faktor)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## tidak_baik       baik 
+##          2          2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pada contoh perhitungan menggunakan vektor kita telah membuat objek &lt;code&gt;pendapatan&lt;/code&gt;. Pada objek tersebut kita ingin menghitung nilai rata-rata pendapatan berdasarkan objek faktor. Untuk melakukannya kita dapat menggunakan fungsi &lt;code&gt;tapply()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pendapatan&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
+## 2000 1800 2500 3000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;faktor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] baik       tidak_baik baik       tidak_baik
+## Levels: tidak_baik baik&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata pendapatan dan simpan sebagai objek dengan nama:
+# mean_pendapatan
+mean_pendapatan &amp;lt;- tapply(pendapatan, faktor, mean)
+mean_pendapatan&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## tidak_baik       baik 
+##       2400       2250&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Hitung ukuran/panjang masing-masing grup
+tapply(pendapatan, faktor, length)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## tidak_baik       baik 
+##          2          2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk mengetahui jumlah masing-masing observasi masing-masing factor levels kita juga dapat menggunakan fungsi &lt;code&gt;table()&lt;/code&gt;. Fungsi tersebut akan membuat frekuensi tabel pada masing-masing factor levels atau yang dikenal sebagai &lt;em&gt;contingency table&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table(faktor)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## faktor
+## tidak_baik       baik 
+##          2          2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cross-tabulation antara
+# faktor dan pendapatan
+table(pendapatan, faktor)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           faktor
+## pendapatan tidak_baik baik
+##       1800          1    0
+##       2000          0    1
+##       2500          0    1
+##       3000          1    0&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-frames&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.10 Data Frames&lt;/h2&gt;
+&lt;p&gt;Data frame merupakan kumpulan vektor dengan panjang sama atau dapat pula dikatan sebagai matriks yang memiliki kolom dengan jenis data yang berbeda-beda (numerik, karakter, logical). Pada data frame terdapat baris dan kolom. Baris disebut sebagai observasi, sedangkan kolom disebut sebagai variabel. Sehingga dapat dikatakan bahwa setiap observasi akan memiliki satu atau beberapa variabel.&lt;/p&gt;
+&lt;div id=&#34;membuat-data-frame&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.10.1 Membuat Data Frame&lt;/h3&gt;
+&lt;p&gt;Data frame dapat dibuat menggunakan fungsi &lt;code&gt;data.frame()&lt;/code&gt;. Berikut adalah contoh cara membuat data frame:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat data frame
+nama &amp;lt;- c(&amp;quot;Andi&amp;quot;,&amp;quot;Rizal&amp;quot;,&amp;quot;Ani&amp;quot;,&amp;quot;Ina&amp;quot;)
+pendapatan &amp;lt;- c(1000, 2000, 3500, 500)
+tinggi &amp;lt;- c(160, 155, 170, 146)
+usia &amp;lt;- c(35, 40, 25, 27)
+menikah &amp;lt;- c(TRUE, FALSE, TRUE, TRUE)
+
+data_teman &amp;lt;- data.frame(nama = nama,
+                         gaji = pendapatan,
+                         tinggi = tinggi,
+                         menikah = menikah)
+
+data_teman&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    nama gaji tinggi menikah
+## 1  Andi 1000    160    TRUE
+## 2 Rizal 2000    155   FALSE
+## 3   Ani 3500    170    TRUE
+## 4   Ina  500    146    TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Untuk mengecek apakah objek &lt;code&gt;data_teman&lt;/code&gt; merupakan data frame, kita dapat menggunakan fungsi &lt;code&gt;is.data.frame()&lt;/code&gt;. Jika hasilnya TRUE, maka objek tersebut adalah data frame. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.data.frame(data_teman)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; untuk konversi objek menjadi data frame, kita dapat menjalankan fungsi &lt;code&gt;as.data.frame()&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subset-pada-data-frame&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.10.2 Subset Pada Data Frame&lt;/h3&gt;
+&lt;p&gt;Subset pada data frame sebenarnya tidak berbeda dengan subset pada matriks. Bedanya adalah kita juga bisa melakukan subset langsung terhadap nama variabel menggunakan dollar sign. Untuk lebih memahaminya berikut adalah jenis subset pada data frame.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pengindeksan positif&lt;/strong&gt; menggunakan nama dan lokasi.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset menggunakan dollar sign
+data_teman$nama&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] Andi  Rizal Ani   Ina  
+## Levels: Andi Ani Ina Rizal&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau 
+data_teman[, &amp;quot;nama&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] Andi  Rizal Ani   Ina  
+## Levels: Andi Ani Ina Rizal&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset baris 1 sampai 3 serta kolom 1 dan 3
+data_teman[1:3, c(1,3)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    nama tinggi
+## 1  Andi    160
+## 2 Rizal    155
+## 3   Ani    170&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pengindeksan negatif&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kecualikan kolom nama
+data_teman[,-1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   gaji tinggi menikah
+## 1 1000    160    TRUE
+## 2 2000    155   FALSE
+## 3 3500    170    TRUE
+## 4  500    146    TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pengideksan berdasarkan karakteristik&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Kita ingin memilih data dengan kriteria teman yang telah menikah&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_teman[data_teman$menikah==TRUE, ]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   nama gaji tinggi menikah
+## 1 Andi 1000    160    TRUE
+## 3  Ani 3500    170    TRUE
+## 4  Ina  500    146    TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Tampilkan hanya kolom nama dan gaji untuk yang telah menikah
+data_teman[data_teman$menikah==TRUE, 1:2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   nama gaji
+## 1 Andi 1000
+## 3  Ani 3500
+## 4  Ina  500&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;kita juga dapat menggunakan fungsi &lt;code&gt;subset()&lt;/code&gt; agar lebih mudah. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset terhadap teman yang berusia &amp;gt;=30 tahun
+subset(data_teman, usia&amp;gt;=30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    nama gaji tinggi menikah
+## 1  Andi 1000    160    TRUE
+## 2 Rizal 2000    155   FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Opsi lain adalah menggunakan fungsi &lt;code&gt;attach()&lt;/code&gt; dan &lt;code&gt;detach()&lt;/code&gt;. Fungsi &lt;code&gt;attach()&lt;/code&gt; mengambil data frame dan membuat kolomnya dapat diakses hanya dengan memberikan nama mereka.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# attach data frame
+attach(data_teman)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked _by_ .GlobalEnv:
+## 
+##     menikah, nama, tinggi&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ==== memulai data manipulation ====
+data_teman[usia&amp;gt;=30]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    nama gaji
+## 1  Andi 1000
+## 2 Rizal 2000
+## 3   Ani 3500
+## 4   Ina  500&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ==== mengakhiri data manipulation ====
+# detach data frame
+
+detach(data_teman)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;memperluas-data-frame&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.10.3 Memperluas Data Frame&lt;/h3&gt;
+&lt;p&gt;Kita dapat juga memperluas data frame dengan cara menambahkan variabel atau kolombaru pada data frame. Pada contoh kali ini penulis akan menambahkan kolom pendidikan terakhir pada objek &lt;code&gt;data_teman&lt;/code&gt;. Berikut adalah sintaks yang digunakan.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor pendidikan
+pendidikan &amp;lt;- c(&amp;quot;S1&amp;quot;,&amp;quot;S2&amp;quot;,&amp;quot;D3&amp;quot;,&amp;quot;D1&amp;quot;)
+
+# menambahkan variabel pendidikan pada data frame
+data_teman$pendidikan &amp;lt;- pendidikan&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau
+cbind(data_teman, pendidikan=pendidikan)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;perhitungan-pada-data-frame&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.10.4 Perhitungan Pada Data Frame&lt;/h3&gt;
+&lt;p&gt;Perhitungan pada variabel numerik data frame pada dasarnya sama dengan perhitungan pada matriks. kita dapat menggunakan fungsi &lt;code&gt;rowSums()&lt;/code&gt;, &lt;code&gt;colSums()&lt;/code&gt;, &lt;code&gt;rowMeans()&lt;/code&gt; dan &lt;code&gt;apply()&lt;/code&gt;. Proses perhitungan dan manipulasi pada data frame akan dibahas pada sesi yang lain secara lebih detail.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;list&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.11 List&lt;/h2&gt;
+&lt;p&gt;List adalah kumpulan objek yang diurutkan, yang dapat berupa vektor, matriks, data frame, dll. Dengan kata lain, daftar dapat berisi semua jenis objek &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;membuat-list&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.11.1 Membuat List&lt;/h3&gt;
+&lt;p&gt;List dapat dibuat menggunakan fungsi &lt;code&gt;list()&lt;/code&gt;. Berikut disajikan contoh sebuah list sebuah keluarga:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat list keluarga
+keluarga &amp;lt;- list(
+  ayah = &amp;quot;Budi&amp;quot;,
+  usia_ayah = 48,
+  ibu  = &amp;quot;Ani&amp;quot;,
+  usia_ibu = &amp;quot;47&amp;quot;,
+  anak = c(&amp;quot;Andi&amp;quot;, &amp;quot;Adi&amp;quot;),
+  usia_anak = c(15,10)
+  )
+
+# Print
+keluarga&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $ayah
+## [1] &amp;quot;Budi&amp;quot;
+## 
+## $usia_ayah
+## [1] 48
+## 
+## $ibu
+## [1] &amp;quot;Ani&amp;quot;
+## 
+## $usia_ibu
+## [1] &amp;quot;47&amp;quot;
+## 
+## $anak
+## [1] &amp;quot;Andi&amp;quot; &amp;quot;Adi&amp;quot; 
+## 
+## $usia_anak
+## [1] 15 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Nama elemen dalam list
+names(keluarga)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ayah&amp;quot;      &amp;quot;usia_ayah&amp;quot; &amp;quot;ibu&amp;quot;       &amp;quot;usia_ibu&amp;quot;  &amp;quot;anak&amp;quot;      &amp;quot;usia_anak&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Jumlah elemen pada list
+length(keluarga)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subset-list&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.11.2 Subset List&lt;/h3&gt;
+&lt;p&gt;Kita dapat memilih sebuah elemen pada list dengan menggunakan nama elemen atau indeks dari elemen tersebut. Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset berdasarkan nama
+# mengambil elemen usia_ayah
+keluarga$usia_ayah&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 48&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Atau
+keluarga[[&amp;quot;usia_ayah&amp;quot;]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 48&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset berdasarkan indeks
+keluarga[[2]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 48&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset elemen pertama pada keluarga[[5]]
+keluarga[[5]][1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Andi&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;memperluas-list&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.11.3 Memperluas List&lt;/h3&gt;
+&lt;p&gt;Kita juga dapat menambahkan elemen pada list yang telah kita buat. Pada contoh list sebelumnya penulis akan menambahkan elemen keluarga yang lain seperti berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menambahkan kakek dan nenek pada list
+keluarga$kakek &amp;lt;- &amp;quot;Suprapto&amp;quot;
+keluarga$nenek &amp;lt;- &amp;quot;Sri&amp;quot;
+
+# Print
+keluarga&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $ayah
+## [1] &amp;quot;Budi&amp;quot;
+## 
+## $usia_ayah
+## [1] 48
+## 
+## $ibu
+## [1] &amp;quot;Ani&amp;quot;
+## 
+## $usia_ibu
+## [1] &amp;quot;47&amp;quot;
+## 
+## $anak
+## [1] &amp;quot;Andi&amp;quot; &amp;quot;Adi&amp;quot; 
+## 
+## $usia_anak
+## [1] 15 10
+## 
+## $kakek
+## [1] &amp;quot;Suprapto&amp;quot;
+## 
+## $nenek
+## [1] &amp;quot;Sri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kita juga dapat menggabungkan beberapa list menjadi satu. Berikut adalah format sederhana bagaimana cara menggabungkan beberapa list menjadi satu:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;list_baru &amp;lt;- c(list_a, list_b, list_c, ...)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loop&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.12 Loop&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; merupakan kode program yang berulang-ulang. &lt;em&gt;Loop&lt;/em&gt; berguna saat kita ingin melakukan sebuah perintah yang perlu dijalankan berulang-ulang seperti melakukan perhitungan maupaun melakukan visualisasi terhadap banyak variabel secara serentak. Hal ini tentu saja membantu kita karena kita tidak perlu menulis sejumlah sintaks yang berulang-ulang. Kita hanya perlu mengatur &lt;em&gt;statement&lt;/em&gt; berdasarkan hasil yang kita harapkan.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; bentuk &lt;em&gt;loop&lt;/em&gt; dapat bermacam-macam (“&lt;em&gt;for loop&lt;/em&gt;”,“&lt;em&gt;while loop&lt;/em&gt;”, dll). &lt;code&gt;R&lt;/code&gt; menyederhanakan bentuk &lt;em&gt;loop&lt;/em&gt; ini dengan menyediakan sejumlah fungsi seperti &lt;code&gt;apply()&lt;/code&gt;,&lt;code&gt;tapply()&lt;/code&gt;, dll. Sehingga &lt;code&gt;loop&lt;/code&gt; jarang sekali muncul dalam kode &lt;code&gt;R&lt;/code&gt;. Sehingga &lt;code&gt;R&lt;/code&gt; sering disebut sebagai &lt;em&gt;loopless loop&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Meski &lt;em&gt;loop&lt;/em&gt; jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat &lt;em&gt;loop&lt;/em&gt; yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure &lt;a href=&#34;#fig:loop&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:loop&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/skema_loop.png&#34; alt=&#34;Diagram umum loop (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Diagram umum loop (sumber: Primartha, 2018).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;for-loop&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.12.1 For Loop&lt;/h3&gt;
+&lt;p&gt;Mengulangi sebuah &lt;em&gt;statement&lt;/em&gt; atau sekelompok &lt;em&gt;statement&lt;/em&gt; sebanyak nilai yang ditentukan di awal. Jadi operasi akan terus dilakukan sampai dengan jumlah yang telah ditetapkan di awal atau dengan kata lain tes kondisi (Jika jumlah pengulangan telah cukup) hanya akan dilakukan di akhir. Secara sederhana bentuk dari &lt;em&gt;for loop&lt;/em&gt; dapat dituliskan sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for (value in vector){
+  statements
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berikut adalah contoh sintaks penerapan &lt;em&gt;for loop&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat vektor numerik
+vektor &amp;lt;- c(1:5)
+
+# loop 
+for(i in vektor){
+  print(i)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; akan dimulai dari blok &lt;em&gt;statement for&lt;/em&gt; sampai dengan &lt;code&gt;print(i)&lt;/code&gt;. Berdasarkan &lt;em&gt;loop&lt;/em&gt; pada contoh tersebut, &lt;em&gt;loop&lt;/em&gt; hanya dilakukan sebanyak 5 kali sesuai dengan jumlah vektor yang ada.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;while-loop&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.12.2 While Loop&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;While loop&lt;/em&gt; merupakan loop yang digunakan ketika kita telah menetapkan &lt;em&gt;stop condition&lt;/em&gt; sebelumnya. Blok &lt;em&gt;statement&lt;/em&gt;/kode yang sama akan terus dijalankan sampai &lt;em&gt;stop condition&lt;/em&gt; ini tercapai. &lt;em&gt;Stop condition&lt;/em&gt; akan di cek sebelum melakukan proses &lt;em&gt;loop&lt;/em&gt;. Berikut adalah pola dari &lt;em&gt;while loop&lt;/em&gt; dapat dituliskan sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;while (test_expression){
+  statement
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berikut adalah contoh penerapan dari &lt;em&gt;while loop&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coba &amp;lt;- c(&amp;quot;Contoh&amp;quot;)
+counter &amp;lt;- 1
+
+# loop
+while (counter&amp;lt;5){
+  # print vektor
+  print(coba)
+  # tambahkan nilai counter sehingga proses terus berlangsung sampai counter = 5 
+  counter &amp;lt;- counter + 1
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Contoh&amp;quot;
+## [1] &amp;quot;Contoh&amp;quot;
+## [1] &amp;quot;Contoh&amp;quot;
+## [1] &amp;quot;Contoh&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; akan dimulai dari blok &lt;em&gt;statement while&lt;/em&gt; sampai dengan &lt;em&gt;counter&lt;/em&gt; &amp;lt;- 1. &lt;em&gt;Loop&lt;/em&gt; hanya akan dilakukan sepanjang nilai &lt;em&gt;counter&lt;/em&gt; &amp;lt; 5.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;repeat-loop&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.12.3 Repeat Loop&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Repeat loop&lt;/em&gt; akan menjalankan &lt;em&gt;statement&lt;/em&gt;/kode yang sama berulang-ulang hingga &lt;em&gt;stop condition&lt;/em&gt; tercapai. Berikut adalah pola dari &lt;em&gt;repeat loop&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;repeat {
+  commands
+  if(condition){
+    break
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berikut adalah contoh penerapan dari &lt;em&gt;repeat loop&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coba &amp;lt;- c(&amp;quot;contoh&amp;quot;)
+counter &amp;lt;- 1
+repeat {
+  print(coba)
+  counter &amp;lt;- counter + 1
+  if(counter &amp;lt; 5){
+break
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;contoh&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; akan dimulai dari blok &lt;em&gt;statement while&lt;/em&gt; sampai dengan &lt;em&gt;break&lt;/em&gt;. &lt;em&gt;Loop&lt;/em&gt; hanya akan dilakukan sepanjang nilai &lt;em&gt;counter&lt;/em&gt; &amp;lt; 5. Hasil yang diperoleh berbeda dengan &lt;em&gt;while loop&lt;/em&gt;, dimana kita memperoleh 4 buah kata “contoh”. Hal ini disebabkan karena &lt;em&gt;repeat loop&lt;/em&gt; melakukan pengecekan &lt;em&gt;stop condition&lt;/em&gt; tidak di awal loop seperti &lt;em&gt;while loop&lt;/em&gt; sehingga berapapun nilainya, selama nilainya sesuai dengan &lt;em&gt;stop condition&lt;/em&gt; maka &lt;em&gt;loop&lt;/em&gt; akan dihentikan. Hal ini berbeda dengan &lt;em&gt;while loop&lt;/em&gt; dimana proses dilakukan berulang-ulang sampai jumlahnya mendekati &lt;em&gt;stop condition&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;break&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.12.4 Break&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Break&lt;/em&gt; sebenarnya bukan bagian dari &lt;em&gt;loop&lt;/em&gt;, namun sering digunakan dalam &lt;em&gt;loop&lt;/em&gt;. &lt;em&gt;Break&lt;/em&gt; dapat digunakan pada &lt;em&gt;loop&lt;/em&gt; manakala dirasa perlu, yaitu saat kondisi yang disyaratkan pada &lt;em&gt;break&lt;/em&gt; tercapai.&lt;/p&gt;
+&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;break&lt;/em&gt; pada beberapa jenis &lt;em&gt;loop&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# for loop
+a = c(2,4,6,8,10,12,14)
+for(i in a){
+  if(i&amp;gt;8){
+    break
+  }
+  print(i)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+## [1] 4
+## [1] 6
+## [1] 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# while loop
+a = 2
+b = 4
+while(a&amp;lt;7){
+  print(a)
+  a = a +1
+  if(b+a&amp;gt;10){
+    break
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# repeat loop
+a = 1
+repeat{
+  print(a)
+  a = a+1
+  if(a&amp;gt;6){
+    break
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loop-menggunakan-apply-family-function&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.13 Loop Menggunakan Apply Family Function&lt;/h2&gt;
+&lt;p&gt;Penggunaan loop sangat membantu kita dalam melakukan proses perhitungan berulang. Namun, metode ini tidak cukup ringkas dalam penerapannya dan perlu penulisan sintaks yang cukup panjang untuk menyelesaikan sebuah kasus yang kita inginkan. Berikut adalah sebuah sintaks yang digunakan untuk menghitung nilai mean pada suatu dataset:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset data iris
+sub_iris &amp;lt;- iris[,-5]
+# membuat vektor untuk menyimpan hasil loop
+a &amp;lt;- rep(NA,4)
+# loop
+for(i in 1:length(sub_iris)){
+  a[i]&amp;lt;-mean(sub_iris[,i])
+}
+# print
+a&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.843333 3.057333 3.758000 1.199333&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(a) # cek kelas objek&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Metode alternatif lain untuk melakukan loop suatu fungsi adalah dengan menggunakan Apply function family. Metode ini memungkinkan kita untuk melakukan loop suatu fungsi tanpa perlu menuliskan sintaks loop. Berikut adalah beberapa fungsi dari apply family yang nantinya akan sering kita gunakan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;apply()&lt;/code&gt;: fungsi generik yang mengaplikasikan fungsi kepada kolom atau baris pada matriks atau secara lebih general aplikasi dilakukan pada dimensi untuk jenis data array.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lapply()&lt;/code&gt;: fungsi apply yang bekerja pada jenis data list dan memberikan output berupa list juga.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sapply()&lt;/code&gt;: bentuk sederhana dari lapply yang menghasilkan output berupa matriks atau vektor.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vapply()&lt;/code&gt;: disebut juga &lt;em&gt;verified apply&lt;/em&gt; (memungkinkan untuk menghasilkan output dengan jenis data yang telah ditentukan sebelumnya).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tapply()&lt;/code&gt;: &lt;em&gt;tagged apply&lt;/em&gt; dimana dimana tag menentukan subset dari data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;apply&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.13.1 Apply&lt;/h3&gt;
+&lt;p&gt;Fungsi &lt;code&gt;apply()&lt;/code&gt; bekerja dengan jenis data matrik atau array (jenis data homogen). Kita dapat melakukan spesifikasi apakah suatu fungsi hanya akan bekerja pada kolom saja, baris saja atau keduanya. Format fungsi ini adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(X, MARGIN, FUN, ...)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt;: matriks atau array&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MARGIN&lt;/strong&gt;: menentukan bagaimana fungsi bekerja terhadap matriks atau array. Jika nilai yang diinputkan 1, maka fungsi akan bekerja pada masing-masing baris pada matriks. Jika nilainya 2, maka fungsi akan bekerja pada tiap kolom pada matriks.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FUN&lt;/strong&gt;: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;…&lt;/strong&gt;: opsional argumen pada fungsi yang digunakan.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh bagaimana aplikasi fungsi tersebut pada matriks:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## membuat matriks
+x &amp;lt;- cbind(x1 = 3, x2 = c(4:1, 2:5))
+x # print&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      x1 x2
+## [1,]  3  4
+## [2,]  3  3
+## [3,]  3  2
+## [4,]  3  1
+## [5,]  3  2
+## [6,]  3  3
+## [7,]  3  4
+## [8,]  3  5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(x) # cek kelas objek&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;matrix&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## menghitung mean masing-masing kolom
+apply(x, MARGIN=2 ,FUN=mean, trim=0.2, na.rm=TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## x1 x2 
+##  3  3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## menghitung range nilai pada masing-masing baris
+## menggunakan user define function
+apply(x, MARGIN=1,
+      FUN=function(x){
+        max(x)-min(x)
+      })&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1 0 1 2 1 0 1 2&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lapply&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.13.2 lapply&lt;/h3&gt;
+&lt;p&gt;Fungsi ini melakukan loop fungsi terhadap input data berupa list. Output yang dihasilkan juga merupakan list dengan panjang list yang sama dengan yang diinputkan. Format yang digunakan adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lapply(X, FUN, ...)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt;: vektor, data frame atau list&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FUN&lt;/strong&gt;: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;…&lt;/strong&gt;: opsional argumen pada fungsi yang digunakan.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penerapan fungsi lapply:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Membuat list
+x &amp;lt;- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+x # print&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $a
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $beta
+## [1]  0.04978707  0.13533528  0.36787944  1.00000000  2.71828183  7.38905610
+## [7] 20.08553692
+## 
+## $logic
+## [1]  TRUE FALSE FALSE  TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(x) # cek kelas objek&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;list&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Menghitung nilai mean pada masing-masing baris lits
+lapply(x, FUN=mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $a
+## [1] 5.5
+## 
+## $beta
+## [1] 4.535125
+## 
+## $logic
+## [1] 0.5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Menghitung mean tiap kolom dataset iris
+lapply(iris, FUN=mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in mean.default(X[[i]], ...): argument is not numeric or logical:
+## returning NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $Sepal.Length
+## [1] 5.843333
+## 
+## $Sepal.Width
+## [1] 3.057333
+## 
+## $Petal.Length
+## [1] 3.758
+## 
+## $Petal.Width
+## [1] 1.199333
+## 
+## $Species
+## [1] NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Mengalikan elemen vektor dengan suatu nilai
+y &amp;lt;- c(1:5)
+lapply(y, FUN=function(x){x*5})&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+## [1] 5
+## 
+## [[2]]
+## [1] 10
+## 
+## [[3]]
+## [1] 15
+## 
+## [[4]]
+## [1] 20
+## 
+## [[5]]
+## [1] 25&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Mengubah output menjadi vektor
+unlist(lapply(y, FUN=function(x){x*5}))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  5 10 15 20 25&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sapply&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.13.3 sapply&lt;/h3&gt;
+&lt;p&gt;Fungsi &lt;code&gt;sapply()&lt;/code&gt; merupakan bentuk lain dari fungsi &lt;code&gt;lapply()&lt;/code&gt;. Perbedaanya terletak pada output default yang dihasilkan. Secara default &lt;code&gt;sapply()&lt;/code&gt; menerima input utama berupa list (dapat pula dataframe atau vektor), namun tidak seperti &lt;code&gt;lapply()&lt;/code&gt; jenis data output yang dihasilkan adalah vektor. Untuk mengubah output menjadi list perlu argumen tambahan berupa &lt;code&gt;simplify=FALSE&lt;/code&gt;. Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt;: vektor, data frame atau list&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FUN&lt;/strong&gt;: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;…&lt;/strong&gt;: opsional argumen pada fungsi yang digunakan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;simplify&lt;/strong&gt;: logical. Jika nilainya &lt;code&gt;TRUE&lt;/code&gt; maka output yang dihasilkan adalah bentuk sederhana dari vektor, matrix atau array.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USE.NAMES&lt;/strong&gt;: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## membuat list
+x &amp;lt;- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+
+## menghitung nilai mean setiap elemen
+sapply(x, FUN=mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        a     beta    logic 
+## 5.500000 4.535125 0.500000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## menghitung nilai mean dengan output list
+sapply(x, FUN=mean, simplify=FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $a
+## [1] 5.5
+## 
+## $beta
+## [1] 4.535125
+## 
+## $logic
+## [1] 0.5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## summary objek dataframe
+sapply(mtcars, FUN=summary)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##              mpg    cyl     disp       hp     drat      wt     qsec     vs
+## Min.    10.40000 4.0000  71.1000  52.0000 2.760000 1.51300 14.50000 0.0000
+## 1st Qu. 15.42500 4.0000 120.8250  96.5000 3.080000 2.58125 16.89250 0.0000
+## Median  19.20000 6.0000 196.3000 123.0000 3.695000 3.32500 17.71000 0.0000
+## Mean    20.09062 6.1875 230.7219 146.6875 3.596563 3.21725 17.84875 0.4375
+## 3rd Qu. 22.80000 8.0000 326.0000 180.0000 3.920000 3.61000 18.90000 1.0000
+## Max.    33.90000 8.0000 472.0000 335.0000 4.930000 5.42400 22.90000 1.0000
+##              am   gear   carb
+## Min.    0.00000 3.0000 1.0000
+## 1st Qu. 0.00000 3.0000 2.0000
+## Median  0.00000 4.0000 2.0000
+## Mean    0.40625 3.6875 2.8125
+## 3rd Qu. 1.00000 4.0000 4.0000
+## Max.    1.00000 5.0000 8.0000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## summary objek list
+a &amp;lt;- list(mobil=mtcars, anggrek=iris)
+sapply(a, FUN=summary)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $mobil
+##       mpg             cyl             disp             hp       
+##  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+##  Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+##       drat             wt             qsec             vs        
+##  Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+##  1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+##  Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+##  Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+##  3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+##  Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+##        am              gear            carb      
+##  Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+##  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+##  Median :0.0000   Median :4.000   Median :2.000  
+##  Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :1.0000   Max.   :5.000   Max.   :8.000  
+## 
+## $anggrek
+##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;vapply&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.13.4 vapply&lt;/h3&gt;
+&lt;p&gt;Funsgi ini merupakan bentuk lain dari &lt;code&gt;sapply()&lt;/code&gt;. Bedanya secara kecepatan proses fungsi ini lebih cepat dari &lt;code&gt;sapply()&lt;/code&gt;. Hal yang menarik dari fungsi ini kita dapat menambahkan argumen &lt;code&gt;FUN.VALUE&lt;/code&gt;. pada argumen ini kita memasukkan vektor berupa output fungsi yang diinginkan. Perbedaan lainnya adalah output yang dihasilkan hanya berupa matriks atau array. Format dari fungsi ini adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt;: vektor, data frame atau list&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FUN&lt;/strong&gt;: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FUN.VALUE&lt;/strong&gt;: vektor, template dari return value FUN.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;…&lt;/strong&gt;: opsional argumen pada fungsi yang digunakan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USE.NAMES&lt;/strong&gt;: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## membuat list
+x &amp;lt;- sapply(3:9, seq)
+x # print&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] 1 2 3 4
+## 
+## [[3]]
+## [1] 1 2 3 4 5
+## 
+## [[4]]
+## [1] 1 2 3 4 5 6
+## 
+## [[5]]
+## [1] 1 2 3 4 5 6 7
+## 
+## [[6]]
+## [1] 1 2 3 4 5 6 7 8
+## 
+## [[7]]
+## [1] 1 2 3 4 5 6 7 8 9&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## membuat ringkasan data pada tiap elemen list
+vapply(x, fivenum,
+       c(Min. = 0, &amp;quot;1st Qu.&amp;quot; = 0, 
+         Median = 0, &amp;quot;3rd Qu.&amp;quot; = 0, Max. = 0))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+## Min.     1.0  1.0    1  1.0  1.0  1.0    1
+## 1st Qu.  1.5  1.5    2  2.0  2.5  2.5    3
+## Median   2.0  2.5    3  3.5  4.0  4.5    5
+## 3rd Qu.  2.5  3.5    4  5.0  5.5  6.5    7
+## Max.     3.0  4.0    5  6.0  7.0  8.0    9&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## membuat ringkasan data pada tiap kolom dataframe
+vapply(mtcars, summary,
+       c(Min. = 0, &amp;quot;1st Qu.&amp;quot; = 0, 
+         Median = 0, &amp;quot;3rd Qu.&amp;quot; = 0, Max. = 0, Mean=0))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##              mpg    cyl     disp       hp     drat      wt     qsec     vs
+## Min.    10.40000 4.0000  71.1000  52.0000 2.760000 1.51300 14.50000 0.0000
+## 1st Qu. 15.42500 4.0000 120.8250  96.5000 3.080000 2.58125 16.89250 0.0000
+## Median  19.20000 6.0000 196.3000 123.0000 3.695000 3.32500 17.71000 0.0000
+## 3rd Qu. 20.09062 6.1875 230.7219 146.6875 3.596563 3.21725 17.84875 0.4375
+## Max.    22.80000 8.0000 326.0000 180.0000 3.920000 3.61000 18.90000 1.0000
+## Mean    33.90000 8.0000 472.0000 335.0000 4.930000 5.42400 22.90000 1.0000
+##              am   gear   carb
+## Min.    0.00000 3.0000 1.0000
+## 1st Qu. 0.00000 3.0000 2.0000
+## Median  0.00000 4.0000 2.0000
+## 3rd Qu. 0.40625 3.6875 2.8125
+## Max.    1.00000 4.0000 4.0000
+## Mean    1.00000 5.0000 8.0000&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tapply&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.13.5 tapply&lt;/h3&gt;
+&lt;p&gt;Fungsi ini sangat berguna jika pembaca ingin menghitung suatu nilai misalnya mean berdasarkan grup data atau factor. Format fungsi ini adalah sebagi berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(X, INDEX, FUN = NULL, ..., simplify = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt;: vektor, data frame atau list&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;INDEX&lt;/strong&gt;: list satu atau beberapa factor yang memiliki panjang sama dengan &lt;strong&gt;X&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FUN&lt;/strong&gt;: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;…&lt;/strong&gt;: opsional argumen pada fungsi yang digunakan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;simplify&lt;/strong&gt;: logical. Jika nilainya TRUE maka output yang dihasilkan adalah bentuk skalar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penerapannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## membuat tabel frekuensi
+groups &amp;lt;- as.factor(rbinom(32, n = 5, prob = 0.4))
+
+tapply(groups, groups, length)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 11 12 13 14 
+##  1  2  1  1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau
+table(groups)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## groups
+## 11 12 13 14 
+##  1  2  1  1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## membuat tabel kontingensi
+# menghitung jumlah breaks berdasarkan faktor jenis wool
+# dan tensi level
+tapply(X=warpbreaks$breaks, INDEX=warpbreaks[,-1], FUN=sum)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     tension
+## wool   L   M   H
+##    A 401 216 221
+##    B 254 259 169&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menghitung mean panjang gigi babi hutan berdasarkan
+# jenis suplemen dan dosisnya
+tapply(ToothGrowth$len, ToothGrowth[,-1], mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     dose
+## supp   0.5     1     2
+##   OJ 13.23 22.70 26.06
+##   VC  7.98 16.77 26.14&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menghitung mpg minimum berdasarkan jumlah silinder pada mobil
+tapply(mtcars$mpg, mtcars$cyl, min, simplify=FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $`4`
+## [1] 21.4
+## 
+## $`6`
+## [1] 17.8
+## 
+## $`8`
+## [1] 10.4&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loop-menggunakan-map-function-pada-library-purrr&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.14 Loop Menggunakan map function pada Library &lt;code&gt;purrr&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Map function dari library &lt;code&gt;purrr&lt;/code&gt; merupakan alternatif lain untuk melakukan looping selain dengan menggunakan for loop, while loop, atau apply family. Berbeda dengan metode tersebut, map function mempermudah proses kita dalam melakukan looping karena dapat diintegrasikan dengan fungsi-fungsi dari library &lt;code&gt;tidyverse&lt;/code&gt; seperti &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;tibble&lt;/code&gt;, &lt;code&gt;tidyr&lt;/code&gt;, dll, yang akan banyak penulis bahas pada Chapter selanjutnya. Selain itu, integrasi dengan library tersebut membuat setiap sintaks yang kita buat lebih mudah kita baca serta lebih cepat dalam prosesnya.&lt;/p&gt;
+&lt;p&gt;Fungsi-fungsi yang tersedia berdasarkan jenis output yang kita inginkan. Berikut adalah fungsi-fungsi map family beserta output yang dihasilkan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;map()&lt;/code&gt;: membuat output berupa list&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;map_lgl()&lt;/code&gt;: membuat output berupa vektor logical&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;map_int()&lt;/code&gt;: membuat output berupa vektor integer&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;map_dbl()&lt;/code&gt;: membuat output berupa vektor double&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;map_chr()&lt;/code&gt;: membuat output berupa vektor karakter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Berikut adalah format dari fungsi-fungsi tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;map(.x, .f, ...)
+
+map_lgl(.x, .f, ...)
+
+map_chr(.x, .f, ...)
+
+map_int(.x, .f, ...)
+
+map_dbl(.x, .f, ...)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;.x&lt;/strong&gt;: list atau vaktor atomik.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;.f&lt;/strong&gt;: formula fungsi.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;…&lt;/strong&gt;: argumen tambahan dari fungsi.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh dari penerapan fungsi-fungsi tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(purrr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;purrr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list
+map(.x=iris[,-5], .f=mean, na.rm=TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $Sepal.Length
+## [1] 5.843333
+## 
+## $Sepal.Width
+## [1] 3.057333
+## 
+## $Petal.Length
+## [1] 3.758
+## 
+## $Petal.Width
+## [1] 1.199333&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# vektor numerik
+map_dbl(.x=iris[,-5], .f=mean, na.rm=TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
+##     5.843333     3.057333     3.758000     1.199333&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# vektor integer
+map_int(.x=iris[,-5], length)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
+##          150          150          150          150&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# vektor logical
+map_lgl(.x=iris, .f=is.double)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
+##         TRUE         TRUE         TRUE         TRUE        FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# vektor karakter
+x &amp;lt;- c(&amp;quot;Jakarta&amp;quot;, &amp;quot;Bandung&amp;quot;, &amp;quot;Surabaya&amp;quot;)
+map_chr(.x=x, .f=paste, &amp;quot;Kota&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Jakarta Kota&amp;quot;  &amp;quot;Bandung Kota&amp;quot;  &amp;quot;Surabaya Kota&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;decision-making&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.15 Decision Making&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Decicion Making&lt;/em&gt; atau sering disebut sebagai &lt;em&gt;if then else statement&lt;/em&gt; merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Table 5&lt;/strong&gt; Daftar percabangan pada &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;16%&#34; /&gt;
+&lt;col width=&#34;83%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Statement&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;em&gt;if statement&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;if statement&lt;/em&gt; hanya terdiri atas sebuah ekspresi &lt;em&gt;Boolean&lt;/em&gt;, dan diikuti satu atau lebih &lt;em&gt;statement&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;em&gt;if…else statement&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;if else statement&lt;/em&gt; terdiri atas beberapa buah ekspresi &lt;em&gt;Boolean&lt;/em&gt;. Ekspressi &lt;em&gt;Boolean&lt;/em&gt; berikutnya akan dijalankan jika ekspresi *Boolan sebelumnya bernilai FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;em&gt;switch statement&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;switch statement&lt;/em&gt; digunakan untuk mengevaluasi sebuah variabel beberapa pilihan&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;if-statement&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.15.1 if statement&lt;/h3&gt;
+&lt;p&gt;Pola &lt;em&gt;if statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:ifstatement&#34;&gt;2&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ifstatement&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/ifstatement.png&#34; alt=&#34;Diagram if statement (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Diagram if statement (sumber: Primartha, 2018).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;if statement&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(1:5)
+if(is.vector(x)){
+  print(&amp;quot;x adalah sebuah vector&amp;quot;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;x adalah sebuah vector&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;if-else-statement&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.15.2 if else statement&lt;/h3&gt;
+&lt;p&gt;Pola dari &lt;em&gt;if else statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:ifelse&#34;&gt;3&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ifelse&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/ifelse.png&#34; alt=&#34;Diagram if else statement (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Diagram if else statement (sumber: Primartha, 2018).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;if else statement&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(&amp;quot;Andi&amp;quot;,&amp;quot;Iwan&amp;quot;, &amp;quot;Adi&amp;quot;)
+if(&amp;quot;Rina&amp;quot; %in% x){
+  print(&amp;quot;Rina ditemukan&amp;quot;)
+} else if(&amp;quot;Adi&amp;quot; %in% x){
+  print(&amp;quot;Adi ditemukan&amp;quot;)
+} else{
+  print(&amp;quot;tidak ada yang ditemukan&amp;quot;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Adi ditemukan&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;switch-statement&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.15.3 switch statement&lt;/h3&gt;
+&lt;p&gt;Pola dari &lt;em&gt;switch statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:switch&#34;&gt;4&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:switch&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/switch.png&#34; alt=&#34;Diagram switch statement (sumber: Primartha, 2018).&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Diagram switch statement (sumber: Primartha, 2018).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;switch statement&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y = 3
+
+x = switch(
+  y,
+  &amp;quot;Selamat Pagi&amp;quot;,
+  &amp;quot;Selamat Siang&amp;quot;,
+  &amp;quot;Selamat Sore&amp;quot;,
+  &amp;quot;Selamat Malam&amp;quot;
+)
+
+print(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Selamat Sore&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fungsi&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.16 Fungsi&lt;/h2&gt;
+&lt;p&gt;Fungsi merupakan sekumpulan instruksi atau &lt;em&gt;statement&lt;/em&gt; yang dapat melakukan tugas khusus. Sebagai contoh fungsi perkalian untuk menyelesaikan operasi perkalian, fungsi pemangkatan hanya untuk operasi pemangkatan, dll.&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; terdapat 2 jenis fungsi, yaitu: &lt;em&gt;build in fuction&lt;/em&gt; dan &lt;em&gt;user define function&lt;/em&gt;. &lt;em&gt;build in fnction&lt;/em&gt; merupakan fungsi bawaan &lt;code&gt;R&lt;/code&gt; saat pertama kita menginstall &lt;code&gt;R&lt;/code&gt;. Contohnya adalah &lt;code&gt;mean()&lt;/code&gt;, &lt;code&gt;sum()&lt;/code&gt;, &lt;code&gt;ls()&lt;/code&gt;, &lt;code&gt;rm()&lt;/code&gt;, dll. Sedangkan &lt;em&gt;user define fuction&lt;/em&gt; merupakan fungsi-fungsi yang dibuat sendiri oleh pengguna.&lt;/p&gt;
+&lt;p&gt;Fungsi-fungsi buatan pengguna haruslah dideklarasikan (dibuat) terlebih dahulu sebelum dapat dijalankan. Pola pembentukan fungsi adalah sebagai berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;function_name &amp;lt;- function(argument_1, argument_2, ...){
+  function body
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;function_name&lt;/strong&gt; : Nama dari fungsi &lt;code&gt;R&lt;/code&gt;. &lt;code&gt;R&lt;/code&gt; akan menyimpan fungsi tersebut sebagai objek&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;argument_1, argument_2,…&lt;/strong&gt; : &lt;em&gt;Argument&lt;/em&gt; bersifat opsional (tidak wajib). &lt;em&gt;Argument&lt;/em&gt; dapat digunakan untuk memberi inputan kepada fungsi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;function body&lt;/strong&gt; : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;return&lt;/strong&gt; : Fungsi ada yang memiliki &lt;em&gt;output&lt;/em&gt; atau &lt;em&gt;return value&lt;/em&gt; ada juga yang tidak. Jika fungsi memiliki &lt;em&gt;return value&lt;/em&gt; maka &lt;em&gt;return value&lt;/em&gt; dapat diproses lebih lanjut&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;user define function&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi tanpa argument
+bilang &amp;lt;- function(){
+  print(&amp;quot;Hello World!!&amp;quot;)
+}
+
+# Print
+bilang()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Hello World!!&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi dengan argumen
+tambah &amp;lt;- function(a,b){
+  print(a+b)
+}
+
+# Print
+tambah(5,3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi dengan return value
+kali &amp;lt;- function(a,b){
+  return(a*b)
+}
+
+# Print
+kali(4,3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 12&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Primartha, R. 2018. &lt;strong&gt;Belajar Machine Learning Teori dan Praktik&lt;/strong&gt;. Penerbit Informatika : Bandung.&lt;/li&gt;
+&lt;li&gt;Rosadi,D. 2016. &lt;strong&gt;Analisis Statistika dengan R&lt;/strong&gt;. Gadjah Mada University Press: Yogyakarta.&lt;/li&gt;
+&lt;li&gt;STHDA. &lt;strong&gt;Easy R Programming Basics&lt;/strong&gt;. &lt;a href=&#34;http://www.sthda.com/english/wiki/easy-r-programming-basics&#34; class=&#34;uri&#34;&gt;http://www.sthda.com/english/wiki/easy-r-programming-basics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Venables, W.N. Smith D.M. and R Core Team. 2018. &lt;strong&gt;An Introduction to R&lt;/strong&gt;. R Manuals.&lt;/li&gt;
+&lt;li&gt;The R Core Team. 2018. &lt;strong&gt;R: A Language and Environment for Statistical Computing&lt;/strong&gt;. R Manuals.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>3. Manajemen Data R</title>
       <link>/tutorial/03_manajemen-data-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
@@ -7677,6 +9484,11 @@ Figure 3: Jarak vs rata-rata delay
 body{
 text-align: justify}
 &lt;/style&gt;
+&lt;p&gt;Dewasa ini tersedia banyak sekali &lt;em&gt;software&lt;/em&gt; yang dapat digunakan untuk membantu kita dalam melakukan analisa data. &lt;em&gt;software&lt;/em&gt; yang digunakan dapat berupa &lt;em&gt;software&lt;/em&gt; berbayar atau gratis.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; merupakan merupakan salah satu &lt;em&gt;software&lt;/em&gt; gratis yang sangat populer di Indonesia. Kemudahan penggunaan serta banyaknya besarnya dukungan komunitas membuat &lt;code&gt;R&lt;/code&gt; menjadi salah satu bahasa pemrograman paling populer di dunia.&lt;/p&gt;
+&lt;p&gt;Paket yang disediakan untuk analisis statistika juga sangat lengkap dan terus bertambah setiap saat. Hal ini membuat &lt;code&gt;R&lt;/code&gt; banyak digunakan oleh para analis data.&lt;/p&gt;
+&lt;p&gt;Pada &lt;em&gt;chapter&lt;/em&gt; ini penulis akan memperkenalkan kepada pembaca mengenai bahasa pemrograman &lt;code&gt;R&lt;/code&gt;. Mulai dari sejarah, cara instalasi sampai dengan bagaimana kita memanfaatkan fitur dasar bantuan untuk menggali lebih jauh tentang fungsi-fungsi &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;hr /&gt;
 &lt;blockquote&gt;
 &lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi&lt;/h2&gt;
 &lt;ul&gt;
@@ -7689,6 +9501,7 @@ text-align: justify}
 &lt;li&gt;&lt;a href=&#34;#1-7-fasilitas-help&#34;&gt;Fasilitas Help&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
+&lt;hr /&gt;
 &lt;div id=&#34;sejarah-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;1.1 Sejarah R&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; Merupakan bahasa yang digunakan dalam komputasi &lt;strong&gt;statistik&lt;/strong&gt; yang pertama kali dikembangkan oleh &lt;strong&gt;Ross Ihaka&lt;/strong&gt; dan &lt;strong&gt;Robert Gentlement&lt;/strong&gt; di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum &lt;code&gt;R&lt;/code&gt; dikenal ada &lt;code&gt;S&lt;/code&gt; yang dikembangkan oleh &lt;strong&gt;John Chambers&lt;/strong&gt; dan rekan-rekan dari &lt;strong&gt;Bell Laboratories&lt;/strong&gt; yang memiliki fungsi yang sama untuk komputasi statistik. Hal yang membedakan antara keduanya adalah &lt;code&gt;R&lt;/code&gt; merupakan sistem komputasi yang bersifat gratis.Logo &lt;code&gt;R&lt;/code&gt; dapat dilihat pada Figure &lt;a href=&#34;#fig:Logo&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
@@ -7920,1367 +9733,6 @@ Figure 8: Jendela help search dokumentasi fungsi mean().
 &lt;li&gt;Venables, W.N. Smith D.M. and R Core Team. 2018. &lt;strong&gt;An Introduction to R&lt;/strong&gt;. R Manuals.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2. Sintaks Bahasa R</title>
-      <link>/tutorial/02_sintaks-bahasa-r/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
-      
-      <guid>/tutorial/02_sintaks-bahasa-r/</guid>
-      <description>
-
-
-&lt;style&gt;
-body{
-text-align: justify}
-&lt;/style&gt;
-&lt;blockquote&gt;
-&lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#2-1-operator-aritmatika&#34;&gt;Operator Aritmatika&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-2-fungsi-aritmetik&#34;&gt;Fungsi Aritmetik&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-3-operator-relasi&#34;&gt;Operator Relasi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-4-operator-logika&#34;&gt;Operator Logika&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-5-memasukkan-nilai-kedalam-variabel&#34;&gt;Memasukkan Nilai Kedalam Variabel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-6-tipe-data&#34;&gt;Tipe Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-7-vektor&#34;&gt;Vektor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-8-matriks&#34;&gt;Matriks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-9-faktor&#34;&gt;Faktor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-10-data-frames&#34;&gt;Data Frames&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-11-list&#34;&gt;List&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-12-loop&#34;&gt;Loop&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-13-decision-making&#34;&gt;Decision Making&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-14-fungsi&#34;&gt;Fungsi&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;div id=&#34;operator-aritmatika&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.1 Operator Aritmatika&lt;/h2&gt;
-&lt;p&gt;Proses perhitungan akan ditangani oleh fungsi khusus. &lt;code&gt;R&lt;/code&gt; akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;2+4*2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 10&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Bandingkan dengan sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(2+4)*2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 12&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;R&lt;/code&gt; dapat digunakan sebagai kalkulator&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Berdasarkan kedua hasil tersebut dapat disimpulkan bahwa ketika kita tidak menetapkan urutan perhitungan menggunakan tanda kurung, &lt;code&gt;R&lt;/code&gt; akan secara otomatis akan menghitung terlebih dahulu perkalian atau pembangian.&lt;/p&gt;
-&lt;p&gt;Operator aritmatika yang disediakan &lt;code&gt;R&lt;/code&gt; adalah sebagai berikut:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Table 1&lt;/strong&gt; Operator Aritmatika &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;colgroup&gt;
-&lt;col width=&#34;15%&#34; /&gt;
-&lt;col width=&#34;84%&#34; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th&gt;&lt;strong&gt;Simbol&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;+&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Addition&lt;/em&gt;, untuk operasi penjumlahan&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Substraction&lt;/em&gt;, untuk operasi pengurangan&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;*&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Multiplication&lt;/em&gt;, untuk operasi pembagian&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;/&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Division&lt;/em&gt;, untuk operasi pembagian&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;^&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Eksponentiation&lt;/em&gt;, untuk operasi pemangkatan&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;%%&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Modulus&lt;/em&gt;, Untuk mencari sisa pembagian&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;%/%&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Integer&lt;/em&gt;, Untuk mencari bilangan bulat hasil pembagian saja dan tanpa sisa pembagian&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Untuk lebih memahaminya berikut contoh sintaks penerapan operator tersebut.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Addition
-5+3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 8&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Substraction
-5-3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Multiplication
-5*3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 15&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Division
-5/3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.666667&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Eksponetiation
-5^3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 125&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Modulus
-5%%3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Integer
-5%/%3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;Note: &lt;/em&gt; Pada &lt;code&gt;R&lt;/code&gt; tanda &lt;code&gt;#&lt;/code&gt; berfungsi menambahkan keterangan untuk menjelaskan sebuah sintaks pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div id=&#34;fungsi-aritmetik&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.2 Fungsi Aritmetik&lt;/h2&gt;
-&lt;p&gt;Selain fungsi operator aritmetik, pada &lt;code&gt;R&lt;/code&gt; juga telah tersedia fungsi aritmetik yang lain seperti logaritmik, ekponensial, trigonometri, dll.&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Logaritma dan eksponensial&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Untuk contoh fungsi logaritmik dan eksponensial jalankan sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;log2(8) # logaritma basis 2 untuk 8&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;log10(8) # logaritma basis 10 untuk 8&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.90309&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(8) # eksponensial 8&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2980.958&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Fungsi trigonometri&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;fungsi trigonometri yang ditampilkan seperti sin,cos, tan, dll.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cos(x) # cos x
-sin(x) # Sin x
-tan(x) # Tan x
-acos(x) # arc-cos x
-asin(x) # arc-sin x
-atan(x) #arc-tan x&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; x dalam fungsi trigonometri memiliki satuan radian&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Berikut adalah salah satu contoh penggunaannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cos(pi)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -1&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Fungsi matematik lainnya&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Fungsi lainnya yang dapat digunakan adalah fungsi absolut, akar kuadrat, dll. Berikut adalah contoh sintaks penggunaan fungsi absolut dan akar kuadrat.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;abs(-2) # nilai absolut -2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sqrt(4) # akar kuadrat 4&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;operator-relasi&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.3 Operator Relasi&lt;/h2&gt;
-&lt;p&gt;Operator relasi digunakan untuk membandingkan satu objek dengan objek lainnya. Operator yang disediakan &lt;code&gt;R&lt;/code&gt; disajikan pada Table 2.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Table 2&lt;/strong&gt; Operator Relasi &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th&gt;&lt;strong&gt;Simbol&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;“&amp;gt;”&lt;/td&gt;
-&lt;td&gt;Lebih besar dari&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;“&amp;lt;”&lt;/td&gt;
-&lt;td&gt;Lebih Kecil dari&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;“==”&lt;/td&gt;
-&lt;td&gt;Sama dengan&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;“&amp;gt;=”&lt;/td&gt;
-&lt;td&gt;Lebih besar sama dengan&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;“&amp;lt;=”&lt;/td&gt;
-&lt;td&gt;Lebih kecil sama dengan&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;“!=”&lt;/td&gt;
-&lt;td&gt;Tidak sama dengan&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Berikut adalah penerapan operator pada tabel tersebut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 34
-y &amp;lt;- 35
-
-# Operator &amp;gt;
-x &amp;gt; y&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator &amp;lt;
-x &amp;lt; y&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# operator ==
-x == y&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator &amp;gt;=
-x &amp;gt;= y&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator &amp;lt;=
-x &amp;lt;= y&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator !=
-x != y&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;operator-logika&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.4 Operator Logika&lt;/h2&gt;
-&lt;p&gt;Operator logika hanya berlaku pada vektor dengan tipe logical, numeric, atau complex. Semua angka bernilai 1 akan dianggap bernilai logika &lt;code&gt;TRUE&lt;/code&gt;. Operator logika yang disediakan &lt;code&gt;R&lt;/code&gt; dapat dilihat pada Table 3.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Table 3&lt;/strong&gt; Operator logika &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th&gt;&lt;strong&gt;Simbol&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;&amp;amp;&amp;amp;&lt;/td&gt;
-&lt;td&gt;Operator logika AND&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;!&lt;/td&gt;
-&lt;td&gt;Opeartor logika NOT&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;&amp;amp;&lt;/td&gt;
-&lt;td&gt;Operator logika AND element wise&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Operator logika OR element wise&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Penerapannya terdapat pada sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;v &amp;lt;- c(TRUE,TRUE, FALSE)
-t &amp;lt;- c(FALSE,FALSE,FALSE)
-
-# Operator &amp;amp;&amp;amp;
-print(v&amp;amp;&amp;amp;t)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator ||
-print(v||t)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator !
-print(!v)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE  TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# operator &amp;amp;
-print(v&amp;amp;t)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operator |
-print(v|t)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1]  TRUE  TRUE FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;operator &amp;amp; dan | akan mengecek logika tiap elemen pada vektor secara berpesangan (sesuai urutan dari kiri ke kanan).&lt;/p&gt;
-&lt;p&gt;Operator %% dan || hanya mengecek dari kiri ke kanan pada observasi pertama. Misal saat menggunakan &amp;amp;&amp;amp; jika observasi pertama TRUE maka observasi pertama pada vektor lainnya akan dicek, namun jika observasi pertama FALSE maka proses akan segera dihentikan dan menghasilkan FALSE.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div id=&#34;memasukkan-nilai-kedalam-variabel&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.5 Memasukkan Nilai Kedalam Variabel&lt;/h2&gt;
-&lt;p&gt;Variabel pada &lt;code&gt;R&lt;/code&gt; dapat digunakan untuk menyimpan nilai. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Harga sebuah lemon adalah 500 rupiah
-lemon &amp;lt;- 500
-
-# Atau
-500 -&amp;gt; lemon
-
-# dapat juga menggunakan tanda &amp;quot;=&amp;quot;
-lemon = 500&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;R&lt;/code&gt; memungkinkan penggunaan &amp;lt;-,-&amp;gt;, atau = sebagai perintah pengisi nilai variabel&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;R&lt;/code&gt; bersifat &lt;em&gt;case-sensitive&lt;/em&gt;. Maksudnya adalah variabel Lemon tidak sama dengan lemon (Besar kecil huruf berpengaruh)&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Untuk mengetahui nilai dari objek &lt;code&gt;lemon&lt;/code&gt; kita dapat menggunakan fungsi &lt;code&gt;print()&lt;/code&gt; atau mengetikkan nama objeknya secara langsung.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menggunakan fungsi print()
-print(lemon)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 500&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Atau
-lemon&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 500&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;R&lt;/code&gt; akan menyimpan variabel &lt;code&gt;lemon&lt;/code&gt; sebagai objek pada memori. Sehingga kita dapat melakukan operasi terhadap objek tersebut seperti mengalikannya atau menjumlahkannya dengan bilangan lain. Sebagai contoh jalankan sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Operasi perkalian terhadap objek lemon
-5*lemon&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2500&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Kita dapat juga mengubah nilai dari objek &lt;code&gt;lemon&lt;/code&gt; dengan cara menginput nilai baru terhadap objek yang sama. &lt;code&gt;R&lt;/code&gt; secara otomatis akan menggatikan nilai sebelumnya. Untuk lebih memahaminya jalankan sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lemon &amp;lt;- 1000
-
-# Print lemon
-print(lemon)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1000&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Untuk lebih memahaminya berikut adalah sintaks untuk menghitung volume suatu objek.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Dimensi objek
-panjang &amp;lt;- 10
-lebar &amp;lt;- 5
-tinggi &amp;lt;- 5
-
-# Menghitung volume
-volume &amp;lt;- panjang*lebar*tinggi
-
-# Print objek volume
-print(volume)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 250&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Untuk mengetahui objek apa saja yang telah kita buat sepanjang artikel ini kita dapang menggunakan fungsi &lt;code&gt;ls()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ls()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;lemon&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;t&amp;quot;       &amp;quot;tinggi&amp;quot;  &amp;quot;v&amp;quot;       &amp;quot;volume&amp;quot; 
-## [8] &amp;quot;x&amp;quot;       &amp;quot;y&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Kumpulan objek yang telah tersimpan dalam memori disebut sebagai &lt;strong&gt;workspace&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Untuk menghapus objek pada memori kita dapat menggunakan fungsi &lt;code&gt;rm()&lt;/code&gt;. Pada sintaks berikut penulis hendak menghapus objek &lt;code&gt;lemon&lt;/code&gt; dan &lt;code&gt;volume&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menghapus objek lemon dan volume
-rm(lemon, volume)
-
-# Tampilkan kembali objek yang tersisa
-ls()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;lebar&amp;quot;   &amp;quot;panjang&amp;quot; &amp;quot;t&amp;quot;       &amp;quot;tinggi&amp;quot;  &amp;quot;v&amp;quot;       &amp;quot;x&amp;quot;       &amp;quot;y&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Setiap variabel atau objek yang dibuat akan menempati sejumlah memori pada komputer sehingga jika kita bekerja dengan jumlah data yang banyak pastikan kita menghapus seluruh objek pada memori sebelum memulai kerja.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div id=&#34;tipe-data&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.6 Tipe Data&lt;/h2&gt;
-&lt;p&gt;Data pada &lt;code&gt;R&lt;/code&gt; dapat dikelompokan berdasarkan beberapa tipe. Tipe data pada &lt;code&gt;R&lt;/code&gt; disajikan pada Table 4.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Table 4&lt;/strong&gt; Tipe Data &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th&gt;&lt;strong&gt;Tipe Data&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;Contoh&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;Logical&lt;/td&gt;
-&lt;td&gt;TRUE, FALSE&lt;/td&gt;
-&lt;td&gt;Nilai Boolean&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;Numeric&lt;/td&gt;
-&lt;td&gt;12.3, 5, 999&lt;/td&gt;
-&lt;td&gt;Segala jenis angka&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;Integer&lt;/td&gt;
-&lt;td&gt;23L, 97L, 3L&lt;/td&gt;
-&lt;td&gt;Bilangan integer (bilangan bulat)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;Complex&lt;/td&gt;
-&lt;td&gt;2i, 3i, 9i&lt;/td&gt;
-&lt;td&gt;Bilangan kompleks&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;Character&lt;/td&gt;
-&lt;td&gt;‘a’, “b”, “123”&lt;/td&gt;
-&lt;td&gt;Karakter dan string&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;Raw&lt;/td&gt;
-&lt;td&gt;Identik dengan “hello”&lt;/td&gt;
-&lt;td&gt;Segala jenis data yang disimpan sebagai raw bytes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Sintaks berikut adalah contoh dari tipe data pada &lt;code&gt;R&lt;/code&gt;. Untuk mengetahui tipa data suatu objek kita dapat menggunakan perintah &lt;code&gt;class()&lt;/code&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Logical
-apel &amp;lt;- TRUE
-class(apel)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;logical&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Numeric
-x &amp;lt;- 2.3
-class(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Integer
-y &amp;lt;- 2L
-class(y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;integer&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Compleks
-z &amp;lt;- 5+2i
-class(z)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;complex&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# string
-w &amp;lt;- &amp;quot;saya&amp;quot;
-class(w)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Raw
-xy &amp;lt;- charToRaw(&amp;quot;hello world&amp;quot;)
-class(xy)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;raw&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Keenam jenis data tersebut disebut sebagai tipe data atomik. Hal ini disebabkan karena hanya dapat menangani satu tipe data saja. Misalnya hanya numeric atau hanya integer.&lt;/p&gt;
-&lt;p&gt;Selain menggunakan fungsi &lt;code&gt;class()&lt;/code&gt;, kita dapat pula menggunakan fungsi &lt;code&gt;is_numeric()&lt;/code&gt;, &lt;code&gt;is.character()&lt;/code&gt;, &lt;code&gt;is.logical()&lt;/code&gt;, dan sebagainya berdasarkan jenis data apa yang ingin kita cek. Berbeda dengan fungsi &lt;code&gt;class()&lt;/code&gt;, ouput yang dihasilkan pada fungsi seperti &lt;code&gt;is_numeric()&lt;/code&gt; adalah nilai Boolean sehingga fungsi ini hanya digunakan untuk mengecek apakah jenis data pada objek sama seperti yang kita pikirkan. Sebagai contoh disajikan pada sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- 25
-
-# Cek apakah objek berisi data numerik
-is.numeric(data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek apakah objek adalah karakter
-is.character(data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Kita juga dapat mengubah jenis data menjadi jenis lainnya seperti integer menjadi numerik atau sebaliknya. Fungsi yang digunakan adalah &lt;code&gt;as.numeric()&lt;/code&gt; jika ingin mengubah suatu jenis data menjadi numerik. Fungsi lainnya juga dapat digunakan sesuai dengan kita ingin mengubah jenis data objek menjadi jenis data lainnya.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Integer
-apel &amp;lt;- 2L
-
-# Ubah menjadi numerik
-as.numeric(apel)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek
-is.numeric(apel)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Logical
-nangka &amp;lt;- TRUE
-
-# Ubah logical menjadi numeric
-as.numeric(nangka)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Karakter
-minum &amp;lt;- &amp;quot;minum&amp;quot;
-
-# ubah karakter menjadi numerik
-as.numeric(minum)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: NAs introduced by coercion&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Konversi karakter menjadi numerik akan menghasilkan output NA (&lt;em&gt;not available&lt;/em&gt;). &lt;code&gt;R&lt;/code&gt; tidak mengetahui bagaimana cara merubah karakter menjadi bentuk numerik.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik &lt;em&gt;double quote&lt;/em&gt; (“”) maupun &lt;em&gt;single quote&lt;/em&gt; (’’).Jika pada teks yang kita tuliskan mengandung &lt;em&gt;quote&lt;/em&gt; maka kita harus menghentikannya menggunakan tanda (  ). Sbegai contoh kita ingin menuliskan `&lt;strong&gt;My friend’s name is “Adi”&lt;/strong&gt;, pada sintaks akan dituliskan:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;&amp;#39;My friend\`s name is &amp;quot;Adi&amp;quot;&amp;#39;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;My friend`s name is \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Atau
-
-&amp;quot;My friend&amp;#39;s name \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;My friend&amp;#39;s name \&amp;quot;Adi\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;vektor&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.7 Vektor&lt;/h2&gt;
-&lt;p&gt;Vektor merupakan kombinasi berbagai nilai (numerik, karakter, logical, dan sebagainya berdasarkan jenis input data) pada objek yang sma. Pada contoh kasus berikut, pembaca akan memiliki sesuai jenis data input yaitu&lt;strong&gt;vektor numerik&lt;/strong&gt;, &lt;strong&gt;vector karakter&lt;/strong&gt;, &lt;strong&gt;vektor logical&lt;/strong&gt;, dll.&lt;/p&gt;
-&lt;div id=&#34;membuat-vektor&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.7.1 Membuat vektor&lt;/h3&gt;
-&lt;p&gt;Vektor dibuat dengan menggunakan fungsi &lt;code&gt;c()&lt;/code&gt;(concatenate) seperti yang disajikan pada sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor numerik
-x &amp;lt;- c(3,3.5,4,7)
-x # print vektor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3.0 3.5 4.0 7.0&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor karakter
-y &amp;lt;- c(&amp;quot;Apel&amp;quot;, &amp;quot;Jeruk&amp;quot;, &amp;quot;Rambutan&amp;quot;, &amp;quot;Salak&amp;quot;)
-y # print vektor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Apel&amp;quot;     &amp;quot;Jeruk&amp;quot;    &amp;quot;Rambutan&amp;quot; &amp;quot;Salak&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor logical
-t &amp;lt;- c(&amp;quot;TRUE&amp;quot;, &amp;quot;FALSE&amp;quot;, &amp;quot;TRUE&amp;quot;)
-t # print vektor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;TRUE&amp;quot;  &amp;quot;FALSE&amp;quot; &amp;quot;TRUE&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;selain menginput nilai pada vektor, kita juga dapat memberi nama nilai setiap vektor menggunakan fungsi &lt;code&gt;names()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat vektor jumlah buah yang dibeli
-Jumlah &amp;lt;- c(5,5,6,7)
-names(Jumlah) &amp;lt;- c(&amp;quot;Apel&amp;quot;, &amp;quot;Jeruk&amp;quot;, &amp;quot;Rambutan&amp;quot;, &amp;quot;Salak&amp;quot;)
-
-# Atau
-Jumlah &amp;lt;- c(Apel=5, Jeruk=5, Rambutan=6, Salak=7)
-
-# Print
-Jumlah&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##     Apel    Jeruk Rambutan    Salak 
-##        5        5        6        7&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Vektor hanya dapat memuat satu buah jenis data. Vektor hanya dapat mengandung jenis data numerik saja, karakter saja, dll.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Untuk menentukan panjang sebuah vektor kita dapat menggunakan fungsi &lt;code&gt;lenght()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(Jumlah)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;missing-values&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.7.2 Missing Values&lt;/h3&gt;
-&lt;p&gt;Seringkali nilai pada vektor kita tidak lengkap atau terdapat nilai yang hilang (&lt;em&gt;missing value&lt;/em&gt;) pada vektor. &lt;em&gt;Missing value&lt;/em&gt; pada &lt;code&gt;R&lt;/code&gt; dilambangkan oleh &lt;code&gt;NA&lt;/code&gt;(&lt;em&gt;not available&lt;/em&gt;). Berikut adalah contoh vektor dengan &lt;em&gt;missing value&lt;/em&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Jumlah &amp;lt;- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Untuk mengecek apakah dalam objek terdapat &lt;em&gt;missing value&lt;/em&gt; dapat menggunakan fungsi &lt;code&gt;is.na()&lt;/code&gt;. ouput dari fungsi tersebut adalah nilai Boolean. Jika terdapat &lt;em&gt;Missing value&lt;/em&gt;, maka output yang dihasilkan akan memberikan nilai &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.na(Jumlah)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##     Apel    Jeruk Rambutan    Salak 
-##    FALSE     TRUE    FALSE    FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Selain NA terdapat NaN (&lt;em&gt;not a number&lt;/em&gt;) sebagai &lt;em&gt;missing value8&lt;/em&gt;. Nilai tersebut muncul ketika fungsi matematika yang digunakan pada proses perhitungan tidak bekerja sebagaimana mestinya. Contoh: 0/0 = NaN&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;is.na()&lt;/code&gt; juga akan menghasilkan nilai &lt;code&gt;TRUE&lt;/code&gt; pada NaN. Untuk membedakannya dengan NA dapat digunakan fungsi &lt;code&gt;is.nan()&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div id=&#34;subset-pada-vektor&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.7.3 Subset Pada Vektor&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Subseting vector&lt;/em&gt; terdiri atas tiga jenis, yaitu: &lt;em&gt;positive indexing&lt;/em&gt;, &lt;em&gt;Negative Indexing&lt;/em&gt;, dan .&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Positive indexing&lt;/strong&gt;: memilih elemen vektor berdasarkan posisinya (indeks) dalam kurung siku.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset vektor pada urutan kedua
-Jumlah[2]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Jeruk 
-##    NA&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset vektor pada urutan 2 dan 4
-Jumlah[c(2, 4)]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Jeruk Salak 
-##    NA     7&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Selain melalui urutan (indeks), kita juga dapat melakukan subset berdasarkan nama elemen vektornya.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Jumlah[&amp;quot;Jeruk&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Jeruk 
-##    NA&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; Indeks pada &lt;code&gt;R&lt;/code&gt; dimulai dari 1. Sehingga kolom atau elemen pertama vektor dimulai dari [1]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Negative indexing&lt;/strong&gt;: mengecualikan (&lt;em&gt;exclude&lt;/em&gt;) elemen vektor.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengecualikan elemen vektor 2 dan 4
-Jumlah[-c(2,4)]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##     Apel Rambutan 
-##        5        6&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengecualikan elemen vektor 1 sampai 3
-Jumlah[-c(1:3)]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Salak 
-##     7&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Subset berdasarkan vektor logical&lt;/strong&gt;: Hanya, elemen-elemen yang nilai yang bersesuaian dalam vektor pemilihan bernilai TRUE, akan disimpan dalam subset.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; panjang vektor yang digunakan untuk subset harus sama.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Jumlah &amp;lt;- c(Apel=5, Jeruk=NA, Rambutan=6, Salak=7)
-
-# selecting vector
-merah &amp;lt;- c(TRUE, FALSE, TRUE, FALSE)
-
-# Subset
-Jumlah[merah==TRUE]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##     Apel Rambutan 
-##        5        6&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset untuk elemen vektor bukan missing value
-Jumlah[!is.na(Jumlah)]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##     Apel Rambutan    Salak 
-##        5        6        7&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;perhitungan-menggunakan-vektor&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.7.4 Perhitungan Menggunakan Vektor&lt;/h3&gt;
-&lt;p&gt;Jika Anda melakukan operasi dengan vektor, operasi akan diterapkan ke setiap elemen vektor. Contoh disediakan pada sintaks di bawah ini:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pendapatan &amp;lt;- c(2000, 1800, 2500, 3000)
-names(pendapatan) &amp;lt;- c(&amp;quot;Andi&amp;quot;, &amp;quot;Joni&amp;quot;, &amp;quot;Lina&amp;quot;, &amp;quot;Rani&amp;quot;)
-pendapatan&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
-## 2000 1800 2500 3000&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kalikan pendapatan dengan 3
-pendapatan*3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
-## 6000 5400 7500 9000&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Seperti yang dapat dilihat, &lt;code&gt;R&lt;/code&gt; mengalikan setiap elemen dengan bilangan pengali.&lt;/p&gt;
-&lt;p&gt;Kita juga dapat mengalikan vektor dengan vektor lainnya.Contohnya disajikan pada sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor dengan panjang sama dengan dengan vektor pendapatan
-coefs &amp;lt;- c(2, 1.5, 1, 3)
-
-# Mengalikan pendapatan dengan vektor coefs
-pendapatan*coefs&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
-## 4000 2700 2500 9000&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Berdasarkan sintaks tersebut dapat terlihat bahwa operasi matematik terhadap masing-masing vektor dapat berlangsung jika panjang vektornya sama.&lt;/p&gt;
-&lt;p&gt;Berikut adalah fungsi lain yang dapat digunakan pada operasi matematika vektor.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;max(x) # memperoleh nilai maksimum x
-min(x) # memperoleh nilai minimum x
-range(x) # memperoleh range vektor x
-length(x) # memperoleh jumlah elemen vektor x
-sum(x) # memperoleh total penjumlahan elemen vektor x
-prod(x) # memeperoleh produk elemen vektor x
-mean(x) # memperoleh nilai rata-rata seluruh elemen vektor x
-sd(x) # standar deviasi vektor x
-var(x) # varian vektor x
-sort(x) # mengurutkan elemen vektor x dari yang terbesar&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Contoh penggunaan fungsi tersebut disajikan beberapa pada sintaks berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menghitung range pendapatan
-range(pendapatan)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1800 3000&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menghitung rata-rata dan standar deviasi pendapatan
-mean(pendapatan)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2325&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(pendapatan)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 537.7422&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;matriks&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.8 Matriks&lt;/h2&gt;
-&lt;p&gt;Matriks seperti Excel sheet yang berisi banyak baris dan kolom (kumpulan bebrapa vektor). Matriks digunakan untuk menggabungkan vektor dengan tipe yang sama, yang bisa berupa numerik, karakter, atau logis. Matriks digunakan untuk menyimpan tabel data dalam R. Baris-baris matriks pada umumnya adalah individu / pengamatan dan kolom adalah variabel.&lt;/p&gt;
-&lt;div id=&#34;membuat-matriks&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.8.1 Membuat matriks&lt;/h3&gt;
-&lt;p&gt;Untuk membuat matriks kita dapat menggunakan fungsi &lt;code&gt;cbind()&lt;/code&gt; atau &lt;code&gt;rbind()&lt;/code&gt;. Berikut adalah contoh sintaks untuk membuat matriks.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor numerik
-col1 &amp;lt;- c(5, 6, 7, 8, 9)
-col2 &amp;lt;- c(2, 4, 5, 9, 8)
-col3 &amp;lt;- c(7, 3, 4, 8, 7)
-
-# menggabungkan vektor berdasarkan kolom
-my_data &amp;lt;- cbind(col1, col2, col3)
-my_data&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
-## [1,]    5    2    7
-## [2,]    6    4    3
-## [3,]    7    5    4
-## [4,]    8    9    8
-## [5,]    9    8    7&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Mengubah atau menambahkan nama baris
-rownames(my_data) &amp;lt;- c(&amp;quot;row1&amp;quot;, &amp;quot;row2&amp;quot;, &amp;quot;row3&amp;quot;, &amp;quot;row4&amp;quot;, &amp;quot;row5&amp;quot;)
-my_data&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
-## row1    5    2    7
-## row2    6    4    3
-## row3    7    5    4
-## row4    8    9    8
-## row5    9    8    7&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;cbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan kolom&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;rbind()&lt;/strong&gt;: menggabungkan objek &lt;code&gt;R&lt;/code&gt; berdasarkan baris&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;rownames()&lt;/strong&gt;: mengambil atau menetapkan nama-nama baris dari objek seperti-matriks&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;colnames()&lt;/strong&gt;: mengambil atau menetapkan nama-nama kolom dari objek seperti-matriks&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Kita dapat melakukan tranpose (merotasi matriks sehingga kolom menjadi baris dan sebaliknya) menggunakan fungsi &lt;code&gt;t()&lt;/code&gt;. Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t(my_data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      row1 row2 row3 row4 row5
-## col1    5    6    7    8    9
-## col2    2    4    5    9    8
-## col3    7    3    4    8    7&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Selain melalui pembentukan sejumlah objek vektor, kita juga dapat membuat matriks menggunakan fungsi &lt;code&gt;matrix()&lt;/code&gt;. Secara sederhana fungsi tersebut dapat dituliskan sebagai berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
-       dimnames = NULL)&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt;: vektor data opsional&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;nrow&lt;/strong&gt;, &lt;strong&gt;ncol&lt;/strong&gt;: jumlah baris dan kolom yang diinginkan, masing-masing.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;byrow&lt;/strong&gt;: nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;dimnames&lt;/strong&gt;: Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Dalam kode &lt;code&gt;R&lt;/code&gt; di bawah ini, data input memiliki panjang 6. Kita ingin membuat matriks dengan dua kolom. Kita tidak perlu menentukan jumlah baris (di sini &lt;code&gt;nrow = 3&lt;/code&gt;). &lt;code&gt;R&lt;/code&gt; akan menyimpulkan ini secara otomatis. Matriks diisi kolom demi kolom saat argumen &lt;code&gt;byrow = FALSE&lt;/code&gt;. Jika kita ingin mengisi matriks dengan baris, gunakan &lt;code&gt;byrow = TRUE&lt;/code&gt;. Berikut adalah contoh pembuatan matriks menggunakan fungsi &lt;code&gt;matrix()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- matrix(
-           data = c(1,2,3, 11,12,13), 
-           nrow = 2, byrow = TRUE,
-           dimnames = list(c(&amp;quot;row1&amp;quot;, &amp;quot;row2&amp;quot;), c(&amp;quot;C.1&amp;quot;, &amp;quot;C.2&amp;quot;, &amp;quot;C.3&amp;quot;))
-           )
-data&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      C.1 C.2 C.3
-## row1   1   2   3
-## row2  11  12  13&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Untuk mengetahui dimensi dari suatu matriks, kita dapat menggunakan fungsi &lt;code&gt;ncol()&lt;/code&gt; untuk mengetahui jumlah kolom matriks dan &lt;code&gt;nrow()&lt;/code&gt; untuk mengetahui jumlah baris pada matriks. Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengetahui jumlah kolom
-ncol(my_data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengetahui jumlah baris
-nrow(my_data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Jika ingin memperoleh ringkasan terkait dimensi matriks kita juga dapat mengunakan fungsi &lt;code&gt;dim()&lt;/code&gt; untuk mengetahui jumlah baris dan kolom matriks. Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dim(my_data) # jumlah baris dan kolom&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5 3&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;subset-pada-matriks&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.8.2 Subset Pada Matriks&lt;/h3&gt;
-&lt;p&gt;Sama dengan vektor, subset juga dapat dilakukan pada matriks. Bedanya subset dilakukan berdasarkan baris dan kolom pada matriks.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Memilih baris/kolom&lt;/strong&gt; berdasarkan pengindeksan positif&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;baris atau kolom dapat diseleksi menggunakan format &lt;code&gt;data[row, col]&lt;/code&gt;. Cara selesi ini sama dengan vektor, bedanya kita harus menetukan baris dan kolom dari data yang akan kita pilih. Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris ke-2
-my_data[2,]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
-##    6    4    3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 2 sampai 4
-my_data[2:4,]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
-## row2    6    4    3
-## row3    7    5    4
-## row4    8    9    8&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 2 dan 4
-my_data[c(2,4),]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
-## row2    6    4    3
-## row4    8    9    8&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 2 dan kolom 3
-my_data[2, 3]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Pilih berdasarkan nama baris/kolom&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Berikut adalah contoh subset berdasarkan nama baris atau kolom.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 1 dan kolom 3
-my_data[&amp;quot;row1&amp;quot;,&amp;quot;col3&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 7&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Pilih baris 1 sampai 4 dan kolom 3
-baris &amp;lt;- c(&amp;quot;row1&amp;quot;,&amp;quot;row2&amp;quot;,&amp;quot;row3&amp;quot;)
-my_data[baris, &amp;quot;col3&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## row1 row2 row3 
-##    7    3    4&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Kecualikan baris/kolom&lt;/strong&gt; dengan pengindeksan negatif&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Sama seperti vektor pengecualian data dapat dilakukan di matriks menggunakan pengindeksan negatif. Berikut cara melakukannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kecualikan baris 2 dan 3 serta kolom 3
-my_data[-c(2,3), -3]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      col1 col2
-## row1    5    2
-## row4    8    9
-## row5    9    8&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Pilihan dengan logik&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Dalam kode &lt;code&gt;R&lt;/code&gt; di bawah ini, misalkan kita ingin hanya menyimpan baris di mana col3&amp;gt; = 4:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;col3 &amp;lt;- my_data[, &amp;quot;col3&amp;quot;]
-my_data[col3 &amp;gt;= 4, ]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
-## row1    5    2    7
-## row3    7    5    4
-## row4    8    9    8
-## row5    9    8    7&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;perhitungan-menggunakan-matriks&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.8.3 Perhitungan Menggunakan Matriks&lt;/h3&gt;
-&lt;p&gt;_ Kita juga dapat melakukan operasi matematika pada matriks. Pada operasi matematika pada matriks proses yang terjadi bisa lebih kompleks dibanding pada vektor, dimana kita dapat melakukan operasi untuk memperoleh gambaran data pada tiap kolom atau baris.&lt;/p&gt;
-&lt;p&gt;Berikut adalah contoh operasi matematika sederhana pada matriks:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mengalikan masing-masing elemen matriks dengan 2
-my_data*2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      col1 col2 col3
-## row1   10    4   14
-## row2   12    8    6
-## row3   14   10    8
-## row4   16   18   16
-## row5   18   16   14&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memperoleh nilai log basis 2 pada masing-masing elemen matriks
-log2(my_data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##          col1     col2     col3
-## row1 2.321928 1.000000 2.807355
-## row2 2.584963 2.000000 1.584963
-## row3 2.807355 2.321928 2.000000
-## row4 3.000000 3.169925 3.000000
-## row5 3.169925 3.000000 2.807355&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Seperti yang telah penulis jelaskan sebelumnya, kita juga dapat melakukan operasi matematika untuk memperoleh hasil penjumlahan elemen pada tiap baris atau kolom dengan menggunakan fungsi &lt;code&gt;rowSums()&lt;/code&gt; untuk baris dan &lt;code&gt;colSums()&lt;/code&gt; untuk kolom.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Total pada tiap kolom
-colSums(my_data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
-##   35   28   29&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Total pada tiap baris
-rowSums(my_data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## row1 row2 row3 row4 row5 
-##   14   13   16   25   24&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Jika kita tertarik untuk mencari nilai rata-rata tiap baris arau kolom kita juga dapat menggunakan fungsi &lt;code&gt;rowMeans()&lt;/code&gt; atau &lt;code&gt;colMeans()&lt;/code&gt;. Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata tiap baris
-rowMeans(my_data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##     row1     row2     row3     row4     row5 
-## 4.666667 4.333333 5.333333 8.333333 8.000000&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata tiap kolom
-colMeans(my_data)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
-##  7.0  5.6  5.8&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Kita juga dapat melakukan perhitungan statistika lainnya menggunakan fungsi &lt;code&gt;apply()&lt;/code&gt;. Berikut adalah format sederhananya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(x, MARGIN, FUN)&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;x : data matriks&lt;/li&gt;
-&lt;li&gt;MARGIN : Nilai yang dapat digunakan adalah 1 (untuk operasi pada baris) dan 2 (untuk operasi pada kolom)&lt;/li&gt;
-&lt;li&gt;FUN : fungsi yang diterapkan pada baris atau kolom&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;untuk mengetahui fungsi (&lt;code&gt;FUN&lt;/code&gt;) apa saja yang dapat diterapkan pada fungsi &lt;code&gt;apply()&lt;/code&gt; jalankan sintaks bantuan berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;help(apply)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata pada tiap baris
-apply(my_data, 1, mean)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##     row1     row2     row3     row4     row5 
-## 4.666667 4.333333 5.333333 8.333333 8.000000&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Median pada tiap kolom
-apply(my_data, 2, median)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## col1 col2 col3 
-##    7    5    7&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;faktor&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.9 Faktor&lt;/h2&gt;
-&lt;p&gt;Dalam bahasa &lt;code&gt;R&lt;/code&gt; , faktor merupakan verktor dengan level. Level disimpan sebagai &lt;code&gt;R&lt;/code&gt; Character. Jika kita menggunakan SPSS maka factor ini akan sama dengan jenis data numerik atau ordinal.&lt;/p&gt;
-&lt;p&gt;Faktor merepresentasikan kategori atau grup pada data. Untuk membuat faktor pada &lt;code&gt;R&lt;/code&gt;, kita dapat menggunakan fungsi &lt;code&gt;factor()&lt;/code&gt;.&lt;/p&gt;
-&lt;div id=&#34;membuat-variabel-faktor&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.9.1 Membuat Variabel Faktor&lt;/h3&gt;
-&lt;p&gt;Berikut adalah contoh sintaks pembuatan variabel faktor.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat variabel faktor
-faktor &amp;lt;- factor(c(1,2,1,2))
-faktor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1 2 1 2
-## Levels: 1 2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Pada sintaks tersebut objek faktor terdiri atas dua buah kategori atau pada &lt;code&gt;R&lt;/code&gt; disebut sebagai &lt;strong&gt;factor levels&lt;/strong&gt;. Kita dapat mengecek factor levels menggunakan fungsi &lt;code&gt;levels()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;levels(faktor)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1&amp;quot; &amp;quot;2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Kita juga dapat memberikan label atau mengubah level pada faktor. Berikut adalah contoh bagaimana kita melakukannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ubah level
-levels(faktor) &amp;lt;- c(&amp;quot;baik&amp;quot;,&amp;quot;tidak_baik&amp;quot;)
-faktor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] baik       tidak_baik baik       tidak_baik
-## Levels: baik tidak_baik&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ubah urutan level
-faktor &amp;lt;- factor(faktor,
-                 levels = c(&amp;quot;tidak_baik&amp;quot;,&amp;quot;baik&amp;quot;))
-faktor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] baik       tidak_baik baik       tidak_baik
-## Levels: tidak_baik baik&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Fungsi &lt;code&gt;is.factor()&lt;/code&gt; dapat digunakan untuk mengecek apakah sebuah variabel adalah faktor. Hasil yang dimunculkan dapat berupa TRUE (jika faktor) atau FALSE (jika bukan)&lt;/li&gt;
-&lt;li&gt;Fungsi &lt;code&gt;as.factor()&lt;/code&gt; dapat digunakan untuk merubah sebuah variabel menjadi faktor.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek jika objek faktor adalah faktor
-is.factor(faktor)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cek jika objek Jumlah adalah faktor
-is.factor(Jumlah)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ubah objek Jumlah menjadi faktor
-as.factor(Jumlah)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##     Apel    Jeruk Rambutan    Salak 
-##        5     &amp;lt;NA&amp;gt;        6        7 
-## Levels: 5 6 7&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;perhitungan-menggunakan-faktor&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.9.2 Perhitungan Menggunakan Faktor&lt;/h3&gt;
-&lt;p&gt;Jika kita ingin mengetahui jumlah masing-masing observasi pada masing-masing faktor, kita dapat menggunakan fungsi &lt;code&gt;summary()&lt;/code&gt;. Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(faktor)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## tidak_baik       baik 
-##          2          2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Pada contoh perhitungan menggunakan vektor kita telah membuat objek &lt;code&gt;pendapatan&lt;/code&gt;. Pada objek tersebut kita ingin menghitung nilai rata-rata pendapatan berdasarkan objek faktor. Untuk melakukannya kita dapat menggunakan fungsi &lt;code&gt;tapply()&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pendapatan&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Andi Joni Lina Rani 
-## 2000 1800 2500 3000&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;faktor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] baik       tidak_baik baik       tidak_baik
-## Levels: tidak_baik baik&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Rata-rata pendapatan dan simpan sebagai objek dengan nama:
-# mean_pendapatan
-mean_pendapatan &amp;lt;- tapply(pendapatan, faktor, mean)
-mean_pendapatan&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## tidak_baik       baik 
-##       2400       2250&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Hitung ukuran/panjang masing-masing grup
-tapply(pendapatan, faktor, length)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## tidak_baik       baik 
-##          2          2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Untuk mengetahui jumlah masing-masing observasi masing-masing factor levels kita juga dapat menggunakan fungsi &lt;code&gt;table()&lt;/code&gt;. Fungsi tersebut akan membuat frekuensi tabel pada masing-masing factor levels atau yang dikenal sebagai &lt;em&gt;contingency table&lt;/em&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table(faktor)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## faktor
-## tidak_baik       baik 
-##          2          2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Cross-tabulation antara
-# faktor dan pendapatan
-table(pendapatan, faktor)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##           faktor
-## pendapatan tidak_baik baik
-##       1800          1    0
-##       2000          0    1
-##       2500          0    1
-##       3000          1    0&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;data-frames&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.10 Data Frames&lt;/h2&gt;
-&lt;p&gt;Data frame merupakan kumpulan vektor dengan panjang sama atau dapat pula dikatan sebagai matriks yang memiliki kolom dengan jenis data yang berbeda-beda (numerik, karakter, logical). Pada data frame terdapat baris dan kolom. Baris disebut sebagai observasi, sedangkan kolom disebut sebagai variabel. Sehingga dapat dikatakan bahwa setiap observasi akan memiliki satu atau beberapa variabel.&lt;/p&gt;
-&lt;div id=&#34;membuat-data-frame&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.10.1 Membuat Data Frame&lt;/h3&gt;
-&lt;p&gt;Data frame dapat dibuat menggunakan fungsi &lt;code&gt;data.frame()&lt;/code&gt;. Berikut adalah contoh cara membuat data frame:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat data frame
-nama &amp;lt;- c(&amp;quot;Andi&amp;quot;,&amp;quot;Rizal&amp;quot;,&amp;quot;Ani&amp;quot;,&amp;quot;Ina&amp;quot;)
-pendapatan &amp;lt;- c(1000, 2000, 3500, 500)
-tinggi &amp;lt;- c(160, 155, 170, 146)
-usia &amp;lt;- c(35, 40, 25, 27)
-menikah &amp;lt;- c(TRUE, FALSE, TRUE, TRUE)
-
-data_teman &amp;lt;- data.frame(nama = nama,
-                         gaji = pendapatan,
-                         tinggi = tinggi,
-                         menikah = menikah)
-
-data_teman&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##    nama gaji tinggi menikah
-## 1  Andi 1000    160    TRUE
-## 2 Rizal 2000    155   FALSE
-## 3   Ani 3500    170    TRUE
-## 4   Ina  500    146    TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Untuk mengecek apakah objek &lt;code&gt;data_teman&lt;/code&gt; merupakan data frame, kita dapat menggunakan fungsi &lt;code&gt;is.data.frame()&lt;/code&gt;. Jika hasilnya TRUE, maka objek tersebut adalah data frame. Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.data.frame(data_teman)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt; untuk konversi objek menjadi data frame, kita dapat menjalankan fungsi &lt;code&gt;as.data.frame()&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div id=&#34;subset-pada-data-frame&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.10.2 Subset Pada Data Frame&lt;/h3&gt;
-&lt;p&gt;Subset pada data frame sebenarnya tidak berbeda dengan subset pada matriks. Bedanya adalah kita juga bisa melakukan subset langsung terhadap nama variabel menggunakan dollar sign. Untuk lebih memahaminya berikut adalah jenis subset pada data frame.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Pengindeksan positif&lt;/strong&gt; menggunakan nama dan lokasi.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset menggunakan dollar sign
-data_teman$nama&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] Andi  Rizal Ani   Ina  
-## Levels: Andi Ani Ina Rizal&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau 
-data_teman[, &amp;quot;nama&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] Andi  Rizal Ani   Ina  
-## Levels: Andi Ani Ina Rizal&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset baris 1 sampai 3 serta kolom 1 dan 3
-data_teman[1:3, c(1,3)]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##    nama tinggi
-## 1  Andi    160
-## 2 Rizal    155
-## 3   Ani    170&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Pengindeksan negatif&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Kecualikan kolom nama
-data_teman[,-1]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   gaji tinggi menikah
-## 1 1000    160    TRUE
-## 2 2000    155   FALSE
-## 3 3500    170    TRUE
-## 4  500    146    TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Pengideksan berdasarkan karakteristik&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Kita ingin memilih data dengan kriteria teman yang telah menikah&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_teman[data_teman$menikah==TRUE, ]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   nama gaji tinggi menikah
-## 1 Andi 1000    160    TRUE
-## 3  Ani 3500    170    TRUE
-## 4  Ina  500    146    TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Tampilkan hanya kolom nama dan gaji untuk yang telah menikah
-data_teman[data_teman$menikah==TRUE, 1:2]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   nama gaji
-## 1 Andi 1000
-## 3  Ani 3500
-## 4  Ina  500&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;kita juga dapat menggunakan fungsi &lt;code&gt;subset()&lt;/code&gt; agar lebih mudah. Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset terhadap teman yang berusia &amp;gt;=30 tahun
-subset(data_teman, usia&amp;gt;=30)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##    nama gaji tinggi menikah
-## 1  Andi 1000    160    TRUE
-## 2 Rizal 2000    155   FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Opsi lain adalah menggunakan fungsi &lt;code&gt;attach()&lt;/code&gt; dan &lt;code&gt;detach()&lt;/code&gt;. Fungsi &lt;code&gt;attach()&lt;/code&gt; mengambil data frame dan membuat kolomnya dapat diakses hanya dengan memberikan nama mereka.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# attach data frame
-attach(data_teman)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The following objects are masked _by_ .GlobalEnv:
-## 
-##     menikah, nama, tinggi&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ==== memulai data manipulation ====
-data_teman[usia&amp;gt;=30]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##    nama gaji
-## 1  Andi 1000
-## 2 Rizal 2000
-## 3   Ani 3500
-## 4   Ina  500&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ==== mengakhiri data manipulation ====
-# detach data frame
-
-detach(data_teman)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;memperluas-data-frame&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.10.3 Memperluas Data Frame&lt;/h3&gt;
-&lt;p&gt;Kita dapat juga memperluas data frame dengan cara menambahkan variabel atau kolombaru pada data frame. Pada contoh kali ini penulis akan menambahkan kolom pendidikan terakhir pada objek &lt;code&gt;data_teman&lt;/code&gt;. Berikut adalah sintaks yang digunakan.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor pendidikan
-pendidikan &amp;lt;- c(&amp;quot;S1&amp;quot;,&amp;quot;S2&amp;quot;,&amp;quot;D3&amp;quot;,&amp;quot;D1&amp;quot;)
-
-# menambahkan variabel pendidikan pada data frame
-data_teman$pendidikan &amp;lt;- pendidikan&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau
-cbind(data_teman, pendidikan=pendidikan)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;perhitungan-pada-data-frame&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.10.4 Perhitungan Pada Data Frame&lt;/h3&gt;
-&lt;p&gt;Perhitungan pada variabel numerik data frame pada dasarnya sama dengan perhitungan pada matriks. kita dapat menggunakan fungsi &lt;code&gt;rowSums()&lt;/code&gt;, &lt;code&gt;colSums()&lt;/code&gt;, &lt;code&gt;rowMeans()&lt;/code&gt; dan &lt;code&gt;apply()&lt;/code&gt;. Proses perhitungan dan manipulasi pada data frame akan dibahas pada sesi yang lain secara lebih detail.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;list&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.11 List&lt;/h2&gt;
-&lt;p&gt;List adalah kumpulan objek yang diurutkan, yang dapat berupa vektor, matriks, data frame, dll. Dengan kata lain, daftar dapat berisi semua jenis objek &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;div id=&#34;membuat-list&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.11.1 Membuat List&lt;/h3&gt;
-&lt;p&gt;List dapat dibuat menggunakan fungsi &lt;code&gt;list()&lt;/code&gt;. Berikut disajikan contoh sebuah list sebuah keluarga:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat list keluarga
-keluarga &amp;lt;- list(
-  ayah = &amp;quot;Budi&amp;quot;,
-  usia_ayah = 48,
-  ibu  = &amp;quot;Ani&amp;quot;,
-  usia_ibu = &amp;quot;47&amp;quot;,
-  anak = c(&amp;quot;Andi&amp;quot;, &amp;quot;Adi&amp;quot;),
-  usia_anak = c(15,10)
-  )
-
-# Print
-keluarga&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## $ayah
-## [1] &amp;quot;Budi&amp;quot;
-## 
-## $usia_ayah
-## [1] 48
-## 
-## $ibu
-## [1] &amp;quot;Ani&amp;quot;
-## 
-## $usia_ibu
-## [1] &amp;quot;47&amp;quot;
-## 
-## $anak
-## [1] &amp;quot;Andi&amp;quot; &amp;quot;Adi&amp;quot; 
-## 
-## $usia_anak
-## [1] 15 10&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Nama elemen dalam list
-names(keluarga)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ayah&amp;quot;      &amp;quot;usia_ayah&amp;quot; &amp;quot;ibu&amp;quot;       &amp;quot;usia_ibu&amp;quot;  &amp;quot;anak&amp;quot;      &amp;quot;usia_anak&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Jumlah elemen pada list
-length(keluarga)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 6&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;subset-list&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.11.2 Subset List&lt;/h3&gt;
-&lt;p&gt;Kita dapat memilih sebuah elemen pada list dengan menggunakan nama elemen atau indeks dari elemen tersebut. Berikut adalah contoh penerapannya:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset berdasarkan nama
-# mengambil elemen usia_ayah
-keluarga$usia_ayah&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 48&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Atau
-keluarga[[&amp;quot;usia_ayah&amp;quot;]]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 48&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Subset berdasarkan indeks
-keluarga[[2]]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 48&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset elemen pertama pada keluarga[[5]]
-keluarga[[5]][1]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Andi&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;memperluas-list&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.11.3 Memperluas List&lt;/h3&gt;
-&lt;p&gt;Kita juga dapat menambahkan elemen pada list yang telah kita buat. Pada contoh list sebelumnya penulis akan menambahkan elemen keluarga yang lain seperti berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Menambahkan kakek dan nenek pada list
-keluarga$kakek &amp;lt;- &amp;quot;Suprapto&amp;quot;
-keluarga$nenek &amp;lt;- &amp;quot;Sri&amp;quot;
-
-# Print
-keluarga&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## $ayah
-## [1] &amp;quot;Budi&amp;quot;
-## 
-## $usia_ayah
-## [1] 48
-## 
-## $ibu
-## [1] &amp;quot;Ani&amp;quot;
-## 
-## $usia_ibu
-## [1] &amp;quot;47&amp;quot;
-## 
-## $anak
-## [1] &amp;quot;Andi&amp;quot; &amp;quot;Adi&amp;quot; 
-## 
-## $usia_anak
-## [1] 15 10
-## 
-## $kakek
-## [1] &amp;quot;Suprapto&amp;quot;
-## 
-## $nenek
-## [1] &amp;quot;Sri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Kita juga dapat menggabungkan beberapa list menjadi satu. Berikut adalah format sederhana bagaimana cara menggabungkan beberapa list menjadi satu:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;list_baru &amp;lt;- c(list_a, list_b, list_c, ...)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;loop&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.12 Loop&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; merupakan kode program yang berulang-ulang. &lt;em&gt;Loop&lt;/em&gt; berguna saat kita ingin melakukan sebuah perintah yang perlu dijalankan berulang-ulang seperti melakukan perhitungan maupaun melakukan visualisasi terhadap banyak variabel secara serentak. Hal ini tentu saja membantu kita karena kita tidak perlu menulis sejumlah sintaks yang berulang-ulang. Kita hanya perlu mengatur &lt;em&gt;statement&lt;/em&gt; berdasarkan hasil yang kita harapkan.&lt;/p&gt;
-&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; bentuk &lt;em&gt;loop&lt;/em&gt; dapat bermacam-macam (“&lt;em&gt;for loop&lt;/em&gt;”,“&lt;em&gt;while loop&lt;/em&gt;”, dll). &lt;code&gt;R&lt;/code&gt; menyederhanakan bentuk &lt;em&gt;loop&lt;/em&gt; ini dengan menyediakan sejumlah fungsi seperti &lt;code&gt;apply()&lt;/code&gt;,&lt;code&gt;tapply()&lt;/code&gt;, dll. Sehingga &lt;code&gt;loop&lt;/code&gt; jarang sekali muncul dalam kode &lt;code&gt;R&lt;/code&gt;. Sehingga &lt;code&gt;R&lt;/code&gt; sering disebut sebagai &lt;em&gt;loopless loop&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Meski &lt;em&gt;loop&lt;/em&gt; jarang muncul bukan berarti kita tidak akan melakukannya. Terkadang saat kita melakukan komputasi statistik atau matematik dan belum terdapat paket yang mendukung proses tersebut, sering kali kita akan membuat sintaks sendiri berdasarkan algoritma metode tersebut. Pada algoritma tersebut sering pula terdapat &lt;em&gt;loop&lt;/em&gt; yang diperlukan selama proses perhitungan. Secara sederhana diagram umum loop ditampilkan pada Figure &lt;a href=&#34;#fig:loop&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;knitr&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:loop&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/skema_loop.png&#34; alt=&#34;Diagram umum loop (sumber: Primartha, 2018).&#34;  /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: Diagram umum loop (sumber: Primartha, 2018).
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;for-loop&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.12.1 For Loop&lt;/h3&gt;
-&lt;p&gt;Mengulangi sebuah &lt;em&gt;statement&lt;/em&gt; atau sekelompok &lt;em&gt;statement&lt;/em&gt; sebanyak nilai yang ditentukan di awal. Jadi operasi akan terus dilakukan sampai dengan jumlah yang telah ditetapkan di awal atau dengan kata lain tes kondisi (Jika jumlah pengulangan telah cukup) hanya akan dilakukan di akhir. Secara sederhana bentuk dari &lt;em&gt;for loop&lt;/em&gt; dapat dituliskan sebagai berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for (value in vector){
-  statements
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Berikut adalah contoh sintaks penerapan &lt;em&gt;for loop&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Membuat vektor numerik
-vektor &amp;lt;- c(1:5)
-
-# loop 
-for(i in vektor){
-  print(i)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1
-## [1] 2
-## [1] 3
-## [1] 4
-## [1] 5&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; akan dimulai dari blok &lt;em&gt;statement for&lt;/em&gt; sampai dengan &lt;code&gt;print(i)&lt;/code&gt;. Berdasarkan &lt;em&gt;loop&lt;/em&gt; pada contoh tersebut, &lt;em&gt;loop&lt;/em&gt; hanya dilakukan sebanyak 5 kali sesuai dengan jumlah vektor yang ada.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;while-loop&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.12.2 While Loop&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;While loop&lt;/em&gt; merupakan loop yang digunakan ketika kita telah menetapkan &lt;em&gt;stop condition&lt;/em&gt; sebelumnya. Blok &lt;em&gt;statement&lt;/em&gt;/kode yang sama akan terus dijalankan sampai &lt;em&gt;stop condition&lt;/em&gt; ini tercapai. &lt;em&gt;Stop condition&lt;/em&gt; akan di cek sebelum melakukan proses &lt;em&gt;loop&lt;/em&gt;. Berikut adalah pola dari &lt;em&gt;while loop&lt;/em&gt; dapat dituliskan sebagai berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;while (test_expression){
-  statement
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Berikut adalah contoh penerapan dari &lt;em&gt;while loop&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coba &amp;lt;- c(&amp;quot;Contoh&amp;quot;)
-counter &amp;lt;- 1
-
-# loop
-while (counter&amp;lt;5){
-  # print vektor
-  print(coba)
-  # tambahkan nilai counter sehingga proses terus berlangsung sampai counter = 5 
-  counter &amp;lt;- counter + 1
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Contoh&amp;quot;
-## [1] &amp;quot;Contoh&amp;quot;
-## [1] &amp;quot;Contoh&amp;quot;
-## [1] &amp;quot;Contoh&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; akan dimulai dari blok &lt;em&gt;statement while&lt;/em&gt; sampai dengan &lt;em&gt;counter&lt;/em&gt; &amp;lt;- 1. &lt;em&gt;Loop&lt;/em&gt; hanya akan dilakukan sepanjang nilai &lt;em&gt;counter&lt;/em&gt; &amp;lt; 5.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;repeat-loop&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.12.3 Repeat Loop&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Repeat loop&lt;/em&gt; akan menjalankan &lt;em&gt;statement&lt;/em&gt;/kode yang sama berulang-ulang hingga &lt;em&gt;stop condition&lt;/em&gt; tercapai. Berikut adalah pola dari &lt;em&gt;repeat loop&lt;/em&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;repeat {
-  commands
-  if(condition){
-    break
-  }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Berikut adalah contoh penerapan dari &lt;em&gt;repeat loop&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coba &amp;lt;- c(&amp;quot;contoh&amp;quot;)
-counter &amp;lt;- 1
-repeat {
-  print(coba)
-  counter &amp;lt;- counter + 1
-  if(counter &amp;lt; 5){
-break
-  }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;contoh&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;Loop&lt;/em&gt; akan dimulai dari blok &lt;em&gt;statement while&lt;/em&gt; sampai dengan &lt;em&gt;break&lt;/em&gt;. &lt;em&gt;Loop&lt;/em&gt; hanya akan dilakukan sepanjang nilai &lt;em&gt;counter&lt;/em&gt; &amp;lt; 5. Hasil yang diperoleh berbeda dengan &lt;em&gt;while loop&lt;/em&gt;, dimana kita memperoleh 4 buah kata “contoh”. Hal ini disebabkan karena &lt;em&gt;repeat loop&lt;/em&gt; melakukan pengecekan &lt;em&gt;stop condition&lt;/em&gt; tidak di awal loop seperti &lt;em&gt;while loop&lt;/em&gt; sehingga berapapun nilainya, selama nilainya sesuai dengan &lt;em&gt;stop condition&lt;/em&gt; maka &lt;em&gt;loop&lt;/em&gt; akan dihentikan. Hal ini berbeda dengan &lt;em&gt;while loop&lt;/em&gt; dimana proses dilakukan berulang-ulang sampai jumlahnya mendekati &lt;em&gt;stop condition&lt;/em&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;break&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.12.4 Break&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Break&lt;/em&gt; sebenarnya bukan bagian dari &lt;em&gt;loop&lt;/em&gt;, namun sering digunakan dalam &lt;em&gt;loop&lt;/em&gt;. &lt;em&gt;Break&lt;/em&gt; dapat digunakan pada &lt;em&gt;loop&lt;/em&gt; manakala dirasa perlu, yaitu saat kondisi yang disyaratkan pada &lt;em&gt;break&lt;/em&gt; tercapai.&lt;/p&gt;
-&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;break&lt;/em&gt; pada beberapa jenis &lt;em&gt;loop&lt;/em&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# for loop
-a = c(2,4,6,8,10,12,14)
-for(i in a){
-  if(i&amp;gt;8){
-    break
-  }
-  print(i)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2
-## [1] 4
-## [1] 6
-## [1] 8&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# while loop
-a = 2
-b = 4
-while(a&amp;lt;7){
-  print(a)
-  a = a +1
-  if(b+a&amp;gt;10){
-    break
-  }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2
-## [1] 3
-## [1] 4
-## [1] 5
-## [1] 6&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# repeat loop
-a = 1
-repeat{
-  print(a)
-  a = a+1
-  if(a&amp;gt;6){
-    break
-  }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1
-## [1] 2
-## [1] 3
-## [1] 4
-## [1] 5
-## [1] 6&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;decision-making&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.13 Decision Making&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;Decicion Making&lt;/em&gt; atau sering disebut sebagai &lt;em&gt;if then else statement&lt;/em&gt; merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Table 5&lt;/strong&gt; Daftar percabangan pada &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;colgroup&gt;
-&lt;col width=&#34;16%&#34; /&gt;
-&lt;col width=&#34;83%&#34; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th&gt;&lt;strong&gt;Statement&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;&lt;em&gt;if statement&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;if statement&lt;/em&gt; hanya terdiri atas sebuah ekspresi &lt;em&gt;Boolean&lt;/em&gt;, dan diikuti satu atau lebih &lt;em&gt;statement&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;&lt;em&gt;if…else statement&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;if else statement&lt;/em&gt; terdiri atas beberapa buah ekspresi &lt;em&gt;Boolean&lt;/em&gt;. Ekspressi &lt;em&gt;Boolean&lt;/em&gt; berikutnya akan dijalankan jika ekspresi *Boolan sebelumnya bernilai FALSE&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;&lt;em&gt;switch statement&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;switch statement&lt;/em&gt; digunakan untuk mengevaluasi sebuah variabel beberapa pilihan&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;div id=&#34;if-statement&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.13.1 if statement&lt;/h3&gt;
-&lt;p&gt;Pola &lt;em&gt;if statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:ifstatement&#34;&gt;2&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ifstatement&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/ifstatement.png&#34; alt=&#34;Diagram if statement (sumber: Primartha, 2018).&#34;  /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 2: Diagram if statement (sumber: Primartha, 2018).
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;if statement&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(1:5)
-if(is.vector(x)){
-  print(&amp;quot;x adalah sebuah vector&amp;quot;)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;x adalah sebuah vector&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;if-else-statement&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.13.2 if else statement&lt;/h3&gt;
-&lt;p&gt;Pola dari &lt;em&gt;if else statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:ifelse&#34;&gt;3&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ifelse&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/ifelse.png&#34; alt=&#34;Diagram if else statement (sumber: Primartha, 2018).&#34;  /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 3: Diagram if else statement (sumber: Primartha, 2018).
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;if else statement&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(&amp;quot;Andi&amp;quot;,&amp;quot;Iwan&amp;quot;, &amp;quot;Adi&amp;quot;)
-if(&amp;quot;Rina&amp;quot; %in% x){
-  print(&amp;quot;Rina ditemukan&amp;quot;)
-} else if(&amp;quot;Adi&amp;quot; %in% x){
-  print(&amp;quot;Adi ditemukan&amp;quot;)
-} else{
-  print(&amp;quot;tidak ada yang ditemukan&amp;quot;)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Adi ditemukan&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;switch-statement&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2.13.3 switch statement&lt;/h3&gt;
-&lt;p&gt;Pola dari &lt;em&gt;switch statement&lt;/em&gt; disajikan pada Figure &lt;a href=&#34;#fig:switch&#34;&gt;4&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:switch&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/switch.png&#34; alt=&#34;Diagram switch statement (sumber: Primartha, 2018).&#34;  /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 4: Diagram switch statement (sumber: Primartha, 2018).
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;switch statement&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y = 3
-
-x = switch(
-  y,
-  &amp;quot;Selamat Pagi&amp;quot;,
-  &amp;quot;Selamat Siang&amp;quot;,
-  &amp;quot;Selamat Sore&amp;quot;,
-  &amp;quot;Selamat Malam&amp;quot;
-)
-
-print(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Selamat Sore&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;fungsi&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2.14 Fungsi&lt;/h2&gt;
-&lt;p&gt;Fungsi merupakan sekumpulan instruksi atau &lt;em&gt;statement&lt;/em&gt; yang dapat melakukan tugas khusus. Sebagai contoh fungsi perkalian untuk menyelesaikan operasi perkalian, fungsi pemangkatan hanya untuk operasi pemangkatan, dll.&lt;/p&gt;
-&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; terdapat 2 jenis fungsi, yaitu: &lt;em&gt;build in fuction&lt;/em&gt; dan &lt;em&gt;user define function&lt;/em&gt;. &lt;em&gt;build in fnction&lt;/em&gt; merupakan fungsi bawaan &lt;code&gt;R&lt;/code&gt; saat pertama kita menginstall &lt;code&gt;R&lt;/code&gt;. Contohnya adalah &lt;code&gt;mean()&lt;/code&gt;, &lt;code&gt;sum()&lt;/code&gt;, &lt;code&gt;ls()&lt;/code&gt;, &lt;code&gt;rm()&lt;/code&gt;, dll. Sedangkan &lt;em&gt;user define fuction&lt;/em&gt; merupakan fungsi-fungsi yang dibuat sendiri oleh pengguna.&lt;/p&gt;
-&lt;p&gt;Fungsi-fungsi buatan pengguna haruslah dideklarasikan (dibuat) terlebih dahulu sebelum dapat dijalankan. Pola pembentukan fungsi adalah sebagai berikut:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;function_name &amp;lt;- function(argument_1, argument_2, ...){
-  function body
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;function_name&lt;/strong&gt; : Nama dari fungsi &lt;code&gt;R&lt;/code&gt;. &lt;code&gt;R&lt;/code&gt; akan menyimpan fungsi tersebut sebagai objek&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;argument_1, argument_2,…&lt;/strong&gt; : &lt;em&gt;Argument&lt;/em&gt; bersifat opsional (tidak wajib). &lt;em&gt;Argument&lt;/em&gt; dapat digunakan untuk memberi inputan kepada fungsi&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;function body&lt;/strong&gt; : Merupakan inti dari fungsi. Fuction body dapat terdiri atas 0 statement (kosong) hingga banyak statement.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;return&lt;/strong&gt; : Fungsi ada yang memiliki &lt;em&gt;output&lt;/em&gt; atau &lt;em&gt;return value&lt;/em&gt; ada juga yang tidak. Jika fungsi memiliki &lt;em&gt;return value&lt;/em&gt; maka &lt;em&gt;return value&lt;/em&gt; dapat diproses lebih lanjut&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Berikut adalah contoh penerapan &lt;em&gt;user define function&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi tanpa argument
-bilang &amp;lt;- function(){
-  print(&amp;quot;Hello World!!&amp;quot;)
-}
-
-# Print
-bilang()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Hello World!!&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi dengan argumen
-tambah &amp;lt;- function(a,b){
-  print(a+b)
-}
-
-# Print
-tambah(5,3)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 8&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fungsi dengan return value
-kali &amp;lt;- function(a,b){
-  return(a*b)
-}
-
-# Print
-kali(4,3)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 12&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Primartha, R. 2018. &lt;strong&gt;Belajar Machine Learning Teori dan Praktik&lt;/strong&gt;. Penerbit Informatika : Bandung.&lt;/li&gt;
-&lt;li&gt;Rosadi,D. 2016. &lt;strong&gt;Analisis Statistika dengan R&lt;/strong&gt;. Gadjah Mada University Press: Yogyakarta.&lt;/li&gt;
-&lt;li&gt;STHDA. &lt;strong&gt;Easy R Programming Basics&lt;/strong&gt;. &lt;a href=&#34;http://www.sthda.com/english/wiki/easy-r-programming-basics&#34; class=&#34;uri&#34;&gt;http://www.sthda.com/english/wiki/easy-r-programming-basics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Venables, W.N. Smith D.M. and R Core Team. 2018. &lt;strong&gt;An Introduction to R&lt;/strong&gt;. R Manuals.&lt;/li&gt;
-&lt;li&gt;The R Core Team. 2018. &lt;strong&gt;R: A Language and Environment for Statistical Computing&lt;/strong&gt;. R Manuals.&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>

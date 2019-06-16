@@ -1,5 +1,5 @@
 ---
-title: "2. Sintaks Bahasa R"
+title: "2. Dasar Pemrograman Menggunakan R"
 draft: false
 date: '2019-03-09T00:00:00+07:00'
 output: pdf_document
@@ -7,7 +7,7 @@ menu:
   tutorial:
     parent: PART 1 - Bahasa Pemrograman R
     weight: 2
-linktitle: Sintaks Bahasa R
+linktitle: Dasar Pemrograman Menggunakan R
 type: docs
 ---
 
@@ -15,6 +15,10 @@ type: docs
 body{
 text-align: justify}
 </style>
+
+Pada *chapter* ini penulis hendak mengajak pembaca lebih familiar dengan sintaks atau perintah yang ada pada `R` yang akan membantu pembaca untuk melakukan pemrograman pada `R`. Pembaca akan mempelajari penggunaan operator dalam melakukan operasi pengolahan data pada `R`, jenis data yang ada pada `R`, sampai dengan bagaimana kita melakukan proses *decision making* menggunakan `R`. 
+
+---------------------------------------------------------
 
 > ## Daftar Isi
 >
@@ -30,8 +34,11 @@ text-align: justify}
 > * [Data Frames](#2-10-data-frames)
 > * [List](#2-11-list)
 > * [Loop](#2-12-loop)
-> * [Decision Making](#2-13-decision-making)
-> * [Fungsi](#2-14-fungsi)
+> * [Loop Menggunakan Apply Family Function](#2-13-loop-menggunakan-apply-family-function)
+> * [Decision Making](#2-15-decision-making)
+> * [Fungsi](#2-16-fungsi)
+
+----------------------------------------------------------
 
 ## 2.1 Operator Aritmatika
 
@@ -399,6 +406,20 @@ Berdasarkan Tabel 2, vektor karakter dapat dibuat menggunakan tanda kurung baik 
 
 "My friend's name \"Adi\""
 ```
+
+Struktur data diklasifikasikan berdasarkan dimensi data dan tie data di dalamnya (homogen atau heterogen). Klasifikasi jenis data disajikan pada Tabel \@ref(tab:strukturdata).
+
+**Dimensi**  | **Homogen**      | **Heterogen**
+-------------|------------------|---------------
+1d           | Atomik vektor    | List
+2d           | Matriks          | Dataframe
+nd           | Array            |               
+
+: (\#tab:strukturdata) Struktur data `R`.
+
+Berdasarkan Tabel tersebut dapat kita lihat bahwa objek terbagi atas dua buah struktur data yaitu homogen dan heterogen. Objek dengan struktur data homogen hanya dapat menyimpan satu tipe atau jenis data saja (numerik saja atau factor saja), sedangkan objek dengan struktur data heterogen akan dapat menyimpan berbagai jenis data. 
+
+Berdasarkan daftar yang ada di Tabel \@ref(tab:strukturdata), kita tidak akan membahas struktur data Array pada buku ini. Struktur data tersebut lebih banyak digunakan untuk kepentingan akademis seperti membuat model matematis yang akan penulis bahas pada buku lain.
 
 ## 2.7 Vektor
 
@@ -1168,7 +1189,267 @@ repeat{
 }
 ```
 
-## 2.13 Decision Making
+## 2.13 Loop Menggunakan Apply Family Function
+
+Penggunaan loop sangat membantu kita dalam melakukan proses perhitungan berulang. Namun, metode ini tidak cukup ringkas dalam penerapannya dan perlu penulisan sintaks yang cukup panjang untuk menyelesaikan sebuah kasus yang kita inginkan. Berikut adalah sebuah sintaks yang digunakan untuk menghitung nilai mean pada suatu dataset:
+
+```{r}
+# subset data iris
+sub_iris <- iris[,-5]
+# membuat vektor untuk menyimpan hasil loop
+a <- rep(NA,4)
+# loop
+for(i in 1:length(sub_iris)){
+  a[i]<-mean(sub_iris[,i])
+}
+# print
+a
+class(a) # cek kelas objek
+```
+
+Metode alternatif lain untuk melakukan loop suatu fungsi adalah dengan menggunakan Apply function family. Metode ini memungkinkan kita untuk melakukan loop suatu fungsi tanpa perlu menuliskan sintaks loop. Berikut adalah beberapa fungsi dari apply family yang nantinya akan sering kita gunakan:
+
+- `apply()`: fungsi generik yang mengaplikasikan fungsi kepada kolom atau baris pada matriks atau secara lebih general aplikasi dilakukan pada dimensi untuk jenis data array.
+- `lapply()`: fungsi apply yang bekerja pada jenis data list dan memberikan output berupa list juga.
+- `sapply()`: bentuk sederhana dari lapply yang menghasilkan output berupa matriks atau vektor.
+- `vapply()`: disebut juga *verified apply* (memungkinkan untuk menghasilkan output dengan jenis data yang telah ditentukan sebelumnya).
+- `tapply()`: *tagged apply* dimana dimana tag menentukan subset dari data.
+
+### 2.13.1 Apply
+
+Fungsi `apply()` bekerja dengan jenis data matrik atau array (jenis data homogen). Kita dapat melakukan spesifikasi apakah suatu fungsi hanya akan bekerja pada kolom saja, baris saja atau keduanya. Format fungsi ini adalah sebagai berikut:
+
+```{r, eval=FALSE}
+apply(X, MARGIN, FUN, ...)
+```
+
+> **Note: **
+>
+> - **X**: matriks atau array
+> - **MARGIN**: menentukan bagaimana fungsi bekerja terhadap matriks atau array. Jika nilai yang diinputkan 1, maka fungsi akan bekerja pada masing-masing baris pada matriks. Jika nilainya 2, maka fungsi akan bekerja pada tiap kolom pada matriks.
+> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function.
+> - **...**: opsional argumen pada fungsi yang digunakan.
+
+Berikut adalah contoh bagaimana aplikasi fungsi tersebut pada matriks:
+
+```{r}
+## membuat matriks
+x <- cbind(x1 = 3, x2 = c(4:1, 2:5))
+x # print
+class(x) # cek kelas objek
+
+## menghitung mean masing-masing kolom
+apply(x, MARGIN=2 ,FUN=mean, trim=0.2, na.rm=TRUE)
+
+## menghitung range nilai pada masing-masing baris
+## menggunakan user define function
+apply(x, MARGIN=1,
+      FUN=function(x){
+        max(x)-min(x)
+      })
+
+```
+
+### 2.13.2 lapply
+
+Fungsi ini melakukan loop fungsi terhadap input data berupa list. Output yang dihasilkan juga merupakan list dengan panjang list yang sama dengan yang diinputkan. Format yang digunakan adalah sebagai berikut:
+
+```{r, eval=FALSE}
+lapply(X, FUN, ...)
+```
+
+> **Note: **
+> 
+> - **X**: vektor, data frame atau list
+> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
+> - **...**: opsional argumen pada fungsi yang digunakan.
+
+
+Berikut adalah contoh penerapan fungsi lapply:
+
+```{r}
+## Membuat list
+x <- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+x # print
+class(x) # cek kelas objek
+
+## Menghitung nilai mean pada masing-masing baris lits
+lapply(x, FUN=mean)
+
+## Menghitung mean tiap kolom dataset iris
+lapply(iris, FUN=mean)
+
+## Mengalikan elemen vektor dengan suatu nilai
+y <- c(1:5)
+lapply(y, FUN=function(x){x*5})
+
+## Mengubah output menjadi vektor
+unlist(lapply(y, FUN=function(x){x*5}))
+
+```
+
+### 2.13.3 sapply
+
+Fungsi `sapply()` merupakan bentuk lain dari fungsi `lapply()`. Perbedaanya terletak pada output default yang dihasilkan. Secara default `sapply()` menerima input utama berupa list (dapat pula dataframe atau vektor), namun tidak seperti `lapply()` jenis data output yang dihasilkan adalah vektor. Untuk mengubah output menjadi list perlu argumen tambahan berupa `simplify=FALSE`. Format fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)
+```
+
+> **Note: **
+>
+> - **X**: vektor, data frame atau list
+> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
+> - **...**: opsional argumen pada fungsi yang digunakan.
+> - **simplify**: logical. Jika nilainya `TRUE` maka output yang dihasilkan adalah bentuk sederhana dari vektor, matrix atau array.
+>- **USE.NAMES**: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.
+
+Berikut adalah contoh penerapannya:
+
+```{r}
+## membuat list
+x <- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+
+## menghitung nilai mean setiap elemen
+sapply(x, FUN=mean)
+
+## menghitung nilai mean dengan output list
+sapply(x, FUN=mean, simplify=FALSE)
+
+## summary objek dataframe
+sapply(mtcars, FUN=summary)
+
+## summary objek list
+a <- list(mobil=mtcars, anggrek=iris)
+sapply(a, FUN=summary)
+```
+
+### 2.13.4 vapply
+
+Funsgi ini merupakan bentuk lain dari `sapply()`. Bedanya secara kecepatan proses fungsi ini lebih cepat dari `sapply()`. Hal yang menarik dari fungsi ini kita dapat menambahkan argumen `FUN.VALUE`. pada argumen ini kita memasukkan vektor berupa output fungsi yang diinginkan. Perbedaan lainnya adalah output yang dihasilkan hanya berupa matriks atau array. Format dari fungsi ini adalah sebagai berikut:
+
+```{r, eval=FALSE}
+vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)
+```
+
+> **Note: **
+>
+> - **X**: vektor, data frame atau list
+> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
+> - **FUN.VALUE**: vektor, template dari return value FUN.
+> - **...**: opsional argumen pada fungsi yang digunakan.
+> - **USE.NAMES**: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.
+
+Berikut adalah contoh penerapannya:
+
+```{r}
+## membuat list
+x <- sapply(3:9, seq)
+x # print
+
+## membuat ringkasan data pada tiap elemen list
+vapply(x, fivenum,
+       c(Min. = 0, "1st Qu." = 0, 
+         Median = 0, "3rd Qu." = 0, Max. = 0))
+
+## membuat ringkasan data pada tiap kolom dataframe
+vapply(mtcars, summary,
+       c(Min. = 0, "1st Qu." = 0, 
+         Median = 0, "3rd Qu." = 0, Max. = 0, Mean=0))
+```
+
+### 2.13.5 tapply
+
+Fungsi ini sangat berguna jika pembaca ingin menghitung suatu nilai misalnya mean berdasarkan grup data atau factor. Format fungsi ini adalah sebagi berikut:
+
+```{r, eval=FALSE}
+tapply(X, INDEX, FUN = NULL, ..., simplify = TRUE)
+```
+
+> **Note: **
+>
+> - **X**: vektor, data frame atau list
+> - **INDEX**: list satu atau beberapa factor yang memiliki panjang sama dengan **X**.
+> - **FUN**: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.
+> - **...**: opsional argumen pada fungsi yang digunakan.
+> - **simplify**: logical. Jika nilainya TRUE maka output yang dihasilkan adalah bentuk skalar.
+
+Berikut adalah contoh penerapannya:
+
+```{r}
+## membuat tabel frekuensi
+groups <- as.factor(rbinom(32, n = 5, prob = 0.4))
+
+tapply(groups, groups, length)
+# atau
+table(groups)
+
+## membuat tabel kontingensi
+# menghitung jumlah breaks berdasarkan faktor jenis wool
+# dan tensi level
+tapply(X=warpbreaks$breaks, INDEX=warpbreaks[,-1], FUN=sum)
+# menghitung mean panjang gigi babi hutan berdasarkan
+# jenis suplemen dan dosisnya
+tapply(ToothGrowth$len, ToothGrowth[,-1], mean)
+# menghitung mpg minimum berdasarkan jumlah silinder pada mobil
+tapply(mtcars$mpg, mtcars$cyl, min, simplify=FALSE)
+```
+
+## 2.14 Loop Menggunakan map function pada Library `purrr`
+
+Map function dari library `purrr` merupakan alternatif lain untuk melakukan looping selain dengan menggunakan for loop, while loop, atau apply family. Berbeda dengan metode tersebut, map function mempermudah proses kita dalam melakukan looping karena dapat diintegrasikan dengan fungsi-fungsi dari library `tidyverse` seperti `dplyr`, `tibble`, `tidyr`, dll, yang akan banyak penulis bahas pada Chapter selanjutnya. Selain itu, integrasi dengan library tersebut membuat setiap sintaks yang kita buat lebih mudah kita baca serta lebih cepat dalam prosesnya. 
+
+Fungsi-fungsi yang tersedia berdasarkan jenis output yang kita inginkan. Berikut adalah fungsi-fungsi map family beserta output yang dihasilkan:
+
+- `map()`: membuat output berupa list
+- `map_lgl()`: membuat output berupa vektor logical
+- `map_int()`: membuat output berupa vektor integer
+- `map_dbl()`: membuat output berupa vektor double
+- `map_chr()`: membuat output berupa vektor karakter
+
+Berikut adalah format dari fungsi-fungsi tersebut:
+
+```{r, eval=FALSE}
+map(.x, .f, ...)
+
+map_lgl(.x, .f, ...)
+
+map_chr(.x, .f, ...)
+
+map_int(.x, .f, ...)
+
+map_dbl(.x, .f, ...)
+```
+
+> **Note: **
+>
+> - **.x**: list atau vaktor atomik.
+> - **.f**: formula fungsi.
+> - **...**: argumen tambahan dari fungsi.
+
+Berikut adalah contoh dari penerapan fungsi-fungsi tersebut:
+
+```{r}
+library(purrr)
+# list
+map(.x=iris[,-5], .f=mean, na.rm=TRUE)
+
+# vektor numerik
+map_dbl(.x=iris[,-5], .f=mean, na.rm=TRUE)
+
+# vektor integer
+map_int(.x=iris[,-5], length)
+
+# vektor logical
+map_lgl(.x=iris, .f=is.double)
+
+# vektor karakter
+x <- c("Jakarta", "Bandung", "Surabaya")
+map_chr(.x=x, .f=paste, "Kota")
+```
+
+
+## 2.15 Decision Making
 
 *Decicion Making* atau sering disebut sebagai *if then else statement* merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada `R`.
 
@@ -1181,7 +1462,7 @@ repeat{
 *switch statement*     | *switch statement* digunakan untuk mengevaluasi sebuah variabel beberapa pilihan
 
 
-### 2.13.1 if statement
+### 2.15.1 if statement
 
 Pola *if statement* disajikan pada Figure \@ref(fig:ifstatement)
 
@@ -1202,7 +1483,7 @@ if(is.vector(x)){
 ```
 
 
-### 2.13.2 if else statement
+### 2.15.2 if else statement
 
 Pola dari *if else statement* disajikan pada Figure \@ref(fig:ifelse)
 
@@ -1227,7 +1508,7 @@ if("Rina" %in% x){
 ```
 
 
-### 2.13.3 switch statement
+### 2.15.3 switch statement
 
 Pola dari *switch statement* disajikan pada Figure \@ref(fig:switch)
 
@@ -1255,7 +1536,7 @@ print(x)
 ```
 
 
-## 2.14 Fungsi
+## 2.16 Fungsi
 
 Fungsi merupakan sekumpulan instruksi atau *statement* yang dapat melakukan tugas khusus. Sebagai contoh fungsi perkalian untuk menyelesaikan operasi perkalian, fungsi pemangkatan hanya untuk operasi pemangkatan, dll.
 

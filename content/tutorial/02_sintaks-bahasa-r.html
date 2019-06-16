@@ -1,5 +1,5 @@
 ---
-title: "2. Sintaks Bahasa R"
+title: "2. Dasar Pemrograman Menggunakan R"
 draft: false
 date: '2019-03-09T00:00:00+07:00'
 output: pdf_document
@@ -7,7 +7,7 @@ menu:
   tutorial:
     parent: PART 1 - Bahasa Pemrograman R
     weight: 2
-linktitle: Sintaks Bahasa R
+linktitle: Dasar Pemrograman Menggunakan R
 type: docs
 ---
 
@@ -17,6 +17,8 @@ type: docs
 body{
 text-align: justify}
 </style>
+<p>Pada <em>chapter</em> ini penulis hendak mengajak pembaca lebih familiar dengan sintaks atau perintah yang ada pada <code>R</code> yang akan membantu pembaca untuk melakukan pemrograman pada <code>R</code>. Pembaca akan mempelajari penggunaan operator dalam melakukan operasi pengolahan data pada <code>R</code>, jenis data yang ada pada <code>R</code>, sampai dengan bagaimana kita melakukan proses <em>decision making</em> menggunakan <code>R</code>.</p>
+<hr />
 <blockquote>
 <h2 id="daftar-isi">Daftar Isi</h2>
 <ul>
@@ -32,10 +34,12 @@ text-align: justify}
 <li><a href="#2-10-data-frames">Data Frames</a></li>
 <li><a href="#2-11-list">List</a></li>
 <li><a href="#2-12-loop">Loop</a></li>
-<li><a href="#2-13-decision-making">Decision Making</a></li>
-<li><a href="#2-14-fungsi">Fungsi</a></li>
+<li><a href="#2-13-loop-menggunakan-apply-family-function">Loop Menggunakan Apply Family Function</a></li>
+<li><a href="#2-15-decision-making">Decision Making</a></li>
+<li><a href="#2-16-fungsi">Fungsi</a></li>
 </ul>
 </blockquote>
+<hr />
 <div id="operator-aritmatika" class="section level2">
 <h2>2.1 Operator Aritmatika</h2>
 <p>Proses perhitungan akan ditangani oleh fungsi khusus. <code>R</code> akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:</p>
@@ -454,6 +458,36 @@ as.numeric(minum)</code></pre>
 
 &quot;My friend&#39;s name \&quot;Adi\&quot;&quot;</code></pre>
 <pre><code>## [1] &quot;My friend&#39;s name \&quot;Adi\&quot;&quot;</code></pre>
+<p>Struktur data diklasifikasikan berdasarkan dimensi data dan tie data di dalamnya (homogen atau heterogen). Klasifikasi jenis data disajikan pada Tabel <a href="#tab:strukturdata">1</a>.</p>
+<table>
+<caption><span id="tab:strukturdata">Table 1: </span> Struktur data <code>R</code>.</caption>
+<thead>
+<tr class="header">
+<th><strong>Dimensi</strong></th>
+<th><strong>Homogen</strong></th>
+<th><strong>Heterogen</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1d</td>
+<td>Atomik vektor</td>
+<td>List</td>
+</tr>
+<tr class="even">
+<td>2d</td>
+<td>Matriks</td>
+<td>Dataframe</td>
+</tr>
+<tr class="odd">
+<td>nd</td>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Berdasarkan Tabel tersebut dapat kita lihat bahwa objek terbagi atas dua buah struktur data yaitu homogen dan heterogen. Objek dengan struktur data homogen hanya dapat menyimpan satu tipe atau jenis data saja (numerik saja atau factor saja), sedangkan objek dengan struktur data heterogen akan dapat menyimpan berbagai jenis data.</p>
+<p>Berdasarkan daftar yang ada di Tabel <a href="#tab:strukturdata">1</a>, kita tidak akan membahas struktur data Array pada buku ini. Struktur data tersebut lebih banyak digunakan untuk kepentingan akademis seperti membuat model matematis yang akan penulis bahas pada buku lain.</p>
 </div>
 <div id="vektor" class="section level2">
 <h2>2.7 Vektor</h2>
@@ -1221,8 +1255,420 @@ repeat{
 ## [1] 6</code></pre>
 </div>
 </div>
+<div id="loop-menggunakan-apply-family-function" class="section level2">
+<h2>2.13 Loop Menggunakan Apply Family Function</h2>
+<p>Penggunaan loop sangat membantu kita dalam melakukan proses perhitungan berulang. Namun, metode ini tidak cukup ringkas dalam penerapannya dan perlu penulisan sintaks yang cukup panjang untuk menyelesaikan sebuah kasus yang kita inginkan. Berikut adalah sebuah sintaks yang digunakan untuk menghitung nilai mean pada suatu dataset:</p>
+<pre class="r"><code># subset data iris
+sub_iris &lt;- iris[,-5]
+# membuat vektor untuk menyimpan hasil loop
+a &lt;- rep(NA,4)
+# loop
+for(i in 1:length(sub_iris)){
+  a[i]&lt;-mean(sub_iris[,i])
+}
+# print
+a</code></pre>
+<pre><code>## [1] 5.843333 3.057333 3.758000 1.199333</code></pre>
+<pre class="r"><code>class(a) # cek kelas objek</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Metode alternatif lain untuk melakukan loop suatu fungsi adalah dengan menggunakan Apply function family. Metode ini memungkinkan kita untuk melakukan loop suatu fungsi tanpa perlu menuliskan sintaks loop. Berikut adalah beberapa fungsi dari apply family yang nantinya akan sering kita gunakan:</p>
+<ul>
+<li><code>apply()</code>: fungsi generik yang mengaplikasikan fungsi kepada kolom atau baris pada matriks atau secara lebih general aplikasi dilakukan pada dimensi untuk jenis data array.</li>
+<li><code>lapply()</code>: fungsi apply yang bekerja pada jenis data list dan memberikan output berupa list juga.</li>
+<li><code>sapply()</code>: bentuk sederhana dari lapply yang menghasilkan output berupa matriks atau vektor.</li>
+<li><code>vapply()</code>: disebut juga <em>verified apply</em> (memungkinkan untuk menghasilkan output dengan jenis data yang telah ditentukan sebelumnya).</li>
+<li><code>tapply()</code>: <em>tagged apply</em> dimana dimana tag menentukan subset dari data.</li>
+</ul>
+<div id="apply" class="section level3">
+<h3>2.13.1 Apply</h3>
+<p>Fungsi <code>apply()</code> bekerja dengan jenis data matrik atau array (jenis data homogen). Kita dapat melakukan spesifikasi apakah suatu fungsi hanya akan bekerja pada kolom saja, baris saja atau keduanya. Format fungsi ini adalah sebagai berikut:</p>
+<pre class="r"><code>apply(X, MARGIN, FUN, ...)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>X</strong>: matriks atau array</li>
+<li><strong>MARGIN</strong>: menentukan bagaimana fungsi bekerja terhadap matriks atau array. Jika nilai yang diinputkan 1, maka fungsi akan bekerja pada masing-masing baris pada matriks. Jika nilainya 2, maka fungsi akan bekerja pada tiap kolom pada matriks.</li>
+<li><strong>FUN</strong>: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function.</li>
+<li><strong>…</strong>: opsional argumen pada fungsi yang digunakan.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh bagaimana aplikasi fungsi tersebut pada matriks:</p>
+<pre class="r"><code>## membuat matriks
+x &lt;- cbind(x1 = 3, x2 = c(4:1, 2:5))
+x # print</code></pre>
+<pre><code>##      x1 x2
+## [1,]  3  4
+## [2,]  3  3
+## [3,]  3  2
+## [4,]  3  1
+## [5,]  3  2
+## [6,]  3  3
+## [7,]  3  4
+## [8,]  3  5</code></pre>
+<pre class="r"><code>class(x) # cek kelas objek</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>## menghitung mean masing-masing kolom
+apply(x, MARGIN=2 ,FUN=mean, trim=0.2, na.rm=TRUE)</code></pre>
+<pre><code>## x1 x2 
+##  3  3</code></pre>
+<pre class="r"><code>## menghitung range nilai pada masing-masing baris
+## menggunakan user define function
+apply(x, MARGIN=1,
+      FUN=function(x){
+        max(x)-min(x)
+      })</code></pre>
+<pre><code>## [1] 1 0 1 2 1 0 1 2</code></pre>
+</div>
+<div id="lapply" class="section level3">
+<h3>2.13.2 lapply</h3>
+<p>Fungsi ini melakukan loop fungsi terhadap input data berupa list. Output yang dihasilkan juga merupakan list dengan panjang list yang sama dengan yang diinputkan. Format yang digunakan adalah sebagai berikut:</p>
+<pre class="r"><code>lapply(X, FUN, ...)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>X</strong>: vektor, data frame atau list</li>
+<li><strong>FUN</strong>: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.</li>
+<li><strong>…</strong>: opsional argumen pada fungsi yang digunakan.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapan fungsi lapply:</p>
+<pre class="r"><code>## Membuat list
+x &lt;- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+x # print</code></pre>
+<pre><code>## $a
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $beta
+## [1]  0.04978707  0.13533528  0.36787944  1.00000000  2.71828183  7.38905610
+## [7] 20.08553692
+## 
+## $logic
+## [1]  TRUE FALSE FALSE  TRUE</code></pre>
+<pre class="r"><code>class(x) # cek kelas objek</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code>## Menghitung nilai mean pada masing-masing baris lits
+lapply(x, FUN=mean)</code></pre>
+<pre><code>## $a
+## [1] 5.5
+## 
+## $beta
+## [1] 4.535125
+## 
+## $logic
+## [1] 0.5</code></pre>
+<pre class="r"><code>## Menghitung mean tiap kolom dataset iris
+lapply(iris, FUN=mean)</code></pre>
+<pre><code>## Warning in mean.default(X[[i]], ...): argument is not numeric or logical:
+## returning NA</code></pre>
+<pre><code>## $Sepal.Length
+## [1] 5.843333
+## 
+## $Sepal.Width
+## [1] 3.057333
+## 
+## $Petal.Length
+## [1] 3.758
+## 
+## $Petal.Width
+## [1] 1.199333
+## 
+## $Species
+## [1] NA</code></pre>
+<pre class="r"><code>## Mengalikan elemen vektor dengan suatu nilai
+y &lt;- c(1:5)
+lapply(y, FUN=function(x){x*5})</code></pre>
+<pre><code>## [[1]]
+## [1] 5
+## 
+## [[2]]
+## [1] 10
+## 
+## [[3]]
+## [1] 15
+## 
+## [[4]]
+## [1] 20
+## 
+## [[5]]
+## [1] 25</code></pre>
+<pre class="r"><code>## Mengubah output menjadi vektor
+unlist(lapply(y, FUN=function(x){x*5}))</code></pre>
+<pre><code>## [1]  5 10 15 20 25</code></pre>
+</div>
+<div id="sapply" class="section level3">
+<h3>2.13.3 sapply</h3>
+<p>Fungsi <code>sapply()</code> merupakan bentuk lain dari fungsi <code>lapply()</code>. Perbedaanya terletak pada output default yang dihasilkan. Secara default <code>sapply()</code> menerima input utama berupa list (dapat pula dataframe atau vektor), namun tidak seperti <code>lapply()</code> jenis data output yang dihasilkan adalah vektor. Untuk mengubah output menjadi list perlu argumen tambahan berupa <code>simplify=FALSE</code>. Format fungsi tersebut adalah sebagai berikut:</p>
+<pre class="r"><code>sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>X</strong>: vektor, data frame atau list</li>
+<li><strong>FUN</strong>: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.</li>
+<li><strong>…</strong>: opsional argumen pada fungsi yang digunakan.</li>
+<li><strong>simplify</strong>: logical. Jika nilainya <code>TRUE</code> maka output yang dihasilkan adalah bentuk sederhana dari vektor, matrix atau array.</li>
+<li><strong>USE.NAMES</strong>: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>## membuat list
+x &lt;- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+
+## menghitung nilai mean setiap elemen
+sapply(x, FUN=mean)</code></pre>
+<pre><code>##        a     beta    logic 
+## 5.500000 4.535125 0.500000</code></pre>
+<pre class="r"><code>## menghitung nilai mean dengan output list
+sapply(x, FUN=mean, simplify=FALSE)</code></pre>
+<pre><code>## $a
+## [1] 5.5
+## 
+## $beta
+## [1] 4.535125
+## 
+## $logic
+## [1] 0.5</code></pre>
+<pre class="r"><code>## summary objek dataframe
+sapply(mtcars, FUN=summary)</code></pre>
+<pre><code>##              mpg    cyl     disp       hp     drat      wt     qsec     vs
+## Min.    10.40000 4.0000  71.1000  52.0000 2.760000 1.51300 14.50000 0.0000
+## 1st Qu. 15.42500 4.0000 120.8250  96.5000 3.080000 2.58125 16.89250 0.0000
+## Median  19.20000 6.0000 196.3000 123.0000 3.695000 3.32500 17.71000 0.0000
+## Mean    20.09062 6.1875 230.7219 146.6875 3.596563 3.21725 17.84875 0.4375
+## 3rd Qu. 22.80000 8.0000 326.0000 180.0000 3.920000 3.61000 18.90000 1.0000
+## Max.    33.90000 8.0000 472.0000 335.0000 4.930000 5.42400 22.90000 1.0000
+##              am   gear   carb
+## Min.    0.00000 3.0000 1.0000
+## 1st Qu. 0.00000 3.0000 2.0000
+## Median  0.00000 4.0000 2.0000
+## Mean    0.40625 3.6875 2.8125
+## 3rd Qu. 1.00000 4.0000 4.0000
+## Max.    1.00000 5.0000 8.0000</code></pre>
+<pre class="r"><code>## summary objek list
+a &lt;- list(mobil=mtcars, anggrek=iris)
+sapply(a, FUN=summary)</code></pre>
+<pre><code>## $mobil
+##       mpg             cyl             disp             hp       
+##  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+##  Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+##       drat             wt             qsec             vs        
+##  Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+##  1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+##  Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+##  Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+##  3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+##  Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+##        am              gear            carb      
+##  Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+##  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+##  Median :0.0000   Median :4.000   Median :2.000  
+##  Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :1.0000   Max.   :5.000   Max.   :8.000  
+## 
+## $anggrek
+##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
+</div>
+<div id="vapply" class="section level3">
+<h3>2.13.4 vapply</h3>
+<p>Funsgi ini merupakan bentuk lain dari <code>sapply()</code>. Bedanya secara kecepatan proses fungsi ini lebih cepat dari <code>sapply()</code>. Hal yang menarik dari fungsi ini kita dapat menambahkan argumen <code>FUN.VALUE</code>. pada argumen ini kita memasukkan vektor berupa output fungsi yang diinginkan. Perbedaan lainnya adalah output yang dihasilkan hanya berupa matriks atau array. Format dari fungsi ini adalah sebagai berikut:</p>
+<pre class="r"><code>vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>X</strong>: vektor, data frame atau list</li>
+<li><strong>FUN</strong>: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.</li>
+<li><strong>FUN.VALUE</strong>: vektor, template dari return value FUN.</li>
+<li><strong>…</strong>: opsional argumen pada fungsi yang digunakan.</li>
+<li><strong>USE.NAMES</strong>: jika list memiliki nama pada setiap elemennya, maka nama elemen tersebut akan secara default ditampilkan.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>## membuat list
+x &lt;- sapply(3:9, seq)
+x # print</code></pre>
+<pre><code>## [[1]]
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] 1 2 3 4
+## 
+## [[3]]
+## [1] 1 2 3 4 5
+## 
+## [[4]]
+## [1] 1 2 3 4 5 6
+## 
+## [[5]]
+## [1] 1 2 3 4 5 6 7
+## 
+## [[6]]
+## [1] 1 2 3 4 5 6 7 8
+## 
+## [[7]]
+## [1] 1 2 3 4 5 6 7 8 9</code></pre>
+<pre class="r"><code>## membuat ringkasan data pada tiap elemen list
+vapply(x, fivenum,
+       c(Min. = 0, &quot;1st Qu.&quot; = 0, 
+         Median = 0, &quot;3rd Qu.&quot; = 0, Max. = 0))</code></pre>
+<pre><code>##         [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+## Min.     1.0  1.0    1  1.0  1.0  1.0    1
+## 1st Qu.  1.5  1.5    2  2.0  2.5  2.5    3
+## Median   2.0  2.5    3  3.5  4.0  4.5    5
+## 3rd Qu.  2.5  3.5    4  5.0  5.5  6.5    7
+## Max.     3.0  4.0    5  6.0  7.0  8.0    9</code></pre>
+<pre class="r"><code>## membuat ringkasan data pada tiap kolom dataframe
+vapply(mtcars, summary,
+       c(Min. = 0, &quot;1st Qu.&quot; = 0, 
+         Median = 0, &quot;3rd Qu.&quot; = 0, Max. = 0, Mean=0))</code></pre>
+<pre><code>##              mpg    cyl     disp       hp     drat      wt     qsec     vs
+## Min.    10.40000 4.0000  71.1000  52.0000 2.760000 1.51300 14.50000 0.0000
+## 1st Qu. 15.42500 4.0000 120.8250  96.5000 3.080000 2.58125 16.89250 0.0000
+## Median  19.20000 6.0000 196.3000 123.0000 3.695000 3.32500 17.71000 0.0000
+## 3rd Qu. 20.09062 6.1875 230.7219 146.6875 3.596563 3.21725 17.84875 0.4375
+## Max.    22.80000 8.0000 326.0000 180.0000 3.920000 3.61000 18.90000 1.0000
+## Mean    33.90000 8.0000 472.0000 335.0000 4.930000 5.42400 22.90000 1.0000
+##              am   gear   carb
+## Min.    0.00000 3.0000 1.0000
+## 1st Qu. 0.00000 3.0000 2.0000
+## Median  0.00000 4.0000 2.0000
+## 3rd Qu. 0.40625 3.6875 2.8125
+## Max.    1.00000 4.0000 4.0000
+## Mean    1.00000 5.0000 8.0000</code></pre>
+</div>
+<div id="tapply" class="section level3">
+<h3>2.13.5 tapply</h3>
+<p>Fungsi ini sangat berguna jika pembaca ingin menghitung suatu nilai misalnya mean berdasarkan grup data atau factor. Format fungsi ini adalah sebagi berikut:</p>
+<pre class="r"><code>tapply(X, INDEX, FUN = NULL, ..., simplify = TRUE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>X</strong>: vektor, data frame atau list</li>
+<li><strong>INDEX</strong>: list satu atau beberapa factor yang memiliki panjang sama dengan <strong>X</strong>.</li>
+<li><strong>FUN</strong>: fungsi yang akan digunakan. Fungsi yang dapat digunakan dapat berupa fungsi dasar matematika atau statistika, serta user define function. Subset juga dimungkinkan pada fungsi ini.</li>
+<li><strong>…</strong>: opsional argumen pada fungsi yang digunakan.</li>
+<li><strong>simplify</strong>: logical. Jika nilainya TRUE maka output yang dihasilkan adalah bentuk skalar.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh penerapannya:</p>
+<pre class="r"><code>## membuat tabel frekuensi
+groups &lt;- as.factor(rbinom(32, n = 5, prob = 0.4))
+
+tapply(groups, groups, length)</code></pre>
+<pre><code>## 11 12 13 14 
+##  1  2  1  1</code></pre>
+<pre class="r"><code># atau
+table(groups)</code></pre>
+<pre><code>## groups
+## 11 12 13 14 
+##  1  2  1  1</code></pre>
+<pre class="r"><code>## membuat tabel kontingensi
+# menghitung jumlah breaks berdasarkan faktor jenis wool
+# dan tensi level
+tapply(X=warpbreaks$breaks, INDEX=warpbreaks[,-1], FUN=sum)</code></pre>
+<pre><code>##     tension
+## wool   L   M   H
+##    A 401 216 221
+##    B 254 259 169</code></pre>
+<pre class="r"><code># menghitung mean panjang gigi babi hutan berdasarkan
+# jenis suplemen dan dosisnya
+tapply(ToothGrowth$len, ToothGrowth[,-1], mean)</code></pre>
+<pre><code>##     dose
+## supp   0.5     1     2
+##   OJ 13.23 22.70 26.06
+##   VC  7.98 16.77 26.14</code></pre>
+<pre class="r"><code># menghitung mpg minimum berdasarkan jumlah silinder pada mobil
+tapply(mtcars$mpg, mtcars$cyl, min, simplify=FALSE)</code></pre>
+<pre><code>## $`4`
+## [1] 21.4
+## 
+## $`6`
+## [1] 17.8
+## 
+## $`8`
+## [1] 10.4</code></pre>
+</div>
+</div>
+<div id="loop-menggunakan-map-function-pada-library-purrr" class="section level2">
+<h2>2.14 Loop Menggunakan map function pada Library <code>purrr</code></h2>
+<p>Map function dari library <code>purrr</code> merupakan alternatif lain untuk melakukan looping selain dengan menggunakan for loop, while loop, atau apply family. Berbeda dengan metode tersebut, map function mempermudah proses kita dalam melakukan looping karena dapat diintegrasikan dengan fungsi-fungsi dari library <code>tidyverse</code> seperti <code>dplyr</code>, <code>tibble</code>, <code>tidyr</code>, dll, yang akan banyak penulis bahas pada Chapter selanjutnya. Selain itu, integrasi dengan library tersebut membuat setiap sintaks yang kita buat lebih mudah kita baca serta lebih cepat dalam prosesnya.</p>
+<p>Fungsi-fungsi yang tersedia berdasarkan jenis output yang kita inginkan. Berikut adalah fungsi-fungsi map family beserta output yang dihasilkan:</p>
+<ul>
+<li><code>map()</code>: membuat output berupa list</li>
+<li><code>map_lgl()</code>: membuat output berupa vektor logical</li>
+<li><code>map_int()</code>: membuat output berupa vektor integer</li>
+<li><code>map_dbl()</code>: membuat output berupa vektor double</li>
+<li><code>map_chr()</code>: membuat output berupa vektor karakter</li>
+</ul>
+<p>Berikut adalah format dari fungsi-fungsi tersebut:</p>
+<pre class="r"><code>map(.x, .f, ...)
+
+map_lgl(.x, .f, ...)
+
+map_chr(.x, .f, ...)
+
+map_int(.x, .f, ...)
+
+map_dbl(.x, .f, ...)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>.x</strong>: list atau vaktor atomik.</li>
+<li><strong>.f</strong>: formula fungsi.</li>
+<li><strong>…</strong>: argumen tambahan dari fungsi.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh dari penerapan fungsi-fungsi tersebut:</p>
+<pre class="r"><code>library(purrr)</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code># list
+map(.x=iris[,-5], .f=mean, na.rm=TRUE)</code></pre>
+<pre><code>## $Sepal.Length
+## [1] 5.843333
+## 
+## $Sepal.Width
+## [1] 3.057333
+## 
+## $Petal.Length
+## [1] 3.758
+## 
+## $Petal.Width
+## [1] 1.199333</code></pre>
+<pre class="r"><code># vektor numerik
+map_dbl(.x=iris[,-5], .f=mean, na.rm=TRUE)</code></pre>
+<pre><code>## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
+##     5.843333     3.057333     3.758000     1.199333</code></pre>
+<pre class="r"><code># vektor integer
+map_int(.x=iris[,-5], length)</code></pre>
+<pre><code>## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
+##          150          150          150          150</code></pre>
+<pre class="r"><code># vektor logical
+map_lgl(.x=iris, .f=is.double)</code></pre>
+<pre><code>## Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
+##         TRUE         TRUE         TRUE         TRUE        FALSE</code></pre>
+<pre class="r"><code># vektor karakter
+x &lt;- c(&quot;Jakarta&quot;, &quot;Bandung&quot;, &quot;Surabaya&quot;)
+map_chr(.x=x, .f=paste, &quot;Kota&quot;)</code></pre>
+<pre><code>## [1] &quot;Jakarta Kota&quot;  &quot;Bandung Kota&quot;  &quot;Surabaya Kota&quot;</code></pre>
+</div>
 <div id="decision-making" class="section level2">
-<h2>2.13 Decision Making</h2>
+<h2>2.15 Decision Making</h2>
 <p><em>Decicion Making</em> atau sering disebut sebagai <em>if then else statement</em> merupakan bentuk percabagan yang digunakan manakala kita ingin agar program dapat melakukan pengujian terhadap syarat kondisi tertentu. Pada Table 5 disajikan daftar percabangan yang digunakan pada <code>R</code>.</p>
 <p><strong>Table 5</strong> Daftar percabangan pada <code>R</code></p>
 <table>
@@ -1252,7 +1698,7 @@ repeat{
 </tbody>
 </table>
 <div id="if-statement" class="section level3">
-<h3>2.13.1 if statement</h3>
+<h3>2.15.1 if statement</h3>
 <p>Pola <em>if statement</em> disajikan pada Figure <a href="#fig:ifstatement">2</a></p>
 <div class="figure" style="text-align: center"><span id="fig:ifstatement"></span>
 <img src="/ifstatement.png" alt="Diagram if statement (sumber: Primartha, 2018)."  />
@@ -1268,7 +1714,7 @@ if(is.vector(x)){
 <pre><code>## [1] &quot;x adalah sebuah vector&quot;</code></pre>
 </div>
 <div id="if-else-statement" class="section level3">
-<h3>2.13.2 if else statement</h3>
+<h3>2.15.2 if else statement</h3>
 <p>Pola dari <em>if else statement</em> disajikan pada Figure <a href="#fig:ifelse">3</a></p>
 <div class="figure" style="text-align: center"><span id="fig:ifelse"></span>
 <img src="/ifelse.png" alt="Diagram if else statement (sumber: Primartha, 2018)."  />
@@ -1288,7 +1734,7 @@ if(&quot;Rina&quot; %in% x){
 <pre><code>## [1] &quot;Adi ditemukan&quot;</code></pre>
 </div>
 <div id="switch-statement" class="section level3">
-<h3>2.13.3 switch statement</h3>
+<h3>2.15.3 switch statement</h3>
 <p>Pola dari <em>switch statement</em> disajikan pada Figure <a href="#fig:switch">4</a></p>
 <div class="figure" style="text-align: center"><span id="fig:switch"></span>
 <img src="/switch.png" alt="Diagram switch statement (sumber: Primartha, 2018)."  />
@@ -1312,7 +1758,7 @@ print(x)</code></pre>
 </div>
 </div>
 <div id="fungsi" class="section level2">
-<h2>2.14 Fungsi</h2>
+<h2>2.16 Fungsi</h2>
 <p>Fungsi merupakan sekumpulan instruksi atau <em>statement</em> yang dapat melakukan tugas khusus. Sebagai contoh fungsi perkalian untuk menyelesaikan operasi perkalian, fungsi pemangkatan hanya untuk operasi pemangkatan, dll.</p>
 <p>Pada <code>R</code> terdapat 2 jenis fungsi, yaitu: <em>build in fuction</em> dan <em>user define function</em>. <em>build in fnction</em> merupakan fungsi bawaan <code>R</code> saat pertama kita menginstall <code>R</code>. Contohnya adalah <code>mean()</code>, <code>sum()</code>, <code>ls()</code>, <code>rm()</code>, dll. Sedangkan <em>user define fuction</em> merupakan fungsi-fungsi yang dibuat sendiri oleh pengguna.</p>
 <p>Fungsi-fungsi buatan pengguna haruslah dideklarasikan (dibuat) terlebih dahulu sebelum dapat dijalankan. Pola pembentukan fungsi adalah sebagai berikut:</p>

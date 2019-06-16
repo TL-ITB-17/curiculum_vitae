@@ -16,6 +16,16 @@ body{
 text-align: justify}
 </style>
 
+Dewasa ini tersedia banyak sekali *software* yang dapat digunakan untuk membantu kita dalam melakukan analisa data. *software* yang digunakan dapat berupa *software* berbayar atau gratis.
+
+`R` merupakan merupakan salah satu *software* gratis yang sangat populer di Indonesia. Kemudahan penggunaan serta banyaknya besarnya dukungan komunitas membuat `R` menjadi salah satu bahasa pemrograman paling populer di dunia.
+
+Paket yang disediakan untuk analisis statistika juga sangat lengkap dan terus bertambah setiap saat. Hal ini membuat `R` banyak digunakan oleh para analis data.
+
+Pada *chapter* ini penulis akan memperkenalkan kepada pembaca mengenai bahasa pemrograman `R`. Mulai dari sejarah, cara instalasi sampai dengan bagaimana kita memanfaatkan fitur dasar bantuan untuk menggali lebih jauh tentang fungsi-fungsi `R`.
+
+----------------------------------------------------
+
 > ## Daftar Isi
 >
 > * [Sejarah R](#1-1-sejarah-r)
@@ -25,6 +35,8 @@ text-align: justify}
 > * [Menginstall R dan RStudio](#1-5-menginstall-r-dan-rstudio)
 > * [Working Directory](#1-6-working-directory)
 > * [Fasilitas Help](#1-7-fasilitas-help)
+
+----------------------------------------------
 
 ## 1.1 Sejarah R
 

@@ -73,6 +73,16 @@ Contoh sederhana dari probabilitas dalam kehidupan sehari-hari adalah ketika kit
     </item>
     
     <item>
+      <title>2. Dasar Pemrograman Menggunakan R</title>
+      <link>/tutorial/02_sintaks-bahasa-r/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/02_sintaks-bahasa-r/</guid>
+      <description>body{text-align: justify}Pada chapter ini penulis hendak mengajak pembaca lebih familiar dengan sintaks atau perintah yang ada pada R yang akan membantu pembaca untuk melakukan pemrograman pada R. Pembaca akan mempelajari penggunaan operator dalam melakukan operasi pengolahan data pada R, jenis data yang ada pada R, sampai dengan bagaimana kita melakukan proses decision making menggunakan R.
+Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopLoop Menggunakan Apply Family FunctionDecision MakingFungsi2.</description>
+    </item>
+    
+    <item>
       <title>3. Manajemen Data R</title>
       <link>/tutorial/03_manajemen-data-r/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
@@ -88,17 +98,9 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
       
       <guid>/tutorial/01_mengenal-bahasa-r/</guid>
-      <description>body{text-align: justify}Daftar IsiSejarah RFitur dan Karakteristik RKelebihan dan Kekurangan RRStudioMenginstall R dan RStudioWorking DirectoryFasilitas Help1.1 Sejarah RR Merupakan bahasa yang digunakan dalam komputasi statistik yang pertama kali dikembangkan oleh Ross Ihaka dan Robert Gentlement di University of Auckland New Zealand yang merupakan akronim dari nama depan kedua pembuatnya. Sebelum R dikenal ada S yang dikembangkan oleh John Chambers dan rekan-rekan dari Bell Laboratories yang memiliki fungsi yang sama untuk komputasi statistik.</description>
-    </item>
-    
-    <item>
-      <title>2. Sintaks Bahasa R</title>
-      <link>/tutorial/02_sintaks-bahasa-r/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0700</pubDate>
-      
-      <guid>/tutorial/02_sintaks-bahasa-r/</guid>
-      <description>body{text-align: justify}Daftar IsiOperator AritmatikaFungsi AritmetikOperator RelasiOperator LogikaMemasukkan Nilai Kedalam VariabelTipe DataVektorMatriksFaktorData FramesListLoopDecision MakingFungsi2.1 Operator AritmatikaProses perhitungan akan ditangani oleh fungsi khusus. R akan memahami urutannya secara benar. Kecuali kita secara eksplisit menetapkan yang lain. Sebagai contoh jalankan sintaks berikut:
-2+4*2## [1] 10Bandingkan dengan sintaks berikut:</description>
+      <description>body{text-align: justify}Dewasa ini tersedia banyak sekali software yang dapat digunakan untuk membantu kita dalam melakukan analisa data. software yang digunakan dapat berupa software berbayar atau gratis.
+R merupakan merupakan salah satu software gratis yang sangat populer di Indonesia. Kemudahan penggunaan serta banyaknya besarnya dukungan komunitas membuat R menjadi salah satu bahasa pemrograman paling populer di dunia.
+Paket yang disediakan untuk analisis statistika juga sangat lengkap dan terus bertambah setiap saat.</description>
     </item>
     
     <item>
