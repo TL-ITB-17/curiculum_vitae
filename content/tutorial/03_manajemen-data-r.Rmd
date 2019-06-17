@@ -16,15 +16,49 @@ body{
 text-align: justify}
 </style>
 
+Data manajemen merupakan bagian penting dalam setiap proses analisa data. Proses import dan eksport data pada berbagai format penting untuk dipelajari. Selain itu, proses perapihan data sebelum analisa menjadi bagian yang harus ada pada awal proses analisa. Proses-proses tersebut akan kita ulas secara mendalam pada *chapter* ini.*Chapter* ini juga akan membahas bagaimana kita dapat melakukan sejumlah manipulasi data untuk memperoleh informasi lebih yang terkandung pada. 
+
+Pada Chapter ini pembaca juga akan belajar bagaimana bekerja menggunakan `tidyverse`, sebuah paket yang berisi kumpulan library data science. Paket ini sangat berguna bagi pembaca khusunya pemula yang ingin bekerja dengan secara rapi dan mudah bersama `R`
+
+----------------------------------------------------
+
 > ## Daftar Isi:
 >
-> * [Import File](#3-1-import-file)
-> * [Eksport File](#3-2-eksport-file)
-> * [Tibble Data Format](#3-3-tibble-data-format)
-> * [Merapikan Data](#3-4-merapikan-data)
-> * [Transformasi Data](#3-5-transformasi-data)
+> * [Tidyverse](#3-1-tidyverse)
+> * [Import File](#3-2-import-file)
+> * [Import Beberapa File Dalam Beberapa Baris Kode](#3-3-import-beberapa-file-dalam-beberapa-baris-kode)
+> * [Eksport File](#3-4-eksport-file)
+> * [Tibble Data Format](#3-5-tibble-data-format)
+> * [Merapikan Data](#3-6-merapikan-data)
+> * [Transformasi Data](#3-7-transformasi-data)
 
-## 3.1 Import File
+----------------------------------------------------
+
+## 3.1 Tidyverse
+
+`Tidyverse` merupakan kumpulan library yang dikhususkan bagi pengguna `R` yang ingin melakukan analisa data. Paket ini terdiri dari kumpulan berbagai library yang pada buku ini tidak akan dibahas seluruhnya. Library ini dari `tidyverse` antara lain:
+
+1. **`ggplot2`**: library yang digunakan untuk membuat visualisasi data yang menarik yang didasarkan pada sistem *Grammar of Graphics*.
+2. **`dplyr`**: berisi kumpulan fungsi yang digunakan untuk melakukan manipulasi pada data dengan nama fungsi dan output yang konsisten.
+3. **`tidyr`**: library yang berisi kumpulan fungsi merapikan data atau membuat *pivot table* dari data.
+4. **`readr`**: library yang berfungsi untuk membaca file format .csv, .txt, .tsv, dan .fwf.
+5. **`purrr`**: library yang berguna untuk meningkatkan *fuctional programming* pada `R`. Fungsi ini telah penulis bahas secara garis besar pada Chapter 1.
+6. **`tibble`**: library yang digunakan untuk mengubah dataframe menjadi format tibble (bentuk lain dataframe yang lebih konsisten).
+
+Selain fungsi-fungsi tersebut, masih terdapat banyak fungsi lain yang ada seperti `stringr`, `forcats`, dll.
+
+Untuk menginstall dan menjalankan library `tidyverse` jalankan sintaks berikut:
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+## 3.2 Import File
 
 Pada sesi bagian ini penulis akan menjelaskan cara mengimport file pada `R`. File yang diimport ke dalam `R` terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.
 
@@ -32,7 +66,7 @@ Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan
 
 > **Note: ** Pastikan kita telah mengatur lokasi *working directory* pada tempat dimana lokasi file yang akan kita baca berada untuk mempermudah dalam melakukan import file.
 
-### 3.1.1 Import File Menggunakan Fungsi Bawaan R
+### 3.2.1 Import File Menggunakan Fungsi Bawaan R
 
 Fungsi bawaan `R` secara umum hanya dapat membaca data dengan format TXT dan CSV. Pada `RStudio` fungsi ini bertambah dengan adanya library tambahan yang telah terinstall di `RStudio` untuk membaca file dengan format EXCEL, SPSS, SAS dan STATA.
 
@@ -101,7 +135,7 @@ data <- read.delim("http://www.sthda.com/upload/boxplot_format.txt")
 head(data)
 ```
 
-### 3.1.2 Membaca File CSV dan TXT Menggunakan Library readr
+### 3.2.2 Membaca File CSV dan TXT Menggunakan Library readr
 
 Pada bagian sebelumnya kita telah belajar bagaimana cara membaca file dengan format CSV dan TXT menggunakan paket dasar `R`. Pada bagian ini penulis akan menjelaskan bagaimana cara membaca file dengan format TXT dan CSV pada `R` menggunakan paket `readr`.
 
@@ -176,7 +210,7 @@ data <- read_csv("my_file.csv", col_types = cols(
 ))
 ```
 
-### 3.1.3 Import File Excel Pada R
+### 3.2.3 Import File Excel Pada R
 
 Keunggulan penggunaan excel sebagai format penyimpan data adalah kita dapat menyimpan banyak data dan memisahkannya pada lembar (*sheet*) yang berbeda sebagai suatu data yang independen dibandingkan pembacaan pada file csv yang hanya berisikan satu tabel data saja tiap file.
 
@@ -254,7 +288,7 @@ data <- read.xlsx(file.choose(), 1) # membaca sheet 1
 
 > **Note: ** kita juga dapat membaca file dari internet seperti pada sub-bab 3.1.1.
 
-### 3.1.4 Membaca File Dari Format Aplikasi Statistik
+### 3.2.4 Membaca File Dari Format Aplikasi Statistik
 
 Untuk membaca file yang berasal dari format aplikasi statistik seperti SPSS, SAS, dan STATA kita perlu menginstal dan memuat paket-paket yang dibutuhkan sesuai dengan file yang akan kita install. Berikut adalah sintaks bagaimana cara mengimport file dari berbagai format aplikasi statistik.
 
@@ -286,13 +320,175 @@ data <- read.dta("c:/mydata.dta")
 
 ```
 
-## 3.2 Eksport File
+Library `haven` dari paket `tidyverse` juga dapat digunakan untuk membacadata dari ekstensi program-program tersebut. Fungsi yang tersedia antara lain:
+
+1. `read_sas()`: membaca format file `.sas7bdat` + `.sas7bcat` dari **SAS**. Fungsi `read_xpt()` dapat digunakan untuk membaca SAS *transport files* (versi 5 dan versi 8).
+2. `read_sav()`: membaca format file `.sav` dari **SPSS**. Untuk versi file yang lebih lama (`.por`), kita dapat menggunakan fungsi `read_por()`.
+3. `read_dta()`: Membaca format file `.dta` dari **STATA** (berfungsi hingga versi 15).
+
+Berikut adalah sintaks untuk mengistall, memuat, dan contoh penggunaan library `haven`:
+
+```{r, eval=FALSE}
+library(haven)
+
+# SAS
+read_sas("mtcars.sas7bdat")
+
+# SPSS
+read_sav("mtcars.sav")
+
+# Stata
+read_dta("mtcars.dta")
+```
+
+## 3.3 Import Beberapa File Dalam Beberapa Baris Kode
+
+Kita dapat melakukan import beberapa file kedalam `R` menggunakan beberapa baris kode. Pada contoh ini penulsi akan memberikan contoh bagaimana cara mengimport beberapa file csv yang sejenis kedalam `R`. 
+
+Terlebih dahulu kita perlu memuat dua buah library untuk membantu proses ini yaitu `readr` (membaca file) dan `purrr` (melakukan iterasi). Berikut adalah sintaks untuk melakukannya:
+
+```{r}
+library(readr)
+library(purrr)
+```
+
+
+Pada contoh kali ini data yang hendak penulis import adalah data `lelang kota bandung`. Penulis dapat mengunduh dataset yang dibutuhkan pada tahutan [berikut](https://github.com/mohrosidi/intro/tree/master/data-raw).
+
+Untuk melakukan import, langkah pertama yang perlu kita lakukan adalah membuat list lokasi dari file yang akan kita import. Fungsi yang kita perlukan untuk membuat list ini adalah `list.files`. Format fungsi yang digunakan tersebut adalah sebagi berikut:
+
+```{r, eval=FALSE}
+list.files(path = ".", pattern = NULL, full.names = FALSE)
+```
+
+```{block2, type = "rmdnote"}
+- `path`: path (jalur) lokasi file data berada.
+
+- `patern`: pola nama file yang hendak di import.
+
+- `full.names`: nilai logik. Jika `TRUE`, jalur direktori didahului dengan nama file untuk memberikan jalur file relatif. Jika `FALSE`, nama file (bukan path) dikembalikan.
+```
+
+File yang akan penulis import terletak di folder data pada *working directory*. Pada contoh ini penulis akan menggunakan path relatif (biasanya didahului oleh titik dan bukan lokasi drive yang digunakan) agar pemabaca juga dapat melakukannya sendiri. File yang akan di upload memiliki pola penamaan yang sama yaitu mengandung kata `lelang-bandung`. Berikut adalah sintaks untuk membuat list lokasi file akan di import.
+
+```{r}
+list <- list.files(path="./data", pattern="lelang-bandung", full.names=TRUE)
+
+list
+```
+
+Setelah lokasi file kita peroleh selanjutnya kita dapat melakukan import seluruh file sekaligus menggunakan metode iterasi.
+
+### 3.3.1 for loop
+
+Cara pertama untuk melakukan import seluruh file adalah dengan menggunakan for loop. Untuk melakukannya kita terlebih dahulu perlu membuat list kosong yang kan menyimpan hasil loop yang kita lakukan. Untuk melakukannya kita perlu menggunakan fungsi `vector()`. Format fungsi tersebut adalah sebagi berikut:
+
+```{r, eval=FALSE}
+vector(mode = "logical", length = 0)
+```
+
+```{block2, type = "rmdnote"}
+- `mode`: jenis file yang hendak dibuat.
+
+- `length`: panjang file yang hendak dibuat.
+```
+
+Berikut adalah sintaks yang digunakan:
+
+```{r}
+# print list lokasi file
+list
+
+# membuat list kosong
+output_for <- vector(mode="list", length=length(list))
+
+# for looop
+for (i in seq_along(output_for)) {
+  output_for[[i]] <- read_csv(list[[i]])
+}
+
+# print hasil for loops
+output_for
+```
+
+File kita inginkan telah kita import seluruhnya. Kita dapat membuat objek tunggal pada masing-masing dataset tersebut atau menggabungkannya menjadi satu dataset jika data tersebut merupakan data yang sama (menjelaskan hal yang sama). Misalkan kita ingin menyimpan dataset pertama kedalam objek dengan nama `list1`, kita dapat melakukan subset seperti berikut:
+
+```{r}
+list1 <- output_for[[1]]
+
+# subset kolom 1 baris 1
+list1[1,1]
+```
+
+Kita dapat juga menggabungkan list `output_for` menjadi satu data frame utuh menggunakan fungsi `rbind` (menggabungkan baris data) karena dataset pada list tersebut memiliki kolom yang sama. Untuk mengefisienkan proses tersebut atau agar kita tidak mengabungkannya satu-persatu kita dapat menggunakan fungsi `Reduce()`. Format fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+Reduce(f, x)
+```
+
+```{block2, type = "rmdnote"}
+- `f`: fungsi yang digunakan.
+
+- `length`: objek (vektor, list, data frame, dan matriks) yang hendak dikenai fungsi.
+```
+
+Berikut adalah sintaks yang digunakan:
+
+```{r}
+df_for <- Reduce(f=rbind, x=output_for)
+
+# print
+df_for
+```
+
+### 3.3.2 Apply Family Function
+
+Dibandingkan dengan metode for loops, metode ini menggunakan sedikit baris kolom. Pada metode sebelumnya kita perlu menuliskan iterasi for loop dengan beberapa baris kolom. Pada metode ini kita akan menggunakan sebuah fungsi untuk mengimport file yaitu `lapply()`. Fungsi ini telah kita bahas pada Chapter sebelumnya, dimana fungsi ini melakukan iterasi suatu fungsi terhadap objek input berupa list (dapat pula vektor atau data frame) dan menghasilkan output list. Berikut adalah sintaks yang digunakan untuk melakukan import data:
+
+```{r}
+# list lokasi berkas
+list
+
+# lapply function
+output_lapply <- lapply(X=list, FUN=read_csv)
+
+# print
+output_lapply
+```
+
+Seperti sebelumnya kita akan menggabungkan dataset pada list yang dihasilkan menggunakan fungsi `Reduce()`. Berikut adalah sintaks yang digunakan:
+
+```{r, eval=FALSE}
+df_lapply <- Reduce(rbind,output_lapply)
+
+# print
+head(df_lapply)
+
+# cek apakah output for dan lapply seragam
+identical(df_for, df_lapply)
+```
+
+### 3.3.3 Map Family Function
+
+Terakhir, Anda akan melakukan impor data dengan menggunakan keluarga `map` dari paket `purrr`. Adapun fungsi yang akan digunakan adalah `map_dfr`. Fungsi ini menerima input list berisi lokasi file berada. Fungsi ini selanjutnya membaca sekaligus menggabungkan file yang telah dibaca dengan menambahkan fungsi `read_csv`. File akan digabungkan berdasarkan baris. Untuk file yang ingi digabungkan secara menyamping (berdasarkan kolom) dapat menggunakan fungsi `map_dfc`. Struktur penulisan kode di keluarga `map` serupa dengan penulisan kode di keluarga `apply`, yaitu sebagai berikut:
+
+
+```{r}
+library(purrr) # aktifkan paket purrr
+list
+output_map <- map_dfr(list, read_csv)
+output_map
+class(output_map)
+```
+
+
+## 3.4 Eksport File
 
 Setelah kita melakukan analisa dan telah memperoleh hasil yang kita inginkan dan memperoleh data frame berupa hasil prediksi suatu model atau data yang telah dibersihakan, kita ingin melakukan pelaporan dalam bentuk file dengan format seperti EXCEL, CSV atau TXT. Untuk melakukannya kita perlu melakukan eksport data yang telah dihasilkan.
 
 Pada bagian ini penulis akan menjelaskan bagaimana cara mengeksport data dari `R` kedalam format TXT, CSV, maupun EXCEL. Sebenarnya `R` memungkinkan untuk melakukan eksport dalam format lain seperti RDA maupun RDS yang tidak dibahas dalam buku ini karena berada diluar lingkup buku ini.
 
-### 3.2.1 Eksport Data Menjadi Format TXT dan CSV
+### 3.4.1 Eksport Data Menjadi Format TXT dan CSV
 
 Terdapat dua cara untuk melakukan ekport data dari `R` menjadi format TXT atau CSV, yaitu melalui paket dasar `R` maupun menggunakan library `readr`. Kedua cara tersebut memiliki sejumlah kemiripan dari segi fungsi, namun berbeda dari segi kecepatan eksport.
 
@@ -370,7 +566,7 @@ write_tsv(mtcars, path = "mtcars.txt")
 write_csv(mtcars, path = "mtcars.csv")
 ```
 
-### 3.2.2 Eksport Data Menjadi Format Excel
+### 3.4.2 Eksport Data Menjadi Format Excel
 
 Untuk mengeksport data menjadi format EXCEL (".xls" atau ".xlsx") kita dapat menggunakan fungsi `write.xlsx()` dan `write.xlsx2()` dari library `xlsx`. Berikut adalah format sederhana yanga digunakan:
 
@@ -404,7 +600,25 @@ write.xlsx(iris, file = "myworkbook.xlsx",
            sheetName="IRIS", append=TRUE)
 ```
 
-## 3.3 Tibble Data Format
+### 3.4.3 Eksport File Dalam Format SAS, SPSS, dan STATA
+
+Untuk memgeksport file dalam format seperti `.sas7bdat`, `.sav`, atau `.dta`, kita dapat menggunakan library `haven` dari paket `tidyverse`. Berikut adalah contoh sintaks untuk melakukannya:
+
+```{r, eval=FALSE}
+library(haven)
+
+# SAS
+write_sas(mtcars, "mtcars.sas7bdat")
+
+# SPSS
+write_sav(mtcars, "mtcars.sav")
+
+# Stata
+write_dta(mtcars, "mtcars.dta")
+```
+
+
+## 3.5 Tibble Data Format
 
 Tibble adalah data frame yang menyediakan metode print yang lebih bagus, berguna saat bekerja dengan kumpulan data besar. Pada bagian ini penulis akan menjelaskan penggunaan tibble sebagai alternatif kita dalam berinteraksi dengan data frame.
 
@@ -418,7 +632,7 @@ install.packages("tibble")
 library(tibble)
 ```
 
-### 3.3.1 Membuat Tibble
+### 3.5.1 Membuat Tibble
 
 Untuk dapat membuat tibble kita dapat melakukan konversi data frame yang sudah ada menjadi tibble menggunakan fungsi `as_tibble()`. Berikut adalah contoh bagaimana membuat tibble mengunakan data `iris`:
 
@@ -472,7 +686,7 @@ tribble(
 
 Penambahahan komen (#--/--/----) dilakukan untuk memperjelas posisi dari header sehingga meminimalisir kesalahan dalam input data.
 
-### 3.3.2 Tibble vs Data Frame
+### 3.5.2 Tibble vs Data Frame
 
 terdapat dua buah perbedaan utama antara tibble dan data frame , yaitu: *printing* dan *subsetting*.
 
@@ -526,26 +740,19 @@ iris_tbl[[1]]
 
 Dibandingkan dengan data frame, tibble lebih ketat: tibble tidak pernah melakukan *partial matching*, dan mereka akan menghasilkan peringatan jika kolom yang kita coba akses tidak ada.
 
-## 3.4 Merapikan Data
+## 3.6 Merapikan Data
 
 Sebelum memulai analisa terhadap data yang kita miliki, umumnya kita akan merapikan data yang akan kita gunakan. Tujuannya adalah agar data yang akan digunakan sudah siap untuk dilakukan analisa dengan software tertentu seperti `R`, dimana pada dataset perlu jelas antara variabel dan nilai (*value*), serta untuk mempermudah dalah memperoleh informasi pada data. Berikut adalah beberapa contoh dataset yang dapat pembaca cermati terkait manakah data yang telah rapi (*tidy data*) dan mana yang belum (*messy data*):
 
-```{r, eval=FALSE, results='hide'}
-# Install paket dataset EDAWR
-# install.packages("devtools")
-# devtools::install_github("rstudio/EDAWR")
-
-# hilangkan tanda # jika pembaca belum menginstall
-```
-
-
 ```{r}
-library(EDAWR)
-# memuat dataset
-storms
-cases
-pollution
+table1                  
+table2                  
+table3                  
+table4a                 
+table4b                 
+table5   
 ```
+
 
 Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu terlebih dahulu apa saja syarat suatu dataset dikatakan rapi (*tidy*). Berikut adalah syaratnya:
 
@@ -553,53 +760,28 @@ Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu terlebih dah
 - Setiap observasi harus memiliki barisnya sendiri
 - Setiap nilai berada pada sel tersendiri
 
-Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan *tidy*. Ketiga syarat tersebut dapat divisualisasikan melalui Figure \@ref(fig:tidy)
+Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan *tidy*. Ketiga syarat tersebut dapat divisualisasikan melalui Gambar \@ref(fig:tidy)
 
-```{r tidy, echo=FALSE, fig.cap='Visualisasi 3 rule tidy data', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center'}
+```{r tidy, echo=FALSE, fig.cap='Visualisasi 3 rule tidy data', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
 library(knitr)
-img1_path <- "/tidy.png"
+img1_path <- "tidy.png"
 include_graphics(img1_path)
 
 ```
 
-Pada dataset `storms` terdapat 4 buah kolom dan 6 buah baris. Masing-masing kolom menyatakan variabel pada masing-masing observasi seperti nama badai , kecepatan angin, tekanan  dan waktu . Ketiga syarat kerapihan data sudah terpenuhi pada data tersebut sehingga kita bisa melakukan analisa terhadap data tersebut, misalnya kecepatan angin dan tekanan pada masing-masing badai. Selain itu kita juga dapat dengan mudah menginput variabel baru pada dataset tersebut, misal: rasio (kecepatan angin/tekanan).
+Dengan menggunakan prinsip data *tidy* kita akan menganalisa data tersebut satu persatu. Berikut adalah analisa terkait data-data tesebut:
 
-Berikut adalah contoh bagaimana kita dapat dengan mudah menarik nilai variabel pada masing-masing kolom dan membentuk variabel baru pada dataset tersebut:
+1. `table1` merupakan data yang telah *tidy*. Ketiga prinsip data *tidy* telah terpenuhi.
+2. `table2` merupakan data yang belum *tidy* karena variabel tidak berada pada masing-masing kolomnya. Variabel `type` dapat dipecah lagi menjadi 2 kolom baru yaitu kolom  `cases` dan kolom `population`.
+3. `table3` merupakan data yang belum *tidy*. Kolom `rate` berisikan rasio yang seharusnya berisi nilai hasil bagi kedua variabel. Dapat kita duga pembilang dari nilai rasio merupakan nilai variabel `cases`, sedangkan penyebutnya merupakan nilai dari variabel `population`. Agar *tidy* kolom `rate` perlu dipecah menjadi 2 kolom baru (2 variabel) yaitu `cases` dan `population` atau nilai yang ditampilkan pada kolom `rate` adalah hasil bagi kedua nilai (bukan pecahan).
+4. `table4a` dan `table4b` masih belum *tidy*. Dua kolom yaitu kolom `1999` dan `2000` perlu dijadikan satu kolom yaitu kolom variabel `year`. Nilai dari kolom lama  selanjutnya digabung menjadi satu kolom, untuk `table4a` menjadi kolom `cases`, sedangkan `table4b` sebagai kolom `population`.
+5. `table5` masih belum *tidy*. Agar data tersebut *tidy* maka kolom `century` dan `year` perlu digabung menjadi satu kolom (variabel) yaitu kolom `year`. Selain itu, kolom `rate juga perlu dijadikan satu atau 2 kolom seperti yang dilakukan pada poin 3.
 
-```{r}
-# subset variabel
-storms$storm
-storms$wind
-storms$pressure
-storms$date
-
-# membuat variabel baru
-storms_new <- storms
-storms_new$ratio <- storms_new$wind/storms_new$pressure
-storms_new
-```
-
-Pada dataset `cases` terdapat 3 buah kolom dan 3 baris. Pada kolom pertama berupa kode Negara, sedangkan kolom sisanya merupakan tahun. Jika kita perhatikan dengan seksama dataset tersebut merupakan sebuah *contingency table* dimana tabel tersebut menyatakan frekuensi kejadian pada tahun tertentu dan negara tertentu. Dataset tersebut belum dapat dikatan *tidy* karena kolom `2011` sampai `2013` merupakan sebuah nilai dari observasi dan bukan sebuah variabel sehingga dataset tersebut masih tergolong dataset *messy*. Selain itu sangat sulit untuk dilakukan penarikan terhadap nilai pada setiap kolom serta pembentukan variabel baru sebagai pendukung analisa juga sulit dilakukan. Berikut adalah contoh melakukan penarikan nilai / subset pada masing variabel:
-
-```{r}
-cases$country
-names(cases[-1])
-unlist(cases[1:3, 2:4])
-```
-
-Pada dataset `pollution`terdapat 3 buah kolom dan 6 baris. Masing-masing kolom menyatakan lokasi berupa nama kota, keterangan ukuran partikel, serta nilai dari ukuran partikel. Beberapa dari kita mungkin menganggap dataset ini telah memenuhi syarat kerapihan data. Namun, coba kita cermati jika mita ingin membuat variabel baru terkait dengan berapa rentang ukuran partikel (range ukuran partikel) pada masing-masing kota. Hal tersebut tentu sangat sulit dilakukan pada dataset tersebut, namun dataset tersebut memungkinkan kita dengan mudah mengambil nilai dari masing-masing variabelnya seperti contoh berikut:
-
-```{r}
-pollution$city
-pollution$size
-pollution$amount
-```
-
-Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjelaskan bagaiman cara melakukan perapihan data menggunakan library `tidyr`. Sebelum kita melakukannya berikut adalah sintaks untuk menginstall library tersebut:
+Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjelaskan bagaiman cara melakukan perapihan data menggunakan library `tidyr` dari paket `tidyverse`. Sebelum kita melakukannya berikut adalah sintaks untuk menginstall library `tidyr` secara terpisah dari paket `tidyverse` tersebut:
 
 ```{r, eval=FALSE}
 # memasang paket
-install.packages("tidyr")
+install.packages("/tidyr")
 
 ```
 
@@ -608,9 +790,9 @@ install.packages("tidyr")
 library(tidyr)
 ```
 
-### 3.4.1 Gather
+### 3.6.1 Gather
 
-Pada dataset `cases` kolom `2011` sampai `2013` perlu dijadikan satu variabel yaitu tahun. untuk melakukannya kita dapat menggunakan fungsi `gather()`. Secara sederhana fungsi tersebut dapat dituliskan dengan format sebagai berikut:
+`gather()` merupakan fungsi yang digunakan untuk menggabungkan beberapa kolom menjadi satu kolom kunci (disebut juga sebagai *pivot long*. Secara sederhana fungsi tersebut dapat dituliskan dengan format sebagai berikut:
 
 ```{r, eval=FALSE}
 gather(data, key, value, ...)
@@ -626,41 +808,57 @@ gather(data, key, value, ...)
 >       + jika kita ingin mengecualikan nama kolom y gunakan -y 
 >       + untuk opsi lainnya, lihat: `dplyr::select()`
 
-Berikut adalah contoh penerapannya pada dataset `cases`:
+Visualisasi dari fungsi `gather` ini disajikan pada Gambar \@ref(fig:gather)
 
-```{r}
-# Ubah dataset cases menjadi tibble simpan sebagai objek cases_new
-library(tibble)
-cases_tbl <- as_tibble(cases)
-
-# print
-cases_tbl
-
-# gather
-cases_new <- gather(cases_tbl, 
-                    # variabel kunci
-                    key = "year",
-                    # nilai variabel
-                    value = "frequency",
-                    # kecualikan kolom country
-                    -country)
-
-# print
-cases_new
+```{r gather, echo=FALSE, fig.cap='Visualisasi fungsi gather (Sumber: Rstudio,2017)', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
+library(knitr)
+img1_path <- "/gather.png"
+include_graphics(img1_path)
 
 ```
 
-Berdasarkan hasil yang diperoleh terlihat bahwa variabel tahun memiliki jenis data karakter. Jenis data ini masih belum sesuai sehingga perlu dikonversi agar menjadi jenis data numerik (*dbl = double*). Untuk melakukannya jalankan sintaks berikut:
+Berikut adalah contoh penerapannya pada dataset `table4a` dan `table4b`:
 
 ```{r}
-# Ubah jenis variabel tahun menjadi numerik
-cases_new$year <- as.numeric(cases_new$year)
-cases_new
+# Table4a
+table4a_new <- gather(table4a, 
+                    # variabel kunci
+                    key = "year",
+                    # nilai variabel
+                    value = "cases",
+                    # kecualikan kolom country
+                    -country)
+
+table4a_new
+
+# Table4a
+table4b_new <- gather(table4b, 
+                    # variabel kunci
+                    key = "year",
+                    # nilai variabel
+                    value = "population",
+                    # kecualikan kolom country
+                    -country)
+
+table4b_new
+
+```
+
+Berdasarkan hasil yang diperoleh terlihat bahwa variabel `year` pada kedua dataset tersebut memiliki jenis data karakter. Jenis data ini masih belum sesuai sehingga perlu dikonversi agar menjadi jenis data numerik (*int = integer*). Untuk melakukannya jalankan sintaks berikut:
+
+```{r}
+# table4a_new
+table4a_new$year <- as.integer(table4a_new$year)
+table4a_new
+
+# table4a_new
+table4b_new$year <- as.integer(table4b_new$year)
+table4b_new
 ```
 
 Data yang diperoleh sekaran telah rapi (*tidy*), sehingga sudah siap untuk dilakukan analisa data.
 
-### 3.4.2 Spread
+### 3.6.2 Spread
 
 Fungsi `spread()` berkebalikan dengan `gather()`. Fungsi `gather()` menggabungkan beberapa kolom menjadi 2 buah kolom kolom kunci sedangkan `spread()` merubah dua kolom menjadi beberapa kolom. Format sederhanya adalah sebagai berikut:
 
@@ -670,42 +868,55 @@ Fungsi `spread()` berkebalikan dengan `gather()`. Fungsi `gather()` menggabungka
 > - **key**: nama kolom yang akan dijadikan heading pada kolom baru
 > - **value**: nama kolom yang nilainya akan mengisi setiap sel
 
-Pada contoh kasus pada data `pollution`, kita dapat memisahkan kolom 2 menjadi kolom baru yaitu kolom `big size` dan `small size`. Untuk melakukannya jalankan sintaks berikut:
+Visualisasi dari fungsi `spread()` ini disajikan pada Gambar \@ref(fig:spread)
+
+```{r spread, echo=FALSE, fig.cap='Visualisasi fungsi spread (Sumber: Rstudio,2017)', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
+library(knitr)
+img1_path <- "/spread.png"
+include_graphics(img1_path)
+
+```
+
+Pada contoh kasus pada data `table2`, kita dapat memisahkan kolom `type` menjadi kolom baru yaitu kolom `cases` dan `population`. Untuk melakukannya jalankan sintaks berikut:
 
 ```{r}
-# merubah objek pollution menjadi tibble
-pollution_tbl <- as_tibble(pollution)
-
-# print
-pollution_tbl
-
 # spread
-pollution_new <- spread(pollution_tbl,
-                        key = size,
-                        value = amount)
+table2_new <- spread(table2,
+                        key = type,
+                        value = count)
 
 #print
-pollution_new
+table2_new
 ```
 
-Terlihat bahwa data `pollution` tampak memnuhi syarat kerapihan data (*tidy*). Kita sekarang dapat menginput variabel baru dan melakukan analisa terhadap data tersebut. Berikut adalah contoh penerapannya:
+Terlihat bahwa data `table2_new` tampak memenuhi syarat kerapihan data (*tidy*). 
 
-```{r}
-# input variabel range (large-small)
-pollution_new$range <- pollution_new$large - pollution_new$small
+### 3.6.3 Separate
 
-# print
-pollution_new
+Fungsi `separate()` merupakan fungsi yang digunakan untuk memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi ini berbeda dengan fungsi sebelumnya seperti `gather()` dan `spread()` yang menggabung atau memisahkan 2 atau beberapa kolom. Visualisasi dari fungsi `separate()` ini disajikan pada Gambar \@ref(fig:separate)
+
+```{r separate, echo=FALSE, fig.cap='Visualisasi fungsi separate (Sumber: Rstudio,2017)', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
+library(knitr)
+img1_path <- "/separate.png"
+include_graphics(img1_path)
+
 ```
 
-Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran partikel terbesar berada di Kota Beijing.
+Jika fungsi `separate()` memisahkan sejumlah nilai menajdi beberapa kolom sesuai dengan karakter pemisah, fungsi `separate_rows()` memisahkan nilai menjadi beberapa baris berdasarkan karakter pemisah. Visualisasi dari fungsi `separate_rows()` ini disajikan pada Gambar \@ref(fig:separaterows)
 
-### 3.4.3 Separate
+```{r separaterows, echo=FALSE, fig.cap='Visualisasi fungsi separate rows', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
+library(knitr)
+img1_path <- "/separate_rows.png"
+include_graphics(img1_path)
 
-Fungsi `separate()` merupakan fungsi yang digunakan untuk memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi ini berbeda dengan fungsi sebelumnya seperti `gather()` dan `spread()` yang menggabung atau memisahkan 2 atau beberapa kolom. Format sederhana fungsi `separate()` adalah sebagai berikut:
+```  
+
+Format sederhana fungsi `separate()`  dan `separate_rows()` adalah sebagai berikut:
 
 ```{r, eval=FALSE}
-separate(data, col, into, sep = "[^[:alnum:]]+", convert= TRUE)
+separate(data, col, into, sep = "[^[:alnum:]]+", convert= FALSE)
+
+separate(data,...., sep = "[^[:alnum:]]+", convert= FALSE)
 ```
 
 > **Note: **
@@ -718,29 +929,32 @@ separate(data, col, into, sep = "[^[:alnum:]]+", convert= TRUE)
 Jika numerik, diartikan sebagai posisi untuk dibelah. Nilai-nilai positif mulai dari 1 di ujung kiri string; nilai negatif mulai dari -1 di ujung kanan string.
 > - **convert**: nilai logik. Jika bernilai TRUE maka kolom baru yang akan diperoleh akan dikonversi berdasarkan jenis data yang seharusnya.
 
-Pada dataset `storms` kita ingin memisahkan kolom `date` menjadi beberapa kolom seperti `year`, `month`, dan `day`, Kita dapat menggunakan fungsi `separate()` untuk memisahkan nilai pada kolom tersebut berdasarkan karakter pemisah pada nilai kolom tersebut dalam hal ini adalah "-". Berikut adalah cara melakukannya:
+Pada `table3` dan `table5` kita akan mencoba memisahkan kolom `rate` menjadi 2 kolom yaitu kolom `cases` dan kolom `population`. Berikut adalah sintaks yang digunakan:
 
 ```{r}
-# merubah storms menjadi tibble
-storms_tbl <- as_tibble(storms)
+# table3
+table3_new <- separate(table3, col=rate,
+                       into=c("cases", "population"),
+                       sep="/", convert=TRUE)
+table3_new
 
-# print
-storms_tbl
-
-# separate
-storms_new <- separate(storms_tbl,
-                       col = date,
-                       into = c("year","month","days"),
-                       sep = "-",
-                       convert = TRUE)
-
-# print
-storms_new
+# table5
+table5_new <- separate(table5, col=rate,
+                       into=c("cases", "population"),
+                       sep="/", convert=TRUE)
+table5_new
 ```
 
-Berdasarkan hasil yang diperoleh terlihat bahwa data telah terpisah dengan benar yang ditunjukkan dari nilai yang terpisah dan jenis data yang dihasilkan. 
+Berdasarkan hasil yang diperoleh terlihat bahwa `table3` telah *tidy*, sedangkan `table5` belum *tidy* sebab kolom `century` dan kolom `year` perlu digabungkan menjadi kolom `year`.
 
-### 3.4.4 Unite
+Kita dapat juga memisahkan kolom `rate` pada `table3` menjadi baris baru menggunakan fungsi `separate_rows()`. Berikut adalah sintaks yang digunakan:
+
+```{r}
+separate_rows(table3, col=rate, sep="/")
+```
+
+
+### 3.6.4 Unite
 
 Fungsi `unite()` merupakan kebalikan dari fungsi `separate()`, dimana fungsi ini menggabungkan sejumlah kolom menjadi 1 kolom. Format sederhana untuk melakukanya disajikan sebagai berikut:
 
@@ -754,32 +968,32 @@ unite(data, col, ..., sep = "_")
 > - **col**: nama kolom baru (tanpa tanda kutip) untuk ditambahkan.
 > - **sep**: pemisah yang akan digunakan pada antar nilai.
 
-Pada dataset `storms_new` kita ingin menggabungkan kembali kolom `year`, `month`, dan `days` dengan karakter pemisah "/". Berikut adalah cara melakukannya:
+Visualisasi dari fungsi `unite()` ini disajikan pada Gambar \@ref(fig:spread)
+
+```{r unite, echo=FALSE, fig.cap='Visualisasi fungsi unite (Sumber: Rstudio,2017)', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
+library(knitr)
+img1_path <- "/unite.png"
+include_graphics(img1_path)
+
+```  
+
+Pada dataset `table5_new` kita akan menggabungkan kolom `century` dan kolom `year` menjadi kolom `year` tanpa pemisah. Berikut adalah sintaks untuk melakukannya: 
 
 ```{r}
-# unite
-storms_old <- unite(storms_new,
-                   col = "date",
-                   year, month, days,
-                   sep = "-")
-
-# print
-storms_old
-
-# ubah jenis kolom menjadi date
-storms_old$date <- as.Date(storms_old$date)
-
-# print
-storms_old
+table5_new2 <- unite(table5_new, century,
+                    year, col="year", sep="")
+table5_new2
 ```
 
-## 3.5 Transformasi Data
+Berdasarkan hasil yang diperoleh dapat dilihat bahwa `table5_new2` telah memenuhi syarat data yang *tidy* atau rapi. Data tersebut telah siap untuk dilakukan analisa lebih lanjut.
+
+## 3.7 Transformasi Data
 
 Data frame merupakan struktur data utama dalam statistik dan dalam `R`. Struktur dasar data frame ialah ada satu observasi tiap baris dan setiap kolom mewakili variabel, ukuran, fitur, atau karakteristik pengamatan itu yang telah dijelaskan pada bagian sebelumya. `R` memiliki implementasi internal data frame yang kemungkinan besar akan kita gunakan paling sering. Namun, ada paket di CRAN yang mengimplementasikan data frame layaknya basis data relasional yang memungkinkan kita untuk beroperasi pada data frame yang sangat besar.
 
 Mengingat pentingnya mengelola dat frame, penting bagi kita untuk memiliki alat yang baik untuk melakukannya. `R` memiliki beberapa paket seperti fungsi `subset()` dan penggunaan operator "[" dan "$" untuk mengekstrak himpunan bagian dari frame data. Namun, operasi lain, seperti pemfilteran, pengurutan, dan pengelompokan data, seringkali dapat menjadi operasi yang membosankan di `R` yang sintaksisnya tidak terlalu intuitif. Paket `dplyr` dirancang untuk mengurangi banyak masalah ini dan menyediakan serangkaian rutinitas yang dioptimalkan secara khusus untuk menangani data frame.
 
-### 3.5.1 Paket dplyr
+### 3.7.1 Paket dplyr
 
 Paket `dplyr` dikembangkan oleh **Hadley Wickham** dari **RStudio** dan merupakan versi yang dioptimalkan dari paket `plyr`-nya. Paket `dplyr` tidak menyediakan fungsionalitas baru untuk `R` sendiri, dalam arti bahwa semua yang dilakukan `dplyr` sudah dapat dilakukan dengan fungsi basis `R`, tetapi sangat menyederhanakan fungsi yang ada di `R`.
 
@@ -812,7 +1026,24 @@ install.packages("dplyr")
 library(dplyr)
 ```
 
-### 3.5.2 filter()
+Pada contoh kali ini penulis akan menggunakan dataset `flights` dari library `nycflights13`. Berikut adalah sintaks untuk memuat dataset tersebut:
+
+```{r, warning=FALSE}
+library(nycflights13)
+
+#print
+flights
+
+# cek variabel
+colnames(flights)
+
+# ringkasan data
+summary(flights)
+```
+
+dataset tersebut berisi 336.776 penerbangan yang berangkat dari New York pada tahun 2013. Data tersebut berasal dari *US Bureau of Transportation Statistics*. 
+
+### 3.7.2 filter()
 
 Fungsi `filter()` digunakan untuk mengekstrak himpunan bagian (subset) baris dari data frame. Fungsi ini mirip dengan fungsi `subset()` yang ada di `R`. Secara sederhana format fungsi `filter()` dapat dituliskan sebagai berikut:
 
@@ -825,16 +1056,26 @@ filter(data, ....)
 > - **data** : data frame
 > - **....** : Predikat logis didefinisikan dalam istilah variabel dalam **data**. Beberapa kondisi digabungkan dengan & (lihat Chapter 2 opeator relasi dan operator logika. Hanya baris tempat kondisi bernilai TRUE disimpan.
 
-Misalkan kita akan melakukan melakukan filter terhadap data frame `pollution_tbl` terhadap variabel `size` dengan kriteria `large` dan `amount` > 12. Berikut adalah sintaks yang digunakan:
+Visualisasi dari fungsi `filter()`disajikan pada Gambar \@ref(fig:filtervis)
+
+```{r filtervis, echo=FALSE, fig.cap='Visualisasi fungsi filter (Sumber: Rstudio,2017)', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
+library(knitr)
+img1_path <- "/filtervis.png"
+include_graphics(img1_path)
+
+```  
+
+MIsalkan menggunakan dataset `flights` kita ingin mentehaui penerbangan apa saja yang berlangsung pada `month==1` dan `day==1` (1 Januari). Berikut adalah sintaks untuk memfilter datanya:
 
 ```{r}
-filter(pollution_tbl, size=="large" & amount > 12)
+filter(flights, month == 1 & day == 1)
 ```
 
 Jika menggunakan paket dasar `R`:
 
 ```{r}
-subset(pollution_tbl,size=="large" & amount > 12)
+jan1 <- subset(flights, month == 1 & day == 1)
+head(jan1, 10)
 ```
 
 Operator ">" merupakan operator relasi (lihat chapter 2: operator relasi). Operator tersebut banyak digunakan untuk melakukan filter terhadap variabel/kolom yang mengandung nilai numerik.
@@ -852,13 +1093,111 @@ include_graphics(img1_path)
 
 Salah satu bagian terpenting dan paling sering penulis gunakan pada fungsi ini memfilter *missing value* (melihat observasi yang mengandung *missing value* atau tidak melibatkan *missing value*). Berikut adalah contoh filter terhadap data pada `pollution_tbl` yang tidak mengandung *missing value* dan nilai `amount`>0.
 
-```{r}
-filter(pollution_tbl,!(is.na(amount)|amount<=0))
+```{r, eval=FALSE}
+flight_clean <- filter(flights,
+                !(is.na(air_time)|is.na(arr_time)|
+                    is.na(arr_delay)|
+                    is.na(dep_time)|
+                    is.na(dep_delay)))
+summary(flight_clean)
 ```
 
 Berdasarkan hasil yang diperoleh seluruh data tidak ada yang di drop sehingga dapat disimpulkan bahwa data tersebut tidak mengandung *missing value* dan nol.
 
-### 3.5.3 arrange()
+Cara lain yang dapat digunakan adalah dengan mengunakan fungsi `drop_na()` dari library `tidyr`. Berikut adalah contoh sintaks yang digunakan:
+
+```{r}
+flight_clean <- drop_na(flights)
+summary(flight_clean)
+```
+
+#### 3.7.2.1 Scope Filtering
+
+*Scope filtering* menerapkan ekspresi predikat pada sejumlah variabel. Ekspresi predikat harus dikutip dengan `all_vars()` atau `any_vars()` dan harus menyebutkan kata ganti `.` untuk merujuk ke variabel. Fungsi-fungsi yang ada pada *scope filtering* dan formatnya disajikan pada sintaks berikut:
+
+```{r, eval=FALSE}
+filter_all(.tbl, .vars_predicate, .preserve = FALSE)
+
+filter_if(.tbl, .predicate, .vars_predicate, .preserve = FALSE)
+
+filter_at(.tbl, .vars, .vars_predicate, .preserve = FALSE)
+```
+
+> **Note: **
+>
+> - **.tbl**: tibble atau dataframe.
+> - **.vars_predicate**: Ekspresi predikat yang dikutip seperti yang dikembalikan oleh `all_vars()` atau `any_vars()`. `all_vars()` melakukan filter seperti pada efek *intersect* (irisan himpunan), sedangkan  `any_vars()` melakukan filter seperti efek *union* (himpunan gabungan).
+> - **.preserve**: ketika `FALSE` (default), struktur pengelompokan dihitung ulang berdasarkan data yang dihasilkan.
+> - **.predicate**: fungsi predikat yang diaplikasikan pada kolom atau vektor logikal.
+> - **.vars**: daftar kolom yang dihasilkan oleh `vars()`, vektor karakter dari nama kolom, vektor numerik dari posisi kolom, atau `NULL`.
+
+Berikut adalahcontoh sintaks penerapan fungsi-fungsi tersebut:
+
+```{r}
+# filter seluruh kolom dan baris yang memiliki nilai sesuai
+# mengambil irisan data
+filter_all(flights, all_vars(. > 150))
+# mengambil himpunan gabungan data
+filter_all(flights, any_vars(. > 150))
+
+# filter pada kolom tertentu berdasarkan spesifikasi 
+# predikat var()
+
+# filter kolom dengan awalan h atau 
+# yang terdapat baris dengan nilai ganjil 
+# pada variabel tersebut
+filter_at(flights, 
+          vars(starts_with("a")), 
+          any_vars((. %% 2) == 1))
+
+# filter pada kolom hp dan vs dimana nilai kolom genap
+filter_at(flights, vars(arr_time, arr_delay), ~.%%2==0)
+
+# filter dengan menerapkan kondisi tertentu
+# filter seluruh variabel dengan observasi mengandung
+# bilangan bulat dan tidak memiliki nilai 0
+filter_if(flights[,16:17], ~ all(floor(.) == .), all_vars(. != 0))
+```
+
+>**Note: filter_at()** dan **filter_if()** menghilangkan kolom yang tidak sesuai kriteria. Sedangkan **filter_all()** digunakan untuk memfilter baris.
+
+#### 3.7.2.2 Fungsi Lain Untuk Mengekstrak Observasi
+
+Selain  fungsi `filter()` terdapat fungsi lain yang berguna dalam melakukan ekstrak data. Fungsi-fungsi tersebut antara lain:
+
+1. `distinct()`: menghilangkan baris dengan nilai yang sama (*duplicate observation*).
+2. `sample_frac()`: melakukan sampling sejumlah fraksi baris pada data. Fungsi ini berguna saat pembaca ingin melakukan sampling data yang cukup besar menggunakan besaran fraksi data.
+3. `sample_n()`: sama dengan `sample_frac()`. Bedanya adalah kita perlu menyatakan berapa baris yang hendak kita sampling.
+4. `slice()`: membuat irisan data. Berguna jika ingin membuat dataset baru berrdasarkan grup data atau membuat dataset dari sejumlah baris pada data.
+5. `top_n()`: memilih data teratas (nilai tertinggi) yang telah diurutkan.
+
+Berikut adalah contoh sintaks penerapan fungsi-fungsi tersebut:
+
+```{r}
+# menghilangkan baris dengan nilai
+distinct(flights, tailnum)
+
+# Sampling dengan pengembalian secara acak 50% data
+sample_frac(flights, 0.1, replace=TRUE)
+
+# sampling dengan pengembalian secara acak 10 observasi
+sample_n(flights, 10, replace=TRUE)
+
+# Pilih data dari baris ke 25 sampai 35
+slice(flights, 25:35)
+
+# 10 observasi dengan variabel Sepal.Width tertinggi
+top_n(flights, 10, arr_time)
+```
+
+Untuk informasi lebih lanjut pembaca dapat mengakses menu bantuan dengan mengetikkan sintaks berikut:
+
+```{r, eval=FALSE}
+?<nama fungsi>
+```
+
+
+### 3.7.3 arrange()
 
 Fungsi `arrange()` bekerja mirip dengan fungsi `filter()` kecuali bahwa alih-alih memilih baris, fungsi ini mengubah urutan observasinya (mengurutkan dari yang terbesar atau sebaliknya). Dibutuhkan data frame dan sekumpulan nama kolom (atau ekspresi yang lebih rumit) untuk dipesan. Jika kita memberikan lebih dari satu nama kolom pada fungsi, setiap kolom tambahan akan digunakan untuk menentukan urutan nilai yang sama berdasarkan nilai kolom sebelumnya. 
 
@@ -873,38 +1212,44 @@ arrange(data, ....)
 > - **data** : data frame
 > - **....** : daftar nama variabel yang tidak dikutip yang dipisahkan tanda koma, atau ekspresi yang melibatkan nama variabel. Gunakan `desc()` untuk mengurutkan variabel dalam urutan menurun.
 
-Misalkan kita ingin melihat urutan mobil pada data `mtcars` berdasarkan penggunaan bahan bakar (`mpg`) dan bobot mobil (`wt`) tersebut. Berikut adalah sintaks yang digunakan:
+Visualisasi dari fungsi `arrange()`disajikan pada Gambar \@ref(fig:arrange)
+
+```{r arrange, echo=FALSE, fig.cap='Visualisasi fungsi arrange (Sumber: Rstudio,2017)', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
+library(knitr)
+img1_path <- "/arrange.png"
+include_graphics(img1_path)
+
+```  
+
+Misalkan kita ingin mengurutkan penerbangan berdasarkan variabel `year`, `month`, dan `day`. `R` akan melakukan pengurutan berdasarkan `year` terlebih dahulu. Jika ditemukan nilai yang seimbang, maka pengurutan dilakukan oleh variabel berikutnya. Berikut adalah sintaks yang digunakan:
 
 ```{r}
-data("mtcars")
-
-# Ubah mtcars menjadi tibble
-mtcars<- as_tibble(mtcars)
-
-arrange(mtcars, mpg, wt)
+arrange(flights, year, month, day)
 ```
 
-Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk kedua variabel tersebut jalankan sintaks berikut:
+Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk ketiga variabel tersebut jalankan sintaks berikut:
 
 ```{r}
-arrange(mtcars, desc(mpg), desc(wt))
+arrange(flights, desc(year, month, day))
 ```
 
 Jika menggunakan fungsi `order()`:
 
 ```{r, message=FALSE}
-attach(mtcars)
+attach(flights)
 # urutan dari kecil ke besar
-mtcars[order(mpg, wt), ]
+flights[order(year, month, day), ]
 
 # urutan dari besar ke kecil
-mtcars[order(-mpg, -wt), ]
+flights[order(-year, -month, -day), ]
 
 ```
 
+
 > **Note: ** *missing value* akan selalu diurutkan pada observasi terakhir baik menggunakan urutan dari terbesar ke terkecil maupun sebaliknya.
 
-### 3.5.4 select()
+
+### 3.7.4 select()
 
 Fungsi `select()` dapat digunakan untuk memilih kolom dari data frame yang ingin kita fokuskan. Seringkali kita memiliki data frame yang besar yang berisi semua data, tetapi setiap analisis yang diberikan hanya menggunakan subset variabel atau pengamatan. Fungsi `select()` memungkinkan kita untuk mendapatkan beberapa kolom yang mungkin kita butuhkan.
 
@@ -964,7 +1309,80 @@ Kita juga dapat menggunakan fungsi tambahan `everithing()` yang berguna jika kit
 select(flights, contains("time"), everything())
 ```
 
-### 3.5.5 mutate()
+#### 3.7.4.1 Scope Varian dari Fungsi Select
+
+Terdapat 3 fungsi scope varian yang digunakan pada select, yaitu:
+
+1. `select_all()`: memilih seluruh kolom dan mengaplikasikan fungsi pada nama kolom (merubah nama, merubah besar kecil huruf, dll).
+2. `select_if()`: memilih kolom sesuai kondisi yang diinginkan serta dapat mengaplikasikan fungsi pada nama kolom.
+3. `select_at()`: memilih kolom sesuai nama kolom atau index yang diinputkan pada `var()` dan dapat mengaplikasikan fungsi pada nama kolom.
+
+Berikut adalah format dari fungsi-fungsi tersebut:
+
+```{r, eval=FALSE}
+select_all(.tbl, .funs = list(), ...)
+
+select_if(.tbl, .predicate, .funs = list(), ...)
+
+select_at(.tbl, .vars, .funs = list(), ...)
+```
+
+> **Note: **
+>
+> - **.tbl**: tibble atau dataframe
+> - **.funs**: fungsi yang akan diaplikasikan.
+> - **...**: argumen tambahan fungsi.
+> - **.predicate**: fungsi predikat yang akan diaplikasikan pada kolom.
+> - **.vars**: daftar kolom yang dibuat oleh fungsi `vars()`.
+
+Berikut adalah contoh sintaks fungsi-fungsi tersebut:
+
+```{r}
+# pilih seluruh kolom dan ubah huruf kolom 
+# menjadi huruf kapital
+select_all(flights, toupper)
+
+# pilih kolom berdasarkan if then condition
+# dan ubah nama kolom terpilih menjadi huruf kapital
+select_if(flights, ~is_character(.), toupper)
+
+# pilih beberapa kolom dan ubah nama kolom menjadi huruf besar.
+select_at(flights, vars(contains("time")), toupper)
+```
+
+#### 3.7.4.2 Fungsi Pull Untuk Mengambil Nilai Pada Kolom
+
+Fungsi `pull()` digunakan untuk mengambil nilai pada variabel. Output yang dihasilkan berupa vektor. Fungsi ini mirip dengan subseting menggunakan "$" (*dolar sign*) atau "[[" (*double square brackets*). Berikut adalah format fungsi tersebut:
+
+```{r, eval=FALSE}
+pull(.data, var = -1)
+```
+
+> **Note : **
+>
+> - **.data**: tibble atau dataframe.
+> - **var**: nama variabel atau indeks. Untuk indeks positif, tabel akan dibaca dari kanan. Jika negatif akan dibaca dari kiri.
+
+Visualisasi dari fungsi `pull()`disajikan pada Gambar \@ref(fig:pull)
+
+```{r pull, echo=FALSE, fig.cap='Visualisasi fungsi pull (Sumber: Rstudio,2017)', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
+library(knitr)
+img1_path <- "/pull.png"
+include_graphics(img1_path)
+
+```  
+
+Berikut adalah contoh sintaks menggunakan fungsi `pull()`:
+
+```{r}
+# menggunakan fungsi pull
+pull(mtcars, mpg)
+
+# menggunakan fungsi dasar
+mtcars[["mpg"]]
+```
+
+### 3.7.5 mutate()
 
 Fungsi `mutate()` ada untuk menghitung transformasi variabel dalam data frame. Seringkali, kita ingin membuat variabel baru yang berasal dari variabel yang ada dan fungsi `mutate()` menyediakan antarmuka yang bersih untuk melakukan itu. Format yang digunakan adalah sebagai berikut:
 
@@ -1038,7 +1456,105 @@ cummean(x)
 
 6. Rangking (`min_rank()`, `row_number()`, `dense_rank()`, `percent_rank()`, `cume_dist()`dan `ntile()`).
 
-### 3.5.6 summarize() dan group_by()
+#### 3.7.5.1 Scope Variant Fungsi Mutate dan Transmute
+
+**Scope variants** dari fungsi `mutate()` dan `transmute` berfungsi melakukan transformasi yang sama terhadap beberapa variabel. Terdapat tiga varaian umum dari fungsi-fungsinya, antara lain:
+
+1. `_all`:bekerja pada seluruh variabel.
+2. `_at`: bekerja pada variabel terpilih melalui vektor numerik atau string.
+3. `_if`: berkeja pada variabel terpilih melalui fungsi predikat.
+
+Berikut adalah format fungsi-fungsi tersebut:
+
+```{r, eval=FALSE}
+mutate_all(.tbl, .funs, ...)
+
+mutate_if(.tbl, .predicate, .funs, ...)
+
+mutate_at(.tbl, .vars, .funs, ...)
+
+transmute_all(.tbl, .funs, ...)
+
+transmute_if(.tbl, .predicate, .funs, ...)
+
+transmute_at(.tbl, .vars, .funs, ...)
+```
+
+> **Note: **
+>
+> - **.tbl**: tibble atau dataframe.
+> - **.funs**: fungsi yang diaplikasikan.
+> - **...**: argumen tambahan pada fungsi.
+> - **.predicate**: fungsi predikat yang diaplikasikan pada kolom.
+> - **.vars**: daftra kolom yang dibuat menggunakan fungsi `vars()`.
+
+Berikut adalah contoh sintaks dari fungsi-fungsi tersebut:
+
+```{r, warning=FALSE, message=FALSE}
+# melakukan standarisasi variabel numerik
+# fungsi standarisasi
+scale2 <- function(x, na.rm = FALSE) (x - mean(x, na.rm = na.rm)) / sd(x, na.rm)
+
+# standarisasi variabel dataset mtcars
+mutate_all(mtcars, scale2)
+
+# standarisasi variabel mpg dan hp
+mutate_at(mtcars, vars(mpg,hp), scale2)
+
+# standarisasi hanya pada variabel numerik
+mutate_if(mtcars, is_numeric, scale2)
+```
+
+#### 3.7.5.2 Kustomisasi Nama Kolom dan Nama Baris
+
+*Tidy* data tidak menggunakan nama variabel yang di simpan pada variabel diluar kolom. Untuk bekerja dengan nama kolom kita perlu memindahkan nama baris menjadi kolom baru. Terdapat dua fungsi untuk bekerja dengan nama baris, antara lain:
+
+1. `rownames_to_column()`: merubah nama baris menjadi kolom baru.
+2. `column_to_rownames()`: merubah kolom menjadi nama baris.
+
+```{r, eval=FALSE}
+rownames_to_column(.data, var = "rowname")
+
+column_to_rownames(.data, var = "rowname")
+```
+
+> **Note: **
+>
+> - **.data**: dataframe.
+> - **var**: nama kolom yang akan digunakan atau dibuat.
+
+Berikut adalah contoh sintaks pada fungsi tersebut:
+
+```{r}
+# membuat kolom nama mobil
+mtcars2 <- rownames_to_column(mtcars, var="nama_mobil")
+head(mtcars2)
+
+# membuat kolom nama mobil menajdi nama baris
+mtcars3 <- column_to_rownames(mtcars2, var="nama_mobil")
+head(mtcars3)
+```
+
+Sering kali nama variabel atau kolom yang kita miliki tidak sesuai dengan deskripsi data yang kita dimiliki. Kita dapat mengubah nama kolom tersebut menggunakan fungsi `rename()`. Format fungsi tersebut adalah sebagai berikut:
+
+```{r, eval=FALSE}
+rename(.data, ...)
+```
+
+```{block2, type = "rmdnote"}
+- `.data`: dataframe.
+
+- `...`: Argumen tambahan pada yan berisi nam kolom baru disertai nama kolom lama.
+```
+
+Berikut adalah contoh sintaks untuk mengubah nama kolom:
+
+```{r}
+rename(mtcars, horse_power=hp)
+```
+
+
+### 3.7.6 summarize() dan group_by()
 
 Kita dapat membuat ringkasan data menggunakan fungsi `summarize()`. Fungsi tersebut akan merubah data frame menjadi sebuah baris berisi ringkasan data yang kita inginkan. Berikut adalh contoh penerapannya:
 
@@ -1053,7 +1569,7 @@ by_day <- group_by(flights, year, month, day)
     summarize(by_day, delay = mean(dep_delay, na.rm = TRUE))
 ```
 
-### 3.5.7 Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%>%)
+### 3.7.7 Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%>%)
 
 Operator pipa (%>%) sangat berguna untuk merangkai bersama beberapa fungsi `dplyr` dalam suatu urutan operasi. Perhatikan contoh sebelumnya dimana setiap kali kita ingin menerapkan lebih dari satu fungsi, urutannya akan dimulai dalam urutan panggilan fungsi bersarang yang sulit dibaca. Secara ringkas dapat kita tulis sebagai berikut:
 

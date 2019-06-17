@@ -17,25 +17,63 @@ type: docs
 body{
 text-align: justify}
 </style>
+<p>Data manajemen merupakan bagian penting dalam setiap proses analisa data. Proses import dan eksport data pada berbagai format penting untuk dipelajari. Selain itu, proses perapihan data sebelum analisa menjadi bagian yang harus ada pada awal proses analisa. Proses-proses tersebut akan kita ulas secara mendalam pada <em>chapter</em> ini.<em>Chapter</em> ini juga akan membahas bagaimana kita dapat melakukan sejumlah manipulasi data untuk memperoleh informasi lebih yang terkandung pada.</p>
+<p>Pada Chapter ini pembaca juga akan belajar bagaimana bekerja menggunakan <code>tidyverse</code>, sebuah paket yang berisi kumpulan library data science. Paket ini sangat berguna bagi pembaca khusunya pemula yang ingin bekerja dengan secara rapi dan mudah bersama <code>R</code></p>
+<hr />
 <blockquote>
 <h2 id="daftar-isi">Daftar Isi:</h2>
 <ul>
-<li><a href="#3-1-import-file">Import File</a></li>
-<li><a href="#3-2-eksport-file">Eksport File</a></li>
-<li><a href="#3-3-tibble-data-format">Tibble Data Format</a></li>
-<li><a href="#3-4-merapikan-data">Merapikan Data</a></li>
-<li><a href="#3-5-transformasi-data">Transformasi Data</a></li>
+<li><a href="#3-1-tidyverse">Tidyverse</a></li>
+<li><a href="#3-2-import-file">Import File</a></li>
+<li><a href="#3-3-import-beberapa-file-dalam-beberapa-baris-kode">Import Beberapa File Dalam Beberapa Baris Kode</a></li>
+<li><a href="#3-4-eksport-file">Eksport File</a></li>
+<li><a href="#3-5-tibble-data-format">Tibble Data Format</a></li>
+<li><a href="#3-6-merapikan-data">Merapikan Data</a></li>
+<li><a href="#3-7-transformasi-data">Transformasi Data</a></li>
 </ul>
 </blockquote>
+<hr />
+<div id="tidyverse" class="section level2">
+<h2>3.1 Tidyverse</h2>
+<p><code>Tidyverse</code> merupakan kumpulan library yang dikhususkan bagi pengguna <code>R</code> yang ingin melakukan analisa data. Paket ini terdiri dari kumpulan berbagai library yang pada buku ini tidak akan dibahas seluruhnya. Library ini dari <code>tidyverse</code> antara lain:</p>
+<ol style="list-style-type: decimal">
+<li><strong><code>ggplot2</code></strong>: library yang digunakan untuk membuat visualisasi data yang menarik yang didasarkan pada sistem <em>Grammar of Graphics</em>.</li>
+<li><strong><code>dplyr</code></strong>: berisi kumpulan fungsi yang digunakan untuk melakukan manipulasi pada data dengan nama fungsi dan output yang konsisten.</li>
+<li><strong><code>tidyr</code></strong>: library yang berisi kumpulan fungsi merapikan data atau membuat <em>pivot table</em> dari data.</li>
+<li><strong><code>readr</code></strong>: library yang berfungsi untuk membaca file format .csv, .txt, .tsv, dan .fwf.</li>
+<li><strong><code>purrr</code></strong>: library yang berguna untuk meningkatkan <em>fuctional programming</em> pada <code>R</code>. Fungsi ini telah penulis bahas secara garis besar pada Chapter 1.</li>
+<li><strong><code>tibble</code></strong>: library yang digunakan untuk mengubah dataframe menjadi format tibble (bentuk lain dataframe yang lebih konsisten).</li>
+</ol>
+<p>Selain fungsi-fungsi tersebut, masih terdapat banyak fungsi lain yang ada seperti <code>stringr</code>, <code>forcats</code>, dll.</p>
+<p>Untuk menginstall dan menjalankan library <code>tidyverse</code> jalankan sintaks berikut:</p>
+<pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## -- Attaching packages -------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.1.1     v purrr   0.3.2
+## v tibble  2.1.1     v dplyr   0.8.1
+## v tidyr   0.8.3     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.4.0</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## -- Conflicts ----------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+</div>
 <div id="import-file" class="section level2">
-<h2>3.1 Import File</h2>
+<h2>3.2 Import File</h2>
 <p>Pada sesi bagian ini penulis akan menjelaskan cara mengimport file pada <code>R</code>. File yang diimport ke dalam <code>R</code> terdiri atas file yang sering digunakan pada saat akan melakukan analisis data, antara lain: TXT, CSv, Excel, SPSS, SAS, dan STATA.</p>
 <p>Pada bagian ini akan dijelaskan pula bagaimana melakukan import data menggunakan library <code>readr</code> serta kelebihan dari metode import data yang digunakan. Berikut adalah cara mengimport data berbagai format pada <code>R</code>.</p>
 <blockquote>
 <p><strong>Note: </strong> Pastikan kita telah mengatur lokasi <em>working directory</em> pada tempat dimana lokasi file yang akan kita baca berada untuk mempermudah dalam melakukan import file.</p>
 </blockquote>
 <div id="import-file-menggunakan-fungsi-bawaan-r" class="section level3">
-<h3>3.1.1 Import File Menggunakan Fungsi Bawaan R</h3>
+<h3>3.2.1 Import File Menggunakan Fungsi Bawaan R</h3>
 <p>Fungsi bawaan <code>R</code> secara umum hanya dapat membaca data dengan format TXT dan CSV. Pada <code>RStudio</code> fungsi ini bertambah dengan adanya library tambahan yang telah terinstall di <code>RStudio</code> untuk membaca file dengan format EXCEL, SPSS, SAS dan STATA.</p>
 <p>Secara umum fungsi yang digunakan untuk membaca data dengan format tabel seperti TXT dan CSV adalah fungsi<code>read.table()</code>. Berikut adalah list fungsi dasar lainnya untuk membaca file dengan format TXT dan CSV pada <code>R</code>:</p>
 <ul>
@@ -93,7 +131,7 @@ head(data)</code></pre>
 ## 6 IND6       12     A</code></pre>
 </div>
 <div id="membaca-file-csv-dan-txt-menggunakan-library-readr" class="section level3">
-<h3>3.1.2 Membaca File CSV dan TXT Menggunakan Library readr</h3>
+<h3>3.2.2 Membaca File CSV dan TXT Menggunakan Library readr</h3>
 <p>Pada bagian sebelumnya kita telah belajar bagaimana cara membaca file dengan format CSV dan TXT menggunakan paket dasar <code>R</code>. Pada bagian ini penulis akan menjelaskan bagaimana cara membaca file dengan format TXT dan CSV pada <code>R</code> menggunakan paket <code>readr</code>.</p>
 <p><code>readr</code> dikembangkan oleh Hadley Wickham. paket <code>readr</code> memberikan solusi cepat dan ramah untuk membaca delimited file ke dalam <code>R</code>.</p>
 <p>Dibandingkan dengan paket dasar <code>R</code>, <code>readr</code> memiliki kelebihan sebagai berikut:</p>
@@ -152,7 +190,7 @@ data &lt;- read_tsv(&quot;http://www.sthda.com/upload/boxplot_format.txt&quot;)<
 ))</code></pre>
 </div>
 <div id="import-file-excel-pada-r" class="section level3">
-<h3>3.1.3 Import File Excel Pada R</h3>
+<h3>3.2.3 Import File Excel Pada R</h3>
 <p>Keunggulan penggunaan excel sebagai format penyimpan data adalah kita dapat menyimpan banyak data dan memisahkannya pada lembar (<em>sheet</em>) yang berbeda sebagai suatu data yang independen dibandingkan pembacaan pada file csv yang hanya berisikan satu tabel data saja tiap file.</p>
 <p>Pada <code>R</code> kita dapat melakukan pembacaan file menggunakan berbagai macam cara seperti menggunakan paket bawaan <code>R</code> maupun menggunakan library yang perlu kita install. Berikut adalah beberapa cara membaca file excel pada <code>R</code>.</p>
 <ol style="list-style-type: lower-alpha">
@@ -207,7 +245,7 @@ read.xlsx2(file, sheetIndex, header=TRUE)</code></pre>
 </blockquote>
 </div>
 <div id="membaca-file-dari-format-aplikasi-statistik" class="section level3">
-<h3>3.1.4 Membaca File Dari Format Aplikasi Statistik</h3>
+<h3>3.2.4 Membaca File Dari Format Aplikasi Statistik</h3>
 <p>Untuk membaca file yang berasal dari format aplikasi statistik seperti SPSS, SAS, dan STATA kita perlu menginstal dan memuat paket-paket yang dibutuhkan sesuai dengan file yang akan kita install. Berikut adalah sintaks bagaimana cara mengimport file dari berbagai format aplikasi statistik.</p>
 <pre class="r"><code># membaca file SPSS
 install.packages(&quot;Hmisc&quot;) # menginstall paket
@@ -233,14 +271,680 @@ data &lt;- sasxport.get(&quot;c:/mydata.xpt&quot;) # Variabel yang berupa karakt
 install.packages(&quot;foreign&quot;) # menginstall paket
 library(foreign) # memuat paket
 data &lt;- read.dta(&quot;c:/mydata.dta&quot;)</code></pre>
+<p>Library <code>haven</code> dari paket <code>tidyverse</code> juga dapat digunakan untuk membacadata dari ekstensi program-program tersebut. Fungsi yang tersedia antara lain:</p>
+<ol style="list-style-type: decimal">
+<li><code>read_sas()</code>: membaca format file <code>.sas7bdat</code> + <code>.sas7bcat</code> dari <strong>SAS</strong>. Fungsi <code>read_xpt()</code> dapat digunakan untuk membaca SAS <em>transport files</em> (versi 5 dan versi 8).</li>
+<li><code>read_sav()</code>: membaca format file <code>.sav</code> dari <strong>SPSS</strong>. Untuk versi file yang lebih lama (<code>.por</code>), kita dapat menggunakan fungsi <code>read_por()</code>.</li>
+<li><code>read_dta()</code>: Membaca format file <code>.dta</code> dari <strong>STATA</strong> (berfungsi hingga versi 15).</li>
+</ol>
+<p>Berikut adalah sintaks untuk mengistall, memuat, dan contoh penggunaan library <code>haven</code>:</p>
+<pre class="r"><code>library(haven)
+
+# SAS
+read_sas(&quot;mtcars.sas7bdat&quot;)
+
+# SPSS
+read_sav(&quot;mtcars.sav&quot;)
+
+# Stata
+read_dta(&quot;mtcars.dta&quot;)</code></pre>
+</div>
+</div>
+<div id="import-beberapa-file-dalam-beberapa-baris-kode" class="section level2">
+<h2>3.3 Import Beberapa File Dalam Beberapa Baris Kode</h2>
+<p>Kita dapat melakukan import beberapa file kedalam <code>R</code> menggunakan beberapa baris kode. Pada contoh ini penulsi akan memberikan contoh bagaimana cara mengimport beberapa file csv yang sejenis kedalam <code>R</code>.</p>
+<p>Terlebih dahulu kita perlu memuat dua buah library untuk membantu proses ini yaitu <code>readr</code> (membaca file) dan <code>purrr</code> (melakukan iterasi). Berikut adalah sintaks untuk melakukannya:</p>
+<pre class="r"><code>library(readr)
+library(purrr)</code></pre>
+<p>Pada contoh kali ini data yang hendak penulis import adalah data <code>lelang kota bandung</code>. Penulis dapat mengunduh dataset yang dibutuhkan pada tahutan <a href="https://github.com/mohrosidi/intro/tree/master/data-raw">berikut</a>.</p>
+<p>Untuk melakukan import, langkah pertama yang perlu kita lakukan adalah membuat list lokasi dari file yang akan kita import. Fungsi yang kita perlukan untuk membuat list ini adalah <code>list.files</code>. Format fungsi yang digunakan tersebut adalah sebagi berikut:</p>
+<pre class="r"><code>list.files(path = &quot;.&quot;, pattern = NULL, full.names = FALSE)</code></pre>
+
+<div class="rmdnote">
+<ul>
+<li><p><code>path</code>: path (jalur) lokasi file data berada.</p></li>
+<li><p><code>patern</code>: pola nama file yang hendak di import.</p></li>
+<li><code>full.names</code>: nilai logik. Jika <code>TRUE</code>, jalur direktori didahului dengan nama file untuk memberikan jalur file relatif. Jika <code>FALSE</code>, nama file (bukan path) dikembalikan.
+</div>
+</li>
+</ul>
+<p>File yang akan penulis import terletak di folder data pada <em>working directory</em>. Pada contoh ini penulis akan menggunakan path relatif (biasanya didahului oleh titik dan bukan lokasi drive yang digunakan) agar pemabaca juga dapat melakukannya sendiri. File yang akan di upload memiliki pola penamaan yang sama yaitu mengandung kata <code>lelang-bandung</code>. Berikut adalah sintaks untuk membuat list lokasi file akan di import.</p>
+<pre class="r"><code>list &lt;- list.files(path=&quot;./data&quot;, pattern=&quot;lelang-bandung&quot;, full.names=TRUE)
+
+list</code></pre>
+<pre><code>## [1] &quot;./data/001_lelang-bandung_2013.csv&quot;
+## [2] &quot;./data/002_lelang-bandung_2014.csv&quot;
+## [3] &quot;./data/003_lelang-bandung_2015.csv&quot;
+## [4] &quot;./data/004_lelang-bandung_2016.csv&quot;
+## [5] &quot;./data/005_lelang-bandung_2017.csv&quot;</code></pre>
+<p>Setelah lokasi file kita peroleh selanjutnya kita dapat melakukan import seluruh file sekaligus menggunakan metode iterasi.</p>
+<div id="for-loop" class="section level3">
+<h3>3.3.1 for loop</h3>
+<p>Cara pertama untuk melakukan import seluruh file adalah dengan menggunakan for loop. Untuk melakukannya kita terlebih dahulu perlu membuat list kosong yang kan menyimpan hasil loop yang kita lakukan. Untuk melakukannya kita perlu menggunakan fungsi <code>vector()</code>. Format fungsi tersebut adalah sebagi berikut:</p>
+<pre class="r"><code>vector(mode = &quot;logical&quot;, length = 0)</code></pre>
+
+<div class="rmdnote">
+<ul>
+<li><p><code>mode</code>: jenis file yang hendak dibuat.</p></li>
+<li><code>length</code>: panjang file yang hendak dibuat.
+</div>
+</li>
+</ul>
+<p>Berikut adalah sintaks yang digunakan:</p>
+<pre class="r"><code># print list lokasi file
+list</code></pre>
+<pre><code>## [1] &quot;./data/001_lelang-bandung_2013.csv&quot;
+## [2] &quot;./data/002_lelang-bandung_2014.csv&quot;
+## [3] &quot;./data/003_lelang-bandung_2015.csv&quot;
+## [4] &quot;./data/004_lelang-bandung_2016.csv&quot;
+## [5] &quot;./data/005_lelang-bandung_2017.csv&quot;</code></pre>
+<pre class="r"><code># membuat list kosong
+output_for &lt;- vector(mode=&quot;list&quot;, length=length(list))
+
+# for looop
+for (i in seq_along(output_for)) {
+  output_for[[i]] &lt;- read_csv(list[[i]])
+}</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_logical(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   keterangan = col_logical(),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   keterangan = col_logical(),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   keterangan = col_logical(),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_double(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre class="r"><code># print hasil for loops
+output_for</code></pre>
+<pre><code>## [[1]]
+## # A tibble: 680 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;       &lt;lgl&gt;    &lt;date&gt;           &lt;lgl&gt;     
+##  1        5260 J5-Peningk~ NA       2013-02-19       NA        
+##  2      171260 B2-Peningk~ NA       2013-02-21       NA        
+##  3      374260 J126-Penin~ NA       2013-04-24       NA        
+##  4      452260 J140-Penin~ NA       2013-05-19       NA        
+##  5      521260 Belanja Mo~ NA       2013-05-20       NA        
+##  6      571260 Pengadaan ~ NA       2013-06-11       NA        
+##  7      727260 Pembanguna~ NA       2013-08-07       NA        
+##  8      628260 SS-06 Bang~ NA       2013-06-25       NA        
+##  9      772260 Belanja Mo~ NA       2013-08-13       NA        
+## 10      889260 PKP1-Penga~ NA       2013-09-18       NA        
+## # ... with 670 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;lgl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;
+## 
+## [[2]]
+## # A tibble: 763 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;lgl&gt;     
+##  1     1002260 Jasa Konsu~       NA 2014-02-21       NA        
+##  2     1003260 Jasa Konsu~   625017 2014-02-21       NA        
+##  3     1008260 Pengoperas~       NA 2014-03-03       NA        
+##  4     1007260 Pengoperas~       NA 2014-03-03       NA        
+##  5     1009260 Jasa Konsu~   792674 2014-03-10       NA        
+##  6     1013260 Kajian Mod~       NA 2014-03-12       NA        
+##  7     1014260 Belanja Pr~       NA 2014-03-14       NA        
+##  8     1016260 Jasa Tenag~       NA 2014-03-18       NA        
+##  9     1015260 Jasa Konsu~       NA 2014-03-18       NA        
+## 10     1017260 Jasa Tenag~       NA 2014-03-18       NA        
+## # ... with 753 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;lgl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;
+## 
+## [[3]]
+## # A tibble: 638 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;lgl&gt;     
+##  1     2161260 Belanja Ba~       NA 2015-01-06       NA        
+##  2     2164260 Pengadaan ~  2558197 2015-02-09       NA        
+##  3     2166260 Perawatan ~       NA 2015-02-10       NA        
+##  4     2165260 Perawatan ~       NA 2015-02-10       NA        
+##  5     2163260 &quot;Pengadaan~  2837522 2015-02-12       NA        
+##  6     2173260 Peningkata~  3024560 2015-02-17       NA        
+##  7     2174260 Peningkata~  3024515 2015-02-17       NA        
+##  8     2178260 Peningkata~  3024663 2015-02-17       NA        
+##  9     2172260 Peningkata~  3024534 2015-02-17       NA        
+## 10     2167260 Peningkata~  3024431 2015-02-17       NA        
+## # ... with 628 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;lgl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;
+## 
+## [[4]]
+## # A tibble: 785 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;chr&gt;     
+##  1     2994260 Belanja Ba~  5035789 2015-12-11       &lt;NA&gt;      
+##  2     2995260 Belanja Ja~  5026929 2015-12-11       &lt;NA&gt;      
+##  3     2996260 Belanja Ma~  5027086 2015-12-11       &lt;NA&gt;      
+##  4     2997260 Belanja Ja~  5027006 2015-12-11       &lt;NA&gt;      
+##  5     2998260 Belanja Ja~  5037194 2015-12-11       &lt;NA&gt;      
+##  6     2999260 Belanja Ja~  5037172 2015-12-11       &lt;NA&gt;      
+##  7     3000260 Belanja Ja~  5037210 2015-12-11       &lt;NA&gt;      
+##  8     3007260 Jasa Penga~  5054575 2015-12-11       &lt;NA&gt;      
+##  9     3013260 Penyediaan~  5057427 2015-12-11       &lt;NA&gt;      
+## 10     3014260 Pengadaan ~  5043143 2016-01-12       &lt;NA&gt;      
+## # ... with 775 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;lgl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;
+## 
+## [[5]]
+## # A tibble: 414 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;chr&gt;     
+##  1     4542260 Pengadaan ~ 11633430 2017-09-08       &lt;NA&gt;      
+##  2     4135260 Belanja Al~ 11005893 2017-05-03       &lt;NA&gt;      
+##  3     4244260 Belanja Ja~ 11367750 2017-06-09       &lt;NA&gt;      
+##  4     4462260 Belanja Ja~ 12437947 2017-08-11       &lt;NA&gt;      
+##  5     4393260 Belanja Ja~ 11999277 2017-07-27       &lt;NA&gt;      
+##  6     4231260 Belanja ja~ 12162438 2017-05-31       &lt;NA&gt;      
+##  7     4233260 Belanja ja~ 12156963 2017-05-31       &lt;NA&gt;      
+##  8     4234260 Belanja ja~ 12150139 2017-05-31       &lt;NA&gt;      
+##  9     4232260 Belanja ja~ 12150318 2017-05-31       &lt;NA&gt;      
+## 10     4238260 Belanja ja~ 12156804 2017-05-31       &lt;NA&gt;      
+## # ... with 404 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;dbl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;</code></pre>
+<p>File kita inginkan telah kita import seluruhnya. Kita dapat membuat objek tunggal pada masing-masing dataset tersebut atau menggabungkannya menjadi satu dataset jika data tersebut merupakan data yang sama (menjelaskan hal yang sama). Misalkan kita ingin menyimpan dataset pertama kedalam objek dengan nama <code>list1</code>, kita dapat melakukan subset seperti berikut:</p>
+<pre class="r"><code>list1 &lt;- output_for[[1]]
+
+# subset kolom 1 baris 1
+list1[1,1]</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   kode_lelang
+##         &lt;dbl&gt;
+## 1        5260</code></pre>
+<p>Kita dapat juga menggabungkan list <code>output_for</code> menjadi satu data frame utuh menggunakan fungsi <code>rbind</code> (menggabungkan baris data) karena dataset pada list tersebut memiliki kolom yang sama. Untuk mengefisienkan proses tersebut atau agar kita tidak mengabungkannya satu-persatu kita dapat menggunakan fungsi <code>Reduce()</code>. Format fungsi tersebut adalah sebagai berikut:</p>
+<pre class="r"><code>Reduce(f, x)</code></pre>
+
+<div class="rmdnote">
+<ul>
+<li><p><code>f</code>: fungsi yang digunakan.</p></li>
+<li><code>length</code>: objek (vektor, list, data frame, dan matriks) yang hendak dikenai fungsi.
+</div>
+</li>
+</ul>
+<p>Berikut adalah sintaks yang digunakan:</p>
+<pre class="r"><code>df_for &lt;- Reduce(f=rbind, x=output_for)
+
+# print
+df_for</code></pre>
+<pre><code>## # A tibble: 3,280 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;chr&gt;     
+##  1        5260 J5-Peningk~       NA 2013-02-19       &lt;NA&gt;      
+##  2      171260 B2-Peningk~       NA 2013-02-21       &lt;NA&gt;      
+##  3      374260 J126-Penin~       NA 2013-04-24       &lt;NA&gt;      
+##  4      452260 J140-Penin~       NA 2013-05-19       &lt;NA&gt;      
+##  5      521260 Belanja Mo~       NA 2013-05-20       &lt;NA&gt;      
+##  6      571260 Pengadaan ~       NA 2013-06-11       &lt;NA&gt;      
+##  7      727260 Pembanguna~       NA 2013-08-07       &lt;NA&gt;      
+##  8      628260 SS-06 Bang~       NA 2013-06-25       &lt;NA&gt;      
+##  9      772260 Belanja Mo~       NA 2013-08-13       &lt;NA&gt;      
+## 10      889260 PKP1-Penga~       NA 2013-09-18       &lt;NA&gt;      
+## # ... with 3,270 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;dbl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;</code></pre>
+</div>
+<div id="apply-family-function" class="section level3">
+<h3>3.3.2 Apply Family Function</h3>
+<p>Dibandingkan dengan metode for loops, metode ini menggunakan sedikit baris kolom. Pada metode sebelumnya kita perlu menuliskan iterasi for loop dengan beberapa baris kolom. Pada metode ini kita akan menggunakan sebuah fungsi untuk mengimport file yaitu <code>lapply()</code>. Fungsi ini telah kita bahas pada Chapter sebelumnya, dimana fungsi ini melakukan iterasi suatu fungsi terhadap objek input berupa list (dapat pula vektor atau data frame) dan menghasilkan output list. Berikut adalah sintaks yang digunakan untuk melakukan import data:</p>
+<pre class="r"><code># list lokasi berkas
+list</code></pre>
+<pre><code>## [1] &quot;./data/001_lelang-bandung_2013.csv&quot;
+## [2] &quot;./data/002_lelang-bandung_2014.csv&quot;
+## [3] &quot;./data/003_lelang-bandung_2015.csv&quot;
+## [4] &quot;./data/004_lelang-bandung_2016.csv&quot;
+## [5] &quot;./data/005_lelang-bandung_2017.csv&quot;</code></pre>
+<pre class="r"><code># lapply function
+output_lapply &lt;- lapply(X=list, FUN=read_csv)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_logical(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   keterangan = col_logical(),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   keterangan = col_logical(),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   keterangan = col_logical(),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_double(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre class="r"><code># print
+output_lapply</code></pre>
+<pre><code>## [[1]]
+## # A tibble: 680 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;       &lt;lgl&gt;    &lt;date&gt;           &lt;lgl&gt;     
+##  1        5260 J5-Peningk~ NA       2013-02-19       NA        
+##  2      171260 B2-Peningk~ NA       2013-02-21       NA        
+##  3      374260 J126-Penin~ NA       2013-04-24       NA        
+##  4      452260 J140-Penin~ NA       2013-05-19       NA        
+##  5      521260 Belanja Mo~ NA       2013-05-20       NA        
+##  6      571260 Pengadaan ~ NA       2013-06-11       NA        
+##  7      727260 Pembanguna~ NA       2013-08-07       NA        
+##  8      628260 SS-06 Bang~ NA       2013-06-25       NA        
+##  9      772260 Belanja Mo~ NA       2013-08-13       NA        
+## 10      889260 PKP1-Penga~ NA       2013-09-18       NA        
+## # ... with 670 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;lgl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;
+## 
+## [[2]]
+## # A tibble: 763 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;lgl&gt;     
+##  1     1002260 Jasa Konsu~       NA 2014-02-21       NA        
+##  2     1003260 Jasa Konsu~   625017 2014-02-21       NA        
+##  3     1008260 Pengoperas~       NA 2014-03-03       NA        
+##  4     1007260 Pengoperas~       NA 2014-03-03       NA        
+##  5     1009260 Jasa Konsu~   792674 2014-03-10       NA        
+##  6     1013260 Kajian Mod~       NA 2014-03-12       NA        
+##  7     1014260 Belanja Pr~       NA 2014-03-14       NA        
+##  8     1016260 Jasa Tenag~       NA 2014-03-18       NA        
+##  9     1015260 Jasa Konsu~       NA 2014-03-18       NA        
+## 10     1017260 Jasa Tenag~       NA 2014-03-18       NA        
+## # ... with 753 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;lgl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;
+## 
+## [[3]]
+## # A tibble: 638 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;lgl&gt;     
+##  1     2161260 Belanja Ba~       NA 2015-01-06       NA        
+##  2     2164260 Pengadaan ~  2558197 2015-02-09       NA        
+##  3     2166260 Perawatan ~       NA 2015-02-10       NA        
+##  4     2165260 Perawatan ~       NA 2015-02-10       NA        
+##  5     2163260 &quot;Pengadaan~  2837522 2015-02-12       NA        
+##  6     2173260 Peningkata~  3024560 2015-02-17       NA        
+##  7     2174260 Peningkata~  3024515 2015-02-17       NA        
+##  8     2178260 Peningkata~  3024663 2015-02-17       NA        
+##  9     2172260 Peningkata~  3024534 2015-02-17       NA        
+## 10     2167260 Peningkata~  3024431 2015-02-17       NA        
+## # ... with 628 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;lgl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;
+## 
+## [[4]]
+## # A tibble: 785 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;chr&gt;     
+##  1     2994260 Belanja Ba~  5035789 2015-12-11       &lt;NA&gt;      
+##  2     2995260 Belanja Ja~  5026929 2015-12-11       &lt;NA&gt;      
+##  3     2996260 Belanja Ma~  5027086 2015-12-11       &lt;NA&gt;      
+##  4     2997260 Belanja Ja~  5027006 2015-12-11       &lt;NA&gt;      
+##  5     2998260 Belanja Ja~  5037194 2015-12-11       &lt;NA&gt;      
+##  6     2999260 Belanja Ja~  5037172 2015-12-11       &lt;NA&gt;      
+##  7     3000260 Belanja Ja~  5037210 2015-12-11       &lt;NA&gt;      
+##  8     3007260 Jasa Penga~  5054575 2015-12-11       &lt;NA&gt;      
+##  9     3013260 Penyediaan~  5057427 2015-12-11       &lt;NA&gt;      
+## 10     3014260 Pengadaan ~  5043143 2016-01-12       &lt;NA&gt;      
+## # ... with 775 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;lgl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;
+## 
+## [[5]]
+## # A tibble: 414 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;chr&gt;     
+##  1     4542260 Pengadaan ~ 11633430 2017-09-08       &lt;NA&gt;      
+##  2     4135260 Belanja Al~ 11005893 2017-05-03       &lt;NA&gt;      
+##  3     4244260 Belanja Ja~ 11367750 2017-06-09       &lt;NA&gt;      
+##  4     4462260 Belanja Ja~ 12437947 2017-08-11       &lt;NA&gt;      
+##  5     4393260 Belanja Ja~ 11999277 2017-07-27       &lt;NA&gt;      
+##  6     4231260 Belanja ja~ 12162438 2017-05-31       &lt;NA&gt;      
+##  7     4233260 Belanja ja~ 12156963 2017-05-31       &lt;NA&gt;      
+##  8     4234260 Belanja ja~ 12150139 2017-05-31       &lt;NA&gt;      
+##  9     4232260 Belanja ja~ 12150318 2017-05-31       &lt;NA&gt;      
+## 10     4238260 Belanja ja~ 12156804 2017-05-31       &lt;NA&gt;      
+## # ... with 404 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;dbl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;</code></pre>
+<p>Seperti sebelumnya kita akan menggabungkan dataset pada list yang dihasilkan menggunakan fungsi <code>Reduce()</code>. Berikut adalah sintaks yang digunakan:</p>
+<pre class="r"><code>df_lapply &lt;- Reduce(rbind,output_lapply)
+
+# print
+head(df_lapply)
+
+# cek apakah output for dan lapply seragam
+identical(df_for, df_lapply)</code></pre>
+</div>
+<div id="map-family-function" class="section level3">
+<h3>3.3.3 Map Family Function</h3>
+<p>Terakhir, Anda akan melakukan impor data dengan menggunakan keluarga <code>map</code> dari paket <code>purrr</code>. Adapun fungsi yang akan digunakan adalah <code>map_dfr</code>. Fungsi ini menerima input list berisi lokasi file berada. Fungsi ini selanjutnya membaca sekaligus menggabungkan file yang telah dibaca dengan menambahkan fungsi <code>read_csv</code>. File akan digabungkan berdasarkan baris. Untuk file yang ingi digabungkan secara menyamping (berdasarkan kolom) dapat menggunakan fungsi <code>map_dfc</code>. Struktur penulisan kode di keluarga <code>map</code> serupa dengan penulisan kode di keluarga <code>apply</code>, yaitu sebagai berikut:</p>
+<pre class="r"><code>library(purrr) # aktifkan paket purrr
+list</code></pre>
+<pre><code>## [1] &quot;./data/001_lelang-bandung_2013.csv&quot;
+## [2] &quot;./data/002_lelang-bandung_2014.csv&quot;
+## [3] &quot;./data/003_lelang-bandung_2015.csv&quot;
+## [4] &quot;./data/004_lelang-bandung_2016.csv&quot;
+## [5] &quot;./data/005_lelang-bandung_2017.csv&quot;</code></pre>
+<pre class="r"><code>output_map &lt;- map_dfr(list, read_csv)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_logical(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   keterangan = col_logical(),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   keterangan = col_logical(),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   keterangan = col_logical(),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_logical(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   kode_lelang = col_double(),
+##   kode_rup = col_double(),
+##   tanggal_pembuatan = col_date(format = &quot;&quot;),
+##   tahun = col_double(),
+##   pagu = col_double(),
+##   hps = col_double(),
+##   peserta_lelang = col_double(),
+##   hasil_negosiasi = col_double(),
+##   harga_penawaran = col_double(),
+##   harga_terkoreksi = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre class="r"><code>output_map</code></pre>
+<pre><code>## # A tibble: 3,280 x 32
+##    kode_lelang nama_lelang kode_rup tanggal_pembuat~ keterangan
+##          &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;date&gt;           &lt;chr&gt;     
+##  1        5260 J5-Peningk~       NA 2013-02-19       &lt;NA&gt;      
+##  2      171260 B2-Peningk~       NA 2013-02-21       &lt;NA&gt;      
+##  3      374260 J126-Penin~       NA 2013-04-24       &lt;NA&gt;      
+##  4      452260 J140-Penin~       NA 2013-05-19       &lt;NA&gt;      
+##  5      521260 Belanja Mo~       NA 2013-05-20       &lt;NA&gt;      
+##  6      571260 Pengadaan ~       NA 2013-06-11       &lt;NA&gt;      
+##  7      727260 Pembanguna~       NA 2013-08-07       &lt;NA&gt;      
+##  8      628260 SS-06 Bang~       NA 2013-06-25       &lt;NA&gt;      
+##  9      772260 Belanja Mo~       NA 2013-08-13       &lt;NA&gt;      
+## 10      889260 PKP1-Penga~       NA 2013-09-18       &lt;NA&gt;      
+## # ... with 3,270 more rows, and 27 more variables: tahapan_lelang &lt;chr&gt;,
+## #   instansi &lt;chr&gt;, satuan_kerja &lt;chr&gt;, kategori &lt;chr&gt;,
+## #   metode_pengadaan &lt;chr&gt;, metode_kualifikasi &lt;chr&gt;,
+## #   metode_dokumen &lt;chr&gt;, metode_evaluasi &lt;chr&gt;, tahun_anggaran &lt;chr&gt;,
+## #   tahun &lt;dbl&gt;, pagu &lt;dbl&gt;, hps &lt;dbl&gt;, cara_pembayaran &lt;chr&gt;,
+## #   pembebanan_ta &lt;chr&gt;, sumber_pendanaan &lt;chr&gt;, lokasi &lt;chr&gt;,
+## #   kualifikasi_usaha &lt;chr&gt;, peserta_lelang &lt;dbl&gt;, agency &lt;chr&gt;,
+## #   satker &lt;chr&gt;, nama_pemenang &lt;chr&gt;, alamat &lt;chr&gt;, npwp &lt;chr&gt;,
+## #   hasil_negosiasi &lt;dbl&gt;, harga_penawaran &lt;dbl&gt;, harga_terkoreksi &lt;dbl&gt;,
+## #   gagal_lelang &lt;chr&gt;</code></pre>
+<pre class="r"><code>class(output_map)</code></pre>
+<pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;</code></pre>
 </div>
 </div>
 <div id="eksport-file" class="section level2">
-<h2>3.2 Eksport File</h2>
+<h2>3.4 Eksport File</h2>
 <p>Setelah kita melakukan analisa dan telah memperoleh hasil yang kita inginkan dan memperoleh data frame berupa hasil prediksi suatu model atau data yang telah dibersihakan, kita ingin melakukan pelaporan dalam bentuk file dengan format seperti EXCEL, CSV atau TXT. Untuk melakukannya kita perlu melakukan eksport data yang telah dihasilkan.</p>
 <p>Pada bagian ini penulis akan menjelaskan bagaimana cara mengeksport data dari <code>R</code> kedalam format TXT, CSV, maupun EXCEL. Sebenarnya <code>R</code> memungkinkan untuk melakukan eksport dalam format lain seperti RDA maupun RDS yang tidak dibahas dalam buku ini karena berada diluar lingkup buku ini.</p>
 <div id="eksport-data-menjadi-format-txt-dan-csv" class="section level3">
-<h3>3.2.1 Eksport Data Menjadi Format TXT dan CSV</h3>
+<h3>3.4.1 Eksport Data Menjadi Format TXT dan CSV</h3>
 <p>Terdapat dua cara untuk melakukan ekport data dari <code>R</code> menjadi format TXT atau CSV, yaitu melalui paket dasar <code>R</code> maupun menggunakan library <code>readr</code>. Kedua cara tersebut memiliki sejumlah kemiripan dari segi fungsi, namun berbeda dari segi kecepatan eksport.</p>
 <p>Fungsi dasar yang digunakan pada <code>R</code> untuk melakukan eksport file kedalam format TXT dan CSv adalah <code>write.tabel()</code>. Format umum yang digunakan adalah sebagai berikut:</p>
 <pre class="r"><code>write.table(x, file, sep= &quot; &quot;, dec = &quot;,&quot;,
@@ -304,7 +1008,7 @@ write_tsv(mtcars, path = &quot;mtcars.txt&quot;)
 write_csv(mtcars, path = &quot;mtcars.csv&quot;)</code></pre>
 </div>
 <div id="eksport-data-menjadi-format-excel" class="section level3">
-<h3>3.2.2 Eksport Data Menjadi Format Excel</h3>
+<h3>3.4.2 Eksport Data Menjadi Format Excel</h3>
 <p>Untuk mengeksport data menjadi format EXCEL (“.xls” atau “.xlsx”) kita dapat menggunakan fungsi <code>write.xlsx()</code> dan <code>write.xlsx2()</code> dari library <code>xlsx</code>. Berikut adalah format sederhana yanga digunakan:</p>
 <pre class="r"><code>write.xlsx(x, file, sheetName = &quot;Sheet1&quot;, 
   col.names = TRUE, row.names = TRUE, append = FALSE)
@@ -332,9 +1036,23 @@ write.xlsx(mtcars, file = &quot;myworkbook.xlsx&quot;,
 write.xlsx(iris, file = &quot;myworkbook.xlsx&quot;,
            sheetName=&quot;IRIS&quot;, append=TRUE)</code></pre>
 </div>
+<div id="eksport-file-dalam-format-sas-spss-dan-stata" class="section level3">
+<h3>3.4.3 Eksport File Dalam Format SAS, SPSS, dan STATA</h3>
+<p>Untuk memgeksport file dalam format seperti <code>.sas7bdat</code>, <code>.sav</code>, atau <code>.dta</code>, kita dapat menggunakan library <code>haven</code> dari paket <code>tidyverse</code>. Berikut adalah contoh sintaks untuk melakukannya:</p>
+<pre class="r"><code>library(haven)
+
+# SAS
+write_sas(mtcars, &quot;mtcars.sas7bdat&quot;)
+
+# SPSS
+write_sav(mtcars, &quot;mtcars.sav&quot;)
+
+# Stata
+write_dta(mtcars, &quot;mtcars.dta&quot;)</code></pre>
+</div>
 </div>
 <div id="tibble-data-format" class="section level2">
-<h2>3.3 Tibble Data Format</h2>
+<h2>3.5 Tibble Data Format</h2>
 <p>Tibble adalah data frame yang menyediakan metode print yang lebih bagus, berguna saat bekerja dengan kumpulan data besar. Pada bagian ini penulis akan menjelaskan penggunaan tibble sebagai alternatif kita dalam berinteraksi dengan data frame.</p>
 <p>Untuk membuat tibble kita perlu menginstall dan memuat library <code>tibble</code> yang dikembangkan oleh <strong>Hadley Wichham</strong>. Berikut adalah sintaks yang digunakan:</p>
 <pre class="r"><code># menginstall paket
@@ -343,9 +1061,8 @@ install.packages(&quot;tibble&quot;)
 # memuat paket
 library(tibble)</code></pre>
 <div id="membuat-tibble" class="section level3">
-<h3>3.3.1 Membuat Tibble</h3>
+<h3>3.5.1 Membuat Tibble</h3>
 <p>Untuk dapat membuat tibble kita dapat melakukan konversi data frame yang sudah ada menjadi tibble menggunakan fungsi <code>as_tibble()</code>. Berikut adalah contoh bagaimana membuat tibble mengunakan data <code>iris</code>:</p>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.3</code></pre>
 <pre class="r"><code># memuat data mtcars
 data(&quot;iris&quot;)
 
@@ -431,7 +1148,7 @@ iris_tbl</code></pre>
 <p>Penambahahan komen (#–/–/—-) dilakukan untuk memperjelas posisi dari header sehingga meminimalisir kesalahan dalam input data.</p>
 </div>
 <div id="tibble-vs-data-frame" class="section level3">
-<h3>3.3.2 Tibble vs Data Frame</h3>
+<h3>3.5.2 Tibble vs Data Frame</h3>
 <p>terdapat dua buah perbedaan utama antara tibble dan data frame , yaitu: <em>printing</em> dan <em>subsetting</em>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><strong>Printing</strong></li>
@@ -524,97 +1241,97 @@ iris_tbl[[1]]</code></pre>
 </div>
 </div>
 <div id="merapikan-data" class="section level2">
-<h2>3.4 Merapikan Data</h2>
+<h2>3.6 Merapikan Data</h2>
 <p>Sebelum memulai analisa terhadap data yang kita miliki, umumnya kita akan merapikan data yang akan kita gunakan. Tujuannya adalah agar data yang akan digunakan sudah siap untuk dilakukan analisa dengan software tertentu seperti <code>R</code>, dimana pada dataset perlu jelas antara variabel dan nilai (<em>value</em>), serta untuk mempermudah dalah memperoleh informasi pada data. Berikut adalah beberapa contoh dataset yang dapat pembaca cermati terkait manakah data yang telah rapi (<em>tidy data</em>) dan mana yang belum (<em>messy data</em>):</p>
-<pre class="r"><code># Install paket dataset EDAWR
-# install.packages(&quot;devtools&quot;)
-# devtools::install_github(&quot;rstudio/EDAWR&quot;)
-
-# hilangkan tanda # jika pembaca belum menginstall</code></pre>
-<pre class="r"><code>library(EDAWR)
-# memuat dataset
-storms</code></pre>
-<pre><code>##     storm wind pressure       date
-## 1 Alberto  110     1007 2000-08-03
-## 2    Alex   45     1009 1998-07-27
-## 3 Allison   65     1005 1995-06-03
-## 4     Ana   40     1013 1997-06-30
-## 5  Arlene   50     1010 1999-06-11
-## 6  Arthur   45     1010 1996-06-17</code></pre>
-<pre class="r"><code>cases</code></pre>
-<pre><code>##   country  2011  2012  2013
-## 1      FR  7000  6900  7000
-## 2      DE  5800  6000  6200
-## 3      US 15000 14000 13000</code></pre>
-<pre class="r"><code>pollution</code></pre>
-<pre><code>##       city  size amount
-## 1 New York large     23
-## 2 New York small     14
-## 3   London large     22
-## 4   London small     16
-## 5  Beijing large    121
-## 6  Beijing small     56</code></pre>
+<pre class="r"><code>table1                  </code></pre>
+<pre><code>## # A tibble: 6 x 4
+##   country      year  cases population
+##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Afghanistan  1999    745   19987071
+## 2 Afghanistan  2000   2666   20595360
+## 3 Brazil       1999  37737  172006362
+## 4 Brazil       2000  80488  174504898
+## 5 China        1999 212258 1272915272
+## 6 China        2000 213766 1280428583</code></pre>
+<pre class="r"><code>table2                  </code></pre>
+<pre><code>## # A tibble: 12 x 4
+##    country      year type            count
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+##  1 Afghanistan  1999 cases             745
+##  2 Afghanistan  1999 population   19987071
+##  3 Afghanistan  2000 cases            2666
+##  4 Afghanistan  2000 population   20595360
+##  5 Brazil       1999 cases           37737
+##  6 Brazil       1999 population  172006362
+##  7 Brazil       2000 cases           80488
+##  8 Brazil       2000 population  174504898
+##  9 China        1999 cases          212258
+## 10 China        1999 population 1272915272
+## 11 China        2000 cases          213766
+## 12 China        2000 population 1280428583</code></pre>
+<pre class="r"><code>table3                  </code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   country      year rate             
+## * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
+## 1 Afghanistan  1999 745/19987071     
+## 2 Afghanistan  2000 2666/20595360    
+## 3 Brazil       1999 37737/172006362  
+## 4 Brazil       2000 80488/174504898  
+## 5 China        1999 212258/1272915272
+## 6 China        2000 213766/1280428583</code></pre>
+<pre class="r"><code>table4a                 </code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   country     `1999` `2000`
+## * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+## 1 Afghanistan    745   2666
+## 2 Brazil       37737  80488
+## 3 China       212258 213766</code></pre>
+<pre class="r"><code>table4b                 </code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   country         `1999`     `2000`
+## * &lt;chr&gt;            &lt;int&gt;      &lt;int&gt;
+## 1 Afghanistan   19987071   20595360
+## 2 Brazil       172006362  174504898
+## 3 China       1272915272 1280428583</code></pre>
+<pre class="r"><code>table5   </code></pre>
+<pre><code>## # A tibble: 6 x 4
+##   country     century year  rate             
+## * &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+## 1 Afghanistan 19      99    745/19987071     
+## 2 Afghanistan 20      00    2666/20595360    
+## 3 Brazil      19      99    37737/172006362  
+## 4 Brazil      20      00    80488/174504898  
+## 5 China       19      99    212258/1272915272
+## 6 China       20      00    213766/1280428583</code></pre>
 <p>Sebelum kita melakukan analisa di dataset tersebut, kita harus tahu terlebih dahulu apa saja syarat suatu dataset dikatakan rapi (<em>tidy</em>). Berikut adalah syaratnya:</p>
 <ul>
 <li>Setiap variabel harus memiliki kolomnya sendiri</li>
 <li>Setiap observasi harus memiliki barisnya sendiri</li>
 <li>Setiap nilai berada pada sel tersendiri</li>
 </ul>
-<p>Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan <em>tidy</em>. Ketiga syarat tersebut dapat divisualisasikan melalui Figure <a href="#fig:tidy">1</a></p>
-<pre><code>## Warning: package &#39;knitr&#39; was built under R version 3.5.3</code></pre>
+<p>Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan <em>tidy</em>. Ketiga syarat tersebut dapat divisualisasikan melalui Gambar <a href="#fig:tidy">1</a></p>
 <div class="figure" style="text-align: center"><span id="fig:tidy"></span>
-<img src="/tidy.png" alt="Visualisasi 3 rule tidy data"  />
+<img src="tidy.png" alt="Visualisasi 3 rule tidy data"  />
 <p class="caption">
 Figure 1: Visualisasi 3 rule tidy data
 </p>
 </div>
-<p>Pada dataset <code>storms</code> terdapat 4 buah kolom dan 6 buah baris. Masing-masing kolom menyatakan variabel pada masing-masing observasi seperti nama badai , kecepatan angin, tekanan dan waktu . Ketiga syarat kerapihan data sudah terpenuhi pada data tersebut sehingga kita bisa melakukan analisa terhadap data tersebut, misalnya kecepatan angin dan tekanan pada masing-masing badai. Selain itu kita juga dapat dengan mudah menginput variabel baru pada dataset tersebut, misal: rasio (kecepatan angin/tekanan).</p>
-<p>Berikut adalah contoh bagaimana kita dapat dengan mudah menarik nilai variabel pada masing-masing kolom dan membentuk variabel baru pada dataset tersebut:</p>
-<pre class="r"><code># subset variabel
-storms$storm</code></pre>
-<pre><code>## [1] &quot;Alberto&quot; &quot;Alex&quot;    &quot;Allison&quot; &quot;Ana&quot;     &quot;Arlene&quot;  &quot;Arthur&quot;</code></pre>
-<pre class="r"><code>storms$wind</code></pre>
-<pre><code>## [1] 110  45  65  40  50  45</code></pre>
-<pre class="r"><code>storms$pressure</code></pre>
-<pre><code>## [1] 1007 1009 1005 1013 1010 1010</code></pre>
-<pre class="r"><code>storms$date</code></pre>
-<pre><code>## [1] &quot;2000-08-03&quot; &quot;1998-07-27&quot; &quot;1995-06-03&quot; &quot;1997-06-30&quot; &quot;1999-06-11&quot;
-## [6] &quot;1996-06-17&quot;</code></pre>
-<pre class="r"><code># membuat variabel baru
-storms_new &lt;- storms
-storms_new$ratio &lt;- storms_new$wind/storms_new$pressure
-storms_new</code></pre>
-<pre><code>##     storm wind pressure       date      ratio
-## 1 Alberto  110     1007 2000-08-03 0.10923535
-## 2    Alex   45     1009 1998-07-27 0.04459861
-## 3 Allison   65     1005 1995-06-03 0.06467662
-## 4     Ana   40     1013 1997-06-30 0.03948667
-## 5  Arlene   50     1010 1999-06-11 0.04950495
-## 6  Arthur   45     1010 1996-06-17 0.04455446</code></pre>
-<p>Pada dataset <code>cases</code> terdapat 3 buah kolom dan 3 baris. Pada kolom pertama berupa kode Negara, sedangkan kolom sisanya merupakan tahun. Jika kita perhatikan dengan seksama dataset tersebut merupakan sebuah <em>contingency table</em> dimana tabel tersebut menyatakan frekuensi kejadian pada tahun tertentu dan negara tertentu. Dataset tersebut belum dapat dikatan <em>tidy</em> karena kolom <code>2011</code> sampai <code>2013</code> merupakan sebuah nilai dari observasi dan bukan sebuah variabel sehingga dataset tersebut masih tergolong dataset <em>messy</em>. Selain itu sangat sulit untuk dilakukan penarikan terhadap nilai pada setiap kolom serta pembentukan variabel baru sebagai pendukung analisa juga sulit dilakukan. Berikut adalah contoh melakukan penarikan nilai / subset pada masing variabel:</p>
-<pre class="r"><code>cases$country</code></pre>
-<pre><code>## [1] &quot;FR&quot; &quot;DE&quot; &quot;US&quot;</code></pre>
-<pre class="r"><code>names(cases[-1])</code></pre>
-<pre><code>## [1] &quot;2011&quot; &quot;2012&quot; &quot;2013&quot;</code></pre>
-<pre class="r"><code>unlist(cases[1:3, 2:4])</code></pre>
-<pre><code>## 20111 20112 20113 20121 20122 20123 20131 20132 20133 
-##  7000  5800 15000  6900  6000 14000  7000  6200 13000</code></pre>
-<p>Pada dataset <code>pollution</code>terdapat 3 buah kolom dan 6 baris. Masing-masing kolom menyatakan lokasi berupa nama kota, keterangan ukuran partikel, serta nilai dari ukuran partikel. Beberapa dari kita mungkin menganggap dataset ini telah memenuhi syarat kerapihan data. Namun, coba kita cermati jika mita ingin membuat variabel baru terkait dengan berapa rentang ukuran partikel (range ukuran partikel) pada masing-masing kota. Hal tersebut tentu sangat sulit dilakukan pada dataset tersebut, namun dataset tersebut memungkinkan kita dengan mudah mengambil nilai dari masing-masing variabelnya seperti contoh berikut:</p>
-<pre class="r"><code>pollution$city</code></pre>
-<pre><code>## [1] &quot;New York&quot; &quot;New York&quot; &quot;London&quot;   &quot;London&quot;   &quot;Beijing&quot;  &quot;Beijing&quot;</code></pre>
-<pre class="r"><code>pollution$size</code></pre>
-<pre><code>## [1] &quot;large&quot; &quot;small&quot; &quot;large&quot; &quot;small&quot; &quot;large&quot; &quot;small&quot;</code></pre>
-<pre class="r"><code>pollution$amount</code></pre>
-<pre><code>## [1]  23  14  22  16 121  56</code></pre>
-<p>Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjelaskan bagaiman cara melakukan perapihan data menggunakan library <code>tidyr</code>. Sebelum kita melakukannya berikut adalah sintaks untuk menginstall library tersebut:</p>
+<p>Dengan menggunakan prinsip data <em>tidy</em> kita akan menganalisa data tersebut satu persatu. Berikut adalah analisa terkait data-data tesebut:</p>
+<ol style="list-style-type: decimal">
+<li><code>table1</code> merupakan data yang telah <em>tidy</em>. Ketiga prinsip data <em>tidy</em> telah terpenuhi.</li>
+<li><code>table2</code> merupakan data yang belum <em>tidy</em> karena variabel tidak berada pada masing-masing kolomnya. Variabel <code>type</code> dapat dipecah lagi menjadi 2 kolom baru yaitu kolom <code>cases</code> dan kolom <code>population</code>.</li>
+<li><code>table3</code> merupakan data yang belum <em>tidy</em>. Kolom <code>rate</code> berisikan rasio yang seharusnya berisi nilai hasil bagi kedua variabel. Dapat kita duga pembilang dari nilai rasio merupakan nilai variabel <code>cases</code>, sedangkan penyebutnya merupakan nilai dari variabel <code>population</code>. Agar <em>tidy</em> kolom <code>rate</code> perlu dipecah menjadi 2 kolom baru (2 variabel) yaitu <code>cases</code> dan <code>population</code> atau nilai yang ditampilkan pada kolom <code>rate</code> adalah hasil bagi kedua nilai (bukan pecahan).</li>
+<li><code>table4a</code> dan <code>table4b</code> masih belum <em>tidy</em>. Dua kolom yaitu kolom <code>1999</code> dan <code>2000</code> perlu dijadikan satu kolom yaitu kolom variabel <code>year</code>. Nilai dari kolom lama selanjutnya digabung menjadi satu kolom, untuk <code>table4a</code> menjadi kolom <code>cases</code>, sedangkan <code>table4b</code> sebagai kolom <code>population</code>.</li>
+<li><code>table5</code> masih belum <em>tidy</em>. Agar data tersebut <em>tidy</em> maka kolom <code>century</code> dan <code>year</code> perlu digabung menjadi satu kolom (variabel) yaitu kolom <code>year</code>. Selain itu, kolom `rate juga perlu dijadikan satu atau 2 kolom seperti yang dilakukan pada poin 3.</li>
+</ol>
+<p>Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjelaskan bagaiman cara melakukan perapihan data menggunakan library <code>tidyr</code> dari paket <code>tidyverse</code>. Sebelum kita melakukannya berikut adalah sintaks untuk menginstall library <code>tidyr</code> secara terpisah dari paket <code>tidyverse</code> tersebut:</p>
 <pre class="r"><code># memasang paket
-install.packages(&quot;tidyr&quot;)</code></pre>
+install.packages(&quot;/tidyr&quot;)</code></pre>
 <pre class="r"><code># memuat paket
 library(tidyr)</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.3</code></pre>
 <div id="gather" class="section level3">
-<h3>3.4.1 Gather</h3>
-<p>Pada dataset <code>cases</code> kolom <code>2011</code> sampai <code>2013</code> perlu dijadikan satu variabel yaitu tahun. untuk melakukannya kita dapat menggunakan fungsi <code>gather()</code>. Secara sederhana fungsi tersebut dapat dituliskan dengan format sebagai berikut:</p>
+<h3>3.6.1 Gather</h3>
+<p><code>gather()</code> merupakan fungsi yang digunakan untuk menggabungkan beberapa kolom menjadi satu kolom kunci (disebut juga sebagai <em>pivot long</em>. Secara sederhana fungsi tersebut dapat dituliskan dengan format sebagai berikut:</p>
 <pre class="r"><code>gather(data, key, value, ...)</code></pre>
 <blockquote>
 <p><strong>Note: </strong></p>
@@ -630,62 +1347,81 @@ library(tidyr)</code></pre>
 </ul></li>
 </ul>
 </blockquote>
-<p>Berikut adalah contoh penerapannya pada dataset <code>cases</code>:</p>
-<pre class="r"><code># Ubah dataset cases menjadi tibble simpan sebagai objek cases_new
-library(tibble)
-cases_tbl &lt;- as_tibble(cases)
-
-# print
-cases_tbl</code></pre>
-<pre><code>## # A tibble: 3 x 4
-##   country `2011` `2012` `2013`
-##   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-## 1 FR        7000   6900   7000
-## 2 DE        5800   6000   6200
-## 3 US       15000  14000  13000</code></pre>
-<pre class="r"><code># gather
-cases_new &lt;- gather(cases_tbl, 
+<p>Visualisasi dari fungsi <code>gather</code> ini disajikan pada Gambar <a href="#fig:gather">2</a></p>
+<div class="figure" style="text-align: center"><span id="fig:gather"></span>
+<img src="/gather.png" alt="Visualisasi fungsi gather (Sumber: Rstudio,2017)"  />
+<p class="caption">
+Figure 2: Visualisasi fungsi gather (Sumber: Rstudio,2017)
+</p>
+</div>
+<p>Berikut adalah contoh penerapannya pada dataset <code>table4a</code> dan <code>table4b</code>:</p>
+<pre class="r"><code># Table4a
+table4a_new &lt;- gather(table4a, 
                     # variabel kunci
                     key = &quot;year&quot;,
                     # nilai variabel
-                    value = &quot;frequency&quot;,
+                    value = &quot;cases&quot;,
                     # kecualikan kolom country
                     -country)
 
-# print
-cases_new</code></pre>
-<pre><code>## # A tibble: 9 x 3
-##   country year  frequency
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;
-## 1 FR      2011       7000
-## 2 DE      2011       5800
-## 3 US      2011      15000
-## 4 FR      2012       6900
-## 5 DE      2012       6000
-## 6 US      2012      14000
-## 7 FR      2013       7000
-## 8 DE      2013       6200
-## 9 US      2013      13000</code></pre>
-<p>Berdasarkan hasil yang diperoleh terlihat bahwa variabel tahun memiliki jenis data karakter. Jenis data ini masih belum sesuai sehingga perlu dikonversi agar menjadi jenis data numerik (<em>dbl = double</em>). Untuk melakukannya jalankan sintaks berikut:</p>
-<pre class="r"><code># Ubah jenis variabel tahun menjadi numerik
-cases_new$year &lt;- as.numeric(cases_new$year)
-cases_new</code></pre>
-<pre><code>## # A tibble: 9 x 3
-##   country  year frequency
-##   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;
-## 1 FR       2011      7000
-## 2 DE       2011      5800
-## 3 US       2011     15000
-## 4 FR       2012      6900
-## 5 DE       2012      6000
-## 6 US       2012     14000
-## 7 FR       2013      7000
-## 8 DE       2013      6200
-## 9 US       2013     13000</code></pre>
+table4a_new</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   country     year   cases
+##   &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;
+## 1 Afghanistan 1999     745
+## 2 Brazil      1999   37737
+## 3 China       1999  212258
+## 4 Afghanistan 2000    2666
+## 5 Brazil      2000   80488
+## 6 China       2000  213766</code></pre>
+<pre class="r"><code># Table4a
+table4b_new &lt;- gather(table4b, 
+                    # variabel kunci
+                    key = &quot;year&quot;,
+                    # nilai variabel
+                    value = &quot;population&quot;,
+                    # kecualikan kolom country
+                    -country)
+
+table4b_new</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   country     year  population
+##   &lt;chr&gt;       &lt;chr&gt;      &lt;int&gt;
+## 1 Afghanistan 1999    19987071
+## 2 Brazil      1999   172006362
+## 3 China       1999  1272915272
+## 4 Afghanistan 2000    20595360
+## 5 Brazil      2000   174504898
+## 6 China       2000  1280428583</code></pre>
+<p>Berdasarkan hasil yang diperoleh terlihat bahwa variabel <code>year</code> pada kedua dataset tersebut memiliki jenis data karakter. Jenis data ini masih belum sesuai sehingga perlu dikonversi agar menjadi jenis data numerik (<em>int = integer</em>). Untuk melakukannya jalankan sintaks berikut:</p>
+<pre class="r"><code># table4a_new
+table4a_new$year &lt;- as.integer(table4a_new$year)
+table4a_new</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   country      year  cases
+##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;
+## 1 Afghanistan  1999    745
+## 2 Brazil       1999  37737
+## 3 China        1999 212258
+## 4 Afghanistan  2000   2666
+## 5 Brazil       2000  80488
+## 6 China        2000 213766</code></pre>
+<pre class="r"><code># table4a_new
+table4b_new$year &lt;- as.integer(table4b_new$year)
+table4b_new</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   country      year population
+##   &lt;chr&gt;       &lt;int&gt;      &lt;int&gt;
+## 1 Afghanistan  1999   19987071
+## 2 Brazil       1999  172006362
+## 3 China        1999 1272915272
+## 4 Afghanistan  2000   20595360
+## 5 Brazil       2000  174504898
+## 6 China        2000 1280428583</code></pre>
 <p>Data yang diperoleh sekaran telah rapi (<em>tidy</em>), sehingga sudah siap untuk dilakukan analisa data.</p>
 </div>
 <div id="spread" class="section level3">
-<h3>3.4.2 Spread</h3>
+<h3>3.6.2 Spread</h3>
 <p>Fungsi <code>spread()</code> berkebalikan dengan <code>gather()</code>. Fungsi <code>gather()</code> menggabungkan beberapa kolom menjadi 2 buah kolom kolom kunci sedangkan <code>spread()</code> merubah dua kolom menjadi beberapa kolom. Format sederhanya adalah sebagai berikut:</p>
 <blockquote>
 <p><strong>Note: </strong></p>
@@ -695,52 +1431,52 @@ cases_new</code></pre>
 <li><strong>value</strong>: nama kolom yang nilainya akan mengisi setiap sel</li>
 </ul>
 </blockquote>
-<p>Pada contoh kasus pada data <code>pollution</code>, kita dapat memisahkan kolom 2 menjadi kolom baru yaitu kolom <code>big size</code> dan <code>small size</code>. Untuk melakukannya jalankan sintaks berikut:</p>
-<pre class="r"><code># merubah objek pollution menjadi tibble
-pollution_tbl &lt;- as_tibble(pollution)
-
-# print
-pollution_tbl</code></pre>
-<pre><code>## # A tibble: 6 x 3
-##   city     size  amount
-##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;
-## 1 New York large     23
-## 2 New York small     14
-## 3 London   large     22
-## 4 London   small     16
-## 5 Beijing  large    121
-## 6 Beijing  small     56</code></pre>
+<p>Visualisasi dari fungsi <code>spread()</code> ini disajikan pada Gambar <a href="#fig:spread">3</a></p>
+<div class="figure" style="text-align: center"><span id="fig:spread"></span>
+<img src="/spread.png" alt="Visualisasi fungsi spread (Sumber: Rstudio,2017)"  />
+<p class="caption">
+Figure 3: Visualisasi fungsi spread (Sumber: Rstudio,2017)
+</p>
+</div>
+<p>Pada contoh kasus pada data <code>table2</code>, kita dapat memisahkan kolom <code>type</code> menjadi kolom baru yaitu kolom <code>cases</code> dan <code>population</code>. Untuk melakukannya jalankan sintaks berikut:</p>
 <pre class="r"><code># spread
-pollution_new &lt;- spread(pollution_tbl,
-                        key = size,
-                        value = amount)
+table2_new &lt;- spread(table2,
+                        key = type,
+                        value = count)
 
 #print
-pollution_new</code></pre>
-<pre><code>## # A tibble: 3 x 3
-##   city     large small
-##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
-## 1 Beijing    121    56
-## 2 London      22    16
-## 3 New York    23    14</code></pre>
-<p>Terlihat bahwa data <code>pollution</code> tampak memnuhi syarat kerapihan data (<em>tidy</em>). Kita sekarang dapat menginput variabel baru dan melakukan analisa terhadap data tersebut. Berikut adalah contoh penerapannya:</p>
-<pre class="r"><code># input variabel range (large-small)
-pollution_new$range &lt;- pollution_new$large - pollution_new$small
-
-# print
-pollution_new</code></pre>
-<pre><code>## # A tibble: 3 x 4
-##   city     large small range
-##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 Beijing    121    56    65
-## 2 London      22    16     6
-## 3 New York    23    14     9</code></pre>
-<p>Berdasarkan hasil yang diperoleh diketahui bahwa nilai range ukuran partikel terbesar berada di Kota Beijing.</p>
+table2_new</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##   country      year  cases population
+##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Afghanistan  1999    745   19987071
+## 2 Afghanistan  2000   2666   20595360
+## 3 Brazil       1999  37737  172006362
+## 4 Brazil       2000  80488  174504898
+## 5 China        1999 212258 1272915272
+## 6 China        2000 213766 1280428583</code></pre>
+<p>Terlihat bahwa data <code>table2_new</code> tampak memenuhi syarat kerapihan data (<em>tidy</em>).</p>
 </div>
 <div id="separate" class="section level3">
-<h3>3.4.3 Separate</h3>
-<p>Fungsi <code>separate()</code> merupakan fungsi yang digunakan untuk memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi ini berbeda dengan fungsi sebelumnya seperti <code>gather()</code> dan <code>spread()</code> yang menggabung atau memisahkan 2 atau beberapa kolom. Format sederhana fungsi <code>separate()</code> adalah sebagai berikut:</p>
-<pre class="r"><code>separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, convert= TRUE)</code></pre>
+<h3>3.6.3 Separate</h3>
+<p>Fungsi <code>separate()</code> merupakan fungsi yang digunakan untuk memisahkan sejumlah nilai pada sebuah kolom menjadi beberapa kolom berdasarkan karakter pemisah yang ada di dalam nilai suatu kolom. Fungsi ini berbeda dengan fungsi sebelumnya seperti <code>gather()</code> dan <code>spread()</code> yang menggabung atau memisahkan 2 atau beberapa kolom. Visualisasi dari fungsi <code>separate()</code> ini disajikan pada Gambar <a href="#fig:separate">4</a></p>
+<div class="figure" style="text-align: center"><span id="fig:separate"></span>
+<img src="/separate.png" alt="Visualisasi fungsi separate (Sumber: Rstudio,2017)"  />
+<p class="caption">
+Figure 4: Visualisasi fungsi separate (Sumber: Rstudio,2017)
+</p>
+</div>
+<p>Jika fungsi <code>separate()</code> memisahkan sejumlah nilai menajdi beberapa kolom sesuai dengan karakter pemisah, fungsi <code>separate_rows()</code> memisahkan nilai menjadi beberapa baris berdasarkan karakter pemisah. Visualisasi dari fungsi <code>separate_rows()</code> ini disajikan pada Gambar <a href="#fig:separaterows">5</a></p>
+<div class="figure" style="text-align: center"><span id="fig:separaterows"></span>
+<img src="/separate_rows.png" alt="Visualisasi fungsi separate rows"  />
+<p class="caption">
+Figure 5: Visualisasi fungsi separate rows
+</p>
+</div>
+<p>Format sederhana fungsi <code>separate()</code> dan <code>separate_rows()</code> adalah sebagai berikut:</p>
+<pre class="r"><code>separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, convert= FALSE)
+
+separate(data,...., sep = &quot;[^[:alnum:]]+&quot;, convert= FALSE)</code></pre>
 <blockquote>
 <p><strong>Note: </strong></p>
 <ul>
@@ -752,43 +1488,56 @@ pollution_new</code></pre>
 <li><strong>convert</strong>: nilai logik. Jika bernilai TRUE maka kolom baru yang akan diperoleh akan dikonversi berdasarkan jenis data yang seharusnya.</li>
 </ul>
 </blockquote>
-<p>Pada dataset <code>storms</code> kita ingin memisahkan kolom <code>date</code> menjadi beberapa kolom seperti <code>year</code>, <code>month</code>, dan <code>day</code>, Kita dapat menggunakan fungsi <code>separate()</code> untuk memisahkan nilai pada kolom tersebut berdasarkan karakter pemisah pada nilai kolom tersebut dalam hal ini adalah “-”. Berikut adalah cara melakukannya:</p>
-<pre class="r"><code># merubah storms menjadi tibble
-storms_tbl &lt;- as_tibble(storms)
-
-# print
-storms_tbl</code></pre>
+<p>Pada <code>table3</code> dan <code>table5</code> kita akan mencoba memisahkan kolom <code>rate</code> menjadi 2 kolom yaitu kolom <code>cases</code> dan kolom <code>population</code>. Berikut adalah sintaks yang digunakan:</p>
+<pre class="r"><code># table3
+table3_new &lt;- separate(table3, col=rate,
+                       into=c(&quot;cases&quot;, &quot;population&quot;),
+                       sep=&quot;/&quot;, convert=TRUE)
+table3_new</code></pre>
 <pre><code>## # A tibble: 6 x 4
-##   storm    wind pressure date      
-##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;date&gt;    
-## 1 Alberto   110     1007 2000-08-03
-## 2 Alex       45     1009 1998-07-27
-## 3 Allison    65     1005 1995-06-03
-## 4 Ana        40     1013 1997-06-30
-## 5 Arlene     50     1010 1999-06-11
-## 6 Arthur     45     1010 1996-06-17</code></pre>
-<pre class="r"><code># separate
-storms_new &lt;- separate(storms_tbl,
-                       col = date,
-                       into = c(&quot;year&quot;,&quot;month&quot;,&quot;days&quot;),
-                       sep = &quot;-&quot;,
-                       convert = TRUE)
-
-# print
-storms_new</code></pre>
-<pre><code>## # A tibble: 6 x 6
-##   storm    wind pressure  year month  days
-##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-## 1 Alberto   110     1007  2000     8     3
-## 2 Alex       45     1009  1998     7    27
-## 3 Allison    65     1005  1995     6     3
-## 4 Ana        40     1013  1997     6    30
-## 5 Arlene     50     1010  1999     6    11
-## 6 Arthur     45     1010  1996     6    17</code></pre>
-<p>Berdasarkan hasil yang diperoleh terlihat bahwa data telah terpisah dengan benar yang ditunjukkan dari nilai yang terpisah dan jenis data yang dihasilkan.</p>
+##   country      year  cases population
+##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Afghanistan  1999    745   19987071
+## 2 Afghanistan  2000   2666   20595360
+## 3 Brazil       1999  37737  172006362
+## 4 Brazil       2000  80488  174504898
+## 5 China        1999 212258 1272915272
+## 6 China        2000 213766 1280428583</code></pre>
+<pre class="r"><code># table5
+table5_new &lt;- separate(table5, col=rate,
+                       into=c(&quot;cases&quot;, &quot;population&quot;),
+                       sep=&quot;/&quot;, convert=TRUE)
+table5_new</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   country     century year   cases population
+##   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Afghanistan 19      99       745   19987071
+## 2 Afghanistan 20      00      2666   20595360
+## 3 Brazil      19      99     37737  172006362
+## 4 Brazil      20      00     80488  174504898
+## 5 China       19      99    212258 1272915272
+## 6 China       20      00    213766 1280428583</code></pre>
+<p>Berdasarkan hasil yang diperoleh terlihat bahwa <code>table3</code> telah <em>tidy</em>, sedangkan <code>table5</code> belum <em>tidy</em> sebab kolom <code>century</code> dan kolom <code>year</code> perlu digabungkan menjadi kolom <code>year</code>.</p>
+<p>Kita dapat juga memisahkan kolom <code>rate</code> pada <code>table3</code> menjadi baris baru menggunakan fungsi <code>separate_rows()</code>. Berikut adalah sintaks yang digunakan:</p>
+<pre class="r"><code>separate_rows(table3, col=rate, sep=&quot;/&quot;)</code></pre>
+<pre><code>## # A tibble: 12 x 3
+##    country      year rate      
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;     
+##  1 Afghanistan  1999 745       
+##  2 Afghanistan  1999 19987071  
+##  3 Afghanistan  2000 2666      
+##  4 Afghanistan  2000 20595360  
+##  5 Brazil       1999 37737     
+##  6 Brazil       1999 172006362 
+##  7 Brazil       2000 80488     
+##  8 Brazil       2000 174504898 
+##  9 China        1999 212258    
+## 10 China        1999 1272915272
+## 11 China        2000 213766    
+## 12 China        2000 1280428583</code></pre>
 </div>
 <div id="unite" class="section level3">
-<h3>3.4.4 Unite</h3>
+<h3>3.6.4 Unite</h3>
 <p>Fungsi <code>unite()</code> merupakan kebalikan dari fungsi <code>separate()</code>, dimana fungsi ini menggabungkan sejumlah kolom menjadi 1 kolom. Format sederhana untuk melakukanya disajikan sebagai berikut:</p>
 <pre class="r"><code>unite(data, col, ..., sep = &quot;_&quot;)</code></pre>
 <blockquote>
@@ -799,46 +1548,35 @@ storms_new</code></pre>
 <li><strong>sep</strong>: pemisah yang akan digunakan pada antar nilai.</li>
 </ul>
 </blockquote>
-<p>Pada dataset <code>storms_new</code> kita ingin menggabungkan kembali kolom <code>year</code>, <code>month</code>, dan <code>days</code> dengan karakter pemisah “/”. Berikut adalah cara melakukannya:</p>
-<pre class="r"><code># unite
-storms_old &lt;- unite(storms_new,
-                   col = &quot;date&quot;,
-                   year, month, days,
-                   sep = &quot;-&quot;)
-
-# print
-storms_old</code></pre>
+<p>Visualisasi dari fungsi <code>unite()</code> ini disajikan pada Gambar <a href="#fig:spread">3</a></p>
+<div class="figure" style="text-align: center"><span id="fig:unite"></span>
+<img src="/unite.png" alt="Visualisasi fungsi unite (Sumber: Rstudio,2017)"  />
+<p class="caption">
+Figure 6: Visualisasi fungsi unite (Sumber: Rstudio,2017)
+</p>
+</div>
+<p>Pada dataset <code>table5_new</code> kita akan menggabungkan kolom <code>century</code> dan kolom <code>year</code> menjadi kolom <code>year</code> tanpa pemisah. Berikut adalah sintaks untuk melakukannya:</p>
+<pre class="r"><code>table5_new2 &lt;- unite(table5_new, century,
+                    year, col=&quot;year&quot;, sep=&quot;&quot;)
+table5_new2</code></pre>
 <pre><code>## # A tibble: 6 x 4
-##   storm    wind pressure date     
-##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;chr&gt;    
-## 1 Alberto   110     1007 2000-8-3 
-## 2 Alex       45     1009 1998-7-27
-## 3 Allison    65     1005 1995-6-3 
-## 4 Ana        40     1013 1997-6-30
-## 5 Arlene     50     1010 1999-6-11
-## 6 Arthur     45     1010 1996-6-17</code></pre>
-<pre class="r"><code># ubah jenis kolom menjadi date
-storms_old$date &lt;- as.Date(storms_old$date)
-
-# print
-storms_old</code></pre>
-<pre><code>## # A tibble: 6 x 4
-##   storm    wind pressure date      
-##   &lt;chr&gt;   &lt;int&gt;    &lt;int&gt; &lt;date&gt;    
-## 1 Alberto   110     1007 2000-08-03
-## 2 Alex       45     1009 1998-07-27
-## 3 Allison    65     1005 1995-06-03
-## 4 Ana        40     1013 1997-06-30
-## 5 Arlene     50     1010 1999-06-11
-## 6 Arthur     45     1010 1996-06-17</code></pre>
+##   country     year   cases population
+##   &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Afghanistan 1999     745   19987071
+## 2 Afghanistan 2000    2666   20595360
+## 3 Brazil      1999   37737  172006362
+## 4 Brazil      2000   80488  174504898
+## 5 China       1999  212258 1272915272
+## 6 China       2000  213766 1280428583</code></pre>
+<p>Berdasarkan hasil yang diperoleh dapat dilihat bahwa <code>table5_new2</code> telah memenuhi syarat data yang <em>tidy</em> atau rapi. Data tersebut telah siap untuk dilakukan analisa lebih lanjut.</p>
 </div>
 </div>
 <div id="transformasi-data" class="section level2">
-<h2>3.5 Transformasi Data</h2>
+<h2>3.7 Transformasi Data</h2>
 <p>Data frame merupakan struktur data utama dalam statistik dan dalam <code>R</code>. Struktur dasar data frame ialah ada satu observasi tiap baris dan setiap kolom mewakili variabel, ukuran, fitur, atau karakteristik pengamatan itu yang telah dijelaskan pada bagian sebelumya. <code>R</code> memiliki implementasi internal data frame yang kemungkinan besar akan kita gunakan paling sering. Namun, ada paket di CRAN yang mengimplementasikan data frame layaknya basis data relasional yang memungkinkan kita untuk beroperasi pada data frame yang sangat besar.</p>
 <p>Mengingat pentingnya mengelola dat frame, penting bagi kita untuk memiliki alat yang baik untuk melakukannya. <code>R</code> memiliki beberapa paket seperti fungsi <code>subset()</code> dan penggunaan operator “[” dan “$” untuk mengekstrak himpunan bagian dari frame data. Namun, operasi lain, seperti pemfilteran, pengurutan, dan pengelompokan data, seringkali dapat menjadi operasi yang membosankan di <code>R</code> yang sintaksisnya tidak terlalu intuitif. Paket <code>dplyr</code> dirancang untuk mengurangi banyak masalah ini dan menyediakan serangkaian rutinitas yang dioptimalkan secara khusus untuk menangani data frame.</p>
 <div id="paket-dplyr" class="section level3">
-<h3>3.5.1 Paket dplyr</h3>
+<h3>3.7.1 Paket dplyr</h3>
 <p>Paket <code>dplyr</code> dikembangkan oleh <strong>Hadley Wickham</strong> dari <strong>RStudio</strong> dan merupakan versi yang dioptimalkan dari paket <code>plyr</code>-nya. Paket <code>dplyr</code> tidak menyediakan fungsionalitas baru untuk <code>R</code> sendiri, dalam arti bahwa semua yang dilakukan <code>dplyr</code> sudah dapat dilakukan dengan fungsi basis <code>R</code>, tetapi sangat menyederhanakan fungsi yang ada di <code>R</code>.</p>
 <p>Salah satu kontribusi penting dari paket <code>dplyr</code> adalah ia menyediakan “<em>grammar</em>” (khususnya, kata kerja) untuk manipulasi data dan untuk beroperasi pada data frame. Melalui <em>grammar</em> ini, kita dapat berkomunikasi dengan masuk akal apa yang telah kita lakukan terhadap data frame dapat pula dipahami orang lain (dengan asumsi mereka juga tahu <em>grammar</em>-nya). Hal ini berguna karena memberikan abstraksi untuk manipulasi data yang sebelumnya tidak ada. Kontribusi lain yang bermanfaat adalah bahwa fungsi <code>dplyr</code> sangat cepat, karena banyak operasi utama dikodekan dalam C++.</p>
 <p>Pada bagian ini pembaca akan belajar <strong>6</strong> fungsi utama yang ada pada paket <code>dplyr</code>. Fungsi tersebut antara lain:</p>
@@ -861,9 +1599,81 @@ storms_old</code></pre>
 install.packages(&quot;dplyr&quot;)</code></pre>
 <pre class="r"><code># memuat paket
 library(dplyr)</code></pre>
+<p>Pada contoh kali ini penulis akan menggunakan dataset <code>flights</code> dari library <code>nycflights13</code>. Berikut adalah sintaks untuk memuat dataset tersebut:</p>
+<pre class="r"><code>library(nycflights13)
+
+#print
+flights</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># cek variabel
+colnames(flights)</code></pre>
+<pre><code>##  [1] &quot;year&quot;           &quot;month&quot;          &quot;day&quot;            &quot;dep_time&quot;      
+##  [5] &quot;sched_dep_time&quot; &quot;dep_delay&quot;      &quot;arr_time&quot;       &quot;sched_arr_time&quot;
+##  [9] &quot;arr_delay&quot;      &quot;carrier&quot;        &quot;flight&quot;         &quot;tailnum&quot;       
+## [13] &quot;origin&quot;         &quot;dest&quot;           &quot;air_time&quot;       &quot;distance&quot;      
+## [17] &quot;hour&quot;           &quot;minute&quot;         &quot;time_hour&quot;</code></pre>
+<pre class="r"><code># ringkasan data
+summary(flights)</code></pre>
+<pre><code>##       year          month             day           dep_time   
+##  Min.   :2013   Min.   : 1.000   Min.   : 1.00   Min.   :   1  
+##  1st Qu.:2013   1st Qu.: 4.000   1st Qu.: 8.00   1st Qu.: 907  
+##  Median :2013   Median : 7.000   Median :16.00   Median :1401  
+##  Mean   :2013   Mean   : 6.549   Mean   :15.71   Mean   :1349  
+##  3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.:23.00   3rd Qu.:1744  
+##  Max.   :2013   Max.   :12.000   Max.   :31.00   Max.   :2400  
+##                                                  NA&#39;s   :8255  
+##  sched_dep_time   dep_delay          arr_time    sched_arr_time
+##  Min.   : 106   Min.   : -43.00   Min.   :   1   Min.   :   1  
+##  1st Qu.: 906   1st Qu.:  -5.00   1st Qu.:1104   1st Qu.:1124  
+##  Median :1359   Median :  -2.00   Median :1535   Median :1556  
+##  Mean   :1344   Mean   :  12.64   Mean   :1502   Mean   :1536  
+##  3rd Qu.:1729   3rd Qu.:  11.00   3rd Qu.:1940   3rd Qu.:1945  
+##  Max.   :2359   Max.   :1301.00   Max.   :2400   Max.   :2359  
+##                 NA&#39;s   :8255      NA&#39;s   :8713                 
+##    arr_delay          carrier              flight       tailnum         
+##  Min.   : -86.000   Length:336776      Min.   :   1   Length:336776     
+##  1st Qu.: -17.000   Class :character   1st Qu.: 553   Class :character  
+##  Median :  -5.000   Mode  :character   Median :1496   Mode  :character  
+##  Mean   :   6.895                      Mean   :1972                     
+##  3rd Qu.:  14.000                      3rd Qu.:3465                     
+##  Max.   :1272.000                      Max.   :8500                     
+##  NA&#39;s   :9430                                                           
+##     origin              dest              air_time        distance   
+##  Length:336776      Length:336776      Min.   : 20.0   Min.   :  17  
+##  Class :character   Class :character   1st Qu.: 82.0   1st Qu.: 502  
+##  Mode  :character   Mode  :character   Median :129.0   Median : 872  
+##                                        Mean   :150.7   Mean   :1040  
+##                                        3rd Qu.:192.0   3rd Qu.:1389  
+##                                        Max.   :695.0   Max.   :4983  
+##                                        NA&#39;s   :9430                  
+##       hour           minute        time_hour                  
+##  Min.   : 1.00   Min.   : 0.00   Min.   :2013-01-01 05:00:00  
+##  1st Qu.: 9.00   1st Qu.: 8.00   1st Qu.:2013-04-04 13:00:00  
+##  Median :13.00   Median :29.00   Median :2013-07-03 10:00:00  
+##  Mean   :13.18   Mean   :26.23   Mean   :2013-07-03 05:22:54  
+##  3rd Qu.:17.00   3rd Qu.:44.00   3rd Qu.:2013-10-01 07:00:00  
+##  Max.   :23.00   Max.   :59.00   Max.   :2013-12-31 23:00:00  
+## </code></pre>
+<p>dataset tersebut berisi 336.776 penerbangan yang berangkat dari New York pada tahun 2013. Data tersebut berasal dari <em>US Bureau of Transportation Statistics</em>.</p>
 </div>
 <div id="filter" class="section level3">
-<h3>3.5.2 filter()</h3>
+<h3>3.7.2 filter()</h3>
 <p>Fungsi <code>filter()</code> digunakan untuk mengekstrak himpunan bagian (subset) baris dari data frame. Fungsi ini mirip dengan fungsi <code>subset()</code> yang ada di <code>R</code>. Secara sederhana format fungsi <code>filter()</code> dapat dituliskan sebagai berikut:</p>
 <pre class="r"><code>filter(data, ....)</code></pre>
 <blockquote>
@@ -873,48 +1683,333 @@ library(dplyr)</code></pre>
 <li><strong>….</strong> : Predikat logis didefinisikan dalam istilah variabel dalam <strong>data</strong>. Beberapa kondisi digabungkan dengan &amp; (lihat Chapter 2 opeator relasi dan operator logika. Hanya baris tempat kondisi bernilai TRUE disimpan.</li>
 </ul>
 </blockquote>
-<p>Misalkan kita akan melakukan melakukan filter terhadap data frame <code>pollution_tbl</code> terhadap variabel <code>size</code> dengan kriteria <code>large</code> dan <code>amount</code> &gt; 12. Berikut adalah sintaks yang digunakan:</p>
-<pre class="r"><code>filter(pollution_tbl, size==&quot;large&quot; &amp; amount &gt; 12)</code></pre>
-<pre><code>## # A tibble: 3 x 3
-##   city     size  amount
-##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;
-## 1 New York large     23
-## 2 London   large     22
-## 3 Beijing  large    121</code></pre>
+<p>Visualisasi dari fungsi <code>filter()</code>disajikan pada Gambar <a href="#fig:filtervis">7</a></p>
+<div class="figure" style="text-align: center"><span id="fig:filtervis"></span>
+<img src="/filtervis.png" alt="Visualisasi fungsi filter (Sumber: Rstudio,2017)"  />
+<p class="caption">
+Figure 7: Visualisasi fungsi filter (Sumber: Rstudio,2017)
+</p>
+</div>
+<p>MIsalkan menggunakan dataset <code>flights</code> kita ingin mentehaui penerbangan apa saja yang berlangsung pada <code>month==1</code> dan <code>day==1</code> (1 Januari). Berikut adalah sintaks untuk memfilter datanya:</p>
+<pre class="r"><code>filter(flights, month == 1 &amp; day == 1)</code></pre>
+<pre><code>## # A tibble: 842 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 832 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>Jika menggunakan paket dasar <code>R</code>:</p>
-<pre class="r"><code>subset(pollution_tbl,size==&quot;large&quot; &amp; amount &gt; 12)</code></pre>
-<pre><code>## # A tibble: 3 x 3
-##   city     size  amount
-##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;
-## 1 New York large     23
-## 2 London   large     22
-## 3 Beijing  large    121</code></pre>
+<pre class="r"><code>jan1 &lt;- subset(flights, month == 1 &amp; day == 1)
+head(jan1, 10)</code></pre>
+<pre><code>## # A tibble: 10 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
+## #   time_hour &lt;dttm&gt;</code></pre>
 <p>Operator “&gt;” merupakan operator relasi (lihat chapter 2: operator relasi). Operator tersebut banyak digunakan untuk melakukan filter terhadap variabel/kolom yang mengandung nilai numerik.</p>
-<p>Operator “==” merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Figure <a href="#fig:filter">2</a> berikut:</p>
+<p>Operator “==” merupakan operator logika (lihat chapter 2: operator logika). Operator tersebut digunakan untuk melakukan filter terhadap sejumlah syarat atau kondisi yang kita tetapkan. Jika nilai yang dihasilkan TRUE, maka hanya observasi tersebut yang akan ditampilkan. Untuk lebih memahami penerapan masing-masing operator logika pada proses filter perhatikan Figure <a href="#fig:filter">8</a> berikut:</p>
 <div class="figure" style="text-align: center"><span id="fig:filter"></span>
 <img src="/filter.png" alt="Diagram operasi Boolean"  />
 <p class="caption">
-Figure 2: Diagram operasi Boolean
+Figure 8: Diagram operasi Boolean
 </p>
 </div>
 <blockquote>
 <p><strong>Note: </strong> Bagian yang di arsir adalah observasi yang akan ditampilkan pada output.</p>
 </blockquote>
 <p>Salah satu bagian terpenting dan paling sering penulis gunakan pada fungsi ini memfilter <em>missing value</em> (melihat observasi yang mengandung <em>missing value</em> atau tidak melibatkan <em>missing value</em>). Berikut adalah contoh filter terhadap data pada <code>pollution_tbl</code> yang tidak mengandung <em>missing value</em> dan nilai <code>amount</code>&gt;0.</p>
-<pre class="r"><code>filter(pollution_tbl,!(is.na(amount)|amount&lt;=0))</code></pre>
-<pre><code>## # A tibble: 6 x 3
-##   city     size  amount
-##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;
-## 1 New York large     23
-## 2 New York small     14
-## 3 London   large     22
-## 4 London   small     16
-## 5 Beijing  large    121
-## 6 Beijing  small     56</code></pre>
+<pre class="r"><code>flight_clean &lt;- filter(flights,
+                !(is.na(air_time)|is.na(arr_time)|
+                    is.na(arr_delay)|
+                    is.na(dep_time)|
+                    is.na(dep_delay)))
+summary(flight_clean)</code></pre>
 <p>Berdasarkan hasil yang diperoleh seluruh data tidak ada yang di drop sehingga dapat disimpulkan bahwa data tersebut tidak mengandung <em>missing value</em> dan nol.</p>
+<p>Cara lain yang dapat digunakan adalah dengan mengunakan fungsi <code>drop_na()</code> dari library <code>tidyr</code>. Berikut adalah contoh sintaks yang digunakan:</p>
+<pre class="r"><code>flight_clean &lt;- drop_na(flights)
+summary(flight_clean)</code></pre>
+<pre><code>##       year          month             day           dep_time   
+##  Min.   :2013   Min.   : 1.000   Min.   : 1.00   Min.   :   1  
+##  1st Qu.:2013   1st Qu.: 4.000   1st Qu.: 8.00   1st Qu.: 907  
+##  Median :2013   Median : 7.000   Median :16.00   Median :1400  
+##  Mean   :2013   Mean   : 6.565   Mean   :15.74   Mean   :1349  
+##  3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.:23.00   3rd Qu.:1744  
+##  Max.   :2013   Max.   :12.000   Max.   :31.00   Max.   :2400  
+##  sched_dep_time   dep_delay          arr_time    sched_arr_time
+##  Min.   : 500   Min.   : -43.00   Min.   :   1   Min.   :   1  
+##  1st Qu.: 905   1st Qu.:  -5.00   1st Qu.:1104   1st Qu.:1122  
+##  Median :1355   Median :  -2.00   Median :1535   Median :1554  
+##  Mean   :1340   Mean   :  12.56   Mean   :1502   Mean   :1533  
+##  3rd Qu.:1729   3rd Qu.:  11.00   3rd Qu.:1940   3rd Qu.:1944  
+##  Max.   :2359   Max.   :1301.00   Max.   :2400   Max.   :2359  
+##    arr_delay          carrier              flight       tailnum         
+##  Min.   : -86.000   Length:327346      Min.   :   1   Length:327346     
+##  1st Qu.: -17.000   Class :character   1st Qu.: 544   Class :character  
+##  Median :  -5.000   Mode  :character   Median :1467   Mode  :character  
+##  Mean   :   6.895                      Mean   :1943                     
+##  3rd Qu.:  14.000                      3rd Qu.:3412                     
+##  Max.   :1272.000                      Max.   :8500                     
+##     origin              dest              air_time        distance   
+##  Length:327346      Length:327346      Min.   : 20.0   Min.   :  80  
+##  Class :character   Class :character   1st Qu.: 82.0   1st Qu.: 509  
+##  Mode  :character   Mode  :character   Median :129.0   Median : 888  
+##                                        Mean   :150.7   Mean   :1048  
+##                                        3rd Qu.:192.0   3rd Qu.:1389  
+##                                        Max.   :695.0   Max.   :4983  
+##       hour           minute        time_hour                  
+##  Min.   : 5.00   Min.   : 0.00   Min.   :2013-01-01 05:00:00  
+##  1st Qu.: 9.00   1st Qu.: 8.00   1st Qu.:2013-04-05 06:00:00  
+##  Median :13.00   Median :29.00   Median :2013-07-04 09:00:00  
+##  Mean   :13.14   Mean   :26.23   Mean   :2013-07-03 17:56:45  
+##  3rd Qu.:17.00   3rd Qu.:44.00   3rd Qu.:2013-10-01 18:00:00  
+##  Max.   :23.00   Max.   :59.00   Max.   :2013-12-31 23:00:00</code></pre>
+<div id="scope-filtering" class="section level4">
+<h4>3.7.2.1 Scope Filtering</h4>
+<p><em>Scope filtering</em> menerapkan ekspresi predikat pada sejumlah variabel. Ekspresi predikat harus dikutip dengan <code>all_vars()</code> atau <code>any_vars()</code> dan harus menyebutkan kata ganti <code>.</code> untuk merujuk ke variabel. Fungsi-fungsi yang ada pada <em>scope filtering</em> dan formatnya disajikan pada sintaks berikut:</p>
+<pre class="r"><code>filter_all(.tbl, .vars_predicate, .preserve = FALSE)
+
+filter_if(.tbl, .predicate, .vars_predicate, .preserve = FALSE)
+
+filter_at(.tbl, .vars, .vars_predicate, .preserve = FALSE)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>.tbl</strong>: tibble atau dataframe.</li>
+<li><strong>.vars_predicate</strong>: Ekspresi predikat yang dikutip seperti yang dikembalikan oleh <code>all_vars()</code> atau <code>any_vars()</code>. <code>all_vars()</code> melakukan filter seperti pada efek <em>intersect</em> (irisan himpunan), sedangkan <code>any_vars()</code> melakukan filter seperti efek <em>union</em> (himpunan gabungan).</li>
+<li><strong>.preserve</strong>: ketika <code>FALSE</code> (default), struktur pengelompokan dihitung ulang berdasarkan data yang dihasilkan.</li>
+<li><strong>.predicate</strong>: fungsi predikat yang diaplikasikan pada kolom atau vektor logikal.</li>
+<li><strong>.vars</strong>: daftar kolom yang dihasilkan oleh <code>vars()</code>, vektor karakter dari nama kolom, vektor numerik dari posisi kolom, atau <code>NULL</code>.</li>
+</ul>
+</blockquote>
+<p>Berikut adalahcontoh sintaks penerapan fungsi-fungsi tersebut:</p>
+<pre class="r"><code># filter seluruh kolom dan baris yang memiliki nilai sesuai
+# mengambil irisan data
+filter_all(flights, all_vars(. &gt; 150))</code></pre>
+<pre><code>## # A tibble: 0 x 19
+## # ... with 19 variables: year &lt;int&gt;, month &lt;int&gt;, day &lt;int&gt;,
+## #   dep_time &lt;int&gt;, sched_dep_time &lt;int&gt;, dep_delay &lt;dbl&gt;, arr_time &lt;int&gt;,
+## #   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
+## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># mengambil himpunan gabungan data
+filter_all(flights, any_vars(. &gt; 150))</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># filter pada kolom tertentu berdasarkan spesifikasi 
+# predikat var()
+
+# filter kolom dengan awalan h atau 
+# yang terdapat baris dengan nilai ganjil 
+# pada variabel tersebut
+filter_at(flights, 
+          vars(starts_with(&quot;a&quot;)), 
+          any_vars((. %% 2) == 1))</code></pre>
+<pre><code>## # A tibble: 286,363 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      555            600        -5      913
+##  7  2013     1     1      557            600        -3      709
+##  8  2013     1     1      558            600        -2      753
+##  9  2013     1     1      558            600        -2      849
+## 10  2013     1     1      558            600        -2      853
+## # ... with 286,353 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># filter pada kolom hp dan vs dimana nilai kolom genap
+filter_at(flights, vars(arr_time, arr_delay), ~.%%2==0)</code></pre>
+<pre><code>## # A tibble: 82,790 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      533            529         4      850
+##  2  2013     1     1      544            545        -1     1004
+##  3  2013     1     1      554            558        -4      740
+##  4  2013     1     1      557            600        -3      838
+##  5  2013     1     1      559            559         0      702
+##  6  2013     1     1      559            600        -1      854
+##  7  2013     1     1      601            600         1      844
+##  8  2013     1     1      602            610        -8      812
+##  9  2013     1     1      606            610        -4      858
+## 10  2013     1     1      624            630        -6      840
+## # ... with 82,780 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># filter dengan menerapkan kondisi tertentu
+# filter seluruh variabel dengan observasi mengandung
+# bilangan bulat dan tidak memiliki nilai 0
+filter_if(flights[,16:17], ~ all(floor(.) == .), all_vars(. != 0))</code></pre>
+<pre><code>## # A tibble: 336,776 x 2
+##    distance  hour
+##       &lt;dbl&gt; &lt;dbl&gt;
+##  1     1400     5
+##  2     1416     5
+##  3     1089     5
+##  4     1576     5
+##  5      762     6
+##  6      719     5
+##  7     1065     6
+##  8      229     6
+##  9      944     6
+## 10      733     6
+## # ... with 336,766 more rows</code></pre>
+<blockquote>
+<p><strong>Note: filter_at()</strong> dan <strong>filter_if()</strong> menghilangkan kolom yang tidak sesuai kriteria. Sedangkan <strong>filter_all()</strong> digunakan untuk memfilter baris.</p>
+</blockquote>
+</div>
+<div id="fungsi-lain-untuk-mengekstrak-observasi" class="section level4">
+<h4>3.7.2.2 Fungsi Lain Untuk Mengekstrak Observasi</h4>
+<p>Selain fungsi <code>filter()</code> terdapat fungsi lain yang berguna dalam melakukan ekstrak data. Fungsi-fungsi tersebut antara lain:</p>
+<ol style="list-style-type: decimal">
+<li><code>distinct()</code>: menghilangkan baris dengan nilai yang sama (<em>duplicate observation</em>).</li>
+<li><code>sample_frac()</code>: melakukan sampling sejumlah fraksi baris pada data. Fungsi ini berguna saat pembaca ingin melakukan sampling data yang cukup besar menggunakan besaran fraksi data.</li>
+<li><code>sample_n()</code>: sama dengan <code>sample_frac()</code>. Bedanya adalah kita perlu menyatakan berapa baris yang hendak kita sampling.</li>
+<li><code>slice()</code>: membuat irisan data. Berguna jika ingin membuat dataset baru berrdasarkan grup data atau membuat dataset dari sejumlah baris pada data.</li>
+<li><code>top_n()</code>: memilih data teratas (nilai tertinggi) yang telah diurutkan.</li>
+</ol>
+<p>Berikut adalah contoh sintaks penerapan fungsi-fungsi tersebut:</p>
+<pre class="r"><code># menghilangkan baris dengan nilai
+distinct(flights, tailnum)</code></pre>
+<pre><code>## # A tibble: 4,044 x 1
+##    tailnum
+##    &lt;chr&gt;  
+##  1 N14228 
+##  2 N24211 
+##  3 N619AA 
+##  4 N804JB 
+##  5 N668DN 
+##  6 N39463 
+##  7 N516JB 
+##  8 N829AS 
+##  9 N593JB 
+## 10 N3ALAA 
+## # ... with 4,034 more rows</code></pre>
+<pre class="r"><code># Sampling dengan pengembalian secara acak 50% data
+sample_frac(flights, 0.1, replace=TRUE)</code></pre>
+<pre><code>## # A tibble: 33,678 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     5    16     1129           1059        30     1413
+##  2  2013     1    28     1005           1000         5     1325
+##  3  2013     4    25     1817           1820        -3     2014
+##  4  2013     8    15     1114           1115        -1     1321
+##  5  2013     4    25     1718           1529       109     1924
+##  6  2013     4     3      758            800        -2      907
+##  7  2013     1    17      855            810        45      957
+##  8  2013     8    25     1252           1255        -3     1644
+##  9  2013    10     3     1629           1629         0     1951
+## 10  2013     9    10     1654           1700        -6     2001
+## # ... with 33,668 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># sampling dengan pengembalian secara acak 10 observasi
+sample_n(flights, 10, replace=TRUE)</code></pre>
+<pre><code>## # A tibble: 10 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1    27     1510           1508         2     1658
+##  2  2013    11     8     1110           1115        -5     1231
+##  3  2013     2     3     1515           1520        -5     1832
+##  4  2013     2    21     1951           1935        16     2319
+##  5  2013    12    23      802            800         2     1113
+##  6  2013     7    26      554            600        -6      705
+##  7  2013    10     1     1240           1249        -9     1334
+##  8  2013     8    16     1717           1715         2     2000
+##  9  2013    12     5     1746           1245       301     1939
+## 10  2013     6     2     2113           1800       193     2223
+## # ... with 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
+## #   time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># Pilih data dari baris ke 25 sampai 35
+slice(flights, 25:35)</code></pre>
+<pre><code>## # A tibble: 11 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      607            607         0      858
+##  2  2013     1     1      608            600         8      807
+##  3  2013     1     1      611            600        11      945
+##  4  2013     1     1      613            610         3      925
+##  5  2013     1     1      615            615         0     1039
+##  6  2013     1     1      615            615         0      833
+##  7  2013     1     1      622            630        -8     1017
+##  8  2013     1     1      623            610        13      920
+##  9  2013     1     1      623            627        -4      933
+## 10  2013     1     1      624            630        -6      909
+## 11  2013     1     1      624            630        -6      840
+## # ... with 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
+## #   time_hour &lt;dttm&gt;</code></pre>
+<pre class="r"><code># 10 observasi dengan variabel Sepal.Width tertinggi
+top_n(flights, 10, arr_time)</code></pre>
+<pre><code>## # A tibble: 150 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1     2209           2155        14     2400
+##  2  2013     1     5     2116           2130       -14     2400
+##  3  2013     1    13     2243           2129        74     2400
+##  4  2013     1    16     2138           2107        31     2400
+##  5  2013     1    17     2256           2249         7     2400
+##  6  2013     1    22     2212           2055        77     2400
+##  7  2013     1    22     2249           2125        84     2400
+##  8  2013     1    25     2055           1725       210     2400
+##  9  2013     1    28     2303           2250        13     2400
+## 10  2013     1    30     2155           1915       160     2400
+## # ... with 140 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>Untuk informasi lebih lanjut pembaca dapat mengakses menu bantuan dengan mengetikkan sintaks berikut:</p>
+<pre class="r"><code>?&lt;nama fungsi&gt;</code></pre>
+</div>
 </div>
 <div id="arrange" class="section level3">
-<h3>3.5.3 arrange()</h3>
+<h3>3.7.3 arrange()</h3>
 <p>Fungsi <code>arrange()</code> bekerja mirip dengan fungsi <code>filter()</code> kecuali bahwa alih-alih memilih baris, fungsi ini mengubah urutan observasinya (mengurutkan dari yang terbesar atau sebaliknya). Dibutuhkan data frame dan sekumpulan nama kolom (atau ekspresi yang lebih rumit) untuk dipesan. Jika kita memberikan lebih dari satu nama kolom pada fungsi, setiap kolom tambahan akan digunakan untuk menentukan urutan nilai yang sama berdasarkan nilai kolom sebelumnya.</p>
 <p>Fungsi <code>arrange()</code> mirip dengan fungsi <code>order()</code> pada paket dasar <code>R</code>. Format sederhana fungsi ini adalah sebagai berikut:</p>
 <pre class="r"><code>arrange(data, ....)</code></pre>
@@ -925,83 +2020,97 @@ Figure 2: Diagram operasi Boolean
 <li><strong>….</strong> : daftar nama variabel yang tidak dikutip yang dipisahkan tanda koma, atau ekspresi yang melibatkan nama variabel. Gunakan <code>desc()</code> untuk mengurutkan variabel dalam urutan menurun.</li>
 </ul>
 </blockquote>
-<p>Misalkan kita ingin melihat urutan mobil pada data <code>mtcars</code> berdasarkan penggunaan bahan bakar (<code>mpg</code>) dan bobot mobil (<code>wt</code>) tersebut. Berikut adalah sintaks yang digunakan:</p>
-<pre class="r"><code>data(&quot;mtcars&quot;)
-
-# Ubah mtcars menjadi tibble
-mtcars&lt;- as_tibble(mtcars)
-
-arrange(mtcars, mpg, wt)</code></pre>
-<pre><code>## # A tibble: 32 x 11
-##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  10.4     8  472    205  2.93  5.25  18.0     0     0     3     4
-##  2  10.4     8  460    215  3     5.42  17.8     0     0     3     4
-##  3  13.3     8  350    245  3.73  3.84  15.4     0     0     3     4
-##  4  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
-##  5  14.7     8  440    230  3.23  5.34  17.4     0     0     3     4
-##  6  15       8  301    335  3.54  3.57  14.6     0     1     5     8
-##  7  15.2     8  304    150  3.15  3.44  17.3     0     0     3     2
-##  8  15.2     8  276.   180  3.07  3.78  18       0     0     3     3
-##  9  15.5     8  318    150  2.76  3.52  16.9     0     0     3     2
-## 10  15.8     8  351    264  4.22  3.17  14.5     0     1     5     4
-## # ... with 22 more rows</code></pre>
-<p>Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk kedua variabel tersebut jalankan sintaks berikut:</p>
-<pre class="r"><code>arrange(mtcars, desc(mpg), desc(wt))</code></pre>
-<pre><code>## # A tibble: 32 x 11
-##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1
-##  2  32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1
-##  3  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2
-##  4  30.4     4  95.1   113  3.77  1.51  16.9     1     1     5     2
-##  5  27.3     4  79      66  4.08  1.94  18.9     1     1     4     1
-##  6  26       4 120.     91  4.43  2.14  16.7     0     1     5     2
-##  7  24.4     4 147.     62  3.69  3.19  20       1     0     4     2
-##  8  22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2
-##  9  22.8     4 108      93  3.85  2.32  18.6     1     1     4     1
-## 10  21.5     4 120.     97  3.7   2.46  20.0     1     0     3     1
-## # ... with 22 more rows</code></pre>
+<p>Visualisasi dari fungsi <code>arrange()</code>disajikan pada Gambar <a href="#fig:arrange">9</a></p>
+<div class="figure" style="text-align: center"><span id="fig:arrange"></span>
+<img src="/arrange.png" alt="Visualisasi fungsi arrange (Sumber: Rstudio,2017)"  />
+<p class="caption">
+Figure 9: Visualisasi fungsi arrange (Sumber: Rstudio,2017)
+</p>
+</div>
+<p>Misalkan kita ingin mengurutkan penerbangan berdasarkan variabel <code>year</code>, <code>month</code>, dan <code>day</code>. <code>R</code> akan melakukan pengurutan berdasarkan <code>year</code> terlebih dahulu. Jika ditemukan nilai yang seimbang, maka pengurutan dilakukan oleh variabel berikutnya. Berikut adalah sintaks yang digunakan:</p>
+<pre class="r"><code>arrange(flights, year, month, day)</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>Jika ingin urutan yang digunakan adalah dari yang terbesar ke terkecil untuk ketiga variabel tersebut jalankan sintaks berikut:</p>
+<pre class="r"><code>arrange(flights, desc(year, month, day))</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>Jika menggunakan fungsi <code>order()</code>:</p>
-<pre class="r"><code>attach(mtcars)
+<pre class="r"><code>attach(flights)
 # urutan dari kecil ke besar
-mtcars[order(mpg, wt), ]</code></pre>
-<pre><code>## # A tibble: 32 x 11
-##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  10.4     8  472    205  2.93  5.25  18.0     0     0     3     4
-##  2  10.4     8  460    215  3     5.42  17.8     0     0     3     4
-##  3  13.3     8  350    245  3.73  3.84  15.4     0     0     3     4
-##  4  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
-##  5  14.7     8  440    230  3.23  5.34  17.4     0     0     3     4
-##  6  15       8  301    335  3.54  3.57  14.6     0     1     5     8
-##  7  15.2     8  304    150  3.15  3.44  17.3     0     0     3     2
-##  8  15.2     8  276.   180  3.07  3.78  18       0     0     3     3
-##  9  15.5     8  318    150  2.76  3.52  16.9     0     0     3     2
-## 10  15.8     8  351    264  4.22  3.17  14.5     0     1     5     4
-## # ... with 22 more rows</code></pre>
+flights[order(year, month, day), ]</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <pre class="r"><code># urutan dari besar ke kecil
-mtcars[order(-mpg, -wt), ]</code></pre>
-<pre><code>## # A tibble: 32 x 11
-##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  33.9     4  71.1    65  4.22  1.84  19.9     1     1     4     1
-##  2  32.4     4  78.7    66  4.08  2.2   19.5     1     1     4     1
-##  3  30.4     4  75.7    52  4.93  1.62  18.5     1     1     4     2
-##  4  30.4     4  95.1   113  3.77  1.51  16.9     1     1     5     2
-##  5  27.3     4  79      66  4.08  1.94  18.9     1     1     4     1
-##  6  26       4 120.     91  4.43  2.14  16.7     0     1     5     2
-##  7  24.4     4 147.     62  3.69  3.19  20       1     0     4     2
-##  8  22.8     4 141.     95  3.92  3.15  22.9     1     0     4     2
-##  9  22.8     4 108      93  3.85  2.32  18.6     1     1     4     1
-## 10  21.5     4 120.     97  3.7   2.46  20.0     1     0     3     1
-## # ... with 22 more rows</code></pre>
+flights[order(-year, -month, -day), ]</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013    12    31       13           2359        14      439
+##  2  2013    12    31       18           2359        19      449
+##  3  2013    12    31       26           2245       101      129
+##  4  2013    12    31      459            500        -1      655
+##  5  2013    12    31      514            515        -1      814
+##  6  2013    12    31      549            551        -2      925
+##  7  2013    12    31      550            600       -10      725
+##  8  2013    12    31      552            600        -8      811
+##  9  2013    12    31      553            600        -7      741
+## 10  2013    12    31      554            550         4     1024
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <blockquote>
 <p><strong>Note: </strong> <em>missing value</em> akan selalu diurutkan pada observasi terakhir baik menggunakan urutan dari terbesar ke terkecil maupun sebaliknya.</p>
 </blockquote>
 </div>
 <div id="select" class="section level3">
-<h3>3.5.4 select()</h3>
+<h3>3.7.4 select()</h3>
 <p>Fungsi <code>select()</code> dapat digunakan untuk memilih kolom dari data frame yang ingin kita fokuskan. Seringkali kita memiliki data frame yang besar yang berisi semua data, tetapi setiap analisis yang diberikan hanya menggunakan subset variabel atau pengamatan. Fungsi <code>select()</code> memungkinkan kita untuk mendapatkan beberapa kolom yang mungkin kita butuhkan.</p>
 <p>Fungsi <code>select()</code> memiliki kesamaan dengan subset menggunakan tanda “[” dan “$”. Perbedaanya adalah kita dapat melakukan hal lebih melalui fungsi ini seperti memilih berdasarkan kriteria tertentu menggunakan fungsi bantuan sebagai berikut:</p>
 <ol style="list-style-type: decimal">
@@ -1025,9 +2134,9 @@ mtcars[order(-mpg, -wt), ]</code></pre>
 # install.packages(&quot;nycflights13&quot;)
 
 # memuat data frame
-library(nycflights13)</code></pre>
-<pre><code>## Warning: package &#39;nycflights13&#39; was built under R version 3.5.3</code></pre>
-<pre class="r"><code># data
+library(nycflights13)
+
+# data
 flights</code></pre>
 <pre><code>## # A tibble: 336,776 x 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time
@@ -1148,9 +2257,118 @@ select(flights, contains(&quot;time&quot;), everything())</code></pre>
 ## #   year &lt;int&gt;, month &lt;int&gt;, day &lt;int&gt;, dep_delay &lt;dbl&gt;, arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;</code></pre>
+<div id="scope-varian-dari-fungsi-select" class="section level4">
+<h4>3.7.4.1 Scope Varian dari Fungsi Select</h4>
+<p>Terdapat 3 fungsi scope varian yang digunakan pada select, yaitu:</p>
+<ol style="list-style-type: decimal">
+<li><code>select_all()</code>: memilih seluruh kolom dan mengaplikasikan fungsi pada nama kolom (merubah nama, merubah besar kecil huruf, dll).</li>
+<li><code>select_if()</code>: memilih kolom sesuai kondisi yang diinginkan serta dapat mengaplikasikan fungsi pada nama kolom.</li>
+<li><code>select_at()</code>: memilih kolom sesuai nama kolom atau index yang diinputkan pada <code>var()</code> dan dapat mengaplikasikan fungsi pada nama kolom.</li>
+</ol>
+<p>Berikut adalah format dari fungsi-fungsi tersebut:</p>
+<pre class="r"><code>select_all(.tbl, .funs = list(), ...)
+
+select_if(.tbl, .predicate, .funs = list(), ...)
+
+select_at(.tbl, .vars, .funs = list(), ...)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>.tbl</strong>: tibble atau dataframe</li>
+<li><strong>.funs</strong>: fungsi yang akan diaplikasikan.</li>
+<li><strong>…</strong>: argumen tambahan fungsi.</li>
+<li><strong>.predicate</strong>: fungsi predikat yang akan diaplikasikan pada kolom.</li>
+<li><strong>.vars</strong>: daftar kolom yang dibuat oleh fungsi <code>vars()</code>.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh sintaks fungsi-fungsi tersebut:</p>
+<pre class="r"><code># pilih seluruh kolom dan ubah huruf kolom 
+# menjadi huruf kapital
+select_all(flights, toupper)</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##     YEAR MONTH   DAY DEP_TIME SCHED_DEP_TIME DEP_DELAY ARR_TIME
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: SCHED_ARR_TIME &lt;int&gt;,
+## #   ARR_DELAY &lt;dbl&gt;, CARRIER &lt;chr&gt;, FLIGHT &lt;int&gt;, TAILNUM &lt;chr&gt;,
+## #   ORIGIN &lt;chr&gt;, DEST &lt;chr&gt;, AIR_TIME &lt;dbl&gt;, DISTANCE &lt;dbl&gt;, HOUR &lt;dbl&gt;,
+## #   MINUTE &lt;dbl&gt;, TIME_HOUR &lt;dttm&gt;</code></pre>
+<pre class="r"><code># pilih kolom berdasarkan if then condition
+# dan ubah nama kolom terpilih menjadi huruf kapital
+select_if(flights, ~is_character(.), toupper)</code></pre>
+<pre><code>## # A tibble: 336,776 x 4
+##    CARRIER TAILNUM ORIGIN DEST 
+##    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;
+##  1 UA      N14228  EWR    IAH  
+##  2 UA      N24211  LGA    IAH  
+##  3 AA      N619AA  JFK    MIA  
+##  4 B6      N804JB  JFK    BQN  
+##  5 DL      N668DN  LGA    ATL  
+##  6 UA      N39463  EWR    ORD  
+##  7 B6      N516JB  EWR    FLL  
+##  8 EV      N829AS  LGA    IAD  
+##  9 B6      N593JB  JFK    MCO  
+## 10 AA      N3ALAA  LGA    ORD  
+## # ... with 336,766 more rows</code></pre>
+<pre class="r"><code># pilih beberapa kolom dan ubah nama kolom menjadi huruf besar.
+select_at(flights, vars(contains(&quot;time&quot;)), toupper)</code></pre>
+<pre><code>## # A tibble: 336,776 x 6
+##    DEP_TIME SCHED_DEP_TIME ARR_TIME SCHED_ARR_TIME AIR_TIME
+##       &lt;int&gt;          &lt;int&gt;    &lt;int&gt;          &lt;int&gt;    &lt;dbl&gt;
+##  1      517            515      830            819      227
+##  2      533            529      850            830      227
+##  3      542            540      923            850      160
+##  4      544            545     1004           1022      183
+##  5      554            600      812            837      116
+##  6      554            558      740            728      150
+##  7      555            600      913            854      158
+##  8      557            600      709            723       53
+##  9      557            600      838            846      140
+## 10      558            600      753            745      138
+## # ... with 336,766 more rows, and 1 more variable: TIME_HOUR &lt;dttm&gt;</code></pre>
+</div>
+<div id="fungsi-pull-untuk-mengambil-nilai-pada-kolom" class="section level4">
+<h4>3.7.4.2 Fungsi Pull Untuk Mengambil Nilai Pada Kolom</h4>
+<p>Fungsi <code>pull()</code> digunakan untuk mengambil nilai pada variabel. Output yang dihasilkan berupa vektor. Fungsi ini mirip dengan subseting menggunakan “$” (<em>dolar sign</em>) atau “[[” (<em>double square brackets</em>). Berikut adalah format fungsi tersebut:</p>
+<pre class="r"><code>pull(.data, var = -1)</code></pre>
+<blockquote>
+<p><strong>Note : </strong></p>
+<ul>
+<li><strong>.data</strong>: tibble atau dataframe.</li>
+<li><strong>var</strong>: nama variabel atau indeks. Untuk indeks positif, tabel akan dibaca dari kanan. Jika negatif akan dibaca dari kiri.</li>
+</ul>
+</blockquote>
+<p>Visualisasi dari fungsi <code>pull()</code>disajikan pada Gambar <a href="#fig:pull">10</a></p>
+<div class="figure" style="text-align: center"><span id="fig:pull"></span>
+<img src="/pull.png" alt="Visualisasi fungsi pull (Sumber: Rstudio,2017)"  />
+<p class="caption">
+Figure 10: Visualisasi fungsi pull (Sumber: Rstudio,2017)
+</p>
+</div>
+<p>Berikut adalah contoh sintaks menggunakan fungsi <code>pull()</code>:</p>
+<pre class="r"><code># menggunakan fungsi pull
+pull(mtcars, mpg)</code></pre>
+<pre><code>##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2
+## [15] 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4
+## [29] 15.8 19.7 15.0 21.4</code></pre>
+<pre class="r"><code># menggunakan fungsi dasar
+mtcars[[&quot;mpg&quot;]]</code></pre>
+<pre><code>##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2
+## [15] 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4
+## [29] 15.8 19.7 15.0 21.4</code></pre>
+</div>
 </div>
 <div id="mutate" class="section level3">
-<h3>3.5.5 mutate()</h3>
+<h3>3.7.5 mutate()</h3>
 <p>Fungsi <code>mutate()</code> ada untuk menghitung transformasi variabel dalam data frame. Seringkali, kita ingin membuat variabel baru yang berasal dari variabel yang ada dan fungsi <code>mutate()</code> menyediakan antarmuka yang bersih untuk melakukan itu. Format yang digunakan adalah sebagai berikut:</p>
 <pre class="r"><code>mutate(data, ....)</code></pre>
 <blockquote>
@@ -1254,9 +2472,333 @@ mutate(flights_sml,
 <li><p><strong>Operator logik</strong> (&lt;, &lt;=, &gt;, &gt;=, !=). Jika kita melakukan urutan operasi logis yang kompleks, seringkali ide yang baik untuk menyimpan nilai sementara dalam variabel baru sehingga kita dapat memeriksa bahwa setiap langkah berfungsi seperti yang diharapkan.</p></li>
 <li><p>Rangking (<code>min_rank()</code>, <code>row_number()</code>, <code>dense_rank()</code>, <code>percent_rank()</code>, <code>cume_dist()</code>dan <code>ntile()</code>).</p></li>
 </ol>
+<div id="scope-variant-fungsi-mutate-dan-transmute" class="section level4">
+<h4>3.7.5.1 Scope Variant Fungsi Mutate dan Transmute</h4>
+<p><strong>Scope variants</strong> dari fungsi <code>mutate()</code> dan <code>transmute</code> berfungsi melakukan transformasi yang sama terhadap beberapa variabel. Terdapat tiga varaian umum dari fungsi-fungsinya, antara lain:</p>
+<ol style="list-style-type: decimal">
+<li><code>_all</code>:bekerja pada seluruh variabel.</li>
+<li><code>_at</code>: bekerja pada variabel terpilih melalui vektor numerik atau string.</li>
+<li><code>_if</code>: berkeja pada variabel terpilih melalui fungsi predikat.</li>
+</ol>
+<p>Berikut adalah format fungsi-fungsi tersebut:</p>
+<pre class="r"><code>mutate_all(.tbl, .funs, ...)
+
+mutate_if(.tbl, .predicate, .funs, ...)
+
+mutate_at(.tbl, .vars, .funs, ...)
+
+transmute_all(.tbl, .funs, ...)
+
+transmute_if(.tbl, .predicate, .funs, ...)
+
+transmute_at(.tbl, .vars, .funs, ...)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>.tbl</strong>: tibble atau dataframe.</li>
+<li><strong>.funs</strong>: fungsi yang diaplikasikan.</li>
+<li><strong>…</strong>: argumen tambahan pada fungsi.</li>
+<li><strong>.predicate</strong>: fungsi predikat yang diaplikasikan pada kolom.</li>
+<li><strong>.vars</strong>: daftra kolom yang dibuat menggunakan fungsi <code>vars()</code>.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh sintaks dari fungsi-fungsi tersebut:</p>
+<pre class="r"><code># melakukan standarisasi variabel numerik
+# fungsi standarisasi
+scale2 &lt;- function(x, na.rm = FALSE) (x - mean(x, na.rm = na.rm)) / sd(x, na.rm)
+
+# standarisasi variabel dataset mtcars
+mutate_all(mtcars, scale2)</code></pre>
+<pre><code>##            mpg        cyl        disp          hp        drat           wt
+## 1   0.15088482 -0.1049878 -0.57061982 -0.53509284  0.56751369 -0.610399567
+## 2   0.15088482 -0.1049878 -0.57061982 -0.53509284  0.56751369 -0.349785269
+## 3   0.44954345 -1.2248578 -0.99018209 -0.78304046  0.47399959 -0.917004624
+## 4   0.21725341 -0.1049878  0.22009369 -0.53509284 -0.96611753 -0.002299538
+## 5  -0.23073453  1.0148821  1.04308123  0.41294217 -0.83519779  0.227654255
+## 6  -0.33028740 -0.1049878 -0.04616698 -0.60801861 -1.56460776  0.248094592
+## 7  -0.96078893  1.0148821  1.04308123  1.43390296 -0.72298087  0.360516446
+## 8   0.71501778 -1.2248578 -0.67793094 -1.23518023  0.17475447 -0.027849959
+## 9   0.44954345 -1.2248578 -0.72553512 -0.75387015  0.60491932 -0.068730634
+## 10 -0.14777380 -0.1049878 -0.50929918 -0.34548584  0.60491932  0.227654255
+## 11 -0.38006384 -0.1049878 -0.50929918 -0.34548584  0.60491932  0.227654255
+## 12 -0.61235388  1.0148821  0.36371309  0.48586794 -0.98482035  0.871524874
+## 13 -0.46302456  1.0148821  0.36371309  0.48586794 -0.98482035  0.524039143
+## 14 -0.81145962  1.0148821  0.36371309  0.48586794 -0.98482035  0.575139986
+## 15 -1.60788262  1.0148821  1.94675381  0.85049680 -1.24665983  2.077504765
+## 16 -1.60788262  1.0148821  1.84993175  0.99634834 -1.11574009  2.255335698
+## 17 -0.89442035  1.0148821  1.68856165  1.21512565 -0.68557523  2.174596366
+## 18  2.04238943 -1.2248578 -1.22658929 -1.17683962  0.90416444 -1.039646647
+## 19  1.71054652 -1.2248578 -1.25079481 -1.38103178  2.49390411 -1.637526508
+## 20  2.29127162 -1.2248578 -1.28790993 -1.19142477  1.16600392 -1.412682800
+## 21  0.23384555 -1.2248578 -0.89255318 -0.72469984  0.19345729 -0.768812180
+## 22 -0.76168319  1.0148821  0.70420401  0.04831332 -1.56460776  0.309415603
+## 23 -0.81145962  1.0148821  0.59124494  0.04831332 -0.83519779  0.222544170
+## 24 -1.12671039  1.0148821  0.96239618  1.43390296  0.24956575  0.636460997
+## 25 -0.14777380  1.0148821  1.36582144  0.41294217 -0.96611753  0.641571082
+## 26  1.19619000 -1.2248578 -1.22416874 -1.17683962  0.90416444 -1.310481114
+## 27  0.98049211 -1.2248578 -0.89093948 -0.81221077  1.55876313 -1.100967659
+## 28  1.71054652 -1.2248578 -1.09426581 -0.49133738  0.32437703 -1.741772228
+## 29 -0.71190675  1.0148821  0.97046468  1.71102089  1.16600392 -0.048290296
+## 30 -0.06481307 -0.1049878 -0.69164740  0.41294217  0.04383473 -0.457097039
+## 31 -0.84464392  1.0148821  0.56703942  2.74656682 -0.10578782  0.360516446
+## 32  0.21725341 -1.2248578 -0.88529152 -0.54967799  0.96027290 -0.446876870
+##           qsec         vs         am       gear       carb
+## 1  -0.77716515 -0.8680278  1.1899014  0.4235542  0.7352031
+## 2  -0.46378082 -0.8680278  1.1899014  0.4235542  0.7352031
+## 3   0.42600682  1.1160357  1.1899014  0.4235542 -1.1221521
+## 4   0.89048716  1.1160357 -0.8141431 -0.9318192 -1.1221521
+## 5  -0.46378082 -0.8680278 -0.8141431 -0.9318192 -0.5030337
+## 6   1.32698675  1.1160357 -0.8141431 -0.9318192 -1.1221521
+## 7  -1.12412636 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 8   1.20387148  1.1160357 -0.8141431  0.4235542 -0.5030337
+## 9   2.82675459  1.1160357 -0.8141431  0.4235542 -0.5030337
+## 10  0.25252621  1.1160357 -0.8141431  0.4235542  0.7352031
+## 11  0.58829513  1.1160357 -0.8141431  0.4235542  0.7352031
+## 12 -0.25112717 -0.8680278 -0.8141431 -0.9318192  0.1160847
+## 13 -0.13920420 -0.8680278 -0.8141431 -0.9318192  0.1160847
+## 14  0.08464175 -0.8680278 -0.8141431 -0.9318192  0.1160847
+## 15  0.07344945 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 16 -0.01608893 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 17 -0.23993487 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 18  0.90727560  1.1160357  1.1899014  0.4235542 -1.1221521
+## 19  0.37564148  1.1160357  1.1899014  0.4235542 -0.5030337
+## 20  1.14790999  1.1160357  1.1899014  0.4235542 -1.1221521
+## 21  1.20946763  1.1160357 -0.8141431 -0.9318192 -1.1221521
+## 22 -0.54772305 -0.8680278 -0.8141431 -0.9318192 -0.5030337
+## 23 -0.30708866 -0.8680278 -0.8141431 -0.9318192 -0.5030337
+## 24 -1.36476075 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 25 -0.44699237 -0.8680278 -0.8141431 -0.9318192 -0.5030337
+## 26  0.58829513  1.1160357  1.1899014  0.4235542 -1.1221521
+## 27 -0.64285758 -0.8680278  1.1899014  1.7789276 -0.5030337
+## 28 -0.53093460  1.1160357  1.1899014  1.7789276 -0.5030337
+## 29 -1.87401028 -0.8680278  1.1899014  1.7789276  0.7352031
+## 30 -1.31439542 -0.8680278  1.1899014  1.7789276  1.9734398
+## 31 -1.81804880 -0.8680278  1.1899014  1.7789276  3.2116766
+## 32  0.42041067  1.1160357  1.1899014  0.4235542 -0.5030337</code></pre>
+<pre class="r"><code># standarisasi variabel mpg dan hp
+mutate_at(mtcars, vars(mpg,hp), scale2)</code></pre>
+<pre><code>##            mpg cyl  disp          hp drat    wt  qsec vs am gear carb
+## 1   0.15088482   6 160.0 -0.53509284 3.90 2.620 16.46  0  1    4    4
+## 2   0.15088482   6 160.0 -0.53509284 3.90 2.875 17.02  0  1    4    4
+## 3   0.44954345   4 108.0 -0.78304046 3.85 2.320 18.61  1  1    4    1
+## 4   0.21725341   6 258.0 -0.53509284 3.08 3.215 19.44  1  0    3    1
+## 5  -0.23073453   8 360.0  0.41294217 3.15 3.440 17.02  0  0    3    2
+## 6  -0.33028740   6 225.0 -0.60801861 2.76 3.460 20.22  1  0    3    1
+## 7  -0.96078893   8 360.0  1.43390296 3.21 3.570 15.84  0  0    3    4
+## 8   0.71501778   4 146.7 -1.23518023 3.69 3.190 20.00  1  0    4    2
+## 9   0.44954345   4 140.8 -0.75387015 3.92 3.150 22.90  1  0    4    2
+## 10 -0.14777380   6 167.6 -0.34548584 3.92 3.440 18.30  1  0    4    4
+## 11 -0.38006384   6 167.6 -0.34548584 3.92 3.440 18.90  1  0    4    4
+## 12 -0.61235388   8 275.8  0.48586794 3.07 4.070 17.40  0  0    3    3
+## 13 -0.46302456   8 275.8  0.48586794 3.07 3.730 17.60  0  0    3    3
+## 14 -0.81145962   8 275.8  0.48586794 3.07 3.780 18.00  0  0    3    3
+## 15 -1.60788262   8 472.0  0.85049680 2.93 5.250 17.98  0  0    3    4
+## 16 -1.60788262   8 460.0  0.99634834 3.00 5.424 17.82  0  0    3    4
+## 17 -0.89442035   8 440.0  1.21512565 3.23 5.345 17.42  0  0    3    4
+## 18  2.04238943   4  78.7 -1.17683962 4.08 2.200 19.47  1  1    4    1
+## 19  1.71054652   4  75.7 -1.38103178 4.93 1.615 18.52  1  1    4    2
+## 20  2.29127162   4  71.1 -1.19142477 4.22 1.835 19.90  1  1    4    1
+## 21  0.23384555   4 120.1 -0.72469984 3.70 2.465 20.01  1  0    3    1
+## 22 -0.76168319   8 318.0  0.04831332 2.76 3.520 16.87  0  0    3    2
+## 23 -0.81145962   8 304.0  0.04831332 3.15 3.435 17.30  0  0    3    2
+## 24 -1.12671039   8 350.0  1.43390296 3.73 3.840 15.41  0  0    3    4
+## 25 -0.14777380   8 400.0  0.41294217 3.08 3.845 17.05  0  0    3    2
+## 26  1.19619000   4  79.0 -1.17683962 4.08 1.935 18.90  1  1    4    1
+## 27  0.98049211   4 120.3 -0.81221077 4.43 2.140 16.70  0  1    5    2
+## 28  1.71054652   4  95.1 -0.49133738 3.77 1.513 16.90  1  1    5    2
+## 29 -0.71190675   8 351.0  1.71102089 4.22 3.170 14.50  0  1    5    4
+## 30 -0.06481307   6 145.0  0.41294217 3.62 2.770 15.50  0  1    5    6
+## 31 -0.84464392   8 301.0  2.74656682 3.54 3.570 14.60  0  1    5    8
+## 32  0.21725341   4 121.0 -0.54967799 4.11 2.780 18.60  1  1    4    2</code></pre>
+<pre class="r"><code># standarisasi hanya pada variabel numerik
+mutate_if(mtcars, is_numeric, scale2)</code></pre>
+<pre><code>##            mpg        cyl        disp          hp        drat           wt
+## 1   0.15088482 -0.1049878 -0.57061982 -0.53509284  0.56751369 -0.610399567
+## 2   0.15088482 -0.1049878 -0.57061982 -0.53509284  0.56751369 -0.349785269
+## 3   0.44954345 -1.2248578 -0.99018209 -0.78304046  0.47399959 -0.917004624
+## 4   0.21725341 -0.1049878  0.22009369 -0.53509284 -0.96611753 -0.002299538
+## 5  -0.23073453  1.0148821  1.04308123  0.41294217 -0.83519779  0.227654255
+## 6  -0.33028740 -0.1049878 -0.04616698 -0.60801861 -1.56460776  0.248094592
+## 7  -0.96078893  1.0148821  1.04308123  1.43390296 -0.72298087  0.360516446
+## 8   0.71501778 -1.2248578 -0.67793094 -1.23518023  0.17475447 -0.027849959
+## 9   0.44954345 -1.2248578 -0.72553512 -0.75387015  0.60491932 -0.068730634
+## 10 -0.14777380 -0.1049878 -0.50929918 -0.34548584  0.60491932  0.227654255
+## 11 -0.38006384 -0.1049878 -0.50929918 -0.34548584  0.60491932  0.227654255
+## 12 -0.61235388  1.0148821  0.36371309  0.48586794 -0.98482035  0.871524874
+## 13 -0.46302456  1.0148821  0.36371309  0.48586794 -0.98482035  0.524039143
+## 14 -0.81145962  1.0148821  0.36371309  0.48586794 -0.98482035  0.575139986
+## 15 -1.60788262  1.0148821  1.94675381  0.85049680 -1.24665983  2.077504765
+## 16 -1.60788262  1.0148821  1.84993175  0.99634834 -1.11574009  2.255335698
+## 17 -0.89442035  1.0148821  1.68856165  1.21512565 -0.68557523  2.174596366
+## 18  2.04238943 -1.2248578 -1.22658929 -1.17683962  0.90416444 -1.039646647
+## 19  1.71054652 -1.2248578 -1.25079481 -1.38103178  2.49390411 -1.637526508
+## 20  2.29127162 -1.2248578 -1.28790993 -1.19142477  1.16600392 -1.412682800
+## 21  0.23384555 -1.2248578 -0.89255318 -0.72469984  0.19345729 -0.768812180
+## 22 -0.76168319  1.0148821  0.70420401  0.04831332 -1.56460776  0.309415603
+## 23 -0.81145962  1.0148821  0.59124494  0.04831332 -0.83519779  0.222544170
+## 24 -1.12671039  1.0148821  0.96239618  1.43390296  0.24956575  0.636460997
+## 25 -0.14777380  1.0148821  1.36582144  0.41294217 -0.96611753  0.641571082
+## 26  1.19619000 -1.2248578 -1.22416874 -1.17683962  0.90416444 -1.310481114
+## 27  0.98049211 -1.2248578 -0.89093948 -0.81221077  1.55876313 -1.100967659
+## 28  1.71054652 -1.2248578 -1.09426581 -0.49133738  0.32437703 -1.741772228
+## 29 -0.71190675  1.0148821  0.97046468  1.71102089  1.16600392 -0.048290296
+## 30 -0.06481307 -0.1049878 -0.69164740  0.41294217  0.04383473 -0.457097039
+## 31 -0.84464392  1.0148821  0.56703942  2.74656682 -0.10578782  0.360516446
+## 32  0.21725341 -1.2248578 -0.88529152 -0.54967799  0.96027290 -0.446876870
+##           qsec         vs         am       gear       carb
+## 1  -0.77716515 -0.8680278  1.1899014  0.4235542  0.7352031
+## 2  -0.46378082 -0.8680278  1.1899014  0.4235542  0.7352031
+## 3   0.42600682  1.1160357  1.1899014  0.4235542 -1.1221521
+## 4   0.89048716  1.1160357 -0.8141431 -0.9318192 -1.1221521
+## 5  -0.46378082 -0.8680278 -0.8141431 -0.9318192 -0.5030337
+## 6   1.32698675  1.1160357 -0.8141431 -0.9318192 -1.1221521
+## 7  -1.12412636 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 8   1.20387148  1.1160357 -0.8141431  0.4235542 -0.5030337
+## 9   2.82675459  1.1160357 -0.8141431  0.4235542 -0.5030337
+## 10  0.25252621  1.1160357 -0.8141431  0.4235542  0.7352031
+## 11  0.58829513  1.1160357 -0.8141431  0.4235542  0.7352031
+## 12 -0.25112717 -0.8680278 -0.8141431 -0.9318192  0.1160847
+## 13 -0.13920420 -0.8680278 -0.8141431 -0.9318192  0.1160847
+## 14  0.08464175 -0.8680278 -0.8141431 -0.9318192  0.1160847
+## 15  0.07344945 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 16 -0.01608893 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 17 -0.23993487 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 18  0.90727560  1.1160357  1.1899014  0.4235542 -1.1221521
+## 19  0.37564148  1.1160357  1.1899014  0.4235542 -0.5030337
+## 20  1.14790999  1.1160357  1.1899014  0.4235542 -1.1221521
+## 21  1.20946763  1.1160357 -0.8141431 -0.9318192 -1.1221521
+## 22 -0.54772305 -0.8680278 -0.8141431 -0.9318192 -0.5030337
+## 23 -0.30708866 -0.8680278 -0.8141431 -0.9318192 -0.5030337
+## 24 -1.36476075 -0.8680278 -0.8141431 -0.9318192  0.7352031
+## 25 -0.44699237 -0.8680278 -0.8141431 -0.9318192 -0.5030337
+## 26  0.58829513  1.1160357  1.1899014  0.4235542 -1.1221521
+## 27 -0.64285758 -0.8680278  1.1899014  1.7789276 -0.5030337
+## 28 -0.53093460  1.1160357  1.1899014  1.7789276 -0.5030337
+## 29 -1.87401028 -0.8680278  1.1899014  1.7789276  0.7352031
+## 30 -1.31439542 -0.8680278  1.1899014  1.7789276  1.9734398
+## 31 -1.81804880 -0.8680278  1.1899014  1.7789276  3.2116766
+## 32  0.42041067  1.1160357  1.1899014  0.4235542 -0.5030337</code></pre>
+</div>
+<div id="kustomisasi-nama-kolom-dan-nama-baris" class="section level4">
+<h4>3.7.5.2 Kustomisasi Nama Kolom dan Nama Baris</h4>
+<p><em>Tidy</em> data tidak menggunakan nama variabel yang di simpan pada variabel diluar kolom. Untuk bekerja dengan nama kolom kita perlu memindahkan nama baris menjadi kolom baru. Terdapat dua fungsi untuk bekerja dengan nama baris, antara lain:</p>
+<ol style="list-style-type: decimal">
+<li><code>rownames_to_column()</code>: merubah nama baris menjadi kolom baru.</li>
+<li><code>column_to_rownames()</code>: merubah kolom menjadi nama baris.</li>
+</ol>
+<pre class="r"><code>rownames_to_column(.data, var = &quot;rowname&quot;)
+
+column_to_rownames(.data, var = &quot;rowname&quot;)</code></pre>
+<blockquote>
+<p><strong>Note: </strong></p>
+<ul>
+<li><strong>.data</strong>: dataframe.</li>
+<li><strong>var</strong>: nama kolom yang akan digunakan atau dibuat.</li>
+</ul>
+</blockquote>
+<p>Berikut adalah contoh sintaks pada fungsi tersebut:</p>
+<pre class="r"><code># membuat kolom nama mobil
+mtcars2 &lt;- rownames_to_column(mtcars, var=&quot;nama_mobil&quot;)
+head(mtcars2)</code></pre>
+<pre><code>##          nama_mobil  mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## 1         Mazda RX4 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## 2     Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## 3        Datsun 710 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## 4    Hornet 4 Drive 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## 5 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## 6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<pre class="r"><code># membuat kolom nama mobil menajdi nama baris
+mtcars3 &lt;- column_to_rownames(mtcars2, var=&quot;nama_mobil&quot;)
+head(mtcars3)</code></pre>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>Sering kali nama variabel atau kolom yang kita miliki tidak sesuai dengan deskripsi data yang kita dimiliki. Kita dapat mengubah nama kolom tersebut menggunakan fungsi <code>rename()</code>. Format fungsi tersebut adalah sebagai berikut:</p>
+<pre class="r"><code>rename(.data, ...)</code></pre>
+
+<div class="rmdnote">
+<ul>
+<li><p><code>.data</code>: dataframe.</p></li>
+<li><code>...</code>: Argumen tambahan pada yan berisi nam kolom baru disertai nama kolom lama.
+</div>
+</li>
+</ul>
+<p>Berikut adalah contoh sintaks untuk mengubah nama kolom:</p>
+<pre class="r"><code>rename(mtcars, horse_power=hp)</code></pre>
+<pre><code>##                      mpg cyl  disp horse_power drat    wt  qsec vs am gear
+## Mazda RX4           21.0   6 160.0         110 3.90 2.620 16.46  0  1    4
+## Mazda RX4 Wag       21.0   6 160.0         110 3.90 2.875 17.02  0  1    4
+## Datsun 710          22.8   4 108.0          93 3.85 2.320 18.61  1  1    4
+## Hornet 4 Drive      21.4   6 258.0         110 3.08 3.215 19.44  1  0    3
+## Hornet Sportabout   18.7   8 360.0         175 3.15 3.440 17.02  0  0    3
+## Valiant             18.1   6 225.0         105 2.76 3.460 20.22  1  0    3
+## Duster 360          14.3   8 360.0         245 3.21 3.570 15.84  0  0    3
+## Merc 240D           24.4   4 146.7          62 3.69 3.190 20.00  1  0    4
+## Merc 230            22.8   4 140.8          95 3.92 3.150 22.90  1  0    4
+## Merc 280            19.2   6 167.6         123 3.92 3.440 18.30  1  0    4
+## Merc 280C           17.8   6 167.6         123 3.92 3.440 18.90  1  0    4
+## Merc 450SE          16.4   8 275.8         180 3.07 4.070 17.40  0  0    3
+## Merc 450SL          17.3   8 275.8         180 3.07 3.730 17.60  0  0    3
+## Merc 450SLC         15.2   8 275.8         180 3.07 3.780 18.00  0  0    3
+## Cadillac Fleetwood  10.4   8 472.0         205 2.93 5.250 17.98  0  0    3
+## Lincoln Continental 10.4   8 460.0         215 3.00 5.424 17.82  0  0    3
+## Chrysler Imperial   14.7   8 440.0         230 3.23 5.345 17.42  0  0    3
+## Fiat 128            32.4   4  78.7          66 4.08 2.200 19.47  1  1    4
+## Honda Civic         30.4   4  75.7          52 4.93 1.615 18.52  1  1    4
+## Toyota Corolla      33.9   4  71.1          65 4.22 1.835 19.90  1  1    4
+## Toyota Corona       21.5   4 120.1          97 3.70 2.465 20.01  1  0    3
+## Dodge Challenger    15.5   8 318.0         150 2.76 3.520 16.87  0  0    3
+## AMC Javelin         15.2   8 304.0         150 3.15 3.435 17.30  0  0    3
+## Camaro Z28          13.3   8 350.0         245 3.73 3.840 15.41  0  0    3
+## Pontiac Firebird    19.2   8 400.0         175 3.08 3.845 17.05  0  0    3
+## Fiat X1-9           27.3   4  79.0          66 4.08 1.935 18.90  1  1    4
+## Porsche 914-2       26.0   4 120.3          91 4.43 2.140 16.70  0  1    5
+## Lotus Europa        30.4   4  95.1         113 3.77 1.513 16.90  1  1    5
+## Ford Pantera L      15.8   8 351.0         264 4.22 3.170 14.50  0  1    5
+## Ferrari Dino        19.7   6 145.0         175 3.62 2.770 15.50  0  1    5
+## Maserati Bora       15.0   8 301.0         335 3.54 3.570 14.60  0  1    5
+## Volvo 142E          21.4   4 121.0         109 4.11 2.780 18.60  1  1    4
+##                     carb
+## Mazda RX4              4
+## Mazda RX4 Wag          4
+## Datsun 710             1
+## Hornet 4 Drive         1
+## Hornet Sportabout      2
+## Valiant                1
+## Duster 360             4
+## Merc 240D              2
+## Merc 230               2
+## Merc 280               4
+## Merc 280C              4
+## Merc 450SE             3
+## Merc 450SL             3
+## Merc 450SLC            3
+## Cadillac Fleetwood     4
+## Lincoln Continental    4
+## Chrysler Imperial      4
+## Fiat 128               1
+## Honda Civic            2
+## Toyota Corolla         1
+## Toyota Corona          1
+## Dodge Challenger       2
+## AMC Javelin            2
+## Camaro Z28             4
+## Pontiac Firebird       2
+## Fiat X1-9              1
+## Porsche 914-2          2
+## Lotus Europa           2
+## Ford Pantera L         4
+## Ferrari Dino           6
+## Maserati Bora          8
+## Volvo 142E             2</code></pre>
+</div>
 </div>
 <div id="summarize-dan-group_by" class="section level3">
-<h3>3.5.6 summarize() dan group_by()</h3>
+<h3>3.7.6 summarize() dan group_by()</h3>
 <p>Kita dapat membuat ringkasan data menggunakan fungsi <code>summarize()</code>. Fungsi tersebut akan merubah data frame menjadi sebuah baris berisi ringkasan data yang kita inginkan. Berikut adalh contoh penerapannya:</p>
 <pre class="r"><code>summarize(flights, delay = mean(dep_delay, na.rm = TRUE))</code></pre>
 <pre><code>## # A tibble: 1 x 1
@@ -1283,7 +2825,7 @@ mutate(flights_sml,
 ## # ... with 355 more rows</code></pre>
 </div>
 <div id="mengkombinasikan-beberapa-operasi-menggunakan-operator-pipe" class="section level3">
-<h3>3.5.7 Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%&gt;%)</h3>
+<h3>3.7.7 Mengkombinasikan Beberapa Operasi Menggunakan Operator Pipe (%&gt;%)</h3>
 <p>Operator pipa (%&gt;%) sangat berguna untuk merangkai bersama beberapa fungsi <code>dplyr</code> dalam suatu urutan operasi. Perhatikan contoh sebelumnya dimana setiap kali kita ingin menerapkan lebih dari satu fungsi, urutannya akan dimulai dalam urutan panggilan fungsi bersarang yang sulit dibaca. Secara ringkas dapat kita tulis sebagai berikut:</p>
 <pre class="r"><code>third(second(first(x)))</code></pre>
 <p>Jika dituliskan menggunakan operator pipa akan menghasilkan sintak berikut:</p>
@@ -1313,19 +2855,14 @@ mutate(flights_sml,
 ##  9 BHM     297  866. 16.9 
 ## 10 BNA    6333  758. 11.8 
 ## # ... with 86 more rows</code></pre>
-<pre><code>## 
-## Attaching package: &#39;ggplot2&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;mtcars&#39;:
-## 
-##     mpg</code></pre>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:distvsave"></span>
 <img src="/tutorial/03_manajemen-data-r_files/figure-html/distvsave-1.png" alt="Jarak vs rata-rata delay" width="480" />
 <p class="caption">
-Figure 3: Jarak vs rata-rata delay
+Figure 11: Jarak vs rata-rata delay
 </p>
 </div>
-<p>Berdasarkan Figure <a href="#fig:distvsave">3</a>, rata-rata delay meningkat seiring dengan pertambahan jarak penerbangan.</p>
+<p>Berdasarkan Figure <a href="#fig:distvsave">11</a>, rata-rata delay meningkat seiring dengan pertambahan jarak penerbangan.</p>
 <p><strong>Referensi</strong></p>
 <ol style="list-style-type: decimal">
 <li>Wickham, H. Grolemund G. 2016. <strong>R For Data Science: Import, Tidy, Transform, Visualize, And Model Data</strong>. O’Reilly Media, Inc.</li>
