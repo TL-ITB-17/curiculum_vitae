@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>11. Uji Hipotesis</title>
+      <link>/tutorial/11_uji_hipotesis/</link>
+      <pubDate>Thu, 27 Jun 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/11_uji_hipotesis/</guid>
+      <description>body{text-align: justify}Environmental Engineer sering mengumpulkan sejumlah data dari lingkungan untuk mempelajari proses yang terjadi pada sistem lingkungan dimana data tersebut berada. Sering kali mereka memiliki dugaan awal yang selanjutnya kita sebut sebagai hipotesis bagaimana suatu sistem bekerja. Tujuan pengumpulan data yang dilakukan untuk menguji apakah hipotesis yang telah terbentuk dapat dipertahankan sesuai dengan bukti-bukti yang disajikan oleh data. Uji statistik merupakan cara kuantitatif untuk menentukan apakah suatu hipotesis dapat dipertahankan atau hipotesis tersebut perlu ditolak.</description>
+    </item>
+    
+    <item>
       <title>9. Distribusi Probabilitas</title>
       <link>/tutorial/09-distribusi-probabilitas/</link>
       <pubDate>Tue, 21 May 2019 00:00:00 +0700</pubDate>

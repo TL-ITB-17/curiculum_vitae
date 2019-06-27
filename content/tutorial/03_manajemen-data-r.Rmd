@@ -426,11 +426,11 @@ Kita dapat juga menggabungkan list `output_for` menjadi satu data frame utuh men
 Reduce(f, x)
 ```
 
-```{block2, type = "rmdnote"}
-- `f`: fungsi yang digunakan.
+> **Note: **
+>
+> - **f**: fungsi yang digunakan.
+- **length**: objek (vektor, list, data frame, dan matriks) yang hendak dikenai fungsi.
 
-- `length`: objek (vektor, list, data frame, dan matriks) yang hendak dikenai fungsi.
-```
 
 Berikut adalah sintaks yang digunakan:
 
@@ -764,7 +764,7 @@ Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat terseb
 
 ```{r tidy, echo=FALSE, fig.cap='Visualisasi 3 rule tidy data', tidy=FALSE, fig.width=5, fig.height=7, fig.align='center', warning=FALSE, message=FALSE}
 library(knitr)
-img1_path <- "tidy.png"
+img1_path <- "/tidy.png"
 include_graphics(img1_path)
 
 ```
@@ -781,7 +781,7 @@ Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjela
 
 ```{r, eval=FALSE}
 # memasang paket
-install.packages("/tidyr")
+install.packages("tidyr")
 
 ```
 

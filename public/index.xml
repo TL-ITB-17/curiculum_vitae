@@ -6,8 +6,1066 @@
     <description>Recent content in Environmental Data Modeling on Environmental Data Modeling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 May 2019 00:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Thu, 27 Jun 2019 00:00:00 +0700</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>11. Uji Hipotesis</title>
+      <link>/tutorial/11_uji_hipotesis/</link>
+      <pubDate>Thu, 27 Jun 2019 00:00:00 +0700</pubDate>
+      
+      <guid>/tutorial/11_uji_hipotesis/</guid>
+      <description>
+
+
+&lt;style&gt;
+body{
+text-align: justify}
+&lt;/style&gt;
+&lt;p&gt;Environmental Engineer sering mengumpulkan sejumlah data dari lingkungan untuk mempelajari proses yang terjadi pada sistem lingkungan dimana data tersebut berada. Sering kali mereka memiliki dugaan awal yang selanjutnya kita sebut sebagai hipotesis bagaimana suatu sistem bekerja. Tujuan pengumpulan data yang dilakukan untuk menguji apakah hipotesis yang telah terbentuk dapat dipertahankan sesuai dengan bukti-bukti yang disajikan oleh data. Uji statistik merupakan cara kuantitatif untuk menentukan apakah suatu hipotesis dapat dipertahankan atau hipotesis tersebut perlu ditolak.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;daftar-isi&#34;&gt;Daftar Isi:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#11-1-klasifikasi-uji-hipotesis&#34;&gt;Klasifikasi Uji Hipotesis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#11-2-menyiapkan-prosedur-uji-hipotesis&#34;&gt;Menyiapkan Prosedur Uji Hipotesis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#11-3-uji-nilai-rata-rata-sampel-tunggal&#34;&gt;Uji Nilai Rata-Rata Sampel Tunggal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#11-4-uji-asumsi-normalitas-distribusi-data&#34;&gt;Uji Asumsi Normalitas Distribusi Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#11-5-tranformasi-box-cox&#34;&gt;Tranformasi Box-Cox&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;klasifikasi-uji-hipotesis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;11.1 Klasifikasi Uji Hipotesis&lt;/h2&gt;
+&lt;p&gt;Uji hipotesis dapat diklasifikasikan berdasarkan beberapa kriteria sebagai berikut:&lt;/p&gt;
+&lt;div id=&#34;klasifikasi-berdasarkan-skala-pengukuran&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.1.1 Klasifikasi Berdasarkan Skala Pengukuran&lt;/h3&gt;
+&lt;p&gt;Skala pengukuran dalam suatu data dapat berupa kategorikal atau numerikal. Suatu pengukuran dapat melakukan perbandingan antara dua buah grup (kategori) berdasarkan data kontinu yang dimiliki masing-masing grup. Uji hipotesis yang digunakan adalah uji perbandingan dua populasi. Jika terdapat lebih dari dua populasi maka uji yang digunakan adalah uji anova.&lt;/p&gt;
+&lt;p&gt;Contoh lainnya misalkan kita memiliki dua buah data dengan skala kontinu. Kita ingin mengetahui korelasi antara dua variabel tersebut, maka uji hipotesis yang digunakan adalah uji korelasi.&lt;/p&gt;
+&lt;p&gt;Bagaimana jika skala pengukuran data kita seluruhnya kategorikal? jika skala pengukuran data kita seluruhnya adalah kategori, kita perlu membuat tabel kontingensi yang mengukur frekuensi kejadian pada masing-masing grup atau antara satu gruo terhadap grup yang lain. Uji hipotesis yang digunakan adalah uji asosiasi.&lt;/p&gt;
+&lt;p&gt;Pada Chapter ini kita hanya akan membahas uji hipotesis yang digunakan pada satu populasi. Uji hipotesis lain seperti uji hipotesis untuk 2 populasi, anova, korelasi dan asosiasi akan dibahas pada Chapter lainnya.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;klasifikasi-berdasarkan-distribusi-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.1.2 Klasifikasi Berdasarkan Distribusi Data&lt;/h3&gt;
+&lt;p&gt;Uji hipotesis yang melibatkan sejumlah asumsi seperti ditribusi data mengikuti distribusi tertentu (biasanya ditribusi normal) disebut sebagai &lt;strong&gt;uji hipotesis parametrik&lt;/strong&gt;. Dinamakan uji parametrik karena uji ini melibatkan parameter-parameter yang ada pada data seperti nilai mean dan simpangan baku. Uji ini sangat bagus digunakan jika data kita benar-benar mengikuti asumsi ditribusi yang diinginkan. Jika tidak maka hasil uji yang diperoleh dapat menghasilkan keputusan yang salah. Hal ini disebabkan karena uji ini memiliki sensitifitas yang rendah (power) untuk mendeteksi efek nyata.&lt;/p&gt;
+&lt;p&gt;Alternatif lain yang dapat digunakan untuk melakukan uji hipotesis adalah dengan melakukan uji hipotesis &lt;strong&gt;nonparameterik&lt;/strong&gt;. Uji ini tidak mengasumsikan data mengikuti distribusi tertentu. Informasi pada uji ini diperoleh dengan melakukan rangking pada data. Hal ini tentu berbeda dengan uji parametrik yang mengharuskan kita mengekstrak parameter pada data. Kesalahpahaman yang umum adalah pada uji nonparametrik memungkinkan terjadinya kehilangan informasi dibandingkan dengan tes parametrik karena tes nonparametrik membuang nilai data. Bradley (1968) dalam bukunya “&lt;em&gt;Distribution-Free Statistical Tests&lt;/em&gt;” menanggapi kesalahpahaman ini: “Sebenarnya, pemanfaatan informasi sampel tambahan [dalam parameter] dimungkinkan oleh informasi populasi tambahan yang terkandung dalam asumsi uji parametrik. Oleh karena itu, uji bebas distribusi hanya membuang informasi hanya jika pada uji parametrik asumsi diketahui benar (data mengikuti distribusi tertentu).” Alih-alih membuang informasi, tes nonparametrik secara efisien mengekstraksi informasi pada besaran relatif (rangking) data tanpa menciutkan informasi menjadi hanya beberapa statistik sederhana.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;menyiapkan-prosedur-uji-hipotesis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;11.2 Menyiapkan Prosedur UJi Hipotesis&lt;/h2&gt;
+&lt;div id=&#34;memilih-uji-yang-sesuai&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.2.1 Memilih Uji yang Sesuai&lt;/h3&gt;
+&lt;p&gt;Prosedur uji dipilih berdasarkan karakteristik data dan tujuan studi. Kriteria pertama untuk memilih uji statistik yang sesuai adalah dengan melihat skala pengukuran pada data. Kita telah membahas ini pada klasifikasi uji berdasarkan skala pengukuran data.&lt;/p&gt;
+&lt;p&gt;Kriteria kedua yang digunakan adalah tujuan dari pengujian. Uji hipotesis yang tersedia dapat digunakan untuk melihat beda antara dua nilai sentral dua grup, tiga atau lebih grup, sebaran data antar grup, kovariansi antara dua atau lebi variabel antara satu sama lain.&lt;/p&gt;
+&lt;p&gt;Kriteria ketiga yang digunakan adalah memilih apakah akan melakukan uji parameterik atau nonparameterik. Pemilihan berdasarkan kriteria ini perlu melihat asumsi distribusi uji statististik apakah telah terpenuhi atau belum. Jika suatu data berdistribusi normal maka uji parametrik akan lebih dipilih, jika sebaliknya atau distribusi data tidak mengikuti distribusi tertentu maka uji yang digunakan adalah uji nonparametrik. Power dar uji parametrik untuk menolah hipotesis nol ketika hipotesis nol salah dapat sangat rendah jika digunakan pada data yang tidak berdistribusi normal. Selain itu, error tipe II biasanya juga terjadi pada uji parametrikpada data dengan distribusi tidak normal.&lt;/p&gt;
+&lt;p&gt;Transformasi data sering digunakan agar distribusi data mendekati distribusi normal. Jenis tranformasi akan berbeda pada setiap data sehingga proses transformasi akan mencoba pada berbagai format. Kendala yang timbul pada proses ini adalah jika kita akan melakukan uji pada dua atau lebih grup data. Jenis transformasi pada satu grup data bisa saja tidak berlaku untuk grup data lainnya. Jika kita paksakan transformasi ynag berbeda-beda pada tiap grup, maka pembacaan hasil yang diperoleh akan lebih sulit. Hal ini tidak terjadi jika sejak awal data yang tidak mengikuti distribusi normal dilakukan uji nonparametrik.&lt;/p&gt;
+&lt;p&gt;Untuk mempermudah proses pemilihan uji yang sesuai, Gardener (2012) membuat skema pemilihan uji hipotesis yang disajikan pada Gambar &lt;a href=&#34;#fig:test&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:test&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/test.png&#34; alt=&#34;Skema pemilihan uji hipotesis (sumber: Gradener, 2012).&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Skema pemilihan uji hipotesis (sumber: Gradener, 2012).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hipotesis-nol-dan-alternatif&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.2.2 Hipotesis Nol dan Alternatif&lt;/h3&gt;
+&lt;p&gt;Uji hipotesis akan melakukan perbandingan antara dua buah hipotesis, hipotesis nol (&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;) dan hipotesis alternatif (&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;). Desain &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt; yang benar merupakan tahapan yang paling penting sebab prosedur uji hipotesis didesain untuk cenderung memilih hipotesis nol, sehingga &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; tidak akan ditolak kecuali terdapat bukti kuat untuk menolaknya berdasarkan data yang kita miliki. Analogi ini mirip dengan istilah “praduga tak bersalah”, dimana tersangka akan dianggap tidak bersalah kecuali terbukti sebaliknya berdasarkan bukti-bukti persidangan.&lt;/p&gt;
+&lt;p&gt;Impilkasi dari kondisi yang telah dijelaskan di atas adalah ketika &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; diterima, kita tidak bisa menyatakan bahwa hipotesis tersebut benar. Hal yang tepat pada kondisi tersebut adalah tidak ada bukti yang cukup kuat pada data untuk menolaknya. Untuk memahaminya kita akan menggunakan contoh prosedur uji berbasis rentang kepercayaan (&lt;em&gt;confidence interval&lt;/em&gt;) yang menolak &lt;span class=&#34;math inline&#34;&gt;\(H_0:\mu=\mu_0\)&lt;/span&gt; jika &lt;span class=&#34;math inline&#34;&gt;\(\mu_0\)&lt;/span&gt; tidak berada pada rentang kepercayaan &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; (lihat lagi pada Chapter 10). Karena setiap nilai dalam rentang kepercayaan adalah kandidat yang masuk akal (diberikan pada set data) untuk nilai parameter sebenarnya, jelas bahwa dengan tidak menolak &lt;span class=&#34;math inline&#34;&gt;\(H_0:\mu=\mu_0\)&lt;/span&gt;, kita belum membuktikan bahwa &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; benar. Prosedur pengujian memberikan bukti statistik hanya ketika H0 ditolak. Dalam hal ini dapat diklaim bahwa alternatif telah dibuktikan (dalam arti statistik) pada tingkat signifikansi &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;. Tingkat signifikansi mengkuantifikasi keraguan wajar yang bersedia kita terima ketika menolak hipotesis nol.&lt;/p&gt;
+&lt;p&gt;Berdasarkan pembahasan di atas dapat disimpulkan bahwa pernyataan yang perlu dibuktikan secara statistika disebut sebagai &lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;. Penyataan pelengkapnya disebut sebagai &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; atau peryataan yang dianggap benar kecuali terbukti sebaliknya. Hal terpenting dalam desain &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; adalah perlunya penggunaan &lt;em&gt;equality sign&lt;/em&gt; (=, &lt;span class=&#34;math inline&#34;&gt;\(\le\)&lt;/span&gt;, atau &lt;span class=&#34;math inline&#34;&gt;\(\ge\)&lt;/span&gt;) sebagai bagian dari desain &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Untuk memahaminya misalkan diinginkan pengujian hipotesis bahwa rata-rata populasi adalah 100. Buatlah format hipotesis yang digunakan jika hipotesis alternatifnya menginginkan nilai rata-rata yang lebih besar?. Berdasarkan kondisi tersebut maka format hipotesisnya adalah sebagai berikut.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;&lt;/strong&gt;: &lt;span class=&#34;math inline&#34;&gt;\(\mu=100\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;&lt;/strong&gt;: &lt;span class=&#34;math inline&#34;&gt;\(\mu &amp;gt; 100\)&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistik-uji-dan-aturan-penolakan&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.2.3 Statistik Uji dan Aturan Penolakan&lt;/h3&gt;
+&lt;p&gt;Pada uji statistik terdapat dua buah nilai yang penting untuk diketahui yaitu &lt;strong&gt;nilai statistik uji&lt;/strong&gt; dan &lt;strong&gt;aturan penolakan&lt;/strong&gt;. Uji statistik yang digunakan untuk menguji &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; terkait parameter &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; dapat didasarkan pada titik estimasi &lt;span class=&#34;math inline&#34;&gt;\(\hat\mu\)&lt;/span&gt; dari &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;. Aturan penolakan menentukan kapan &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; harus ditolak. Pada dasarnya &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; ditolak ketika nilai uji statistik berada pada sejumlah rentang (lebih besar, atau lebih kecil, atau keduanya tergantung pada &lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;) yang menyatakan bahwa pada nilai tersebut tidak mungkin jika &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; benar.&lt;/p&gt;
+&lt;p&gt;Menggunakan contoh kasus sebelumnya dimana kita kan menguji &lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;&lt;/strong&gt;: &lt;span class=&#34;math inline&#34;&gt;\(\mu=100\)&lt;/span&gt;. &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; ditolak jika nilai statistik uji lebih kecil sama dengan 100 atau &lt;span class=&#34;math inline&#34;&gt;\(H_a\le C_1\)&lt;/span&gt; sebagai contoh nilai statistik ujinya adalah 90,80, dst. Bagaimana jika hipotesis ujinya &lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;&lt;/strong&gt;: &lt;span class=&#34;math inline&#34;&gt;\(\mu \le 100\)&lt;/span&gt;?. Sama dengan sebelumnya maka penolakan &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; terjadi jika nilai uji statistiknya &lt;span class=&#34;math inline&#34;&gt;\(H_a&amp;gt;C_2\)&lt;/span&gt; seperti 110, 120, dst. Kondisi lain yang dapat juga diterapkan jika &lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;&lt;/strong&gt;: &lt;span class=&#34;math inline&#34;&gt;\(\mu \neq 100\)&lt;/span&gt;, maka &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; ditolak jika nilai statistik ujinya adalah &lt;span class=&#34;math inline&#34;&gt;\(H_a&amp;lt;C_3\)&lt;/span&gt; atau &lt;span class=&#34;math inline&#34;&gt;\(H_a&amp;gt;C_4\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Bagaimana cara tepat untuk memilih menggunakan nilai konstanta &lt;span class=&#34;math inline&#34;&gt;\(C_1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(C_2\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(C_3\)&lt;/span&gt;, atau &lt;span class=&#34;math inline&#34;&gt;\(C_4\)&lt;/span&gt;? jawabannya adalah dengan menggunakan &lt;strong&gt;tingkat signifikansinya&lt;/strong&gt; atau &lt;strong&gt;error&lt;/strong&gt; (tingkat kesalahan). Tingkat signifikansi didefinisikan sebagai probabilitas (terbesar) untuk menolak &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; secara tidak benar, atau, dengan kata lain, probabilitas (terbesar) untuk menolak &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; ketika &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; benar.&lt;/p&gt;
+&lt;p&gt;Seperti yang telah disebutkan, tingkat signifikansi menentukan risiko (atau, dalam hal legalistik, keraguan yang masuk akal) kita bersedia menerima kesalahan karena menyimpulkan bahwa &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; salah. Ternyata konstanta &lt;span class=&#34;math inline&#34;&gt;\(C_1\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(C_2\)&lt;/span&gt; dapat ditentukan dengan menentukan tingkat signifikansi.&lt;/p&gt;
+&lt;div id=&#34;probabilitas-error-tipe-i&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;11.2.3.1 Probabilitas Error Tipe I&lt;/h4&gt;
+&lt;p&gt;Terdapat dua buah error yang terjadi pada saat pengambilan keputusan. Secara sederhana penulis akan menjelaskan error tersebut dengan menggunakan contoh pemberian vaksin kepada pasien. Vaksin baru tersebut tidak lebih baik atau sama kualitasnya dengan vaksin yang telah ada sebelumnya (&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; benar). Sebagai data pendukung, pengujian telah dilakukan dengan memilih individu secara acak, dimana 8 individu melewati 2 tahun tanpa tertular virus. Kita akan melakukan kesalahan dengan menolak &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; dan mendukung &lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt; (vaksin lebih baik) sedangkan kenyataannya &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; benar. Error yang disebabkan oleh penolakan &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; padahal &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; benar disebut sebagai &lt;strong&gt;error tipe I&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Jenis error kedua dapat terjadi jika 8 individu atau kurang melewati dua tahun periode penggunaan vaksin secara sukses, namun kita tidak dapat menyimpulkan bahwa vaksin tersebut lebih baik meskipun pada kenyataannya demikian (&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt; benar). Sehingga pada kasus ini kita gagal menolak &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; meskipun kenyataannya &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; salah. Kondisi dimana kita tidak menolak &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; meskipun &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; salah disebut sebagai &lt;strong&gt;error tipe II&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Dalam menguji hipotesis statistik apa pun, ada empat kemungkinan situasi yang menentukan apakah keputusan kita benar atau salah. Keempat kemungkinan tersebut disajikan pada Tabel &lt;a href=&#34;#tab:error&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:error&#34;&gt;Table 1: &lt;/span&gt; Kondisi yang mungkin terjadi pada saat pengujian hipotesis.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; Benar&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; Salah&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;strong&gt;Terima &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Keputusan benar&lt;/td&gt;
+&lt;td&gt;Error tipe II&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;strong&gt;Tolak &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Error tipe I&lt;/td&gt;
+&lt;td&gt;Keputusan benar&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Peluang untuk melakukan error tipe I disebut sebagai &lt;strong&gt;tingkat signifikansi&lt;/strong&gt;, dilambangkan dengan huruf Yunani &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;. Dalam kondisi di atas kesalahan tipe satu terjadi ketika lebih dari 8 orang dari 20 orang yang diinokulasi dengan vaksin baru melampaui periode 2 tahun tanpa tertular virus dan peneliti menyimpulkan bahwa vaksin baru lebih baik padahal kenyataannya setara dengan vaksin yang sudah ada. Oleh karena itu, jika &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; adalah jumlah orang yang tetap bebas dari virus selama minimal 2 tahun dengan probabilitas sukses &lt;span class=&#34;math inline&#34;&gt;\(p=0,25\)&lt;/span&gt;, maka probabilitas error tipe satu adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\alpha=P\left(error\ tipe\ I\right)=P\left(X&amp;gt;8\ ketika\ p=\frac{1}{4}\right)=\sum_{x=9}^{20}b\left(x;20,\frac{1}{4}\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\alpha=1-\sum_{x=0}^8b\left(x;20,\frac{1}{4}\right)=1-0,9591=0,0409
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Kita dapat mengatakan bahwa hipotesis nol dengan probabilitas kejadian sukses sebesar &lt;span class=&#34;math inline&#34;&gt;\(p=0,25\)&lt;/span&gt; telah teruji dengan tingkat signifikansi &lt;span class=&#34;math inline&#34;&gt;\(\alpha=0,0409\)&lt;/span&gt;. Nilai yang dihasilkan sangat kecil, sehingga error tipe I kemungkinan tidak terjadi. Akibatnya, akan lebih tidak biasa bagi lebih dari 8 orang untuk tetap kebal terhadap virus selama periode 2 tahun menggunakan vaksin baru yang pada dasarnya setara dengan yang sekarang ada di pasaran.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;probabilitas-error-tipe-ii&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;11.2.3.2 Probabilitas Error Tipe II&lt;/h4&gt;
+&lt;p&gt;Probabilitas terjadinya error tipe II disimbolkan dengan &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;. Error tipe II sulit untuk dihitung kecuali kita memiliki hipotesis alternatif. Pada contoh kali ini kita akan menguji hipotesis nol dengan nilai &lt;span class=&#34;math inline&#34;&gt;\(p=0,25\)&lt;/span&gt; melawan hipotesis alternatif dengan &lt;span class=&#34;math inline&#34;&gt;\(p=0,5\)&lt;/span&gt;, sehingga kita dapat melakukan perhitungan probabilitas untuk tidak menolak &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; meskipun &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; salah. Kita selanjutnya dapat menghitung probabilitas 8 individu atau kurang yang melampaui periode 2 tahun ketika nilai &lt;span class=&#34;math inline&#34;&gt;\(p=0,5\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\beta =P\left(error\ tipe\ II\right)=P\left(X\le 8\ ketika\ p=\frac{1}{2}\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\beta=\sum_{x-0}^8b\left(x;20,\frac{1}{2}\right)=0,2517
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil perhitungan diperoleh nilai probabilitas yang relatif tinggi. Hal ini mengidikasikan penolakan vaksin baru tersebut meskipun kenyataannya vaksin baru tersebut lebih superior dibandingkan vaksin yang telah ada.&lt;/p&gt;
+&lt;p&gt;Idealnya kita akan menggunakan prosedur pengujian dimana probabilitas error tipe I dan II sangat kecil. Berdasarkan berbagai &lt;em&gt;text book&lt;/em&gt; probabilitas error tipe I dan II dapat diturunkan dengan cara meningkatkan jumlah sampel yang kita miliki.&lt;/p&gt;
+&lt;p&gt;Berdasarkan pembahasan terkait error pada pengujian hipotesis, terdapat beberapa properti penting terkait pengujian hipotesis, antara lain:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Error tipe I dan tipe II pada pengujian hipotesis saling terkait. Penurunan salah satu akan meningkatkan error lainnya.&lt;/li&gt;
+&lt;li&gt;Ukuran wilayah kritis dan probabilitas melakukan error tipe I selalu dapat dikurangi dengan menyesuaikan nilai kritis (meningkatkan atau menurunkan tingkat signifikansi).&lt;/li&gt;
+&lt;li&gt;Peningkatan ukuran sampel akan menurunkan nilai &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; secara simultan.&lt;/li&gt;
+&lt;li&gt;Jika hipotesis nol salah, nilai &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; akan maksimum ketika nilai sebenarnya dari suatu parameter mendekati nilai yang sebenarnya. Semakin besar jarak antara nilai sebenarnya dengan nilai yang dihipotesiskan maka semakin kecil nilai &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;p-value&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.2.4 P-Value&lt;/h3&gt;
+&lt;p&gt;P-value merupakan probabilitas untuk memperoleh statistik uji yang dihitung, atau yang lebih kecil kemungkinannya, ketika hipotesis nolnya benar. P-value mengukur “kepercayaan” dari hipotesis nol. Semakin kecil p-value, semakin kecil kemungkinan statistik uji kemungkinan statistik uji yang diamati ketika &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; benar, dan semaikn kuat bukti penolakan &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;. P-value disebut juga sebagai &lt;strong&gt;tingkat signifikansi yang dicapai&lt;/strong&gt; oleh data.&lt;/p&gt;
+&lt;p&gt;Bagaimana bisa p-value berbeda dengan &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;-level?. &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;-level tidak bergantung pada data, tapi telah ditetapkan sebagai suatu resiko untuk melakukan error tipe I yang dapat diterima. &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;-level merupakan nilai kritis yang memungkinkan sebuah keputusan “ya/tidak” dibuat. P-value menyediakan informasi lebih sepeti bukti kuat secara scientific. Penggunaan p-value memungkinkan seseorang dengan toleransi resiko berbeda-beda (&lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; berbeda) untuk membuat keputusannya sendiri.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;membuat-keputusan-untuk-menolak-hipotesis-nol-atau-tidak&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.2.5 Membuat Keputusan Untuk Menolak Hipotesis Nol atau Tidak&lt;/h3&gt;
+&lt;p&gt;Ketika p-value lebih kecil dari &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;-level, maka &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; ditolak. Sebaliknya jika p-value lebih besar dari &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;, maka &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; diterima. Telah dijelaskan sebelumnya bahwa penerimaan hipotesis nol tidak berarti &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; pasti benar. &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; siasumsikan benar sampai terbukti sebaliknya dan tidak ditolak sampai dengan terdapat bukti yang cukup kuat untuk menolaknya.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;uji-nilai-rata-rata-sampel-tunggal&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;11.3 Uji Nilai Rata-Rata Sampel Tunggal&lt;/h2&gt;
+&lt;p&gt;Pada bagian ini penulis akan menjelaskan prosedur uji hipotesis untuk satu populasi. Sebelum pembahasan dilakukan pembaca perlu mengingat bahwa uji ini sangat berkaitan dengan perhitungan interval kepercayaan yang telah kita bahas pada Chapter sebelumnya. Jika sebelumnya kita menghitung nilai mean suatu observasi pada selang tertentu, pada bagian ini kita akan membahas bagaimana menguji suatu rata-rata apakah berasal dari suatu populasi atau tidak berdasarkan p-value.&lt;/p&gt;
+&lt;p&gt;Prosedur uji hipotesis untuk satu populasi yang akan penulis bahas kali ini akan bergantung pada berbagai kondisi. Kondisi yang menjadi pertimbangan antara lain:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Apakah sampel berdistribusi normal?&lt;/li&gt;
+&lt;li&gt;Apakah jumlah sampel besar atau kecil?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Untuk mempermudahnya, pada Gambar &lt;a href=&#34;#fig:singletest&#34;&gt;2&lt;/a&gt; penulis sajikan skema pemilihan uji hipotesis untuk satu sampel.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:singletest&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/singletest.png&#34; alt=&#34;Skema pemilihan uji hipotesis untuk satu populasi.&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Skema pemilihan uji hipotesis untuk satu populasi.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;uji-parametrik&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.3.1 Uji Parametrik&lt;/h3&gt;
+&lt;p&gt;Pada uji parametrik asumsi normalitas distribusi sampel menjadi sesuatu yang penting agar hasil yang diperoleh valid. Pada uji satu populasi untuk uji parametrik terdapat dua pertimbangan dalam pemilihan metode uji yaitu varians populasi serta ukuran sampel.&lt;/p&gt;
+&lt;p&gt;Jika varians populasi diketahui maka kita dapat menggunakan pendekatan distribusi normal. Jika simpangan baku populasi (&lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;) tidak diketahui serta jumlah sampel kecil maka pendekatan dilakukan menggunakan distribusi t. Kondisi lain yang perlu dipertimbangkan adalah saat sampel yang kita miliki besar, namun simpangan baku populasi tidak diketahui. Hal ini merupakan kondisi yang banyak ditemukan di lingkungan. Beberapa &lt;em&gt;textbook&lt;/em&gt; menjelaskan bahwa uji satu sampel untuk kondisi tersebut dapat menggunakan pendekatan distribusi normal sehingga simpangan baku populasi didekati dengan simpangan baku sampel (&lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;). Hal ini sesuai dengan teori limit pusat dimana semakin besar ukuran sampel, maka nilai statistik sampel (mean dan simpangan baku) akan mendekati populasinya. Berikut adalah prosedur dalam melakukan uji hipotesisnya:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Prosedur Uji Hipotesis&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Asumsi&lt;/strong&gt; : Distribusi normal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hipotesis nol (&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;)&lt;/strong&gt; : &lt;span class=&#34;math inline&#34;&gt;\(\mu=\mu_0\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Statistik Uji&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:stparam&#34;&gt;\[\begin{equation}
+  Z_{H_0}=\frac{\overline{X}-\mu_0}{\frac{\sigma}{\sqrt{n}}}\ \ \ n&amp;gt;30\ atau\ \sigma\ diketahui
+  \tag{1}
+\end{equation}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:stparam2&#34;&gt;\[\begin{equation}
+  T_{H_0}=\frac{\overline{X}-\mu_0}{\frac{s}{\sqrt{n}}}\ \ \ n\le30\ atau\ \sigma\ tidak\ diketahui
+  \tag{2}
+\end{equation}\]&lt;/span&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Aturan penolakan (RR) berdasarkan variasi &lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Aturan penolakan berdasarkan variasi &lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt; dan pendekatan distribusi yang digunakan disajikan pada Tabel &lt;a href=&#34;#tab:stha&#34;&gt;2&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Formula p-value&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Distribusi Normal&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:stparam3&#34;&gt;\[\begin{equation}
+p-value =
+  \begin{cases}
+    1-\Phi\left(Z_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\mu&amp;gt;\mu_0\\
+    \Phi\left(Z_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\mu&amp;lt;\mu_0\\
+    2\left[1-\Phi\left|Z_{H_0}\right|\right]\ \ \ \ \ \ \ untuk\ H_a:\mu\ne \mu_0
+    \end{cases}
+  \tag{3}
+\end{equation}\]&lt;/span&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Distribusi t&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:stparam4&#34;&gt;\[\begin{equation}
+p-value =
+  \begin{cases}
+    1-G_{n-1}\left(T_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\mu&amp;gt;\mu_0\\
+    G_{n-1}\left(T_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\mu&amp;lt;\mu_0\\
+    2\left[1-G_{n-1}\left|T_{H_0}\right|\right]\ \ \ \ \ \ \ untuk\ H_a:\mu\ne \mu_0
+    \end{cases}
+  \tag{4}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(G_{n-1}\)&lt;/span&gt; adalah CDF (fungsi densitas kumulatif) dari distribusi t.&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;col width=&#34;42%&#34; /&gt;
+&lt;col width=&#34;44%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;RR pada level &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; (Distribusi Normal)&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;RR pada level &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; (Distribusi t)&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\mu&amp;gt;\mu_0\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(Z_{H_0}\ge Z_\alpha\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(T_{H_0}&amp;gt;t_{n-1,\alpha}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\mu&amp;lt;\mu_0\)&lt;/span&gt; | &lt;span class=&#34;math inline&#34;&gt;\(Z_{H_0}\le -Z_\alpha\)&lt;/span&gt; | &lt;span class=&#34;math inline&#34;&gt;\(T_{H_0}&amp;lt; -t_{n-1,\alpha}\)&lt;/span&gt; | &lt;span class=&#34;math inline&#34;&gt;\(\mu\neq\mu_0\)&lt;/span&gt; | &lt;span class=&#34;math inline&#34;&gt;\(Z_{\frac{\alpha}{2}}\le Z_{H_0}\le Z_{\frac{\alpha}{2}}\)&lt;/span&gt; | &lt;span class=&#34;math inline&#34;&gt;\(-t_{n-1,\frac{\alpha}{2}}&amp;lt;T_{H_0}&amp;lt; t_{n-1,\frac{\alpha}{2}}\)&lt;/span&gt; |&lt;/p&gt;
+&lt;p&gt;: (#tab:stha) Aturan penolakan berdasakan hipotesis alternatif.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Uji Hipotesis Menggunakan &lt;code&gt;R&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Distribusi Normal&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Untuk menghitung p-value pada distribusi normal kita dapat menggunakan fungsi &lt;code&gt;pnorm()&lt;/code&gt; (probabilitas kumulatif). Berikut adalah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# uji satu sisi
+1-pnorm(((x/n)-mu)/(sd/sqrt(n)))
+pnorm(((x/n)-mu)/(sd/sqrt(n)))
+
+# uji dua sisi
+2*(1-pnorm(abs(((x/n)-mu)/(sd/sqrt(n)))))&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x/n&lt;/strong&gt;: rata-rata sampel&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mu&lt;/strong&gt;: rata-rata populasi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sd&lt;/strong&gt;: simpangan baku&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;n&lt;/strong&gt;: ukuran sampel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Distribusi t&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pada uji hipotesis menggunakan distribusi t, fungsi yang digunakan sudah tersedia pada &lt;code&gt;R&lt;/code&gt;. Fungsi yang digunakan adalah &lt;code&gt;t.test()&lt;/code&gt;. Berikut adalah format fungsi yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t.test(x, y = NULL,
+       alternative = c(&amp;quot;two.sided&amp;quot;, &amp;quot;less&amp;quot;, &amp;quot;greater&amp;quot;),
+       mu = 0, paired = FALSE, var.equal = FALSE,
+       conf.level = 0.95, ...)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,y&lt;/strong&gt;: vektor numerik. Kedua argumen akan terisi jika akan dilakukan uji hipotesis untuk dua populasi.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alternative&lt;/strong&gt;: diguanakan untuk menentukan jenis uji hipotesis apakah satu sisi(“less” dan “greater”), atau dua sisi (“two.sided”).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mu&lt;/strong&gt;: rata-rata populasi. Secara default nilainya &lt;code&gt;0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;paired&lt;/strong&gt;: vektor logikal yang menentukan apakah uji dua populasi digunakan untuk sampel berpasangan (&lt;code&gt;TRUE&lt;/code&gt;) atau tidak (&lt;code&gt;FALSE&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;conf.level&lt;/strong&gt;: tingkat kepercayaan. Secara default tingkat kepercayaan yang digunakan adalah &lt;code&gt;95%.&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+
+&lt;div class=&#34;example&#34;&gt;
+&lt;p&gt;&lt;span id=&#34;exm:ujihipsastu1&#34; class=&#34;example&#34;&gt;&lt;strong&gt;Example 1  (Varian populasi diketahui)  &lt;/strong&gt;&lt;/span&gt;Suatu produk kompos dalam kantong berisi rata-rata 16 kg per kantong, dengan simpangan baku=0,2 kg. Bila berat tersebut secara signifikan lebih kecil, maka toko penyalur berhak untuk menolak. Untuk mengujinya diambil sampel secara acak sebanyak 36 kantong, kemudian ditimbang, dan berat rata-rata yang diperoleh sebesar 15,7 kg. Dengan menggunakan &lt;span class=&#34;math inline&#34;&gt;\(\alpha=0,01\)&lt;/span&gt; tentukan apakah berat rata-rata sampel lebih kecil dari berat seharusnya dengan asumsi distribusi yang terbentuk adalah distribusi normal?&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Jawab&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+Hipotesis
+  \begin{cases}
+    H_0:\mu=16kg\\
+    H_a:\mu&amp;lt;16kg
+    \end{cases}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;dengan &lt;span class=&#34;math inline&#34;&gt;\(n&amp;gt;30\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; diketahui, maka digunakan distribusi normal. Nilai Z untuk &lt;span class=&#34;math inline&#34;&gt;\(\alpha=0,01\)&lt;/span&gt; adalah &lt;span class=&#34;math inline&#34;&gt;\(-2,33\)&lt;/span&gt; dengan daerah penolakan berada pada rentang &lt;span class=&#34;math inline&#34;&gt;\(Z_{H_0}\le -Z_\alpha\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Statistik uji diperoleh berdasarkan Persamaan &lt;a href=&#34;#eq:stparam&#34;&gt;(1)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+Z_{H_0}=\frac{15,7-16}{\frac{0,2}{\sqrt{36}}}=-9,00
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Nilai p-value selanjutnya dapat dihitung menggunakan Persamaan &lt;a href=&#34;#eq:stparam3&#34;&gt;(3)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\Phi\left(Z_{-9}\right)=1.128588e-19
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; p-value dapat dihitung menggunakan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pnorm(((15.7)-16)/(0.2/sqrt(36)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.128588e-19&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Kesimpulan&lt;/strong&gt;: p-value &amp;lt; &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;, atau &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; ditolak. Berat rata-rata sampel &amp;lt; 16 kg (di bawah standard) sehingga diperlukan pembenahan dalam penimbangan kompos ke kantongnya agar sesuai standard.&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;div class=&#34;example&#34;&gt;
+&lt;p&gt;&lt;span id=&#34;exm:ujihiposatu2&#34; class=&#34;example&#34;&gt;&lt;strong&gt;Example 2  (Varians populasi tidak diketahui)  &lt;/strong&gt;&lt;/span&gt;Menurut seorang pengusaha industri, unit pengolah limbahnya mengeluarkan effluent dengan parameter BOD rata-rata harian sebesar 17 mg/l. Untuk itu dilakukan sampling komposit selama 7 hari berturut-turut, dan ternyata rerata BOD sampelnya adalah 19 mg/l, dengan simpangan baku 4 mg/l. Bila fenomena tersebut berdistribusi normal, lakukan pengujian dengan tingkat keyakinan &lt;span class=&#34;math inline&#34;&gt;\(\alpha=0,01\)&lt;/span&gt;?&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Jawab&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+Hipotesis
+  \begin{cases}
+    H_0:\mu=17kg\\
+    H_a:\mu\ne17kg
+    \end{cases}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;dengan &lt;span class=&#34;math inline&#34;&gt;\(n\le30\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; tidak diketahui maka pengujian dilakukan dengan menggunakan distribusi t. Daerah penerimaan &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; untuk &lt;span class=&#34;math inline&#34;&gt;\(\alpha=0,01\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(df=7-1=6\)&lt;/span&gt; berada pada rentang &lt;span class=&#34;math inline&#34;&gt;\(-3,143&amp;lt;T{H_0}&amp;lt;3,143\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Statistik uji dihitung menggunakan Persamaan &lt;a href=&#34;#eq:stparam2&#34;&gt;(2)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+T_{H_0}=\frac{19-17}{\frac{4}{\sqrt{7}}}=1,322876
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;p-value selanjutnya dapat dihitung menggunakan Persamaan &lt;a href=&#34;#eq:stparam4&#34;&gt;(4)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+2\left[1-G_{6}\left|T_{1,323}\right|\right]=0,2340573
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;p-value pada &lt;code&gt;R&lt;/code&gt; dapat dihitung menggunakan fungsi &lt;code&gt;pt()&lt;/code&gt; (fungsi densitas kumulatif). Berikut adalah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;2*(1-pt(1.322876, df=6))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.2340573&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau
+set.seed(48)
+t.test(x=rnorm(n=7, mean=19, sd=4), 
+       mu=17,alternative=&amp;quot;two.sided&amp;quot;,
+       conf.level=0.99)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  One Sample t-test
+## 
+## data:  rnorm(n = 7, mean = 19, sd = 4)
+## t = 1.1742, df = 6, p-value = 0.2848
+## alternative hypothesis: true mean is not equal to 17
+## 99 percent confidence interval:
+##  10.97128 28.61775
+## sample estimates:
+## mean of x 
+##  19.79452&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Kesimpulan&lt;/strong&gt;: p-value &amp;gt; &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;. Terima &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;. Pernyataan pengusaha tersebut dapat diterima.&lt;/p&gt;
+&lt;p&gt;Berdasarkan hasil perhitungan di atas penulis menggunakan dua cara yaitu dengan menggunakan fungsi &lt;code&gt;pt()&lt;/code&gt; dan &lt;code&gt;t.test()&lt;/code&gt;. Pada fungsi &lt;code&gt;t.test()&lt;/code&gt; penulis perlu mereproduksi kembali data berdasarkan nilai mean dan simpangan baku yang ada. Hal ini tentu berbeda dengan cara satunya, namun kelebihan cara ini kita bisa melakukan uji hipotesis sekaligus menghitung rentang keyakinan dari sampel. Hasil yang diperoleh juga tidak berbeda antara kedua cara tersebut, sehingga pembaca bebas untuk menggunakan salah satunya.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;uji-nonparametrik&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.3.2 Uji Nonparametrik&lt;/h3&gt;
+&lt;p&gt;Uji nonparametrik tidak memerlukan asumsi sampel untuk mengikuti distribusi tertentu. Untuk uji hipotesis satu populasi terdapat dua macam uji nonparametrik, yaitu: sign test dan signed-rank test. Kedua uji tersebut menggunakan nilai median sebagai nilai pemusatan data (data tidak berdistribusi normal).&lt;/p&gt;
+&lt;div id=&#34;sign-test&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;11.3.2.1 Sign Test&lt;/h4&gt;
+&lt;p&gt;Sign test digunakan untuk menguji hipotesis terhadap nilai median populasi. Uji ini sangat cocok digunakan untuk sampel yang kecil dengan ukuran sampel &lt;span class=&#34;math inline&#34;&gt;\(n&amp;lt;30\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Pada uji sign test, nilai sampel yang selisihnya positif akan diganti nilainya dengan tanda “+”, Sedangkan jika hasilnya negatif nilainya diganti dengan “-”. Jika hipotesis nol benar (&lt;span class=&#34;math inline&#34;&gt;\(H_0:\tilde{\mu}=\tilde{\mu_0}\)&lt;/span&gt;) dan populasi simetris, maka jumlah tanda positif dan tanda negatif akan sama. Ketika salah satu tanda muncul lebih sering, maka kita dapat menolak &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Secara teorotis, sign test dapat diaplikasikan hanya pada situasi dimana &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu_0}\)&lt;/span&gt; tidak sama dengan nilai observasi yang ada (selisih median terhadap observasi tidak menghasilkan angka nol). Meskipun terdapat nol peluang untuk memperoleh sampel dengan nilai tepat sama dengan &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu_0}\)&lt;/span&gt; ketika distribusi populasinya berasal dari distribusi kontinu. Pada kondisi aktual nilai sampel sama dengan &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu_0}\)&lt;/span&gt; berasal dari kurang presisinya proses pengukuran data. Jika memang benar diketahui nilai sampel sama dengan &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu_0}\)&lt;/span&gt;, maka nilai tersebut selanjutnya akan dikecualikan pada proses perhitungan.&lt;/p&gt;
+&lt;p&gt;p-value pada sign test dihitung menggunakan menggunakan distribusi binomial, dimana kejadian sukses didefinisikan sebagai jumlah observasi dengan tanda “+” dengan probabilitas sukses &lt;span class=&#34;math inline&#34;&gt;\(p=0,5\)&lt;/span&gt;. Pembaca dapat membuka kembali Chapter yang membahas mengenai distribusi probabilitas binomial untuk memahami cara perhitungannya.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Prosedur Uji Hipotesis&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Asumsi&lt;/strong&gt; : jumlah sampel &lt;span class=&#34;math inline&#34;&gt;\(n&amp;lt;30\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hipotesis nol (&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;)&lt;/strong&gt; : &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}=\tilde{\mu_0}\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hipotesis nol terkonversi&lt;/strong&gt;: &lt;span class=&#34;math inline&#34;&gt;\(H_0:p=0,5\)&lt;/span&gt;, dimana p merupakan probabilitas observasi &lt;span class=&#34;math inline&#34;&gt;\(&amp;gt;\tilde{\mu_0}\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sign Statistic&lt;/strong&gt;: Y = # observasi yang &lt;span class=&#34;math inline&#34;&gt;\(&amp;gt;\tilde{\mu_0}\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hipotesis alternatif terkonversi&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:signtest&#34;&gt;Table 3: &lt;/span&gt; Hipotesis alternatif terkonversi.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt; untuk &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt; untuk &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}&amp;gt;\tilde{\mu_0}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(p&amp;gt;0,5\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}&amp;lt;\tilde{\mu_0}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(p&amp;lt;0,5\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}\ne\tilde{\mu_0}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(p\ne0,5\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:signtest&#34;&gt;Table 3: &lt;/span&gt; Hipotesis alternatif terkonversi pendekatan distribusi normal.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;RR pada level &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}&amp;gt; \tilde{\mu_0}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(Z_{H_0}\ge Z_\alpha\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}&amp;lt; \tilde{\mu_0}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(Z_{H_0}\le -Z_\alpha\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}\ne\tilde{\mu_0}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Statistik Uji&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(n&amp;lt;10\)&lt;/span&gt;&lt;/strong&gt;: Fungsi densitas kumulatif distribusi binomial. Lihat tabel distribusi binomial untuk &lt;span class=&#34;math inline&#34;&gt;\(p=0,5\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(n\ge10\)&lt;/span&gt;&lt;/strong&gt;:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:signtesteq&#34;&gt;\[\begin{equation}
+Z_{H_0}=\frac{x-np}{\sqrt{npq}}
+  \tag{5}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; merupakan jumlah observasi bertanda “+”. &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; merupakan probabilitas kejadian sukses, dimana &lt;span class=&#34;math inline&#34;&gt;\(p=q=0,5\)&lt;/span&gt;. &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; merupakan jumlah observasi.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;p-value&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(n&amp;lt;10\)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:signtesteq2&#34;&gt;\[\begin{equation}
+p-value =
+  \begin{cases}
+    P\left(X\ge x,\ \text{dimana}\ p=\frac{1}{2}\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}&amp;gt;\tilde{\mu_0}\\
+    P\left(X\le x,\ \text{dimana}\ p=\frac{1}{2}\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}&amp;lt;\tilde{\mu_0}\\
+    2\left(P\left(X\le x,\ \text{dimana}\ p=\frac{1}{2}\right)\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}\ne \tilde{\mu_0}
+    \end{cases}
+  \tag{6}
+\end{equation}\]&lt;/span&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(n\ge10\)&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:signtesteq3&#34;&gt;\[\begin{equation}
+p-value =
+  \begin{cases}
+    1-\Phi\left(Z_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}&amp;gt;\tilde{\mu_0}\\
+    \Phi\left(Z_{H_0}\right)\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}&amp;lt;\tilde{\mu_0}\\
+    2\left[1-\Phi\left(Z_{H_0}\right)\right]\ \ \ \ \ \ \ untuk\ H_a:\tilde{\mu}\ne \tilde{\mu_0}
+    \end{cases}
+  \tag{7}
+\end{equation}\]&lt;/span&gt;
+&lt;hr /&gt;
+
+&lt;div class=&#34;example&#34;&gt;
+&lt;p&gt;&lt;span id=&#34;exm:npsatusam1&#34; class=&#34;example&#34;&gt;&lt;strong&gt;Example 3  &lt;/strong&gt;&lt;/span&gt;Nilai di bawah ini merupakan waktu yang diperlukan untuk menyisihkan suatu polutan di air sebesar 70% melalui proses sedimentasi pada percobaan di laboratorium:&lt;/p&gt;
+&lt;p&gt;1,1; 2,2; 0,9; 1,3; 2,0; 1,6; 1,8; 1,5; 2,0; 1,2; 1,7.&lt;/p&gt;
+&lt;p&gt;Gunakan sign test untuk mengecek apakah median dari hasil tersebut sesuai sama dengan yang dihasilkan penelitian sebelumnya sebesar 1,8 jam? Gunakan tingkat keyakinan 0,05 pendekatan distribusi binomial dan normal untuk kasus tersebut.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Jawab&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_0:\tilde{\mu}=1,8\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a:\tilde{\mu}\ne1,8\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\alpha=0,05\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Uji statistik: Binomial variabel X dengan p=0,5.&lt;/li&gt;
+&lt;li&gt;perhitungan statistik uji:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Gnatilah tiap selisih nilai observasi terhadap median 1,8. Jika nilai selisih lebih besar dari median maka ganti dengan tanda “+”, sedangkan jika lebih kecil ganti dengan tanda “-”. Jika nilai nol yang dihasilkan maka kecualikan observasi tersebut. Berikut adalah hasil yang diperoleh:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+- + - - + - - + - -
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Berdassarkan hasil tersebut diperoleh jumlah kejadian sukses (nilai positif) &lt;span class=&#34;math inline&#34;&gt;\(x=3\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(n=10\)&lt;/span&gt; (satu observasi nol dikecualikan).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pendekatan Distribusi Binomial&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pembaca dapat menggunakan tabel distribusi binomial untuk menghitung probabilitas binomial dengan &lt;span class=&#34;math inline&#34;&gt;\(n=10\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(p=0,5\)&lt;/span&gt;, dan &lt;span class=&#34;math inline&#34;&gt;\(x=3\)&lt;/span&gt;. Berikut adalah hasil perhitungan yang dilakukan:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P=2P\left(X\le3\ ketika\ p=\frac{1}{2}\right)=2\sum_{x=0}^3b\left(x;10;\frac{1}{2}\right)=0,3438&amp;gt;0,05
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan &lt;code&gt;R&lt;/code&gt; kita dapat menggunakan fungsi &lt;code&gt;pbinom()&lt;/code&gt; untuk menghitung probabilitas kumulatif dari distribusi binomial. Langkah pertama yang perlu dilakukan adalah membuat vektor yang berisikan observasi tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# membuat vektor numerik
+df &amp;lt;- c(1.5, 2.2, 0.9, 1.3, 2.0, 
+        1.6, 1.8, 1.5, 2.0, 1.2, 1.7)
+
+# cek panjang vektor
+length(df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 11&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Langkah selanjutnya yang perlu dilakukan adalah menghitung selisih dari elemen vektor tersebut dengan nilai median yang telah kita miliki.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# menghitung selisih nilai elemen vektor dengan median
+df_new &amp;lt;- df-1.8
+
+# print
+df_new&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] -0.3  0.4 -0.9 -0.5  0.2 -0.2  0.0 -0.3  0.2 -0.6 -0.1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Selanjutnya menghitung nilai x (jumlah observasi bernilai positif) dan ukuran sampel yang baru (n).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# subset nilai vektor positif
+df_new2 &amp;lt;- df_new[df_new&amp;gt;0]
+
+# print
+df_new2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.4 0.2 0.2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# x
+x &amp;lt;- length(df_new2)
+
+# n
+n &amp;lt;- length(df_new[df_new!=0])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Langkah terakhir setelah kita memperoleh nilai x dan n adalah menghitung probabilitas binomial menggunakan fungsi &lt;code&gt;pbinom()&lt;/code&gt; dengan &lt;span class=&#34;math inline&#34;&gt;\(p=0,5\)&lt;/span&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;2*pbinom(q=x, size=n, prob=0.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.34375&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Pendekatan Distribusi Normal&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Untuk menghitung p-value dengan menggunakan pendekatan distribusi normal, kita perlu menghitung nilai mean dan simpangan baku dari contoh kasus di atas. Contoh kasus di atas merupakan contoh kasus percobaan binomial. Kita perlu menghitung nilai mean dan simpangan baku dari percobaan di atas. Data yang diperlukan untuk melakukannya adalah data yang telah dikonversi kedalam bentuk tanda “+” dan “-”. Berdasarkan hasil perhitungan di atas telah diketahui &lt;span class=&#34;math inline&#34;&gt;\(n=10\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(x=3\)&lt;/span&gt;. Berikut adalah hasil perhitungan nilai mean dan simpangan baku contoh kasus tersebut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\tilde{\mu}=np=\left(10\right)\left(0,5\right)=5
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\sigma=\sqrt{npq}=\sqrt{\left(10\right)\left(0,5\right)\left(0,5\right)}=1,581139
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Setelah kedua nilai tersebut dihitung selanjutnya kita dapat menghitung nilai Z dan menggunakan tabel distribusi normal untuk menghitung p-value.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+Z_{H_0}=\frac{2,5-5}{1,581139}=-1,581139
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Sehingga nilai p-value yang diperoleh:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+P=2\left[\Phi\left(Z_{-1,581139}\right)\right]=0,1138463
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; kita dapat menggunakan fungsi &lt;code&gt;pnorm()&lt;/code&gt; untuk menghitung probabilitas kumulatif dari distribusi normal. Berikut adalah sintaks yang digunakan:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;2*pnorm(q=2.5, mean=n*0.5, sd=sqrt(n*(0.5^2)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1138463&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Kesimpulan&lt;/strong&gt;: p-value &amp;gt; &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;. Terima &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;. Median hasil observasi tidak berbeda signifikan dengan median hasil percobaan sebelumnya.&lt;/p&gt;
+&lt;p&gt;Berdasarkan kedua pendekatan tersebut terlihat bahwa p-value yang diperoleh berbeda hampir 2 kali lipat, namun kesimpulan yang diperoleh tidak berbeda. Pada penerapannya pembaca dapat memilih salah satu pendekatan tersebut dengan memperhatikan jumlah sampel (&lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;) yang dimiliki oleh pembaca. Jika jumlah sampel &lt;span class=&#34;math inline&#34;&gt;\(n\ge10\)&lt;/span&gt; maka gunakan pendekatan distribusi normal.&lt;/p&gt;
+&lt;p&gt;Kita juga dapat membuat &lt;em&gt;user define function&lt;/em&gt; kita sendiri jika suatu saat kita akan melakukan perhitungan kembali. Berikut adalah contoh sintaks yang digunakan untuk melakukan sign test:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sign.test &amp;lt;- function(df, median, alternative){
+  df_new &amp;lt;- df-median
+  x &amp;lt;- length(df_new[df_new&amp;gt;0])
+  n &amp;lt;- length(df_new[df_new!=0])
+  if(n&amp;lt;10){
+    if(alternative==&amp;quot;two.sided&amp;quot;){
+      p.value=2*pbinom(q=x, size=n, prob=0.5)
+    }else if(alternative==&amp;quot;greater&amp;quot;){
+      p.value=1-pbinom(q=x, size=n, prob=0.5)
+    }else if(alternative==&amp;quot;lower&amp;quot;){
+      p.value=pbinom(q=x, size=n, prob=0.5)
+    }else{
+      warning(&amp;quot;You must determine the alternative&amp;quot;)
+    }
+  }else{
+    if(alternative==&amp;quot;two.sided&amp;quot;){
+      p.value=2*pnorm(q=x-0.5, mean=n*0.5, 
+                      sd=sqrt(n*(0.5^2)))
+    }else if(alternative==&amp;quot;greater&amp;quot;){
+      p.value=0.5-pnorm(q=x-0.5, mean=n*0.5, 
+                      sd=sqrt(n*(0.5^2)))
+    }else if(alternative==&amp;quot;lower&amp;quot;){
+      p.value=pnorm(q=x-0.5, mean=n*0.5, 
+                      sd=sqrt(n*(0.5^2)))
+    }else{
+    warning(&amp;quot;You must determine the alternative&amp;quot;)
+    }
+  }
+  p.value
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pembaca juga dapat mengedit script di atas sesuai dengan apa yang pembaca inginkan. Berikut adalah contoh output script tersebut menggunakan objek &lt;code&gt;df&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sign.test(df=df, median=1.8, alternative=&amp;quot;two.sided&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1138463&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;signed-rank-test&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;11.3.2.2 Signed-Rank Test&lt;/h4&gt;
+&lt;p&gt;signed-rank test disebut juga sebagai &lt;strong&gt;Wilcoxon signed-rank test&lt;/strong&gt; merupakan metode nonparameterik untuk melakukan uji median pada satu populasi dengan distribusi yang simetris. Dengan kondisi tersebut, kita dapat melakukan uji hipotesis nol (&lt;span class=&#34;math inline&#34;&gt;\(H_0=\tilde{\mu}=\tilde{\mu_0}\)&lt;/span&gt;). Langkah pertama kita perlu menguragi seluruh nilai sampel dengan &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu_0}\)&lt;/span&gt;, serta mengecualikan hasil pengurangan bernilai nol. Hasil pengurangan selanjutnya dirangking (diperingkat) tanpa memperdulikan tandanya. Rangking pertama merupakan nilai absolut terkecil dari hasil pengurangan (tanpa mempedulikan tanda), rangkin kedua merupakan absolut terkecil kedua, dst. Ketika nilai absolut hasil pengurangan memiliki nilai yang sama, maka peringkat masing-masing nilai merupakan rata-rata dari peringkat tersebut. Sebagai contoh misalnya nilai hasil pengurangan peringkat 5 dan 6 sama, maka peringkat masing-masing selanjutnya di ubah menjadi 5,5 (rata-rata kedua peringkat). Jika hipotesis nol benar, maka total rangking hasil penurangan yang positif akan sama dengan total rangkin hasil pengurangan yang negatif. Total pengurangan yang positif selanjutnya dilambangkan dengan &lt;span class=&#34;math inline&#34;&gt;\(w_+\)&lt;/span&gt; dan total pengurangan yang negatif dengan &lt;span class=&#34;math inline&#34;&gt;\(w_-\)&lt;/span&gt;. Nilai terkecil dari kedua nilai tersebut dilambangkan dengan &lt;span class=&#34;math inline&#34;&gt;\(w\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Dalam penentuan penerimaan hipotesis terdapat beberapa hal yang perlu pembaca cermati. Jika hipotesis alternatif yang digunakan adalah &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}&amp;lt;\tilde{\mu_0}\)&lt;/span&gt;, hipotesis nol dapat ditolak hanya jika nilai &lt;span class=&#34;math inline&#34;&gt;\(w_+\)&lt;/span&gt; kecil dan &lt;span class=&#34;math inline&#34;&gt;\(w_-\)&lt;/span&gt; besar. Sebaliknya jika hipotesis alternatif yang digunakan adalah &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}&amp;gt;\tilde{\mu_0}\)&lt;/span&gt;, hipotesis nol dapat ditolak hanya jika nilai &lt;span class=&#34;math inline&#34;&gt;\(w_+\)&lt;/span&gt; besar dan &lt;span class=&#34;math inline&#34;&gt;\(w_-\)&lt;/span&gt; kecil. Untuk uji dua sisi, hipotesis nol akan ditolak jika kedua nilai &lt;span class=&#34;math inline&#34;&gt;\(w_+\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(w_-\)&lt;/span&gt; cukup kecil.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Prosedur Uji Hipotesis&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Asumsi&lt;/strong&gt; : Distribusi simetris.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hipotesis nol (&lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;)&lt;/strong&gt; : &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}=\tilde{\mu_0}\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;signed-rank&lt;/strong&gt;: Menghitung:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_i\)&lt;/span&gt; = selisih nilai observasi dengan median pembanding.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(r_i\)&lt;/span&gt; = rangking &lt;span class=&#34;math inline&#34;&gt;\(d_i\)&lt;/span&gt; tanpa mempedulikan tanda (nol dikecualikan)&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(w_+\)&lt;/span&gt; = Total &lt;span class=&#34;math inline&#34;&gt;\(r_i\)&lt;/span&gt; positif&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(w_-\)&lt;/span&gt; = Total &lt;span class=&#34;math inline&#34;&gt;\(r_i\)&lt;/span&gt; negatif&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(w\)&lt;/span&gt; = Nilai terkecil antara &lt;span class=&#34;math inline&#34;&gt;\(w_-\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(w_+\)&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Komputasi jumlah rangking dan aturan penolakan berdasarkan &lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:signranktest&#34;&gt;Table 4: &lt;/span&gt; Komputasi jumlah rangking dan aturan penolakan berdasarkan hipotesif alternatif.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;RR pada level &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;komputasi&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}&amp;gt; \tilde{\mu_0}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(w \le w_\alpha\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(w_-\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}&amp;lt; \tilde{\mu_0}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(w \le w_\alpha\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(w_+\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{\mu}\ne\tilde{\mu_0}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(w \le w_\alpha\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(w\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Untuk &lt;span class=&#34;math inline&#34;&gt;\(n\ge15\)&lt;/span&gt; aturan penolakan dapat menggunakan pendekatan distribusi normal seperti pada Tabel &lt;a href=&#34;#tab:signtest&#34;&gt;3&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Statistik Uji&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Untuk ukuran sampel &lt;span class=&#34;math inline&#34;&gt;\(n&amp;lt;15\)&lt;/span&gt; nilai kritis dapat ditentukan berdasarkan tabel nilai kritis untuk Signed-Rank Test yang dapat pembaca unduh pada tautan &lt;a href=&#34;https://math.ucalgary.ca/files/math/wilcoxon_signed_rank_table.pdf&#34; class=&#34;uri&#34;&gt;https://math.ucalgary.ca/files/math/wilcoxon_signed_rank_table.pdf&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Untuk ukuran sampel &lt;span class=&#34;math inline&#34;&gt;\(n\ge15\)&lt;/span&gt; dapat menggunakan pendekatan distribusi normal dengan sebelumnya menghitung nilai Z berdasarka nilai &lt;span class=&#34;math inline&#34;&gt;\(w_+\)&lt;/span&gt; (atau &lt;span class=&#34;math inline&#34;&gt;\(w_-\)&lt;/span&gt;).&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:signranktesteq&#34;&gt;\[\begin{equation}
+\mu w_+=\frac{n\left(n+1\right)}{4}\ dan\ \sigma_{w_+}^2=\frac{n\left(n+1\right)\left(2n+1\right)}{24}
+  \tag{8}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Sehingga nilai Z dapat dihitung menggunakan persamaan berikut:&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:signranktesteq2&#34;&gt;\[\begin{equation}
+Z=\frac{w_+-\mu w_+}{\sigma w_+}
+  \tag{9}
+\end{equation}\]&lt;/span&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Prosedur Uji Hipotesis Menggunakan R&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Prosedur uji signed-rank test juga dapat dilakukan di &lt;code&gt;R&lt;/code&gt; menggunakan fungsi &lt;code&gt;wilcox.test()&lt;/code&gt;. Fungsi ini dapat digunakan untuk melakukan dua buah uji yaitu signed-rank dan Wilcoxon Rank Sum. Khusus untuk signed rank kita dapat melakukan test untuk satu atau dua populasi. Jika kita ingin melakukannya untuk satu populasi, maka kita hanya perlu menginputkan satu vektor saja. Berikut adalah format fungsi tersebut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;wilcox.test(x, y = NULL,
+            alternative = c(&amp;quot;two.sided&amp;quot;, &amp;quot;less&amp;quot;, &amp;quot;greater&amp;quot;),
+            mu = 0, paired = FALSE, conf.level = 0.95, ...)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x,y&lt;/strong&gt;: vektor numerik. Kedua argumen akan terisi jika akan dilakukan uji hipotesis untuk dua populasi.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alternative&lt;/strong&gt;: diguanakan untuk menentukan jenis uji hipotesis apakah satu sisi(“less” dan “greater”), atau dua sisi (“two.sided”).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mu&lt;/strong&gt;: rata-rata populasi. Secara default nilainya &lt;code&gt;0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;paired&lt;/strong&gt;: vektor logikal yang menentukan apakah uji dua populasi digunakan untuk sampel berpasangan (&lt;code&gt;TRUE&lt;/code&gt;) atau tidak (&lt;code&gt;FALSE&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;conf.level&lt;/strong&gt;: tingkat kepercayaan. Secara default tingkat kepercayaan yang digunakan adalah &lt;code&gt;95%&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+
+&lt;div class=&#34;example&#34;&gt;
+&lt;span id=&#34;exm:signedrank&#34; class=&#34;example&#34;&gt;&lt;strong&gt;Example 4  &lt;/strong&gt;&lt;/span&gt;Kita akan menggunakan kembali data pada contoh soal sebelumnya. Pada contoh kali ini hitunglah menggunakan signed-rank test?
+&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Jawab&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_0: \tilde{\mu}=1,8\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(H_a: \tilde{\mu}\ne1,8\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\alpha=0,05\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Berdasarkan Tabel nilai kritis signed-rank test diperoleh nilai kritis untuk &lt;span class=&#34;math inline&#34;&gt;\(\alpha=0,05\)&lt;/span&gt; sebesar 8 dengan menggunakan parameter n=10 (pengecualian selisih sama dengan nol) dan median=1.8. Aturan penolakan berdasarkan nilai tersebut berada pada rentang nilai &lt;span class=&#34;math inline&#34;&gt;\(w\le8\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Hasil perhitungan &lt;span class=&#34;math inline&#34;&gt;\(d_i\)&lt;/span&gt; dan rangking masing-masing nilai disajikan sebagai berikut:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:signranktest2&#34;&gt;Table 5: &lt;/span&gt; Komputasi signed-rank test.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_i\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(r_i\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;-0,3&lt;/td&gt;
+&lt;td&gt;5,5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;0,4&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;-0,9&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;-0,5&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;0,2&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;-0,2&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;-0,3&lt;/td&gt;
+&lt;td&gt;5,5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;0,2&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;-0,6&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;-0,1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Berdasarkan nilai &lt;span class=&#34;math inline&#34;&gt;\(w_+=13\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(w_-=42\)&lt;/span&gt;. Karena berupa uji dua sisi maka nilai &lt;span class=&#34;math inline&#34;&gt;\(w\)&lt;/span&gt; perlu ditentukan. Berdasarkan kedua nilai tersebut nilai &lt;span class=&#34;math inline&#34;&gt;\(w=13\)&lt;/span&gt; (nilai terkecil).&lt;/p&gt;
+&lt;p&gt;Dengan menggunakan &lt;code&gt;R&lt;/code&gt; kita dapat melakukan uji menggunakan fungsi &lt;code&gt;wilcox.test()&lt;/code&gt;. Uji ini akan menghasilkan p-value sehingga aturan penolakan &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt; menggunakan p-value akan sama seperti uji lainnya, dimana jika p-value &lt;span class=&#34;math inline&#34;&gt;\(\ge H_0\)&lt;/span&gt;, maka hipotesis nol diterima. Berikut adalah sintaks untuk melakukannya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;wilcox.test(x=df, alternative =&amp;quot;two.sided&amp;quot;, mu = 1.8,
+            conf.level = 0.95)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in wilcox.test.default(x = df, alternative = &amp;quot;two.sided&amp;quot;, mu =
+## 1.8, : cannot compute exact p-value with ties&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in wilcox.test.default(x = df, alternative = &amp;quot;two.sided&amp;quot;, mu =
+## 1.8, : cannot compute exact p-value with zeroes&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  df
+## V = 13, p-value = 0.1522
+## alternative hypothesis: true location is not equal to 1.8&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Kesimpulan&lt;/strong&gt;: &lt;span class=&#34;math inline&#34;&gt;\(w\)&lt;/span&gt; &amp;gt; &lt;span class=&#34;math inline&#34;&gt;\(w_\alpha\)&lt;/span&gt;. Terima &lt;span class=&#34;math inline&#34;&gt;\(H_0\)&lt;/span&gt;. Median hasil observasi tidak berbeda signifikan dengan median hasil percobaan sebelumnya.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;uji-asumsi-normalitas-distribusi-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;11.4 Uji Asumsi Normalitas Distribusi Data&lt;/h2&gt;
+&lt;p&gt;Pada pengujian hipotesis yang telah dilakukan, asumsi normalitas merupakan asumsi yang wajib terpenuhi jika prosedur yang digunakan adalah prosedur uji parametrik. Terdapat dua buah cara untuk melihat apakah suatu data berditribusi normal atau tidak, cara tersebut adalah sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Metode grafis (QQ-plot, ECDF, Density plot, Histogram, dan Boxplot)&lt;/li&gt;
+&lt;li&gt;Metode matematis (Shapiro-Wilk, Cramer-von Mises, Shapiro-Francia, Anderson-Darling, Liliefors, Pearson Chi-square, dll)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Metode grafis telah banyak kita bahas pada Chapter-Chapter terkait visualisasi sebelumnya. Pada Chapter ini kita akan fokus membahas metode yang kedua.&lt;/p&gt;
+&lt;p&gt;Hipotesis yang digunakan pada uji asumsi normalitas adalah sebagai berikut:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+H_0:\ Sampel\ berdistribusi\ normal
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+H_1:\ Sampel\ tidak\ berdistribusi\ normal
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;shapiro-wilk&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.4.1 Shapiro-Wilk&lt;/h3&gt;
+&lt;p&gt;Metode uji normalitas Shapiro-Wilk merupakan metode uji normalitas nonparametrik yang memiliki power yang besar, khususnya untuk sampel berukuran relatif kecil. Versi awal metode ini terbatas dengan jumlah sampel 3 sampai 50 sampel. Versi selanjutnya mengalami modifikasi sehingga dapat menangani sampel sampai dengan 5000 sampel bahkan lebih.&lt;/p&gt;
+&lt;p&gt;Versi awal persamaan matematis metode Shapiro-Wilk disajikan pada Persamaan &lt;a href=&#34;#eq:shapirowilk&#34;&gt;(10)&lt;/a&gt;&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:shapirowilk&#34;&gt;\[\begin{equation}
+   W=\frac{\left(\sum_{i=1}^ma_i\left(x_{n+1-i}-x_i\right)\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}
+  \tag{10}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(m=\frac{n}{2}\)&lt;/span&gt; (&lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; genap) dan &lt;span class=&#34;math inline&#34;&gt;\(m=\frac{n-1}{2}\)&lt;/span&gt; (&lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; ganjil), &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; merupakan jumlah sampel, dan &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; merupakan bobot yang didasarkan pada nilai &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; (tabel penentuan nilai &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; dapat pembaca lihat pada tautan &lt;a href=&#34;http://www.real-statistics.com/statistics-tables/shapiro-wilk-table/&#34; class=&#34;uri&#34;&gt;http://www.real-statistics.com/statistics-tables/shapiro-wilk-table/&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Untuk perhitungan secara manual, langkah-langkah perhitungannya adalah sebagai berikut:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Urutkan nilai data dari yang terkecil sampai terbesar.&lt;/li&gt;
+&lt;li&gt;Tentukan nilai &lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt; dari jumlah sampel &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Hitung jumlah selisih kuadrat sampel (penyebut pada Persamaan &lt;a href=&#34;#eq:shapirowilk&#34;&gt;(10)&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Hitung nilai selisih &lt;span class=&#34;math inline&#34;&gt;\(a_{i}\left(x_{i}-\bar{x}\right)\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Hitung nilai &lt;span class=&#34;math inline&#34;&gt;\(W\)&lt;/span&gt; menggunakan Persamaan &lt;a href=&#34;#eq:shapirowilk&#34;&gt;(10)&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Untuk menghitung nilai p-value gunakan Tabel Shaphiro-Wilk yang dapat pembaca akses pada tautan &lt;a href=&#34;http://www.real-statistics.com/statistics-tables/shapiro-wilk-table/&#34; class=&#34;uri&#34;&gt;http://www.real-statistics.com/statistics-tables/shapiro-wilk-table/&lt;/a&gt;. Gunakan metode interpolasi untuk memperoleh nilai yang paling mendekati &lt;span class=&#34;math inline&#34;&gt;\(W\)&lt;/span&gt;. Misal diperoleh &lt;span class=&#34;math inline&#34;&gt;\(W=0,975\)&lt;/span&gt; dengan &lt;span class=&#34;math inline&#34;&gt;\(n=10\)&lt;/span&gt;. Berdasarkan Tabel Shapiro-Wilk nilai p-value uji berada antara 0,90 (&lt;span class=&#34;math inline&#34;&gt;\(W=0,972\)&lt;/span&gt;) dan 0,95 (&lt;span class=&#34;math inline&#34;&gt;\(W=0,978\)&lt;/span&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Untuk jumlah sampel yang besar (sampai 5000) Persamaan &lt;a href=&#34;#eq:shapirowilk&#34;&gt;(10)&lt;/a&gt; dimodifikasi menjadi Persamaan &lt;a href=&#34;#eq:shapirowilk2&#34;&gt;(11)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:shapirowilk2&#34;&gt;\[\begin{equation}
+   W=\frac{\left(\sum_{i=1}^na_ix_i\right)^2}{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}
+  \tag{11}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Nilai p-value uji selanjutnya dihitung menggunakan pendekatan kurva normal standard (&lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt;). Persamaan &lt;a href=&#34;#eq:shapirowilk3&#34;&gt;(12)&lt;/a&gt; menyajikan cara menghitung nilai koefisien &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:shapirowilk3&#34;&gt;\[\begin{equation}
+   Z=\frac{\ln\left(1-W\right)-\mu}{\sigma}
+  \tag{12}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:shapirowilk4&#34;&gt;\[\begin{equation}
+   \mu=0,0038915\left(\ln\left(n\right)\right)^3-0,083751\left(\ln\left(n\right)\right)^2-0,31082\left(\ln\left(n\right)\right)-1,5861
+  \tag{13}
+\end{equation}\]&lt;/span&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:shapirowilk5&#34;&gt;\[\begin{equation}
+   \sigma=e^{0,0030302\left(\ln\left(n\right)\right)^2-0,082676\left(\ln\left(n\right)\right)-0,4803}
+  \tag{14}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Contoh perhitungan uji normalitas Shapiro-Wilk dapat pembaca cek pada tautan &lt;a href=&#34;http://www.real-statistics.com/tests-normality-and-symmetry/statistical-tests-normality-symmetry/shapiro-wilk-test/&#34; class=&#34;uri&#34;&gt;http://www.real-statistics.com/tests-normality-and-symmetry/statistical-tests-normality-symmetry/shapiro-wilk-test/&lt;/a&gt; dan &lt;a href=&#34;http://www.real-statistics.com/tests-normality-and-symmetry/statistical-tests-normality-symmetry/shapiro-wilk-expanded-test/&#34; class=&#34;uri&#34;&gt;http://www.real-statistics.com/tests-normality-and-symmetry/statistical-tests-normality-symmetry/shapiro-wilk-expanded-test/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cramer-von-mises&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.4.2 Cramer-von Mises&lt;/h3&gt;
+&lt;p&gt;Uji normalitas Cramér-von Mises adalah tes fungsi omnibus distribusi empiris untuk hipotesis normalitas komposit. Uji ini menggunakan jumlah selisih kudrat antara proporsi kumulatif yang diamati dan yang diharapkan. Statistik uji metode ini disajikan pada Persamaan &lt;a href=&#34;#eq:cramervonmises&#34;&gt;(15)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:cramervonmises&#34;&gt;\[\begin{equation}
+   W=\frac{1}{12n}+\sum_{i=1}^n\left[p_i-\frac{2i-1}{2n}\right]^2
+  \tag{15}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:cramervonmises2&#34;&gt;\[\begin{equation}
+   p_{i=}\Phi\left[\frac{x_i-\overline{x}}{s}\right]
+  \tag{16}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;merupakan fungsi distribusi kumulatif distribusi normal standard. &lt;span class=&#34;math inline&#34;&gt;\(\bar{x}\)&lt;/span&gt; dan &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; merupakan nilai mean dan simpangan baku sampel.&lt;/p&gt;
+&lt;p&gt;p-value dari statistik uji dapat dihitung menggunakan pendekatan fungsi normal standard (nilai Z) berdasarkan pada Tabel 4.9 Stephens (1986) menggunakan Persamaan &lt;a href=&#34;#eq:cramervonmises3&#34;&gt;(17)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:cramervonmises3&#34;&gt;\[\begin{equation}
+   Z=W\left(1+\frac{0,5}{n}\right)
+  \tag{17}
+\end{equation}\]&lt;/span&gt;
+&lt;/div&gt;
+&lt;div id=&#34;shapiro-francia&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.4.3 Shapiro-Francia&lt;/h3&gt;
+&lt;p&gt;Uji normalitas Shapiro-Francia merupakan versi sederhana dari uji Shapiro_Wilk. Uji ini secara umum sama dengan uji Shapiro-Wilk untuk jumlah data yang besar. Seperti uji Shapiro-Wilk, uji Shapiro-Francia menghitung nilai &lt;span class=&#34;math inline&#34;&gt;\(W\)&lt;/span&gt; untuk melihat apakah data berasal dari distribusi normal atau tidak. Jika data berdistribusi normal, maka akan terdapat korelasi antara data yang telah diurutkan dan nilai Z yang diambil dari distribusi normal standard.&lt;/p&gt;
+&lt;p&gt;Nilai statistik uji dihitung menggunakan Persamaan &lt;a href=&#34;#eq:shapirofrancia&#34;&gt;(18)&lt;/a&gt; untuk data yang telah diurutkan.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:shapirofrancia&#34;&gt;\[\begin{equation}
+   W=\frac{\left(\sum_{i=1}^nm_ix_i\right)^2}{\left(n-1\right)s^2\sum_{i=1}^nm_i^2}
+  \tag{18}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; merupakan data pada urutan ke-i, &lt;span class=&#34;math inline&#34;&gt;\(m_i\)&lt;/span&gt; merupakan nilai perkiraan yang diharapkan pada data dengan urutan ke-i dari kuantil normal (atau nilai z). &lt;span class=&#34;math inline&#34;&gt;\(m_i\)&lt;/span&gt; dapat dihitung menggunakan Persamaan &lt;a href=&#34;#eq:shapirofrancia2&#34;&gt;(19)&lt;/a&gt;&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:shapirofrancia2&#34;&gt;\[\begin{equation}
+   m_i=\Phi^{-1}\left(\frac{i}{n+1}\right)
+  \tag{19}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(\Phi^{-1}\)&lt;/span&gt; merupakan nilai inverse dari distribusi normal standard (Z). Nilai p-value selanjutnya dapat dihitung menggunakan Tabel Shapiro-Francia pada Appendix D tautan &lt;a href=&#34;https://www.itrcweb.org/gsmc-1/Content/Resources/Unified_Guidance_2009.pdf#10.5.2&#34; class=&#34;uri&#34;&gt;https://www.itrcweb.org/gsmc-1/Content/Resources/Unified_Guidance_2009.pdf#10.5.2&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;anderson-darling&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.4.4 Anderson-Darling&lt;/h3&gt;
+&lt;p&gt;Uji normalitas Anderson-Darling merupakan uji fungsi omnibus densitas empiris (EDF) untuk hipotesis normalitas komposit. Statistik uji disajikan pada Persamaan &lt;a href=&#34;#eq:andersondarling&#34;&gt;(20)&lt;/a&gt;&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:andersondarling&#34;&gt;\[\begin{equation}
+   m_i=\Phi^{-1}\left(\frac{i}{n+1}\right)
+  \tag{20}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;p-value selanjutnya dapat dihitung menggunakan pendekatan distribusi normal standard menggunakan nilai Z berdasarkan Tabel 4.9 di Stephens (1986). Perhitungan nilai Z disajikan pada Persamaan &lt;a href=&#34;#eq:andersondarling2&#34;&gt;(21)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:andersondarling2&#34;&gt;\[\begin{equation}
+   Z=A\left(1+\frac{0,75}{n}+\frac{2,25}{n^2}\right)
+  \tag{21}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Uji Anderson-Darling merupakan uji EDF yang direkomendasikan oleh Stephens (1986). Dibandingkan dengan uji Cramer-von-Misses (sebagai alternatif kedua), uji Anderson-Darling memberikan bobot lebih pada ekor distribusi.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;liliefors-kolmogorov-smirnov&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.4.5 Liliefors (Kolmogorov-Smirnov)&lt;/h3&gt;
+&lt;p&gt;Ujnormalitas Liliefors (Kolmogorov-Smirnov) merupakan uji fungsi omnibus distribusi empiris untuk uji normalitas komposit. Statistik uji yang digunakan didasarkan pada nilai selisih absolut maksimum antara fungsi distribusi kumulatif empiris dan hipotetikal. Komuptasi statistik uji disajikan pada Persamaan &lt;a href=&#34;#eq:liliefors&#34;&gt;(22)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:liliefors&#34;&gt;\[\begin{equation}
+  D=\max\left\{D^+,\ D^-\right\} 
+  \tag{22}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:liliefors2&#34;&gt;\[\begin{equation}
+  D^+=\max_{i=1,..,n}\left\{\frac{1}{n}-p_i\right\},\ \ \ D^-=\max_{i=1,...,n}\left\{p_i-\frac{\left(i-1\right)}{n}\right\} 
+  \tag{23}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;p-value dihitung berdasarkan formula Dallas-Wilkinson (1986), dimana diklaim hanya dapat diandalkan ketika p-value lebih kecil dari 0,1. Jika p-value Dallas-Wilkinson lebih besar dari 0,1, maka p-value dihitung menggunakan pendekatan distribusi normal standard (lihat Stephens(1974)). Pehitungan nilai Z menggunakan Persamaan &lt;a href=&#34;#eq:liliefors3&#34;&gt;(24)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:liliefors3&#34;&gt;\[\begin{equation}
+   Z=D\left(\sqrt{n}-0,01+\frac{0,85}{\sqrt{n}}\right)
+  \tag{24}
+\end{equation}\]&lt;/span&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pearson-chi-square&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.4.6 Pearson Chi-square&lt;/h3&gt;
+&lt;p&gt;Statistik uji Pearson chi-square disajikan pada Persamaan &lt;a href=&#34;#eq:pearsonchisquare&#34;&gt;(25)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:pearsonchisquare&#34;&gt;\[\begin{equation}
+  P=\sum_{ }^{ }\frac{\left(C_i-E_i\right)}{E_i}
+  \tag{25}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;dimana &lt;span class=&#34;math inline&#34;&gt;\(C_i\)&lt;/span&gt; merupakan jumlah observasi terhitung dan &lt;span class=&#34;math inline&#34;&gt;\(E_i\)&lt;/span&gt; merupakan jumlah observasi estimasi di kelas i. Nilai uji tersebut selanjutnya digunakan untuk menghitung p-value menggunakan table chi-square.&lt;/p&gt;
+&lt;p&gt;Uji normalitas chi-square tidak direkomendasikan digunakan untuk menguji hipotesis normalitas komposit. Hal ini disebabkan karena uji ini memiliki power yang rendah.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;uji-normalitas-menggunakan-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;11.4.7 Uji Normalitas menggunakan &lt;code&gt;R&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Terdapat beberapa library yang dapat digunakan untuk melakukan uji normalitas pada &lt;code&gt;R&lt;/code&gt;. Library yang tersedia diantaranya adalah library &lt;code&gt;stats&lt;/code&gt;, &lt;code&gt;nortest&lt;/code&gt;, dan &lt;code&gt;RcmdrMisc&lt;/code&gt;. Pada Tabel &lt;a href=&#34;#tab:ujinormalitas&#34;&gt;6&lt;/a&gt; disajikan fungsi-fungsi uji normalitas beserta library fungsi tersebut:&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:ujinormalitas&#34;&gt;Table 6: &lt;/span&gt; Fungsi dan library uji normalitas di &lt;code&gt;R&lt;/code&gt;.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;Fungsi&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Library&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Keterangan&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;shapiro.test(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;stats&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Uji Shapiro-Wilk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;ad.test(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nortest&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;uji Anderson-Darling&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;cvm.test(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nortest&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;uji Cramer-von Mises&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;lillie.test(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nortest&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;uji Liliefors (Kolmogorov-Smirnov)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;pearson.test(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nortest&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;uji Pearson Chi-square&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;sf.test(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nortest&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;uji Shapiro-Francia&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;normalityTest(x,test)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;RcmdrMisc&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;uji Normalitas berbagai metode&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;: vektor numerik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;test&lt;/strong&gt;: argumen tambahan berupa fungsi uji normalitas. misal: &lt;code&gt;shapiro.test&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+
+&lt;div class=&#34;example&#34;&gt;
+&lt;span id=&#34;exm:ujinormalitasexm&#34; class=&#34;example&#34;&gt;&lt;strong&gt;Example 5  &lt;/strong&gt;&lt;/span&gt;Dengan menggunakan dataset &lt;code&gt;airquality&lt;/code&gt;, lakukan pengujian pada &lt;code&gt;R&lt;/code&gt; untuk mengetahui apakah distribusi konsentrasi &lt;code&gt;Ozone&lt;/code&gt; berdistribusi normal menggunakan uji Shapiro-Wilk?
+&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Jawab&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Berikut adalah sintaks untuk melakukan uji normalitas pada &lt;code&gt;R&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;shapiro.test(airquality$Ozone)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Shapiro-Wilk normality test
+## 
+## data:  airquality$Ozone
+## W = 0.87867, p-value = 2.79e-08&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# atau
+library(RcmdrMisc)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;RcmdrMisc&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: car&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;car&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: carData&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: sandwich&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;sandwich&amp;#39; was built under R version 3.5.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;normalityTest(airquality$Ozone, test=&amp;quot;shapiro.test&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Shapiro-Wilk normality test
+## 
+## data:  airquality$Ozone
+## W = 0.87867, p-value = 2.79e-08&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Kesimpulan&lt;/strong&gt;: dengan menggunakan &lt;span class=&#34;math inline&#34;&gt;\(alpha=5%\)&lt;/span&gt; dapat disimpulkan bahwa distribusi konsentrasi &lt;code&gt;Ozone&lt;/code&gt; pada dataset &lt;code&gt;airquality&lt;/code&gt; tidak berdistribusi normal.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tranformasi-box-cox&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;11.5 Tranformasi Box-Cox&lt;/h2&gt;
+&lt;p&gt;Kita telah belajar bagaimana melakukan uji hipotesis untuk satu populasi dan pada Chapter sebelumnya kita juga telah belajar bagaimana menghitung interval kepercayaan. Pada kedua materi tersebut untuk metode parametrik diperlukan pemenuhan asumsi normalitas. Jika asumsi tersebut tidak terpenuhi, maka perlu digunakan metode lain yaitu metode nonparametrik atau melakukan transformasi data untuk memperoleh data yang mendekati distribusi normal.&lt;/p&gt;
+&lt;p&gt;Transformasi Box-COx merupakan metode tansformasi data yang tidak mengikuti distribusi normal agar data mengikuti distribusi normal. Metode ini dikembangkan oleh &lt;strong&gt;George Box&lt;/strong&gt; dan &lt;strong&gt;Sir David Roxbee Cox&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Inti dari tansformasi Box Cox adalah eksponen, lamda &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; yang bervariasi dari -5 sampai 5. Semua nilai &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; dipertimbangkan dan nilai optimal untuk data selanjutnya dipilih. &lt;strong&gt;Nilai optimal&lt;/strong&gt; merupakan &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; yang menghasilkan perkiraan terbaik dari kurva distribusi normal. Transformasi y memiliki bentuk yang disajikan pada Persamaan &lt;a href=&#34;#eq:boxcox&#34;&gt;(26)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:boxcox&#34;&gt;\[\begin{equation}
+y\left(\lambda\right) =
+  \begin{cases}
+    \frac{x^{\lambda}-1}{\lambda}       &amp;amp; \quad \lambda\ne0\\
+    \log\left(x\right)                  &amp;amp; \quad \lambda = 0
+    \end{cases}
+ \tag{26}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Uji ini hanya berfungsi pada data bernilai positif. Jika data negatif, maka Persamaan &lt;a href=&#34;#eq:boxcox&#34;&gt;(26)&lt;/a&gt; akan dimodifikasi menjadi Persamaan &lt;a href=&#34;#eq:boxcox2&#34;&gt;(27)&lt;/a&gt;.&lt;/p&gt;
+&lt;span class=&#34;math display&#34; id=&#34;eq:boxcox2&#34;&gt;\[\begin{equation}
+y\left(\lambda\right) =
+  \begin{cases}
+    \frac{\left(x+\lambda_2\right)^{\lambda_2}-1}{\lambda_1}       &amp;amp; \quad \lambda_{1}\ne0\\
+    \log\left(x+\lambda_2\right)                                   &amp;amp; \quad \lambda_{1} = 0
+    \end{cases}
+ \tag{27}
+\end{equation}\]&lt;/span&gt;
+&lt;p&gt;Setelah nilai &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; optimal diperoleh, transformasi data dilakukan menggunakan Persamaan &lt;a href=&#34;#eq:boxcox&#34;&gt;(26)&lt;/a&gt; atau Persamaan &lt;a href=&#34;#eq:boxcox2&#34;&gt;(27)&lt;/a&gt;. Pada Tabel &lt;a href=&#34;#tab:transboxcox&#34;&gt;7&lt;/a&gt; disajikan nilai &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; dan transformasinya yang bersesuaian untuk menghasilkan distribusi normal.&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:transboxcox&#34;&gt;Table 7: &lt;/span&gt; Nilai &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; dan transformasinya.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;strong&gt;&lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Transformasi&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x^2\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;0,5&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sqrt{x}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\ln{x}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;-0,5&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\frac{1}{\sqrt{x}}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;-1&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\frac{1}{x}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Pada &lt;code&gt;R&lt;/code&gt; penentuan &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; optimal dapat menggunakan fungsi &lt;code&gt;powerTransform()&lt;/code&gt; dari library &lt;code&gt;car&lt;/code&gt;. Fungsi ini memungkinkan kita menghitung nilai &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; optimal baik untuk yang seluruh nilai datanya positif, negatif, atau sebagian datanya negatif (transformasi Yeo-Jonhson). Berikut adalah format fungsinya:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;powerTransform(object, family=&amp;quot;bcPower&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;object&lt;/strong&gt;: objek dapat berupa kelas formula &lt;code&gt;lm&lt;/code&gt; atau &lt;code&gt;lmerMod&lt;/code&gt;, atau matrix atau vektor.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;family&lt;/strong&gt;: keluarga transformasi. Nilai yang mungkin adalah “bcPower” jika seluruh datanya positif, “bcnPower” jika seluruh datanya negatif, dan “yjPower” jika sebagian datanya negatif.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+
+&lt;div class=&#34;example&#34;&gt;
+&lt;span id=&#34;exm:transboxcexm&#34; class=&#34;example&#34;&gt;&lt;strong&gt;Example 6  &lt;/strong&gt;&lt;/span&gt;Dengan menggunakan dataset &lt;code&gt;airquality&lt;/code&gt;, lakukan transformasi Box-Cox pada &lt;code&gt;R&lt;/code&gt; untuk agar distribusi konsentrasi &lt;code&gt;Ozone&lt;/code&gt; berdistribusi normal serta lakukan pengujian kembali distribusi baru tersebut apakah telah berdistribusi normal atau belum?
+&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Jawab&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Kita akan memvisualisasikan terlebih dahulu data konsentrasi &lt;code&gt;Ozone&lt;/code&gt; pada dataset &lt;code&gt;airquality&lt;/code&gt;. Visualisasi distribusi &lt;code&gt;Ozone&lt;/code&gt; disajikan pada Gambar &lt;a href=&#34;#fig:ozonevis&#34;&gt;3&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ozonevis&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/11_uji_hipotesis_files/figure-html/ozonevis-1.png&#34; alt=&#34;Visualisasi distribusi konsentrasi Ozone&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Visualisasi distribusi konsentrasi Ozone
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berdasarkan Gambar &lt;a href=&#34;#fig:ozonevis&#34;&gt;3&lt;/a&gt; distribusi &lt;code&gt;Ozone&lt;/code&gt; memiliki kemencengan positif sehingga perlu dilakukan transformasi Box-Cox. Berikut adalah sintak untuk menentukan nilai &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; optimum pada transformasi Box-Cox:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(car)
+summary(powerTransform(airquality$Ozone, 
+                       family=&amp;quot;bcPower&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## bcPower Transformation to Normality 
+##                  Est Power Rounded Pwr Wald Lwr Bnd Wald Upr Bnd
+## airquality$Ozone    0.2034        0.33       0.0226       0.3842
+## 
+## Likelihood ratio test that transformation parameter is equal to 0
+##  (log transformation)
+##                           LRT df     pval
+## LR test, lambda = (0) 5.36145  1 0.020587
+## 
+## Likelihood ratio test that no transformation is needed
+##                            LRT df       pval
+## LR test, lambda = (1) 56.88925  1 4.6074e-14&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Berdasarkan hasil yang diperoleh diketahui nilai &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; optimum sebesar 0,2034. Kita akan menggunakan nilai ini untuk mentransformasi konsentrasi &lt;code&gt;Ozone&lt;/code&gt;. Berikut adalah visualisasi hasil transformasinya:&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:ozonevis2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/11_uji_hipotesis_files/figure-html/ozonevis2-1.png&#34; alt=&#34;Visualisasi distribusi konsentrasi Ozone hasil transformasi Box-Cox&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Visualisasi distribusi konsentrasi Ozone hasil transformasi Box-Cox
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Berdasarkan Gambar &lt;a href=&#34;#fig:ozonevis2&#34;&gt;4&lt;/a&gt; distribusi &lt;code&gt;Ozone&lt;/code&gt; hasil transformasi telah mendekati bentuk kurva normal. Selanjutnya distribusi tersebut kembali diuji normalitasnya menggunakan sintaks berikut:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;shapiro.test(((airquality$Ozone^0.2034)-1)/0.2034)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Shapiro-Wilk normality test
+## 
+## data:  ((airquality$Ozone^0.2034) - 1)/0.2034
+## W = 0.98714, p-value = 0.3399&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Kesimpulan&lt;/strong&gt;: dengan menggunakan &lt;span class=&#34;math inline&#34;&gt;\(\alpha=0,05\)&lt;/span&gt; dapat disimpulkan bahwa distribusi konsentrasi &lt;code&gt;Ozone&lt;/code&gt; hasil transformasi Box-Cox telah berdistribusi normal.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Referensi&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Akritas, M. 2016. &lt;strong&gt;Probability $ Statistics with R&lt;/strong&gt;. Pearson.&lt;/li&gt;
+&lt;li&gt;Chi Yau. 2014. &lt;strong&gt;R Tutorial with Bayesian Statistics Using OpenBUGS&lt;/strong&gt;. Amazon Kindle.&lt;/li&gt;
+&lt;li&gt;Crawley, M.J. 2015. &lt;strong&gt;Statistics: An Introduction Using R&lt;/strong&gt;. John Wiley &amp;amp; Sons.&lt;/li&gt;
+&lt;li&gt;Damanhuri, E. 2011. &lt;strong&gt;Statitika Lingkungan&lt;/strong&gt;. Penerbit ITB.&lt;/li&gt;
+&lt;li&gt;Dokumentasi library Car&lt;/li&gt;
+&lt;li&gt;Dokumentasi library stats&lt;/li&gt;
+&lt;li&gt;Dokumentasi library RcmdrMisc&lt;/li&gt;
+&lt;li&gt;Helsel, D.R., Hirsch, R.M. 2002. &lt;strong&gt;statistical Methods in Water Resources&lt;/strong&gt;. USGS.&lt;/li&gt;
+&lt;li&gt;Janicak, C.A. 2007. &lt;strong&gt;Applied Statistics in Occupational Safety and Health&lt;/strong&gt;. Government Institutes.&lt;/li&gt;
+&lt;li&gt;Kerns, G.Jay. 2018. &lt;strong&gt;Introduction to Probability and Statistics Using R Third Edition&lt;/strong&gt;. GNU Free Documentation License.&lt;/li&gt;
+&lt;li&gt;Ofungwu, J. 2014. &lt;strong&gt;Statistical Applications For Environmental Analysis and Risk Assessment&lt;/strong&gt;. John Wiley &amp;amp; Sons, Inc.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>9. Distribusi Probabilitas</title>
@@ -8690,14 +9748,13 @@ list1[1,1]&lt;/code&gt;&lt;/pre&gt;
 ## 1        5260&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Kita dapat juga menggabungkan list &lt;code&gt;output_for&lt;/code&gt; menjadi satu data frame utuh menggunakan fungsi &lt;code&gt;rbind&lt;/code&gt; (menggabungkan baris data) karena dataset pada list tersebut memiliki kolom yang sama. Untuk mengefisienkan proses tersebut atau agar kita tidak mengabungkannya satu-persatu kita dapat menggunakan fungsi &lt;code&gt;Reduce()&lt;/code&gt;. Format fungsi tersebut adalah sebagai berikut:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Reduce(f, x)&lt;/code&gt;&lt;/pre&gt;
-
-&lt;div class=&#34;rmdnote&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;f&lt;/code&gt;: fungsi yang digunakan.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;length&lt;/code&gt;: objek (vektor, list, data frame, dan matriks) yang hendak dikenai fungsi.
-&lt;/div&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;f&lt;/strong&gt;: fungsi yang digunakan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;length&lt;/strong&gt;: objek (vektor, list, data frame, dan matriks) yang hendak dikenai fungsi.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Berikut adalah sintaks yang digunakan:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_for &amp;lt;- Reduce(f=rbind, x=output_for)
 
@@ -9441,7 +10498,7 @@ iris_tbl[[1]]&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;p&gt;Ketiga syarat tersebut saling berhubungan sehingga jika salah satu syarat tersebut tidak terpenuhi, maka dataset belum bisa dikatakan &lt;em&gt;tidy&lt;/em&gt;. Ketiga syarat tersebut dapat divisualisasikan melalui Gambar &lt;a href=&#34;#fig:tidy&#34;&gt;1&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:tidy&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;tidy.png&#34; alt=&#34;Visualisasi 3 rule tidy data&#34;  /&gt;
+&lt;img src=&#34;/tidy.png&#34; alt=&#34;Visualisasi 3 rule tidy data&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Visualisasi 3 rule tidy data
 &lt;/p&gt;
@@ -9456,7 +10513,7 @@ Figure 1: Visualisasi 3 rule tidy data
 &lt;/ol&gt;
 &lt;p&gt;Berdasarkan contoh-contoh tersebut pada pembahasan kali ini penulis akan menjelaskan bagaiman cara melakukan perapihan data menggunakan library &lt;code&gt;tidyr&lt;/code&gt; dari paket &lt;code&gt;tidyverse&lt;/code&gt;. Sebelum kita melakukannya berikut adalah sintaks untuk menginstall library &lt;code&gt;tidyr&lt;/code&gt; secara terpisah dari paket &lt;code&gt;tidyverse&lt;/code&gt; tersebut:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memasang paket
-install.packages(&amp;quot;/tidyr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+install.packages(&amp;quot;tidyr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# memuat paket
 library(tidyr)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;gather&#34; class=&#34;section level3&#34;&gt;
@@ -10062,16 +11119,16 @@ sample_frac(flights, 0.1, replace=TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 33,678 x 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time
 ##    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;
-##  1  2013     5    16     1129           1059        30     1413
-##  2  2013     1    28     1005           1000         5     1325
-##  3  2013     4    25     1817           1820        -3     2014
-##  4  2013     8    15     1114           1115        -1     1321
-##  5  2013     4    25     1718           1529       109     1924
-##  6  2013     4     3      758            800        -2      907
-##  7  2013     1    17      855            810        45      957
-##  8  2013     8    25     1252           1255        -3     1644
-##  9  2013    10     3     1629           1629         0     1951
-## 10  2013     9    10     1654           1700        -6     2001
+##  1  2013    11    17     1843           1845        -2     2127
+##  2  2013     5    20      626            630        -4      759
+##  3  2013     4    28     1523           1530        -7     1831
+##  4  2013     7     2     2027           2030        -3     2231
+##  5  2013     9     6     1750           1755        -5     2004
+##  6  2013     6    19      904            909        -5     1016
+##  7  2013     7    12     2001           1734       147     2222
+##  8  2013     3    28     1713           1720        -7     1839
+##  9  2013    12    26      655            700        -5      957
+## 10  2013    11    14     1628           1630        -2     1920
 ## # ... with 33,668 more rows, and 12 more variables: sched_arr_time &amp;lt;int&amp;gt;,
 ## #   arr_delay &amp;lt;dbl&amp;gt;, carrier &amp;lt;chr&amp;gt;, flight &amp;lt;int&amp;gt;, tailnum &amp;lt;chr&amp;gt;,
 ## #   origin &amp;lt;chr&amp;gt;, dest &amp;lt;chr&amp;gt;, air_time &amp;lt;dbl&amp;gt;, distance &amp;lt;dbl&amp;gt;, hour &amp;lt;dbl&amp;gt;,
@@ -10081,16 +11138,16 @@ sample_n(flights, 10, replace=TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time
 ##    &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;
-##  1  2013     1    27     1510           1508         2     1658
-##  2  2013    11     8     1110           1115        -5     1231
-##  3  2013     2     3     1515           1520        -5     1832
-##  4  2013     2    21     1951           1935        16     2319
-##  5  2013    12    23      802            800         2     1113
-##  6  2013     7    26      554            600        -6      705
-##  7  2013    10     1     1240           1249        -9     1334
-##  8  2013     8    16     1717           1715         2     2000
-##  9  2013    12     5     1746           1245       301     1939
-## 10  2013     6     2     2113           1800       193     2223
+##  1  2013    11    30      656            701        -5      836
+##  2  2013    12    23      557            600        -3      736
+##  3  2013    11    10     1152           1130        22     1356
+##  4  2013     3    29     1516           1459        17     1820
+##  5  2013    10    16     1651           1700        -9     1944
+##  6  2013    12     4      926            929        -3     1215
+##  7  2013    11    22     1355           1359        -4     1720
+##  8  2013     6     8     1317           1325        -8     1422
+##  9  2013    11    26     2356           2359        -3      438
+## 10  2013     9    18     1652           1651         1     1921
 ## # ... with 12 more variables: sched_arr_time &amp;lt;int&amp;gt;, arr_delay &amp;lt;dbl&amp;gt;,
 ## #   carrier &amp;lt;chr&amp;gt;, flight &amp;lt;int&amp;gt;, tailnum &amp;lt;chr&amp;gt;, origin &amp;lt;chr&amp;gt;, dest &amp;lt;chr&amp;gt;,
 ## #   air_time &amp;lt;dbl&amp;gt;, distance &amp;lt;dbl&amp;gt;, hour &amp;lt;dbl&amp;gt;, minute &amp;lt;dbl&amp;gt;,
@@ -12435,16 +13492,6 @@ rm Untitled.md
 &lt;p&gt;To set a &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#featured-image&#34; target=&#34;_blank&#34;&gt;featured image&lt;/a&gt;, place an image named &lt;code&gt;featured&lt;/code&gt; into your post&amp;rsquo;s folder.&lt;/p&gt;
 
 &lt;p&gt;For other tips, such as using math, see the guide on &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;writing content with Academic&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Privacy Policy</title>
-      <link>/privacy/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0700</pubDate>
-      
-      <guid>/privacy/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
